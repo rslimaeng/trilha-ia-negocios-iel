@@ -1,8 +1,15 @@
 # IA para Negócios · Trilha Completa · IEL Ceará
 
 Material do aluno da formação **IA para Negócios**, do IEL Ceará. Turma de
-31/08/2026, online ao vivo, 19h às 22h. 44 h/a: 40 h de curso mais 4 h de
-mentoria em grupo.
+31/08/2026, online ao vivo, 19h às 22h, com mentoria em grupo depois do último
+encontro.
+
+> [!warning] Carga não entra na tela do aluno
+> Decisão do Rafael, 29/08. **Nenhuma página deste site declara carga horária**,
+> nem do curso nem de bloco. O tempo de cada assunto depende da aula: o n8n leva
+> mais do que a ementa previu, porque começa em criar conta e aprender a
+> interface, e a parte de pesquisa e análise leva menos. Selo de hora vira
+> promessa que o calendário não sustenta.
 
 **No ar:** https://rslimaeng.github.io/trilha-ia-negocios-iel/
 

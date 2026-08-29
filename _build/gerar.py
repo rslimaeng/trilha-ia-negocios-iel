@@ -95,7 +95,12 @@ PAGINAS = {
         h1="Você entra com uma rotina que consome a sua semana",
         sub="Você sai com ela funcionando, e com o método anotado para repetir "
             "sozinho na segunda seguinte.",
-        selos=["44 h/a", "Início 31/08", "19h às 22h"],
+        # 🔴 Nenhum selo de CARGA aqui, e e decisao do Rafael (29/08).
+        # A duracao de cada bloco depende da aula: o n8n leva mais do que a
+        # ementa diz, porque comeca em criar conta e aprender a interface, e
+        # a parte de pesquisa e analise leva menos do que ele estimou. Selo
+        # de hora na capa vira promessa que o calendario nao sustenta.
+        selos=["Início 31/08", "19h às 22h", "Traga uma rotina real"],
         migalha=None,
     ),
     "caso": dict(
