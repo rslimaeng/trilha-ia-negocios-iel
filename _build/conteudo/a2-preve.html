@@ -1,0 +1,346 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Explicar, sem termo técnico, por que a mesma pergunta volta diferente</li>
+      <li>Provar isso no seu próprio material, pedindo a mesma coisa de dois jeitos</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A situação</div>
+        <h2>A mesma pergunta, feita duas vezes, volta diferente</h2>
+      </div>
+    </div>
+
+    <p>Você pergunta uma coisa, gosta da resposta, e não salva. No dia seguinte pergunta
+    de novo, quase igual, e vem outra coisa. Nem melhor nem pior: outra.</p>
+
+    <p>Quem está acostumado com computador acha isso um defeito, porque planilha somando
+    a mesma coluna dá o mesmo número sempre. <strong>Aqui não é defeito, é como a coisa
+    funciona</strong>, e entender isso muda o que você passa a esperar dela.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que isto vem antes de aprender a pedir</span>
+      <p>Quase todo erro de expectativa com IA nasce de achar que ela consulta alguma
+      coisa. <strong>Ela não consulta.</strong> Sem essa peça, a aula de pedido vira
+      decoreba de fórmula.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Ela escolhe a próxima palavra, e não procura a resposta</h2>
+      </div>
+    </div>
+
+    <p>A pergunta que quase todo mundo faz no primeiro dia é "de onde ela tirou isso".
+    A resposta desmonta a pergunta: não tirou de lugar nenhum, porque não houve busca.</p>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>É previsão, um pedacinho de texto por vez</h3>
+      <p>A cada passo, ela escolhe o pedaço de texto mais provável depois do que já
+      está escrito. Depois repete, olhando também para o que ela mesma acabou de
+      escrever. <strong>O texto inteiro nasce assim, da esquerda para a direita</strong>,
+      e nenhum passo consultou um banco de verdades.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como o teclado do seu celular</div>
+        <p>Você digita "vou ao" e ele oferece "supermercado". Ele não sabe para onde
+        você vai. Sabe o que costuma vir depois de "vou ao", nas milhões de frases que
+        já viu. E se você ficar apertando a sugestão do meio, sai uma frase que parece
+        português e não quer dizer nada.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A sugestão que aparece</strong> é o próximo pedaço de texto que
+          ela escolhe</li>
+          <li><strong>As milhões de frases que ele já viu</strong> são o treinamento</li>
+          <li><strong>As três sugestões diferentes</strong> são a razão de a resposta
+          mudar entre uma vez e outra: nem sempre sai a mesma</li>
+          <li><strong>A frase que parece certa e não diz nada</strong> é o começo da
+          invenção, que é assunto da aula 4</li>
+        </ul>
+        <p class="analogia-mais">O mesmo mecanismo está no corretor automático, no
+        autocompletar da barra de busca e naquela sugestão de resposta curta do e-mail.
+        Você já convive com previsão de texto há anos, só que em pedaços pequenos
+        demais para reparar.</p>
+      </div>
+    </div>
+
+    <div class="contraste solta">
+      <div class="ctr e"><span class="ctr-selo">É</span>
+        <h4>Previsão a partir do que veio antes</h4>
+        <p>O que está escrito na conversa é a única coisa que orienta o próximo pedaço.</p></div>
+      <div class="ctr e"><span class="ctr-selo">É</span>
+        <h4>Variável de propósito</h4>
+        <p>Duas respostas diferentes para a mesma pergunta é o comportamento esperado.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Busca numa base</h4>
+        <p>Buscador devolve a página onde a informação está. Aqui não existe página.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Uma calculadora</h4>
+        <p>Calculadora dá o mesmo resultado sempre. Esperar isso aqui gera frustração diária.</p></div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare no segundo cartão da esquerda.</strong> A
+    variação não é falha a ser consertada: é o preço de a coisa conseguir escrever
+    texto novo em vez de repetir texto guardado.</p>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>A frase nascendo, pedaço por pedaço</h2>
+      </div>
+    </div>
+
+    <p>O seu pedido entra, e a partir dele a resposta é escrita da esquerda para a
+    direita, um pedaço de cada vez. A cada pedaço novo, o que já está escrito volta a
+    ser lido e estreita o que pode vir em seguida, até o texto fechar.</p>
+
+    <div class="cadeia solta">
+      <span class="no entrada">O seu pedido</span>
+      <span class="no-seta" aria-hidden="true">&rarr;</span>
+      <span class="no">"O relatório de"</span>
+      <span class="no-seta" aria-hidden="true">&rarr;</span>
+      <span class="no">"...de vendas"</span>
+      <span class="no-seta" aria-hidden="true">&rarr;</span>
+      <span class="no">"...vendas fechou"</span>
+      <span class="no-seta" aria-hidden="true">&rarr;</span>
+      <span class="no saida">"...em R$ 1,2 milhão"</span>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que o último passo não é diferente dos outros.</strong>
+    O número foi escolhido pelo mesmo mecanismo que escolheu as palavras, e ninguém foi
+    conferir se ele é verdade. É por isso que a conferência de número nunca sai das suas
+    mãos.</p>
+
+    <p>Duas consequências saem direto do desenho. A primeira: <strong>o começo da
+    resposta pesa mais que o fim</strong>, porque tudo o que vem depois é escolhido
+    olhando para ele. A segunda: quanto mais texto útil você põe antes da seta, menos
+    espaço sobra para a previsão sair pelo lado errado.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O mesmo pedido, escrito de dois jeitos</h2>
+      </div>
+    </div>
+
+    <p>Duas pessoas da mesma área pedem a mesma coisa. Repare que a diferença entre as
+    duas não é tamanho nem educação: é <strong>quanto texto útil entrou antes</strong>
+    de a previsão começar.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Pedido A</span>
+        <h4>"Resuma este relatório"</h4>
+        <ul class="lista">
+          <li>O texto anterior é quase nada, então o campo do que "pode vir depois"
+          está larguíssimo</li>
+          <li>Sai um resumo correto e impessoal, que serviria para qualquer relatório
+          de qualquer empresa</li>
+          <li>Pedido de novo amanhã, sai outro, também correto e também impessoal</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Pedido B</span>
+        <h4>"Resuma para a reunião de diretoria de amanhã, em cinco linhas, destacando o que saiu do previsto"</h4>
+        <ul class="lista">
+          <li>Entrou destinatário, tamanho e critério: o campo do que pode vir depois
+          estreitou muito</li>
+          <li>Sai um resumo que já se parece com o que você levaria</li>
+          <li>Pedido de novo amanhã, ainda muda, mas muda dentro da mesma faixa</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O que você deveria ter reparado:</strong> o pedido B não
+    é mais educado nem mais longo por capricho. Cada informação que ele acrescenta é uma
+    porta que se fecha para a previsão sair pelo lado errado.</p>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Prove no seu material, com dois pedidos</h2>
+      </div>
+    </div>
+
+    <p>Use a rotina que você escolheu na aula 1. Se ela tem documento, pode usar um
+    pedaço; se não pode subir o arquivo, descreva o conteúdo em três linhas.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">01</div>
+        <div>
+          <div class="passo-fn">Passo 1</div>
+          <h3>Faça o pedido curto, do jeito que sairia natural</h3>
+        </div>
+      </div>
+      <p>Uma linha. Guarde a resposta, sem julgar ainda.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
+          <h3>Faça o mesmo pedido acrescentando três coisas</h3>
+        </div>
+      </div>
+      <p>Para quem é, em que formato, e o que não pode faltar. Nada além disso ainda.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três antes de escrever</div>
+        <ul>
+          <li>Quem vai ler o que voltar, e o que essa pessoa já sabe sem você contar?</li>
+          <li>O que você espera receber: uma tabela, um parágrafo, uma lista de decisões?</li>
+          <li>O que seria uma resposta correta e mesmo assim inútil para você?</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como segundo pedido:</strong> repetir
+        o primeiro pedindo "com mais detalhe", ou "capriche". Nenhum dos dois acrescenta
+        texto que estreite a previsão, e o resultado sai igual.</div>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">03</div>
+        <div>
+          <div class="passo-fn">Passo 3</div>
+          <h3>Rode o pedido curto uma segunda vez, em conversa nova</h3>
+        </div>
+      </div>
+      <p>É o passo que quase ninguém faz, e é o que prova a aula: a mesma pergunta,
+      sem nada mudado, volta diferente.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="confira">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">Confira</div>
+        <h2>Uma leitura de referência</h2>
+      </div>
+    </div>
+
+    <p><em>O seu resultado vai ser diferente do da pessoa ao lado, e isso é o esperado.
+    Compare o que mudou entre os dois pedidos, nunca o texto que voltou.</em></p>
+
+    <div class="cartao">
+      <span class="rot">A tarefa deste gabarito</span>
+      <p style="margin:0">Dizer o que mudou entre o pedido curto e o pedido com três
+      acréscimos, e o que mudou entre as duas rodadas do pedido curto.</p>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">O que costuma aparecer</span>
+        <h4>Entre o pedido A e o pedido B</h4>
+        <ul class="lista">
+          <li>O B tem destinatário, e por isso escolhe o que cortar</li>
+          <li>O B tem tamanho, e por isso não devolve três páginas</li>
+          <li>O B tem critério, e por isso decide o que é relevante sem perguntar</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que também costuma aparecer</span>
+        <h4>Entre a primeira e a segunda rodada do A</h4>
+        <ul class="lista">
+          <li>A ordem dos pontos mudou, e nenhum dos dois está errado</li>
+          <li>Uma rodada trouxe um item que a outra não trouxe</li>
+          <li>O tom mudou de leve, sem você ter pedido nada diferente</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Se as duas rodadas do pedido curto voltaram idênticas,
+    vale conferir se a conversa era mesmo nova.</strong> Conversa continuada carrega o
+    que já foi dito, e aí a previsão parte de um lugar que não é o mesmo.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com os dois pedidos comparados, você já tem o que precisa
+  para a próxima aula. O que vem abaixo é <strong>aprofundamento</strong>: leia agora se
+  tiver cinco minutos, ou volte quando uma resposta te surpreender.</p>
+
+  <section class="secao" id="pegadinhas">
+    <div class="secao-topo">
+      <div class="secao-n">07</div>
+      <div>
+        <div class="secao-fn">Pegadinhas</div>
+        <h2>Três conclusões erradas que a variação produz</h2>
+      </div>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">"Ela piorou"</div>
+      <p>A resposta de hoje veio pior que a de ontem, e a conclusão é que a ferramenta
+      decaiu. Na maioria das vezes o pedido é que estava mais curto, ou a conversa
+      partiu de outro lugar.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">"Ela está me testando"</div>
+      <p>Não existe intenção do outro lado. Atribuir vontade à variação leva a
+      negociar com a máquina em vez de reescrever o pedido.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">"Então não dá para confiar em nada"</div>
+      <p>O oposto do primeiro erro, e igualmente caro. A variação está no texto, não na
+      capacidade. O que ela exige de você é conferência, e conferência é a aula 4.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">08</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O que a previsão não consegue fazer por você</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ela não confere número, nem o próprio</div>
+      <p>Um valor que apareceu na resposta nasceu do mesmo mecanismo das palavras.
+      Conferir contra a fonte continua sendo trabalho seu, e é metade do método.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ela não sabe o que aconteceu na sua empresa</div>
+      <p>Nada do que é interno esteve no treinamento. Se você não colocar na conversa,
+      não existe, e a previsão vai preencher o buraco com o que é comum no mundo.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Repetir o pedido não é método de melhoria</div>
+      <p>Rodar de novo até sair uma resposta que agrada ensina você a gostar do
+      resultado, não a avaliá-lo. O caminho é mudar o pedido, e é o Módulo 1 inteiro.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Se ela decide o próximo pedaço olhando para o que já está escrito, então tudo
+    depende de <strong>quanto ela consegue ter à vista ao mesmo tempo</strong>. E isso
+    tem um limite, que é o motivo de ela esquecer o que você disse no começo de uma
+    conversa longa. É a próxima aula.</p>
+  </div>

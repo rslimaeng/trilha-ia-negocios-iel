@@ -1,0 +1,263 @@
+  <div class="aviso">
+    <div class="aviso-t">O que esta página é</div>
+    <p>Um <strong>caso completo</strong>, no formato que toda página de caso do padrão
+    segue. Os cinco passos abaixo são fixos: mesmo número, mesmo título, mesma ordem,
+    em qualquer caso de qualquer curso.</p>
+    <p>Quem abre o terceiro caso já sabe que o prompt está no passo 4 e que o passo 5
+    mostra o que vai sair. Isso é o que permite dar oito casos para uma sala de
+    quarenta pessoas e cada uma escolher o seu.</p>
+  </div>
+
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h3>Descreva a tarefa</h3>
+      </div>
+    </div>
+
+    <p>Toda segunda de manhã, o supervisor de uma rede de doze lojas precisa dizer na
+    reunião como foi a semana. Ele abre a planilha de fechamento de cada loja, copia
+    para uma planilha só, arruma as colunas que vieram com nome diferente, e escreve
+    um resumo à mão.</p>
+
+    <p>Leva perto de três horas, sai num formato diferente a cada semana, e a parte
+    que importa (o que fazer nos próximos sete dias) fica para o fim, quando já
+    cansou.</p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso hoje</span>
+      <p style="margin:0">Supervisão, coordenação de área e gerência de loja. Qualquer
+      pessoa que precise apresentar resultado numa cadência fixa.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h3>Dê o contexto que a IA precisa</h3>
+      </div>
+    </div>
+
+    <p>Sem contexto, a resposta volta genérica: <em>"as vendas subiram 8%, o ticket
+    médio caiu"</em>. Isso a pessoa já sabia. O que muda a resposta são quatro coisas,
+    e todas cabem em duas linhas cada.</p>
+
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">Quem é você</span>
+        <p style="margin:0">Supervisor de 12 lojas, apresentando para a diretoria numa
+        reunião de 20 minutos.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Contra o que comparar</span>
+        <p style="margin:0">A semana anterior, não o orçamento. Orçamento é conversa
+        de outro fórum.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que já se sabe</span>
+        <p style="margin:0">Duas lojas ficaram sem um produto na quarta. Isso explica
+        parte da queda e não pode virar "descoberta".</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que decidir depois de ler</span>
+        <p style="margin:0">Onde reforçar o preparo na semana que vem, e qual loja
+        precisa de visita.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg">O quarto card é o que quase todo mundo esquece.
+    <strong>Uma análise sem decisão pendurada nela vira relatório</strong>, e relatório
+    ninguém lê duas vezes.</p>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h3>Baixe o insumo</h3>
+      </div>
+    </div>
+
+    <p>O arquivo de partida já está pronto. Ele é fictício, e é <strong>sujo de
+    propósito</strong>: é assim que uma planilha real chega.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">O dado da semana</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">xls</span>
+          <code>fechamento-semanal-exemplo.xlsx</code>
+        </div>
+        <p>12 lojas · 4 semanas · 2.829 linhas item a item · 4 abas (leia-me, vendas, resumo, produtos)</p>
+      </div>
+      <a class="btn" href="../_arquivos/fechamento-semanal-exemplo.xlsx">Baixar &darr;</a>
+    </div>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>Semana</th><th>Período</th><th>Faturamento</th><th>Cupons</th>
+          <th>Ticket médio</th><th>Observação da operação</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>S1</td><td>06/07 a 12/07</td><td>R$ 128.400</td><td>4.512</td>
+              <td>R$ 28,46</td><td>semana de referência</td></tr>
+          <tr><td>S2</td><td>13/07 a 19/07</td><td>R$ 131.900</td><td>4.688</td>
+              <td>R$ 28,13</td><td>produto novo chegou dia 15</td></tr>
+          <tr><td>S3</td><td>20/07 a 26/07</td><td>R$ 142.700</td><td>4.766</td>
+              <td>R$ 29,94</td><td>sábado com recorde de fluxo</td></tr>
+          <tr><td>S4</td><td>27/07 a 02/08</td><td>R$ 134.100</td><td>4.503</td>
+              <td>R$ 29,78</td><td>duas lojas sem produto na quarta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg"><strong>São sete armadilhas plantadas</strong>, e cada uma
+    ensina uma coisa: data em dois formatos · a mesma loja escrita de quatro jeitos ·
+    uma coluna com espaço no nome · valor como texto em 352 linhas · um cupom
+    duplicado · quantidade em branco · o cabeçalho começando na linha 3. A aba
+    <code>resumo</code> não bate com a soma da aba <code>vendas</code>, e achar por
+    que é o exercício.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Todos os números são fictícios</div>
+      <p>Os valores foram gerados com semente fixa e não são de nenhuma empresa real.
+      Se algum nome parecer familiar, é coincidência: nada aqui saiu de dado de
+      cliente.</p>
+      <p><strong>Este bloco é obrigatório</strong> em toda página que traz insumo.
+      Sem ele, alguém da sala pergunta se aquilo é dado real, e a pergunta atrapalha
+      a aula.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h3>Cole o prompt no chat</h3>
+      </div>
+    </div>
+
+    <p>Prompt pronto e testado. Ele segue os quatro parágrafos do padrão, e traz o
+    resumo dos números embutido, então <strong>funciona em qualquer chat</strong>,
+    mesmo onde não dá para subir arquivo.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">prompt.md · 4 parágrafos</span>
+        <button class="btn-copiar" data-alvo="p-caso">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso">Anexei o fechamento das últimas 4 semanas de 12 lojas.
+
+O que eu preciso: um relatório de uma página para a reunião de segunda. Uma manchete de uma frase que resuma a semana. Três números no topo, cada um com a variação contra a semana anterior. Três parágrafos: volume, produto e operação. E três recomendações para os próximos sete dias, cada uma com o que fazer, por que, e como eu vou saber que funcionou.
+
+Restrições: use a aba vendas, não a aba resumo, porque o resumo já veio com erro. O cabeçalho da aba vendas começa na linha 3. Compare contra a semana anterior, nunca contra orçamento. A falta de produto na quarta já é conhecida, então trate como causa, não como descoberta. Escreva para quem não abre planilha: sem nome de coluna e sem jargão de sistema.
+
+Na dúvida: a coluna Loja tem o mesmo lugar escrito de mais de um jeito, e a coluna Valor Total tem número guardado como texto. Não junte nem converta por conta própria: liste o que encontrou e me pergunte antes de somar. Se a coluna Qtd estiver em branco, deixe a linha de fora e me diga quantas ficaram.</pre>
+    </div>
+
+    <p class="fig-leg">O quarto parágrafo é o que transforma pedido em procedimento.
+    Sem ele o modelo junta o que parece igual, e o número sai errado sem ninguém notar.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h3>O que esperar</h3>
+      </div>
+    </div>
+
+    <div class="previa solta">
+      <div class="previa-mini">
+        <h4>Relatório semanal · 12 lojas</h4>
+        <div class="previa-meta">Semana 4 · 27/07 a 02/08</div>
+        <p style="font-weight:600;margin-bottom:16px">Semana firme no ticket, com a
+        falta de produto na quarta custando o recorde.</p>
+        <div class="previa-nums">
+          <div class="previa-num">
+            <div class="previa-num-v">134,1k</div>
+            <div class="previa-num-r">Faturamento</div>
+          </div>
+          <div class="previa-num">
+            <div class="previa-num-v">29,78</div>
+            <div class="previa-num-r">Ticket médio</div>
+          </div>
+          <div class="previa-num">
+            <div class="previa-num-v">4.503</div>
+            <div class="previa-num-r">Cupons</div>
+          </div>
+        </div>
+        <div class="calor">
+          <div class="calor-l"><span class="calor-r">Loja</span>
+            <span class="calor-r">Fluxo</span><span class="calor-r">Ticket</span>
+            <span class="calor-r">Ruptura</span><span class="calor-r">Prazo</span>
+            <span class="calor-r">Nota</span></div>
+          <div class="calor-l"><span class="calor-r">Centro</span>
+            <i class="calor-c bom"></i><i class="calor-c bom"></i>
+            <i class="calor-c meio"></i><i class="calor-c alerta"></i>
+            <i class="calor-c meio"></i></div>
+          <div class="calor-l"><span class="calor-r">Norte</span>
+            <i class="calor-c meio"></i><i class="calor-c alerta"></i>
+            <i class="calor-c ruim"></i><i class="calor-c bom"></i>
+            <i class="calor-c meio"></i></div>
+          <div class="calor-l"><span class="calor-r">Sul</span>
+            <i class="calor-c bom"></i><i class="calor-c meio"></i>
+            <i class="calor-c bom"></i><i class="calor-c bom"></i>
+            <i class="calor-c bom"></i></div>
+          <div class="calor-l"><span class="calor-r">Litoral</span>
+            <i class="calor-c alerta"></i><i class="calor-c meio"></i>
+            <i class="calor-c ruim"></i><i class="calor-c alerta"></i>
+            <i class="calor-c ruim"></i></div>
+        </div>
+      </div>
+
+      <div class="previa-txt">
+        <h4>Uma página HTML, pronta para a reunião de segunda</h4>
+        <p>Abre no navegador, imprime em A4 e dá para mandar o arquivo para os
+        gerentes. A estrutura é sempre a mesma, então da segunda vez em diante a
+        diretoria já sabe onde procurar cada coisa.</p>
+        <ul>
+          <li><strong>Manchete</strong> · uma frase que resume a semana, e não pode ser
+          vaga do tipo "semana positiva"</li>
+          <li><strong>Três números</strong> · cada um com a variação contra a semana
+          anterior</li>
+          <li><strong>Mapa de calor</strong> · loja por dimensão, para achar a exceção
+          sem ler tabela</li>
+          <li><strong>Três parágrafos</strong> · volume, produto e operação</li>
+          <li><strong>Três recomendações</strong> · o que fazer, por quê, e como medir</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar · como refinar</div>
+      <p>Se a primeira resposta vier rasa, volte no chat e peça com estas palavras:
+      <em>"a recomendação 2 está genérica, me dá uma versão com produto, dia da semana
+      e horário"</em>. Ou: <em>"você concluiu que a Litoral caiu, mas não mostrou o
+      número. Me mostra a conta"</em>.</p>
+      <p>Refinar em duas ou três idas e vindas é o normal, e não é sinal de que o
+      prompt estava errado. Na semana seguinte é só trocar o arquivo e rodar de novo.</p>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">Depois de tentar</span>
+        <p style="margin:0">O relatório inteiro, do jeito que ele sai, em página
+        própria. Abra só <strong>depois</strong> de rodar o seu: quem vê o resultado
+        pronto antes de tentar não tenta.</p>
+      </div>
+      <a class="btn" href="../exemplo/">Ver o exemplo pronto</a>
+    </div>
+
+    <p class="fig-leg">🔴 <strong>Este passo é o que separa o material de uma lista de
+    prompts.</strong> Sem ele, a pessoa roda o prompt sem saber o que deveria sair, e
+    qualquer resposta parece certa. E o callout de refino é o que evita a desistência
+    em casa, na primeira resposta ruim.</p>
+  </section>

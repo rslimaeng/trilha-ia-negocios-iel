@@ -1,0 +1,83 @@
+/* ============================================================================
+   MARCA · O ÚNICO ARQUIVO QUE MUDA DE UM CLIENTE PARA OUTRO
+   ============================================================================
+
+   ⚠️ ESTE ARQUIVO É UMA CÓPIA DECLARADA. A fonte é:
+      ~/developer/17-padrao-visual/aula/tokens-aula.css
+
+   Ele vive aqui, e não lá, por um motivo técnico: o gate G16 exige que este
+   arquivo apareça INTEIRO e LITERAL no <style> de cada página gerada. Ler de
+   fora criaria acoplamento de caminho absoluto entre duas pastas. Para
+   atualizar depois de mexer na fonte:
+
+      cp ~/developer/17-padrao-visual/aula/tokens-aula.css _build/marca.css
+      # (mantendo este cabeçalho) e depois:
+      python3 _build/gerar.py && python3 _build/gates.py
+
+   Trocar um treinamento de cliente é trocar as CINCO linhas de --accent*.
+   Nada mais. O base.css não tem cor escrita, só var(). O G16 confere isso.
+
+   1. --accent      a cor de marca do cliente. Precisa de contraste 4.5:1
+                    sobre o --bg, senão o texto do link some. MEÇA, não estime.
+   2. --accent-dark uns 20% mais escuro, para o estado de hover
+   3. --accent-soft o mesmo tom bem lavado, para fundo de chip e de callout
+   4. --accent-tinted mais lavado ainda, para fundo de bloco
+   5. --accent-line a borda que acompanha o accent
+
+   O fundo, os cinzas e as três cores semânticas ficam: não são do cliente,
+   são o papel-e-tinta, que atravessa todos os cursos e também o Dashboard.
+   ============================================================================ */
+
+:root{
+  /* ---------- identidade do cliente · OS ÚNICOS 5 QUE MUDAM ----------
+     O default é o petróleo do papel-e-tinta. Trocar para a marca do cliente
+     é trocar as cinco linhas abaixo — e só elas.
+
+     --accent precisa de 4,5:1 sobre o --bg, senão o texto do link some.
+     MEÇA, não estime: o azul do IEL (#164194) passa; muitos azuis de marca
+     não passam. */
+  --accent:        #164194;              /* azul institucional IEL · medido no print */
+  --accent-dark:   #0f2e6a;              /* ~20% mais escuro, para hover */
+  --accent-soft:   #dee4f0;              /* lavado, para fundo de chip e callout */
+  --accent-tinted: #f4f6fa;              /* mais lavado ainda, fundo de bloco */
+  --accent-line:   rgba(22,65,148,.22);  /* a borda que acompanha o accent */
+
+  /* ---------- fundo e superfície ---------- */
+  --bg:            #fafaf7;   /* papel */
+  --bg-elev:       #ffffff;   /* superfície — o cartão */
+  --bg-warm:       #f1f0ea;   /* papel-2 — chip, barra de ferramenta */
+  --bg-code:       #f7f6f1;   /* bloco de prompt: papel um tom mais quente */
+
+  /* ---------- texto ---------- */
+  --text:          #1a1f2e;   /* tinta */
+  --text-muted:    #5a6172;   /* tinta-suave */
+  --text-dim:      #666e7b;   /* tinta-fraca. Dois consertos aqui:
+                                 o #87867F antigo dava 3,15:1 sobre o creme e
+                                 reprovava em texto pequeno; e o #68707e que eu
+                                 ia usar falhava sobre --bg-warm (4,37). Este
+                                 fecha os tres: 4,93 papel · 5,16 cartao ·
+                                 4,52 warm. Veio do 13, que achou primeiro. */
+
+  /* ---------- borda ---------- */
+  --border:        #e5e2da;   /* linha */
+  --border-strong: #d3cfc4;   /* linha-forte */
+
+  /* ---------- semântica ----------
+     Cor aqui NUNCA é decoração. Verde é o certo, âmbar é o parecido que
+     engana, carmim é o problema. Trocar o significado entre uma página e
+     outra é o jeito mais rápido de tornar toda figura do site ilegível.
+
+     O par -soft é FUNDO. O texto por cima dele usa o token abaixo, não a
+     cor base: a base tem contraste para borda e ícone, não para letra de
+     11px sobre o próprio fundo tonal. */
+  --ok:            #5e7d66;  --ok-soft:      #eaf0eb;  --ok-texto:      #4a6551;
+  --atencao:       #b5703a;  --atencao-soft: #f6ecdf;  --atencao-texto: #8f5628;
+  --erro:          #a4524a;  --erro-soft:    #f7ebe9;  --erro-texto:    #8c4139;
+
+  /* ---------- tipografia ----------
+     Inter e JetBrains Mono, iguais às do dashboard. Trocar a fonte é decisão
+     de marca, não de gosto: se trocar, meça a medida de novo, porque a conta
+     de caracteres por linha muda junto. */
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SF Mono','Menlo',monospace;
+}

@@ -1,0 +1,880 @@
+# -*- coding: utf-8 -*-
+"""Gerador do site de treinamento.
+
+O conteúdo mora em _build/conteudo/<slug>.html, em fragmentos. Este script
+monta a casca em volta, inlineia o CSS e grava a página.
+
+🔴 Editar o index.html gerado é trabalho perdido: a próxima execução apaga.
+
+Rodar:  python3 _build/gerar.py
+"""
+import io
+import os
+import re
+
+AQUI = os.path.dirname(os.path.abspath(__file__))
+RAIZ = os.path.dirname(AQUI)
+
+
+# ---------------------------------------------------------------------------
+# O CURSO
+#
+# Trocar de cliente é mexer aqui e no marca.css. Mais nada.
+# ---------------------------------------------------------------------------
+CURSO = {
+    "nome":  "IA para Negócios",
+    "sigla": "IEL",
+    "sub":   "Trilha completa · IEL Ceará · Rafael Lima",
+
+    # O QUE ESTE CURSO ENSINA PELO NOME OFICIAL.
+    #
+    # 🔴 Achado do curso do IEL, 26/08. O gate G2 proibe vocabulario de
+    # bastidor na tela, e "Claude Code" estava na lista: num curso sobre
+    # planilha, dizer que o material foi feito no Claude Code e bastidor.
+    # So que o IEL VENDEU Claude Code como Modulo 3 da ementa. Ali o nome
+    # nao e bastidor: e o assunto, esta no contrato que o cliente aprovou,
+    # e a regra P1 do proprio padrao manda o nome oficial aparecer na tela.
+    #
+    # Um gate proibindo o que outra regra do mesmo padrao exige nao e rigor,
+    # e contradicao -- e o custo dela e a sessao seguinte editar o gate para
+    # calar, que e como um gate morre.
+    #
+    # Entao o curso DECLARA o que ensina, e o G2 para de acusar so esses.
+    # Lista vazia e o default: quem nao ensina o produto continua protegido.
+    #
+    # Os nomes abaixo estao na ementa v3 que o IEL aprovou e na pagina de
+    # vendas: sao o assunto do curso, nao bastidor.
+    "ensina": ["Claude", "n8n", "NotebookLM", "Claude Projects", "Cowork",
+               "Gmail", "Google Sheets", "Google Drive", "ChatGPT", "Gemini"],
+}
+
+# ---------------------------------------------------------------------------
+# A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
+# ---------------------------------------------------------------------------
+# Por que a mao: a ordem das aulas e decisao de produto do Rafael, nao coisa
+# que se deduza da pasta. Ordem alfabetica de arquivo NAO e ordem pedagogica.
+#
+# Cada aula e (slug, titulo). O slug casa com a chave em PAGINAS e com a pasta
+# de saida. Grupo vazio ("") nao imprime cabecalho.
+#
+# A pagina que nao esta na trilha (a capa, por exemplo) simplesmente nao
+# recebe a barra — e o comportamento certo, nao um caso a tratar.
+# A ORDEM DE LEITURA DO SITE INTEIRO, e nao so da trilha.
+#
+# 🔴 Existe porque toda pagina precisa terminar com um lugar para ir. Ate
+# 26/08 nenhuma das seis terminava: a classe .rodape-nav estava no base.css
+# desde o inicio e ZERO paginas usavam. O curso do IEL herdou isso, e a
+# pagina de modulo dele acabava no meio de uma secao, sem nada embaixo. Foi
+# a primeira coisa que o Rafael apontou: "nao tem um toco, um botao tipo
+# voltar pra capa".
+#
+# Isto e maior que a TRILHA de proposito: a trilha e a barra lateral e so
+# lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
+# modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
+# "para onde eu vou agora".
+SEQUENCIA = ["index", "a1-degrau", "a2-preve", "a3-mesa", "a4-inventa",
+             "a5-cerca", "componentes"]
+
+TRILHA = [
+    ("Encontro 1 · 31/08 · Mentalidade e Fundamentos", [
+        ("a1-degrau",   "Em que degrau você está"),
+        ("a2-preve",    "A IA não sabe, ela prevê"),
+        ("a3-mesa",     "A mesa: o que ela tem à vista"),
+        ("a4-inventa",  "Quando ela inventa com o mesmo tom"),
+        ("a5-cerca",    "O que não entra no chat"),
+    ]),
+    ("Referência interna", [
+        ("componentes", "As peças do padrão"),
+    ]),
+]
+
+PAGINAS = {
+    "index": dict(
+        titulo="IA para Negócios · Trilha Completa",
+        kicker="Formação IEL Ceará · online ao vivo",
+        h1="Você entra com uma rotina que consome a sua semana",
+        sub="Quarenta horas para sair com ela funcionando, e com o método anotado "
+            "para você repetir sozinho.",
+        selos=["44 h/a", "Início 31/08", "19h às 22h"],
+        migalha=None,
+    ),
+    "caso": dict(
+        titulo="Um caso, em cinco passos",
+        kicker="Modelo de página de caso",
+        h1="O relatório da semana, sem as três horas de planilha",
+        sub="Os cinco passos são fixos: mesmo número, mesmo título, mesma ordem, em "
+            "qualquer caso de qualquer curso.",
+        selos=["Supervisão", "Operações", "Relatório HTML"],
+        migalha=[("../", "Nome do Curso"), (None, "Um caso, em cinco passos")],
+    ),
+    "exemplo": dict(
+        titulo="O exemplo pronto",
+        kicker="Modelo de página de exemplo",
+        h1="O resultado, inteiro, antes de você tentar",
+        sub="A moldura do site fica em cima. Embaixo vem o documento, com a cara "
+            "de documento, e ele imprime em A4 sem levar o site junto.",
+        selos=["Resultado do caso", "Imprime em A4"],
+        migalha=[("../", "Nome do Curso"), ("../caso/", "Um caso, em cinco passos"),
+                 (None, "O exemplo pronto")],
+    ),
+    "a1-degrau": dict(
+        titulo="Aula 1 · Em que degrau você está",
+        kicker="Módulo 1 · Encontro 1 · Aula 1 de 5",
+        h1="Em que degrau você está",
+        sub="O diagnóstico que decide o que faz sentido você tentar em seguida, e a "
+            "rotina que vai atravessar o curso com você.",
+        selos=["Sem instalação", "Traga uma rotina real"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "Em que degrau você está")],
+    ),
+    "a2-preve": dict(
+        titulo="Aula 2 · A IA não sabe, ela prevê",
+        kicker="Módulo 1 · Encontro 1 · Aula 2 de 5",
+        h1="A IA não sabe, ela prevê",
+        sub="Por que a mesma pergunta volta diferente, e o que isso muda no que você "
+            "passa a esperar dela.",
+        selos=["Sem instalação", "Dois pedidos comparados"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "A IA não sabe, ela prevê")],
+    ),
+    "a3-mesa": dict(
+        titulo="Aula 3 · A mesa: o que ela tem à vista",
+        kicker="Módulo 1 · Encontro 1 · Aula 3 de 5",
+        h1="A mesa: o que ela consegue ter à vista",
+        sub="Por que ela esquece o combinado do começo numa conversa longa, e o que "
+            "fazer quando isso acontece.",
+        selos=["Sem instalação", "Provoque o defeito"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "A mesa: o que ela tem à vista")],
+    ),
+    "a4-inventa": dict(
+        titulo="Aula 4 · Quando ela inventa com o mesmo tom",
+        kicker="Módulo 1 · Encontro 1 · Aula 4 de 5",
+        h1="Quando ela inventa com o mesmo tom",
+        sub="A alucinação, e o primeiro teste real: pedir o trabalho que você já "
+            "entregou e comparar com o que saiu na sua mão.",
+        selos=["Use a sua rotina", "Conferência item a item"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "Quando ela inventa com o mesmo tom")],
+    ),
+    "a5-cerca": dict(
+        titulo="Aula 5 · O que não entra no chat",
+        kicker="Módulo 1 · Encontro 1 · Aula 5 de 5",
+        h1="O que não entra no chat",
+        sub="Quatro perguntas que decidem se um dado pode ir, e como preparar o seu "
+            "material para o resto do curso.",
+        selos=["Use a sua rotina", "Vale para as 40h"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "O que não entra no chat")],
+    ),
+    "modulo": dict(
+        titulo="Nome do Módulo",
+        kicker="Módulo 1 de N",
+        h1="A capacidade que este módulo entrega",
+        sub="Uma linha dizendo o que a pessoa sai sabendo fazer depois destas aulas.",
+        selos=["3 aulas", "2h15"],
+        migalha=[("../", "Nome do Curso"), (None, "Nome do Módulo")],
+    ),
+    "componentes": dict(
+        titulo="As peças do padrão",
+        kicker="Referência do padrão",
+        h1="As peças, uma a uma",
+        sub="Cada bloco desta página é um componente do padrão, com o nome que "
+            "ele tem no HTML e a regra que faz ele funcionar.",
+        selos=["Uso interno", "Não vai para a turma"],
+        migalha=[("../", "Nome do Curso"), (None, "As peças do padrão")],
+    ),
+}
+
+
+# ---------------------------------------------------------------------------
+# QUEBRA DE LINHA · a cola de espaço rígido
+#
+# Resolve a linha que termina em "na sua" e joga "área." para baixo. Cola a
+# palavra-função na palavra seguinte com espaço rígido, do jeito que uma
+# gráfica faz: a quebra procura outro lugar e costuma achar a fronteira da
+# frase.
+#
+# 🔴 Esta é a ÚNICA cura de quebra de linha do padrão. text-wrap:balance e
+# text-wrap:pretty NÃO entram na prosa: eles reservam espaço no fim da linha e
+# criam o defeito oposto, a frase que quebra do nada com meia linha vazia.
+# Medido no Longevidade: 62 quebras assim com balance, 0 sem ele.
+# ---------------------------------------------------------------------------
+COLAM = {
+    "a", "o", "as", "os", "um", "uma", "uns", "umas",
+    "seu", "sua", "seus", "suas", "meu", "minha", "nosso", "nossa",
+    "de", "da", "do", "das", "dos", "em", "na", "no", "nas", "nos",
+    "por", "pelo", "pela", "com", "sem", "ao", "aos", "à", "às",
+    "para", "pra", "num", "numa", "dum", "duma",
+    "sobre", "entre", "durante", "até", "desde", "após", "contra",
+    "sob", "perante", "conforme", "mediante",
+    "e", "ou", "mas", "se", "que", "quando", "onde", "enquanto", "porque",
+    "não", "já", "só",
+}
+
+# Nenhum trecho colado passa disso. Acima, a unidade indivisível fica maior que
+# a linha do celular e vira rolagem lateral, que é o defeito que a cola deveria
+# evitar. 24 foi calibrado medindo em 5 larguras.
+LIMITE_GRUDADO = 24
+
+# Parágrafo longo não leva cola: ninguém repara numa quebra ruim no meio de
+# seis linhas, e colar lá tira do navegador a liberdade de achar a melhor linha.
+LIMITE_PARAGRAFO = 400
+
+BLOCO_QUE_COLA = re.compile(
+    r'(<h[1-4]\b[^>]*>)(.*?)(</h[1-4]>)'
+    r'|(<p\b[^>]*>)(.*?)(</p>)'
+    r'|(<li\b[^>]*>)(.*?)(</li>)',
+    re.S,
+)
+SEM_TAG = re.compile(r"<[^>]+>")
+PECA = re.compile(r'(<[^>]+>|\s+|[^<\s]+)')
+
+# Onde a cola não entra: o prompt é copiado literalmente pelo aluno, e um
+# espaço rígido no meio dele quebra o que for colar em planilha ou terminal.
+SEM_COLA = ("prompt-txt", "prompt", "tabela")
+
+
+def _cola(interno):
+    pecas = PECA.findall(interno)
+    saida, grudado = [], 0
+    for i, p in enumerate(pecas):
+        if p and not p.strip():
+            anterior = next((x for x in reversed(saida)
+                             if x.strip() and not x.startswith("<")), "")
+            palavra = re.sub(r"[^\wÀ-ÿ]", "", anterior, flags=re.U).lower()
+            seguinte = next((pecas[j] for j in range(i + 1, len(pecas))
+                             if pecas[j].strip() and not pecas[j].startswith("<")), "")
+            if (palavra in COLAM and seguinte
+                    and grudado + len(anterior) + len(seguinte) + 1 <= LIMITE_GRUDADO):
+                grudado += len(anterior) + 1
+                saida.append("&nbsp;")
+                continue
+            grudado = 0
+        saida.append(p)
+    return "".join(saida)
+
+
+def cola_quebra_de_linha(html):
+    """Idempotente: rodar de novo no resultado devolve o mesmo arquivo."""
+    def troca(m):
+        grupos = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+        for a, b, c in grupos:
+            if m.group(a):
+                abre, interno, fecha = m.group(a), m.group(b), m.group(c)
+                break
+        else:
+            return m.group(0)
+        visivel = SEM_TAG.sub("", interno).replace("&nbsp;", " ").strip()
+        if len(visivel) > LIMITE_PARAGRAFO:
+            return m.group(0)
+        return abre + _cola(interno) + fecha
+
+    # o miolo dos blocos protegidos sai da varredura e volta depois
+    guardado = []
+
+    def guarda(m):
+        guardado.append(m.group(0))
+        return "\x00%d\x00" % (len(guardado) - 1)
+
+    protegido = re.compile(
+        r'<(pre|code|script|style)\b.*?</\1>'
+        r'|<div class="(?:%s)"[^>]*>.*?</div>' % "|".join(SEM_COLA),
+        re.S,
+    )
+    html = protegido.sub(guarda, html)
+    html = BLOCO_QUE_COLA.sub(troca, html)
+    return re.sub(r"\x00(\d+)\x00", lambda m: guardado[int(m.group(1))], html)
+
+
+# ---------------------------------------------------------------------------
+# O CEM · a parede de cem quadradinhos
+#
+# Escrever os cem à mão é onde o desenho para de bater com o número da legenda,
+# e ninguém confere contando. O fragmento declara só quantos acendem:
+#
+#     <div class="cem-grade" data-acesos="13"></div>
+#
+# e este passo produz os cem. Rodar de novo não muda nada: a grade já expandida
+# não tem mais a marca vazia que o padrão procura.
+# ---------------------------------------------------------------------------
+GRADE_DO_CEM = re.compile(r'<div class="cem-grade" data-acesos="(\d+)"\s*></div>')
+
+
+def expande_o_cem(html):
+    def troca(m):
+        n = int(m.group(1))
+        pontos = "".join('<i class="cem-p%s"></i>' % (" aceso" if i < n else "")
+                         for i in range(100))
+        return ('<div class="cem-grade" data-acesos="%d" aria-hidden="true">%s</div>'
+                % (n, pontos))
+    return GRADE_DO_CEM.sub(troca, html)
+
+
+# ---------------------------------------------------------------------------
+# O RADAR · o polígono sai dos números, não do olho
+#
+# Calcular seno e cosseno à mão dentro do HTML é como o desenho deixa de
+# corresponder aos números, e ninguém confere um polígono com transferidor.
+# O fragmento declara só os eixos e os valores:
+#
+#     <div class="radar" data-eixos="Clareza|Tempo|Risco"
+#                        data-valores="80,60,40"
+#                        data-valores-b="90,80,30"></div>
+#
+# A segunda série é opcional, e é ela que faz a figura valer a pena: um radar
+# de uma série só quase sempre é uma tabela de quatro linhas.
+# ---------------------------------------------------------------------------
+import math
+
+RADAR = re.compile(r'<div class="radar"([^>]*)></div>')
+RAIO, CENTRO = 108, 150
+
+
+def _ponto(i, n, v):
+    ang = math.radians(-90 + i * 360.0 / n)
+    r = RAIO * v / 100.0
+    return (CENTRO + r * math.cos(ang), CENTRO + r * math.sin(ang))
+
+
+# O rótulo é escrito FORA do último anel, e a moldura precisa caber nele. Com
+# moldura fixa, "Padrão do formato" sai pela borda e o SVG corta: o texto some e
+# nada acusa, porque o recorte é o comportamento normal de um <svg>.
+LARGURA_DA_LETRA = 6.2   # medido em Inter 12px, na média do português
+ALTURA_DA_LINHA = 14
+
+
+def largura_estimada(texto):
+    return len(texto) * LARGURA_DA_LETRA
+
+
+def _poligono(valores):
+    n = len(valores)
+    return " ".join("%.1f,%.1f" % _ponto(i, n, v) for i, v in enumerate(valores))
+
+
+def desenha_radar(html):
+    def troca(m):
+        attrs = m.group(1)
+        eixos = re.search(r'data-eixos="([^"]*)"', attrs)
+        vals = re.search(r'data-valores="([^"]*)"', attrs)
+        if not eixos or not vals:
+            return m.group(0)
+        eixos = [e.strip() for e in eixos.group(1).split("|") if e.strip()]
+        a = [float(x) for x in vals.group(1).split(",")]
+        b = re.search(r'data-valores-b="([^"]*)"', attrs)
+        b = [float(x) for x in b.group(1).split(",")] if b else None
+        n = len(eixos)
+
+        p = []
+        # anéis de referência, para o olho ter escala
+        for anel in (25, 50, 75, 100):
+            pts = " ".join("%.1f,%.1f" % _ponto(i, n, anel) for i in range(n))
+            p.append('<polygon points="%s" fill="none" stroke="var(--border)" '
+                     'stroke-width="1"/>' % pts)
+        # raios
+        for i in range(n):
+            x, y = _ponto(i, n, 100)
+            p.append('<line x1="%d" y1="%d" x2="%.1f" y2="%.1f" '
+                     'stroke="var(--border)" stroke-width="1"/>'
+                     % (CENTRO, CENTRO, x, y))
+        if b:
+            p.append('<polygon points="%s" fill="none" stroke="var(--text-dim)" '
+                     'stroke-width="1.5" stroke-dasharray="5,4"/>' % _poligono(b))
+        p.append('<polygon points="%s" fill="var(--accent-soft)" '
+                 'stroke="var(--accent)" stroke-width="1.5" fill-opacity="0.75"/>'
+                 % _poligono(a))
+        # rótulos, empurrados para fora do último anel
+        for i, nome in enumerate(eixos):
+            x, y = _ponto(i, n, 128)
+            ancora = "middle"
+            if x > CENTRO + 12:
+                ancora = "start"
+            elif x < CENTRO - 12:
+                ancora = "end"
+            p.append('<text x="%.1f" y="%.1f" text-anchor="%s" '
+                     'dominant-baseline="middle" font-size="12" '
+                     'font-family="var(--font-body)" fill="var(--text-muted)">%s</text>'
+                     % (x, y, ancora, nome))
+        # a moldura sai das pontas do desenho E das pontas do texto
+        x0 = y0 = 1e9
+        x1 = y1 = -1e9
+        for i, nome in enumerate(eixos):
+            x, y = _ponto(i, n, 128)
+            larg = largura_estimada(nome)
+            if x > CENTRO + 12:
+                e, d = x, x + larg
+            elif x < CENTRO - 12:
+                e, d = x - larg, x
+            else:
+                e, d = x - larg / 2, x + larg / 2
+            x0, x1 = min(x0, e), max(x1, d)
+            y0, y1 = min(y0, y - ALTURA_DA_LINHA), max(y1, y + ALTURA_DA_LINHA)
+        x0, y0 = min(x0, 0) - 6, min(y0, 0) - 6
+        x1, y1 = max(x1, 300) + 6, max(y1, 300) + 6
+        return ('<div class="radar"%s><svg viewBox="%.1f %.1f %.1f %.1f" '
+                'role="img" aria-label="%s">%s</svg></div>'
+                % (attrs, x0, y0, x1 - x0, y1 - y0,
+                   " · ".join(eixos), "".join(p)))
+    return RADAR.sub(troca, html)
+
+
+# ---------------------------------------------------------------------------
+# UMA FRASE POR LINHA · a quarta reclamação da quebra de linha
+#
+# Dentro de um bloco marcado .fr-host, cada frase vira <span class="fr">. O CSS
+# decide por container query se elas ficam em linha ou empilhadas: quem manda é
+# a largura DO BLOCO, não a da janela.
+#
+# 🔴 Idempotente por reconstrução: desmarca tudo antes de marcar de novo. Marcar
+# em cima do que já estava marcado aninharia span dentro de span a cada execução,
+# e o arquivo cresceria sozinho até alguém notar.
+# ---------------------------------------------------------------------------
+ABRE_FR_HOST = re.compile(r'<(\w+)([^>]*\bclass="[^"]*\bfr-host\b[^"]*"[^>]*)>')
+SPAN_FR = '<span class="fr">'
+
+# Ponto que NÃO termina frase. Sem esta lista, "R$ 1.200,00." e "Dr. Silva"
+# viravam duas frases, e o corte caía no meio de um número.
+NAO_CORTA_DEPOIS = (
+    "sr", "sra", "dr", "dra", "prof", "etc", "ex", "obs", "art", "pág", "pag",
+    "fig", "n", "nº", "no", "vs", "cf", "aprox", "máx", "max", "mín", "min",
+)
+
+
+def _desmarca_fr(interno):
+    """Tira a marcação anterior. Sem isto, cada execução aninha span dentro de
+    span e o arquivo cresce sozinho até alguém notar."""
+    anterior = None
+    while anterior != interno:
+        anterior = interno
+        interno = re.sub(r'<span class="fr">(.*?)</span>', r"\1", interno, flags=re.S)
+    return interno
+
+
+# Tag de bloco fecha a frase. Sem isto o corte atravessa o <p> e produz
+# <span class="fr"><p>Uma.</span>, que é HTML inválido e o navegador conserta
+# do jeito dele.
+TAG_DE_BLOCO = re.compile(
+    r"</?(p|div|li|ul|ol|h[1-6]|section|table|tr|td|th|pre|blockquote|br)\b",
+    re.I)
+
+
+def _corta_frases(interno):
+    """Marca cada frase do miolo. Não entra em tag: o corte olha só o texto.
+
+    🔴 O espaço que separa duas frases fica FORA do span. Dentro, ele some no
+    modo empilhado e as frases grudam no modo inline, que é o que o container
+    query entrega em bloco estreito.
+    """
+    pedacos = re.split(r"(<[^>]+>)", interno)
+    saida, buffer_, marcou = [], [], False
+
+    def fecha():
+        if not buffer_:
+            return
+        txt = "".join(buffer_)
+        del buffer_[:]
+        if not txt.strip():
+            saida.append(txt)
+            return
+        # o branco das pontas sai do span e fica no meio, entre as frases
+        m = re.match(r"^(\s*)(.*?)(\s*)$", txt, flags=re.S)
+        esq, meio, dir_ = m.group(1), m.group(2), m.group(3)
+        saida.append(esq + SPAN_FR + meio + "</span>" + dir_)
+
+    for p_ in pedacos:
+        if p_.startswith("<"):
+            if TAG_DE_BLOCO.match(p_):
+                fecha()          # fronteira de bloco fecha a frase corrente
+                saida.append(p_)
+            else:
+                buffer_.append(p_)
+            continue
+        resto = p_
+        while resto:
+            m = re.search(r"[.!?](?:&nbsp;|\s)+(?=[A-ZÀ-Ý])", resto)
+            if not m:
+                buffer_.append(resto)
+                break
+            antes = resto[:m.start()]
+            ultima = re.search(r"([\wÀ-ÿ]+)$", antes)
+            # só abreviação. Ponto dentro de número ("1.200") não chega aqui:
+            # o padrão exige espaço depois do ponto, e número não tem.
+            if ultima and ultima.group(1).lower() in NAO_CORTA_DEPOIS:
+                buffer_.append(resto[:m.end()])
+                resto = resto[m.end():]
+                continue
+            buffer_.append(resto[:m.start() + 1])
+            fecha()
+            saida.append(resto[m.start() + 1:m.end()])   # o espaço, fora do span
+            marcou = True
+            resto = resto[m.end():]
+    fecha()
+    return "".join(saida) if marcou else interno
+
+
+def uma_frase_por_linha(html):
+    """Sempre recalcula do zero: rodar de novo devolve o mesmo arquivo."""
+    saida, i = [], 0
+    for m in ABRE_FR_HOST.finditer(html):
+        tag = m.group(1)
+        # Acha o fechamento do próprio bloco, contando profundidade.
+        # 🔴 O regex casa a TAG INTEIRA, com o ">". Casar só "</p" devolve uma
+        # posição um caractere curta, e o miolo perde o último caractere: o
+        # ponto final da última frase ficava fora do span, a cada execução.
+        prof, j, fim = 1, m.end(), len(html)
+        while prof and j < len(html):
+            t = re.search(r"<(/?)%s\b[^>]*>" % tag, html[j:])
+            if not t:
+                break
+            if t.group(1):
+                prof -= 1
+                if prof == 0:
+                    fim = j + t.start()
+                    j = j + t.end()
+                    break
+            else:
+                prof += 1
+            j += t.end()
+        interno = html[m.end():fim]
+        saida.append(html[i:m.end()])
+        saida.append(_corta_frases(_desmarca_fr(interno)))
+        i = fim
+    saida.append(html[i:])
+    return "".join(saida)
+
+
+# ---------------------------------------------------------------------------
+# A CASCA
+# ---------------------------------------------------------------------------
+def css():
+    partes = []
+    for nome in ("marca.css", "base.css"):
+        partes.append(io.open(os.path.join(AQUI, nome), encoding="utf-8").read())
+    return "\n".join(partes)
+
+
+def trilha(slug_atual):
+    """A barra do curso: onde esta a aula aberta, dentro da trilha inteira.
+
+    Tres estados, e o estado E o conteudo: `feita` (antes da atual), `agora`
+    e o resto. A aula atual nao vira link — clicar nela nao leva a lugar
+    nenhum, e um link que nao vai a lugar nenhum e ruido.
+    """
+    plana = [(g, sl, t) for g, aulas in TRILHA for sl, t in aulas]
+    total = len(plana)
+    pos = next((i for i, (_, sl, _) in enumerate(plana) if sl == slug_atual), None)
+    if pos is None:
+        return ""                      # pagina fora da trilha: sem barra
+
+    partes = ['<aside class="trilha">',
+              '<div class="trilha-cab">Aula %d de %d</div>' % (pos + 1, total),
+              '<div class="trilha-agora">%s</div>' % plana[pos][2]]
+    grupo_aberto = None
+    for i, (grupo, sl, titulo) in enumerate(plana):
+        if grupo != grupo_aberto:
+            if grupo_aberto is not None:
+                partes.append('</ol>')
+            if grupo:
+                partes.append('<div class="trilha-grupo">%s</div>' % grupo)
+            partes.append('<ol>')
+            grupo_aberto = grupo
+        if i < pos:
+            estado, marca = "feita", "&#10003;"
+        elif i == pos:
+            estado, marca = "agora", "%02d" % (i + 1)
+        else:
+            estado, marca = "", "%02d" % (i + 1)
+        n = '<span class="tl-n">%s</span>' % marca
+        if i == pos:
+            corpo = '<span class="tl">%s<span>%s</span></span>' % (n, titulo)
+        else:
+            href = "../%s/" % sl if sl != "index" else "../"
+            corpo = '<a href="%s">%s<span>%s</span></a>' % (href, n, titulo)
+        partes.append('<li class="%s">%s</li>' % (estado, corpo))
+    partes.append('</ol></aside>')
+    return "".join(partes)
+
+
+def rodape(slug):
+    """O par anterior/proxima, tirado da SEQUENCIA. Ponta sem vizinho fica vazia.
+
+    Nunca inventa destino: se a pagina e a primeira, nao existe "anterior", e
+    o lado fica em branco em vez de apontar para a propria pagina.
+    """
+    if slug not in SEQUENCIA:
+        return ""
+    i = SEQUENCIA.index(slug)
+    # 🔴 A capa mora na RAIZ; as outras cinco moram um nivel abaixo. O caminho
+    # relativo depende de onde a pagina ATUAL esta, nao de onde o alvo esta.
+    # O gate G7 pegou isto na primeira rodada: da capa, "../modulo/" sai do site.
+    base = "" if slug == "index" else "../"
+    def href(s):
+        return base if s == "index" else base + "%s/" % s
+    lados = []
+    if i > 0:
+        alvo = SEQUENCIA[i - 1]
+        lados.append('<a href="%s">&larr; %s</a>' % (href(alvo), PAGINAS[alvo]["titulo"]))
+    else:
+        lados.append("<span></span>")
+    if i < len(SEQUENCIA) - 1:
+        alvo = SEQUENCIA[i + 1]
+        lados.append('<a href="%s">%s &rarr;</a>' % (href(alvo), PAGINAS[alvo]["titulo"]))
+    else:
+        lados.append("<span></span>")
+    return '<nav class="rodape-nav">%s</nav>' % "".join(lados)
+
+
+def secoes(fragmento):
+    """A nav lateral sai das seções do fragmento, nunca de uma lista à mão."""
+    padrao = re.compile(
+        r'<section class="secao" id="(?P<id>[^"]+)"[^>]*>\s*'
+        r'<div class="secao-topo">\s*'
+        r'<div class="secao-n">(?P<n>.*?)</div>.*?'
+        r'<h2>(?P<h2>.*?)</h2>',
+        re.S,
+    )
+    return [(m.group("id"),
+             SEM_TAG.sub("", m.group("n")).strip(),
+             SEM_TAG.sub("", m.group("h2")).strip())
+            for m in padrao.finditer(fragmento)]
+
+
+def monta(slug, cfg, fragmento):
+    selos = "".join('<span class="selo">%s</span>' % s for s in cfg.get("selos", []))
+    if cfg.get("migalha"):
+        pedacos = []
+        for href, texto in cfg["migalha"]:
+            pedacos.append('<a href="%s">%s</a>' % (href, texto) if href else texto)
+        migalha = '<nav class="migalha">%s</nav>' % " &rsaquo; ".join(pedacos)
+    else:
+        migalha = ""
+    raiz = "./" if slug == "index" else "../"
+    # a barra so existe se a pagina estiver na trilha; sem ela, o wrapper de
+    # duas colunas nao entra e o layout fica exatamente como era
+    barra = trilha(slug)
+    abre = '<div class="com-trilha">' + barra if barra else ""
+    fecha = "</div>" if barra else ""
+    return TEMPLATE % dict(
+        titulo=cfg["titulo"], css=css(), raiz=raiz,
+        sigla=CURSO["sigla"], nome=CURSO["nome"], sub=CURSO["sub"],
+        migalha=migalha, kicker=cfg["kicker"], h1=cfg["h1"],
+        sub_pagina=cfg["sub"], selos=selos, corpo=fragmento,
+        abre_trilha=abre, fecha_trilha=fecha, rodape=rodape(slug),
+    )
+
+
+TEMPLATE = r"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%(titulo)s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+%(css)s
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-in">
+    <a href="%(raiz)s" class="marca">
+      <div class="marca-sigla">%(sigla)s</div>
+      <div>
+        <div class="marca-nome">%(nome)s</div>
+        <div class="marca-sub">%(sub)s</div>
+      </div>
+    </a>
+  </div>
+</header>
+
+%(migalha)s
+
+%(abre_trilha)s
+<main class="folha">
+  <div class="heroi">
+    <div class="heroi-kicker">%(kicker)s</div>
+    <h1>%(h1)s</h1>
+    <p class="heroi-sub">%(sub_pagina)s</p>
+    <div>%(selos)s</div>
+  </div>
+
+%(corpo)s
+%(rodape)s
+</main>
+%(fecha_trilha)s
+
+<script>
+(function(){
+  'use strict';
+
+  /* Confirmação no proprio botao. Toast flutuante exige posicao fixa e some
+     atras do teclado no celular, que e onde o aluno mais copia. */
+  function avisa(b, texto){
+    if(b.dataset.antes === undefined) b.dataset.antes = b.textContent;
+    b.textContent = texto;
+    clearTimeout(b._t);
+    b._t = setTimeout(function(){ b.textContent = b.dataset.antes; }, 1600);
+  }
+
+  function copia(b, texto){
+    if(!texto) return;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(texto).then(function(){ avisa(b, 'copiado'); },
+                                               function(){ avisa(b, 'nao deu'); });
+      return;
+    }
+    /* Sem clipboard (http em rede da sala, navegador antigo) o botao nao pode
+       simplesmente nao fazer nada: seleciona o texto para o aluno usar Ctrl+C. */
+    var t = document.createElement('textarea');
+    t.value = texto; t.setAttribute('readonly','');
+    t.style.position='fixed'; t.style.opacity='0';
+    document.body.appendChild(t); t.select();
+    try{ document.execCommand('copy'); avisa(b, 'copiado'); }
+    catch(e){ avisa(b, 'use ctrl+c'); }
+    document.body.removeChild(t);
+  }
+
+  /* ---- prompt copiavel ---- */
+  document.querySelectorAll('.btn-copiar[data-alvo]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var alvo = document.getElementById(b.dataset.alvo);
+      if(alvo) copia(b, alvo.textContent.trim());
+    });
+  });
+
+  /* ---- imprimir o documento ----
+     A pagina de exemplo pronto imprime em A4 sem levar o site junto: o CSS de
+     impressao esconde a moldura, e este botao so dispara o dialogo. */
+  document.querySelectorAll('[data-acao="imprimir"]').forEach(function(b){
+    b.addEventListener('click', function(){ window.print(); });
+  });
+
+  /* ---- o criador de prompt ----
+     O texto a direita nasce dos proprios campos: nao existe uma segunda copia
+     do prompt no HTML para sair de sincronia com a esquerda. */
+  function escapa(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  document.querySelectorAll('.criador').forEach(function(c){
+    var campos = [].slice.call(c.querySelectorAll('textarea[data-titulo]'));
+    var saida  = c.querySelector('.cr-txt');
+    if(!campos.length || !saida) return;
+    var exemplo = campos.map(function(t){ return t.value; });
+
+    function texto(){
+      return campos.filter(function(t){ return t.value.trim(); })
+                   .map(function(t){ return '# ' + t.dataset.titulo + '\n' + t.value.trim(); })
+                   .join('\n\n');
+    }
+    function pinta(){
+      var t = texto();
+      if(!t){
+        saida.innerHTML = '<span class="cr-vazio">Preencha um campo à esquerda '
+                        + 'e o prompt aparece aqui.</span>';
+        return;
+      }
+      saida.innerHTML = escapa(t).replace(/^# (.+)$/gm, '<span class="cr-h"># $1</span>');
+    }
+
+    campos.forEach(function(t){ t.addEventListener('input', pinta); });
+    c.querySelectorAll('[data-acao]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var a = b.dataset.acao;
+        if(a === 'copiar'){ copia(b, texto()); return; }
+        if(a === 'limpar')  campos.forEach(function(t){ t.value = ''; });
+        if(a === 'exemplo') campos.forEach(function(t, i){ t.value = exemplo[i]; });
+        pinta();
+      });
+    });
+    pinta();
+  });
+
+  /* ---- o canvas preenchivel ----
+     Guarda no proprio aparelho. Nada sai daqui: nao ha envio, e o aviso na tela
+     diz isso, senao metade da sala acha que mandou para alguem. */
+  document.querySelectorAll('.canvas[data-chave]').forEach(function(c){
+    var campos = [].slice.call(c.querySelectorAll('textarea[id]'));
+    var estado = c.querySelector('.canvas-estado');
+    var chave  = 'trn_' + c.dataset.chave;
+    if(!campos.length) return;
+
+    function diz(txt, ok){
+      if(!estado) return;
+      estado.textContent = txt;
+      estado.classList.toggle('salvo', !!ok);
+    }
+    function salva(){
+      var d = {};
+      campos.forEach(function(t){ d[t.id] = t.value; });
+      try{
+        localStorage.setItem(chave, JSON.stringify(d));
+        diz('Rascunho salvo neste aparelho', true);
+      }catch(e){
+        diz('Este navegador nao deixa salvar rascunho', false);
+      }
+    }
+    function carrega(){
+      try{
+        var d = JSON.parse(localStorage.getItem(chave) || '{}');
+        var achou = false;
+        campos.forEach(function(t){
+          if(d[t.id]){ t.value = d[t.id]; achou = true; }
+        });
+        if(achou) diz('Rascunho salvo neste aparelho', true);
+      }catch(e){}
+    }
+    /* TAB entre campos, ponto medio no lugar da quebra: um campo de duas linhas
+       viraria duas linhas na planilha e desalinharia a turma inteira. */
+    function linha(){
+      return campos.map(function(t){
+        return t.value.replace(/\t/g,' ').replace(/\r?\n/g,' · ').trim();
+      }).join('\t');
+    }
+
+    campos.forEach(function(t){ t.addEventListener('input', salva); });
+    c.querySelectorAll('[data-acao]').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(b.dataset.acao === 'linha'){ copia(b, linha()); return; }
+        if(b.dataset.acao === 'apagar'){
+          campos.forEach(function(t){ t.value = ''; });
+          try{ localStorage.removeItem(chave); }catch(e){}
+          diz('O rascunho fica salvo neste aparelho', false);
+        }
+      });
+    });
+    carrega();
+  });
+})();
+</script>
+</body>
+</html>
+"""
+
+
+def main():
+    for slug, cfg in PAGINAS.items():
+        fonte = os.path.join(AQUI, "conteudo", slug + ".html")
+        if not os.path.exists(fonte):
+            print("  pulou:   %s (sem fragmento)" % slug)
+            continue
+        fragmento = io.open(fonte, encoding="utf-8").read()
+        html = monta(slug, cfg, fragmento)
+        html = desenha_radar(expande_o_cem(html))
+        html = cola_quebra_de_linha(uma_frase_por_linha(html))
+        destino = (os.path.join(RAIZ, "index.html") if slug == "index"
+                   else os.path.join(RAIZ, slug, "index.html"))
+        os.makedirs(os.path.dirname(destino), exist_ok=True)
+        with io.open(destino, "w", encoding="utf-8") as f:
+            f.write(html)
+        print("  gravado: %-34s %d bytes"
+              % (os.path.relpath(destino, RAIZ), len(html.encode("utf-8"))))
+    print("\n  %d páginas" % len(PAGINAS))
+
+
+if __name__ == "__main__":
+    main()

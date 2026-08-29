@@ -1,0 +1,134 @@
+  <div class="aviso so-tela">
+    <div class="aviso-t">Esta é a página de módulo modelo, e ela é opcional</div>
+    <p>O módulo é o nível entre a capa e a aula: ele se apresenta e lista o que tem
+    dentro. Troque o texto, mantenha os slots do cartão e a ordem deles.</p>
+    <p><strong>Nem todo curso tem este nível, e forçar é erro.</strong> Ele serve
+    quando as aulas se agrupam por assunto que vale anunciar sozinho, tipo
+    <em>primeiro só a ferramenta, depois só o código</em>. Curso curto, ou curso em
+    que as páginas são temáticas e não sequenciais, vai direto da capa para a aula e
+    fica melhor assim. <strong>A estrutura segue o curso; o curso não se dobra para
+    caber na estrutura.</strong></p>
+  </div>
+
+  <section class="secao" id="aulas">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que tem dentro</div>
+        <h2>As aulas deste módulo</h2>
+      </div>
+    </div>
+
+    <p>Cada cartão é uma aula, e os slots são fixos: número, a cláusula da ementa que
+    ela cumpre, a superfície, o que a pessoa faz, o que ela leva, a virada e a chamada.
+    <strong>Aula publicada leva <code>ready</code></strong> e fica clicável, levantando
+    2px no hover. Aula que ainda não saiu leva <code>soon</code>: continua na lista,
+    opaca e sem cursor, porque esconder a aula que vem faz a pessoa perder o mapa.</p>
+
+    <div class="cartao">
+      <span class="rot">O chip de ementa não é enfeite</span>
+      <p><code>chip-ementa</code> carrega a cláusula que aquela aula cumpre, tipo
+      <em>Ementa 1.2</em>. É o que permite conferir, sem abrir aula nenhuma, se o que
+      foi vendido está entregue. <strong>Aula sem cláusula é aula que ninguém pediu;
+      cláusula sem aula é promessa em aberto.</strong></p>
+    </div>
+
+    <div class="aulas-lista solta">
+
+      <a class="aula-card ready" href="../caso/">
+        <div class="aula-top">
+          <span class="aula-num">Aula 1</span>
+          <span class="chip chip-ementa">Ementa 1.1</span>
+          <span class="chip">A superfície</span>
+          <span class="aula-status ok">Pronta</span>
+        </div>
+        <div class="aula-title">O título da aula, que promete uma capacidade</div>
+        <div class="aula-body">
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você faz</div>
+            <ul>
+              <li>A primeira coisa que a pessoa executa, com o material dela</li>
+              <li>A segunda, que só existe depois da primeira ter saído</li>
+            </ul>
+          </div>
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você leva</div>
+            <p>O artefato que sai daqui e serve na segunda de manhã, nomeado. Se não
+            dá para nomear, a aula ainda não tem entrega.</p>
+          </div>
+        </div>
+        <div class="aula-hook">A frase que faz a pessoa querer abrir esta aula, e não
+        a próxima.</div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
+
+      <a class="aula-card ready" href="../exemplo/">
+        <div class="aula-top">
+          <span class="aula-num">Aula 2</span>
+          <span class="chip chip-ementa">Ementa 1.2</span>
+          <span class="rec">Traga um caso seu</span>
+          <span class="aula-status ok">Pronta</span>
+        </div>
+        <div class="aula-title">A segunda capacidade, que usa a primeira</div>
+        <div class="aula-body">
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você faz</div>
+            <ul>
+              <li>O mesmo exercício, agora com material que a pessoa trouxe</li>
+              <li>A conferência, que ela faz sozinha pelo gabarito</li>
+            </ul>
+          </div>
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você leva</div>
+            <p>O segundo artefato. O selo <code>rec</code> avisa o que precisa estar
+            em mãos antes de sentar, e é a única cobrança que o cartão faz.</p>
+          </div>
+        </div>
+        <div class="aula-hook">A virada desta aula, em uma linha.</div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
+
+      <span class="aula-card soon">
+        <div class="aula-top">
+          <span class="aula-num">Aula 3</span>
+          <span class="chip chip-ementa">Ementa 1.3</span>
+          <span class="aula-status">Em produção</span>
+        </div>
+        <div class="aula-title">A aula que ainda não saiu, e continua na lista</div>
+        <div class="aula-body">
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você faz</div>
+            <p>O que já dá para prometer. Se ainda não dá, deixe curto: promessa vaga
+            em cartão opaco não engana ninguém e gasta a confiança que a lista tem.</p>
+          </div>
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você leva</div>
+            <p>A entrega prevista, mesmo que só em uma linha.</p>
+          </div>
+        </div>
+        <div class="aula-cta">Em breve</div>
+      </span>
+
+    </div>
+  </section>
+
+  <section class="secao" id="ordem">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Como as aulas se encadeiam</div>
+        <h2>Por que esta ordem</h2>
+      </div>
+    </div>
+
+    <p>Uma frase por aula, dizendo o que ela deixa pronto para a seguinte. Este bloco
+    é curto de propósito: se a ordem precisar de um parágrafo para se justificar, o
+    problema está na ordem, não na explicação.</p>
+
+    <div class="cartao">
+      <span class="rot">A regra do encadeamento</span>
+      <p>Toda aula abre com algo que a anterior deixou pronto. A aula que funciona
+      igual fora de ordem não pertence a este módulo: ela é avulsa, e o lugar dela é
+      outro.</p>
+    </div>
+  </section>

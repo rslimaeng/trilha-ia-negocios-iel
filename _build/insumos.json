@@ -1,0 +1,50 @@
+{
+  "fechamento-semanal-exemplo": {
+    "abas": [
+      "leia-me",
+      "vendas",
+      "resumo",
+      "produtos"
+    ],
+    "armadilhas": {
+      "coluna_com_espaco_no_nome": "que o nome que ela vê não é o nome que a ferramenta lê",
+      "data_em_dois_formatos": "que a IA ordena errado sem avisar",
+      "linha_duplicada": "que conferir o total contra a soma é barato",
+      "linha_em_branco_antes_do_cabecalho": "que o arquivo precisa ser olhado antes de ser usado",
+      "nome_em_dois_jeitos": "que juntar por semelhança é decisão, não detalhe. É a origem do parágrafo 'Na dúvida' do prompt",
+      "numero_como_texto": "que soma que não soma tem causa, e a causa é achável",
+      "valor_faltando": "que o buraco tem de ser declarado, nunca estimado em silêncio"
+    },
+    "arquivo": "fechamento-semanal-exemplo.xlsx",
+    "cabecalho_na_linha": 3,
+    "caso": "caso",
+    "colunas": {
+      "produtos": [
+        "Produto",
+        "Preco de tabela",
+        "Categoria"
+      ],
+      "resumo": [
+        "Semana",
+        "Periodo",
+        "Faturamento",
+        "Cupons",
+        "Ticket medio",
+        "Observacao da operacao"
+      ],
+      "vendas": [
+        "Cupom",
+        "Data",
+        "Loja",
+        "Produto",
+        "Qtd",
+        "Valor Unitario",
+        " Valor Total",
+        "Forma de Pagamento"
+      ]
+    },
+    "formato": "xlsx",
+    "linhas": 2829,
+    "titulo": "Fechamento semanal · 12 lojas"
+  }
+}
