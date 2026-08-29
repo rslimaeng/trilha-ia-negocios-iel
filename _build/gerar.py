@@ -72,16 +72,23 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
-SEQUENCIA = ["index", "a1-degrau", "a2-preve", "a3-mesa", "a4-inventa",
-             "a5-cerca", "componentes"]
+SEQUENCIA = ["index", "modulo-1", "a1-degrau", "a2-preve", "a3-mesa",
+             "a4-inventa", "a5-cerca", "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
-    ("Módulo 1 · Mentalidade e Fundamentos", [
+    ("Módulo 1 · IA Conversacional e Estratégica", [
+        ("modulo-1",    "Os seis blocos do módulo"),
+    ]),
+    ("Bloco 1 · Mentalidade e Fundamentos", [
         ("a1-degrau",   "Em que degrau você está"),
         ("a2-preve",    "A IA não sabe, ela prevê"),
         ("a3-mesa",     "A mesa: o que ela tem à vista"),
         ("a4-inventa",  "Quando ela inventa com o mesmo tom"),
         ("a5-cerca",    "O que não entra no chat"),
+    ]),
+    ("Os outros dois módulos", [
+        ("modulo-2",    "Automação com n8n"),
+        ("modulo-3",    "Minha Jornada com IA"),
     ]),
     ("Referência interna", [
         ("componentes", "As peças do padrão"),
@@ -127,6 +134,36 @@ PAGINAS = {
         migalha=[("../", "Nome do Curso"), ("../caso/", "Um caso, em cinco passos"),
                  (None, "O exemplo pronto")],
     ),
+    "modulo-1": dict(
+        titulo="Módulo 1 · IA Conversacional e Estratégica",
+        kicker="Módulo 1 de 3",
+        h1="IA Conversacional e Estratégica",
+        sub="Do diagnóstico pessoal até o assistente configurado que já conhece o seu "
+            "processo. É onde a rotina é escolhida, mapeada e virada em instrução.",
+        selos=["Seis blocos", "Você sai com um assistente seu"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "IA Conversacional e Estratégica")],
+    ),
+    "modulo-2": dict(
+        titulo="Módulo 2 · Automação com n8n",
+        kicker="Módulo 2 de 3",
+        h1="Automação com n8n",
+        sub="Do primeiro fluxo funcional ao agente que executa a rotina sozinho. Começa "
+            "pela conta, pela interface e pelo primeiro fluxo que roda de verdade.",
+        selos=["Três blocos", "Você sai com um fluxo rodando"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "Automação com n8n")],
+    ),
+    "modulo-3": dict(
+        titulo="Módulo 3 · Minha Jornada com IA",
+        kicker="Módulo 3 de 3",
+        h1="Minha Jornada com IA",
+        sub="Como apresentar o que você construiu, conduzir a adoção no time, e medir o "
+            "retorno do que já está rodando.",
+        selos=["Dois blocos", "Você sai com o retorno medido"],
+        migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 (None, "Minha Jornada com IA")],
+    ),
     "a1-degrau": dict(
         titulo="Aula 1 · Em que degrau você está",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
@@ -135,6 +172,7 @@ PAGINAS = {
             "rotina que vai atravessar o curso com você.",
         selos=["Sem instalação", "Traga uma rotina real"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 ("../modulo-1/", "Módulo 1"),
                  (None, "Em que degrau você está")],
     ),
     "a2-preve": dict(
@@ -145,6 +183,7 @@ PAGINAS = {
             "passa a esperar dela.",
         selos=["Sem instalação", "Dois pedidos comparados"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 ("../modulo-1/", "Módulo 1"),
                  (None, "A IA não sabe, ela prevê")],
     ),
     "a3-mesa": dict(
@@ -155,6 +194,7 @@ PAGINAS = {
             "fazer quando isso acontece.",
         selos=["Sem instalação", "Provoque o defeito"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 ("../modulo-1/", "Módulo 1"),
                  (None, "A mesa: o que ela tem à vista")],
     ),
     "a4-inventa": dict(
@@ -165,6 +205,7 @@ PAGINAS = {
             "entregou e comparar com o que saiu na sua mão.",
         selos=["Use a sua rotina", "Conferência item a item"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 ("../modulo-1/", "Módulo 1"),
                  (None, "Quando ela inventa com o mesmo tom")],
     ),
     "a5-cerca": dict(
@@ -175,6 +216,7 @@ PAGINAS = {
             "material para o resto do curso.",
         selos=["Use a sua rotina", "Vale para o curso inteiro"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
+                 ("../modulo-1/", "Módulo 1"),
                  (None, "O que não entra no chat")],
     ),
     "modulo": dict(
