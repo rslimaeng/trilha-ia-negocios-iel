@@ -1338,6 +1338,82 @@ def g39_uma_aula_um_conceito(rel, html):
     return []
 
 
+# Pecas que produzem algo que SAI DA TELA. Nao e exercicio: exercicio a pessoa
+# faz e fecha o navegador. Isto ela leva.
+ARTEFATO = ("arquivo", "canvas", "criador")
+
+
+def _ordem_das_aulas():
+    """A ordem das aulas do curso, lida da TRILHA do gerador.
+
+    A TRILHA e a unica lista escrita a mao do padrao, porque ordem pedagogica
+    nao se deduz de nome de arquivo. E por isso ela e a unica fonte possivel
+    para qualquer gate que precise olhar a SEQUENCIA e nao a pagina.
+    """
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "_ger", os.path.join(RAIZ, "_build", "gerar.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return [slug + "/index.html" for _, grupo in mod.TRILHA for slug, _ in grupo]
+    except Exception:
+        return []
+
+
+def _entrega_artefato(rel, html=None):
+    """html vem preenchido para a pagina CORRENTE.
+
+    Sem isso o gate nasce cego para o proprio auto-teste: o defeito injetado
+    muda o HTML em memoria, e um gate que so le do disco nunca o enxerga.
+    Foi o que aconteceu na primeira versao deste gate, em 28/08.
+    """
+    if html is None:
+        caminho = os.path.join(RAIZ, rel)
+        if not os.path.exists(caminho):
+            return False
+        html = io.open(caminho, encoding="utf-8").read()
+    return any(re.search(r'<[^>]*class="(?:[^"]* )?' + c + r'(?: [^"]*)?"', html)
+               for c in ARTEFATO)
+
+
+def g42_a_trilha_entrega_a_cada_tres_aulas(rel, html):
+    """🔴 Em qualquer tres aulas seguidas, pelo menos UMA entrega artefato.
+
+    Exercicio nao e entrega. Exercicio a pessoa faz na aula e fecha o
+    navegador; artefato ela leva para a segunda-feira. As pecas que produzem
+    artefato sao .arquivo, .canvas e .criador.
+
+    NASCEU DE DEFEITO REAL, medido na trilha IEL 40h em 28/08: o bloco 1 tem
+    CINCO aulas seguidas de fundamento -- em que degrau voce esta, como o LLM
+    preve, janela de contexto, alucinacao, o que nao entra no chat. As cinco
+    passavam em tudo: oito secoes, um conceito, destrave, divisor, analogia.
+    E as cinco juntas somavam 15 passos de exercicio e ZERO artefato.
+    O autor abriu o site e disse: e mais do mesmo.
+
+    O padrao ja mandava .arquivo em toda aula (CLAUDE.md, secao 05, "as tres,
+    sempre"), o modelo ja obedecia, e NENHUM GATE MEDIA -- a mesma familia do
+    .destrave, que tambem era regra escrita sem gate e tambem nasceu ausente no
+    primeiro curso real.
+
+    A janela e de tres e nao de um DE PROPOSITO: aula de fundamento existe e
+    nao precisa entregar arquivo. O que nao pode e a terceira seguida.
+    """
+    if not _e_aula(html):
+        return []
+    ordem = [r for r in _ordem_das_aulas() if r in [d for d, _ in paginas()]]
+    if rel not in ordem:
+        return []
+    i = ordem.index(rel)
+    janela = ordem[max(0, i - 2):i + 1]
+    if any(_entrega_artefato(r, html if r == rel else None) for r in janela):
+        return []
+    return ["{}: esta aula e as {} anteriores nao entregam nada que saia da "
+            "tela. Exercicio nao e entrega: em tres aulas seguidas, pelo menos "
+            "uma leva .arquivo, .canvas ou .criador"
+            .format(rel, len(janela) - 1)]
+
+
 def g41_o_conceito_vem_com_imagem(rel, html):
     """🔴 Todo conceito nasce com a analogia junto. A imagem nao vem depois.
 
@@ -1534,6 +1610,8 @@ GATES = [
      lambda h: h.replace('class="ate-aqui"', 'class="ate-aqui-sumiu"', 1), None),
     ("G41", "o conceito vem com imagem", g41_o_conceito_vem_com_imagem,
      lambda h: h.replace('class="analogia"', 'class="analogia-sumiu"', 1), None),
+    ("G42", "a trilha entrega a cada três aulas", g42_a_trilha_entrega_a_cada_tres_aulas,
+     lambda h: h.replace('class="arquivo"', 'class="arquivo-sumiu"', 1), None),
 ]
 
 
