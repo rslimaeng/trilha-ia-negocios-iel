@@ -93,8 +93,8 @@ PAGINAS = {
         titulo="IA para Negócios · Trilha Completa",
         kicker="Formação IEL Ceará · online ao vivo",
         h1="Você entra com uma rotina que consome a sua semana",
-        sub="Quarenta horas para sair com ela funcionando, e com o método anotado "
-            "para você repetir sozinho.",
+        sub="Você sai com ela funcionando, e com o método anotado para repetir "
+            "sozinho na segunda seguinte.",
         selos=["44 h/a", "Início 31/08", "19h às 22h"],
         migalha=None,
     ),
