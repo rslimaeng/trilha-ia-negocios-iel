@@ -76,7 +76,7 @@ SEQUENCIA = ["index", "a1-degrau", "a2-preve", "a3-mesa", "a4-inventa",
              "a5-cerca", "componentes"]
 
 TRILHA = [
-    ("Encontro 1 · 31/08 · Mentalidade e Fundamentos", [
+    ("Módulo 1 · Mentalidade e Fundamentos", [
         ("a1-degrau",   "Em que degrau você está"),
         ("a2-preve",    "A IA não sabe, ela prevê"),
         ("a3-mesa",     "A mesa: o que ela tem à vista"),
@@ -95,12 +95,17 @@ PAGINAS = {
         h1="Você entra com uma rotina que consome a sua semana",
         sub="Você sai com ela funcionando, e com o método anotado para repetir "
             "sozinho na segunda seguinte.",
-        # 🔴 Nenhum selo de CARGA aqui, e e decisao do Rafael (29/08).
-        # A duracao de cada bloco depende da aula: o n8n leva mais do que a
-        # ementa diz, porque comeca em criar conta e aprender a interface, e
-        # a parte de pesquisa e analise leva menos do que ele estimou. Selo
-        # de hora na capa vira promessa que o calendario nao sustenta.
-        selos=["Início 31/08", "19h às 22h", "Traga uma rotina real"],
+        # 🔴 Nem CARGA nem DATA na tela, e e decisao do Rafael (29/08).
+        # O site organiza por MODULO e por AULA, nunca por calendario.
+        #
+        # Carga: a duracao de cada bloco depende da aula. O n8n leva mais do
+        # que a ementa diz, porque comeca em criar conta e aprender a
+        # interface, e pesquisa e analise levam menos. Selo de hora vira
+        # promessa que o calendario nao sustenta.
+        #
+        # Data: turma tem data, MATERIAL nao. O mesmo material serve a
+        # proxima turma sem reescrita, e data na tela envelhece sozinha.
+        selos=["Traga uma rotina real", "Nada para instalar"],
         migalha=None,
     ),
     "caso": dict(
@@ -124,7 +129,7 @@ PAGINAS = {
     ),
     "a1-degrau": dict(
         titulo="Aula 1 · Em que degrau você está",
-        kicker="Módulo 1 · Encontro 1 · Aula 1 de 5",
+        kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Em que degrau você está",
         sub="O diagnóstico que decide o que faz sentido você tentar em seguida, e a "
             "rotina que vai atravessar o curso com você.",
@@ -134,7 +139,7 @@ PAGINAS = {
     ),
     "a2-preve": dict(
         titulo="Aula 2 · A IA não sabe, ela prevê",
-        kicker="Módulo 1 · Encontro 1 · Aula 2 de 5",
+        kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="A IA não sabe, ela prevê",
         sub="Por que a mesma pergunta volta diferente, e o que isso muda no que você "
             "passa a esperar dela.",
@@ -144,7 +149,7 @@ PAGINAS = {
     ),
     "a3-mesa": dict(
         titulo="Aula 3 · A mesa: o que ela tem à vista",
-        kicker="Módulo 1 · Encontro 1 · Aula 3 de 5",
+        kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="A mesa: o que ela consegue ter à vista",
         sub="Por que ela esquece o combinado do começo numa conversa longa, e o que "
             "fazer quando isso acontece.",
@@ -154,7 +159,7 @@ PAGINAS = {
     ),
     "a4-inventa": dict(
         titulo="Aula 4 · Quando ela inventa com o mesmo tom",
-        kicker="Módulo 1 · Encontro 1 · Aula 4 de 5",
+        kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Quando ela inventa com o mesmo tom",
         sub="A alucinação, e o primeiro teste real: pedir o trabalho que você já "
             "entregou e comparar com o que saiu na sua mão.",
@@ -164,11 +169,11 @@ PAGINAS = {
     ),
     "a5-cerca": dict(
         titulo="Aula 5 · O que não entra no chat",
-        kicker="Módulo 1 · Encontro 1 · Aula 5 de 5",
+        kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="O que não entra no chat",
         sub="Quatro perguntas que decidem se um dado pode ir, e como preparar o seu "
             "material para o resto do curso.",
-        selos=["Use a sua rotina", "Vale para as 40h"],
+        selos=["Use a sua rotina", "Vale para o curso inteiro"],
         migalha=[("../", "IA para Negócios · Trilha Completa"),
                  (None, "O que não entra no chat")],
     ),

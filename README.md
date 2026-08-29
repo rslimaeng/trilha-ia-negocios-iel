@@ -1,26 +1,31 @@
 # IA para Negócios · Trilha Completa · IEL Ceará
 
-Material do aluno da formação **IA para Negócios**, do IEL Ceará. Turma de
-31/08/2026, online ao vivo, 19h às 22h, com mentoria em grupo depois do último
-encontro.
+Material do aluno da formação **IA para Negócios**, do IEL Ceará. Online ao vivo,
+com mentoria em grupo no fim do curso.
 
-> [!warning] Carga não entra na tela do aluno
-> Decisão do Rafael, 29/08. **Nenhuma página deste site declara carga horária**,
-> nem do curso nem de bloco. O tempo de cada assunto depende da aula: o n8n leva
-> mais do que a ementa previu, porque começa em criar conta e aprender a
-> interface, e a parte de pesquisa e análise leva menos. Selo de hora vira
-> promessa que o calendário não sustenta.
+> [!warning] Nem carga horária, nem data, nem "encontro"
+> Decisão do Rafael, 29/08. **O site se organiza por módulo e por aula, nunca por
+> calendário**, e nenhuma página declara carga.
+>
+> **Carga:** o tempo de cada assunto depende da aula. O n8n leva mais do que a
+> ementa previu, porque começa em criar conta e aprender a interface, e pesquisa
+> e análise levam menos. Selo de hora vira promessa que o calendário não sustenta.
+>
+> **Data:** turma tem data, material não. O mesmo material serve à próxima turma
+> sem reescrita, e data na tela envelhece sozinha.
 
 **No ar:** https://rslimaeng.github.io/trilha-ia-negocios-iel/
 
 ## O que está pronto
 
-| Encontro | Aulas | Estado |
-|---|---|---|
-| **1 · 31/08 · Mentalidade e Fundamentos** | 5 | ✅ publicadas |
-| 2 em diante | — | em produção |
+| Módulo | Bloco | Aulas | Estado |
+|---|---|---|---|
+| **1 · IA Conversacional e Estratégica** | Mentalidade e Fundamentos | 5 | ✅ publicadas |
+| 1 | os blocos seguintes | — | em produção |
+| 2 · Automação com n8n | — | — | em produção |
+| 3 · Minha Jornada com IA | — | — | em produção |
 
-As cinco aulas do primeiro encontro:
+As cinco aulas do bloco de fundamentos:
 
 1. **Em que degrau você está** · o diagnóstico dos 7 níveis e a escolha da rotina
 2. **A IA não sabe, ela prevê** · por que a mesma pergunta volta diferente
