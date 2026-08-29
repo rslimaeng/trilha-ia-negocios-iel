@@ -177,6 +177,7 @@ PAGINAS = {
                  (None, "Mentalidade e Fundamentos")],
     ),
     "a1-degrau": dict(
+        tipo="fundamento",
         titulo="Aula 1 · Em que degrau você está",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Em que degrau você está",
@@ -189,6 +190,7 @@ PAGINAS = {
                  (None, "Em que degrau você está")],
     ),
     "a2-preve": dict(
+        tipo="fundamento",
         titulo="Aula 2 · A IA não sabe, ela prevê",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="A IA não sabe, ela prevê",
@@ -201,6 +203,7 @@ PAGINAS = {
                  (None, "A IA não sabe, ela prevê")],
     ),
     "a3-mesa": dict(
+        tipo="fundamento",
         titulo="Aula 3 · A mesa: o que ela tem à vista",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="A mesa: o que ela consegue ter à vista",
@@ -213,6 +216,7 @@ PAGINAS = {
                  (None, "A mesa: o que ela tem à vista")],
     ),
     "a4-inventa": dict(
+        tipo="fundamento",
         titulo="Aula 4 · Quando ela inventa com o mesmo tom",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Quando ela inventa com o mesmo tom",
@@ -225,6 +229,7 @@ PAGINAS = {
                  (None, "Quando ela inventa com o mesmo tom")],
     ),
     "a5-cerca": dict(
+        tipo="fundamento",
         titulo="Aula 5 · O que não entra no chat",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="O que não entra no chat",
@@ -721,13 +726,22 @@ def monta(slug, cfg, fragmento):
     raiz = "./" if slug == "index" else "../"
     # a barra so existe se a pagina estiver na trilha; sem ela, o wrapper de
     # duas colunas nao entra e o layout fica exatamente como era
-    barra = trilha(slug)
-    abre = '<div class="com-trilha">' + barra if barra else ""
-    fecha = "</div>" if barra else ""
+    # 🔴 SEM BARRA LATERAL, e a razao e medida (29/08).
+    # A regra .com-trilha .solta zera o breakout (width:auto, transform:none).
+    # Com a barra ligada, 10 das 14 paginas deste curso tinham 65 FIGURAS
+    # LARGAS DESLIGADAS -- 18 so nas cinco aulas do bloco 1. Toda figura
+    # escrita como larga renderizava na largura da coluna, e o autor abriu o
+    # site e disse que nao aproveitava o espaco. Ele estava certo.
+    # A navegacao nao se perde: sobra a migalha, o .rodape-nav, e a pagina de
+    # bloco, que da o mesmo indice que a barra dava.
+    barra = ""
+    abre = fecha = ""
     return TEMPLATE % dict(
         titulo=cfg["titulo"], css=css(), raiz=raiz,
         sigla=CURSO["sigla"], nome=CURSO["nome"], sub=CURSO["sub"],
         migalha=migalha, kicker=cfg["kicker"], h1=cfg["h1"],
+        # aula-pratica ou aula-fundamento. Pagina que nao e aula fica sem.
+        tipo=("aula-" + cfg["tipo"]) if cfg.get("tipo") else "",
         sub_pagina=cfg["sub"], selos=selos, corpo=fragmento,
         abre_trilha=abre, fecha_trilha=fecha, rodape=rodape(slug),
     )
@@ -763,7 +777,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 %(migalha)s
 
 %(abre_trilha)s
-<main class="folha">
+<main class="folha %(tipo)s">
   <div class="heroi">
     <div class="heroi-kicker">%(kicker)s</div>
     <h1>%(h1)s</h1>

@@ -1257,6 +1257,7 @@ def g37_as_divs_fecham(rel, html):
     de duas colunas e a pagina passou a rolar na horizontal. Os 36 gates deram
     zero achado e quem pegou foi o navegador.
     """
+    html = _sem_css_nem_script(html)
     abre = len(re.findall(r"<div\b", html))
     fecha = len(re.findall(r"</div\s*>", html))
     if abre != fecha:
@@ -1273,6 +1274,7 @@ def g38_todo_bloco_mora_em_envelope(rel, html):
     36 gates deram zero, e o bloco nao estava dentro de secao nenhuma -- entao
     nascia sem a margem, sem a numeracao e fora do sumario.
     """
+    html = _sem_css_nem_script(html)
     m = re.search(r"<main\b[^>]*>", html)
     if not m:
         return []
@@ -1295,6 +1297,70 @@ def g38_todo_bloco_mora_em_envelope(rel, html):
     return falhas
 
 
+def _sem_css_nem_script(html):
+    """O HTML sem o miolo de <style> e <script>.
+
+    🔴 CSS EMBUTIDO E CONTEUDO DO HTML. Um comentario de CSS que cite uma tag
+    -- e comentario bom cita, para explicar o defeito que a regra conserta --
+    entra na pagina como se fosse marcacao. Em 28/08 um comentario meu com a
+    palavra main entre sinais de menor e maior fez todo gate de estrutura
+    ancorar DENTRO da folha de estilo, 15 mil caracteres antes do main de
+    verdade, e seis paginas reprovaram de uma vez.
+    """
+    return re.sub(r"<style\b.*?</style>|<script\b.*?</script>", " ", html,
+                  flags=re.S | re.I)
+
+
+def _tipo_da_aula(html):
+    """pratica, fundamento, ou None se a pagina nao declara.
+
+    Decisao do Rafael em 28/08: existem dois tipos de aula, e forcar a mesma
+    anatomia nos dois produz exercicio postico. A aula de fundamento ensina
+    como a coisa funciona e entrega um INSTRUMENTO; a de pratica entrega uma
+    coisa feita.
+    """
+    m = re.search(r'<main[^>]*class="[^"]*\baula-(pratica|fundamento)\b', html)
+    return m.group(1) if m else None
+
+
+def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
+    """🔴 Cada tipo de aula tem o seu contrato, e eles nao sao o mesmo.
+
+    PRATICA: as tres pecas da secao 05, que o CLAUDE.md manda desde sempre e
+    nenhum gate media -- .arquivo, .passo e .prompt. Aula sem arquivo para
+    baixar, sem passo numerado e sem pedido pronto vira "agora faca voce".
+
+    FUNDAMENTO: NAO leva exercicio forcado. Leva um INSTRUMENTO que a pessoa
+    guarda -- a ficha, a regua, o cartao de referencia: .arquivo, .canvas ou
+    .criador. Foi a falta disso que produziu, na trilha IEL 40h, cinco aulas
+    de conceito com exercicio inventado e nenhum artefato.
+
+    Pagina que nao declara tipo nao e cobrada: material anterior a 28/08
+    continua valendo pelo contrato antigo.
+    """
+    tipo = _tipo_da_aula(_sem_css_nem_script(html))
+    if not tipo:
+        return []
+    limpo = _sem_css_nem_script(html)
+    tem = lambda c: bool(re.search(
+        r'<[^>]*class="(?:[^"]* )?' + c + r'(?: [^"]*)?"', limpo))
+    falhas = []
+    if tipo == "pratica":
+        for peca in ("arquivo", "passo"):
+            if not tem(peca):
+                falhas.append("{}: aula de PRATICA sem .{}. A secao 05 tem as tres "
+                              "sempre: .arquivo, .passo e .prompt".format(rel, peca))
+        if "prompt-txt" not in limpo:
+            falhas.append("{}: aula de PRATICA sem pedido pronto para copiar"
+                          .format(rel))
+    else:
+        if not any(tem(c) for c in ARTEFATO):
+            falhas.append("{}: aula de FUNDAMENTO sem instrumento. Ela nao precisa "
+                          "de exercicio, mas precisa entregar a ficha, a regua ou o "
+                          "cartao: .arquivo, .canvas ou .criador".format(rel))
+    return falhas
+
+
 def _e_aula(html):
     """Pagina de AULA: oito secoes e pelo menos um conceito.
 
@@ -1307,9 +1373,16 @@ def _e_aula(html):
     piloto) nem de campo novo no gerador. Se a anatomia mudar de tamanho,
     este numero muda junto, e e por isso que ele mora aqui e nao espalhado.
     """
-    secoes = len(re.findall(r'<section class="(?:[^"]* )?secao(?: [^"]*)?"', html))
-    if secoes != 8:
-        return None
+    html = _sem_css_nem_script(html)
+    # A MARCA EXPLICITA MANDA. Desde 28/08 o gerador escreve aula-pratica ou
+    # aula-fundamento na folha, e marca declarada vale mais que assinatura
+    # inferida. A contagem de secoes fica como FALLBACK, para curso que ainda
+    # nao declarou tipo -- sem ela, os gates de aula ficariam cegos em todo
+    # material anterior a esta data.
+    if not _tipo_da_aula(html):
+        secoes = len(re.findall(r'<section class="(?:[^"]* )?secao(?: [^"]*)?"', html))
+        if secoes != 8:
+            return None
     con = re.findall(r'<[^>]*class="(?:[^"]* )?conceito(?: [^"]*)?"', html)
     pas = re.findall(r'<[^>]*class="(?:[^"]* )?passo(?: [^"]*)?"', html)
     return (len(con), len(pas)) if con else None
@@ -1412,6 +1485,37 @@ def g42_a_trilha_entrega_a_cada_tres_aulas(rel, html):
             "tela. Exercicio nao e entrega: em tres aulas seguidas, pelo menos "
             "uma leva .arquivo, .canvas ou .criador"
             .format(rel, len(janela) - 1)]
+
+
+def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
+    """🔴 Em tres aulas seguidas, pelo menos uma e de PRATICA.
+
+    A regra do Rafael, dita em 28/08: "aprendi um certo conjunto de fundamentos
+    aqui, vamos fazer uma pratica". Nem toda aula leva pratica -- forcar produz
+    exercicio postico e a experiencia fica pessima. Mas tres fundamentos
+    seguidos e o que ele descreveu como boiando.
+
+    Nao substitui o G42: aquele mede ARTEFATO e este mede TIPO. Uma aula de
+    fundamento pode entregar instrumento e continuar sendo fundamento.
+    """
+    if not _tipo_da_aula(_sem_css_nem_script(html)):
+        return []
+    ordem = [r for r in _ordem_das_aulas() if r in [d for d, _ in paginas()]]
+    if rel not in ordem:
+        return []
+    i = ordem.index(rel)
+    janela = ordem[max(0, i - 2):i + 1]
+    for r in janela:
+        h = html if r == rel else None
+        if h is None:
+            caminho = os.path.join(RAIZ, r)
+            if not os.path.exists(caminho):
+                continue
+            h = io.open(caminho, encoding="utf-8").read()
+        if _tipo_da_aula(_sem_css_nem_script(h)) == "pratica":
+            return []
+    return ["{}: tres aulas seguidas de fundamento. Um conjunto de fundamentos "
+            "fecha com uma pratica que faca sentido".format(rel)]
 
 
 def g41_o_conceito_vem_com_imagem(rel, html):
@@ -1612,6 +1716,12 @@ GATES = [
      lambda h: h.replace('class="analogia"', 'class="analogia-sumiu"', 1), None),
     ("G42", "a trilha entrega a cada três aulas", g42_a_trilha_entrega_a_cada_tres_aulas,
      lambda h: h.replace('class="arquivo"', 'class="arquivo-sumiu"', 1), None),
+    ("G43", "a aula cumpre o contrato do tipo dela",
+     g43_a_aula_cumpre_o_contrato_do_tipo_dela,
+     lambda h: h.replace('class="arquivo"', 'class="arq-sumiu"', 1), None),
+    ("G44", "o módulo mescla fundamento com prática",
+     g44_o_modulo_mescla_fundamento_com_pratica,
+     lambda h: h.replace('folha aula-pratica', 'folha aula-fundamento', 1), None),
 ]
 
 

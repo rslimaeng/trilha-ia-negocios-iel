@@ -2226,6 +2226,29 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
    figura so chegava na secao seguinte, com 312. Seiscentas palavras de
    abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+/* ---------- O TIPO DA AULA ------------------------------------------------
+   Decisao do Rafael em 28/08: existem DOIS tipos de aula, e forcar a mesma
+   anatomia nos dois foi o que produziu exercicio postico.
+
+     .aula-fundamento   ensina como a coisa funciona. Entrega um INSTRUMENTO
+                        de referencia (a ficha, a regua, o cartao), nao um
+                        exercicio. Nao leva secao 05 forcada.
+     .aula-pratica      a pessoa faz. Leva as tres pecas da 05: .arquivo,
+                        .passo e .prompt.
+
+   A marca sai no elemento main e o aluno a ve no kicker: ele sabe, antes de rolar a
+   pagina, se vem aprender ou se vem fazer. E nao se mistura com o selo, que
+   fala de duracao e area.                                                  */
+.aula-fundamento .heroi-kicker{color:var(--text-dim)}
+.aula-pratica .heroi-kicker{color:var(--accent-dark)}
+.aula-pratica .heroi-kicker::before,
+.aula-fundamento .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;
+}
+.aula-fundamento .heroi-kicker::before{background:var(--text-muted)}
+.aula-pratica .heroi-kicker::before{background:var(--accent)}
+
 .analogia{
   background:var(--bg-warm);border-left:3px solid var(--accent);
   border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;

@@ -2320,6 +2320,29 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
    figura so chegava na secao seguinte, com 312. Seiscentas palavras de
    abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+/* ---------- O TIPO DA AULA ------------------------------------------------
+   Decisao do Rafael em 28/08: existem DOIS tipos de aula, e forcar a mesma
+   anatomia nos dois foi o que produziu exercicio postico.
+
+     .aula-fundamento   ensina como a coisa funciona. Entrega um INSTRUMENTO
+                        de referencia (a ficha, a regua, o cartao), nao um
+                        exercicio. Nao leva secao 05 forcada.
+     .aula-pratica      a pessoa faz. Leva as tres pecas da 05: .arquivo,
+                        .passo e .prompt.
+
+   A marca sai no elemento main e o aluno a ve no kicker: ele sabe, antes de rolar a
+   pagina, se vem aprender ou se vem fazer. E nao se mistura com o selo, que
+   fala de duracao e area.                                                  */
+.aula-fundamento .heroi-kicker{color:var(--text-dim)}
+.aula-pratica .heroi-kicker{color:var(--accent-dark)}
+.aula-pratica .heroi-kicker::before,
+.aula-fundamento .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;
+}
+.aula-fundamento .heroi-kicker::before{background:var(--text-muted)}
+.aula-pratica .heroi-kicker::before{background:var(--accent)}
+
 .analogia{
   background:var(--bg-warm);border-left:3px solid var(--accent);
   border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;
@@ -2646,8 +2669,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 <nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b1-fundamentos/">Bloco 1 · Fundamentos</a> &rsaquo; A mesa: o que ela tem à vista</nav>
 
-<div class="com-trilha"><aside class="trilha"><div class="trilha-cab">Aula 5 de 10</div><div class="trilha-agora">A mesa: o que ela tem à vista</div><div class="trilha-grupo">Módulo 1 · IA Conversacional e Estratégica</div><ol><li class="feita"><a href="../modulo-1/"><span class="tl-n">&#10003;</span><span>Os&nbsp;seis blocos do&nbsp;módulo</span></a></li><li class="feita"><a href="../b1-fundamentos/"><span class="tl-n">&#10003;</span><span>Bloco 1 · Mentalidade e&nbsp;Fundamentos</span></a></li></ol><div class="trilha-grupo">As aulas do bloco 1</div><ol><li class="feita"><a href="../a1-degrau/"><span class="tl-n">&#10003;</span><span>Em&nbsp;que&nbsp;degrau você está</span></a></li><li class="feita"><a href="../a2-preve/"><span class="tl-n">&#10003;</span><span>A&nbsp;IA não&nbsp;sabe, ela prevê</span></a></li><li class="agora"><span class="tl"><span class="tl-n">05</span><span>A&nbsp;mesa: o&nbsp;que&nbsp;ela tem à&nbsp;vista</span></span></li><li class=""><a href="../a4-inventa/"><span class="tl-n">06</span><span>Quando&nbsp;ela inventa com&nbsp;o&nbsp;mesmo tom</span></a></li><li class=""><a href="../a5-cerca/"><span class="tl-n">07</span><span>O&nbsp;que&nbsp;não&nbsp;entra no&nbsp;chat</span></a></li></ol><div class="trilha-grupo">Os outros dois módulos</div><ol><li class=""><a href="../modulo-2/"><span class="tl-n">08</span><span>Automação com&nbsp;n8n</span></a></li><li class=""><a href="../modulo-3/"><span class="tl-n">09</span><span>Minha&nbsp;Jornada com&nbsp;IA</span></a></li></ol><div class="trilha-grupo">Referência interna</div><ol><li class=""><a href="../componentes/"><span class="tl-n">10</span><span>As&nbsp;peças do&nbsp;padrão</span></a></li></ol></aside>
-<main class="folha">
+
+<main class="folha aula-fundamento">
   <div class="heroi">
     <div class="heroi-kicker">Módulo 1 · Mentalidade e Fundamentos</div>
     <h1>A&nbsp;mesa: o&nbsp;que&nbsp;ela consegue ter à&nbsp;vista</h1>
@@ -2986,7 +3009,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 <nav class="rodape-nav"><a href="../a2-preve/">&larr; Aula 2 · A IA não sabe, ela prevê</a><a href="../a4-inventa/">Aula 4 · Quando ela inventa com o mesmo tom &rarr;</a></nav>
 </main>
-</div>
+
 
 <script>
 (function(){
