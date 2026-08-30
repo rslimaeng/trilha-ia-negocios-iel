@@ -177,7 +177,11 @@ PAGINAS = {
                  (None, "Mentalidade e Fundamentos")],
     ),
     "a1-degrau": dict(
-        tipo="fundamento",
+        # 🔴 organizacao, nao fundamento. Decisao do Rafael, 31/08: posicionar-se
+        # nos 7 Niveis E inventariar a propria rotina, nao aprender um conceito.
+        # Ela nunca foi aula de fundamento; era o terceiro tipo antes de o
+        # terceiro tipo existir. E o que tira o bloco 1 do G44.
+        tipo="organizacao",
         titulo="Aula 1 · Em que degrau você está",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Em que degrau você está",

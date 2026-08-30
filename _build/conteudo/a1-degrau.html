@@ -100,107 +100,281 @@
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>Os sete degraus, e o sintoma que denuncia cada um</h2>
+        <h2>A régua, degrau por degrau</h2>
       </div>
     </div>
 
-    <p>Leia de cima para baixo e pare no primeiro degrau cujo sintoma você reconhece como
-    <strong>seu hoje</strong>, não como o que você gostaria que fosse. O degrau seguinte é
-    o seu alvo neste curso.</p>
+    <p>Sete degraus, e cada um descrito do mesmo jeito: primeiro o sinal, depois a
+    definição, depois as ferramentas típicas, e por último o passo para sair dali.
+    <strong>Comece pelo sinal, não pela definição</strong>, e clique nos degraus até
+    achar aquele em que você se reconhece hoje.</p>
 
-    <div class="escada solta">
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N1</div>
-          <div class="detalhe">Curioso</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você faz perguntas avulsas, sem pensar em como está perguntando</h4>
-          <p>Funciona às vezes, e você não sabe explicar por que às vezes não.
-          <strong>Para subir:</strong> peça a mesma coisa de duas formas diferentes e
-          compare o que volta.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N2</div>
-          <div class="detalhe">Prompter Consciente</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você já viu a mesma pergunta, escrita diferente, voltar muito melhor</h4>
-          <p>Agora você pensa antes de digitar, e reexplica quem você é em toda conversa
-          nova. <strong>Para subir:</strong> pare de reexplicar, deixe o contexto guardado
-          em algum lugar.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N3</div>
-          <div class="detalhe">Operador com Contexto</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você abre uma conversa nova e ela já sabe o seu papel e o seu tom</h4>
-          <p>O contexto ficou salvo, e você parou de começar do zero.
-          <strong>Para subir:</strong> descubra que existe mais coisa além do chat, e o
-          que cada uma faz melhor.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N4</div>
-          <div class="detalhe">Orquestrador</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você escolhe a ferramenta pelo trabalho, e não usa a mesma para tudo</h4>
-          <p>A pergunta virou "qual serve aqui" no lugar de "o que ela faz".
-          <strong>Para subir:</strong> pare de começar tudo no braço e monte a primeira
-          coisa que roda sozinha.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N5</div>
-          <div class="detalhe">Construtor de Processos</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você tem pelo menos uma coisa rodando sem precisar tocar</h4>
-          <p>Depois da primeira, você passa a ver oportunidade em todo lugar.
-          <strong>É até aqui que este curso leva você</strong>, e é o alvo de quem entra
-          no N3.</p>
+    <div class="vocab">
+      <div class="vocab-l"><span class="chip chip-accent">Você está aqui se…</span>
+        <p>o que você <strong>faz</strong>, não o que você sabe. É por onde você se acha.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">O que define</span>
+        <p>a explicação do degrau. Vem depois do sinal, de propósito.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">Ferramentas típicas</span>
+        <p>o que costuma estar aberto na tela de quem está ali.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">Próximo passo</span>
+        <p>uma ação para hoje, e não uma competência a desenvolver.</p></div>
+    </div>
+
+    <div class="abas">
+      <input type="radio" name="abas-niveis" id="nv1" checked>
+      <input type="radio" name="abas-niveis" id="nv2">
+      <input type="radio" name="abas-niveis" id="nv3">
+      <input type="radio" name="abas-niveis" id="nv4">
+      <input type="radio" name="abas-niveis" id="nv5">
+      <input type="radio" name="abas-niveis" id="nv6">
+      <input type="radio" name="abas-niveis" id="nv7">
+      <nav class="abas-fila">
+        <label for="nv1">N1</label>
+        <label for="nv2">N2</label>
+        <label for="nv3">N3</label>
+        <label for="nv4">N4</label>
+        <label for="nv5">N5</label>
+        <label for="nv6">N6</label>
+        <label for="nv7">N7</label>
+      </nav>
+      <div class="aba-corpo">
+        <div class="aba-rot">N1 · O Curioso</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N1</div>
+            <div>
+              <span class="nivel-fase">Uso</span>
+              <h3 class="nivel-t">O Curioso</h3>
+              <p class="nivel-ol">Você abre o chat quando lembra que ele existe</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>Você faz perguntas avulsas, do jeito que vêm à cabeça, e às vezes volta uma coisa ótima. Quando não volta, você fecha a aba e faz à mão, sem saber dizer o que foi diferente das vezes em que deu certo.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>O uso é episódico e não é reprodutível. Não existe ainda a noção de que o <em>jeito</em> de pedir é uma alavanca: a resposta parece uma loteria que às vezes premia.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Um chat, aberto de vez em quando</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Pegue uma pergunta que você já fez e refaça de dois jeitos, um curto e um com contexto. Compare o que volta lado a lado. São cinco minutos, e é o que produz a primeira virada.</p>
+          </div>
         </div>
       </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N6</div>
-          <div class="detalhe">horizonte</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Você não vê mais tarefas, vê sistemas esperando para ser construídos</h4>
-          <p>Fica de referência, para você saber que existe estrada depois da chegada.
-          Não é meta deste curso.</p>
+      <div class="aba-corpo">
+        <div class="aba-rot">N2 · O Prompter Consciente</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N2</div>
+            <div>
+              <span class="nivel-fase">Método</span>
+              <h3 class="nivel-t">O Prompter Consciente</h3>
+              <p class="nivel-ol">Você reescreve o pedido em vez de desistir dele</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>Você já viu a mesma pergunta, escrita diferente, voltar muito melhor. Agora pensa antes de digitar. E reexplica quem você é, o que faz e para quem trabalha em toda conversa nova, porque já reparou que sem isso a resposta sai genérica.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>O pedido virou a alavanca, e você sabe operá-la. O que ainda não virou é o contexto: cada conversa começa do zero, e o reexplicar consome uma parte do seu dia toda semana.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Um chat, no navegador</span>
+              <span class="chip">Um bloco de notas com pedidos que deram certo</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Pegue o texto que você reescreve toda vez e cole num lugar que persista: um projeto, uma instrução salva, um documento fixo. Custa dez minutos e você para de pagar esse pedágio.</p>
+          </div>
         </div>
       </div>
-      <div class="escada-seta" aria-hidden="true">↓</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">N7</div>
-          <div class="detalhe">horizonte</div>
+      <div class="aba-corpo">
+        <div class="aba-rot">N3 · O Operador com Contexto</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N3</div>
+            <div>
+              <span class="nivel-fase">Contexto</span>
+              <h3 class="nivel-t">O Operador com Contexto</h3>
+              <p class="nivel-ol">Você abre uma conversa nova e ela já sabe quem você é</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>O contexto ficou guardado em algum lugar, e você parou de começar do zero. As respostas saem no seu tom sem você pedir, e o tempo que ia para reexplicar virou tempo de trabalho.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>O contexto saiu da sua cabeça e virou configuração. É o degrau em que a IA deixa de ser uma ferramenta que você usa e vira um lugar onde parte do seu trabalho mora.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Um chat com projeto ou instrução fixa</span>
+              <span class="chip">Uma pasta de material de referência</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Liste três coisas que você faz no chat e pergunte, de cada uma, se existe ferramenta melhor para aquilo. A resposta vai ser sim em pelo menos uma, e é por onde você sobe.</p>
+          </div>
         </div>
-        <div class="degrau-corpo">
-          <h4>Um time de agentes tocando a operação enquanto você dorme</h4>
-          <p>Nível aspiracional, e é honesto dizer: praticamente ninguém está aqui.</p>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">N4 · O Orquestrador</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N4</div>
+            <div>
+              <span class="nivel-fase">Escolha</span>
+              <h3 class="nivel-t">O Orquestrador</h3>
+              <p class="nivel-ol">Você escolhe a ferramenta pelo trabalho, e não usa a mesma para tudo</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>A pergunta que você faz mudou de <em>o que a IA faz</em> para <em>qual delas serve aqui</em>. Você já usou pelo menos três ferramentas diferentes no mesmo mês, cada uma pelo que ela faz melhor.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>O critério de escolha virou o trabalho, e não o hábito. É o degrau em que o ganho para de depender de uma ferramenta só, e passa a depender do seu discernimento.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Chat, pesquisa e transcrição, cada um no seu lugar</span>
+              <span class="chip">Um caderno de qual serve para quê</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Escolha a tarefa que você mais repete e monte a primeira versão dela rodando sozinha, nem que seja meia automação. Sair do braço uma vez muda o que você enxerga depois.</p>
+          </div>
+        </div>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">N5 · O Construtor de Processos</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N5</div>
+            <div>
+              <span class="nivel-fase">Sistema</span>
+              <h3 class="nivel-t">O Construtor de Processos</h3>
+              <p class="nivel-ol">Você tem pelo menos uma coisa rodando sem precisar tocar</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>Existe uma tarefa da sua semana que acontece sem você. Você conferiu no começo, ajustou duas vezes, e agora só olha o resultado. E desde que isso funcionou, você passou a ver oportunidade parecida em todo lugar.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>O trabalho deixou de ser executado e passou a ser desenhado. É até aqui que este curso leva você, e é o alvo de quem entra no N3.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Uma automação rodando</span>
+              <span class="chip">Um assistente configurado com o seu processo</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Meça o que a primeira automação devolveu em horas por semana, e escolha a segunda pelo mesmo critério. Sem a medida, a terceira vira hobby em vez de decisão.</p>
+          </div>
+        </div>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">N6 · O Arquiteto</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N6</div>
+            <div>
+              <span class="nivel-fase">Horizonte</span>
+              <h3 class="nivel-t">O Arquiteto</h3>
+              <p class="nivel-ol">Você não vê mais tarefas, vê sistemas esperando para ser construídos</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>Quando alguém descreve um problema da operação, o que aparece na sua cabeça é o desenho de como aquilo se resolveria sozinho. Você pensa em entradas, saídas e exceções antes de pensar em ferramenta.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>A unidade de trabalho virou o sistema, não a tarefa. Fica aqui de referência, para você saber que existe estrada depois da chegada. <strong>Não é meta deste curso.</strong></p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">O que o N5 tem, mais desenho de processo</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Não há próximo passo a dar aqui dentro deste curso. Se você já está neste degrau, o valor do curso é outro: é a linguagem para conduzir quem está do N1 ao N3.</p>
+          </div>
+        </div>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">N7 · O Regente</div>
+        <div class="nivel">
+          <div class="nivel-topo">
+            <div class="nivel-n">N7</div>
+            <div>
+              <span class="nivel-fase">Horizonte</span>
+              <h3 class="nivel-t">O Regente</h3>
+              <p class="nivel-ol">Um time de agentes tocando a operação enquanto você dorme</p>
+            </div>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Você está aqui se…</span>
+            <p>Vários sistemas conversando entre si, com você definindo objetivo e limite em vez de definindo passo. É o nível aspiracional da régua.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">O que define este nível</span>
+            <p>É honesto dizer: praticamente ninguém está aqui, e quem diz que está costuma estar no N5 com vocabulário do N7. O degrau existe na régua para deixar claro que ela não acaba no curso.</p>
+          </div>
+          <div class="nivel-bloco">
+            <span class="nivel-rot">Ferramentas típicas</span>
+            <div class="nivel-chips">
+              <span class="chip">Não aplicável no horizonte deste curso</span>
+            </div>
+          </div>
+          <div class="nivel-passo">
+            <span class="nivel-rot">Próximo passo concreto</span>
+            <p>Nenhum. Este degrau está na régua para marcar direção, não para ser perseguido agora.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <p class="fig-leg"><strong>Repare que cada degrau é um comportamento, nunca uma
-    ferramenta.</strong> É o que faz o instrumento continuar valendo quando o nome dos
-    produtos mudar, e eles mudam todo ano.</p>
+    ferramenta.</strong> É o que faz a régua continuar valendo quando o nome dos produtos
+    mudar, e eles mudam todo ano. Se um degrau dependesse de um produto, a régua
+    envelheceria junto com ele.</p>
+
+    <p>A ordem dos quatro blocos dentro de cada degrau não é decoração. <strong>Se a
+    definição viesse primeiro, você leria os sete e não se acharia em nenhum</strong>,
+    porque definição convida a comparar com o que você gostaria de ser. O sinal
+    comportamental convida a lembrar do que você fez na terça-feira passada, e é isso que
+    produz o reconhecimento.</p>
+
+    <p>Repare também no que os degraus <strong>N6</strong> e <strong>N7</strong> fazem
+    aqui. Eles não são meta deste curso, e estão na régua por honestidade: uma régua que
+    termina exatamente onde o curso termina esconde que existe estrada depois, e faz
+    quem chega no N5 achar que acabou.</p>
   </section>
 
   <section class="secao" id="demonstracao">
@@ -246,65 +420,186 @@
     <div class="secao-topo">
       <div class="secao-n">05</div>
       <div>
-        <div class="secao-fn">A sua vez</div>
+        <div class="secao-fn">Sua vez · o quadro é seu</div>
         <h2>A sua ficha, e a rotina que vai com você até o fim do curso</h2>
       </div>
     </div>
 
-    <p>Não precisa instalar nada. Papel serve.</p>
+    <p>Aqui não há conceito novo para aprender. O que há é <strong>o seu mapa</strong>,
+    e ele só existe se você o preencher: o degrau em que você está hoje, a rotina que vai
+    atravessar o curso, e o que ela custa por semana.</p>
 
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">01</div>
-        <div>
-          <div class="passo-fn">Passo 1</div>
-          <h3>Escreva o degrau de hoje e o sintoma que provou ele</h3>
+    <p>Antes de escrever, olhe a régua inteira de uma vez. Na seção anterior você entrou
+    degrau por degrau; aqui é o arco, para você ver de onde vem e para onde vai:</p>
+
+    <div class="escada solta">
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N1</div>
+          <div class="detalhe">Curioso</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você faz perguntas avulsas, sem pensar em como está perguntando</h4>
+          <p>Funciona às vezes, e você não sabe explicar por que às vezes não.</p>
         </div>
       </div>
-      <p>Uma linha só, no formato <em>"estou no N_, porque _"</em>. O "porque" é a parte
-      que importa: sem ele você anotou uma impressão, e mais adiante não vai
-      dar para saber se andou.</p>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">02</div>
-        <div>
-          <div class="passo-fn">Passo 2</div>
-          <h3>Escolha a rotina que vai atravessar o curso inteiro</h3>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N2</div>
+          <div class="detalhe">Prompter Consciente</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você já viu a mesma pergunta, escrita diferente, voltar muito melhor</h4>
+          <p>Você pensa antes de digitar, e reexplica quem você é em toda conversa nova.</p>
         </div>
       </div>
-      <p>Uma tarefa sua, real, que se repete. Ela vai ser o insumo de quase todo exercício
-      daqui para a frente: é ela que você vai mapear, virar assistente e, no Módulo 2,
-      virar automação.</p>
-
-      <div class="destrave">
-        <div class="destrave-rot">A regra que faz a rotina servir, e ela é uma só</div>
-        <ul>
-          <li>Precisa ser um trabalho que você <strong>já entregou</strong>, e cujo
-          resultado você conhece. O relatório do mês que fechou, não o do mês corrente.</li>
-          <li>Precisa ter acontecido mais de uma vez, senão não há rotina, há episódio.</li>
-          <li>Você precisa poder mostrar o material dele, ou uma versão com os dados
-          trocados.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como rotina:</strong> "quero
-        automatizar meu e-mail". Conta: "o relatório de julho, que eu fechei no dia 5 e
-        mandei para a minha gestora". O que você já entregou é o seu gabarito, e sem
-        gabarito você não tem como saber se a máquina acertou.</div>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">03</div>
-        <div>
-          <div class="passo-fn">Passo 3</div>
-          <h3>Escreva quanto tempo essa rotina custa por semana</h3>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N3</div>
+          <div class="detalhe">Operador com Contexto</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você abre uma conversa nova e ela já sabe o seu papel e o seu tom</h4>
+          <p>O contexto ficou salvo, e você parou de começar do zero toda vez.</p>
         </div>
       </div>
-      <p>Um número aproximado basta, e anote como você chegou nele. Esse número volta no
-      Módulo 3, quando o curso for calcular o retorno do que você construiu.</p>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N4</div>
+          <div class="detalhe">Orquestrador</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você escolhe a ferramenta pelo trabalho, e não usa a mesma para tudo</h4>
+          <p>A pergunta virou "qual serve aqui" no lugar de "o que ela faz".</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N5</div>
+          <div class="detalhe">Construtor de Processos</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você tem pelo menos uma coisa rodando sem precisar tocar</h4>
+          <p><strong>É até aqui que este curso leva você</strong>, e é o alvo de quem
+          entra no N3.</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N6</div>
+          <div class="detalhe">horizonte</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Você não vê mais tarefas, vê sistemas esperando para ser construídos</h4>
+          <p>Fica de referência. Não é meta deste curso.</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">N7</div>
+          <div class="detalhe">horizonte</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Um time de agentes tocando a operação enquanto você dorme</h4>
+          <p>Nível aspiracional, e é honesto dizer: praticamente ninguém está aqui.</p>
+        </div>
+      </div>
     </div>
+
+    <p class="fig-leg"><strong>A escada mostra o arco; a régua da seção 03 mostra o
+    degrau.</strong> São a mesma informação em duas formas, porque servem a dois momentos:
+    a escada você lê uma vez para entender a direção, e a régua você volta a consultar
+    toda vez que quiser saber o próximo passo.</p>
+
+    <p>Agora o seu quadro. Ele nasce em branco de propósito: <strong>o conteúdo é
+    seu</strong>, e uma ficha que já viesse preenchida seria o meu mapa, não o seu. O
+    rascunho fica salvo neste aparelho.</p>
+
+    <div class="canvas solta" data-chave="canvas-ficha-de-nivel">
+      <div class="canvas-topo">
+        <div>
+          <span class="rot">O instrumento desta aula</span>
+          <h3 class="canvas-t">A minha ficha de nível</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="fn-degrau">O meu degrau hoje, e o sintoma que provou</label>
+            <div class="cv-ex">Ex: estou no N2, porque toda conversa nova começa com a mesma explicação de quem eu sou e do que a área faz</div>
+            <textarea id="fn-degrau" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="fn-proximo">O próximo passo do meu degrau, copiado da régua</label>
+            <div class="cv-ex">Ex: colar o texto que eu reescrevo toda vez num lugar que persista</div>
+            <textarea id="fn-proximo" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="fn-rotina">A rotina que vai atravessar o curso</label>
+            <div class="cv-ex">Ex: o relatório de fechamento de julho, que eu entreguei no dia 5 para a minha gestora</div>
+            <textarea id="fn-rotina" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="fn-custo">O que ela custa por semana, e como eu cheguei nesse número</label>
+            <div class="cv-ex">Ex: umas 3 horas, porque são 6 planilhas e cada uma leva meia hora</div>
+            <textarea id="fn-custo" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">5</div>
+          <div>
+            <label class="cv-rot" for="fn-gabarito">O resultado que essa rotina já teve, e que eu conheço</label>
+            <div class="cv-ex">Ex: o relatório entregue, com os números que eu apresentei e que ninguém contestou</div>
+            <textarea id="fn-gabarito" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha ficha</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">O campo 5 é o que faz o curso inteiro funcionar: é o gabarito
+        contra o qual você vai comparar na aula 4. Sem ele, os exercícios viram leitura.</p>
+      </div>
+    </div>
+
+    <div class="destrave">
+      <div class="destrave-rot">Se travar na escolha da rotina, use estas três regras</div>
+      <ul>
+        <li>Precisa ser um trabalho que você <strong>já entregou</strong>, e cujo
+        resultado você conhece. O relatório do mês que fechou, não o do mês corrente.</li>
+        <li>Precisa ter acontecido mais de uma vez, senão não há rotina, há episódio.</li>
+        <li>Você precisa poder mostrar o material dele, ou uma versão com os dados
+        trocados.</li>
+      </ul>
+      <div class="destrave-nao"><strong>Não conta como rotina:</strong> "quero
+      automatizar meu e-mail". Conta: "o relatório de julho, que eu fechei no dia 5 e
+      mandei para a minha gestora". O que você já entregou é o seu gabarito, e sem
+      gabarito você não tem como saber se a máquina acertou.</div>
+    </div>
+
+    <p class="fig-leg"><strong>O quadro nasce vazio e a estrutura vem dada.</strong> É a
+    diferença entre "mapeie a sua rotina", que é folha em branco, e cinco campos com
+    exemplo embaixo de cada rótulo, que é uma coisa que a sala consegue preencher em dez
+    minutos.</p>
   </section>
 
   <section class="secao" id="confira">
