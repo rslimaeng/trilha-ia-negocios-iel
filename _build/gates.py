@@ -987,8 +987,27 @@ def _manifesto():
 
 
 def _abre_mesmo(caminho, info):
-    """Abre o insumo de verdade e confere que as abas e o volume batem com o
-    manifesto. Devolve a mensagem do problema, ou None."""
+    """Abre o insumo de verdade e confere que o conteúdo bate com o manifesto.
+    Devolve a mensagem do problema, ou None.
+
+    🔴 Existir não é abrir, e vale para os dois formatos. Foi um .xlsx que
+    ensinou isso aqui: um passo que congelava o zip quebrou o XML interno, o
+    arquivo parou de abrir, e os 34 gates da época continuaram passando porque
+    nenhum tentava ABRIR nada. O .docx passa pelo mesmo congelamento de zip e
+    corre exatamente o mesmo risco.
+    """
+    if caminho.lower().endswith(".docx"):
+        try:
+            from docx import Document
+            doc = Document(caminho)
+        except Exception as e:
+            return "{}: {}".format(type(e).__name__, str(e)[:90])
+        titulos = [p.text for p in doc.paragraphs
+                   if p.style.name.startswith("Heading")]
+        if titulos != info["secoes"]:
+            return "as seções são {} e o manifesto diz {}".format(
+                titulos, info["secoes"])
+        return None
     if not caminho.lower().endswith(".xlsx"):
         return None
     try:
@@ -1057,7 +1076,26 @@ def g32_a_pagina_bate_com_o_insumo(rel, html):
 
         vis = texto_visivel(html)
 
-        # 2 · os números anunciados
+        # 2 · os números anunciados. Cada formato tem os SEUS, e trocar um pelo
+        #     outro seria o gate mentindo: documento não tem aba, planilha não
+        #     tem seção.
+        if info["formato"] == "docx":
+            for m in re.finditer(r"(\d+)\s*seções", vis):
+                if int(m.group(1)) != len(info["secoes"]):
+                    falhas.append("{}: a página anuncia {} seções e o documento "
+                                  "tem {}".format(rot, m.group(1),
+                                                  len(info["secoes"])))
+            # 🔴 O total ESCRITO e a soma dos itens divergem de propósito: é a
+            # armadilha. Se a página anunciar um dos dois como "o valor do
+            # projeto", ela entrega o gabarito antes do exercício.
+            for valor in (info["total_escrito"], info["soma_dos_itens"]):
+                fmt = "{:,.0f}".format(valor).replace(",", ".")
+                if re.search(r"valor do projeto[^.]{0,40}" + re.escape(fmt), vis):
+                    falhas.append("{}: a página afirma R$ {} como o valor do "
+                                  "projeto. Os dois números do documento se "
+                                  "contradizem, e escolher um aqui entrega a "
+                                  "armadilha pronta".format(rot, fmt))
+            continue
         linhas_fmt = "{:,}".format(info["linhas"]).replace(",", ".")
         if linhas_fmt not in vis and str(info["linhas"]) not in vis:
             falhas.append("{}: o arquivo tem {} linhas e a página não diz isso"
@@ -1112,7 +1150,11 @@ EU_INSTRUTOR = re.compile(
 # instrutor: "# QUEM EU SOU · Supervisor de 12 lojas. Apresento para a diretoria"
 # é exatamente o que o padrão manda escrever ali. Estes blocos saem da varredura.
 VOZ_DO_ALUNO = re.compile(
-    r'<pre class="[^"]*\b(?:prompt-txt|cr-txt)\b[^"]*"[^>]*>.*?</pre>'
+    # 30/08: o .sistema-txt entra pela MESMA razao. A instrucao permanente que
+    # a pessoa guarda num Project costuma abrir com "QUEM EU SOU", que e a voz
+    # do aluno e nao a do instrutor. Sem esta linha, o primeiro curso que usar a
+    # peca leva um achado falso e alguem "conserta" o que estava certo.
+    r'<pre class="[^"]*\b(?:prompt-txt|cr-txt|sistema-txt)\b[^"]*"[^>]*>.*?</pre>'
     r"|<textarea\b.*?</textarea>"
     # O .cv-rot e ROTULO DE CANVAS: texto que o aluno preenche, na voz dele.
     # Sem esta linha o gate acusava "escrevo" dentro de um rotulo e mandava
@@ -1312,28 +1354,59 @@ def _sem_css_nem_script(html):
 
 
 def _tipo_da_aula(html):
-    """pratica, fundamento, ou None se a pagina nao declara.
+    """pratica, fundamento, organizacao, ou None se a pagina nao declara.
 
     Decisao do Rafael em 28/08: existem dois tipos de aula, e forcar a mesma
     anatomia nos dois produz exercicio postico. A aula de fundamento ensina
     como a coisa funciona e entrega um INSTRUMENTO; a de pratica entrega uma
     coisa feita.
+
+    30/08: o terceiro. Ele descreveu assim -- "alguns fundamentos tambem sao
+    praticos, porque permitem enxergar o conceito e organiza-lo". A aula de
+    ORGANIZACAO nao ensina conceito novo e nao produz entregavel de trabalho:
+    ela poe o aluno a inventariar a propria rotina dentro de uma estrutura
+    dada, e o que sai e sobre ELE. Ja existia sem nome, e e a melhor pagina
+    que o Rafael produziu (a m1a5-mapa da imersao IEL, 3.633 palavras e 14
+    figuras): ela nao cabia em nenhum dos dois contratos e passava por acidente.
     """
-    m = re.search(r'<main[^>]*class="[^"]*\baula-(pratica|fundamento)\b', html)
+    m = re.search(
+        r'<main[^>]*class="[^"]*\baula-(pratica|fundamento|organizacao)\b', html)
     return m.group(1) if m else None
 
 
+# As figuras que dao ESTRUTURA a um inventario. A aula de organizacao precisa
+# de uma delas: sem estrutura dada, "mapeie sua rotina" e uma folha em branco,
+# e folha em branco e o que a sala nao consegue preencher.
+ESTRUTURA = ("matriz", "priorizar", "escada", "arvore", "raias", "setores",
+             "mapa-area", "radar", "decide")
+
+
 def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
-    """🔴 Cada tipo de aula tem o seu contrato, e eles nao sao o mesmo.
+    """🔴 Cada tipo de aula tem o seu contrato, e os tres nao sao o mesmo.
 
     PRATICA: as tres pecas da secao 05, que o CLAUDE.md manda desde sempre e
     nenhum gate media -- .arquivo, .passo e .prompt. Aula sem arquivo para
     baixar, sem passo numerado e sem pedido pronto vira "agora faca voce".
+    E, desde 30/08, o RESULTADO ESPERADO: todo passo diz o que deveria ter
+    acontecido, senao a pessoa so descobre que errou no passo 2 quando chega ao
+    5 e nada bate -- e ai ela nao sabe qual dos quatro passos foi.
 
-    FUNDAMENTO: NAO leva exercicio forcado. Leva um INSTRUMENTO que a pessoa
-    guarda -- a ficha, a regua, o cartao de referencia: .arquivo, .canvas ou
-    .criador. Foi a falta disso que produziu, na trilha IEL 40h, cinco aulas
-    de conceito com exercicio inventado e nenhum artefato.
+    FUNDAMENTO: NAO leva exercicio forcado. Leva duas coisas.
+      1. um INSTRUMENTO que a pessoa guarda -- a ficha, a regua, o cartao:
+         .arquivo, .canvas ou .criador. Foi a falta disso que produziu, na
+         trilha IEL 40h, cinco aulas de conceito com exercicio inventado.
+      2. a VERIFICACAO de entendimento -- .verifique. Regra do Rafael, 30/08:
+         "ha aulas de fundamentos que sao so de explicacao e de confirmar com a
+         turma se todo mundo entendeu". Ate aqui o padrao so tinha .checagem,
+         que e lista de conferencia no fim e a pessoa le concordando com ela
+         mesma. Isso confirma leitura, nao entendimento.
+
+    ORGANIZACAO: a pessoa mapeia o que ela JA TEM. Leva tres.
+      1. o .canvas, que e onde o mapa dela mora -- e nunca uma planilha nossa
+         preenchida, porque o conteudo e sobre ela
+      2. uma figura de ESTRUTURA, que e o que separa isto de "faca uma lista"
+      3. o .destrave, porque escrever sobre a propria rotina e onde a sala
+         mais trava, e sem ele metade responde uma linha achando que respondeu
 
     Pagina que nao declara tipo nao e cobrada: material anterior a 28/08
     continua valendo pelo contrato antigo.
@@ -1345,6 +1418,7 @@ def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
     tem = lambda c: bool(re.search(
         r'<[^>]*class="(?:[^"]* )?' + c + r'(?: [^"]*)?"', limpo))
     falhas = []
+
     if tipo == "pratica":
         for peca in ("arquivo", "passo"):
             if not tem(peca):
@@ -1353,11 +1427,87 @@ def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
         if "prompt-txt" not in limpo:
             falhas.append("{}: aula de PRATICA sem pedido pronto para copiar"
                           .format(rel))
-    else:
+        # o resultado esperado, um por passo. Nao exijo um em CADA passo: o
+        # ultimo passo de uma sequencia costuma ser o proprio resultado, e um
+        # gate que exigisse N por N viraria gate com excecao.
+        if tem("passo") and not tem("passo-ok"):
+            falhas.append("{}: aula de PRATICA sem nenhum resultado esperado. Todo "
+                          "passo que muda a tela leva .passo-ok dizendo o que "
+                          "deveria ter acontecido".format(rel))
+
+    elif tipo == "fundamento":
         if not any(tem(c) for c in ARTEFATO):
             falhas.append("{}: aula de FUNDAMENTO sem instrumento. Ela nao precisa "
                           "de exercicio, mas precisa entregar a ficha, a regua ou o "
                           "cartao: .arquivo, .canvas ou .criador".format(rel))
+        if not tem("verifique"):
+            falhas.append("{}: aula de FUNDAMENTO sem verificacao de entendimento. "
+                          "Explicar e confirmar que a sala entendeu sao duas coisas, "
+                          "e a segunda e .verifique -- pergunta fechada, com a "
+                          "resposta escondida, colada no conceito que ela testa"
+                          .format(rel))
+
+    else:  # organizacao
+        if not tem("canvas"):
+            falhas.append("{}: aula de ORGANIZACAO sem .canvas. O que sai desta "
+                          "aula e o mapa DA PESSOA, e ele precisa de onde morar"
+                          .format(rel))
+        if not any(tem(c) for c in ESTRUTURA):
+            falhas.append("{}: aula de ORGANIZACAO sem figura de estrutura. Sem uma "
+                          "estrutura dada ({}), 'mapeie sua rotina' e folha em "
+                          "branco".format(rel, ", ".join("." + c for c in ESTRUTURA[:4])))
+        if not tem("destrave"):
+            falhas.append("{}: aula de ORGANIZACAO sem .destrave. Escrever sobre a "
+                          "propria rotina e onde a sala mais trava".format(rel))
+    return falhas
+
+
+def g46_as_abas_abrem(rel, html):
+    """🔴 Toda .abas abre alguma aba, e as tres listas tem o mesmo tamanho.
+
+    NASCEU DE DEFEITO REAL, na propria peca, no dia em que ela foi criada. A
+    fila estava em <div>, e nth-of-type conta por TIPO DE ELEMENTO: a fila
+    virava a primeira <div> filha, .aba-corpo:nth-of-type(1) nunca casava, e
+    todos os pares saiam deslocados em um. Quatro corpos, ZERO visiveis.
+
+    A peca passou nas 315 checagens da suite. Nenhum gate media comportamento
+    de CSS, entao o defeito so apareceu medindo a pagina no navegador -- que e
+    o passo 6 do roteiro, e e o unico motivo de ele existir.
+
+    Confere quatro coisas, todas estruturais:
+      1. a fila NAO e <div> (senao desloca a contagem)
+      2. quantidade de input == quantidade de label == quantidade de .aba-corpo
+      3. exatamente um input leva checked (zero abre a peca vazia)
+      4. no maximo oito, que e ate onde os pares do base.css vao
+    """
+    limpo = _sem_css_nem_script(html)
+    falhas = []
+    for i, (attrs, corpo) in enumerate(blocos_por_classe(limpo, "abas"), 1):
+        rot = "abas {} de {}".format(i, rel)
+        # 1 · a fila precisa ser de outro tipo que nao <div>
+        if re.search(r'<div class="(?:[^"]* )?abas-fila(?: [^"]*)?"', corpo):
+            falhas.append(rot + ": a fila esta em <div>. nth-of-type conta por tipo, "
+                                "entao a fila vira a primeira <div> e desloca todos "
+                                "os pares: nenhuma aba abre. Use <nav>")
+        inputs = re.findall(r'<input[^>]*type=["\']?radio', corpo)
+        labels = re.findall(r'<label[^>]*for="', corpo)
+        corpos = re.findall(r'<div class="(?:[^"]* )?aba-corpo(?: [^"]*)?"', corpo)
+        # 2 · as tres listas andam juntas
+        if not (len(inputs) == len(labels) == len(corpos)):
+            falhas.append("{}: {} inputs, {} labels e {} corpos. Os tres numeros sao "
+                          "o mesmo, ou sobra aba que nao abre nada"
+                          .format(rot, len(inputs), len(labels), len(corpos)))
+        # 3 · exatamente um checked
+        marcados = len(re.findall(r"<input[^>]*\bchecked\b", corpo))
+        if marcados != 1:
+            falhas.append("{}: {} inputs com checked, e o certo e um. Zero abre a "
+                          "peca vazia; mais de um so vale se o name diferir"
+                          .format(rot, marcados))
+        # 4 · o teto dos pares escritos a mao no base.css
+        if len(inputs) > 8:
+            falhas.append("{}: {} abas, e o base.css so tem oito pares. Da nona em "
+                          "diante o rotulo aparece e nao abre nada".format(
+                              rot, len(inputs)))
     return falhas
 
 
@@ -1365,7 +1515,7 @@ def _e_aula(html):
     """Pagina de AULA: oito secoes e pelo menos um conceito.
 
     A ASSINATURA E A PROPRIA ANATOMIA. A aula tem exatamente 8 .secao, porque
-    a anatomia e fixa; a vitrine tem 48, o modulo tem 2, a pagina de caso e o
+    a anatomia e fixa; a vitrine tem 60, o modulo tem 2, a pagina de caso e o
     exemplo tem zero. Medido nas 6 paginas do padrao e nas 9 aulas do piloto
     IEL em 28/08: todas as nove tinham 8, sem excecao.
 
@@ -1497,6 +1647,11 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
 
     Nao substitui o G42: aquele mede ARTEFATO e este mede TIPO. Uma aula de
     fundamento pode entregar instrumento e continuar sendo fundamento.
+
+    30/08: a aula de ORGANIZACAO tambem quebra a fila. Ela e atividade -- a
+    pessoa preenche, decide, ordena --, e foi assim que o Rafael a descreveu:
+    "alguns fundamentos tambem sao praticos". O que a regra proibe e tres aulas
+    seguidas em que a sala so ESCUTA, e a de organizacao nao e uma delas.
     """
     if not _tipo_da_aula(_sem_css_nem_script(html)):
         return []
@@ -1512,10 +1667,65 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
             if not os.path.exists(caminho):
                 continue
             h = io.open(caminho, encoding="utf-8").read()
-        if _tipo_da_aula(_sem_css_nem_script(h)) == "pratica":
+        if _tipo_da_aula(_sem_css_nem_script(h)) in ("pratica", "organizacao"):
             return []
-    return ["{}: tres aulas seguidas de fundamento. Um conjunto de fundamentos "
-            "fecha com uma pratica que faca sentido".format(rel)]
+    return ["{}: tres aulas seguidas em que a sala so escuta. Um conjunto de "
+            "fundamentos fecha com uma pratica, ou com uma aula de organizacao "
+            "em que a pessoa mapeia a propria rotina".format(rel)]
+
+
+PISO_PALAVRAS = 1800
+PISO_FIGURAS = 5
+
+
+def _palavras_visiveis(html):
+    """O texto que a pessoa le: sem CSS, sem script, sem tag."""
+    limpo = _sem_css_nem_script(html)
+    return len(re.sub(r"<[^>]+>", " ", limpo).split())
+
+
+def g45_a_aula_tem_carne_suficiente(rel, html):
+    """🔴 Aula com casca certa e um terco do conteudo le como "mais do mesmo".
+
+    Medido em 30/08, aula por aula:
+
+        MODELO template/aula   1.490 palavras ·  5 figuras com legenda
+        trilha IEL a1-degrau   1.479 ·  4        trilha a3-mesa  1.209 · 4
+        imersao n3-conferir    2.054 ·  6        imersao m1a6    2.064 · 7
+        imersao m1a5-mapa      3.633 · 14
+
+    A densidade RELATIVA e igual nos tres (3-4 figuras por mil palavras). O que
+    separa o curso que o Rafael aprovou do que ele reprovou e o tamanho
+    ABSOLUTO: a aula da trilha tem um terco da aula da imersao, com as mesmas
+    oito secoes. Casca completa, carne faltando.
+
+    E a raiz esta no proprio padrao: a aula-modelo tem 1.490 palavras, dentro da
+    faixa da trilha. Quem copia o modelo herda o tamanho errado. Por isso este
+    gate reprova o modelo tambem -- e o modelo e que precisa crescer.
+
+    So cobra pagina que declara tipo. Material anterior a 28/08 segue pelo
+    contrato antigo.
+    """
+    limpo = _sem_css_nem_script(html)
+    if not _tipo_da_aula(limpo):
+        return []
+    falhas = []
+    palavras = _palavras_visiveis(html)
+    if palavras < PISO_PALAVRAS:
+        falhas.append(
+            "{}: {} palavras, piso {}. A aula tem a casca certa e falta carne -- "
+            "e o que produz a leitura de 'mais do mesmo'".format(
+                rel, palavras, PISO_PALAVRAS))
+    # \b casa antes de hifen: \bfig-leg\b acusaria "fig-leg-sumiu" tambem.
+    # A classe tem de ser um token inteiro do atributo.
+    figuras = len(re.findall(
+        r'class="(?:[^"]* )?fig-leg(?: [^"]*)?"', limpo))
+    if figuras < PISO_FIGURAS:
+        falhas.append(
+            "{}: {} figuras com legenda, piso {}. Figura sem legenda nao conta, "
+            "e o piso de tres do CLAUDE.md e para a figura existir, nao para a "
+            "aula estar densa".format(rel, figuras, PISO_FIGURAS))
+    return falhas
 
 
 def g41_o_conceito_vem_com_imagem(rel, html):
@@ -1722,6 +1932,11 @@ GATES = [
     ("G44", "o módulo mescla fundamento com prática",
      g44_o_modulo_mescla_fundamento_com_pratica,
      lambda h: h.replace('folha aula-pratica', 'folha aula-fundamento', 1), None),
+    ("G45", "a aula tem carne suficiente", g45_a_aula_tem_carne_suficiente,
+     lambda h: re.sub(r'class="fig-leg"', 'class="fig-leg-sumiu"', h, count=3), None),
+    ("G46", "as abas abrem", g46_as_abas_abrem,
+     lambda h: h.replace('<nav class="abas-fila">', '<div class="abas-fila">', 1),
+     "componentes/index.html"),
 ]
 
 

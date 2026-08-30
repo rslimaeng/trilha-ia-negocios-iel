@@ -105,18 +105,23 @@
    ============================================================================ */
 
 /* ---------- 1 · MEDIDA ------------------------------------------------------
-   A página tem DUAS larguras, e só duas. Nove larguras diferentes dentro do
+   A página tem TRES larguras, e só três. Nove larguras diferentes dentro do
    mesmo texto é o que faz a prosa parecer órfã.
 
    --col       a coluna de leitura. Prosa enche ela inteira, sem max-width
                próprio. São ~80 caracteres por linha, que é onde a leitura
                ainda é confortável. Acima de 90 ela cai de verdade.
+   --col-media a largura do meio, para o bloco que é metade figura e metade
+               prosa: demonstração lado a lado, antes-depois com texto dentro.
+               Na largura cheia ele foge da coluna de texto e o olho perde o
+               par. Herdada do curso Pouchain, medida lá. Use com `.solta.meia`.
    --col-larga o breakout. Figura, tabela e grade SAEM da coluna.
 
    Figura mais larga que o texto lê como editorial. Texto mais estreito que
    a figura, sem motivo, lê como quebrado.                                   */
 :root{
   --col:780px;
+  --col-media:960px;
   --col-larga:1140px;
   --raio-p:6px; --raio:10px; --raio-g:14px;
   --sombra-p:0 1px 2px rgba(20,20,19,.04),0 1px 3px rgba(20,20,19,.06);
@@ -1483,6 +1488,25 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .doc{border:0;box-shadow:none;border-radius:0;padding:0;margin:0}
   .doc-num{break-inside:avoid}
   .doc h3{break-after:avoid}
+  /* 🔴 CONTEUDO ESCONDIDO NA TELA NAO PODE SUMIR NO PAPEL. A aba fechada,
+     o aprofundamento fechado e a resposta fechada existem no HTML -- quem
+     imprime a aula para levar para a sala precisa das tres inteiras, ou o
+     material impresso vira um terco do material da tela. */
+  .aba-corpo{display:block!important;border-top:1px solid var(--border);
+    padding-top:14px}
+  .aba-rot{display:block;font-weight:600;margin-bottom:8px}
+  .abas-fila{display:none}
+  .aprofunda{display:block!important;position:static;border:1px solid var(--border);
+    margin:14px 0;max-width:none;
+    /* o modal rola na tela e NAO rola no papel: sem zerar os dois, a folha
+       corta a tabela na altura que a tela usava */
+    max-height:none;overflow:visible}
+  .aprofunda-corpo{overflow:visible}
+  .aprofunda-abrir,.aprofunda-fechar{display:none}
+  /* o pe some: o botao que ele carrega ja nao funciona no papel */
+  .aprofunda-pe{display:none}
+  .vf-corpo{display:block!important}
+  .vf summary::after{content:""}
 }
 
 /* ---------- 35 · O LOOP ABERTO E O LOOP FECHADO ---------------------------
@@ -2248,6 +2272,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   margin-left:50%;
   transform:translateX(-50%);
 }
+/* a largura do meio: metade figura, metade prosa. Estourar até 1140 aqui separa
+   o par que precisa ser lido junto. */
+.solta.meia{width:min(var(--col-media),calc(100vw - 40px))}
 /* dentro de um gabarito a coluna já é estreita: estourar ali vaza da caixa */
 .gabarito-corpo .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
@@ -2426,6 +2453,385 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .mesa-legenda i.dado{background:var(--accent)}
 .mesa-legenda i.conversa{background:var(--text-muted)}
 .mesa-legenda i.livre{background:var(--bg-warm);border:1px solid var(--border-strong)}
+
+/* ---------- 59 · A VERIFICAÇÃO DE ENTENDIMENTO ------------------------
+   🔴 A peça que faltava para a aula de FUNDAMENTO existir de verdade.
+
+   Regra do Rafael, 30/08: "há aulas de fundamentos que são só de explicação e
+   de confirmar com a turma se todo mundo entendeu". Até aqui o padrão só tinha
+   .checagem -- lista de conferencia no FIM da aula, que a pessoa lê e concorda
+   com ela mesma. Isso não confirma entendimento: confirma leitura.
+
+   O .verifique é outra coisa: pergunta FECHADA, com resposta escondida, colada
+   no conceito que ela testa. O instrutor lê em voz alta, a sala responde, e só
+   então ele abre. É o que a aula de fundamento entrega no lugar do exercício
+   postiço -- e o que a torna conduzível numa sala, não só legível sozinha.
+
+   A resposta nasce FECHADA pela mesma razão do .gabarito: aberta, ninguém
+   tenta.                                                                    */
+.verifique{
+  border:1px solid var(--accent-line);border-radius:var(--raio);
+  background:var(--accent-tinted);margin:26px 0;overflow:hidden;
+}
+.verifique-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);
+  padding:14px 20px 0;
+}
+.verifique-nota{
+  font-size:14px;color:var(--text-dim);padding:5px 20px 12px;margin:0;
+}
+.vf{border-top:1px solid var(--accent-line)}
+.vf summary{
+  padding:15px 20px;cursor:pointer;list-style:none;
+  display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;
+}
+.vf summary::-webkit-details-marker{display:none}
+.vf-n{
+  font-family:var(--font-mono);font-size:13px;color:var(--accent);
+}
+.vf-p{font-weight:500}
+.vf-corpo{
+  padding:0 20px 18px 54px;font-size:16px;color:var(--text-muted);
+}
+.vf-corpo p:last-child{margin-bottom:0}
+/* O sinal de que há resposta embaixo mora no fim da linha, e não no começo:
+   no começo ele competiria com o número da pergunta. */
+.vf summary::after{
+  content:"mostrar";grid-column:2;font-family:var(--font-mono);
+  font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent);margin-top:6px;
+}
+.vf[open] summary::after{content:"esconder"}
+
+/* ---------- 60 · O TESTE RÁPIDO ------------------------------------------
+   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do curso da
+   Maria Pitanga, onde cada card de gatilho termina com o critério de
+   identificação -- herdamos a forma, nada do texto.
+
+   É a peça mais barata do padrão e uma das mais fortes: sem ela o aluno sai
+   sabendo a definição e não reconhece o caso quando ele aparece na segunda.
+   Uma frase, no imperativo, com um teste que a pessoa consegue aplicar
+   sozinha. Se precisar de duas frases, o conceito ainda não está pronto.    */
+.teste-rapido{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+  border-top:1px dashed var(--accent-line);
+  margin-top:14px;padding-top:12px;
+}
+.teste-rapido-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);white-space:nowrap;
+}
+.teste-rapido p{margin:0;font-size:15px;color:var(--text-muted)}
+.teste-rapido strong{color:var(--text)}
+
+/* ---------- 61 · A COLUNA DO ERRO COMUM ----------------------------------
+   Variante da .anatomia com uma quarta coluna: o que quase todo mundo escreve
+   errado NAQUELE campo. A .anatomia sozinha ensina o que o campo é; ela não
+   ensina o que a sala vai fazer com ele.
+
+   Vem dos prints do curso da Mallory, onde a tabela de campos do prompt tem a
+   coluna do erro ao lado do exemplo bom. É a diferença entre descrever o
+   formulário e corrigir a prova.                                            */
+.anatomia.com-erro{grid-template-columns:170px 1fr 1fr 130px}
+.anat-erro{background:var(--erro-soft)}
+.anat-erro-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--erro-texto);margin-bottom:5px;display:block;
+}
+.anat-erro p{margin:0;font-size:14px;color:var(--text-muted)}
+
+/* ---------- 62 · AS ABAS ------------------------------------------------
+   Um assunto com N faces que a pessoa compara UMA DE CADA VEZ: os níveis de
+   uso, os modos, os gatilhos. Sem JavaScript -- radio escondido e irmão
+   marcado --, porque o padrão embute o CSS em cada página e não quer estado
+   que dependa de script para o conteúdo aparecer.
+
+   🔴 IMPRESSÃO: no papel não existe "a aba aberta". Toda aba imprime,
+   uma embaixo da outra, com o rótulo virando título. Aba que some na
+   impressão é conteúdo perdido.
+
+   O limite é OITO, subido de seis em 30/08 por decisão do Rafael. O caso que
+   forçou: uma régua de níveis com oito degraus, que não cabia em seis e não
+   é escada (a pessoa navega para o degrau dela, não percorre todos).
+
+   Acima de oito a fila quebra em duas linhas e o aluno perde a noção de
+   quantas faces existem -- ali vira .escada ou tabela. A fila rola de lado
+   no celular desde sempre, então oito não custa largura lá.               */
+.abas{margin:24px 0;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);overflow:hidden}
+.abas > input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+.abas-fila{
+  display:flex;flex-wrap:wrap;gap:0;background:var(--bg-warm);
+  border-bottom:1px solid var(--border);
+}
+.abas-fila label{
+  padding:13px 18px;cursor:pointer;font-size:15px;font-weight:500;
+  color:var(--text-dim);border-bottom:2px solid transparent;
+  border-right:1px solid var(--border);
+}
+.abas-fila label:last-child{border-right:0}
+.aba-corpo{display:none;padding:22px 20px}
+.aba-corpo > :last-child{margin-bottom:0}
+.aba-rot{display:none}
+/* 🔴 A FILA E <nav>, NAO <div>, E A PECA INTEIRA DEPENDE DISSO.
+   nth-of-type conta por TIPO DE ELEMENTO, nao por classe. Com a fila em
+   <div>, ela vira a primeira <div> filha, .aba-corpo:nth-of-type(1) nunca
+   casa, e TODOS os pares saem deslocados em um: nenhuma aba abre.
+
+   Foi assim que esta peca nasceu, em 30/08, e passou nas 315 checagens da
+   suite -- nenhum gate media comportamento de CSS. O defeito so apareceu
+   medindo a pagina no navegador, contando quantos .aba-corpo estavam
+   visiveis: quatro corpos, zero visiveis.
+
+   Com a fila em <nav>, os .aba-corpo sao as unicas <div> filhas e a contagem
+   alinha. O gate G46 confere a marcacao.
+
+   Oito pares, escritos à mão: o seletor de irmão não tem contador. */
+.abas > input:nth-of-type(1):checked ~ .abas-fila label:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .abas-fila label:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .abas-fila label:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .abas-fila label:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .abas-fila label:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .abas-fila label:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .abas-fila label:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .abas-fila label:nth-of-type(8){
+  background:var(--bg-elev);color:var(--accent-dark);
+  border-bottom-color:var(--accent);
+}
+.abas > input:nth-of-type(1):checked ~ .aba-corpo:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .aba-corpo:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .aba-corpo:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .aba-corpo:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .aba-corpo:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .aba-corpo:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .aba-corpo:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .aba-corpo:nth-of-type(8){display:block}
+/* o foco de teclado precisa aparecer em algum lugar: o input é invisível, então
+   quem mostra é o label irmão */
+.abas > input:focus-visible:nth-of-type(1) ~ .abas-fila label:nth-of-type(1),
+.abas > input:focus-visible:nth-of-type(2) ~ .abas-fila label:nth-of-type(2),
+.abas > input:focus-visible:nth-of-type(3) ~ .abas-fila label:nth-of-type(3),
+.abas > input:focus-visible:nth-of-type(4) ~ .abas-fila label:nth-of-type(4),
+.abas > input:focus-visible:nth-of-type(5) ~ .abas-fila label:nth-of-type(5),
+.abas > input:focus-visible:nth-of-type(6) ~ .abas-fila label:nth-of-type(6),
+.abas > input:focus-visible:nth-of-type(7) ~ .abas-fila label:nth-of-type(7),
+.abas > input:focus-visible:nth-of-type(8) ~ .abas-fila label:nth-of-type(8){
+  outline:2px solid var(--accent);outline-offset:-2px;
+}
+
+/* ---------- 63 · O APROFUNDAMENTO ---------------------------------------
+   O que NÃO cabe na aula e some se virar parágrafo: a exceção técnica, a
+   tabela longa, o caso raro. Abre por cima da página e fecha sem tirar a
+   pessoa do lugar onde ela estava lendo.
+
+   Por que não o <details>: details empurra o texto para baixo, e quem abre
+   perde a linha em que estava. Para um parágrafo isso não custa nada -- e por
+   isso o .gabarito segue sendo details. Para meia tela de tabela, custa.
+
+   🔴 O conteúdo mora na página, não no script. <dialog> fechado não é
+   conteúdo ausente: ele está no HTML, o Ctrl+F acha, e a impressão mostra.  */
+.aprofunda-abrir{
+  display:inline-flex;align-items:center;gap:7px;
+  background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--font-mono);font-size:12px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--accent);
+  border-bottom:1px solid var(--accent-line);
+}
+.aprofunda-abrir::before{content:"\2295"}
+.aprofunda{
+  border:1px solid var(--border);border-radius:var(--raio);
+  padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;
+  background:var(--bg-elev);color:var(--text);
+}
+.aprofunda::backdrop{background:rgba(26,31,46,.42)}
+.aprofunda-topo{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:20px 24px 0;
+}
+.aprofunda-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);
+}
+.aprofunda-fechar{
+  background:none;border:0;cursor:pointer;font-size:22px;line-height:1;
+  color:var(--text-dim);padding:0 2px;
+}
+.aprofunda-corpo{padding:10px 24px 24px}
+.aprofunda-corpo > :last-child{margin-bottom:0}
+
+/* ---------- 64 · O RESULTADO ESPERADO DO PASSO --------------------------
+   🔴 Estava na lista de 27/08 como "proposta ainda não implementada" e
+   ficou três dias fora: o .passo não tinha onde dizer o que deveria ter
+   acontecido. Sem isso o aluno só descobre que errou no passo 2 quando chega
+   ao 5 e nada bate -- e aí ele não sabe qual dos quatro passos foi.
+
+   É a peça que o tutorial do curso do Couto tem em cada passo. Uma linha, no
+   indicativo, descrevendo o estado da tela: o que apareceu, quantas linhas,
+   qual mensagem.                                                           */
+.passo-ok{
+  display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;
+  background:var(--ok-soft);border:1px solid var(--ok);
+  border-radius:var(--raio-p);padding:11px 14px;margin-top:14px;
+}
+.passo-ok-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ok-texto);white-space:nowrap;
+}
+.passo-ok p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 65 · O SYSTEM PROMPT COMO INSUMO ----------------------------
+   Quarto formato de insumo, ao lado de .xlsx, .docx e do par dos dois.
+   Decisão do Rafael em 30/08: "às vezes padrões de system prompt".
+
+   NÃO É O .prompt. O .prompt é o pedido de UMA conversa, que a pessoa cola e
+   descarta. Isto é a instrução PERMANENTE que ela guarda num Project, num
+   assistente ou num GPT -- ela cola uma vez e usa por semanas. Por isso vem
+   com o campo do que trocar antes de usar: sem ele a pessoa cola a instrução
+   com o nome de outra empresa dentro.                                       */
+.sistema{
+  border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0;overflow:hidden;
+}
+.sistema-topo{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  background:var(--bg-warm);border-bottom:1px solid var(--border);
+  padding:12px 18px;
+}
+.sistema-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--text-dim);
+}
+.sistema-onde{font-size:14px;color:var(--text-dim)}
+.sistema-txt{
+  font-family:var(--font-mono);font-size:14px;line-height:1.62;
+  background:var(--bg-code);padding:18px;margin:0;
+  white-space:pre-wrap;word-break:break-word;
+}
+/* o que a pessoa TEM de trocar antes de colar. Marcado no texto e repetido
+   embaixo em lista: no meio de trinta linhas, destaque sozinho passa batido */
+.sistema-troca{
+  background:var(--accent-soft);color:var(--accent-dark);
+  padding:1px 5px;border-radius:3px;font-weight:600;
+}
+.sistema-pe{
+  border-top:1px solid var(--border);padding:14px 18px;
+  font-size:14px;color:var(--text-dim);
+}
+.sistema-pe ul{margin:7px 0 0;padding-left:19px}
+.sistema-pe li{margin-bottom:5px}
+
+/* ---------- 66 · O TERCEIRO TIPO DE AULA · ORGANIZAÇÃO -----------------
+   🔴 Decisão do Rafael, aberta em 30/08 como fio P6 e fechada aqui.
+
+   Havia dois tipos e a realidade tinha três. Ele descreveu o que faltava com
+   estas palavras: "alguns fundamentos também são práticos, porque permitem
+   enxergar o conceito e organizá-lo".
+
+     .aula-fundamento    ensina como a coisa funciona   -> entrega um instrumento
+     .aula-pratica       a pessoa faz                   -> entrega uma coisa feita
+     .aula-organizacao   a pessoa MAPEIA o que ela já tem -> entrega o mapa dela
+
+   A de organização não é meio-termo dos dois: ela não ensina conceito novo e
+   não produz entregável de trabalho. Ela põe o aluno a inventariar a própria
+   rotina dentro de uma estrutura dada -- e o que sai é sobre ELE, não sobre o
+   assunto. É por isso que o insumo dela é sempre um .canvas em branco, nunca
+   uma planilha preenchida por nós.
+
+   JÁ EXISTE, e é a melhor página que o Rafael produziu: a m1a5-mapa da
+   imersão do IEL, com 3.633 palavras e 14 figuras -- quase o dobro da média
+   das outras. Ela não cabia em nenhum dos dois contratos e passou nos gates
+   por acidente.                                                            */
+.aula-organizacao .heroi-kicker{color:var(--ok-texto)}
+.aula-organizacao .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;background:var(--ok);
+}
+
+/* ---------- 67 · O CARD DE DEGRAU DE UMA RÉGUA ---------------------------
+   O card que mora dentro de cada .aba de uma régua de níveis. Vem de um print
+   do site da mentoria da Débora Nascimento, mandado pelo Rafael em 30/08 --
+   herdamos a FORMA, nada do texto.
+
+   🔴 O valor não está no CSS: está nos QUATRO RÓTULOS FIXOS, na mesma ordem,
+   em todo degrau da régua.
+
+     .nivel-rot "Você está aqui se…"     -> o sinal comportamental, na 2ª pessoa
+     .nivel-rot "O que define"           -> a definição, que vem DEPOIS do sinal
+     .nivel-rot "Ferramentas típicas"    -> os .chip do degrau
+     .nivel-passo "Próximo passo…"       -> uma ação concreta, hoje
+
+   A ordem é o argumento. Definição primeiro produz taxonomia que a pessoa lê
+   e não se localiza; sinal primeiro produz reconhecimento, e é ele que faz o
+   aluno dizer "esse sou eu" antes de qualquer teoria. O último bloco é o que
+   impede a régua de virar quadro na parede: sem próximo passo concreto, saber
+   o próprio degrau não muda a segunda-feira.                               */
+.nivel{padding:2px 0}
+.nivel-topo{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+}
+.nivel-n{
+  display:grid;place-items:center;min-width:56px;height:56px;padding:0 10px;
+  border-radius:var(--raio-p);background:var(--accent-tinted);
+  border:1px solid var(--accent-line);
+  font-family:var(--font-titulo);font-size:19px;color:var(--accent-dark);
+}
+.nivel-fase{
+  display:inline-block;font-family:var(--font-mono);font-size:10px;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--accent-dark);
+  background:var(--accent-tinted);border:1px solid var(--accent-line);
+  border-radius:20px;padding:3px 10px;margin-bottom:7px;
+}
+.nivel-t{font-family:var(--font-titulo);font-size:23px;margin:0 0 5px}
+.nivel-ol{margin:0;font-size:15px;color:var(--text-dim)}
+.nivel-bloco{margin-top:18px}
+.nivel-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);display:block;margin-bottom:6px;
+}
+.nivel-bloco p{margin:0}
+.nivel-chips{display:flex;flex-wrap:wrap;gap:7px}
+/* O próximo passo é callout e não parágrafo: ele é a única parte do card que
+   a pessoa executa, e precisa sobreviver à leitura em diagonal. */
+.nivel-passo{
+  border-left:3px solid var(--accent);background:var(--bg-warm);
+  border-radius:0 var(--raio-p) var(--raio-p) 0;
+  padding:13px 16px;margin-top:18px;
+}
+.nivel-passo p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 68 · O RODAPÉ DO APROFUNDAMENTO ------------------------------
+   A ação do modal grudada no pé, enquanto o corpo rola. Sem isto, um modal
+   com meia tela de tabela esconde o próprio botão: a pessoa lê a tabela, quer
+   copiar, e tem de rolar de volta para achar o que a fez abrir o modal.
+
+   🔴 O <dialog> precisa de altura MÁXIMA para o corpo ter o que rolar. Sem o
+   max-height, o modal cresce com o conteúdo, a página é que rola, e o pé
+   "fixo" desce junto -- que é o defeito que este bloco existe para evitar. */
+.aprofunda{display:flex;flex-direction:column;max-height:min(84vh,760px)}
+.aprofunda-corpo{overflow-y:auto;flex:1 1 auto}
+.aprofunda-pe{
+  display:flex;justify-content:flex-end;gap:10px;align-items:center;
+  border-top:1px solid var(--border);background:var(--bg-warm);
+  padding:13px 24px;flex:0 0 auto;
+}
+
+/* ---------- 69 · A LEGENDA DE VOCABULÁRIO --------------------------------
+   Os rótulos explicados ANTES da tabela que os usa. Não é a .legenda de
+   figura (aquela é fila horizontal de cor); esta é lista de termo + o que ele
+   significa, e vem acima do bloco que vai repetir o termo dezenas de vezes.
+
+   🔴 Sem ela, a primeira coluna da tabela ensina por indução: a pessoa lê seis
+   linhas e deduz o que o selo quer dizer, deduz errado numa delas, e segue.
+   O custo de declarar o vocabulário são três linhas.                       */
+.vocab{
+  background:var(--bg-warm);border:1px solid var(--border);
+  border-radius:var(--raio);padding:15px 18px;margin:20px 0;
+  display:grid;gap:9px;
+}
+.vocab-l{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
+.vocab-l p{margin:0;font-size:15px;color:var(--text-muted)}
 
 /* ---------- 56 · TELAS ESTREITAS ------------------------------------------ */
 
@@ -2646,6 +3052,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .secao-topo{gap:12px}
   .secao-n{font-size:24px}
   .heroi-sub{font-size:17px}
+  /* a quarta coluna do erro comum nao cabe em 375px: as quatro viram pilha,
+     como ja acontece com a .anatomia de tres */
+  .anatomia.com-erro{grid-template-columns:1fr}
+  .teste-rapido,.passo-ok{grid-template-columns:1fr;gap:5px}
+  /* a fila de abas rola de lado em vez de quebrar em duas linhas: quebrada,
+     a pessoa perde a conta de quantas faces existem */
+  .abas-fila{flex-wrap:nowrap;overflow-x:auto}
+  .abas-fila label{white-space:nowrap;padding:12px 15px;font-size:14px}
+  .vf-corpo{padding-left:20px}
+  .sistema-topo{flex-direction:column;align-items:flex-start;gap:5px}
+  /* o chip do degrau sai de cima do titulo e vira linha propria: lado a lado
+     em 375px sobram 40px para o titulo, que quebra letra a letra */
+  .nivel-topo{grid-template-columns:1fr;gap:11px}
+  .nivel-t{font-size:20px}
+  .vocab-l{grid-template-columns:1fr;gap:4px}
+  .aprofunda{max-height:92vh}
+  .aprofunda-pe{padding:12px 18px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -2682,8 +3105,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="nesta-aula-rot">Nesta aula</div>
     <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
     <ul>
-      <li>Reconhecer quando&nbsp;a&nbsp;conversa passou do&nbsp;ponto e&nbsp;o&nbsp;contexto começou a&nbsp;cair</li>
-      <li>Decidir entre&nbsp;continuar a&nbsp;conversa e&nbsp;recomeçar com&nbsp;o&nbsp;contexto certo</li>
+      <li>Reconhecer, numa&nbsp;conversa em&nbsp;andamento, que&nbsp;o&nbsp;combinado do&nbsp;começo já&nbsp;caiu</li>
+      <li>Decidir entre&nbsp;lembrar a&nbsp;regra e&nbsp;recomeçar a&nbsp;conversa, sabendo o&nbsp;custo de&nbsp;cada um</li>
     </ul>
   </div>
 
@@ -2699,8 +3122,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>Você explica o&nbsp;contexto com&nbsp;capricho, trabalha meia hora, e&nbsp;tudo flui. Aí, lá na&nbsp;frente, ela devolve uma&nbsp;coisa que&nbsp;ignora exatamente o&nbsp;que&nbsp;você falou no&nbsp;começo. Você
     lembra ela, ela pede desculpa, acerta, e&nbsp;vinte minutos depois esquece de&nbsp;novo.</p>
 
+    <p>Na&nbsp;terceira vez você já&nbsp;não&nbsp;corrige com&nbsp;a&nbsp;mesma paciência. Reescreve a&nbsp;regra em&nbsp;letra maiúscula, ou&nbsp;põe um&nbsp;"muito importante" na&nbsp;frente, e&nbsp;por&nbsp;dois recados parece
+    resolvido. Depois volta. E&nbsp;o&nbsp;mais desconfortável é que&nbsp;a&nbsp;resposta errada não&nbsp;vem com&nbsp;cara de&nbsp;erro: vem com&nbsp;a&nbsp;mesma segurança das&nbsp;que&nbsp;estavam certas.</p>
+
     <p>A&nbsp;leitura natural é que&nbsp;ela cansou, ou&nbsp;que&nbsp;a&nbsp;qualidade caiu ao&nbsp;longo do&nbsp;dia.
-    <strong>Não&nbsp;foi nenhuma das&nbsp;duas.</strong> O&nbsp;que&nbsp;aconteceu tem tamanho, e&nbsp;dá para&nbsp;prever.</p>
+    <strong>Não&nbsp;foi nenhuma das&nbsp;duas.</strong> O&nbsp;que&nbsp;aconteceu tem tamanho, tem hora
+    para&nbsp;acontecer, e&nbsp;dá para&nbsp;prever.</p>
+
+    <p>E&nbsp;há um&nbsp;detalhe que&nbsp;faz disto uma&nbsp;aula inteira em&nbsp;vez de&nbsp;um&nbsp;aviso de&nbsp;rodapé:
+    <strong>nada na&nbsp;tela avisa</strong>. Não&nbsp;aparece alerta, não&nbsp;muda a&nbsp;cor de&nbsp;nada, não&nbsp;existe um&nbsp;aviso de&nbsp;"a&nbsp;partir daqui esqueci o&nbsp;começo". A&nbsp;única pista disponível é
+    aquilo que&nbsp;você mesmo já&nbsp;tinha corrigido reaparecendo.</p>
 
     <div class="cartao">
       <span class="rot">Por que isto vem antes de configurar qualquer coisa</span>
@@ -2743,6 +3174,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <p class="analogia-mais">A&nbsp;mesma coisa acontece com&nbsp;a&nbsp;bancada da&nbsp;cozinha durante&nbsp;o&nbsp;preparo, com&nbsp;o&nbsp;balcão do&nbsp;atendimento e&nbsp;com&nbsp;a&nbsp;memória de&nbsp;quem entra numa&nbsp;reunião
         que&nbsp;já&nbsp;vai pela&nbsp;terceira hora. Espaço de&nbsp;trabalho finito é uma&nbsp;ideia que&nbsp;você já&nbsp;opera todo dia.</p>
       </div>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Se&nbsp;aquilo que&nbsp;ela esqueceu foi dito por&nbsp;você lá atrás, é a&nbsp;mesa.</strong>
+        Se&nbsp;ela nunca soube daquilo, o&nbsp;problema é outro, e&nbsp;a&nbsp;correção é outra: você não&nbsp;precisa recomeçar a&nbsp;conversa, precisa informar o&nbsp;que&nbsp;faltava.</p>
+      </div>
     </div>
 
     <div class="contraste solta">
@@ -2770,11 +3207,112 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>O&nbsp;que&nbsp;existe, o&nbsp;que&nbsp;você colocou, e&nbsp;o&nbsp;que&nbsp;ainda está à&nbsp;vista</h2>
+        <h2>O&nbsp;que&nbsp;ocupa lugar, e&nbsp;o&nbsp;que&nbsp;sai primeiro</h2>
       </div>
     </div>
 
-    <p>São três círculos, um&nbsp;dentro do&nbsp;outro. O&nbsp;de&nbsp;fora é enorme e&nbsp;não&nbsp;te ajuda; o&nbsp;do&nbsp;meio é o&nbsp;que&nbsp;você escolheu trazer; o&nbsp;de&nbsp;dentro é o&nbsp;único que&nbsp;decide a&nbsp;resposta de&nbsp;agora.</p>
+    <p>A&nbsp;parte que&nbsp;quase ninguém sabe é esta: <strong>a&nbsp;conversa inteira é lida de&nbsp;novo
+    a&nbsp;cada recado</strong>. Não&nbsp;é que&nbsp;ela guardou o&nbsp;que&nbsp;você disse e&nbsp;agora consulta a&nbsp;lembrança. Toda vez que&nbsp;você aperta enviar, o&nbsp;pacote inteiro volta para&nbsp;a&nbsp;mesa: a&nbsp;sua&nbsp;primeira instrução, o&nbsp;arquivo que&nbsp;você colou, cada pergunta sua&nbsp;e&nbsp;cada resposta
+    dela. E&nbsp;aí a&nbsp;próxima frase é montada olhando esse pacote.</p>
+
+    <p>Isso tem uma&nbsp;consequência que&nbsp;muda o&nbsp;jeito de&nbsp;trabalhar: <strong>a&nbsp;conversa não&nbsp;fica só&nbsp;mais longa, ela fica mais pesada.</strong> Cada troca acrescenta duas coisas
+    ao&nbsp;pacote, o&nbsp;que&nbsp;você escreveu e&nbsp;o&nbsp;que&nbsp;ela respondeu, e&nbsp;a&nbsp;resposta dela costuma ser
+    a&nbsp;maior das&nbsp;duas. Vinte recados seus&nbsp;podem virar quarenta blocos de&nbsp;texto na&nbsp;mesa.</p>
+
+    <p>Quatro coisas disputam o&nbsp;tampo, e&nbsp;elas não&nbsp;disputam em&nbsp;pé de&nbsp;igualdade:</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O que ocupa</th><th>Como se comporta</th><th>Quem controla</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>O combinado</strong></td>
+            <td>Entra uma vez, no começo, e não cresce mais</td>
+            <td>Você, e é o mais barato de todos</td>
+          </tr>
+          <tr>
+            <td><strong>O material colado</strong></td>
+            <td>Entra de uma vez e ocupa lugar em <em>todo</em> recado, não só naquele</td>
+            <td>Você, escolhendo o que cola e o que resume</td>
+          </tr>
+          <tr>
+            <td><strong>A conversa até aqui</strong></td>
+            <td>Cresce sozinha, sem teto, e é a que mais engorda</td>
+            <td>Ninguém, enquanto a conversa continuar</td>
+          </tr>
+          <tr>
+            <td><strong>A resposta que vem</strong></td>
+            <td>Precisa de espaço reservado antes de ser escrita</td>
+            <td>Você, pedindo saída curta quando puder</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;linha do&nbsp;meio é a&nbsp;que&nbsp;decide a&nbsp;aula.</strong> As&nbsp;outras
+    três você controla; a&nbsp;conversa até&nbsp;aqui cresce independente de&nbsp;você, e&nbsp;é por&nbsp;isso que&nbsp;o&nbsp;problema aparece com&nbsp;o&nbsp;tempo mesmo quando&nbsp;você não&nbsp;fez nada de&nbsp;errado.</p>
+
+    <p>Agora a&nbsp;mesma barra, em&nbsp;três momentos da&nbsp;mesma conversa. Repare no&nbsp;que&nbsp;acontece
+    com&nbsp;a&nbsp;faixa do&nbsp;combinado:</p>
+
+    <div class="mesa solta">
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Recado 3</span>
+          <span class="mesa-nota">mesa com folga</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:9%">combinado</div>
+          <div class="mesa-faixa dado" style="width:21%">seu material</div>
+          <div class="mesa-faixa conversa" style="width:11%">conversa</div>
+          <div class="mesa-faixa livre" style="width:59%">espaço livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Recado 20</span>
+          <span class="mesa-nota">começa a apertar</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:9%">combinado</div>
+          <div class="mesa-faixa dado" style="width:21%">seu material</div>
+          <div class="mesa-faixa conversa" style="width:48%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:22%">livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Recado 40</span>
+          <span class="mesa-nota">o começo virou pilha</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:3%">com</div>
+          <div class="mesa-faixa dado" style="width:14%">material</div>
+          <div class="mesa-faixa conversa" style="width:81%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:2%"></div>
+        </div>
+      </div>
+      <div class="mesa-legenda">
+        <span><i class="regra"></i>o que foi combinado</span>
+        <span><i class="dado"></i>o material da tarefa</span>
+        <span><i class="conversa"></i>a conversa até aqui</span>
+        <span><i class="livre"></i>espaço livre</span>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;faixa azul do&nbsp;combinado não&nbsp;se&nbsp;mexeu, e&nbsp;mesmo assim
+    encolheu.</strong> Ela não&nbsp;foi apagada por&nbsp;ser pouco importante: foi empurrada porque&nbsp;era a&nbsp;mais antiga. No&nbsp;recado 40 sobra um&nbsp;pedaço dela, e&nbsp;um&nbsp;pedaço de&nbsp;instrução é pior
+    que&nbsp;instrução nenhuma, porque&nbsp;continua parecendo que&nbsp;a&nbsp;regra está valendo.</p>
+
+    <p>Vale insistir num&nbsp;ponto que&nbsp;a&nbsp;barra mostra e&nbsp;a&nbsp;intuição nega: <strong>corrigir
+    também ocupa lugar.</strong> Cada vez que&nbsp;você escreve "não&nbsp;é assim, é assado", isso
+    entra na&nbsp;conta como qualquer outro texto, e&nbsp;empurra o&nbsp;começo mais para&nbsp;fora. A&nbsp;conversa mais corrigida é a&nbsp;que&nbsp;menos lembra do&nbsp;que&nbsp;foi combinado, e&nbsp;é exatamente o&nbsp;contrário do&nbsp;que&nbsp;a&nbsp;paciência sugere fazer.</p>
+
+    <p>Uma&nbsp;última camada, e&nbsp;ela responde a&nbsp;pergunta que&nbsp;sempre aparece: <em>se&nbsp;a&nbsp;mesa é
+    tão pequena, como é que&nbsp;ela sabe tanta coisa?</em> Porque&nbsp;o&nbsp;que&nbsp;está na&nbsp;mesa não&nbsp;é
+    tudo o&nbsp;que&nbsp;ela tem. São três círculos, um&nbsp;dentro do&nbsp;outro:</p>
 
     <div class="aninhado">
       <div class="an">
@@ -2796,7 +3334,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     </div>
 
     <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;círculo do&nbsp;meio cresce e&nbsp;o&nbsp;de&nbsp;dentro não.</strong>&nbsp;É essa diferença que&nbsp;produz a&nbsp;sensação de&nbsp;que&nbsp;ela piorou: você continua alimentando,
-    e&nbsp;o&nbsp;espaço onde&nbsp;aquilo cabe continua do&nbsp;mesmo tamanho.</p>
+    e&nbsp;o&nbsp;espaço onde&nbsp;aquilo cabe continua do&nbsp;mesmo tamanho. O&nbsp;círculo de&nbsp;fora é enorme e&nbsp;não&nbsp;resolve nada, porque&nbsp;nada da&nbsp;sua&nbsp;rotina está lá.</p>
   </section>
 
   <section class="secao" id="demonstracao">
@@ -2804,100 +3342,173 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">A demonstração</div>
-        <h2>A&nbsp;regra que&nbsp;sumiu, e&nbsp;o&nbsp;que&nbsp;denuncia que&nbsp;ela sumiu</h2>
+        <h2>O&nbsp;mesmo pedido, no&nbsp;recado 3 e&nbsp;no&nbsp;recado 40</h2>
       </div>
     </div>
 
-    <p>Uma&nbsp;conversa começa com&nbsp;uma&nbsp;regra clara e&nbsp;termina desobedecendo. Acompanhe os&nbsp;sinais, porque&nbsp;eles aparecem antes do&nbsp;erro grande.</p>
+    <p>Uma&nbsp;conversa que&nbsp;começou com&nbsp;três regras claras e&nbsp;chegou ao&nbsp;fim da&nbsp;tarde
+    desobedecendo todas. O&nbsp;pedido abaixo é o&nbsp;mesmo nas&nbsp;duas pontas, palavra por&nbsp;palavra.
+    O&nbsp;que&nbsp;mudou foi só&nbsp;quanto ainda cabia do&nbsp;começo.</p>
+
+    <div class="cartao">
+      <span class="rot">O que foi combinado no primeiro recado</span>
+      <ul class="lista">
+        <li>Escrever sempre em&nbsp;português do&nbsp;Brasil</li>
+        <li>Nunca citar valor sem&nbsp;dizer de&nbsp;onde&nbsp;ele veio</li>
+        <li>Falar com&nbsp;alguém da&nbsp;diretoria, que&nbsp;tem pressa</li>
+      </ul>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">O mesmo pedido, dois resultados</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">O que foi digitado, nas duas</span>
+          <pre>Resume o que a gente decidiu sobre o atraso.</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">Recado 3 &middot; mesa com folga</span>
+            <p>"Decisão: renegociar o&nbsp;prazo com&nbsp;as&nbsp;duas lojas afetadas. Impacto estimado
+            em&nbsp;12 dias de&nbsp;atraso, número que&nbsp;veio da&nbsp;planilha de&nbsp;pedidos que&nbsp;você colou."</p>
+            <p>Curto, em&nbsp;português daqui, e&nbsp;com&nbsp;a&nbsp;origem do&nbsp;número declarada.
+            <strong>As&nbsp;três regras de&nbsp;pé.</strong></p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">Recado 40 &middot; o começo virou pilha</span>
+            <p>"Vamos fazer um&nbsp;<em>deep dive</em> no&nbsp;que&nbsp;foi discutido! A&nbsp;decisão tomada
+            considerou múltiplos fatores relevantes, e&nbsp;o&nbsp;impacto ficou em&nbsp;torno de&nbsp;12
+            dias, podendo chegar a&nbsp;15 dependendo do&nbsp;cenário."</p>
+            <p>Mais longo, com&nbsp;palavra que&nbsp;não&nbsp;é do&nbsp;português daqui, e&nbsp;com&nbsp;um&nbsp;número que&nbsp;apareceu sem&nbsp;origem. <strong>As&nbsp;três caíram, e&nbsp;nesta ordem.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> a&nbsp;ordem da&nbsp;queda
+    não&nbsp;é aleatória. Some primeiro o&nbsp;tom, depois a&nbsp;língua, e&nbsp;por&nbsp;último a&nbsp;regra da&nbsp;fonte.
+    O&nbsp;que&nbsp;sai primeiro é o&nbsp;mais antigo, e&nbsp;dentro do&nbsp;combinado o&nbsp;mais antigo é a&nbsp;primeira
+    linha que&nbsp;você escreveu.</p>
+
+    <p>O&nbsp;"podendo chegar a&nbsp;15" é o&nbsp;detalhe mais caro dessa resposta, e&nbsp;vale parar nele.
+    Não&nbsp;é um&nbsp;erro de&nbsp;formatação: é um&nbsp;número que&nbsp;não&nbsp;estava em&nbsp;lugar nenhum do&nbsp;material.
+    Com&nbsp;a&nbsp;regra da&nbsp;fonte fora da&nbsp;mesa, nada mais impede que&nbsp;a&nbsp;resposta complete o&nbsp;raciocínio com&nbsp;um&nbsp;valor plausível. <strong>É por&nbsp;isso que&nbsp;esta aula vem antes da&nbsp;próxima</strong>, que&nbsp;trata exatamente disso.</p>
+
+    <p>Reconhecido o&nbsp;sinal, existem dois caminhos, e&nbsp;eles não&nbsp;são equivalentes:</p>
 
     <div class="grade grade-2 solta">
       <div class="cartao">
-        <span class="rot">O que foi combinado no começo</span>
-        <h4>Uma&nbsp;instrução de&nbsp;três linhas</h4>
-        <ul class="lista">
-          <li>Escrever sempre em&nbsp;português do&nbsp;Brasil</li>
-          <li>Nunca citar valor sem&nbsp;dizer de&nbsp;onde&nbsp;ele veio</li>
-          <li>Tratar o&nbsp;leitor como alguém da&nbsp;diretoria, com&nbsp;pressa</li>
-        </ul>
+        <span class="rot">Caminho 1</span>
+        <h4>Lembrar a&nbsp;regra no&nbsp;meio da&nbsp;conversa</h4>
+        <p>Funciona na&nbsp;hora e&nbsp;dura pouco. A&nbsp;regra repetida entra no&nbsp;fim da&nbsp;pilha, e&nbsp;a&nbsp;pilha continua crescendo: em&nbsp;mais alguns recados ela também vira a&nbsp;coisa mais
+        antiga. É o&nbsp;caminho que&nbsp;parece mais barato e&nbsp;cobra três vezes.</p>
       </div>
       <div class="cartao">
-        <span class="rot">Os sinais, na ordem em que aparecem</span>
-        <h4>Do&nbsp;detalhe pequeno ao&nbsp;erro grande</h4>
-        <ul class="lista">
-          <li>Primeiro o&nbsp;tom afrouxa, e&nbsp;o&nbsp;texto fica mais longo do&nbsp;que&nbsp;vinha ficando</li>
-          <li>Depois aparece uma&nbsp;palavra que&nbsp;não&nbsp;é do&nbsp;português daqui</li>
-          <li>Por&nbsp;último some a&nbsp;regra da&nbsp;fonte, e&nbsp;volta um&nbsp;número solto</li>
-        </ul>
+        <span class="rot">Caminho 2</span>
+        <h4>Recomeçar com&nbsp;o&nbsp;combinado no&nbsp;primeiro recado</h4>
+        <p>Custa trinta segundos e&nbsp;volta a&nbsp;valer inteiro. A&nbsp;conversa nova nasce com&nbsp;a&nbsp;mesa vazia, e&nbsp;o&nbsp;combinado volta a&nbsp;ser a&nbsp;primeira coisa nela, que&nbsp;é onde&nbsp;ele
+        precisa estar para&nbsp;durar.</p>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> a&nbsp;ordem não&nbsp;é
-    aleatória. O&nbsp;que&nbsp;sai primeiro é o&nbsp;mais antigo, e&nbsp;o&nbsp;combinado do&nbsp;começo é justamente
-    a&nbsp;coisa mais antiga da&nbsp;conversa.</p>
-
-    <p>Reconhecido o&nbsp;sinal, existem dois caminhos, e&nbsp;eles não&nbsp;são equivalentes. Repetir
-    a&nbsp;regra no&nbsp;meio da&nbsp;conversa funciona e&nbsp;dura pouco, porque&nbsp;a&nbsp;regra repetida também vai
-    envelhecer. Recomeçar a&nbsp;conversa colando o&nbsp;combinado no&nbsp;primeiro recado custa trinta
-    segundos e&nbsp;volta a&nbsp;valer inteiro.</p>
+    <p class="fig-leg"><strong>A&nbsp;conta que&nbsp;quase ninguém faz é a&nbsp;do&nbsp;caminho 1.</strong>
+    Lembrar a&nbsp;regra parece grátis porque&nbsp;custa um&nbsp;recado. Só&nbsp;que&nbsp;ele é cobrado toda vez,
+    e&nbsp;cada cobrança empurra o&nbsp;começo mais para&nbsp;fora, o&nbsp;que&nbsp;encurta o&nbsp;intervalo até&nbsp;a&nbsp;próxima. É a&nbsp;única das&nbsp;duas opções que&nbsp;piora com&nbsp;o&nbsp;uso.</p>
   </section>
 
   <section class="secao" id="sua-vez">
     <div class="secao-topo">
       <div class="secao-n">05</div>
       <div>
-        <div class="secao-fn">A sua vez</div>
-        <h2>Faça a&nbsp;sua&nbsp;regra cair, de&nbsp;propósito</h2>
+        <div class="secao-fn">Sua vez · sem exercício</div>
+        <h2>O&nbsp;combinado que&nbsp;você recola, e&nbsp;não&nbsp;reescreve</h2>
       </div>
     </div>
 
-    <p>É um&nbsp;exercício de&nbsp;provocar o&nbsp;defeito, e&nbsp;não&nbsp;de&nbsp;evitá-lo. Ver acontecer uma&nbsp;vez
-    de&nbsp;propósito vale mais que&nbsp;ser pego de&nbsp;surpresa três semanas depois.</p>
+    <p>Não&nbsp;há o&nbsp;que&nbsp;praticar aqui. O&nbsp;limite da&nbsp;mesa não&nbsp;é uma&nbsp;técnica que&nbsp;se&nbsp;executa, é
+    uma&nbsp;condição com&nbsp;a&nbsp;qual se&nbsp;trabalha. O&nbsp;que&nbsp;esta aula entrega no&nbsp;lugar do&nbsp;exercício é
+    um&nbsp;<strong>cartão</strong>: o&nbsp;seu&nbsp;combinado escrito uma&nbsp;vez, pronto para&nbsp;colar no&nbsp;primeiro recado de&nbsp;toda conversa nova sobre&nbsp;a&nbsp;rotina que&nbsp;você escolheu na&nbsp;aula 1.</p>
 
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">01</div>
+    <p>Preencha com&nbsp;o&nbsp;seu&nbsp;trabalho, e&nbsp;não&nbsp;com&nbsp;um&nbsp;exemplo confortável. O&nbsp;cartão só&nbsp;serve
+    se&nbsp;estiver nas&nbsp;suas&nbsp;palavras, porque&nbsp;é você que&nbsp;vai reconhecer quando&nbsp;ele cair.
+    O&nbsp;rascunho fica salvo neste aparelho.</p>
+
+    <div class="canvas solta" data-chave="canvas-combinado-rotina">
+      <div class="canvas-topo">
         <div>
-          <div class="passo-fn">Passo 1</div>
-          <h3>Abra uma&nbsp;conversa nova e&nbsp;dê três regras curtas</h3>
+          <span class="rot">O instrumento desta aula</span>
+          <h3 class="canvas-t">O&nbsp;combinado da&nbsp;minha&nbsp;rotina</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="cb-rotina">A rotina que escolhi na aula 1</label>
+            <div class="cv-ex">Ex: montar o resumo semanal de atrasos para a reunião de segunda</div>
+            <textarea id="cb-rotina" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="cb-regras">As três regras que não podem cair</label>
+            <div class="cv-ex">Ex: português do Brasil · todo número vem com a origem · texto de no máximo dez linhas</div>
+            <textarea id="cb-regras" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="cb-material">O material que eu colo, e o tamanho dele</label>
+            <div class="cv-ex">Ex: a planilha de pedidos da semana, umas 200 linhas, e só as colunas de prazo</div>
+            <textarea id="cb-material" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="cb-sinal">O sinal de que a minha mesa encheu</label>
+            <div class="cv-ex">Ex: voltou a escrever parágrafo longo, sendo que o combinado era dez linhas</div>
+            <textarea id="cb-sinal" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">5</div>
+          <div>
+            <label class="cv-rot" for="cb-colar">O texto que eu colo ao recomeçar</label>
+            <div class="cv-ex">Ex: as três regras do campo 2, na ordem, e uma linha dizendo para quem é</div>
+            <textarea id="cb-colar" rows="3"></textarea>
+          </div>
         </div>
       </div>
-      <p>Use as&nbsp;suas&nbsp;de&nbsp;verdade, as&nbsp;que&nbsp;você quer que&nbsp;valham quando&nbsp;trabalhar com&nbsp;a&nbsp;rotina que&nbsp;escolheu na&nbsp;aula 1.</p>
 
-      <div class="destrave">
-        <div class="destrave-rot">Se travar nas regras, responda estas três</div>
-        <ul>
-          <li>Que&nbsp;jeito de&nbsp;escrever você recusaria se&nbsp;recebesse de&nbsp;um&nbsp;colega?</li>
-          <li>Que&nbsp;informação você exige que&nbsp;venha com&nbsp;a&nbsp;origem declarada?</li>
-          <li>Quem lê o&nbsp;que&nbsp;você produz, e&nbsp;do&nbsp;que&nbsp;essa pessoa não&nbsp;precisa?</li>
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar o meu combinado</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">O&nbsp;campo 5 é o&nbsp;que&nbsp;transforma este cartão em&nbsp;instrumento: ele
+        é o&nbsp;texto que&nbsp;você cola, já&nbsp;pronto, sem&nbsp;ter que&nbsp;lembrar de&nbsp;nada.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Aula de&nbsp;fundamento entrega instrumento, não&nbsp;exercício.</strong>
+    O&nbsp;campo 4 é o&nbsp;que&nbsp;costuma faltar nas&nbsp;listas prontas: o&nbsp;sinal de&nbsp;queda é diferente para&nbsp;cada rotina, e&nbsp;quem não&nbsp;sabe o&nbsp;próprio sinal descobre a&nbsp;mesa cheia pelo&nbsp;estrago.</p>
+
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">O que você precisa ter em mãos</span>
+        <ul class="lista">
+          <li>A&nbsp;rotina que&nbsp;você escolheu na&nbsp;aula 1</li>
+          <li>Uma&nbsp;conversa sua&nbsp;que&nbsp;ficou longa, para&nbsp;olhar enquanto&nbsp;preenche o&nbsp;campo 4</li>
         </ul>
-        <div class="destrave-nao"><strong>Não conta como regra:</strong> "seja claro",
-        "capriche", "seja profissional". Nenhuma das três dá para conferir depois, e o
-        exercício depende de você conseguir apontar o momento em que a regra caiu.</div>
       </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">02</div>
-        <div>
-          <div class="passo-fn">Passo 2</div>
-          <h3>Trabalhe na&nbsp;mesma conversa até&nbsp;ela escorregar</h3>
-        </div>
+      <div class="cartao">
+        <span class="rot">O que sai daqui</span>
+        <p>O&nbsp;cartão preenchido e&nbsp;salvo. O&nbsp;campo 5 é o&nbsp;que&nbsp;você cola quando&nbsp;recomeça, e&nbsp;<strong>ele volta no&nbsp;bloco 6</strong>: quando&nbsp;o&nbsp;combinado sair do&nbsp;recado e&nbsp;passar
+        a&nbsp;morar num&nbsp;assistente, é este texto que&nbsp;vai para&nbsp;lá.</p>
       </div>
-      <p>Vá pedindo coisas, aceitando respostas longas, colando texto. Quanto mais
-      material entra, mais rápido chega. <strong>Anote em&nbsp;que&nbsp;ponto você viu o&nbsp;primeiro
-      sinal</strong>, e&nbsp;qual das&nbsp;três regras foi a&nbsp;primeira a&nbsp;cair.</p>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">03</div>
-        <div>
-          <div class="passo-fn">Passo 3</div>
-          <h3>Recomece, e&nbsp;compare</h3>
-        </div>
-      </div>
-      <p>Conversa nova, as&nbsp;mesmas três regras no&nbsp;primeiro recado, e&nbsp;o&nbsp;mesmo pedido que&nbsp;falhou. Guarde as&nbsp;duas respostas lado a&nbsp;lado: é esse par que&nbsp;você leva para&nbsp;a&nbsp;próxima aula.</p>
     </div>
   </section>
 
@@ -2906,48 +3517,56 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">06</div>
       <div>
         <div class="secao-fn">Confira</div>
-        <h2>Uma&nbsp;leitura de&nbsp;referência</h2>
+        <h2>Três perguntas antes de&nbsp;seguir</h2>
       </div>
     </div>
 
-    <p><em>O&nbsp;ponto em&nbsp;que&nbsp;a&nbsp;sua&nbsp;regra caiu vai ser diferente do&nbsp;da&nbsp;pessoa ao&nbsp;lado, porque&nbsp;depende de&nbsp;quanto texto cada um&nbsp;colocou. Compare o&nbsp;padrão, nunca o&nbsp;momento.</em></p>
+    <p>Não&nbsp;há gabarito aqui, porque&nbsp;não&nbsp;houve produção. O&nbsp;que&nbsp;há são três perguntas
+    fechadas, com&nbsp;a&nbsp;resposta escondida. Responda antes de&nbsp;abrir: <strong>a&nbsp;resposta que&nbsp;você vê antes de&nbsp;tentar não&nbsp;fixa nada</strong>.</p>
 
-    <div class="cartao">
-      <span class="rot">A tarefa deste gabarito</span>
-      <p style="margin:0">Apontar qual regra caiu primeiro, o&nbsp;que&nbsp;denunciou a&nbsp;queda, e&nbsp;o&nbsp;que&nbsp;mudou quando&nbsp;a&nbsp;conversa recomeçou com&nbsp;o&nbsp;combinado no&nbsp;topo.</p>
+    <div class="verifique">
+      <div class="verifique-rot">Verificação de entendimento</div>
+      <p class="verifique-nota">Se&nbsp;as&nbsp;três estiverem de&nbsp;pé, a&nbsp;aula cumpriu o&nbsp;que&nbsp;prometeu. Se&nbsp;alguma não&nbsp;estiver, a&nbsp;seção que&nbsp;a&nbsp;cobre está indicada na&nbsp;resposta.</p>
+
+      <details class="vf">
+        <summary><span class="vf-n">1</span><span class="vf-p">A conversa passou a
+        escrever mais longo do que o combinado. O que aconteceu com a regra do
+        começo?</span></summary>
+        <div class="vf-corpo">
+          <p>Ela saiu da&nbsp;mesa, ou&nbsp;encolheu tanto que&nbsp;sobrou um&nbsp;pedaço sem&nbsp;sentido. O&nbsp;que&nbsp;sai primeiro é o&nbsp;mais antigo, e&nbsp;o&nbsp;combinado é justamente a&nbsp;primeira coisa que&nbsp;você escreveu. Está na&nbsp;seção 03, na&nbsp;barra dos&nbsp;três recados.</p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">2</span><span class="vf-p">Você abre uma conversa
+        nova amanhã sobre a mesma rotina. O que ela sabe da conversa de hoje?</span></summary>
+        <div class="vf-corpo">
+          <p>Nada. Conversa nova começa com&nbsp;a&nbsp;mesa vazia, e&nbsp;o&nbsp;que&nbsp;estava na&nbsp;anterior não&nbsp;atravessa por&nbsp;ter sido importante. É a&nbsp;diferença entre&nbsp;a&nbsp;mesa e&nbsp;memória, e&nbsp;está
+          no&nbsp;terceiro cartão do&nbsp;contraste da&nbsp;seção 02.</p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">3</span><span class="vf-p">Corrigir várias vezes na
+        mesma conversa aproxima ou afasta do combinado?</span></summary>
+        <div class="vf-corpo">
+          <p>Afasta, e&nbsp;é o&nbsp;resultado que&nbsp;menos gente prevê. Cada correção entra na&nbsp;conta
+          e&nbsp;empurra o&nbsp;começo mais para&nbsp;fora, então a&nbsp;conversa mais corrigida é a&nbsp;que&nbsp;menos lembra do&nbsp;que&nbsp;foi combinado. Está no&nbsp;fim da&nbsp;seção 03.</p>
+        </div>
+      </details>
     </div>
 
-    <div class="grade grade-2 solta">
-      <div class="cartao">
-        <span class="rot">O que costuma acontecer</span>
-        <h4>Na&nbsp;conversa longa</h4>
-        <ul class="lista">
-          <li>A&nbsp;regra de&nbsp;formato cai antes da&nbsp;regra de&nbsp;conteúdo</li>
-          <li>O&nbsp;sinal aparece como tom, e&nbsp;só&nbsp;depois como erro</li>
-          <li>Lembrar a&nbsp;regra conserta, e&nbsp;o&nbsp;conserto não&nbsp;dura</li>
-        </ul>
-      </div>
-      <div class="cartao">
-        <span class="rot">O que costuma acontecer</span>
-        <h4>Na&nbsp;conversa nova com&nbsp;o&nbsp;combinado no&nbsp;topo</h4>
-        <ul class="lista">
-          <li>A&nbsp;primeira resposta já&nbsp;sai dentro das&nbsp;três regras</li>
-          <li>Você não&nbsp;gastou nenhum recado explicando de&nbsp;novo</li>
-          <li>E&nbsp;fica óbvio o&nbsp;problema seguinte: você vai ter que&nbsp;colar isso toda vez</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Repare no&nbsp;último item da&nbsp;direita.</strong> Ele não&nbsp;é uma&nbsp;reclamação: é o&nbsp;problema que&nbsp;o&nbsp;Módulo 1 resolve mais adiante, quando&nbsp;o&nbsp;combinado sai
-    do&nbsp;recado e&nbsp;passa a&nbsp;morar em&nbsp;algum lugar fixo.</p>
+    <p class="fig-leg"><strong>Verificação não&nbsp;é lista de&nbsp;conferência.</strong> A&nbsp;lista
+    do&nbsp;fim a&nbsp;pessoa lê concordando com&nbsp;ela mesma, e&nbsp;isso confirma leitura. A&nbsp;pergunta
+    fechada com&nbsp;resposta escondida confirma entendimento, e&nbsp;é o&nbsp;que&nbsp;torna esta aula
+    conduzível numa&nbsp;sala.</p>
   </section>
 
   <div class="ate-aqui">
     <div class="ate-aqui-rot">A aula acaba aqui</div>
   </div>
-  <p class="ate-aqui-nota">Com&nbsp;o&nbsp;par de&nbsp;respostas guardado, você já&nbsp;tem o&nbsp;que&nbsp;precisa
-  para&nbsp;a&nbsp;próxima aula. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia agora
-  se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;uma&nbsp;conversa longa te trair.</p>
+  <p class="ate-aqui-nota">Você já&nbsp;reconhece o&nbsp;problema e&nbsp;já&nbsp;tem o&nbsp;cartão para&nbsp;não&nbsp;passar
+  por&nbsp;ele de&nbsp;novo. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte aqui na&nbsp;primeira vez que&nbsp;uma&nbsp;conversa longa te trair.</p>
 
   <section class="secao" id="pegadinhas">
     <div class="secao-topo">
@@ -2958,22 +3577,74 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <div class="aviso erro">
-      <div class="aviso-t">Colar o documento inteiro por precaução</div>
-      <p>Quanto mais entra, mais rápido o&nbsp;tampo enche. Anexar as&nbsp;trinta páginas quando&nbsp;a&nbsp;decisão está em&nbsp;duas encurta a&nbsp;conversa e&nbsp;derruba o&nbsp;combinado antes.</p>
+    <p>As&nbsp;três abaixo têm a&nbsp;mesma origem: a&nbsp;pessoa entendeu o&nbsp;limite e&nbsp;tentou resolver
+    com&nbsp;esforço em&nbsp;vez de&nbsp;com&nbsp;método. Nas&nbsp;três o&nbsp;esforço piora a&nbsp;situação.</p>
+
+    <div class="diagnostico solta">
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">1</span> Colar o documento inteiro por precaução</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>A&nbsp;conversa começa ótima e&nbsp;desanda muito mais cedo do&nbsp;que&nbsp;a&nbsp;de&nbsp;ontem, sem&nbsp;que&nbsp;nada tenha mudado no&nbsp;jeito de&nbsp;pedir.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>As&nbsp;trinta páginas anexadas ocupam lugar em&nbsp;todo recado, não&nbsp;só&nbsp;naquele.
+            A&nbsp;mesa nasceu quase cheia, e&nbsp;o&nbsp;combinado saiu no&nbsp;primeiro terço.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Colar a&nbsp;parte que&nbsp;decide, não&nbsp;o&nbsp;arquivo que&nbsp;a&nbsp;contém. Se&nbsp;a&nbsp;decisão está
+            em&nbsp;duas páginas, são as&nbsp;duas que&nbsp;entram.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">2</span> Tratar conversa nova como perda de trabalho</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Meia hora corrigindo a&nbsp;mesma coisa em&nbsp;vez dos&nbsp;trinta segundos que&nbsp;custaria recomeçar.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>A&nbsp;conta é feita sobre&nbsp;o&nbsp;tempo já&nbsp;investido, que&nbsp;não&nbsp;volta de&nbsp;nenhum jeito,
+            em&nbsp;vez de&nbsp;sobre&nbsp;o&nbsp;que&nbsp;ainda vai custar.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>O&nbsp;campo 5 do&nbsp;seu&nbsp;cartão. Com&nbsp;o&nbsp;combinado pronto para&nbsp;colar, recomeçar
+            deixa de&nbsp;ser refazer e&nbsp;vira colar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">3</span> Achar que ela lembra de ontem</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>O&nbsp;pedido de&nbsp;hoje sai curto, sem&nbsp;contexto, e&nbsp;a&nbsp;resposta volta genérica,
+            como se&nbsp;ela tivesse desaprendido durante&nbsp;a&nbsp;noite.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>A&nbsp;conversa de&nbsp;ontem foi ótima e&nbsp;não&nbsp;deixou nada guardado. O&nbsp;que&nbsp;parecia
+            memória era a&nbsp;mesa daquela conversa, e&nbsp;ela foi embora junto.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Assumir que&nbsp;toda conversa começa do&nbsp;zero, e&nbsp;que&nbsp;o&nbsp;que&nbsp;precisa atravessar
+            os&nbsp;dias tem que&nbsp;estar escrito em&nbsp;algum lugar seu.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="aviso erro">
-      <div class="aviso-t">Tratar conversa nova como perda de trabalho</div>
-      <p>Recomeçar parece desperdício e&nbsp;quase sempre é mais barato. A&nbsp;conta certa não&nbsp;é
-      o&nbsp;tempo já&nbsp;investido, é quanto ainda vai custar corrigir resposta por&nbsp;resposta.</p>
-    </div>
-
-    <div class="aviso erro">
-      <div class="aviso-t">Achar que ela lembra de ontem</div>
-      <p>A&nbsp;conversa de&nbsp;ontem foi ótima e&nbsp;não&nbsp;deixou nada guardado. Contar com&nbsp;isso
-      produz o&nbsp;pedido de&nbsp;hoje sem&nbsp;contexto nenhum, e&nbsp;a&nbsp;resposta genérica que&nbsp;vem junto.</p>
-    </div>
+    <p class="fig-leg"><strong>Repare no&nbsp;conserto da&nbsp;segunda.</strong> Ele não&nbsp;é um&nbsp;conselho, é o&nbsp;campo 5 do&nbsp;cartão que&nbsp;você acabou de&nbsp;preencher. A&nbsp;pegadinha só&nbsp;existe
+    enquanto&nbsp;recomeçar for caro, e&nbsp;o&nbsp;instrumento desta aula é exatamente o&nbsp;que&nbsp;barateia.</p>
   </section>
 
   <section class="secao" id="a-cerca">
@@ -2985,21 +3656,38 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
+    <p>Entender o&nbsp;limite tenta virar, quase sempre, uma&nbsp;busca por&nbsp;como driblá-lo. As&nbsp;três abaixo são as&nbsp;tentativas mais comuns, e&nbsp;as&nbsp;três não&nbsp;funcionam por&nbsp;motivo de&nbsp;natureza, não&nbsp;de&nbsp;habilidade.</p>
+
     <div class="aviso atencao">
       <div class="aviso-t">Não existe pedido que aumente o tampo</div>
-      <p>Escrever "lembre-se de&nbsp;tudo" ou&nbsp;"não&nbsp;esqueça nada" não&nbsp;muda o&nbsp;tamanho. O&nbsp;que&nbsp;muda o&nbsp;resultado é o&nbsp;que&nbsp;você escolhe colocar, e&nbsp;o&nbsp;que&nbsp;escolhe deixar de&nbsp;fora.</p>
+      <p>Escrever "lembre-se de&nbsp;tudo", "não&nbsp;esqueça nada" ou&nbsp;"isto é muito importante"
+      não&nbsp;muda o&nbsp;tamanho de&nbsp;nada. Frase de&nbsp;ênfase ocupa lugar como qualquer outra, então
+      o&nbsp;pedido para&nbsp;não&nbsp;esquecer, ele mesmo, empurra um&nbsp;pouco mais do&nbsp;começo para&nbsp;fora.
+      O&nbsp;que&nbsp;muda o&nbsp;resultado é <strong>o&nbsp;que&nbsp;você escolhe colocar</strong>, e&nbsp;o&nbsp;que&nbsp;escolhe deixar de&nbsp;fora.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Trabalho longo pede quebra planejada</div>
-      <p>Tarefa que&nbsp;atravessa dias não&nbsp;cabe numa&nbsp;conversa só.&nbsp;Ela precisa ser quebrada
-      em&nbsp;pedaços com&nbsp;começo e&nbsp;fim, e&nbsp;isso é decisão sua,&nbsp;não&nbsp;da&nbsp;ferramenta.</p>
+      <div class="aviso-t">Trabalho longo pede quebra planejada, e a quebra é sua</div>
+      <p>Tarefa que&nbsp;atravessa dias não&nbsp;cabe numa&nbsp;conversa só,&nbsp;e&nbsp;não&nbsp;existe configuração
+      que&nbsp;resolva isso. Ela precisa ser quebrada em&nbsp;pedaços com&nbsp;começo e&nbsp;fim, cada um&nbsp;cabendo numa&nbsp;mesa, com&nbsp;o&nbsp;resultado de&nbsp;um&nbsp;virando material colado do&nbsp;seguinte.
+      <strong>Essa quebra é decisão sua</strong>, e&nbsp;é a&nbsp;mesma habilidade que&nbsp;o&nbsp;bloco 4
+      vai usar para&nbsp;mapear o&nbsp;seu&nbsp;processo.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">O que caiu do tampo não é recuperável pedindo</div>
-      <p>Perguntar "o&nbsp;que&nbsp;eu falei no&nbsp;começo" costuma produzir uma&nbsp;reconstrução
-      plausível, e&nbsp;não&nbsp;o&nbsp;que&nbsp;você realmente disse. É invenção, e&nbsp;é a&nbsp;próxima aula.</p>
+      <div class="aviso-t">O que caiu do tampo não é recuperável perguntando</div>
+      <p>Perguntar "o&nbsp;que&nbsp;eu falei no&nbsp;começo?" costuma produzir uma&nbsp;reconstrução
+      plausível, e&nbsp;não&nbsp;o&nbsp;que&nbsp;você realmente disse. E&nbsp;ela não&nbsp;vem marcada como
+      reconstrução: vem com&nbsp;a&nbsp;mesma cara de&nbsp;quem está lendo. É o&nbsp;comportamento mais caro
+      de&nbsp;todos, e&nbsp;é a&nbsp;próxima aula.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <p>Esta aula explica o&nbsp;limite e&nbsp;ensina a&nbsp;conviver com&nbsp;ele. <strong>Ela não&nbsp;resolve
+      o&nbsp;problema de&nbsp;ter que&nbsp;colar o&nbsp;combinado toda vez</strong>, e&nbsp;é bom que&nbsp;isso fique
+      dito: colar é o&nbsp;remédio manual. O&nbsp;remédio definitivo é o&nbsp;combinado morar fora da&nbsp;conversa, e&nbsp;isso é o&nbsp;bloco 6, quando&nbsp;você monta um&nbsp;assistente que&nbsp;já&nbsp;nasce sabendo.
+      Até&nbsp;lá, o&nbsp;cartão é o&nbsp;que&nbsp;você tem, e&nbsp;ele funciona.</p>
     </div>
   </section>
 
@@ -3048,6 +3736,32 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       var alvo = document.getElementById(b.dataset.alvo);
       if(alvo) copia(b, alvo.textContent.trim());
     });
+  });
+
+  /* ---- o aprofundamento ----
+     O <dialog> nativo precisa de showModal() para virar modal de verdade: sem
+     ele o navegador so mostra a caixa no fluxo, sem foco preso e sem Esc.
+     Sao seis linhas e nao ha alternativa sem script.
+
+     ATENCAO: se o script nao rodar, o botao nao abre nada -- e por isso o
+     CONTEUDO mora no HTML e a impressao o revela. Modal e a comodidade;
+     o conteudo nunca depende dela. */
+  document.querySelectorAll('.aprofunda-abrir[data-alvo]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = document.getElementById(b.dataset.alvo);
+      if(d && d.showModal) d.showModal();
+    });
+  });
+  document.querySelectorAll('.aprofunda-fechar').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = b.closest('dialog');
+      if(d) d.close();
+    });
+  });
+  /* clicar fora fecha: o alvo do clique e o proprio dialog quando ele cai no
+     backdrop, porque o miolo esta dentro de .aprofunda-corpo */
+  document.querySelectorAll('dialog.aprofunda').forEach(function(d){
+    d.addEventListener('click', function(e){ if(e.target === d) d.close(); });
   });
 
   /* ---- imprimir o documento ----

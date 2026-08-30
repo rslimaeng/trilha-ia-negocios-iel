@@ -65,6 +65,35 @@ ARMADILHAS = {
 
 
 # ---------------------------------------------------------------------------
+# O CATÁLOGO DE ARMADILHAS DE DOCUMENTO
+#
+# 🔴 São outras, e é por isso que existem duas listas. Planilha erra em COLUNA:
+# formato, tipo, duplicata. Documento erra em SENTIDO: contradiz a si mesmo,
+# omite o dono, e diz "próxima semana" sem dizer a partir de quando.
+#
+# Um exercício de documento com armadilha de planilha ensina a coisa errada: a
+# pessoa sai procurando célula quando o problema é o parágrafo.
+# ---------------------------------------------------------------------------
+ARMADILHAS_DOC = {
+    "decisao_registrada_duas_vezes":
+        "que documento longo se contradiz, e que a IA repete a primeira "
+        "versão que encontra sem avisar que há uma segunda",
+    "responsavel_sem_nome":
+        "que pendência sem dono não é pendência, é intenção",
+    "prazo_relativo":
+        "que 'na próxima semana' perde o sentido no dia em que alguém lê o "
+        "documento fora da semana em que ele foi escrito",
+    "sigla_nunca_expandida":
+        "que a IA preenche a sigla que ela não conhece com a que ela conhece",
+    "numero_que_nao_bate":
+        "que o total escrito na frase e a soma dos itens da lista são duas "
+        "afirmações diferentes, e só uma delas foi conferida",
+    "paragrafo_de_outra_reuniao":
+        "que copiar e colar traz o contexto errado junto, e ninguém relê",
+}
+
+
+# ---------------------------------------------------------------------------
 # A ESPECIFICAÇÃO
 #
 # Trocar o insumo de um curso é mexer aqui. Mais nada.
@@ -86,6 +115,15 @@ INSUMOS = {
         aviso=("Os dados deste arquivo são FICTÍCIOS. As lojas, os valores e os "
                "produtos foram inventados para o treinamento. Nenhum dado de "
                "cliente real foi usado."),
+    ),
+    "ata-do-projeto-exemplo": dict(
+        formato="docx",
+        caso="caso",
+        titulo="Ata · Comitê do projeto Guarita",
+        armadilhas=list(ARMADILHAS_DOC),
+        aviso=("Este documento é FICTÍCIO. A empresa, as pessoas, os números e "
+               "as decisões foram inventados para o treinamento. Nenhum "
+               "documento de cliente real foi usado."),
     ),
 }
 
@@ -302,6 +340,172 @@ def grava_xlsx(slug, spec):
     }
 
 
+# ---------------------------------------------------------------------------
+# O DOCUMENTO
+#
+# 🔴 O texto é FIXO, não sorteado. Numa planilha a aleatoriedade com semente é
+# o que dá volume sem inventar caso a caso; num documento ela produziria frases
+# que ninguém leu. O documento é escrito à mão aqui, e é conferido aqui: a
+# função que grava também MEDE a armadilha que aplicou, e o que ela não
+# conseguir medir não entra no manifesto.
+#
+# 🔴 Nenhum nome, empresa ou número deste documento é real. A regra de
+# segurança do padrão vale igual no insumo: nome de outro cliente não entra,
+# nem anonimizado.
+# ---------------------------------------------------------------------------
+
+# O par que se contradiz. A primeira data está no corpo, a segunda no anexo --
+# 40 linhas depois, que é onde a releitura desiste.
+VIRADA_NO_CORPO = "15/09/2026"
+VIRADA_NO_ANEXO = "29/09/2026"
+
+# O total ESCRITO na frase, e os itens que a lista traz. Os dois números
+# existem no documento; um deles está errado, e o documento não diz qual.
+TOTAL_ESCRITO = 148000
+ITENS_DO_ORCAMENTO = [
+    ("Licenças e assinaturas", 46000),
+    ("Consultoria de implantação", 72000),
+    ("Treinamento das equipes", 28000),
+    ("Reserva técnica", 16000),
+]
+
+CORPO_DA_ATA = [
+    ("h1", "Ata · Comitê do projeto Guarita"),
+    ("meta", "Reunião ordinária · 26/08/2026 · 14h às 15h30 · sala virtual"),
+    ("meta", "Participantes: Direção de Operações, Coordenação de TI, "
+             "Coordenação Comercial, Escritório de Projetos"),
+
+    ("h2", "1. Contexto"),
+    ("p", "O comitê se reuniu para revisar o andamento do projeto Guarita, que "
+          "substitui o controle de ocorrências feito hoje em planilha "
+          "compartilhada. O piloto rodou em duas unidades por seis semanas."),
+    ("p", "O PCO apresentou o consolidado do piloto. Segundo o PCO, o volume de "
+          "ocorrências registradas subiu 34% em relação ao mesmo período do ano "
+          "anterior, o que era esperado: parte do aumento é registro que antes "
+          "não acontecia. O PCO recomenda manter a apuração separada por "
+          "unidade até a virada."),
+
+    ("h2", "2. Decisões"),
+    ("p", "Ficou decidido que a virada das demais unidades acontece em "
+          + VIRADA_NO_CORPO + ", condicionada ao aceite do relatório de piloto."),
+    ("p", "Ficou decidido que o treinamento das equipes ocorre antes da virada, "
+          "em turmas por unidade, e que a Coordenação de TI publica o "
+          "calendário na próxima semana."),
+    ("p", "Ficou decidido que o modelo de relatório mensal passa a ser o do "
+          "PCO, e que o modelo antigo sai de circulação assim que o novo "
+          "estiver publicado."),
+
+    ("h2", "3. Pendências"),
+    ("p", "A equipe vai avaliar se o campo de reincidência entra já na virada "
+          "ou fica para a fase 2."),
+    ("p", "Alguém do time comercial precisa confirmar se o contrato atual "
+          "cobre as duas unidades novas."),
+    ("p", "A Coordenação de TI fecha a lista de perfis de acesso até o fim do "
+          "mês."),
+    ("p", "Falta definir quem responde pelo dado quando a unidade não registra "
+          "a ocorrência no prazo."),
+
+    ("h2", "4. Orçamento aprovado"),
+    ("p", "Os itens aprovados para o ciclo totalizam R$ " +
+          "{:,.0f}".format(TOTAL_ESCRITO).replace(",", ".") + ", conforme a "
+          "lista abaixo."),
+    ("itens", None),
+    ("p", "O desembolso segue o cronograma financeiro já acordado, sem "
+          "antecipação."),
+
+    ("h2", "5. Registro do encaminhamento anterior"),
+    ("p", "Sobre o projeto Farol: a integração com o sistema de portaria "
+          "continua parada aguardando o retorno do fornecedor, e o comitê "
+          "decidiu não escalar antes do fim do contrato vigente. O "
+          "acompanhamento segue com o Escritório de Projetos, em reunião "
+          "quinzenal."),
+
+    ("h2", "6. Anexo · extrato da ata anterior"),
+    ("p", "Extrato mantido para referência, conforme praxe do comitê."),
+    ("p", "Ficou decidido que a virada das demais unidades acontece em "
+          + VIRADA_NO_ANEXO + ", após o encerramento do ciclo de férias da "
+          "equipe de TI."),
+    ("p", "O PCO fica responsável por consolidar os números do piloto e "
+          "apresentar no próximo comitê."),
+]
+
+
+def grava_docx(slug, spec):
+    """Grava o .docx e MEDE cada armadilha no documento gravado.
+
+    🔴 Medir depois de escrever, e não confiar no que a spec declarou, é a mesma
+    regra do .xlsx: a lista de armadilhas do manifesto é o que o arquivo TEM,
+    não o que alguém pretendia pôr nele.
+    """
+    from docx import Document
+    from docx.shared import Pt
+
+    doc = Document()
+    secoes = []
+    paragrafos = 0
+
+    for tipo, texto in CORPO_DA_ATA:
+        if tipo == "h1":
+            doc.add_heading(texto, level=1)
+            secoes.append(texto)
+        elif tipo == "h2":
+            doc.add_heading(texto, level=2)
+            secoes.append(texto)
+        elif tipo == "meta":
+            p = doc.add_paragraph(texto)
+            p.runs[0].font.size = Pt(10)
+            paragrafos += 1
+        elif tipo == "itens":
+            for nome, valor in ITENS_DO_ORCAMENTO:
+                doc.add_paragraph(
+                    "{} — R$ {:,.0f}".format(nome, valor).replace(",", "."),
+                    style="List Bullet")
+                paragrafos += 1
+        else:
+            doc.add_paragraph(texto)
+            paragrafos += 1
+
+    doc.add_paragraph("")
+    aviso = doc.add_paragraph(spec["aviso"])
+    aviso.runs[0].font.size = Pt(9)
+    paragrafos += 1
+
+    # ---- a medição: o que o documento gravado realmente tem ----
+    todo = "\n".join(p.text for p in doc.paragraphs)
+    aplicadas = []
+    if VIRADA_NO_CORPO in todo and VIRADA_NO_ANEXO in todo:
+        aplicadas.append("decisao_registrada_duas_vezes")
+    if "A equipe vai avaliar" in todo and "Alguém do time comercial" in todo:
+        aplicadas.append("responsavel_sem_nome")
+    if "na próxima semana" in todo and "até o fim do mês" in todo:
+        aplicadas.append("prazo_relativo")
+    # a sigla existe e NUNCA aparece expandida
+    if todo.count("PCO") >= 4 and "Planejamento e Controle" not in todo:
+        aplicadas.append("sigla_nunca_expandida")
+    soma = sum(v for _, v in ITENS_DO_ORCAMENTO)
+    if soma != TOTAL_ESCRITO:
+        aplicadas.append("numero_que_nao_bate")
+    if "projeto Farol" in todo:
+        aplicadas.append("paragrafo_de_outra_reuniao")
+
+    os.makedirs(DESTINO, exist_ok=True)
+    caminho = os.path.join(DESTINO, slug + ".docx")
+    doc.save(caminho)
+    _congela_o_zip(caminho)
+
+    return {
+        "arquivo": slug + ".docx",
+        "formato": "docx",
+        "caso": spec["caso"],
+        "titulo": spec["titulo"],
+        "paragrafos": paragrafos,
+        "secoes": secoes,
+        "armadilhas": {a: ARMADILHAS_DOC[a] for a in aplicadas},
+        "total_escrito": TOTAL_ESCRITO,
+        "soma_dos_itens": soma,
+    }
+
+
 # 🔴 O .xlsx é um zip, e o zip guarda a hora de gravação DE CADA ENTRADA. O
 # openpyxl usa a hora atual, então o arquivo trocava de hash a cada execução
 # mesmo com todo o conteúdo idêntico.
@@ -344,20 +548,40 @@ def _na_semana(data, d0, d1):
     return d0 <= data <= d1
 
 
+# Cada formato tem o seu gravador. Um curso pede planilha, outro pede documento,
+# e há caso que pede OS DOIS -- a ata que decide e a planilha que prova. Nesse
+# caso são duas entradas em INSUMOS apontando para o mesmo "caso", e não um
+# terceiro formato: o gerador não precisa saber que elas andam juntas, a página
+# de caso é que oferece as duas.
+GRAVADORES = {
+    "xlsx": grava_xlsx,
+    "docx": grava_docx,
+}
+
+
 def main():
     manifesto = {}
     for slug, spec in INSUMOS.items():
-        if spec["formato"] != "xlsx":
+        grava = GRAVADORES.get(spec["formato"])
+        if not grava:
             print("  pulou:   %s (formato %s ainda não implementado)"
                   % (slug, spec["formato"]))
             continue
-        info = grava_xlsx(slug, spec)
+        info = grava(slug, spec)
         manifesto[slug] = info
         caminho = os.path.join(DESTINO, info["arquivo"])
         print("  gravado: %-34s %6d bytes" % (info["arquivo"],
                                               os.path.getsize(caminho)))
-        print("           %d linhas · %d abas · cabeçalho na linha %d"
-              % (info["linhas"], len(info["abas"]), info["cabecalho_na_linha"]))
+        if info["formato"] == "xlsx":
+            print("           %d linhas · %d abas · cabeçalho na linha %d"
+                  % (info["linhas"], len(info["abas"]),
+                     info["cabecalho_na_linha"]))
+        else:
+            print("           %d parágrafos · %d seções · total escrito R$ %s "
+                  "contra soma R$ %s"
+                  % (info["paragrafos"], len(info["secoes"]),
+                     "{:,.0f}".format(info["total_escrito"]).replace(",", "."),
+                     "{:,.0f}".format(info["soma_dos_itens"]).replace(",", ".")))
         print("           armadilhas:")
         for a, ensina in info["armadilhas"].items():
             print("             · %-36s ensina %s" % (a, ensina))

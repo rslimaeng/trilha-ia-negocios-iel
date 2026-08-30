@@ -11,18 +11,23 @@
    ============================================================================ */
 
 /* ---------- 1 · MEDIDA ------------------------------------------------------
-   A página tem DUAS larguras, e só duas. Nove larguras diferentes dentro do
+   A página tem TRES larguras, e só três. Nove larguras diferentes dentro do
    mesmo texto é o que faz a prosa parecer órfã.
 
    --col       a coluna de leitura. Prosa enche ela inteira, sem max-width
                próprio. São ~80 caracteres por linha, que é onde a leitura
                ainda é confortável. Acima de 90 ela cai de verdade.
+   --col-media a largura do meio, para o bloco que é metade figura e metade
+               prosa: demonstração lado a lado, antes-depois com texto dentro.
+               Na largura cheia ele foge da coluna de texto e o olho perde o
+               par. Herdada do curso Pouchain, medida lá. Use com `.solta.meia`.
    --col-larga o breakout. Figura, tabela e grade SAEM da coluna.
 
    Figura mais larga que o texto lê como editorial. Texto mais estreito que
    a figura, sem motivo, lê como quebrado.                                   */
 :root{
   --col:780px;
+  --col-media:960px;
   --col-larga:1140px;
   --raio-p:6px; --raio:10px; --raio-g:14px;
   --sombra-p:0 1px 2px rgba(20,20,19,.04),0 1px 3px rgba(20,20,19,.06);
@@ -1389,6 +1394,25 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .doc{border:0;box-shadow:none;border-radius:0;padding:0;margin:0}
   .doc-num{break-inside:avoid}
   .doc h3{break-after:avoid}
+  /* 🔴 CONTEUDO ESCONDIDO NA TELA NAO PODE SUMIR NO PAPEL. A aba fechada,
+     o aprofundamento fechado e a resposta fechada existem no HTML -- quem
+     imprime a aula para levar para a sala precisa das tres inteiras, ou o
+     material impresso vira um terco do material da tela. */
+  .aba-corpo{display:block!important;border-top:1px solid var(--border);
+    padding-top:14px}
+  .aba-rot{display:block;font-weight:600;margin-bottom:8px}
+  .abas-fila{display:none}
+  .aprofunda{display:block!important;position:static;border:1px solid var(--border);
+    margin:14px 0;max-width:none;
+    /* o modal rola na tela e NAO rola no papel: sem zerar os dois, a folha
+       corta a tabela na altura que a tela usava */
+    max-height:none;overflow:visible}
+  .aprofunda-corpo{overflow:visible}
+  .aprofunda-abrir,.aprofunda-fechar{display:none}
+  /* o pe some: o botao que ele carrega ja nao funciona no papel */
+  .aprofunda-pe{display:none}
+  .vf-corpo{display:block!important}
+  .vf summary::after{content:""}
 }
 
 /* ---------- 35 · O LOOP ABERTO E O LOOP FECHADO ---------------------------
@@ -2154,6 +2178,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   margin-left:50%;
   transform:translateX(-50%);
 }
+/* a largura do meio: metade figura, metade prosa. Estourar até 1140 aqui separa
+   o par que precisa ser lido junto. */
+.solta.meia{width:min(var(--col-media),calc(100vw - 40px))}
 /* dentro de um gabarito a coluna já é estreita: estourar ali vaza da caixa */
 .gabarito-corpo .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
@@ -2332,6 +2359,385 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .mesa-legenda i.dado{background:var(--accent)}
 .mesa-legenda i.conversa{background:var(--text-muted)}
 .mesa-legenda i.livre{background:var(--bg-warm);border:1px solid var(--border-strong)}
+
+/* ---------- 59 · A VERIFICAÇÃO DE ENTENDIMENTO ------------------------
+   🔴 A peça que faltava para a aula de FUNDAMENTO existir de verdade.
+
+   Regra do Rafael, 30/08: "há aulas de fundamentos que são só de explicação e
+   de confirmar com a turma se todo mundo entendeu". Até aqui o padrão só tinha
+   .checagem -- lista de conferencia no FIM da aula, que a pessoa lê e concorda
+   com ela mesma. Isso não confirma entendimento: confirma leitura.
+
+   O .verifique é outra coisa: pergunta FECHADA, com resposta escondida, colada
+   no conceito que ela testa. O instrutor lê em voz alta, a sala responde, e só
+   então ele abre. É o que a aula de fundamento entrega no lugar do exercício
+   postiço -- e o que a torna conduzível numa sala, não só legível sozinha.
+
+   A resposta nasce FECHADA pela mesma razão do .gabarito: aberta, ninguém
+   tenta.                                                                    */
+.verifique{
+  border:1px solid var(--accent-line);border-radius:var(--raio);
+  background:var(--accent-tinted);margin:26px 0;overflow:hidden;
+}
+.verifique-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);
+  padding:14px 20px 0;
+}
+.verifique-nota{
+  font-size:14px;color:var(--text-dim);padding:5px 20px 12px;margin:0;
+}
+.vf{border-top:1px solid var(--accent-line)}
+.vf summary{
+  padding:15px 20px;cursor:pointer;list-style:none;
+  display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;
+}
+.vf summary::-webkit-details-marker{display:none}
+.vf-n{
+  font-family:var(--font-mono);font-size:13px;color:var(--accent);
+}
+.vf-p{font-weight:500}
+.vf-corpo{
+  padding:0 20px 18px 54px;font-size:16px;color:var(--text-muted);
+}
+.vf-corpo p:last-child{margin-bottom:0}
+/* O sinal de que há resposta embaixo mora no fim da linha, e não no começo:
+   no começo ele competiria com o número da pergunta. */
+.vf summary::after{
+  content:"mostrar";grid-column:2;font-family:var(--font-mono);
+  font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent);margin-top:6px;
+}
+.vf[open] summary::after{content:"esconder"}
+
+/* ---------- 60 · O TESTE RÁPIDO ------------------------------------------
+   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do curso da
+   Maria Pitanga, onde cada card de gatilho termina com o critério de
+   identificação -- herdamos a forma, nada do texto.
+
+   É a peça mais barata do padrão e uma das mais fortes: sem ela o aluno sai
+   sabendo a definição e não reconhece o caso quando ele aparece na segunda.
+   Uma frase, no imperativo, com um teste que a pessoa consegue aplicar
+   sozinha. Se precisar de duas frases, o conceito ainda não está pronto.    */
+.teste-rapido{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+  border-top:1px dashed var(--accent-line);
+  margin-top:14px;padding-top:12px;
+}
+.teste-rapido-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);white-space:nowrap;
+}
+.teste-rapido p{margin:0;font-size:15px;color:var(--text-muted)}
+.teste-rapido strong{color:var(--text)}
+
+/* ---------- 61 · A COLUNA DO ERRO COMUM ----------------------------------
+   Variante da .anatomia com uma quarta coluna: o que quase todo mundo escreve
+   errado NAQUELE campo. A .anatomia sozinha ensina o que o campo é; ela não
+   ensina o que a sala vai fazer com ele.
+
+   Vem dos prints do curso da Mallory, onde a tabela de campos do prompt tem a
+   coluna do erro ao lado do exemplo bom. É a diferença entre descrever o
+   formulário e corrigir a prova.                                            */
+.anatomia.com-erro{grid-template-columns:170px 1fr 1fr 130px}
+.anat-erro{background:var(--erro-soft)}
+.anat-erro-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--erro-texto);margin-bottom:5px;display:block;
+}
+.anat-erro p{margin:0;font-size:14px;color:var(--text-muted)}
+
+/* ---------- 62 · AS ABAS ------------------------------------------------
+   Um assunto com N faces que a pessoa compara UMA DE CADA VEZ: os níveis de
+   uso, os modos, os gatilhos. Sem JavaScript -- radio escondido e irmão
+   marcado --, porque o padrão embute o CSS em cada página e não quer estado
+   que dependa de script para o conteúdo aparecer.
+
+   🔴 IMPRESSÃO: no papel não existe "a aba aberta". Toda aba imprime,
+   uma embaixo da outra, com o rótulo virando título. Aba que some na
+   impressão é conteúdo perdido.
+
+   O limite é OITO, subido de seis em 30/08 por decisão do Rafael. O caso que
+   forçou: uma régua de níveis com oito degraus, que não cabia em seis e não
+   é escada (a pessoa navega para o degrau dela, não percorre todos).
+
+   Acima de oito a fila quebra em duas linhas e o aluno perde a noção de
+   quantas faces existem -- ali vira .escada ou tabela. A fila rola de lado
+   no celular desde sempre, então oito não custa largura lá.               */
+.abas{margin:24px 0;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);overflow:hidden}
+.abas > input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+.abas-fila{
+  display:flex;flex-wrap:wrap;gap:0;background:var(--bg-warm);
+  border-bottom:1px solid var(--border);
+}
+.abas-fila label{
+  padding:13px 18px;cursor:pointer;font-size:15px;font-weight:500;
+  color:var(--text-dim);border-bottom:2px solid transparent;
+  border-right:1px solid var(--border);
+}
+.abas-fila label:last-child{border-right:0}
+.aba-corpo{display:none;padding:22px 20px}
+.aba-corpo > :last-child{margin-bottom:0}
+.aba-rot{display:none}
+/* 🔴 A FILA E <nav>, NAO <div>, E A PECA INTEIRA DEPENDE DISSO.
+   nth-of-type conta por TIPO DE ELEMENTO, nao por classe. Com a fila em
+   <div>, ela vira a primeira <div> filha, .aba-corpo:nth-of-type(1) nunca
+   casa, e TODOS os pares saem deslocados em um: nenhuma aba abre.
+
+   Foi assim que esta peca nasceu, em 30/08, e passou nas 315 checagens da
+   suite -- nenhum gate media comportamento de CSS. O defeito so apareceu
+   medindo a pagina no navegador, contando quantos .aba-corpo estavam
+   visiveis: quatro corpos, zero visiveis.
+
+   Com a fila em <nav>, os .aba-corpo sao as unicas <div> filhas e a contagem
+   alinha. O gate G46 confere a marcacao.
+
+   Oito pares, escritos à mão: o seletor de irmão não tem contador. */
+.abas > input:nth-of-type(1):checked ~ .abas-fila label:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .abas-fila label:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .abas-fila label:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .abas-fila label:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .abas-fila label:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .abas-fila label:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .abas-fila label:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .abas-fila label:nth-of-type(8){
+  background:var(--bg-elev);color:var(--accent-dark);
+  border-bottom-color:var(--accent);
+}
+.abas > input:nth-of-type(1):checked ~ .aba-corpo:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .aba-corpo:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .aba-corpo:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .aba-corpo:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .aba-corpo:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .aba-corpo:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .aba-corpo:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .aba-corpo:nth-of-type(8){display:block}
+/* o foco de teclado precisa aparecer em algum lugar: o input é invisível, então
+   quem mostra é o label irmão */
+.abas > input:focus-visible:nth-of-type(1) ~ .abas-fila label:nth-of-type(1),
+.abas > input:focus-visible:nth-of-type(2) ~ .abas-fila label:nth-of-type(2),
+.abas > input:focus-visible:nth-of-type(3) ~ .abas-fila label:nth-of-type(3),
+.abas > input:focus-visible:nth-of-type(4) ~ .abas-fila label:nth-of-type(4),
+.abas > input:focus-visible:nth-of-type(5) ~ .abas-fila label:nth-of-type(5),
+.abas > input:focus-visible:nth-of-type(6) ~ .abas-fila label:nth-of-type(6),
+.abas > input:focus-visible:nth-of-type(7) ~ .abas-fila label:nth-of-type(7),
+.abas > input:focus-visible:nth-of-type(8) ~ .abas-fila label:nth-of-type(8){
+  outline:2px solid var(--accent);outline-offset:-2px;
+}
+
+/* ---------- 63 · O APROFUNDAMENTO ---------------------------------------
+   O que NÃO cabe na aula e some se virar parágrafo: a exceção técnica, a
+   tabela longa, o caso raro. Abre por cima da página e fecha sem tirar a
+   pessoa do lugar onde ela estava lendo.
+
+   Por que não o <details>: details empurra o texto para baixo, e quem abre
+   perde a linha em que estava. Para um parágrafo isso não custa nada -- e por
+   isso o .gabarito segue sendo details. Para meia tela de tabela, custa.
+
+   🔴 O conteúdo mora na página, não no script. <dialog> fechado não é
+   conteúdo ausente: ele está no HTML, o Ctrl+F acha, e a impressão mostra.  */
+.aprofunda-abrir{
+  display:inline-flex;align-items:center;gap:7px;
+  background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--font-mono);font-size:12px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--accent);
+  border-bottom:1px solid var(--accent-line);
+}
+.aprofunda-abrir::before{content:"\2295"}
+.aprofunda{
+  border:1px solid var(--border);border-radius:var(--raio);
+  padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;
+  background:var(--bg-elev);color:var(--text);
+}
+.aprofunda::backdrop{background:rgba(26,31,46,.42)}
+.aprofunda-topo{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:20px 24px 0;
+}
+.aprofunda-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);
+}
+.aprofunda-fechar{
+  background:none;border:0;cursor:pointer;font-size:22px;line-height:1;
+  color:var(--text-dim);padding:0 2px;
+}
+.aprofunda-corpo{padding:10px 24px 24px}
+.aprofunda-corpo > :last-child{margin-bottom:0}
+
+/* ---------- 64 · O RESULTADO ESPERADO DO PASSO --------------------------
+   🔴 Estava na lista de 27/08 como "proposta ainda não implementada" e
+   ficou três dias fora: o .passo não tinha onde dizer o que deveria ter
+   acontecido. Sem isso o aluno só descobre que errou no passo 2 quando chega
+   ao 5 e nada bate -- e aí ele não sabe qual dos quatro passos foi.
+
+   É a peça que o tutorial do curso do Couto tem em cada passo. Uma linha, no
+   indicativo, descrevendo o estado da tela: o que apareceu, quantas linhas,
+   qual mensagem.                                                           */
+.passo-ok{
+  display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;
+  background:var(--ok-soft);border:1px solid var(--ok);
+  border-radius:var(--raio-p);padding:11px 14px;margin-top:14px;
+}
+.passo-ok-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ok-texto);white-space:nowrap;
+}
+.passo-ok p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 65 · O SYSTEM PROMPT COMO INSUMO ----------------------------
+   Quarto formato de insumo, ao lado de .xlsx, .docx e do par dos dois.
+   Decisão do Rafael em 30/08: "às vezes padrões de system prompt".
+
+   NÃO É O .prompt. O .prompt é o pedido de UMA conversa, que a pessoa cola e
+   descarta. Isto é a instrução PERMANENTE que ela guarda num Project, num
+   assistente ou num GPT -- ela cola uma vez e usa por semanas. Por isso vem
+   com o campo do que trocar antes de usar: sem ele a pessoa cola a instrução
+   com o nome de outra empresa dentro.                                       */
+.sistema{
+  border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0;overflow:hidden;
+}
+.sistema-topo{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  background:var(--bg-warm);border-bottom:1px solid var(--border);
+  padding:12px 18px;
+}
+.sistema-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--text-dim);
+}
+.sistema-onde{font-size:14px;color:var(--text-dim)}
+.sistema-txt{
+  font-family:var(--font-mono);font-size:14px;line-height:1.62;
+  background:var(--bg-code);padding:18px;margin:0;
+  white-space:pre-wrap;word-break:break-word;
+}
+/* o que a pessoa TEM de trocar antes de colar. Marcado no texto e repetido
+   embaixo em lista: no meio de trinta linhas, destaque sozinho passa batido */
+.sistema-troca{
+  background:var(--accent-soft);color:var(--accent-dark);
+  padding:1px 5px;border-radius:3px;font-weight:600;
+}
+.sistema-pe{
+  border-top:1px solid var(--border);padding:14px 18px;
+  font-size:14px;color:var(--text-dim);
+}
+.sistema-pe ul{margin:7px 0 0;padding-left:19px}
+.sistema-pe li{margin-bottom:5px}
+
+/* ---------- 66 · O TERCEIRO TIPO DE AULA · ORGANIZAÇÃO -----------------
+   🔴 Decisão do Rafael, aberta em 30/08 como fio P6 e fechada aqui.
+
+   Havia dois tipos e a realidade tinha três. Ele descreveu o que faltava com
+   estas palavras: "alguns fundamentos também são práticos, porque permitem
+   enxergar o conceito e organizá-lo".
+
+     .aula-fundamento    ensina como a coisa funciona   -> entrega um instrumento
+     .aula-pratica       a pessoa faz                   -> entrega uma coisa feita
+     .aula-organizacao   a pessoa MAPEIA o que ela já tem -> entrega o mapa dela
+
+   A de organização não é meio-termo dos dois: ela não ensina conceito novo e
+   não produz entregável de trabalho. Ela põe o aluno a inventariar a própria
+   rotina dentro de uma estrutura dada -- e o que sai é sobre ELE, não sobre o
+   assunto. É por isso que o insumo dela é sempre um .canvas em branco, nunca
+   uma planilha preenchida por nós.
+
+   JÁ EXISTE, e é a melhor página que o Rafael produziu: a m1a5-mapa da
+   imersão do IEL, com 3.633 palavras e 14 figuras -- quase o dobro da média
+   das outras. Ela não cabia em nenhum dos dois contratos e passou nos gates
+   por acidente.                                                            */
+.aula-organizacao .heroi-kicker{color:var(--ok-texto)}
+.aula-organizacao .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;background:var(--ok);
+}
+
+/* ---------- 67 · O CARD DE DEGRAU DE UMA RÉGUA ---------------------------
+   O card que mora dentro de cada .aba de uma régua de níveis. Vem de um print
+   do site da mentoria da Débora Nascimento, mandado pelo Rafael em 30/08 --
+   herdamos a FORMA, nada do texto.
+
+   🔴 O valor não está no CSS: está nos QUATRO RÓTULOS FIXOS, na mesma ordem,
+   em todo degrau da régua.
+
+     .nivel-rot "Você está aqui se…"     -> o sinal comportamental, na 2ª pessoa
+     .nivel-rot "O que define"           -> a definição, que vem DEPOIS do sinal
+     .nivel-rot "Ferramentas típicas"    -> os .chip do degrau
+     .nivel-passo "Próximo passo…"       -> uma ação concreta, hoje
+
+   A ordem é o argumento. Definição primeiro produz taxonomia que a pessoa lê
+   e não se localiza; sinal primeiro produz reconhecimento, e é ele que faz o
+   aluno dizer "esse sou eu" antes de qualquer teoria. O último bloco é o que
+   impede a régua de virar quadro na parede: sem próximo passo concreto, saber
+   o próprio degrau não muda a segunda-feira.                               */
+.nivel{padding:2px 0}
+.nivel-topo{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+}
+.nivel-n{
+  display:grid;place-items:center;min-width:56px;height:56px;padding:0 10px;
+  border-radius:var(--raio-p);background:var(--accent-tinted);
+  border:1px solid var(--accent-line);
+  font-family:var(--font-titulo);font-size:19px;color:var(--accent-dark);
+}
+.nivel-fase{
+  display:inline-block;font-family:var(--font-mono);font-size:10px;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--accent-dark);
+  background:var(--accent-tinted);border:1px solid var(--accent-line);
+  border-radius:20px;padding:3px 10px;margin-bottom:7px;
+}
+.nivel-t{font-family:var(--font-titulo);font-size:23px;margin:0 0 5px}
+.nivel-ol{margin:0;font-size:15px;color:var(--text-dim)}
+.nivel-bloco{margin-top:18px}
+.nivel-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);display:block;margin-bottom:6px;
+}
+.nivel-bloco p{margin:0}
+.nivel-chips{display:flex;flex-wrap:wrap;gap:7px}
+/* O próximo passo é callout e não parágrafo: ele é a única parte do card que
+   a pessoa executa, e precisa sobreviver à leitura em diagonal. */
+.nivel-passo{
+  border-left:3px solid var(--accent);background:var(--bg-warm);
+  border-radius:0 var(--raio-p) var(--raio-p) 0;
+  padding:13px 16px;margin-top:18px;
+}
+.nivel-passo p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 68 · O RODAPÉ DO APROFUNDAMENTO ------------------------------
+   A ação do modal grudada no pé, enquanto o corpo rola. Sem isto, um modal
+   com meia tela de tabela esconde o próprio botão: a pessoa lê a tabela, quer
+   copiar, e tem de rolar de volta para achar o que a fez abrir o modal.
+
+   🔴 O <dialog> precisa de altura MÁXIMA para o corpo ter o que rolar. Sem o
+   max-height, o modal cresce com o conteúdo, a página é que rola, e o pé
+   "fixo" desce junto -- que é o defeito que este bloco existe para evitar. */
+.aprofunda{display:flex;flex-direction:column;max-height:min(84vh,760px)}
+.aprofunda-corpo{overflow-y:auto;flex:1 1 auto}
+.aprofunda-pe{
+  display:flex;justify-content:flex-end;gap:10px;align-items:center;
+  border-top:1px solid var(--border);background:var(--bg-warm);
+  padding:13px 24px;flex:0 0 auto;
+}
+
+/* ---------- 69 · A LEGENDA DE VOCABULÁRIO --------------------------------
+   Os rótulos explicados ANTES da tabela que os usa. Não é a .legenda de
+   figura (aquela é fila horizontal de cor); esta é lista de termo + o que ele
+   significa, e vem acima do bloco que vai repetir o termo dezenas de vezes.
+
+   🔴 Sem ela, a primeira coluna da tabela ensina por indução: a pessoa lê seis
+   linhas e deduz o que o selo quer dizer, deduz errado numa delas, e segue.
+   O custo de declarar o vocabulário são três linhas.                       */
+.vocab{
+  background:var(--bg-warm);border:1px solid var(--border);
+  border-radius:var(--raio);padding:15px 18px;margin:20px 0;
+  display:grid;gap:9px;
+}
+.vocab-l{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
+.vocab-l p{margin:0;font-size:15px;color:var(--text-muted)}
 
 /* ---------- 56 · TELAS ESTREITAS ------------------------------------------ */
 
@@ -2552,6 +2958,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .secao-topo{gap:12px}
   .secao-n{font-size:24px}
   .heroi-sub{font-size:17px}
+  /* a quarta coluna do erro comum nao cabe em 375px: as quatro viram pilha,
+     como ja acontece com a .anatomia de tres */
+  .anatomia.com-erro{grid-template-columns:1fr}
+  .teste-rapido,.passo-ok{grid-template-columns:1fr;gap:5px}
+  /* a fila de abas rola de lado em vez de quebrar em duas linhas: quebrada,
+     a pessoa perde a conta de quantas faces existem */
+  .abas-fila{flex-wrap:nowrap;overflow-x:auto}
+  .abas-fila label{white-space:nowrap;padding:12px 15px;font-size:14px}
+  .vf-corpo{padding-left:20px}
+  .sistema-topo{flex-direction:column;align-items:flex-start;gap:5px}
+  /* o chip do degrau sai de cima do titulo e vira linha propria: lado a lado
+     em 375px sobram 40px para o titulo, que quebra letra a letra */
+  .nivel-topo{grid-template-columns:1fr;gap:11px}
+  .nivel-t{font-size:20px}
+  .vocab-l{grid-template-columns:1fr;gap:4px}
+  .aprofunda{max-height:92vh}
+  .aprofunda-pe{padding:12px 18px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}

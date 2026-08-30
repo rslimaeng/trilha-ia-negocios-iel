@@ -829,6 +829,32 @@ TEMPLATE = r"""<!DOCTYPE html>
     });
   });
 
+  /* ---- o aprofundamento ----
+     O <dialog> nativo precisa de showModal() para virar modal de verdade: sem
+     ele o navegador so mostra a caixa no fluxo, sem foco preso e sem Esc.
+     Sao seis linhas e nao ha alternativa sem script.
+
+     ATENCAO: se o script nao rodar, o botao nao abre nada -- e por isso o
+     CONTEUDO mora no HTML e a impressao o revela. Modal e a comodidade;
+     o conteudo nunca depende dela. */
+  document.querySelectorAll('.aprofunda-abrir[data-alvo]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = document.getElementById(b.dataset.alvo);
+      if(d && d.showModal) d.showModal();
+    });
+  });
+  document.querySelectorAll('.aprofunda-fechar').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = b.closest('dialog');
+      if(d) d.close();
+    });
+  });
+  /* clicar fora fecha: o alvo do clique e o proprio dialog quando ele cai no
+     backdrop, porque o miolo esta dentro de .aprofunda-corpo */
+  document.querySelectorAll('dialog.aprofunda').forEach(function(d){
+    d.addEventListener('click', function(e){ if(e.target === d) d.close(); });
+  });
+
   /* ---- imprimir o documento ----
      A pagina de exemplo pronto imprime em A4 sem levar o site junto: o CSS de
      impressao esconde a moldura, e este botao so dispara o dialogo. */
