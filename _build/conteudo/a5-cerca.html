@@ -24,6 +24,16 @@
     decidir e fazer</strong>, e é isso que torna esta a aula mais prática do bloco,
     não a mais burocrática.</p>
 
+    <p>O que acontece na maioria dos casos não é uma decisão consciente de arriscar. É
+    a ausência de decisão: você está no meio de uma tarefa, o arquivo está aberto, a
+    pergunta "posso?" não chega a se formar, e o anexo sobe. Depois, se alguém
+    perguntar, a resposta honesta é que você não pensou nisso.</p>
+
+    <p>Do outro lado existe a reação oposta, e ela custa mais caro do que parece. A
+    pessoa se assusta, decide não subir nada da empresa, e passa o curso inteiro
+    trabalhando com um exemplo inventado. <strong>Sai daqui com o método aprendido num
+    caso que não existe</strong>, e na segunda-feira não consegue aplicar no que existe.</p>
+
     <div class="cartao">
       <span class="rot">Por que isto fecha o bloco, e não abre</span>
       <p>Regra dita antes de a pessoa querer usar vira aviso que ninguém lê. Dita agora,
@@ -72,6 +82,14 @@
         trabalho, para o print que você manda para o colega e para a conversa no
         corredor. Você já opera essa decisão várias vezes por dia, sem chamar de
         governança.</p>
+      </div>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Pergunte se o exercício continua funcionando com o dado trocado.</strong>
+        Se continuar, troque e siga. Se o exercício deixar de fazer sentido sem aquele
+        dado específico, você achou o único caso que precisa de conversa com a sua
+        empresa, e são poucos.</p>
       </div>
     </div>
 
@@ -136,6 +154,25 @@
     <p class="fig-leg"><strong>Repare que nenhuma das quatro pergunta qual ferramenta
     você vai usar.</strong> É de propósito: a régua precisa continuar funcionando quando
     o produto mudar de nome, de plano ou de dono.</p>
+
+    <p>A primeira pergunta é a que mais gente responde errado, e o erro tem nome:
+    <strong>identificação indireta</strong>. Tirar a coluna do nome e deixar a matrícula
+    não resolve, porque a matrícula aponta para a mesma pessoa dentro da empresa. Tirar
+    nome e matrícula e deixar cargo, unidade e data de admissão também não, se a
+    combinação das três só descreve uma pessoa. <strong>A pergunta não é se o nome
+    saiu, é se ainda dá para chegar em alguém.</strong></p>
+
+    <p>A quarta é a que mais gente pula, e ela é a única que não depende de você. Se a
+    sua empresa já tem política, ela vence esta aula inteira, inclusive quando for mais
+    permissiva. E se não tem, isso também é uma resposta útil: significa que a decisão é
+    sua, e que vale escrever o critério que você adotou, para não ter que decidir de
+    novo toda semana.</p>
+
+    <p>Há uma ordem escondida nas quatro, e ela não é aleatória. As três primeiras você
+    responde sozinho, em segundos, olhando para o dado. A quarta é a única que pode
+    exigir uma conversa. <strong>Percorrer de cima para baixo garante que você só
+    procure alguém nos casos em que realmente precisa</strong>, o que é o que faz a
+    régua sobreviver ao dia a dia em vez de virar mais um processo que ninguém segue.</p>
   </section>
 
   <section class="secao" id="demonstracao">
@@ -186,61 +223,98 @@
     <div class="secao-topo">
       <div class="secao-n">05</div>
       <div>
-        <div class="secao-fn">A sua vez</div>
-        <h2>Prepare o material da sua rotina para o resto do curso</h2>
+        <div class="secao-fn">Sua vez · sem exercício</div>
+        <h2>O mapa do seu material, feito uma vez</h2>
       </div>
     </div>
 
-    <p>É o que você vai usar daqui em diante. Feito uma vez agora, serve para o
-    curso inteiro.</p>
+    <p>Não há o que praticar aqui: a régua das quatro perguntas é para usar, não para
+    treinar. O que esta aula entrega no lugar do exercício é o <strong>mapa do seu
+    material</strong>, que você preenche uma vez e consulta pelo resto do curso.</p>
 
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">01</div>
+    <p>É o quarto e último cartão do bloco, e o único que fala do material em vez de
+    falar do pedido. O rascunho fica salvo neste aparelho.</p>
+
+    <div class="canvas solta" data-chave="canvas-mapa-do-material">
+      <div class="canvas-topo">
         <div>
-          <div class="passo-fn">Passo 1</div>
-          <h3>Passe o material da sua rotina pelas quatro perguntas</h3>
+          <span class="rot">O instrumento desta aula</span>
+          <h3 class="canvas-t">O mapa do meu material</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="mp-material">O material da minha rotina, e o que ele tem dentro</label>
+            <div class="cv-ex">Ex: a planilha de pedidos da semana · colunas de loja, data, cupom, valor, vendedor e matrícula</div>
+            <textarea id="mp-material" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="mp-sai">O que sai, pelas quatro perguntas</label>
+            <div class="cv-ex">Ex: matrícula sai na 1ª pergunta · margem por pedido sai na 3ª</div>
+            <textarea id="mp-sai" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="mp-depara">O de-para das trocas, para eu repetir igual</label>
+            <div class="cv-ex">Ex: cada vendedor vira V1, V2, V3, sempre o mesmo · valor vira faixa de mil em mil</div>
+            <textarea id="mp-depara" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="mp-empresa">O que a minha empresa já disse, ou quem eu procuro</label>
+            <div class="cv-ex">Ex: não existe política escrita · a pessoa a procurar é a coordenação de TI</div>
+            <textarea id="mp-empresa" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">5</div>
+          <div>
+            <label class="cv-rot" for="mp-fica">O problema que continua na versão preparada</label>
+            <div class="cv-ex">Ex: a data em dois formatos, a linha duplicada de terça, e a coluna de loja mal preenchida</div>
+            <textarea id="mp-fica" rows="2"></textarea>
+          </div>
         </div>
       </div>
-      <p>Coluna por coluna, se for planilha. Trecho por trecho, se for documento. Marque
-      o que sai, o que troca e o que fica.</p>
+
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar o meu mapa</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">O campo 3 é o que faz a versão preparada continuar servindo:
+        troca repetida do mesmo jeito preserva a capacidade de cruzar, e troca improvisada
+        a cada vez destrói o exercício sem você notar.</p>
+      </div>
     </div>
 
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">02</div>
-        <div>
-          <div class="passo-fn">Passo 2</div>
-          <h3>Faça a versão preparada, e guarde as duas</h3>
-        </div>
-      </div>
-      <p>A original continua no lugar dela, intocada. A preparada é a que viaja com você
-      no curso.</p>
+    <p class="fig-leg"><strong>Aula de fundamento entrega instrumento, não exercício.</strong>
+    O campo 5 é o que separa material preparado de material esterilizado: se você não
+    conseguir listar nenhum problema que ficou, limpou demais, e o curso vai trabalhar
+    numa planilha perfeita que não existe na sua empresa.</p>
 
-      <div class="destrave">
-        <div class="destrave-rot">Se travar na troca, siga estas três</div>
-        <ul>
-          <li>Nome de pessoa vira letra ou número, sempre o mesmo para a mesma pessoa,
-          senão você perde a capacidade de cruzar</li>
-          <li>Valor exato vira faixa, quando o exercício não depende do valor exato</li>
-          <li>Data exata vira mês, quando o dia não muda a conclusão</li>
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">O que você precisa ter em mãos</span>
+        <ul class="lista">
+          <li>O material da rotina que você escolheu na aula 1, aberto</li>
+          <li>A régua das quatro perguntas, da seção 03</li>
         </ul>
-        <div class="destrave-nao"><strong>Não conta como versão preparada:</strong>
-        inventar uma planilha nova do zero, com dados bonitos. Ela não tem as sujeiras
-        da sua, e é exatamente nas sujeiras que o curso vai trabalhar.</div>
       </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">03</div>
-        <div>
-          <div class="passo-fn">Passo 3</div>
-          <h3>Escreva uma linha sobre o que a sua empresa já disse</h3>
-        </div>
+      <div class="cartao">
+        <span class="rot">O que sai daqui</span>
+        <p>O mapa preenchido, e a versão preparada do seu material. <strong>Ela é o
+        insumo de todos os blocos seguintes</strong>: é com ela que você vai desenhar o
+        processo no bloco 4 e montar o assistente no bloco 6.</p>
       </div>
-      <p>Se existe política, qual é. Se não existe, escreva que não existe e quem seria
-      a pessoa a procurar. As duas respostas servem; o que não serve é não saber.</p>
     </div>
   </section>
 
@@ -249,45 +323,55 @@
       <div class="secao-n">06</div>
       <div>
         <div class="secao-fn">Confira</div>
-        <h2>Uma leitura de referência</h2>
+        <h2>Três perguntas antes de seguir</h2>
       </div>
     </div>
 
-    <p><em>O que sai do seu material vai ser diferente do que sai do material da pessoa
-    ao lado. Compare o critério, nunca a lista de colunas.</em></p>
+    <p>Não há gabarito aqui, porque não houve produção. O que há são três perguntas
+    fechadas, com a resposta escondida. Responda antes de abrir: <strong>a resposta que
+    você vê antes de tentar não fixa nada</strong>.</p>
 
-    <div class="cartao">
-      <span class="rot">A tarefa deste gabarito</span>
-      <p style="margin:0">Ter uma versão do seu material que dá para usar no curso
-      inteiro sem expor ninguém, e que continua tendo o problema que você quer resolver.</p>
+    <div class="verifique">
+      <div class="verifique-rot">Verificação de entendimento</div>
+      <p class="verifique-nota">Se as três estiverem de pé, a aula cumpriu o que
+      prometeu. Se alguma não estiver, a seção que a cobre está indicada na resposta.</p>
+
+      <details class="vf">
+        <summary><span class="vf-n">1</span><span class="vf-p">Você tirou a coluna do
+        nome e deixou a matrícula. O dado deixou de identificar?</span></summary>
+        <div class="vf-corpo">
+          <p>Não. A matrícula aponta para a mesma pessoa dentro da empresa, e a pergunta
+          não é se o nome saiu: é se ainda dá para chegar em alguém, inclusive cruzando
+          o que sobrou. Está na seção 03, logo depois da régua.</p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">2</span><span class="vf-p">A ferramenta que você usa
+        é paga, corporativa e com contrato. A régua muda?</span></summary>
+        <div class="vf-corpo">
+          <p>Não muda, porque ela é sobre o conteúdo e não sobre o produto. O que muda é
+          a quarta pergunta: se a sua empresa aprovou aquele ambiente, a palavra dela
+          vence esta aula. Está no primeiro cartão do contraste, na seção 02.</p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">3</span><span class="vf-p">Você limpou tanto o
+        material que ele ficou perfeito. Isso é bom?</span></summary>
+        <div class="vf-corpo">
+          <p>É o erro mais comum depois desta aula. Sumindo a bagunça, some o problema
+          que o curso ia resolver, e você trabalha o resto do curso num caso que não
+          existe. Está no último cartão do contraste, na seção 02, e no campo 5 do
+          mapa.</p>
+        </div>
+      </details>
     </div>
 
-    <div class="grade grade-2 solta">
-      <div class="cartao">
-        <span class="rot">Está pronta</span>
-        <h4>A versão que serve para o curso inteiro</h4>
-        <ul class="lista">
-          <li>Ninguém consegue apontar uma pessoa, nem cruzando as colunas que sobraram</li>
-          <li>A bagunça original continua lá: a coluna mal preenchida, a data fora do
-          padrão, a linha duplicada</li>
-          <li>Você consegue explicar em uma frase o que cada troca preservou</li>
-        </ul>
-      </div>
-      <div class="cartao">
-        <span class="rot">Ainda não está</span>
-        <h4>O que parece pronto e trava o curso depois</h4>
-        <ul class="lista">
-          <li>Só o nome saiu, e a matrícula ficou &middot; ainda identifica</li>
-          <li>Ficou limpa demais &middot; some o problema que você veio resolver</li>
-          <li>Você não sabe dizer se a sua empresa tem política &middot; isso é uma
-          pergunta a fazer, não um detalhe</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>O item do meio da direita é o que mais aparece.</strong>
-    Na dúvida, as pessoas limpam demais, chegam na hora de trabalhar com uma planilha perfeita,
-    e descobrem que não há nada para a IA resolver ali.</p>
+    <p class="fig-leg"><strong>Verificação não é lista de conferência.</strong> A lista
+    do fim a pessoa lê concordando com ela mesma, e isso confirma leitura. A pergunta
+    fechada com resposta escondida confirma entendimento, e é o que torna esta aula
+    conduzível numa sala.</p>
   </section>
 
   <div class="ate-aqui">
@@ -306,24 +390,79 @@
       </div>
     </div>
 
-    <div class="aviso erro">
-      <div class="aviso-t">Achar que tirar o nome basta</div>
-      <p>Matrícula, e-mail, cargo raro e a combinação de área com data de admissão
-      identificam sozinhos. A pergunta é se dá para chegar na pessoa, e não se o nome
-      saiu.</p>
+    <p>Esta aula erra para os dois lados, e é a única do bloco em que isso acontece.
+    Um dos erros expõe alguém; o outro esvazia o curso. Os dois começam no mesmo lugar:
+    a pessoa decidiu no susto, sem passar pela régua.</p>
+
+    <div class="diagnostico solta">
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">1</span> Achar que tirar o nome basta</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>A planilha vai sem a coluna do nome e com tudo o mais, e a sensação é de
+            que o cuidado foi tomado.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>Matrícula, e-mail, cargo raro e a combinação de área com data de admissão
+            identificam sozinhos. Identificação indireta não parece identificação.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Perguntar se dá para chegar em alguém cruzando o que sobrou, e não se o
+            nome saiu. É a primeira pergunta da régua, lida inteira.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">2</span> Travar e trabalhar com exemplo inventado</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Tudo funciona nos exercícios, e na segunda-feira nada se aplica. O caso
+            do curso não tem os problemas do caso real.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>O susto virou regra pessoal de não subir nada. É o erro mais caro do
+            bloco justamente porque tem cara de prudência.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Trocar em vez de recusar. O campo 3 do mapa existe para isso: com o
+            de-para escrito, usar o material real custa dois minutos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">3</span> Preparar de novo toda semana</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Cada aula começa com quinze minutos de limpeza de planilha, e o cansaço
+            aparece por volta do terceiro bloco.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>A versão preparada não foi guardada, e o de-para não foi escrito, então
+            cada limpeza é uma decisão nova.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Guardar as duas versões e o mapa. É o que impede o desfecho previsível:
+            subir a original numa noite de pressa.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="aviso erro">
-      <div class="aviso-t">Travar e trabalhar com exemplo inventado</div>
-      <p>É o erro mais caro, porque não parece erro. Sai da sala com a sensação de
-      cuidado e chega no fim do curso sem nada implementado no trabalho real.</p>
-    </div>
-
-    <div class="aviso erro">
-      <div class="aviso-t">Preparar de novo toda semana</div>
-      <p>Quem não guarda a versão preparada refaz o trabalho a cada aula, cansa, e
-      acaba subindo a original numa noite de pressa.</p>
-    </div>
+    <p class="fig-leg"><strong>Repare que os consertos das três são o mesmo cartão.</strong>
+    A régua resolve o primeiro erro, o de-para resolve o segundo e o terceiro. É por isso
+    que esta aula entrega um mapa e não uma lista de proibições: lista você lê e esquece,
+    mapa você consulta.</p>
   </section>
 
   <section class="secao" id="a-cerca">
@@ -352,6 +491,17 @@
       <div class="aviso-t">Quem responde pelo que sai continua sendo você</div>
       <p>Anonimizar reduz risco de exposição, e não transfere responsabilidade. Vale a
       mesma regra da aula 4: se sai com o seu nome, a conferência é sua.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <p>Esta aula entrega uma régua de decisão rápida e um mapa do seu material.
+      <strong>Ela não é a política de dados da sua empresa</strong>, e não pretende ser:
+      a quarta pergunta existe justamente para devolver a palavra a quem responde por
+      isso onde você trabalha. Se a sua empresa tiver regra escrita, ela vence tudo o
+      que está aqui, inclusive quando for mais permissiva. Se não tiver, o que você
+      escreveu no mapa é o critério que você adotou, e ele vale até alguém dizer o
+      contrário.</p>
     </div>
   </section>
 
