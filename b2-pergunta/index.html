@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 1 · Formule a pergunta que a análise precisa responder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3090,62 +3090,381 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b2-analise/">B2 · Análise e decisão</a> &rsaquo; Formule a pergunta que a análise responde</nav>
 
 
-<main class="folha ">
+<main class="folha aula-organizacao">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;primeiro fluxo funcional ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa pela&nbsp;conta, pela&nbsp;interface e&nbsp;pelo&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Três blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 1 · B2 · Análise e decisão</div>
+    <h1>Formule a&nbsp;pergunta que&nbsp;a&nbsp;análise precisa responder</h1>
+    <p class="heroi-sub">Por&nbsp;que&nbsp;pedir uma&nbsp;análise volta com&nbsp;um&nbsp;resumo correto que&nbsp;não&nbsp;decide nada, e&nbsp;como escrever a&nbsp;pergunta que&nbsp;decide.</p>
+    <div><span class="selo">Traga uma pergunta em aberto</span><span class="selo">Vale para as seis aulas</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Separar um&nbsp;pedido de&nbsp;resumo de&nbsp;uma&nbsp;pergunta que&nbsp;decide alguma coisa</li>
+      <li>Escrever a&nbsp;pergunta da&nbsp;sua&nbsp;área que&nbsp;vai atravessar este bloco inteiro</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;três blocos deste módulo</h2>
+        <div class="secao-fn">A situação</div>
+        <h2>Voltaram duas páginas certas, e&nbsp;você continua sem&nbsp;saber o&nbsp;que&nbsp;fazer</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n.</p>
+    <p>Você anexou a&nbsp;planilha e&nbsp;escreveu "faça uma&nbsp;análise disso". Voltou um&nbsp;texto
+    organizado: o&nbsp;total do&nbsp;período, a&nbsp;média por&nbsp;mês, as&nbsp;três maiores variações, um&nbsp;parágrafo de&nbsp;considerações finais. Está tudo correto.</p>
 
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Pensar como automação, e&nbsp;o&nbsp;primeiro fluxo</h4>
-        <p>Mapear em&nbsp;papel antes de&nbsp;abrir a&nbsp;ferramenta, criar a&nbsp;conta, entender o&nbsp;canvas
-        e&nbsp;montar o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Lógica e&nbsp;integrações</h4>
-        <p>Ler dados sem&nbsp;escrever código, fazer o&nbsp;fluxo decidir sozinho e&nbsp;conectar as&nbsp;ferramentas que&nbsp;você já&nbsp;usa.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">03</div>
-        <h4>Agentes de&nbsp;IA</h4>
-        <p>A&nbsp;diferença entre&nbsp;chamar uma&nbsp;IA e&nbsp;ter um&nbsp;agente que&nbsp;executa, e&nbsp;a&nbsp;validação
-        antes de&nbsp;declarar que&nbsp;funciona.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <p>Você lê, concorda com&nbsp;cada linha, e&nbsp;fecha a&nbsp;janela. <strong>Nada do&nbsp;que&nbsp;estava
+    ali mudou o&nbsp;que&nbsp;você vai fazer na&nbsp;segunda-feira</strong>, e&nbsp;é por&nbsp;isso que&nbsp;a&nbsp;sensação é de&nbsp;trabalho feito sem&nbsp;trabalho resolvido.</p>
+
+    <p>O&nbsp;que&nbsp;aconteceu não&nbsp;foi a&nbsp;IA ter ido mal. Ela fez exatamente o&nbsp;que&nbsp;foi pedido:
+    descrever a&nbsp;planilha. Descrever uma&nbsp;planilha é uma&nbsp;tarefa com&nbsp;resposta certa, e&nbsp;a&nbsp;resposta certa para&nbsp;"faça uma&nbsp;análise" é um&nbsp;resumo. <strong>O&nbsp;pedido foi atendido
+    e&nbsp;a&nbsp;sua&nbsp;pergunta não&nbsp;foi feita</strong>, porque&nbsp;ela nunca chegou a&nbsp;existir por&nbsp;escrito.</p>
+
+    <p>E&nbsp;existe uma&nbsp;armadilha a&nbsp;mais, que&nbsp;aparece toda vez numa&nbsp;sala. O&nbsp;resumo volta
+    bem escrito, com&nbsp;números verdadeiros, e&nbsp;por&nbsp;isso ele passa a&nbsp;impressão de&nbsp;análise.
+    Você não&nbsp;desconfia dele: você desconfia de&nbsp;si mesmo, e&nbsp;conclui que&nbsp;talvez não&nbsp;houvesse nada de&nbsp;interessante naquele dado.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que este bloco abre aqui, e não na ferramenta</span>
+      <p>As&nbsp;outras cinco aulas deste bloco levantam material, leem planilha, procuram
+      causa e&nbsp;comparam caminhos. <strong>Todas as&nbsp;cinco trabalham em&nbsp;cima de&nbsp;uma&nbsp;pergunta</strong>, e&nbsp;nenhuma delas funciona se&nbsp;a&nbsp;pergunta for "faça uma&nbsp;análise". É a&nbsp;peça que&nbsp;você leva daqui para&nbsp;dentro das&nbsp;outras.</p>
     </div>
-
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b2-pergunta/">&larr; Aula 1 · Formule a pergunta que a análise precisa responder</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Análise é o&nbsp;que&nbsp;responde a&nbsp;uma&nbsp;pergunta, e&nbsp;o&nbsp;resto é descrição</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Uma&nbsp;pergunta serve para&nbsp;análise quando&nbsp;a&nbsp;resposta dela muda uma&nbsp;decisão sua</h3>
+      <p>Esse é o&nbsp;teste inteiro, e&nbsp;ele não&nbsp;é sobre&nbsp;a&nbsp;redação da&nbsp;frase. Se&nbsp;você consegue
+      imaginar duas respostas possíveis e&nbsp;as&nbsp;duas te levam a&nbsp;fazer a&nbsp;mesma coisa na&nbsp;semana seguinte, <strong>a&nbsp;pergunta não&nbsp;estava trabalhando</strong>. Estava
+      pedindo companhia para&nbsp;um&nbsp;dado que&nbsp;você já&nbsp;tinha.</p>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma&nbsp;pergunta cuja resposta muda uma&nbsp;ação</h4>
+          <p>Você consegue dizer, antes de&nbsp;perguntar, o&nbsp;que&nbsp;faz se&nbsp;der A&nbsp;e&nbsp;o&nbsp;que&nbsp;faz se&nbsp;der B.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma&nbsp;pergunta que&nbsp;aceita voltar contrariando você</h4>
+          <p>Se&nbsp;a&nbsp;única resposta possível é a&nbsp;que&nbsp;você já&nbsp;esperava, não&nbsp;há o&nbsp;que&nbsp;descobrir.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Um&nbsp;pedido de&nbsp;resumo com&nbsp;nome de&nbsp;análise</h4>
+          <p>"Analise", "avalie", "traga insights" pedem descrição do&nbsp;que&nbsp;está à&nbsp;vista.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Uma&nbsp;pergunta com&nbsp;a&nbsp;resposta já&nbsp;embutida</h4>
+          <p>"Confirme que&nbsp;o&nbsp;problema foi o&nbsp;frete" pede concordância, e&nbsp;ela sempre vem.</p></div>
+      </div>
+      <p class="fig-leg"><strong>O&nbsp;último cartão é o&nbsp;mais difícil de&nbsp;enxergar em&nbsp;si
+      mesmo.</strong> A&nbsp;pergunta com&nbsp;resposta embutida parece uma&nbsp;pergunta legítima,
+      volta apoiada em&nbsp;números verdadeiros, e&nbsp;a&nbsp;sala inteira sai convencida de&nbsp;uma&nbsp;coisa
+      que&nbsp;já&nbsp;achava antes de&nbsp;abrir o&nbsp;arquivo.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como deixar o carro na oficina sem contar o barulho</div>
+        <p>Você deixa a chave e diz "dá uma olhada geral". O mecânico liga, roda no
+        quarteirão, confere nível de óleo e devolve com "está tudo dentro do normal".
+        Se você tivesse dito "faz um estalo quando eu viro à esquerda em velocidade
+        baixa", ele teria ido direto na junta. O carro é o mesmo, o mecânico é o mesmo,
+        e o tempo gasto foi o mesmo. O que mudou foi o que você mandou procurar.</p>
+        <ul class="analogia-mapa">
+          <li><strong>"Dá uma&nbsp;olhada geral"</strong> é o&nbsp;pedido de&nbsp;análise sem&nbsp;pergunta,
+          que&nbsp;volta com&nbsp;a&nbsp;checagem de&nbsp;sempre</li>
+          <li><strong>"Está tudo dentro do&nbsp;normal"</strong> é o&nbsp;resumo correto que&nbsp;não&nbsp;decide nada</li>
+          <li><strong>O&nbsp;estalo ao&nbsp;virar à&nbsp;esquerda</strong> é a&nbsp;pergunta com&nbsp;sintoma,
+          momento e&nbsp;recorte: é ela que&nbsp;dirige a&nbsp;busca</li>
+          <li><strong>A&nbsp;junta</strong> é a&nbsp;causa que&nbsp;ninguém acha por&nbsp;varredura, e&nbsp;que&nbsp;aparece rápido quando&nbsp;se&nbsp;sabe onde&nbsp;olhar</li>
+        </ul>
+        <p class="analogia-mais">Vale igual para&nbsp;o&nbsp;médico que&nbsp;pergunta onde&nbsp;dói antes
+        de&nbsp;pedir exame, e&nbsp;para&nbsp;o&nbsp;chamado de&nbsp;suporte que&nbsp;só&nbsp;anda depois que&nbsp;alguém
+        escreve o&nbsp;que&nbsp;apareceu na&nbsp;tela. Em&nbsp;todos os&nbsp;casos, quem descreve o&nbsp;sintoma
+        economiza o&nbsp;trabalho de&nbsp;quem procura.</p>
+      </div>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Escreva, antes de&nbsp;perguntar, a&nbsp;resposta que&nbsp;você menos quer
+        receber.</strong> Se&nbsp;ela existe e&nbsp;te obrigaria a&nbsp;fazer alguma coisa diferente,
+        a&nbsp;pergunta está de&nbsp;pé. Se&nbsp;você não&nbsp;consegue imaginar nenhuma resposta
+        incômoda, o&nbsp;que&nbsp;você tem na&nbsp;mão é um&nbsp;pedido de&nbsp;resumo.</p>
+      </div>
+    </div>
+
+    <p>A&nbsp;pergunta que&nbsp;quase todo mundo faz é qual é o&nbsp;prompt certo para&nbsp;analisar dados.
+    Ela vem cedo demais: o&nbsp;pedido só&nbsp;tem o&nbsp;que&nbsp;carregar depois que&nbsp;existe uma&nbsp;pergunta
+    para&nbsp;ele carregar.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>A&nbsp;mesma planilha, três perguntas, três respostas diferentes</h2>
+      </div>
+    </div>
+
+    <p>O&nbsp;arquivo é o&nbsp;mesmo nas&nbsp;três abas: faturamento por&nbsp;pedido de&nbsp;um&nbsp;distribuidor, de&nbsp;janeiro a&nbsp;julho. Muda só&nbsp;a&nbsp;linha que&nbsp;foi escrita junto com&nbsp;o&nbsp;anexo. Repare que&nbsp;a&nbsp;terceira não&nbsp;é mais longa que&nbsp;a&nbsp;segunda, e&nbsp;é a&nbsp;única que&nbsp;termina em&nbsp;decisão.</p>
+
+    <div class="abas">
+      <input type="radio" name="abas-pergunta" id="ap1" checked>
+      <input type="radio" name="abas-pergunta" id="ap2">
+      <input type="radio" name="abas-pergunta" id="ap3">
+      <nav class="abas-fila">
+        <label for="ap1">1 · "Faça uma análise"</label>
+        <label for="ap2">2 · "A margem caiu?"</label>
+        <label for="ap3">3 · A pergunta que decide</label>
+      </nav>
+
+      <div class="aba-corpo">
+        <h4>O&nbsp;que&nbsp;volta: um&nbsp;retrato do&nbsp;arquivo</h4>
+        <p>Faturamento total de&nbsp;R$ 4,2 milhões no&nbsp;período. Média mensal de&nbsp;R$ 600 mil.
+        Julho foi o&nbsp;mês de&nbsp;maior volume. Os&nbsp;dez maiores clientes concentram 61% das&nbsp;vendas. Distribuição por&nbsp;região equilibrada, com&nbsp;leve predominância do&nbsp;interior.</p>
+        <p><strong>Cada número está certo, e&nbsp;nenhum deles te obriga a&nbsp;nada.</strong>
+        Você já&nbsp;sabia que&nbsp;julho é forte, e&nbsp;a&nbsp;concentração em&nbsp;dez clientes é a&nbsp;mesma de&nbsp;todo ano. A&nbsp;resposta não&nbsp;conseguiu te contrariar, porque&nbsp;a&nbsp;pergunta não&nbsp;deu a&nbsp;ela essa chance.</p>
+      </div>
+
+      <div class="aba-corpo">
+        <h4>O&nbsp;que&nbsp;volta: um&nbsp;sim com&nbsp;número</h4>
+        <p>Sim. A&nbsp;margem bruta passou de&nbsp;22,4% em&nbsp;janeiro para&nbsp;19,1% em&nbsp;julho, uma&nbsp;queda de&nbsp;3,3 pontos percentuais. A&nbsp;maior parte da&nbsp;queda se&nbsp;concentra no&nbsp;segundo trimestre.</p>
+        <p><strong>Melhorou, e&nbsp;parou no&nbsp;meio do&nbsp;caminho.</strong> Agora você sabe o&nbsp;tamanho e&nbsp;o&nbsp;momento, e&nbsp;continua sem&nbsp;saber onde&nbsp;mexer. Esta é a&nbsp;pergunta que&nbsp;mais aparece na&nbsp;prática: ela é verdadeira, é específica, e&nbsp;ainda assim termina
+        num&nbsp;dado, não&nbsp;numa&nbsp;escolha.</p>
+      </div>
+
+      <div class="aba-corpo">
+        <h4>A&nbsp;pergunta</h4>
+        <p class="fig-leg" style="margin-top:0">"Dos&nbsp;12 clientes do&nbsp;canal distribuidor,
+        quais puxaram a&nbsp;queda de&nbsp;margem entre&nbsp;maio e&nbsp;julho, e&nbsp;a&nbsp;queda deles veio de&nbsp;mix
+        de&nbsp;produto ou&nbsp;de&nbsp;desconto concedido?"</p>
+        <h4>O&nbsp;que&nbsp;volta: um&nbsp;lugar para&nbsp;mexer</h4>
+        <p>Três dos&nbsp;doze respondem por&nbsp;78% da&nbsp;queda. Em&nbsp;dois deles a&nbsp;margem caiu com&nbsp;o&nbsp;mix estável, e&nbsp;o&nbsp;desconto médio subiu de&nbsp;8% para&nbsp;14%. No&nbsp;terceiro o&nbsp;desconto
+        ficou parado e&nbsp;a&nbsp;participação da&nbsp;linha de&nbsp;entrada dobrou.</p>
+        <p><strong>Agora existe decisão.</strong> Nos&nbsp;dois primeiros o&nbsp;assunto é alçada
+        de&nbsp;desconto, que&nbsp;é conversa com&nbsp;o&nbsp;comercial. No&nbsp;terceiro é tabela de&nbsp;preço da&nbsp;linha de&nbsp;entrada, que&nbsp;é outra conversa, com&nbsp;outra pessoa. Uma&nbsp;resposta, dois
+        caminhos separados.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> a&nbsp;terceira
+    pergunta já&nbsp;carrega um&nbsp;recorte (os&nbsp;12 do&nbsp;canal distribuidor), um&nbsp;período (maio a&nbsp;julho) e&nbsp;duas hipóteses concorrentes (mix ou&nbsp;desconto). Não&nbsp;é uma&nbsp;pergunta mais
+    bem escrita: <strong>é uma&nbsp;pergunta que&nbsp;alguém pensou antes de&nbsp;abrir o&nbsp;arquivo.</strong></p>
+
+    <h3>Os&nbsp;quatro degraus de&nbsp;uma&nbsp;pergunta</h3>
+
+    <p>Toda pergunta sobre&nbsp;dado cai em&nbsp;um&nbsp;destes quatro degraus. Os&nbsp;dois primeiros a&nbsp;planilha responde sozinha com&nbsp;uma&nbsp;fórmula; os&nbsp;dois últimos são onde&nbsp;a&nbsp;análise
+    começa a&nbsp;valer o&nbsp;tempo.</p>
+
+    <div class="escada solta">
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">Degrau 1</div>
+          <div class="detalhe">a planilha já responde</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Descrição &middot; o&nbsp;que&nbsp;aconteceu?</h4>
+          <p>Total, média, maior, menor. Volta um&nbsp;número correto. <strong>Sozinho ele
+          não&nbsp;decide nada</strong>, e&nbsp;é aqui que&nbsp;para&nbsp;quem pede "faça uma&nbsp;análise".</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">Degrau 2</div>
+          <div class="detalhe">precisa de um contra o quê</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Comparação &middot; mudou em&nbsp;relação a&nbsp;quê?</h4>
+          <p>Contra&nbsp;o&nbsp;mês anterior, contra&nbsp;a&nbsp;meta, contra&nbsp;a&nbsp;outra unidade. Volta uma&nbsp;variação, e&nbsp;a&nbsp;variação já&nbsp;aponta onde&nbsp;olhar.</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">Degrau 3</div>
+          <div class="detalhe">volta hipótese, não fato</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Causa &middot; por&nbsp;que&nbsp;mudou?</h4>
+          <p>Volta uma&nbsp;explicação plausível, e&nbsp;plausível não&nbsp;é verificado.
+          <strong>É o&nbsp;degrau mais perigoso do&nbsp;quatro</strong>, e&nbsp;a&nbsp;aula sobre&nbsp;causa
+          existe só&nbsp;por&nbsp;causa dele.</p>
+        </div>
+      </div>
+      <div class="escada-seta" aria-hidden="true">↓</div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <div class="quando">Degrau 4</div>
+          <div class="detalhe">é onde a análise serve</div>
+        </div>
+        <div class="degrau-corpo">
+          <h4>Decisão &middot; o&nbsp;que&nbsp;eu faço a&nbsp;respeito?</h4>
+          <p>Volta um&nbsp;caminho, com&nbsp;o&nbsp;que&nbsp;se&nbsp;ganha e&nbsp;o&nbsp;que&nbsp;se&nbsp;abre mão. Chegar aqui
+          exige ter passado pelos três de&nbsp;cima com&nbsp;material de&nbsp;verdade.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;pergunta boa não&nbsp;nasce no&nbsp;degrau 4.</strong>
+    A&nbsp;do&nbsp;exemplo acima é de&nbsp;causa, degrau 3, e&nbsp;é ela que&nbsp;abre a&nbsp;decisão. Pular direto
+    para&nbsp;"o&nbsp;que&nbsp;eu faço" sem&nbsp;passar pela&nbsp;causa produz recomendação genérica, do&nbsp;tipo
+    "revisar a&nbsp;política de&nbsp;descontos", que&nbsp;serve para&nbsp;qualquer empresa e&nbsp;não&nbsp;serve para&nbsp;a&nbsp;sua.</p>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>A&nbsp;pergunta que&nbsp;você leva para&nbsp;as&nbsp;próximas cinco aulas</h2>
+      </div>
+    </div>
+
+    <p>Ela precisa ser de&nbsp;verdade, da&nbsp;sua&nbsp;área, e&nbsp;sobre&nbsp;alguma coisa que&nbsp;você
+    efetivamente decide ou&nbsp;influencia. <strong>Não&nbsp;escolha a&nbsp;pergunta mais bonita:
+    escolha a&nbsp;que&nbsp;está mais atrasada.</strong></p>
+
+    <div class="canvas solta" data-chave="canvas-pergunta-do-bloco">
+      <div class="canvas-topo">
+        <div>
+          <span class="rot">O que você leva desta aula</span>
+          <h3 class="canvas-t">A&nbsp;minha&nbsp;pergunta do&nbsp;bloco</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="pg-pergunta">A pergunta, escrita inteira</label>
+            <div class="cv-ex">Ex: dos 12 clientes do canal distribuidor, quais puxaram a queda de margem entre maio e julho, e por mix ou por desconto?</div>
+            <textarea id="pg-pergunta" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="pg-decisao">A decisão que depende dessa resposta</label>
+            <div class="cv-ex">Ex: se for desconto, eu levo alçada para o comercial · se for mix, eu mexo na tabela da linha de entrada</div>
+            <textarea id="pg-decisao" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="pg-material">O material que eu já tenho para responder</label>
+            <div class="cv-ex">Ex: faturamento por pedido dos últimos 6 meses, tabela de preço vigente, e a política de desconto em PDF</div>
+            <textarea id="pg-material" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="pg-temo">A resposta que eu menos quero receber</label>
+            <div class="cv-ex">Ex: que a queda venha de um cliente só, e que seja o maior deles</div>
+            <textarea id="pg-temo" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha pergunta</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">O&nbsp;campo 4 é o&nbsp;que&nbsp;valida os&nbsp;outros três. Se&nbsp;você não&nbsp;consegue
+        escrever uma&nbsp;resposta incômoda, volte ao&nbsp;campo 1: o&nbsp;que&nbsp;está lá é um&nbsp;pedido de&nbsp;resumo, e&nbsp;ele vai atravessar cinco aulas sem&nbsp;produzir nada.</p>
+      </div>
+    </div>
+
+    <div class="destrave">
+      <div class="destrave-rot">Se travar na escolha da pergunta, use estas três regras</div>
+      <ul>
+        <li><strong>Procure a&nbsp;conversa que&nbsp;se&nbsp;repete.</strong> Aquilo que&nbsp;volta em&nbsp;toda
+        reunião de&nbsp;resultado sem&nbsp;nunca fechar costuma ser uma&nbsp;pergunta que&nbsp;ninguém
+        respondeu com&nbsp;material.</li>
+        <li><strong>Procure onde&nbsp;você chuta.</strong> A&nbsp;frase "eu acho que&nbsp;é o&nbsp;fornecedor" dita com&nbsp;convicção e&nbsp;sem&nbsp;número é uma&nbsp;pergunta esperando para&nbsp;nascer.</li>
+        <li><strong>Prefira o&nbsp;pequeno e&nbsp;específico.</strong> "Por&nbsp;que&nbsp;a&nbsp;empresa está
+        perdendo margem" não&nbsp;cabe neste bloco. "Por&nbsp;que&nbsp;o&nbsp;canal distribuidor perdeu
+        margem no&nbsp;segundo trimestre" cabe, e&nbsp;ensina o&nbsp;mesmo método.</li>
+      </ul>
+      <div class="destrave-nao"><strong>Não conta como pergunta:</strong> "quero
+      entender melhor os meus dados". Não tem recorte, não tem período, e nenhuma
+      resposta possível te contraria. Se a sua ficou parecida com essa, escolha um
+      número que te incomodou nos últimos trinta dias e pergunte sobre ele.</div>
+    </div>
+
+    <p class="fig-leg"><strong>Esta pergunta não&nbsp;é exercício de&nbsp;aula.</strong> Ela é o&nbsp;insumo das&nbsp;outras cinco: a&nbsp;aula 2 levanta o&nbsp;que&nbsp;falta para&nbsp;respondê-la, a&nbsp;3 usa o&nbsp;material que&nbsp;você já&nbsp;tem, a&nbsp;4 lê a&nbsp;planilha à&nbsp;luz dela, a&nbsp;5 testa a&nbsp;causa e&nbsp;a&nbsp;6
+    fecha a&nbsp;decisão. Pergunta fraca aqui vira bloco inteiro trabalhando no&nbsp;vazio.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com&nbsp;a&nbsp;pergunta escrita e&nbsp;a&nbsp;decisão que&nbsp;depende dela
+  declarada, você tem o&nbsp;que&nbsp;o&nbsp;bloco pede. O&nbsp;que&nbsp;vem abaixo é
+  <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;a&nbsp;sua&nbsp;pergunta começar a&nbsp;mudar de&nbsp;forma no&nbsp;meio do&nbsp;caminho.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O&nbsp;que&nbsp;uma&nbsp;boa pergunta não&nbsp;resolve</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pergunta boa não cria dado que não existe</div>
+      <p>Se&nbsp;a&nbsp;informação que&nbsp;responde não&nbsp;está em&nbsp;lugar nenhum da&nbsp;empresa, a&nbsp;pergunta
+      continua boa e&nbsp;a&nbsp;resposta vai ter que&nbsp;ser levantada fora. É exatamente o&nbsp;que&nbsp;a&nbsp;próxima aula faz, e&nbsp;é por&nbsp;isso que&nbsp;ela vem logo depois desta.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">A pergunta pode mudar no meio, e isso não é erro</div>
+      <p>Acontece de&nbsp;a&nbsp;primeira resposta revelar que&nbsp;o&nbsp;recorte estava errado. Reescrever
+      a&nbsp;pergunta com&nbsp;o&nbsp;que&nbsp;você descobriu é o&nbsp;trabalho funcionando, não&nbsp;voltando atrás.
+      O&nbsp;que&nbsp;não&nbsp;pode é a&nbsp;pergunta mudar <strong>em&nbsp;silêncio</strong>, sem&nbsp;você reparar
+      que&nbsp;está respondendo outra coisa.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Decisão que já foi tomada não vira pergunta</div>
+      <p>Quando&nbsp;a&nbsp;escolha já&nbsp;está feita e&nbsp;o&nbsp;que&nbsp;se&nbsp;procura é material que&nbsp;a&nbsp;sustente, o&nbsp;trabalho tem outro nome e&nbsp;é legítimo ter. Só&nbsp;não&nbsp;é análise, e&nbsp;tratar como análise
+      contamina o&nbsp;resto do&nbsp;bloco: você vai encontrar o&nbsp;que&nbsp;foi procurar.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <div class="tabela">
+      <table>
+        <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
+        <tbody><tr><td>uma pergunta com recorte, período e decisão amarrada</td><td>saber se a resposta é verdadeira: a pergunta certa também aceita resposta inventada</td><td>nas aulas 2 e 3, que tratam de onde a resposta vem, e na 5, que testa a causa contra o dado</td></tr></tbody>
+      </table>
+    </div>
+    <p class="fig-leg">Perguntar bem melhora o&nbsp;que&nbsp;volta e&nbsp;não&nbsp;garante nada sobre&nbsp;a&nbsp;origem do&nbsp;que&nbsp;volta. As&nbsp;duas coisas são independentes, e&nbsp;o&nbsp;bloco precisa das&nbsp;duas.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Com&nbsp;a&nbsp;pergunta na&nbsp;mão, aparece a&nbsp;primeira falta: <strong>parte do&nbsp;que&nbsp;responde a&nbsp;ela não&nbsp;está na&nbsp;sua&nbsp;empresa.</strong> É preço praticado no&nbsp;mercado, é o&nbsp;que&nbsp;o&nbsp;concorrente mudou, é a&nbsp;norma que&nbsp;saiu no&nbsp;ano passado. Procurar isso com&nbsp;a&nbsp;IA é
+    rápido e&nbsp;é onde&nbsp;mais gente se&nbsp;queima, porque&nbsp;o&nbsp;que&nbsp;volta vem com&nbsp;cara de&nbsp;fonte. A&nbsp;próxima aula é sobre&nbsp;isso.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b2-analise/">&larr; B2 · Use IA para melhorar a análise e a tomada de decisão</a><a href="../modulo-2/">Módulo 2 · Automação com n8n &rarr;</a></nav>
 </main>
 
 

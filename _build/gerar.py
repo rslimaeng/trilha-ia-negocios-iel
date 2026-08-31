@@ -73,12 +73,15 @@ CURSO = {
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
-             "a4-inventa", "a5-cerca", "modulo-2", "modulo-3", "componentes"]
+             "a4-inventa", "a5-cerca",
+             "b2-analise", "b2-pergunta",
+             "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
     ("Módulo 1 · IA Conversacional e Estratégica", [
         ("modulo-1",       "Os quatro blocos do módulo"),
         ("b1-fundamentos", "B1 · Primeiros resultados consistentes"),
+        ("b2-analise",     "B2 · Análise e tomada de decisão"),
     ]),
     ("As aulas do B1", [
         ("a1-degrau",   "Entenda os níveis de uso da IA"),
@@ -86,6 +89,14 @@ TRILHA = [
         ("a3-mesa",     "Por que conversas longas fazem a IA errar"),
         ("a4-inventa",  "Aprenda a fazer boas conferências"),
         ("a5-cerca",    "Decida o que da sua empresa pode subir"),
+    ]),
+    ("As aulas do B2", [
+        ("b2-pergunta", "Formule a pergunta que a análise responde"),
+        ("b2-fontes",   "Pesquise com método e confira a fonte"),
+        ("b2-base",     "Faça a IA responder pelos seus documentos"),
+        ("b2-planilha", "Transforme a planilha na leitura executiva"),
+        ("b2-causa",    "Vá do número para a causa"),
+        ("b2-decisao",  "Compare três caminhos antes de recomendar"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -251,6 +262,34 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
+                 (None, None)],
+    ),
+    "b2-analise": dict(
+        titulo="B2 · Use IA para melhorar a análise e a tomada de decisão",
+        kicker="Módulo 1 · Bloco 2 de 4",
+        h1="Use IA para melhorar a análise e a tomada de decisão",
+        sub="Uma pergunta de verdade da sua área, o material que responde a ela, e a "
+            "decisão que sai disso com o plano amarrado.",
+        selos=["Seis aulas", "Traga uma pergunta em aberto"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 (None, "Análise e decisão")],
+    ),
+    "b2-pergunta": dict(
+        # 🔴 organizacao, e pelo mesmo motivo da a1-degrau: o conteudo e SOBRE A
+        # PESSOA. Ela nao aprende um conceito novo para aplicar depois, ela
+        # escolhe e escreve a pergunta que atravessa as outras cinco aulas.
+        # Canvas em branco com estrutura dada, nunca planilha nossa preenchida.
+        tipo="organizacao",
+        titulo="Aula 1 · Formule a pergunta que a análise precisa responder",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Formule a pergunta que a análise precisa responder",
+        sub="Por que pedir uma análise volta com um resumo correto que não decide "
+            "nada, e como escrever a pergunta que decide.",
+        selos=["Traga uma pergunta em aberto", "Vale para as seis aulas"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
                  (None, None)],
     ),
     "modulo": dict(
