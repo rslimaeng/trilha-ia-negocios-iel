@@ -191,7 +191,7 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
-                 (None, "Em que degrau você está")],
+                 (None, None)],
     ),
     "a2-preve": dict(
         tipo="fundamento",
@@ -204,7 +204,7 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
-                 (None, "A IA não sabe, ela prevê")],
+                 (None, None)],
     ),
     "a3-mesa": dict(
         tipo="fundamento",
@@ -217,7 +217,7 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
-                 (None, "A mesa: o que ela tem à vista")],
+                 (None, None)],
     ),
     "a4-inventa": dict(
         # 🔴 pratica, e ela SEMPRE foi. Decisao do Rafael, 31/08.
@@ -238,7 +238,7 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
-                 (None, "Quando ela inventa com o mesmo tom")],
+                 (None, None)],
     ),
     "a5-cerca": dict(
         tipo="fundamento",
@@ -251,7 +251,7 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b1-fundamentos/", "B1 · Primeiros resultados"),
-                 (None, "O que não entra no chat")],
+                 (None, None)],
     ),
     "modulo": dict(
         titulo="Nome do Módulo",
@@ -726,11 +726,36 @@ def secoes(fragmento):
             for m in padrao.finditer(fragmento)]
 
 
+def nome_curto(slug):
+    """O nome curto da pagina, lido da TRILHA.
+
+    🔴 UMA FONTE SO, e a razao e um defeito real. Ate 31/08 o nome da aula
+    existia em tres lugares escritos a mao -- TRILHA, h1 e o ultimo item da
+    migalha. Os nomes foram trocados no h1 e na TRILHA, a migalha ficou para
+    tras, e as cinco aulas subiram com o nome velho na navegacao e o novo no
+    titulo, na mesma tela. String repetida a mao diverge; derivada, nao.
+    """
+    for _, grupo in TRILHA:
+        for sl, texto in grupo:
+            if sl == slug:
+                return texto
+    return None
+
+
 def monta(slug, cfg, fragmento):
     selos = "".join('<span class="selo">%s</span>' % s for s in cfg.get("selos", []))
     if cfg.get("migalha"):
         pedacos = []
-        for href, texto in cfg["migalha"]:
+        migalha_cfg = list(cfg["migalha"])
+        # (None, None) no fim = "use o nome curto da TRILHA"
+        if migalha_cfg and migalha_cfg[-1] == (None, None):
+            curto = nome_curto(slug)
+            if curto is None:
+                raise SystemExit(
+                    "gerar.py: %s pede o nome curto da TRILHA e nao esta nela. "
+                    "Ou entra na TRILHA, ou escreve o nome na migalha." % slug)
+            migalha_cfg[-1] = (None, curto)
+        for href, texto in migalha_cfg:
             pedacos.append('<a href="%s">%s</a>' % (href, texto) if href else texto)
         migalha = '<nav class="migalha">%s</nav>' % " &rsaquo; ".join(pedacos)
     else:
