@@ -1821,6 +1821,79 @@ def g40_a_aula_declara_onde_acaba(rel, html):
 
 
 
+
+def g48_o_contraste_mora_dentro_do_conceito(rel, html):
+    """🔴 O "E / Nao e" fica DENTRO do cartao do conceito, antes da analogia.
+
+    Regra do Rafael, apontada duas vezes ao revisar as cinco aulas da trilha IEL
+    em 31/08: "no bloco 2, ainda esta sempre o artefato do 'e'/'nao e' no final".
+
+    O contraste responde "o que isto NAO e", e essa pergunta so existe depois da
+    definicao. Solto no fim da secao ele chega quando a pessoa ja fechou o
+    entendimento errado -- e a correcao passa a competir com a memoria, em vez de
+    evitar a confusao. Colado a definicao, ele e a segunda metade dela.
+
+    E o mesmo raciocinio do G41 e do G47 -- a peca perto do que ela explica --
+    aplicado ao contraste. Os tres modelos do padrao tinham o defeito ate 31/08.
+
+    O QUE ESTE GATE DEIXA PASSAR: contraste fraco. Ele confere POSICAO, e nao se
+    o par "e / nao e" ensina alguma coisa. Quatro cartoes vazios no lugar certo
+    passam. Isso e julgamento, e fica com o humano.
+
+    O contraste continua OPCIONAL: aula sem ele nao e cobrada.
+    """
+    limpo = _sem_css_nem_script(html)
+    if not _tipo_da_aula(limpo):
+        return []
+    m = re.search(r'<section class="secao" id="conceito">(.*?)</section>',
+                  limpo, re.S)
+    if not m:
+        return []
+    secao = m.group(1)
+    if not re.search(r'<div class="(?:[^"]* )?contraste(?: [^"]*)?"', secao):
+        return []
+
+    falhas = []
+    dentro = "".join(c for _, c in blocos_por_classe(secao, "conceito"))
+    if not re.search(r'<div class="(?:[^"]* )?contraste(?: [^"]*)?"', dentro):
+        falhas.append("{}: o \"E / Nao e\" esta solto na secao, fora do cartao do "
+                      "conceito. Ele e a segunda metade da definicao, e mora "
+                      "dentro dela".format(rel))
+        return falhas
+
+    ic = re.search(r'<div class="(?:[^"]* )?contraste(?: [^"]*)?"', dentro)
+    ia = re.search(r'<div class="(?:[^"]* )?analogia(?: [^"]*)?"', dentro)
+    if ia and ic.start() > ia.start():
+        falhas.append("{}: o \"E / Nao e\" vem DEPOIS da analogia. A ordem e "
+                      "definicao, contraste, analogia: primeiro o que a coisa e "
+                      "e nao e, depois a imagem dela".format(rel))
+    return falhas
+
+
+def _contraste_solto_no_fim(h):
+    """Defeito injetado do G48: tira o contraste de dentro do cartao do conceito
+    e joga no fim da secao, que era exatamente o estado das cinco aulas da
+    trilha antes de 31/08."""
+    b = list(blocos_por_classe(h, "contraste"))
+    if not b:
+        return h
+    m = re.search(r'<div class="(?:[^"]* )?contraste(?: [^"]*)?"', h)
+    ini = m.start()
+    prof, i = 1, m.end()
+    while prof and i < len(h):
+        t = re.search(r"<(/?)div\b", h[i:])
+        if not t:
+            break
+        i += t.end()
+        prof += -1 if t.group(1) else 1
+    bloco, h = h[ini:i], h[:ini] + h[i:]
+    mf = re.search(r'</section>', h[ini:])
+    if not mf:
+        return h
+    corte = ini + mf.start()
+    return h[:corte] + bloco + h[corte:]
+
+
 def g47_o_conceito_abre_com_a_peca(rel, html):
     """🔴 Na secao do conceito, a PECA vem antes do texto corrido.
 
@@ -2022,6 +2095,8 @@ GATES = [
      lambda h: h.replace('folha aula-pratica', 'folha aula-fundamento', 1), None),
     ("G47", "o conceito abre com a peça", g47_o_conceito_abre_com_a_peca,
      _prosa_antes_da_peca, None),
+    ("G48", "o \"É / Não é\" mora dentro do conceito",
+     g48_o_contraste_mora_dentro_do_conceito, _contraste_solto_no_fim, None),
     ("G46", "as abas abrem", g46_as_abas_abrem,
      lambda h: h.replace('<nav class="abas-fila">', '<div class="abas-fila">', 1),
      "componentes/index.html"),
