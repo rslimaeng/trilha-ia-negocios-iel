@@ -74,7 +74,7 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
-             "b2-analise", "b2-pergunta", "b2-fontes",
+             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -93,6 +93,8 @@ TRILHA = [
     ("As aulas do B2", [
         ("b2-pergunta", "Formule a pergunta que a análise responde"),
         ("b2-fontes",   "Pesquise com método e confira a fonte"),
+        ("b2-base",     "Faça a IA responder pelos seus documentos"),
+        ("b2-planilha", "Transforme a planilha na leitura executiva"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -299,6 +301,39 @@ PAGINAS = {
         sub="De que tipo de fonte a resposta pode vir, em que formato ela precisa "
             "chegar, e por que a referência que veio junto ainda é texto.",
         selos=["Use a pergunta da aula 1", "Ficha de conferência"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-base": dict(
+        # 🔴 fundamento, como o recorte aprovado manda. Ela MOSTRA o mecanismo
+        # (a mesma pergunta com e sem base, e a citacao apontando para o trecho)
+        # e nao pede exercicio. O contrato do G43 e a DEMONSTRACAO, e ela e a
+        # peca .demo do meio da pagina.
+        tipo="fundamento",
+        titulo="Aula 3 · Faça a IA responder só a partir dos seus documentos",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Faça a IA responder só a partir dos seus documentos",
+        sub="Quando vale montar uma base fechada com o material da sua empresa, e por "
+            "que a citação clicável muda o que dá para assinar.",
+        selos=["Ferramenta gratuita", "Clique em três citações"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-planilha": dict(
+        # 🔴 pratica, e e o entregavel central do bloco: a analise real com
+        # narrativa executiva, que e o primeiro dos tres entregaveis declarados
+        # na ementa do M5. A planilha e sintetica e sustenta as aulas 1, 5, 6 e 7.
+        tipo="pratica",
+        titulo="Aula 4 · Transforme a planilha na leitura que a chefia usa",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Transforme a planilha na leitura que a chefia usa",
+        sub="Duas camadas que falham separadamente, a conta e a leitura, e por que "
+            "pedir as duas juntas faz a segunda esconder a primeira.",
+        selos=["Planilha para baixar", "Use a pergunta da aula 1"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),
