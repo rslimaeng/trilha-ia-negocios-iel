@@ -1822,6 +1822,74 @@ def g40_a_aula_declara_onde_acaba(rel, html):
 
 
 
+
+# Pecas que MOSTRAM alguma coisa acontecendo: um pedido e o que voltou, o antes e
+# o depois, o numero que mudou. Nao confundir com peca de ESTRUTURA (.abas,
+# .escada, .vocab, .tabela), que organiza o que ja se sabe em vez de mostrar.
+MOSTRA_RESULTADO = ("prompt", "previa", "demo", "antes-depois", "calor", "passo",
+                    "arquivo")
+
+
+def g49_a_demonstracao_demonstra(rel, html):
+    """🔴 A secao chamada DEMONSTRACAO tem de mostrar alguma coisa acontecendo.
+
+    Rafael, 01/09, lendo a aula 1 do B2 da trilha: "minha demonstracao esta
+    totalmente bloqueada. Nao e uma planilha que eu possa baixar, com prompts
+    diferentes, que evolui e mostra resultados. (...) esperava, ate na
+    demonstracao, um exemplo de estudo de caso que mostre o progresso."
+
+    Ele estava certo, e a aula cumpria o padrao inteiro. O buraco tinha dois
+    lados, e os dois estao fechados aqui:
+
+      1. o contrato de ORGANIZACAO (G43) pedia .canvas, figura de estrutura e
+         .destrave -- NENHUMA das tres mostra resultado. A aula passava com a
+         secao de demonstracao cheia de .abas e .escada, que ORGANIZAM o que a
+         pessoa ja sabe em vez de mostrar a coisa acontecendo.
+      2. o contrato de PRATICA cobrava .prompt na PAGINA, sem dizer ONDE. A
+         b2-fontes tinha o pedido dentro do .sua-vez e a demonstracao vazia.
+         E o mesmo defeito de presenca-contra-posicao que o .passo-ok teve.
+
+    Por isso o gate e da SECAO, e nao do tipo: os tres tipos demonstram, cada um
+    do seu jeito, e o que nao pode e a secao com esse nome nao demonstrar nada.
+
+    O QUE ESTE GATE DEIXA PASSAR: demonstracao fraca. Um .prompt sem a resposta
+    ao lado passa; uma .previa com numero inventado passa. Ele confere que existe
+    peca de RESULTADO onde ela foi prometida -- nao confere se o resultado
+    ensina, nem se o numero e verdadeiro. Isso e julgamento, e fica com o humano.
+
+    So cobra pagina que declara tipo, e so a secao de demonstracao.
+    """
+    limpo = _sem_css_nem_script(html)
+    if not _tipo_da_aula(limpo):
+        return []
+    m = re.search(r'<section class="secao" id="demonstracao">(.*?)</section>',
+                  limpo, re.S)
+    if not m:
+        return ["{}: a aula nao tem secao de demonstracao".format(rel)]
+    corpo = m.group(1)
+    for c in MOSTRA_RESULTADO:
+        if re.search(r'class="(?:[^"]* )?%s(?: [^"]*)?"' % c, corpo):
+            return []
+    return ["{}: a secao de DEMONSTRACAO nao demonstra nada. Ela tem peca de "
+            "estrutura (.abas, .escada, .tabela), que organiza o que a pessoa ja "
+            "sabe -- falta a que MOSTRA: {}".format(
+                rel, ", ".join("." + c for c in MOSTRA_RESULTADO[:4]))]
+
+
+def _demonstracao_sem_resultado(h):
+    """Defeito injetado do G49: tira toda peca de resultado de dentro da secao de
+    demonstracao, que era o estado das duas aulas do B2 em 01/09."""
+    m = re.search(r'(<section class="secao" id="demonstracao">)(.*?)(</section>)',
+                  h, re.S)
+    if not m:
+        return h
+    corpo = m.group(2)
+    for c in MOSTRA_RESULTADO:
+        corpo = re.sub(r'class="((?:[^"]* )?)%s((?: [^"]*)?)"' % c,
+                       r'class="\1%s-sumiu\2"' % c, corpo)
+    return h[:m.start(2)] + corpo + h[m.end(2):]
+
+
 def g48_o_contraste_mora_dentro_do_conceito(rel, html):
     """🔴 O "E / Nao e" fica DENTRO do cartao do conceito, antes da analogia.
 
@@ -2097,6 +2165,8 @@ GATES = [
      _prosa_antes_da_peca, None),
     ("G48", "o \"É / Não é\" mora dentro do conceito",
      g48_o_contraste_mora_dentro_do_conceito, _contraste_solto_no_fim, None),
+    ("G49", "a demonstração demonstra", g49_a_demonstracao_demonstra,
+     _demonstracao_sem_resultado, None),
     ("G46", "as abas abrem", g46_as_abas_abrem,
      lambda h: h.replace('<nav class="abas-fila">', '<div class="abas-fila">', 1),
      "componentes/index.html"),
