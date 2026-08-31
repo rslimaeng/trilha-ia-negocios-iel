@@ -74,7 +74,7 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
-             "b2-analise", "b2-pergunta",
+             "b2-analise", "b2-pergunta", "b2-fontes",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -93,10 +93,6 @@ TRILHA = [
     ("As aulas do B2", [
         ("b2-pergunta", "Formule a pergunta que a análise responde"),
         ("b2-fontes",   "Pesquise com método e confira a fonte"),
-        ("b2-base",     "Faça a IA responder pelos seus documentos"),
-        ("b2-planilha", "Transforme a planilha na leitura executiva"),
-        ("b2-causa",    "Vá do número para a causa"),
-        ("b2-decisao",  "Compare três caminhos antes de recomendar"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -270,7 +266,7 @@ PAGINAS = {
         h1="Use IA para melhorar a análise e a tomada de decisão",
         sub="Uma pergunta de verdade da sua área, o material que responde a ela, e a "
             "decisão que sai disso com o plano amarrado.",
-        selos=["Seis aulas", "Traga uma pergunta em aberto"],
+        selos=["Sete aulas", "Traga uma pergunta em aberto"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  (None, "Análise e decisão")],
@@ -287,6 +283,22 @@ PAGINAS = {
         sub="Por que pedir uma análise volta com um resumo correto que não decide "
             "nada, e como escrever a pergunta que decide.",
         selos=["Traga uma pergunta em aberto", "Vale para as seis aulas"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-fontes": dict(
+        # 🔴 pratica. Ela fecha o PHFE (as letras F e E) E entrega a ficha de
+        # conferencia preenchida, que e artefato que sai da tela. O conceito e
+        # UM: a fonte citada so vira prova depois que alguem abre.
+        tipo="pratica",
+        titulo="Aula 2 · Pesquise com método e confira de onde veio a resposta",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Pesquise com método e confira de onde veio a resposta",
+        sub="De que tipo de fonte a resposta pode vir, em que formato ela precisa "
+            "chegar, e por que a referência que veio junto ainda é texto.",
+        selos=["Use a pergunta da aula 1", "Ficha de conferência"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),
