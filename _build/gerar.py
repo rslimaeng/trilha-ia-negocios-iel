@@ -220,7 +220,15 @@ PAGINAS = {
                  (None, "A mesa: o que ela tem à vista")],
     ),
     "a4-inventa": dict(
-        tipo="fundamento",
+        # 🔴 pratica, e ela SEMPRE foi. Decisao do Rafael, 31/08.
+        # O exercicio original (4b94fae) tinha entrega concreta e continuidade
+        # entre modulos: pedir o trabalho ja entregue sem contar o resultado,
+        # comparar em tres colunas, e escrever a frase que evita o
+        # preenchimento. Foi classificada como fundamento em 30/08 por engano, e
+        # o exercicio foi removido obedecendo a essa classificacao errada.
+        # E a segunda nao-fundamento que o G44 exige: com uma so, as janelas
+        # [2,3,4] e [3,4,5] ficam descobertas.
+        tipo="pratica",
         titulo="Aula 4 · Quando ela inventa com o mesmo tom",
         kicker="Módulo 1 · Mentalidade e Fundamentos",
         h1="Quando ela inventa com o mesmo tom",
