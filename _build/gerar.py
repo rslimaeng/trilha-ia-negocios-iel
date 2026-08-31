@@ -77,15 +77,15 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
 
 TRILHA = [
     ("Módulo 1 · IA Conversacional e Estratégica", [
-        ("modulo-1",       "Os seis blocos do módulo"),
-        ("b1-fundamentos", "Bloco 1 · Mentalidade e Fundamentos"),
+        ("modulo-1",       "Os quatro blocos do módulo"),
+        ("b1-fundamentos", "B1 · Primeiros resultados consistentes"),
     ]),
-    ("As aulas do bloco 1", [
-        ("a1-degrau",   "Em que degrau você está"),
-        ("a2-preve",    "A IA não sabe, ela prevê"),
-        ("a3-mesa",     "A mesa: o que ela tem à vista"),
-        ("a4-inventa",  "Quando ela inventa com o mesmo tom"),
-        ("a5-cerca",    "O que não entra no chat"),
+    ("As aulas do B1", [
+        ("a1-degrau",   "Entenda os níveis de uso da IA"),
+        ("a2-preve",    "O que mudar para ter melhores respostas"),
+        ("a3-mesa",     "Por que conversas longas fazem a IA errar"),
+        ("a4-inventa",  "Aprenda a fazer boas conferências"),
+        ("a5-cerca",    "Decida o que da sua empresa pode subir"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -141,7 +141,7 @@ PAGINAS = {
         h1="IA Conversacional e Estratégica",
         sub="Do diagnóstico pessoal até o assistente configurado que já conhece o seu "
             "processo. É onde a rotina é escolhida, mapeada e virada em instrução.",
-        selos=["Seis blocos", "Você sai com um assistente seu"],
+        selos=["Quatro blocos", "Você sai com um assistente seu"],
         migalha=[("../", "IA para Negócios"),
                  (None, "IA Conversacional e Estratégica")],
     ),
@@ -166,15 +166,15 @@ PAGINAS = {
                  (None, "Minha Jornada com IA")],
     ),
     "b1-fundamentos": dict(
-        titulo="Bloco 1 · Mentalidade e Fundamentos",
-        kicker="Módulo 1 · Bloco 1 de 6",
-        h1="Mentalidade e Fundamentos",
+        titulo="B1 · Tenha os seus primeiros resultados consistentes com IA",
+        kicker="Módulo 1 · Bloco 1 de 4",
+        h1="Tenha os seus primeiros resultados consistentes com IA",
         sub="Onde você está, por que a IA erra do jeito que erra, e qual rotina sua vai "
             "atravessar o curso inteiro.",
         selos=["Cinco aulas", "Nada para instalar"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 (None, "Mentalidade e Fundamentos")],
+                 (None, "Primeiros resultados")],
     ),
     "a1-degrau": dict(
         # 🔴 organizacao, nao fundamento. Decisao do Rafael, 31/08: posicionar-se
@@ -182,41 +182,41 @@ PAGINAS = {
         # Ela nunca foi aula de fundamento; era o terceiro tipo antes de o
         # terceiro tipo existir. E o que tira o bloco 1 do G44.
         tipo="organizacao",
-        titulo="Aula 1 · Em que degrau você está",
-        kicker="Módulo 1 · Mentalidade e Fundamentos",
-        h1="Em que degrau você está",
+        titulo="Aula 1 · Entenda os níveis de uso da IA e os próximos passos",
+        kicker="Módulo 1 · B1 · Primeiros resultados",
+        h1="Entenda os níveis de uso da IA e os próximos passos",
         sub="O diagnóstico que decide o que faz sentido você tentar em seguida, e a "
             "rotina que vai atravessar o curso com você.",
         selos=["Sem instalação", "Traga uma rotina real"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 ("../b1-fundamentos/", "Bloco 1 · Fundamentos"),
+                 ("../b1-fundamentos/", "B1 · Primeiros resultados"),
                  (None, "Em que degrau você está")],
     ),
     "a2-preve": dict(
         tipo="fundamento",
-        titulo="Aula 2 · A IA não sabe, ela prevê",
-        kicker="Módulo 1 · Mentalidade e Fundamentos",
-        h1="A IA não sabe, ela prevê",
+        titulo="Aula 2 · O que mudar para ter melhores respostas com IA",
+        kicker="Módulo 1 · B1 · Primeiros resultados",
+        h1="O que mudar para ter melhores respostas com IA",
         sub="Por que a mesma pergunta volta diferente, e o que isso muda no que você "
             "passa a esperar dela.",
         selos=["Sem instalação", "Dois pedidos comparados"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 ("../b1-fundamentos/", "Bloco 1 · Fundamentos"),
+                 ("../b1-fundamentos/", "B1 · Primeiros resultados"),
                  (None, "A IA não sabe, ela prevê")],
     ),
     "a3-mesa": dict(
         tipo="fundamento",
-        titulo="Aula 3 · A mesa: o que ela tem à vista",
-        kicker="Módulo 1 · Mentalidade e Fundamentos",
-        h1="A mesa: o que ela consegue ter à vista",
+        titulo="Aula 3 · Por que conversas longas fazem a IA errar, e como evitar",
+        kicker="Módulo 1 · B1 · Primeiros resultados",
+        h1="Por que conversas longas fazem a IA errar, e como evitar",
         sub="Por que ela esquece o combinado do começo numa conversa longa, e o que "
             "fazer quando isso acontece.",
         selos=["Sem instalação", "Provoque o defeito"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 ("../b1-fundamentos/", "Bloco 1 · Fundamentos"),
+                 ("../b1-fundamentos/", "B1 · Primeiros resultados"),
                  (None, "A mesa: o que ela tem à vista")],
     ),
     "a4-inventa": dict(
@@ -229,28 +229,28 @@ PAGINAS = {
         # E a segunda nao-fundamento que o G44 exige: com uma so, as janelas
         # [2,3,4] e [3,4,5] ficam descobertas.
         tipo="pratica",
-        titulo="Aula 4 · Quando ela inventa com o mesmo tom",
-        kicker="Módulo 1 · Mentalidade e Fundamentos",
-        h1="Quando ela inventa com o mesmo tom",
+        titulo="Aula 4 · Aprenda a fazer boas conferências de trabalho",
+        kicker="Módulo 1 · B1 · Primeiros resultados",
+        h1="Aprenda a fazer boas conferências de trabalho",
         sub="A alucinação, e o primeiro teste real: pedir o trabalho que você já "
             "entregou e comparar com o que saiu na sua mão.",
         selos=["Use a sua rotina", "Conferência item a item"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 ("../b1-fundamentos/", "Bloco 1 · Fundamentos"),
+                 ("../b1-fundamentos/", "B1 · Primeiros resultados"),
                  (None, "Quando ela inventa com o mesmo tom")],
     ),
     "a5-cerca": dict(
         tipo="fundamento",
-        titulo="Aula 5 · O que não entra no chat",
-        kicker="Módulo 1 · Mentalidade e Fundamentos",
-        h1="O que não entra no chat",
+        titulo="Aula 5 · Decida em 30 segundos o que da sua empresa pode subir",
+        kicker="Módulo 1 · B1 · Primeiros resultados",
+        h1="Decida em 30 segundos o que da sua empresa pode subir",
         sub="Quatro perguntas que decidem se um dado pode ir, e como preparar o seu "
             "material para o resto do curso.",
         selos=["Use a sua rotina", "Vale para o curso inteiro"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
-                 ("../b1-fundamentos/", "Bloco 1 · Fundamentos"),
+                 ("../b1-fundamentos/", "B1 · Primeiros resultados"),
                  (None, "O que não entra no chat")],
     ),
     "modulo": dict(

@@ -1391,15 +1391,33 @@ def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
     acontecido, senao a pessoa so descobre que errou no passo 2 quando chega ao
     5 e nada bate -- e ai ela nao sabe qual dos quatro passos foi.
 
-    FUNDAMENTO: NAO leva exercicio forcado. Leva duas coisas.
-      1. um INSTRUMENTO que a pessoa guarda -- a ficha, a regua, o cartao:
-         .arquivo, .canvas ou .criador. Foi a falta disso que produziu, na
-         trilha IEL 40h, cinco aulas de conceito com exercicio inventado.
-      2. a VERIFICACAO de entendimento -- .verifique. Regra do Rafael, 30/08:
-         "ha aulas de fundamentos que sao so de explicacao e de confirmar com a
-         turma se todo mundo entendeu". Ate aqui o padrao so tinha .checagem,
-         que e lista de conferencia no fim e a pessoa le concordando com ela
-         mesma. Isso confirma leitura, nao entendimento.
+    FUNDAMENTO: leva UMA coisa, a DEMONSTRACAO (.demo). Regra do Rafael, 31/08,
+    depois de revisar as cinco aulas da trilha: "sem instrumento, em si, e ser
+    uma demonstracao (...) Aulas de conceito sao objetivas. Isso nao e um curso
+    teorico, e um curso pratico. As pessoas querem aprender a usar IA do jeito
+    que eu uso IA."
+
+    🔴 ATE 31/08 ESTE CONTRATO EXIGIA OUTRAS DUAS COISAS, e as duas sairam:
+
+      - INSTRUMENTO obrigatorio (.arquivo/.canvas/.criador). A regra de 30/08
+        estava certa no espirito (aula de conceito sem nada que saia da tela e
+        slide) e errada em ser SEM EXCECAO: como aula de fundamento nao tem
+        arquivo, sobrava sempre o canvas, e ele nascia postico. O Rafael leu as
+        cinco e perguntou: "a gente colocou de alguma forma que sempre tem que
+        ser canvas?". Instrumento agora e OPCIONAL -- quando serve, entra.
+
+      - .verifique obrigatorio. A regra de 30/08 nasceu de um pedido real dele
+        ("confirmar com a turma se todo mundo entendeu"), mas a execucao errou o
+        alvo: aquilo e instrumento DE CONDUCAO, que ele usa ao vivo, e virou
+        peca de PAGINA. Numa aula sem producao, gabarito na tela nao tem o que
+        conferir -- "nao ha gabarito aqui, porque nao houve producao" ficou
+        escrito na propria peca. Saiu da pagina; vai para o material do
+        instrutor.
+
+    O QUE ESTE CONTRATO DEIXA PASSAR: uma .demo generica, que ilustra sem
+    mostrar caso concreto. Isso o gate nao mede -- e o Rafael apontou ("essa
+    demonstracao nao e demonstracao, e um exemplo geral"). Fica com o humano,
+    porque a alternativa e contar caracteres e fingir que e julgamento.
 
     ORGANIZACAO: a pessoa mapeia o que ela JA TEM. Leva tres.
       1. o .canvas, que e onde o mapa dela mora -- e nunca uma planilha nossa
@@ -1430,21 +1448,42 @@ def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
         # o resultado esperado, um por passo. Nao exijo um em CADA passo: o
         # ultimo passo de uma sequencia costuma ser o proprio resultado, e um
         # gate que exigisse N por N viraria gate com excecao.
-        if tem("passo") and not tem("passo-ok"):
-            falhas.append("{}: aula de PRATICA sem nenhum resultado esperado. Todo "
-                          "passo que muda a tela leva .passo-ok dizendo o que "
-                          "deveria ter acontecido".format(rel))
+        if tem("passo"):
+            # 🔴 Nao basta a classe EXISTIR na pagina: ela tem de estar DENTRO de
+            # um .passo. Ate 31/08 este teste era tem("passo-ok") e varria o
+            # documento inteiro -- quatro .passo-ok do curso de Claude do IEL
+            # nasceram dentro do .destrave, a classe existia, o CSS existia, e o
+            # gate passou VERDE. Quem pegou foi o DOM, no navegador.
+            # E o terceiro defeito desta linhagem com a mesma forma, depois do
+            # .fecho li (28/08) e da .abas em <div> (31/08): o gate confere que
+            # a peca existe, e o defeito e ela existir no lugar errado.
+            #
+            # O QUE ESTE TESTE DEIXA PASSAR: basta UM .passo-ok no lugar certo.
+            # Uma aula com um correto e tres no .destrave passa. Provado em
+            # 31/08 com defeito injetado: mover um so nao acusa, mover os tres
+            # acusa. Cobrar todos exigiria decidir quais passos "mudam a tela",
+            # e isso e julgamento -- fica com quem escreve.
+            dentro = any(
+                re.search(r'<[^>]*class="(?:[^"]* )?passo-ok(?: [^"]*)?"', corpo)
+                for _, corpo in blocos_por_classe(limpo, "passo"))
+            if not dentro:
+                falhas.append(
+                    "{}: aula de PRATICA sem nenhum resultado esperado DENTRO de "
+                    "um .passo. Todo passo que muda a tela leva .passo-ok "
+                    "dizendo o que deveria ter acontecido -- e ele e o ultimo "
+                    "bloco DO PASSO, nunca do .destrave".format(rel))
 
     elif tipo == "fundamento":
-        if not any(tem(c) for c in ARTEFATO):
-            falhas.append("{}: aula de FUNDAMENTO sem instrumento. Ela nao precisa "
-                          "de exercicio, mas precisa entregar a ficha, a regua ou o "
-                          "cartao: .arquivo, .canvas ou .criador".format(rel))
-        if not tem("verifique"):
-            falhas.append("{}: aula de FUNDAMENTO sem verificacao de entendimento. "
-                          "Explicar e confirmar que a sala entendeu sao duas coisas, "
-                          "e a segunda e .verifique -- pergunta fechada, com a "
-                          "resposta escondida, colada no conceito que ela testa"
+        # MOSTRAR a coisa acontecendo tem mais de uma forma. Ate 31/08 este teste
+        # exigia .demo e so; a a5-cerca da trilha IEL tinha uma demonstracao REAL
+        # (antes/depois das colunas de uma planilha) na peca .antes-depois, e
+        # reprovava. Restringir a uma classe e a mesma rigidez que produziu o
+        # canvas postico -- o contrato e o EFEITO, nao a peca.
+        if not any(tem(c) for c in DEMONSTRA):
+            falhas.append("{}: aula de FUNDAMENTO sem DEMONSTRACAO. Ela nao leva "
+                          "exercicio nem e obrigada a entregar instrumento, mas "
+                          "precisa MOSTRAR a coisa acontecendo: .demo ou "
+                          ".antes-depois, com o caso real e os dois resultados"
                           .format(rel))
 
     else:  # organizacao
@@ -1564,6 +1603,22 @@ def g39_uma_aula_um_conceito(rel, html):
 # Pecas que produzem algo que SAI DA TELA. Nao e exercicio: exercicio a pessoa
 # faz e fecha o navegador. Isto ela leva.
 ARTEFATO = ("arquivo", "canvas", "criador")
+DEMONSTRA = ("demo", "antes-depois")
+
+
+def _sem_artefato_nenhum(h):
+    """Defeito injetado do G42: tira TODAS as pecas de ARTEFATO, nao so a primeira.
+
+    Ate 31/08 ele trocava so class="arquivo", e se provava por ACIDENTE DA
+    COMPOSICAO: nenhuma pagina do padrao tinha .arquivo e .canvas juntos. A
+    trilha IEL pos os dois na mesma aula de pratica, o .canvas sobreviveu a
+    injecao, o gate nao acusou e o calibrador ficou CEGO -- com a suite dando
+    0 achados e RESULTADO: FALHA. Achado pela sessao da trilha IEL em 31/08.
+    """
+    for c in ARTEFATO:
+        h = h.replace('class="%s"' % c, 'class="%s-sumiu"' % c)
+        h = h.replace('class="%s ' % c, 'class="%s-sumiu ' % c)
+    return h
 
 
 def _ordem_das_aulas():
@@ -1674,8 +1729,6 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
             "em que a pessoa mapeia a propria rotina".format(rel)]
 
 
-PISO_PALAVRAS = 1800
-PISO_FIGURAS = 5
 
 
 def _palavras_visiveis(html):
@@ -1684,48 +1737,34 @@ def _palavras_visiveis(html):
     return len(re.sub(r"<[^>]+>", " ", limpo).split())
 
 
-def g45_a_aula_tem_carne_suficiente(rel, html):
-    """🔴 Aula com casca certa e um terco do conteudo le como "mais do mesmo".
-
-    Medido em 30/08, aula por aula:
-
-        MODELO template/aula   1.490 palavras ·  5 figuras com legenda
-        trilha IEL a1-degrau   1.479 ·  4        trilha a3-mesa  1.209 · 4
-        imersao n3-conferir    2.054 ·  6        imersao m1a6    2.064 · 7
-        imersao m1a5-mapa      3.633 · 14
-
-    A densidade RELATIVA e igual nos tres (3-4 figuras por mil palavras). O que
-    separa o curso que o Rafael aprovou do que ele reprovou e o tamanho
-    ABSOLUTO: a aula da trilha tem um terco da aula da imersao, com as mesmas
-    oito secoes. Casca completa, carne faltando.
-
-    E a raiz esta no proprio padrao: a aula-modelo tem 1.490 palavras, dentro da
-    faixa da trilha. Quem copia o modelo herda o tamanho errado. Por isso este
-    gate reprova o modelo tambem -- e o modelo e que precisa crescer.
-
-    So cobra pagina que declara tipo. Material anterior a 28/08 segue pelo
-    contrato antigo.
-    """
-    limpo = _sem_css_nem_script(html)
-    if not _tipo_da_aula(limpo):
-        return []
-    falhas = []
-    palavras = _palavras_visiveis(html)
-    if palavras < PISO_PALAVRAS:
-        falhas.append(
-            "{}: {} palavras, piso {}. A aula tem a casca certa e falta carne -- "
-            "e o que produz a leitura de 'mais do mesmo'".format(
-                rel, palavras, PISO_PALAVRAS))
-    # \b casa antes de hifen: \bfig-leg\b acusaria "fig-leg-sumiu" tambem.
-    # A classe tem de ser um token inteiro do atributo.
-    figuras = len(re.findall(
-        r'class="(?:[^"]* )?fig-leg(?: [^"]*)?"', limpo))
-    if figuras < PISO_FIGURAS:
-        falhas.append(
-            "{}: {} figuras com legenda, piso {}. Figura sem legenda nao conta, "
-            "e o piso de tres do CLAUDE.md e para a figura existir, nao para a "
-            "aula estar densa".format(rel, figuras, PISO_FIGURAS))
-    return falhas
+# =========================================================================
+# 🔴 O G45 EXISTIU DE 30/08 A 31/08, E FOI REMOVIDO. Nao recrie.
+#
+# Ele cobrava piso de 1.800 palavras e 5 figuras por aula. O diagnostico que o
+# gerou estava certo -- as aulas da trilha IEL eram rasas -- e a TRADUCAO estava
+# errada: raso e falta de mecanismo explicado, exemplo concreto e ordem certa,
+# nao falta de palavra.
+#
+# Medido em 31/08, depois que as cinco aulas cresceram para cumprir o piso:
+#
+#     curso              total     explicacao    % explicacao
+#     Claude IEL (bom)   ~2.700       ~700          25-34%
+#     trilha (ruim)      ~2.900       ~1.100        28-51%
+#
+# Os TOTAIS sao equivalentes. O que separa o curso que o Rafael aprovou do que
+# ele reprovou nao e volume: e ONDE o peso esta. No Claude IEL a secao maior e
+# sempre a do exercicio; na trilha e sempre a da explicacao.
+#
+# O gate fez as aulas dobrarem de tamanho e continuarem sem responder "por que a
+# IA faz isso?", que foi exatamente o que o Rafael sentiu falta ao revisa-las.
+# Pior: ele passou por cima de uma preferencia que ele ja tinha declarado varias
+# vezes ("muito texto e muito ruim"), porque numero vence principio no meio de
+# uma execucao longa.
+#
+# NENHUMA METRICA DE VOLUME separa as cinco aulas que ele criticou das oito que
+# ele aprovou -- foram testadas tres (total, proporcao de explicacao, paragrafos
+# corridos). O que separa e a ANATOMIA, e ela e cobrada pelo G43 e pelo G47.
+# =========================================================================
 
 
 def g41_o_conceito_vem_com_imagem(rel, html):
@@ -1779,6 +1818,55 @@ def g40_a_aula_declara_onde_acaba(rel, html):
         return ["{}: o divisor esta sem a nota que diz ao aluno o que fazer "
                 "com o que vem depois".format(rel)]
     return []
+
+
+
+def g47_o_conceito_abre_com_a_peca(rel, html):
+    """🔴 Na secao do conceito, a PECA vem antes do texto corrido.
+
+    Regra do Rafael, 31/08, dita quatro vezes ao revisar quatro aulas seguidas:
+    "Aí tem um conceito, começa um texto e depois tem os artefatos. Talvez, por
+    questões de melhor didática, os artefatos deveriam ser primeiros."
+
+    Nao e preferencia de gosto: e a mesma regra do G41 (o conceito nasce com a
+    analogia junto, a imagem vem primeiro para depois processar) aplicada a
+    ORDEM DENTRO DA SECAO, e nao so a presenca na pagina. Quem abre com quatro
+    paragrafos entrega a definicao antes da imagem, e a pessoa le a definicao
+    sem ter onde encaixar.
+
+    O QUE ESTE GATE DEIXA PASSAR: peca fraca. Ele confere que a primeira coisa
+    da secao nao e prosa -- nao confere se a figura ensina alguma coisa. Um
+    quadro vazio no topo passa. Isso e julgamento, e fica com o humano.
+
+    So cobra pagina que declara tipo, e so a secao do conceito.
+    """
+    limpo = _sem_css_nem_script(html)
+    if not _tipo_da_aula(limpo):
+        return []
+    m = re.search(r'<section class="secao" id="conceito">(.*?)</section>',
+                  limpo, re.S)
+    if not m:
+        return []
+    corpo = m.group(1)
+    # tira o cabecalho da secao, que e estrutura e nao conteudo
+    corpo = re.sub(r'<div class="secao-topo">.*?</div>\s*</div>', '', corpo,
+                   count=1, flags=re.S)
+    prim = re.search(r'<(p|ul|ol|table|figure|div|blockquote|pre|h3)\b', corpo)
+    if prim and prim.group(1).lower() == "p":
+        return ["{}: a secao do conceito abre com texto corrido. A peca vem "
+                "primeiro -- figura, tabela, .analogia, .eounao -- e o "
+                "paragrafo explica o que a pessoa ja viu".format(rel)]
+    return []
+
+
+
+def _prosa_antes_da_peca(h):
+    """Defeito injetado do G47: poe um paragrafo antes da primeira peca do conceito."""
+    m = re.search(r'(<section class="secao" id="conceito">\s*'
+                  r'<div class="secao-topo">.*?</div>\s*</div>)', h, re.S)
+    if not m:
+        return h
+    return h[:m.end(1)] + "\n<p>defeito injetado antes da peca</p>" + h[m.end(1):]
 
 
 # =========================================================================
@@ -1925,15 +2013,15 @@ GATES = [
     ("G41", "o conceito vem com imagem", g41_o_conceito_vem_com_imagem,
      lambda h: h.replace('class="analogia"', 'class="analogia-sumiu"', 1), None),
     ("G42", "a trilha entrega a cada três aulas", g42_a_trilha_entrega_a_cada_tres_aulas,
-     lambda h: h.replace('class="arquivo"', 'class="arquivo-sumiu"', 1), None),
+     _sem_artefato_nenhum, None),
     ("G43", "a aula cumpre o contrato do tipo dela",
      g43_a_aula_cumpre_o_contrato_do_tipo_dela,
      lambda h: h.replace('class="arquivo"', 'class="arq-sumiu"', 1), None),
     ("G44", "o módulo mescla fundamento com prática",
      g44_o_modulo_mescla_fundamento_com_pratica,
      lambda h: h.replace('folha aula-pratica', 'folha aula-fundamento', 1), None),
-    ("G45", "a aula tem carne suficiente", g45_a_aula_tem_carne_suficiente,
-     lambda h: re.sub(r'class="fig-leg"', 'class="fig-leg-sumiu"', h, count=3), None),
+    ("G47", "o conceito abre com a peça", g47_o_conceito_abre_com_a_peca,
+     _prosa_antes_da_peca, None),
     ("G46", "as abas abrem", g46_as_abas_abrem,
      lambda h: h.replace('<nav class="abas-fila">', '<div class="abas-fila">', 1),
      "componentes/index.html"),
