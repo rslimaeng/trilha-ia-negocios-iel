@@ -342,12 +342,36 @@ mesmos títulos, sempre nesta ordem:**
 | 01 | Descreva a tarefa | o problema real, e quem enfrenta na rotina |
 | 02 | Dê o contexto que a IA precisa | o que ela precisa para não devolver genérico |
 | 03 | Baixe o insumo | o `.xlsx` ou `.docx`, com o aviso de dados fictícios |
-| 04 | Cole o prompt no chat | quatro parágrafos: `Anexei` · `O que eu preciso:` · `Restrições:` · `Na dúvida:` |
+| 04 | Cole o prompt no chat | o **PCTFL+CS**, escrito em parágrafos (ver abaixo) |
 | 05 | **O que esperar** | a **prévia do resultado**, antes de rodar |
 
 🔴 **O passo 5 é o que separa o material de uma lista de prompts.** Miniatura desenhada
 à esquerda, o que vem dentro dela à direita, e o callout "depois de gerar · como
 refinar" no fim.
+
+### Os parágrafos do prompt SÃO o PCTFL+CS
+
+🔴 **Não são dois padrões, é um.** O padrão-base do curso é o **PCTFL+CS** (Papel ·
+Contexto · Tarefa · Formato · Limitações · Critério de Sucesso), e o que o material
+escreve em parágrafos é exatamente ele, em prosa em vez de campo rotulado. Escrever em
+prosa é decisão de público: quem lê é gestor, não engenheiro de prompt.
+
+| O parágrafo que o material escreve | O campo do PCTFL+CS |
+|---|---|
+| `Anexei…` / *"Sou gerente comercial e preciso decidir…"* | **P**apel + **C**ontexto |
+| `O que eu preciso:` | **T**arefa + **F**ormato |
+| `Restrições:` | **L**imitações |
+| `Critério de sucesso:` | **CS** |
+| `Na dúvida:` | o que fazer quando falta dado (fallback) |
+
+⚠️ **O `Critério de sucesso:` é obrigatório e o G5 não o cobra.** O gate confere os três
+primeiros e não sabe deste; quem escreve é que garante. Ele diz **como a pessoa sabe que
+a resposta serviu**, não o que ela quer: *"a resposta serve se eu conseguir &lt;o que ela
+permite&gt; sem &lt;o trabalho que ela evita&gt;"*.
+
+🔴 **O PHFE não é padrão de prompt de uso geral.** Ele é da **funcionalidade de Pesquisa
+Profunda (Deep Research)**, e é decisão do Rafael de 01/09. Não use como esqueleto de
+aula de análise: o B2 desta trilha nasceu amarrado nele e teve de ser refeito.
 
 ### O insumo sai do gerador, não da mão
 
