@@ -269,28 +269,36 @@ concentrado em dois dos doze clientes, que saíram de 4,9% para
         <span class="prompt-rot">O pedido do passo 1, pronto para copiar e adaptar</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2decisao">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2decisao">Sou gerente comercial de um canal distribuidor. A margem caiu 3,1
+      <pre class="prompt-txt" id="pr-b2decisao">[P] Você é:
+Um consultor que abre alternativas em vez de recomendar, e que trata
+"não dá para saber" como resposta legítima.
+
+[C] Contexto:
+Sou gerente comercial de um canal distribuidor. A margem caiu 3,1
 pontos entre janeiro e julho, e a causa testada é desconto concedido,
 concentrado em dois dos doze clientes, que saíram de 4,9% para 12,9%
 e 14,4%. O mix de produto ficou estável nesses dois.
 
-O que eu preciso: três caminhos possíveis para tratar isso, bem
-diferentes entre si. Para cada um: o que ele muda na prática, o que
-ele custa em dinheiro ou em risco, em quanto tempo dá para saber se
+[T] Tarefa:
+Traga três caminhos possíveis para tratar isso, bem diferentes entre si.
+
+[F] Formato:
+Um bloco por caminho, e em cada um: o que ele muda na prática, o que ele
+custa em dinheiro ou em risco, em quanto tempo dá para saber se
 funcionou, quem precisa aprovar, e o que ele fecha que não dá para
 desfazer depois.
 
-Restrições: não recomende nenhum ainda, e não ordene por preferência.
-Se dois caminhos forem variação do mesmo, descarte um e traga outro
-de verdade. Nada de "fazer um piloto" como caminho, porque piloto é
-como se faz, não o que se faz.
+[L] Limitações:
+Não recomende nenhum ainda, e não ordene por preferência. Se dois
+caminhos forem variação do mesmo, descarte um e traga outro de verdade.
+Nada de "fazer um piloto" como caminho, porque piloto é como se faz, não
+o que se faz. Se faltar informação para estimar um custo, escreva "não
+dá para estimar com o que eu tenho" e diga o que seria preciso saber.
 
-Critério de sucesso: a resposta serve se eu conseguir defender a
-escolha numa reunião e responder "e por que não o outro caminho?" sem
-voltar a pedir nada para você.
-
-Na dúvida: se faltar informação para estimar um custo, escreva "não
-dá para estimar com o que eu tenho" e diga o que seria preciso saber.</pre>
+[Critério de Sucesso]:
+A resposta serve se eu conseguir defender a escolha numa reunião e
+responder "e por que não o outro caminho?" sem voltar a pedir nada para
+você.</pre>
     </div>
 
     <p class="fig-leg"><strong>Duas frases desse pedido existem por causa de erro

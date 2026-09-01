@@ -314,26 +314,34 @@ Margem do total do período:
         <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2planilha">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2planilha">Anexei uma planilha de faturamento por pedido de um canal distribuidor.
+      <pre class="prompt-txt" id="pr-b2planilha">[P] Você é:
+Um analista de dados que separa a conta da interpretação, e que mostra a
+fórmula de tudo o que calcula.
+
+[C] Contexto:
+Anexei uma planilha de faturamento por pedido de um canal distribuidor.
 Sou gerente comercial e preciso entender uma queda de margem antes de
 decidir se mexo na alçada de desconto do time.
 
-O que eu preciso: só números, nesta etapa. A receita líquida total do
-período, a contagem de pedidos, e a margem do período mês a mês. Ao
-lado de cada percentual, escreva em uma linha a fórmula que você usou
+[T] Tarefa:
+Só números, nesta etapa. Calcule a receita líquida total do período, a
+contagem de pedidos, e a margem do período mês a mês.
+
+[F] Formato:
+Ao lado de cada percentual, escreva em uma linha a fórmula que você usou
 para chegar nele.
 
-Restrições: não escreva análise, interpretação, causa nem recomendação
-agora. Se houver mais de uma forma defensável de calcular a margem do
-período, apresente as duas e diga qual responde a "quanto a empresa
-deixou de ganhar".
+[L] Limitações:
+Não escreva análise, interpretação, causa nem recomendação agora. Se
+houver mais de uma forma defensável de calcular a margem do período,
+apresente as duas e diga qual responde a "quanto a empresa deixou de
+ganhar". Se alguma coluna estiver ambígua ou faltando, pergunte antes de
+calcular, em vez de assumir.
 
-Critério de sucesso: a resposta serve se eu conseguir refazer cada
-número na planilha em menos de dois minutos, seguindo só a fórmula que
-você escreveu ao lado dele.
-
-Na dúvida: se alguma coluna estiver ambígua ou faltando, pergunte antes
-de calcular, em vez de assumir.</pre>
+[Critério de Sucesso]:
+A resposta serve se eu conseguir refazer cada número na planilha em
+menos de dois minutos, seguindo só a fórmula que você escreveu ao lado
+dele.</pre>
     </div>
 
     <p class="fig-leg"><strong>Repare que este pedido é o oposto do da aula 4 do bloco
@@ -361,28 +369,38 @@ de calcular, em vez de assumir.</pre>
           <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
           <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-explora">Copiar</button>
         </div>
-        <pre class="prompt-txt" id="pr-b2planilha-explora">Anexei uma planilha de faturamento por pedido de um canal distribuidor.
+        <pre class="prompt-txt" id="pr-b2planilha-explora">[P] Você é:
+Um analista de dados que audita a estrutura de uma base antes de
+interpretar qualquer coisa dela.
+
+[C] Contexto:
+Anexei uma planilha de faturamento por pedido de um canal distribuidor.
 Sou gerente comercial e ainda não vou pedir análise: quero entender a
-estrutura do arquivo antes de interpretar qualquer coisa dele.
+estrutura do arquivo antes de tirar conclusão.
 
-O que eu preciso: o mapeamento da base, em quatro blocos. Primeiro, a
-estrutura: quantas linhas, quantas colunas, e o período que ela cobre.
-Segundo, coluna por coluna, o que cada uma significa e de que tipo ela é
-(texto, número, data, categoria). Terceiro, os problemas: célula vazia,
-formato misturado dentro da mesma coluna, valor repetido que parece
-duplicata, linha de total no meio dos dados. Quarto, três análises de
-valor que esta base permite fazer.
+[T] Tarefa:
+Faça o mapeamento da base. Diga quantas linhas e quantas colunas ela
+tem e que período cobre. Explique, coluna por coluna, o que cada uma
+significa e de que tipo ela é (texto, número, data, categoria). Aponte
+os problemas: célula vazia, formato misturado dentro da mesma coluna,
+valor repetido que parece duplicata, linha de total no meio dos dados.
+Por fim, sugira três análises de valor que esta base permite fazer.
 
-Restrições: não tire conclusão nenhuma sobre o negócio agora, e não faça
-gráfico. Isto é diagnóstico de estrutura, não de resultado. Nenhum
-jargão de estatística ou de programação.
+[F] Formato:
+Quatro blocos, nesta ordem: (a) Estrutura da base, (b) Qualidade e tipos
+de dado, (c) Observações gerais, (d) Sugestões de análise. Use lista com
+marcador, e negrito no que eu preciso ver de relance.
 
-Critério de sucesso: a resposta serve se eu souber exatamente o que tem
-dentro da planilha, e o quanto dá para confiar nela, sem precisar abrir
-o arquivo.
+[L] Limitações:
+Não tire conclusão nenhuma sobre o negócio agora, e não faça gráfico.
+Isto é diagnóstico de estrutura, não de resultado. Nenhum jargão de
+estatística ou de programação. Se o significado de uma coluna não
+estiver claro pelo nome dela, diga que não está claro em vez de deduzir
+pelo conteúdo.
 
-Na dúvida: se o significado de uma coluna não estiver claro pelo nome
-dela, diga que não está claro em vez de deduzir pelo conteúdo.</pre>
+[Critério de Sucesso]:
+A resposta serve se eu souber exatamente o que tem dentro da planilha, e
+o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
       </div>
 
       <div class="passo-ok">

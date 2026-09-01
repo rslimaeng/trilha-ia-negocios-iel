@@ -229,11 +229,40 @@ def g4_minutagem_fora_da_capa(rel, html):
     return falhas
 
 
-def g5_prompt_tem_os_quatro_paragrafos(rel, html):
-    """Todo prompt copiável tem os quatro parágrafos, na ordem.
+# 🔴 DIVERGE DO PADRAO DE PROPOSITO, e e decisao do Rafael de 01/09: "o nosso
+# padrao e do P ate o criterio de aceite". O padrao ainda cobra os quatro
+# paragrafos em prosa; este curso cobra os SEIS ROTULOS. Nao sao dois formatos:
+# sao o mesmo PCTFL+CS, um em prosa e outro rotulado, e o rotulado ganhou
+# porque o aluno reencontra os campos com o nome que o curso usa.
+# Subir isto para o padrao e decisao dele, com a sincronizacao inteira.
+CAMPOS_DO_PEDIDO = ("[P] Você é:", "[C] Contexto:", "[T] Tarefa:",
+                    "[F] Formato:", "[L] Limitações:", "[Critério de Sucesso]:")
 
-    O quarto é o que transforma pedido em procedimento: sem "na dúvida", o
-    modelo preenche buraco por estimativa e ninguém percebe.
+# 🔴 A MIGRACAO E PARCIAL, E ESTA LISTA E O QUE IMPEDE QUE ISSO SE PERCA.
+# Em 01/09 o formato mudou e SO O B2 foi reescrito, porque o prompt daquele
+# dia proibia tocar no B1, nos desafios e nas paginas-modelo. Estes sete
+# prompts continuam no formato antigo (os quatro paragrafos em prosa).
+#
+# A lista e FECHADA de proposito: prompt novo que nasca fora dela e cobrado
+# nos seis campos. Ela so pode ENCOLHER. Se voce esta aqui para acrescentar um
+# id, pare -- o certo e migrar o prompt.
+PENDENTES_DO_FORMATO_ROTULADO = {
+    "pr-a4",                   # B1, aula 4 -- fora do escopo de 01/09
+    "p-caso", "p-compras", "p-fin",   # paginas-modelo vindas do padrao
+    "pr-desafio-parecer", "pr-desafio-avaliacoes", "pr-desafio-plano",
+}
+
+
+def g5_prompt_tem_os_quatro_paragrafos(rel, html):
+    """Todo prompt copiável tem os seis campos do PCTFL+CS, na ordem.
+
+    O sexto e o que fecha: sem criterio de sucesso a pessoa nao tem como
+    JULGAR a resposta, so como gostar ou nao gostar dela.
+
+    🔴 O "na duvida" NAO virou campo. Ele e clausula final do [L], que e onde
+    sempre trabalhou: e limitacao de comportamento, nao pedaco de pedido. Sem
+    ele o modelo preenche buraco por estimativa e ninguem percebe -- por isso
+    o gate confere que ele continua existindo dentro do [L].
     """
     # Só o prompt que tem botão de copiar. O mesmo bloco em mono também serve para
     # MOSTRAR um arquivo (um regras.md, um trecho de configuração), e arquivo não
@@ -253,9 +282,36 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
         if "config" in classes.split():
             continue
         texto = corpo.replace("&nbsp;", " ")
-        for peca in ("O que eu preciso:", "Restrições:", "Na dúvida:"):
-            if peca not in texto:
-                falhas.append("prompt {} de {}: falta o parágrafo {!r}".format(i, rel, peca))
+        if ident in PENDENTES_DO_FORMATO_ROTULADO:
+            # Divida declarada, nao dispensa: o gate abaixo confere que ela
+            # continua cumprindo o formato ANTIGO, para nao apodrecer calada.
+            for peca in ("O que eu preciso:", "Restrições:", "Na dúvida:"):
+                if peca not in texto:
+                    falhas.append("prompt {} de {}: está na lista de pendentes do "
+                                  "formato rotulado e nem o formato antigo "
+                                  "cumpre (falta {!r})".format(i, rel, peca))
+            continue
+        pos = -1
+        for peca in CAMPOS_DO_PEDIDO:
+            onde = texto.find(peca)
+            if onde < 0:
+                falhas.append("prompt {} de {}: falta o campo {!r}".format(i, rel, peca))
+                continue
+            # A ORDEM importa tanto quanto a presenca: formato pedido em [T] e
+            # tarefa pedida em [F] passariam num gate que so conta presenca, e
+            # o aluno copia o desenho errado.
+            if onde < pos:
+                falhas.append("prompt {} de {}: o campo {!r} está fora de ordem".format(
+                    i, rel, peca))
+            pos = max(pos, onde)
+        # A clausula que impede a estimativa em silencio. Mora no [L], e o gate
+        # so cobra que ela exista -- a redacao e de quem escreve a aula.
+        limites = texto.split("[L] Limitações:")[-1].split("[Critério de Sucesso]:")[0]
+        if not any(g in limites.lower() for g in
+                   ("pergunte", "escreva \"sem", "escreva \"não", "diga que não",
+                    "sinalize", "pare e me", "indicador a definir", "não dá para estimar")):
+            falhas.append("prompt {} de {}: o [L] não diz o que fazer quando falta "
+                          "dado (o antigo 'Na dúvida:')".format(i, rel))
     return falhas
 
 
@@ -2278,10 +2334,9 @@ GATES = [
      "caso/index.html"),
     ("G4", "duração de aula fora da capa", g4_minutagem_fora_da_capa,
      lambda h: h.replace("<h1>", "<h1>bloco de 15 min ", 1), "caso/index.html"),
-    ("G5", "o prompt tem os quatro parágrafos", g5_prompt_tem_os_quatro_paragrafos,
-     lambda h: re.sub(r'(<pre class="prompt-txt"[^>]*>[^<]*?)Na dúvida:',
-                      r"\1Se precisar:", h, count=1),
-     "caso/index.html"),
+    ("G5", "o prompt tem os seis campos do PCTFL+CS", g5_prompt_tem_os_quatro_paragrafos,
+     lambda h: h.replace("[Critério de Sucesso]:", "[Criterio de aceite]:", 1),
+     "b2-planilha/index.html"),
     ("G6", "classe sem CSS", g6_classe_sem_css,
      lambda h: h.replace('class="cartao', 'class="classe-inventada cartao', 1), None),
     ("G7", "os links resolvem", g7_links_resolvem,

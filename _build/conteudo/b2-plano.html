@@ -285,29 +285,38 @@ mantendo a alçada de desconto como está.</pre>
         <span class="prompt-rot">O pedido do passo 2, pronto para copiar e adaptar</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2plano">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2plano">Sou gerente comercial de um canal distribuidor. A decisão tomada foi
+      <pre class="prompt-txt" id="pr-b2plano">[P] Você é:
+Um gerente de projetos que escreve plano para outra pessoa executar, e
+que não deixa linha sem dono, sem prazo e sem indicador.
+
+[C] Contexto:
+Sou gerente comercial de um canal distribuidor. A decisão tomada foi
 subir a tabela da linha Padrão em 4% para o canal, mantendo a alçada
 de desconto como está. No pre-mortem, o motivo de falha mais provável
 foi os dois maiores clientes migrarem parte do volume para o
 concorrente antes de a nova tabela virar rotina.
 
-O que eu preciso: um plano de no máximo cinco linhas. Cada linha com
-o que fazer, por que ela existe, que tipo de pessoa faz, até quando,
-como se faz, e um indicador com número e prazo que diga se funcionou.
-A primeira linha tem que tratar o motivo de falha do pre-mortem.
+[T] Tarefa:
+Escreva um plano de no máximo cinco linhas. A primeira linha tem que
+tratar o motivo de falha do pre-mortem.
 
-Restrições: nada de verbo de postura, como acompanhar, alinhar,
-monitorar ou revisar. Toda linha começa com uma ação que tem fim. Não
-escreva nome de pessoa: escreva o papel, que eu troco pelo nome
-depois. Prazo em dias contados de um evento do plano, não em data de
-calendário.
+[F] Formato:
+Cada linha com seis campos: o que fazer, por que ela existe, que tipo de
+pessoa faz, até quando, como se faz, e um indicador com número e prazo
+que diga se funcionou.
 
-Critério de sucesso: a resposta serve se eu conseguir mandar cada linha
-para o dono dela sem reescrever nada, e se essa pessoa souber o que fazer
-sem me perguntar de volta.
+[L] Limitações:
+Nada de verbo de postura, como acompanhar, alinhar, monitorar ou
+revisar. Toda linha começa com uma ação que tem fim. Não escreva nome de
+pessoa: escreva o papel, que eu troco pelo nome depois. Prazo em dias
+contados de um evento do plano, não em data de calendário. Se faltar
+informação para propor um indicador, escreva "indicador a definir" e
+diga qual dado seria preciso ter.
 
-Na dúvida: se faltar informação para propor um indicador, escreva
-"indicador a definir" e diga qual dado seria preciso ter.</pre>
+[Critério de Sucesso]:
+A resposta serve se eu conseguir mandar cada linha para o dono dela sem
+reescrever nada, e se essa pessoa souber o que fazer sem me perguntar de
+volta.</pre>
     </div>
 
     <p class="fig-leg"><strong>A restrição do verbo é a que muda mais o resultado.</strong>

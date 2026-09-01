@@ -3419,31 +3419,39 @@ industrial foi de 19,4% em 2024.
         <span class="prompt-rot">O pedido do passo 1, pronto para copiar e adaptar</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2fontes">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2fontes">Sou gerente comercial de uma distribuidora de insumos industriais no
+      <pre class="prompt-txt" id="pr-b2fontes">[P] Você é:
+Um analista de inteligência de mercado que levanta prática comercial em
+fonte publicada, e que não afirma nada sem poder mostrar onde leu.
+
+[C] Contexto:
+Sou gerente comercial de uma distribuidora de insumos industriais no
 Nordeste, e preciso decidir nas próximas duas semanas se mexo na alçada
 de desconto do time. A minha hipótese é que a queda de margem vem de
-desconto concedido, e não de mix de produto. Teste essa hipótese,
-procurando também o que a contraria.
+desconto concedido, e não de mix de produto.
 
-O que eu preciso: um levantamento do que se pratica hoje em desconto
-comercial na distribuição industrial no Brasil, com o intervalo típico,
-o que costuma justificar desconto acima desse intervalo, e dois ou três
-casos comparáveis. Entregue uma tabela com uma linha por prática, tendo
-a fonte e o ano na própria linha, seguida de meia página de leitura e
-três perguntas que eu ainda precisaria responder.
+[T] Tarefa:
+Teste essa hipótese, procurando também o que a contraria. Levante o que
+se pratica hoje em desconto comercial na distribuição industrial no
+Brasil: o intervalo típico, o que costuma justificar desconto acima
+desse intervalo, e dois ou três casos comparáveis.
 
-Restrições: use relatório setorial, publicação de associação do setor,
-imprensa especializada e dado público de empresa aberta. Não use fórum,
-post de rede social nem página de fornecedor que vende solução para
-este problema. Toda linha da tabela leva o link e o ano.
+[F] Formato:
+Uma tabela com uma linha por prática, tendo a fonte e o ano na própria
+linha. Depois, meia página de leitura. No fim, três perguntas que eu
+ainda precisaria responder.
 
-Critério de sucesso: a resposta serve se eu conseguir abrir cada link
-citado e achar a afirmação lá dentro, sem precisar procurar em outro
-lugar para saber se aquilo foi mesmo publicado.
+[L] Limitações:
+Use relatório setorial, publicação de associação do setor, imprensa
+especializada e dado público de empresa aberta. Não use fórum, post de
+rede social nem página de fornecedor que vende solução para este
+problema. Toda linha da tabela leva o link e o ano. Se não houver fonte
+para uma afirmação, escreva "sem fonte" na coluna em vez de estimar, e
+liste no fim as três maiores incertezas deste levantamento.
 
-Na dúvida: se não houver fonte para uma afirmação, escreva "sem fonte"
-na coluna em vez de estimar, e liste no fim as três maiores incertezas
-deste levantamento.</pre>
+[Critério de Sucesso]:
+A resposta serve se eu conseguir abrir cada link citado e achar a
+afirmação lá dentro, sem precisar procurar em outro lugar para saber se
+aquilo foi mesmo publicado.</pre>
     </div>
 
     <p class="fig-leg"><strong>As quatro letras estão todas aí dentro, e vale localizar
