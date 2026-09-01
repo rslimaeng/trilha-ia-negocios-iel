@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 6 · Compare três caminhos antes de recomendar um</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3090,62 +3090,479 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b2-analise/">B2 · Análise e decisão</a> &rsaquo; Compare três caminhos antes de recomendar</nav>
 
 
-<main class="folha ">
+<main class="folha aula-pratica">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;primeiro fluxo funcional ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa pela&nbsp;conta, pela&nbsp;interface e&nbsp;pelo&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Três blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 1 · B2 · Análise e decisão</div>
+    <h1>Compare três caminhos antes de&nbsp;recomendar um</h1>
+    <p class="heroi-sub">Por&nbsp;que&nbsp;uma&nbsp;recomendação sozinha não&nbsp;pode ser julgada, e&nbsp;como imaginar o&nbsp;fracasso do&nbsp;caminho escolhido antes de&nbsp;gastar dinheiro nele.</p>
+    <div><span class="selo">Usa a causa da aula 5</span><span class="selo">Comparador para baixar</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Obrigar três caminhos a&nbsp;aparecerem antes de&nbsp;escolher um</li>
+      <li>Imaginar o&nbsp;fracasso do&nbsp;caminho escolhido antes de&nbsp;gastar dinheiro nele</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;três blocos deste módulo</h2>
+        <div class="secao-fn">A situação</div>
+        <h2>Veio uma&nbsp;recomendação, e&nbsp;você não&nbsp;tinha como julgar se&nbsp;era boa</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n.</p>
+    <p>Você tem a&nbsp;causa testada da&nbsp;aula anterior: o&nbsp;desconto concedido, concentrado em&nbsp;dois clientes. Perguntou o&nbsp;que&nbsp;fazer. Voltou uma&nbsp;recomendação bem construída,
+    <em>"revisar a&nbsp;política de&nbsp;alçada de&nbsp;desconto para&nbsp;o&nbsp;canal, com&nbsp;aprovação obrigatória
+    acima de&nbsp;8%"</em>, seguida de&nbsp;três parágrafos explicando por&nbsp;que&nbsp;faz sentido.</p>
 
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Pensar como automação, e&nbsp;o&nbsp;primeiro fluxo</h4>
-        <p>Mapear em&nbsp;papel antes de&nbsp;abrir a&nbsp;ferramenta, criar a&nbsp;conta, entender o&nbsp;canvas
-        e&nbsp;montar o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Lógica e&nbsp;integrações</h4>
-        <p>Ler dados sem&nbsp;escrever código, fazer o&nbsp;fluxo decidir sozinho e&nbsp;conectar as&nbsp;ferramentas que&nbsp;você já&nbsp;usa.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">03</div>
-        <h4>Agentes de&nbsp;IA</h4>
-        <p>A&nbsp;diferença entre&nbsp;chamar uma&nbsp;IA e&nbsp;ter um&nbsp;agente que&nbsp;executa, e&nbsp;a&nbsp;validação
-        antes de&nbsp;declarar que&nbsp;funciona.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <p>E&nbsp;faz sentido. O&nbsp;problema é outro: <strong>você não&nbsp;tem como saber se&nbsp;é a&nbsp;melhor
+    coisa a&nbsp;fazer</strong>, porque&nbsp;não&nbsp;existe nada ao&nbsp;lado para&nbsp;comparar. Está avaliando
+    uma&nbsp;opção isolada, e&nbsp;opção isolada não&nbsp;se&nbsp;avalia. Se&nbsp;avalia a&nbsp;redação dela.</p>
+
+    <p>Repare que&nbsp;aqui não&nbsp;há erro nenhum acontecendo. A&nbsp;causa está certa, a&nbsp;recomendação
+    é coerente com&nbsp;ela, os&nbsp;números batem. <strong>O&nbsp;que&nbsp;falta não&nbsp;é qualidade: é
+    alternativa.</strong> E&nbsp;ela não&nbsp;aparece sozinha, porque&nbsp;ninguém pediu.</p>
+
+    <p>Existe ainda um&nbsp;efeito que&nbsp;pega quem já&nbsp;está cansado da&nbsp;análise. Depois de&nbsp;cinco
+    aulas de&nbsp;trabalho, a&nbsp;primeira recomendação plausível chega como alívio, e&nbsp;alívio é
+    péssimo critério de&nbsp;decisão. <strong>Quanto mais trabalho deu chegar até&nbsp;aqui, mais
+    barato parece aceitar o&nbsp;que&nbsp;apareceu primeiro.</strong></p>
+
+    <div class="cartao">
+      <span class="rot">O que você traz para esta aula</span>
+      <p>A&nbsp;causa que&nbsp;sobreviveu ao&nbsp;teste da&nbsp;aula 5, e&nbsp;a&nbsp;lista das&nbsp;que&nbsp;caíram. Se&nbsp;a&nbsp;sua&nbsp;causa ainda for "sem&nbsp;teste possível", tudo bem: <strong>o&nbsp;exercício funciona
+      igual</strong>, e&nbsp;a&nbsp;incerteza vira uma&nbsp;linha no&nbsp;comparador em&nbsp;vez de&nbsp;sumir.</p>
     </div>
-
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b2-plano/">&larr; Aula 7 · Amarre a decisão num plano com dono e prazo</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Uma&nbsp;recomendação sozinha não&nbsp;pode ser julgada</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Escolha só&nbsp;existe quando&nbsp;há mais de&nbsp;uma&nbsp;opção na&nbsp;mesa. Com&nbsp;uma&nbsp;só,&nbsp;o&nbsp;que&nbsp;você faz é aprovar</h3>
+      <p>Quando&nbsp;chega uma&nbsp;recomendação isolada, tudo o&nbsp;que&nbsp;você consegue avaliar é se&nbsp;ela
+      é coerente consigo mesma, e&nbsp;ela vai ser. <strong>O&nbsp;que&nbsp;você não&nbsp;consegue avaliar é o&nbsp;que&nbsp;ficou de&nbsp;fora</strong>, e&nbsp;é justamente ali que&nbsp;mora a&nbsp;decisão melhor, quando&nbsp;ela
+      existe. Pedir três custa a&nbsp;mesma mensagem que&nbsp;pedir uma.</p>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>O&nbsp;jeito de&nbsp;tornar uma&nbsp;opção avaliável</h4>
+          <p>A&nbsp;primeira deixa de&nbsp;ser "a&nbsp;resposta" e&nbsp;passa a&nbsp;ser "uma&nbsp;das&nbsp;três".</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Barato: três caminhos custam uma&nbsp;mensagem</h4>
+          <p>O&nbsp;caro é descobrir a&nbsp;alternativa depois, na&nbsp;reunião, pela&nbsp;boca de&nbsp;outra pessoa.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Sinal de&nbsp;indecisão</h4>
+          <p>Chegar com&nbsp;três e&nbsp;uma&nbsp;escolha justificada é mais firme do&nbsp;que&nbsp;chegar com&nbsp;uma.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Resolvido pedindo "me dê a&nbsp;melhor opção"</h4>
+          <p>Ela vai dar, com&nbsp;convicção, e&nbsp;sem&nbsp;nunca ter comparado nada por&nbsp;dentro.</p></div>
+      </div>
+      <p class="fig-leg"><strong>O&nbsp;terceiro cartão é o&nbsp;que&nbsp;trava mais gente na&nbsp;prática.</strong> Existe um&nbsp;receio de&nbsp;que&nbsp;apresentar alternativas pareça falta de&nbsp;posição. Acontece o&nbsp;contrário: quem chega com&nbsp;três caminhos e&nbsp;diz por&nbsp;que&nbsp;escolheu o&nbsp;segundo demonstra que&nbsp;olhou o&nbsp;problema inteiro, e&nbsp;a&nbsp;conversa passa a&nbsp;ser sobre&nbsp;o&nbsp;mérito em&nbsp;vez de&nbsp;ser sobre&nbsp;a&nbsp;sua&nbsp;confiança.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como aprovar uma obra com um orçamento só</div>
+        <p>Chega um orçamento de trinta mil para a reforma. Você olha, acha o valor
+        salgado, e não tem o que fazer com essa impressão: não dá para saber se está caro,
+        porque não existe um segundo número no mundo. Com três orçamentos na mesa, o
+        primeiro deixa de ser "o preço" e vira "um dos preços". E repare que
+        <strong>os dois que você não vai contratar fizeram todo o trabalho</strong>
+        mesmo assim.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;orçamento único</strong> é a&nbsp;recomendação que&nbsp;volta sozinha,
+          coerente e&nbsp;sem&nbsp;par</li>
+          <li><strong>Não&nbsp;dar para&nbsp;saber se&nbsp;está caro</strong> é você avaliando a&nbsp;redação
+          em&nbsp;vez do&nbsp;mérito</li>
+          <li><strong>Os&nbsp;três orçamentos</strong> são os&nbsp;três caminhos pedidos numa&nbsp;mensagem só</li>
+          <li><strong>Os&nbsp;dois que&nbsp;você não&nbsp;contrata</strong> são as&nbsp;alternativas
+          descartadas, que&nbsp;valeram o&nbsp;tempo por&nbsp;terem dado escala ao&nbsp;primeiro</li>
+        </ul>
+        <p class="analogia-mais">É a&nbsp;mesma razão de&nbsp;existirem três propostas em&nbsp;compras,
+        dois nomes numa&nbsp;vaga e&nbsp;uma&nbsp;segunda opinião médica. Em&nbsp;todos os&nbsp;casos ninguém está
+        procurando indecisão: está procurando a&nbsp;régua que&nbsp;só&nbsp;aparece quando&nbsp;existe algo
+        para&nbsp;comparar.</p>
+      </div>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Peça para&nbsp;defenderem o&nbsp;caminho que&nbsp;você já&nbsp;descartou.</strong> Se&nbsp;a&nbsp;defesa sair fraca, a&nbsp;sua&nbsp;escolha ficou mais firme e&nbsp;você ganhou o&nbsp;argumento para&nbsp;a&nbsp;reunião. Se&nbsp;sair boa, você acabou de&nbsp;descobrir o&nbsp;que&nbsp;estava faltando, e&nbsp;descobriu
+        agora em&nbsp;vez de&nbsp;descobrir na&nbsp;frente da&nbsp;diretoria.</p>
+      </div>
+    </div>
+
+    <p>Falta uma&nbsp;segunda coisa, que&nbsp;não&nbsp;se&nbsp;resolve comparando. Você pode ter três caminhos
+    bem descritos e&nbsp;escolher o&nbsp;certo, e&nbsp;ainda assim ele falhar por&nbsp;um&nbsp;motivo que&nbsp;ninguém
+    escreveu em&nbsp;lugar nenhum.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>A&nbsp;mesma causa, e&nbsp;o&nbsp;que&nbsp;muda quando&nbsp;você pede três</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;causa é a&nbsp;mesma nos&nbsp;dois lados: o&nbsp;desconto concedido, concentrado em&nbsp;dois
+    clientes. O&nbsp;que&nbsp;muda é uma&nbsp;frase no&nbsp;pedido.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Momento-chave &middot; uma recomendação contra três caminhos</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">A causa, dada nas duas</span>
+          <pre>A margem caiu 3,1 pontos. A causa testada é desconto concedido,
+concentrado em dois dos doze clientes, que saíram de 4,9% para
+12,9% e 14,4%. O que eu faço?</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">Sem pedir alternativas</span>
+            <p>"Recomenda-se revisar a&nbsp;política de&nbsp;alçada de&nbsp;desconto para&nbsp;o&nbsp;canal
+            distribuidor, estabelecendo aprovação obrigatória da&nbsp;diretoria comercial acima
+            de&nbsp;8%, com&nbsp;revisão trimestral dos&nbsp;casos aprovados."</p>
+            <p>Coerente, específica e&nbsp;<strong>sem&nbsp;par</strong>. Você lê e&nbsp;a&nbsp;única pergunta
+            que&nbsp;consegue fazer é "concordo?". Não&nbsp;consegue perguntar "comparado com&nbsp;o&nbsp;quê?", porque&nbsp;não&nbsp;há com&nbsp;o&nbsp;quê.</p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">Pedindo três, com o custo de cada</span>
+            <p><strong>A&nbsp;· Apertar a&nbsp;alçada.</strong> Resolve rápido e&nbsp;transfere o&nbsp;conflito para&nbsp;o&nbsp;vendedor, que&nbsp;perde autonomia justamente nos&nbsp;dois maiores
+            clientes dele.</p>
+            <p><strong>B · Subir a&nbsp;tabela da&nbsp;linha afetada.</strong> Protege a&nbsp;margem sem&nbsp;mexer no&nbsp;time, e&nbsp;expõe todos os&nbsp;clientes a&nbsp;um&nbsp;aumento que&nbsp;só&nbsp;dois causaram.</p>
+            <p><strong>C · Aceitar o&nbsp;desconto e&nbsp;cobrar volume em&nbsp;troca.</strong> Mantém a&nbsp;relação e&nbsp;só&nbsp;funciona se&nbsp;o&nbsp;volume vier, o&nbsp;que&nbsp;ninguém garante.</p>
+          </div>
+        </div>
+        <div class="demo-pe">
+          <p><strong>Repare que&nbsp;a&nbsp;recomendação da&nbsp;esquerda é exatamente o&nbsp;caminho A&nbsp;da&nbsp;direita</strong>, e&nbsp;que&nbsp;ela chegou sem&nbsp;o&nbsp;custo escrito ao&nbsp;lado. O&nbsp;custo do&nbsp;A&nbsp;existe nos&nbsp;dois casos: só&nbsp;num&nbsp;deles ele estava na&nbsp;tela quando&nbsp;você decidiu.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;frase que&nbsp;produz a&nbsp;diferença:</strong> <em>"me dê três
+    caminhos possíveis, cada um&nbsp;com&nbsp;o&nbsp;que&nbsp;ele muda, o&nbsp;que&nbsp;ele custa e&nbsp;quem precisa
+    aprovar, e&nbsp;não&nbsp;recomende nenhum ainda."</em> O&nbsp;<em>"ainda"</em> no&nbsp;fim importa: sem&nbsp;ele, a&nbsp;resposta traz três e&nbsp;já&nbsp;elege um,&nbsp;e&nbsp;você volta a&nbsp;avaliar uma&nbsp;recomendação.</p>
+
+    <h3>O&nbsp;pre-mortem, e&nbsp;por&nbsp;que&nbsp;ele vem depois de&nbsp;escolher</h3>
+
+    <p>Escolhido o&nbsp;caminho, falta a&nbsp;pergunta que&nbsp;a&nbsp;comparação não&nbsp;faz: <strong>e&nbsp;se&nbsp;der
+    errado?</strong> A&nbsp;sugestão que&nbsp;funciona é inverter o&nbsp;tempo. Em&nbsp;vez de&nbsp;perguntar quais
+    são os&nbsp;riscos, você declara que&nbsp;já&nbsp;falhou e&nbsp;pede o&nbsp;motivo. A&nbsp;resposta muda de&nbsp;natureza.</p>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">"Quais são os riscos?"</div>
+        <ul>
+          <li>Resistência do&nbsp;time comercial</li>
+          <li>Possível impacto no&nbsp;volume</li>
+          <li>Necessidade de&nbsp;comunicação clara</li>
+          <li class="ad-mais">verdadeiro, genérico, e&nbsp;serve para&nbsp;qualquer projeto</li>
+        </ul>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">"Já se passaram 6 meses e falhou. Por quê?"</div>
+        <ul>
+          <li>Os&nbsp;dois clientes migraram parte do&nbsp;volume para&nbsp;o&nbsp;concorrente</li>
+          <li>O&nbsp;time passou a&nbsp;fatiar pedidos para&nbsp;ficar abaixo do&nbsp;teto</li>
+          <li>A&nbsp;diretoria virou gargalo e&nbsp;a&nbsp;aprovação levava 5 dias</li>
+          <li class="ad-mais">específico, e&nbsp;o&nbsp;segundo ninguém tinha pensado</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> a&nbsp;coluna da&nbsp;esquerda lista categorias de&nbsp;risco; a&nbsp;da&nbsp;direita conta histórias de&nbsp;falha. Só&nbsp;a&nbsp;segunda sugere o&nbsp;que&nbsp;fazer, e&nbsp;a&nbsp;linha do&nbsp;meio, <strong>fatiar pedido para&nbsp;ficar abaixo
+    do&nbsp;teto</strong>, é o&nbsp;tipo de&nbsp;coisa que&nbsp;só&nbsp;aparece quando&nbsp;alguém é obrigado a&nbsp;explicar
+    um&nbsp;fracasso em&nbsp;vez de&nbsp;listar preocupações.</p>
+
+    <div class="cartao">
+      <span class="rot">Três modos de investigar, por tipo de decisão</span>
+      <p>O&nbsp;pre-mortem acima serve para&nbsp;decisão de&nbsp;<strong>mudar alguma coisa no&nbsp;seu&nbsp;processo</strong>. Existem outras duas situações comuns, e&nbsp;elas pedem investigações
+      diferentes. Isto é sugestão, e&nbsp;você adapta:</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Quando a decisão é</th><th>O que investigar</th><th>O que pedir</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Mudar um processo ou lançar algo</strong></td>
+              <td>por que projetos parecidos falharam</td>
+              <td>o pre-mortem, com casos concretos de fracasso e não com riscos genéricos</td>
+            </tr>
+            <tr>
+              <td><strong>Comprar equipamento ou contratar serviço</strong></td>
+              <td>o que os usuários reais dizem, ignorando o material de venda</td>
+              <td>uma tabela comparativa com problemas relatados e custo de manutenção</td>
+            </tr>
+            <tr>
+              <td><strong>Se adequar a uma norma ou tendência</strong></td>
+              <td>o que mudou, com a fonte oficial de cada mudança</td>
+              <td>o que mudou, como afeta você, e os passos para se adequar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">As&nbsp;três terminam em&nbsp;pesquisa externa, então a&nbsp;régua da&nbsp;<strong>aula 2</strong> vale inteira: a&nbsp;fonte citada continua sendo texto até&nbsp;você
+      abrir. A&nbsp;ficha de&nbsp;conferência serve aqui sem&nbsp;uma&nbsp;alteração.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Os&nbsp;três caminhos da&nbsp;sua&nbsp;decisão, comparados e&nbsp;testados</h2>
+      </div>
+    </div>
+
+    <p>Você vai usar a&nbsp;causa da&nbsp;aula 5. <strong>São três passos e&nbsp;a&nbsp;ordem importa</strong>:
+    gerar os&nbsp;caminhos sem&nbsp;escolher, escolher, e&nbsp;só&nbsp;então imaginar o&nbsp;fracasso do&nbsp;escolhido.</p>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O insumo desta aula</span>
+        <p style="margin:0">O&nbsp;comparador de&nbsp;caminhos: uma&nbsp;coluna por&nbsp;caminho, oito linhas
+        que&nbsp;precisam ser respondidas. <strong>Não&nbsp;existe coluna de&nbsp;nota nem de&nbsp;pontuação</strong>, e&nbsp;é de&nbsp;propósito: somar pesos inventados dá aparência de&nbsp;objetividade a&nbsp;uma&nbsp;decisão que&nbsp;é sua.&nbsp;A&nbsp;segunda aba explica as&nbsp;três linhas que&nbsp;quase todo mundo pula.</p>
+      </div>
+      <a class="btn" href="../_arquivos/comparador-de-caminhos.xlsx">Baixar o comparador</a>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido do passo 1, pronto para copiar e adaptar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b2decisao">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b2decisao">Sou gerente comercial de um canal distribuidor. A margem caiu 3,1
+pontos entre janeiro e julho, e a causa testada é desconto concedido,
+concentrado em dois dos doze clientes, que saíram de 4,9% para 12,9%
+e 14,4%. O mix de produto ficou estável nesses dois.
+
+O que eu preciso: três caminhos possíveis para tratar isso, bem
+diferentes entre si. Para cada um: o que ele muda na prática, o que
+ele custa em dinheiro ou em risco, em quanto tempo dá para saber se
+funcionou, quem precisa aprovar, e o que ele fecha que não dá para
+desfazer depois.
+
+Restrições: não recomende nenhum ainda, e não ordene por preferência.
+Se dois caminhos forem variação do mesmo, descarte um e traga outro
+de verdade. Nada de "fazer um piloto" como caminho, porque piloto é
+como se faz, não o que se faz.
+
+Na dúvida: se faltar informação para estimar um custo, escreva "não
+dá para estimar com o que eu tenho" e diga o que seria preciso saber.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Duas frases desse pedido existem por&nbsp;causa de&nbsp;erro
+    comum.</strong> A&nbsp;que&nbsp;descarta variações do&nbsp;mesmo caminho evita o&nbsp;resultado mais
+    frequente, que&nbsp;é receber "apertar a&nbsp;alçada", "apertar a&nbsp;alçada com&nbsp;exceções" e&nbsp;"apertar a&nbsp;alçada gradualmente". E&nbsp;a&nbsp;que&nbsp;proíbe "fazer um&nbsp;piloto" existe porque&nbsp;piloto
+    aparece em&nbsp;toda lista e&nbsp;não&nbsp;é uma&nbsp;decisão: é o&nbsp;jeito de&nbsp;executar qualquer uma&nbsp;das&nbsp;três.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">01</div>
+        <div>
+          <div class="passo-fn">Passo 1</div>
+          <h3>Gere os&nbsp;três caminhos, e&nbsp;preencha o&nbsp;comparador</h3>
+        </div>
+      </div>
+      <p>Cole o&nbsp;pedido com&nbsp;a&nbsp;sua&nbsp;causa no&nbsp;lugar da&nbsp;do&nbsp;exemplo. Depois transporte para&nbsp;o&nbsp;comparador. <strong>Transportar à&nbsp;mão é parte do&nbsp;exercício</strong>: é escrevendo
+      que&nbsp;você percebe qual coluna está vazia.</p>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>os&nbsp;três caminhos levam a&nbsp;conversas com&nbsp;pessoas diferentes, e&nbsp;nenhum deles é
+        variação de&nbsp;outro. <strong>Se&nbsp;os&nbsp;três forem decididos pela&nbsp;mesma pessoa</strong>,
+        provavelmente você recebeu um&nbsp;caminho em&nbsp;três intensidades, e&nbsp;vale pedir de&nbsp;novo.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
+          <h3>Escolha um,&nbsp;e&nbsp;escreva por&nbsp;que&nbsp;não&nbsp;os&nbsp;outros dois</h3>
+        </div>
+      </div>
+      <p>A&nbsp;escolha é sua,&nbsp;e&nbsp;não&nbsp;da&nbsp;IA. <strong>O&nbsp;que&nbsp;vale mais é a&nbsp;segunda metade</strong>:
+      uma&nbsp;linha por&nbsp;caminho descartado, dizendo o&nbsp;que&nbsp;fez você descartar. É essa linha que&nbsp;responde a&nbsp;pergunta que&nbsp;alguém vai fazer na&nbsp;reunião.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar entre dois caminhos, use estas três perguntas</div>
+        <ul>
+          <li><strong>Qual dos&nbsp;dois dá para&nbsp;desfazer?</strong> Entre&nbsp;duas opções
+          parecidas, a&nbsp;reversível vale mais, mesmo entregando um&nbsp;pouco menos.</li>
+          <li><strong>Qual dos&nbsp;dois você saberia antes que&nbsp;deu errado?</strong> Prefira o&nbsp;que&nbsp;tem sinal rápido, porque&nbsp;errar cedo custa menos do&nbsp;que&nbsp;acertar tarde.</li>
+          <li><strong>De&nbsp;qual dos&nbsp;dois você teria vergonha se&nbsp;vazasse?</strong> Se&nbsp;um&nbsp;deles depende de&nbsp;ninguém perceber, ele já&nbsp;foi respondido.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como escolha:</strong> pedir para a IA
+        decidir e adotar a resposta. Ela não sabe quem aprova na sua empresa, quanto custa
+        politicamente mexer com aquele time, nem o que já foi tentado ano passado. Esses
+        três são justamente o que decide.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>existe uma&nbsp;frase escrita para&nbsp;cada caminho descartado, e&nbsp;nenhuma delas é "era
+        pior". <strong>"Era pior" não&nbsp;é motivo</strong>, é conclusão: o&nbsp;motivo é o&nbsp;custo
+        específico que&nbsp;você não&nbsp;quis pagar.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">03</div>
+        <div>
+          <div class="passo-fn">Passo 3</div>
+          <h3>Faça o&nbsp;pre-mortem do&nbsp;caminho escolhido</h3>
+        </div>
+      </div>
+      <p>Declare que&nbsp;já&nbsp;se&nbsp;passaram seis meses e&nbsp;que&nbsp;falhou, e&nbsp;peça os&nbsp;motivos mais
+      prováveis, com&nbsp;casos concretos de&nbsp;quem já&nbsp;tentou algo parecido. <strong>Não&nbsp;pergunte
+      quais são os&nbsp;riscos</strong>: a&nbsp;pergunta no&nbsp;passado produz história, e&nbsp;a&nbsp;no&nbsp;futuro
+      produz categoria.</p>
+
+      <div class="canvas solta" data-chave="canvas-relatorio-de-decisao">
+        <div class="canvas-topo">
+          <div>
+            <span class="rot">O que você leva desta aula</span>
+            <h3 class="canvas-t">O&nbsp;meu&nbsp;relatório de&nbsp;decisão</h3>
+          </div>
+          <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+        </div>
+
+        <div class="canvas-grade">
+          <div class="cv-campo">
+            <div class="cv-n">1</div>
+            <div>
+              <label class="cv-rot" for="dc-decisao">O caminho que eu escolhi, em uma frase</label>
+              <div class="cv-ex">Ex: subir a tabela da linha Padrão em 4% para o canal, mantendo a alçada de desconto como está</div>
+              <textarea id="dc-decisao" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="cv-campo">
+            <div class="cv-n">2</div>
+            <div>
+              <label class="cv-rot" for="dc-porque">Por que não os outros dois, um motivo cada</label>
+              <div class="cv-ex">Ex: apertar a alçada tira autonomia justo nos dois maiores · aceitar o desconto depende de volume que ninguém garante</div>
+              <textarea id="dc-porque" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="cv-campo">
+            <div class="cv-n">3</div>
+            <div>
+              <label class="cv-rot" for="dc-premortem">O motivo mais provável de isso falhar em 6 meses</label>
+              <div class="cv-ex">Ex: os dois clientes levam parte do volume para o concorrente antes de a nova tabela virar rotina</div>
+              <textarea id="dc-premortem" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="cv-campo">
+            <div class="cv-n">4</div>
+            <div>
+              <label class="cv-rot" for="dc-mitiga">O que eu faço agora por causa desse motivo</label>
+              <div class="cv-ex">Ex: avisar os dois clientes com 30 dias e oferecer prazo de pagamento maior no primeiro trimestre</div>
+              <textarea id="dc-mitiga" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="cv-campo">
+            <div class="cv-n">5</div>
+            <div>
+              <label class="cv-rot" for="dc-desfaz">O que essa decisão fecha, e não dá para desfazer</label>
+              <div class="cv-ex">Ex: preço anunciado não volta atrás sem desgaste · dá para congelar o próximo reajuste, mas não reverter este</div>
+              <textarea id="dc-desfaz" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-rodape">
+          <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha decisão</button>
+          <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+          <p class="cv-nota">O&nbsp;campo 4 é o&nbsp;que&nbsp;transforma o&nbsp;pre-mortem em&nbsp;trabalho. Sem&nbsp;ele você fica com&nbsp;uma&nbsp;lista de&nbsp;coisas ruins que&nbsp;podem acontecer, o&nbsp;que&nbsp;aumenta a&nbsp;ansiedade e&nbsp;não&nbsp;muda nada. Um&nbsp;motivo, uma&nbsp;ação: é o&nbsp;suficiente.</p>
+        </div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>o&nbsp;campo 3 conta uma&nbsp;história com&nbsp;sujeito e&nbsp;verbo, e&nbsp;não&nbsp;uma&nbsp;categoria. "Resistência
+        interna" é categoria; "o&nbsp;time passa a&nbsp;fatiar pedidos para&nbsp;ficar abaixo do&nbsp;teto" é
+        história, e&nbsp;só&nbsp;a&nbsp;segunda te diz o&nbsp;que&nbsp;olhar no&nbsp;mês que&nbsp;vem.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;sai desta aula cabe em&nbsp;meia página e&nbsp;resolve a&nbsp;pergunta mais difícil de&nbsp;uma&nbsp;reunião:</strong> "você considerou outra coisa?". Com&nbsp;o&nbsp;comparador preenchido, a&nbsp;resposta é sim, com&nbsp;nome e&nbsp;custo. Sem&nbsp;ele, a&nbsp;resposta honesta
+    é que&nbsp;não&nbsp;deu tempo.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com&nbsp;o&nbsp;caminho escolhido, os&nbsp;descartes justificados e&nbsp;o&nbsp;fracasso
+  imaginado, você tem a&nbsp;decisão. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia
+  agora se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;precisar defender uma&nbsp;escolha difícil.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O&nbsp;que&nbsp;comparar caminhos não&nbsp;decide</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Três caminhos gerados por IA não são o espaço inteiro de opções</div>
+      <p>Eles são os&nbsp;três mais frequentes para&nbsp;esse tipo de&nbsp;problema. A&nbsp;alternativa que&nbsp;depende de&nbsp;conhecer a&nbsp;sua&nbsp;empresa, o&nbsp;histórico com&nbsp;aqueles clientes ou&nbsp;uma&nbsp;conversa
+      que&nbsp;aconteceu ano passado <strong>não&nbsp;vai aparecer</strong>. Acrescente a&nbsp;sua&nbsp;como
+      quarta coluna sempre que&nbsp;ela existir.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Decisão que envolve pessoas tem custo que não entra na tabela</div>
+      <p>Tirar autonomia de&nbsp;um&nbsp;time, mexer em&nbsp;meta no&nbsp;meio do&nbsp;ciclo, mudar regra de&nbsp;comissão. O&nbsp;comparador registra o&nbsp;custo financeiro e&nbsp;o&nbsp;operacional, e&nbsp;o&nbsp;custo
+      político continua sendo leitura sua,&nbsp;de&nbsp;quem conhece a&nbsp;sala.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pre-mortem reduz surpresa, e não substitui acompanhar</div>
+      <p>Ele antecipa o&nbsp;motivo mais provável de&nbsp;falha, e&nbsp;não&nbsp;os&nbsp;outros. É por&nbsp;isso que&nbsp;o&nbsp;campo do&nbsp;sinal de&nbsp;que&nbsp;deu certo existe no&nbsp;comparador, e&nbsp;é por&nbsp;isso que&nbsp;a&nbsp;próxima
+      aula termina em&nbsp;prazo e&nbsp;responsável, e&nbsp;não&nbsp;em&nbsp;intenção.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <div class="tabela">
+      <table>
+        <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
+        <tbody><tr><td>a escolha, com os descartes justificados e o fracasso mais provável mapeado</td><td>fazer a coisa acontecer: decisão sem dono e sem data volta a ser assunto na reunião seguinte</td><td>na última aula do bloco, que transforma a escolha em plano com responsável, prazo e indicador</td></tr></tbody>
+      </table>
+    </div>
+    <p class="fig-leg">A&nbsp;distância entre&nbsp;uma&nbsp;decisão tomada e&nbsp;uma&nbsp;decisão executada é
+    quase sempre um&nbsp;nome e&nbsp;uma&nbsp;data. É pouca coisa para&nbsp;escrever e&nbsp;é o&nbsp;que&nbsp;mais falta.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Você decidiu, e&nbsp;sabe por&nbsp;que&nbsp;não&nbsp;fez o&nbsp;resto. <strong>Falta a&nbsp;parte que&nbsp;faz a&nbsp;coisa acontecer.</strong> Uma&nbsp;decisão sem&nbsp;responsável e&nbsp;sem&nbsp;prazo volta para&nbsp;a&nbsp;pauta
+    da&nbsp;reunião seguinte com&nbsp;a&nbsp;mesma cara de&nbsp;novidade, e&nbsp;é assim que&nbsp;análise boa vira
+    conversa que&nbsp;se&nbsp;repete. A&nbsp;última aula do&nbsp;bloco fecha isso.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b2-causa/">&larr; Aula 5 · Vá do número para a causa sem aceitar a primeira explicação</a><a href="../b2-plano/">Aula 7 · Amarre a decisão num plano com dono e prazo &rarr;</a></nav>
 </main>
 
 

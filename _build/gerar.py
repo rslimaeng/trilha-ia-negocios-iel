@@ -74,7 +74,7 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
-             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha",
+             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -95,6 +95,9 @@ TRILHA = [
         ("b2-fontes",   "Pesquise com método e confira a fonte"),
         ("b2-base",     "Faça a IA responder pelos seus documentos"),
         ("b2-planilha", "Transforme a planilha na leitura executiva"),
+        ("b2-causa",    "Vá do número para a causa"),
+        ("b2-decisao",  "Compare três caminhos antes de recomendar"),
+        ("b2-plano",    "Amarre a decisão num plano com dono e prazo"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -334,6 +337,57 @@ PAGINAS = {
         sub="Duas camadas que falham separadamente, a conta e a leitura, e por que "
             "pedir as duas juntas faz a segunda esconder a primeira.",
         selos=["Planilha para baixar", "Use a pergunta da aula 1"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-causa": dict(
+        # 🔴 fundamento. Ela MOSTRA o mecanismo (a mesma pergunta com e sem o
+        # teste no primeiro elo, na peca .demo) e nao pede exercicio. E a aula
+        # que fecha o defeito que a a4-inventa abriu no B1: a IA preenche onde
+        # falta base, e "por que caiu?" e o pedido que mais convida ao
+        # preenchimento, porque causa nunca esta escrita no arquivo.
+        tipo="fundamento",
+        titulo="Aula 5 · Vá do número para a causa sem aceitar a primeira explicação",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Vá do número para a causa sem aceitar a primeira explicação",
+        sub="Por que a explicação que volta é a mais comum para aquele padrão, e como "
+            "transformar ela em algo que o seu dado possa derrubar.",
+        selos=["Usa a planilha da aula 4", "Teste em cada elo"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-decisao": dict(
+        # 🔴 pratica. Entrega o segundo dos tres entregaveis declarados na
+        # ementa do M5: o relatorio de decisao qualitativa. O pre-mortem entra
+        # como ATIVIDADE, que e o que ele e no material do Rafael, e nao como
+        # framework a ensinar.
+        tipo="pratica",
+        titulo="Aula 6 · Compare três caminhos antes de recomendar um",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Compare três caminhos antes de recomendar um",
+        sub="Por que uma recomendação sozinha não pode ser julgada, e como imaginar o "
+            "fracasso do caminho escolhido antes de gastar dinheiro nele.",
+        selos=["Usa a causa da aula 5", "Comparador para baixar"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-plano": dict(
+        # 🔴 pratica, e fecha o bloco. Entrega o terceiro entregavel declarado
+        # na ementa: o plano de acao. O canvas dela recolhe o bloco inteiro em
+        # seis campos, e e a peca que a pessoa leva para a reuniao.
+        tipo="pratica",
+        titulo="Aula 7 · Amarre a decisão num plano com dono e prazo",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Amarre a decisão num plano com dono e prazo",
+        sub="Plano é o que outra pessoa executa sem você na sala: nome, data e um "
+            "número que diz se funcionou.",
+        selos=["Fecha o bloco", "Plano para baixar"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 5 · Vá do número para a causa sem aceitar a primeira explicação</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3090,62 +3090,327 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b2-analise/">B2 · Análise e decisão</a> &rsaquo; Vá do número para a causa</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;primeiro fluxo funcional ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa pela&nbsp;conta, pela&nbsp;interface e&nbsp;pelo&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Três blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 1 · B2 · Análise e decisão</div>
+    <h1>Vá do&nbsp;número para&nbsp;a&nbsp;causa sem&nbsp;aceitar a&nbsp;primeira explicação</h1>
+    <p class="heroi-sub">Por&nbsp;que&nbsp;a&nbsp;explicação que&nbsp;volta é a&nbsp;mais comum para&nbsp;aquele padrão, e&nbsp;como transformar ela em&nbsp;algo que&nbsp;o&nbsp;seu&nbsp;dado possa derrubar.</p>
+    <div><span class="selo">Usa a planilha da aula 4</span><span class="selo">Teste em cada elo</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Tratar a&nbsp;explicação que&nbsp;voltou como hipótese, e&nbsp;não&nbsp;como resposta</li>
+      <li>Testar cada causa proposta contra&nbsp;o&nbsp;dado que&nbsp;você já&nbsp;tem na&nbsp;mão</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;três blocos deste módulo</h2>
+        <div class="secao-fn">A situação</div>
+        <h2>A&nbsp;explicação veio junto, e&nbsp;ela era boa demais para&nbsp;ser questionada</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n.</p>
+    <p>Você tem o&nbsp;número conferido da&nbsp;aula anterior: a&nbsp;margem do&nbsp;canal caiu 3,1 pontos.
+    Faltava o&nbsp;porquê, então você perguntou. Voltou na&nbsp;hora: <em>"a&nbsp;queda reflete a&nbsp;pressão
+    de&nbsp;custos observada no&nbsp;setor no&nbsp;primeiro semestre, agravada por&nbsp;um&nbsp;mix de&nbsp;produto
+    menos favorável."</em></p>
 
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Pensar como automação, e&nbsp;o&nbsp;primeiro fluxo</h4>
-        <p>Mapear em&nbsp;papel antes de&nbsp;abrir a&nbsp;ferramenta, criar a&nbsp;conta, entender o&nbsp;canvas
-        e&nbsp;montar o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Lógica e&nbsp;integrações</h4>
-        <p>Ler dados sem&nbsp;escrever código, fazer o&nbsp;fluxo decidir sozinho e&nbsp;conectar as&nbsp;ferramentas que&nbsp;você já&nbsp;usa.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">03</div>
-        <h4>Agentes de&nbsp;IA</h4>
-        <p>A&nbsp;diferença entre&nbsp;chamar uma&nbsp;IA e&nbsp;ter um&nbsp;agente que&nbsp;executa, e&nbsp;a&nbsp;validação
-        antes de&nbsp;declarar que&nbsp;funciona.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <p>Você leu e&nbsp;concordou, porque&nbsp;isso é <strong>exatamente o&nbsp;que&nbsp;costuma acontecer</strong>
+    em&nbsp;distribuição. Custo sobe, margem cai. A&nbsp;frase é competente, tem cara de&nbsp;análise
+    setorial, e&nbsp;você já&nbsp;ouviu alguma versão dela em&nbsp;toda reunião de&nbsp;resultado da&nbsp;sua&nbsp;carreira.</p>
+
+    <p>Só&nbsp;que&nbsp;a&nbsp;planilha que&nbsp;você mesmo subiu tem uma&nbsp;coluna de&nbsp;custo unitário, e&nbsp;ela
+    <strong>não&nbsp;muda em&nbsp;nenhum dos&nbsp;sete meses</strong>. R$ 1.180 na&nbsp;Premium, R$ 660 na&nbsp;Padrão, R$ 330 na&nbsp;Entrada, de&nbsp;janeiro a&nbsp;julho. Não&nbsp;houve pressão de&nbsp;custo nenhuma no&nbsp;material que&nbsp;estava na&nbsp;mesa.</p>
+
+    <p>Repare que&nbsp;isto é o&nbsp;defeito do&nbsp;bloco anterior voltando com&nbsp;roupa nova. Lá você
+    aprendeu que&nbsp;a&nbsp;IA preenche onde&nbsp;falta base, e&nbsp;que&nbsp;ela preenche com&nbsp;o&nbsp;que&nbsp;é comum.
+    <strong>Perguntar "por&nbsp;quê" é justamente o&nbsp;pedido que&nbsp;mais convida ao&nbsp;preenchimento</strong>, porque&nbsp;a&nbsp;causa quase nunca está escrita no&nbsp;arquivo: ela
+    precisa ser inferida, e&nbsp;inferir é onde&nbsp;o&nbsp;mecanismo trabalha por&nbsp;semelhança.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que este é o degrau mais escorregadio do bloco</span>
+      <p>Nos&nbsp;quatro anteriores existia um&nbsp;lugar para&nbsp;conferir: a&nbsp;fonte que&nbsp;você abre, o&nbsp;documento que&nbsp;a&nbsp;citação aponta, o&nbsp;total que&nbsp;você soma. <strong>Causa não&nbsp;tem esse
+      lugar.</strong> Ela não&nbsp;está escrita em&nbsp;canto nenhum, e&nbsp;por&nbsp;isso a&nbsp;única defesa é
+      transformar a&nbsp;explicação em&nbsp;uma&nbsp;afirmação que&nbsp;o&nbsp;seu&nbsp;dado possa derrubar.</p>
     </div>
-
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b2-plano/">&larr; Aula 7 · Amarre a decisão num plano com dono e prazo</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>O&nbsp;que&nbsp;volta é a&nbsp;causa mais comum para&nbsp;aquele padrão, não&nbsp;a&nbsp;que&nbsp;aconteceu aqui</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Explicação plausível é uma&nbsp;hipótese com&nbsp;boa redação. Ela só&nbsp;vira causa depois de&nbsp;sobreviver a&nbsp;um&nbsp;teste que&nbsp;poderia tê-la derrubado</h3>
+      <p>Quando&nbsp;você pergunta o&nbsp;porquê de&nbsp;um&nbsp;movimento, o&nbsp;que&nbsp;se&nbsp;monta é a&nbsp;explicação que&nbsp;mais acompanha esse tipo de&nbsp;movimento no&nbsp;mundo. <strong>Na&nbsp;maioria das&nbsp;vezes ela
+      acerta, e&nbsp;é justamente isso que&nbsp;a&nbsp;torna perigosa</strong>: acertar quase sempre
+      significa que&nbsp;ninguém adquire o&nbsp;hábito de&nbsp;checar, e&nbsp;o&nbsp;caso em&nbsp;que&nbsp;ela erra é o&nbsp;seu.</p>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma&nbsp;hipótese, com&nbsp;um&nbsp;teste possível atrás dela</h4>
+          <p>Serve para&nbsp;saber onde&nbsp;olhar primeiro, e&nbsp;é um&nbsp;bom uso: encurta a&nbsp;busca.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Testável com&nbsp;o&nbsp;dado que&nbsp;você já&nbsp;subiu</h4>
+          <p>Quase toda causa proposta tem uma&nbsp;coluna na&nbsp;planilha que&nbsp;a&nbsp;confirma ou&nbsp;derruba.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Causa, só&nbsp;porque&nbsp;veio cercada de&nbsp;números verdadeiros</h4>
+          <p>Os&nbsp;números em&nbsp;volta podem estar todos certos e&nbsp;a&nbsp;ligação entre&nbsp;eles ser inventada.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Resolvido pedindo "só&nbsp;diga o&nbsp;que&nbsp;os&nbsp;dados sustentam"</h4>
+          <p>Ela vai concordar e&nbsp;continuar inferindo, porque&nbsp;causa nunca está literalmente escrita.</p></div>
+      </div>
+      <p class="fig-leg"><strong>O&nbsp;último cartão é o&nbsp;que&nbsp;mais frustra quem já&nbsp;tentou.</strong>
+      Instruções desse tipo funcionam para&nbsp;número e&nbsp;para&nbsp;citação, que&nbsp;existem no&nbsp;arquivo.
+      Não&nbsp;funcionam para&nbsp;causa, porque&nbsp;toda causa é uma&nbsp;ligação construída entre&nbsp;duas
+      coisas, e&nbsp;construir ligação é o&nbsp;próprio trabalho que&nbsp;você pediu.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como "foi o trânsito"</div>
+        <p>Alguém chega vinte minutos atrasado na reunião e diz que foi o trânsito.
+        Ninguém pergunta mais nada, e está certo não perguntar: quase sempre foi o
+        trânsito mesmo. É por isso que a frase é tão eficiente para a pessoa que se
+        atrasa por outro motivo, toda semana, há meses. <strong>A explicação mais comum
+        é o melhor esconderijo que existe</strong>, e ela nunca é testada porque quase
+        nunca precisa ser.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;atraso</strong> é o&nbsp;número que&nbsp;se&nbsp;mexeu e&nbsp;que&nbsp;você levou para&nbsp;perguntar</li>
+          <li><strong>"Foi o&nbsp;trânsito"</strong> é a&nbsp;causa mais comum para&nbsp;aquele padrão,
+          que&nbsp;volta sem&nbsp;esforço e&nbsp;sem&nbsp;hesitação</li>
+          <li><strong>Ninguém perguntar mais nada</strong> é a&nbsp;explicação plausível
+          encerrando a&nbsp;investigação antes de&nbsp;ela começar</li>
+          <li><strong>Perguntar de&nbsp;que&nbsp;horas ela saiu de&nbsp;casa</strong> é o&nbsp;teste: uma&nbsp;pergunta pequena, que&nbsp;a&nbsp;resposta verdadeira atravessa sem&nbsp;dificuldade</li>
+        </ul>
+        <p class="analogia-mais">A&nbsp;mesma mecânica aparece no&nbsp;"o&nbsp;sistema estava lento",
+        no&nbsp;"o&nbsp;cliente sumiu" e&nbsp;no&nbsp;"o&nbsp;mercado está difícil". Todas são verdadeiras com&nbsp;frequência alta, e&nbsp;é a&nbsp;frequência alta que&nbsp;compra a&nbsp;passagem livre.</p>
+      </div>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Pergunte que&nbsp;dado provaria que&nbsp;essa explicação está errada.</strong>
+        Se&nbsp;existe um,&nbsp;você tem uma&nbsp;hipótese e&nbsp;sabe o&nbsp;que&nbsp;fazer em&nbsp;seguida. Se&nbsp;não&nbsp;existe
+        nenhum dado capaz de&nbsp;derrubá-la, o&nbsp;que&nbsp;você recebeu não&nbsp;é causa: é uma&nbsp;narrativa
+        que&nbsp;encaixa em&nbsp;qualquer resultado.</p>
+      </div>
+    </div>
+
+    <p>Vale dizer o&nbsp;que&nbsp;esta aula não&nbsp;está pedindo. Ninguém aqui vai virar estatístico, e&nbsp;o&nbsp;teste que&nbsp;funciona no&nbsp;dia a&nbsp;dia é bem mais simples do&nbsp;que&nbsp;parece.</p>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Uma&nbsp;cadeia de&nbsp;porquês, com&nbsp;um&nbsp;teste em&nbsp;cada elo</h2>
+      </div>
+    </div>
+
+    <p>Uma&nbsp;sugestão bastante usada é encadear porquês: você pergunta por&nbsp;que&nbsp;aconteceu,
+    e&nbsp;sobre&nbsp;a&nbsp;resposta pergunta de&nbsp;novo, até&nbsp;chegar em&nbsp;alguma coisa que&nbsp;você controla.
+    <strong>Costuma-se dizer cinco, e&nbsp;o&nbsp;número não&nbsp;importa</strong>: o&nbsp;que&nbsp;importa é onde&nbsp;a&nbsp;cadeia para.&nbsp;Você adapta.</p>
+
+    <p>O&nbsp;que&nbsp;muda quando&nbsp;existe IA na&nbsp;conversa é onde&nbsp;mora o&nbsp;risco. A&nbsp;cadeia continua a&nbsp;mesma; o&nbsp;cuidado novo é que&nbsp;<strong>cada elo agora chega pronto</strong>, escrito com&nbsp;segurança, e&nbsp;o&nbsp;encadeamento inteiro pode descer cinco níveis sem&nbsp;tocar no&nbsp;seu&nbsp;dado
+    uma&nbsp;única vez.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O elo</th><th>O que ela responde sozinha</th><th>O dado que testa</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Por que a margem caiu?</strong></td>
+            <td>"pressão de custos do setor"</td>
+            <td>a coluna de custo unitário, mês a mês</td>
+          </tr>
+          <tr>
+            <td><strong>Por que o custo subiu?</strong></td>
+            <td>"reajuste de fornecedores no semestre"</td>
+            <td>nunca chega a ser perguntado, porque o elo de cima já caiu</td>
+          </tr>
+          <tr>
+            <td><strong>Por que o desconto subiu?</strong></td>
+            <td>"maior competitividade do mercado"</td>
+            <td>o desconto por cliente: subiu em todos, ou em dois?</td>
+          </tr>
+          <tr>
+            <td><strong>Por que subiu só nesses dois?</strong></td>
+            <td>não tem como responder sozinha</td>
+            <td><strong>aqui a cadeia sai da planilha</strong> e vira conversa com o time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Repare na&nbsp;segunda linha, que&nbsp;é a&nbsp;mais importante da&nbsp;tabela.</strong> Se&nbsp;você aceitar o&nbsp;primeiro elo, a&nbsp;cadeia continua descendo, cada vez
+    mais específica e&nbsp;cada vez mais convincente, construída inteira em&nbsp;cima de&nbsp;uma&nbsp;coisa
+    falsa. <strong>Testar o&nbsp;primeiro elo custa dois minutos e&nbsp;evita quatro níveis de&nbsp;raciocínio bonito e&nbsp;inútil.</strong></p>
+
+    <p>E&nbsp;repare na&nbsp;última linha, que&nbsp;é onde&nbsp;a&nbsp;cadeia deve parar: <strong>quando&nbsp;a&nbsp;resposta
+    deixa de&nbsp;estar no&nbsp;dado e&nbsp;passa a&nbsp;estar em&nbsp;uma&nbsp;pessoa.</strong> Esse é o&nbsp;sinal de&nbsp;que&nbsp;você chegou perto o&nbsp;suficiente para&nbsp;agir, e&nbsp;é também o&nbsp;momento em&nbsp;que&nbsp;a&nbsp;IA para&nbsp;de&nbsp;ajudar e&nbsp;começa a&nbsp;inventar, se&nbsp;você deixar.</p>
+
+    <h3>A&nbsp;regra de&nbsp;parada, e&nbsp;ela é uma&nbsp;só</h3>
+
+    <p><strong>Pare quando&nbsp;chegar em&nbsp;algo que&nbsp;você controla.</strong> Descer além disso
+    produz explicações cada vez mais gerais, do&nbsp;tipo "o&nbsp;mercado está difícil", que&nbsp;são
+    verdadeiras e&nbsp;não&nbsp;sugerem nada que&nbsp;você possa fazer na&nbsp;segunda-feira.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>A&nbsp;mesma pergunta, com&nbsp;e&nbsp;sem&nbsp;o&nbsp;teste no&nbsp;primeiro elo</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;pergunta foi a&nbsp;mesma nos&nbsp;dois lados, feita sobre&nbsp;a&nbsp;mesma planilha. O&nbsp;que&nbsp;muda é
+    uma&nbsp;frase acrescentada no&nbsp;pedido da&nbsp;direita, e&nbsp;ela cabe em&nbsp;uma&nbsp;linha.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Momento-chave &middot; a explicação aceita contra a explicação testada</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">O que foi digitado, nas duas</span>
+          <pre>Por que a margem do canal caiu 3,1 pontos entre janeiro e julho?</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">Sem pedir o teste</span>
+            <p>"A&nbsp;queda reflete a&nbsp;pressão de&nbsp;custos observada no&nbsp;setor no&nbsp;primeiro
+            semestre, agravada por&nbsp;um&nbsp;mix de&nbsp;produto menos favorável e&nbsp;por&nbsp;maior
+            competitividade nos&nbsp;canais de&nbsp;distribuição."</p>
+            <p>Três causas, todas plausíveis, nenhuma verificada. <strong>A&nbsp;primeira é
+            falsa na&nbsp;sua&nbsp;própria planilha</strong>, a&nbsp;segunda é verdadeira para&nbsp;um&nbsp;cliente
+            só,&nbsp;e&nbsp;a&nbsp;terceira não&nbsp;tem como ser testada com&nbsp;o&nbsp;que&nbsp;você subiu.</p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">Pedindo o teste junto</span>
+            <p>"Custo: descartado. O&nbsp;custo unitário é constante nos&nbsp;sete meses (R$ 1.180,
+            R$ 660 e&nbsp;R$ 330). Mix: parcial, e&nbsp;vale para&nbsp;um&nbsp;cliente, cuja linha Entrada foi
+            de&nbsp;16% para&nbsp;46%. Desconto: confirmado, e&nbsp;é a&nbsp;causa principal. O&nbsp;desconto médio
+            do&nbsp;canal foi de&nbsp;4,9% para&nbsp;7,6%, e&nbsp;a&nbsp;alta se&nbsp;concentra em&nbsp;dois clientes, que&nbsp;saíram de&nbsp;4,9% para&nbsp;12,9% e&nbsp;14,4%."</p>
+            <p><strong>A&nbsp;mesma pergunta, e&nbsp;agora com&nbsp;um&nbsp;veredito por&nbsp;causa.</strong> O&nbsp;que&nbsp;entrou no&nbsp;pedido foi uma&nbsp;frase: para&nbsp;cada causa que&nbsp;você propuser, diga qual
+            coluna da&nbsp;planilha a&nbsp;confirma ou&nbsp;derruba, e&nbsp;mostre o&nbsp;número.</p>
+          </div>
+        </div>
+        <div class="demo-pe">
+          <p><strong>Repare que&nbsp;a&nbsp;resposta da&nbsp;direita é mais curta e&nbsp;diz mais.</strong> Ela
+          perdeu duas causas e&nbsp;ganhou três números conferíveis. E&nbsp;repare que&nbsp;a&nbsp;causa
+          descartada era a&nbsp;primeira da&nbsp;lista da&nbsp;esquerda, ou&nbsp;seja, <strong>a&nbsp;que&nbsp;você teria
+          levado para&nbsp;a&nbsp;reunião</strong> se&nbsp;tivesse parado ali.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;frase que&nbsp;faz a&nbsp;diferença cabe em&nbsp;uma&nbsp;linha do&nbsp;pedido:</strong>
+    <em>"para&nbsp;cada causa, diga qual coluna da&nbsp;planilha a&nbsp;confirma ou&nbsp;a&nbsp;derruba, e&nbsp;mostre o&nbsp;número."</em> Ela não&nbsp;pede honestidade nem precisão, que&nbsp;são adjetivos. Pede uma&nbsp;coluna e&nbsp;um&nbsp;número, que&nbsp;são coisas que&nbsp;existem ou&nbsp;não&nbsp;existem.</p>
+
+    <h3>As&nbsp;três causas, e&nbsp;o&nbsp;que&nbsp;aconteceu com&nbsp;cada uma</h3>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">O que foi proposto &middot; 3 causas</div>
+        <ul>
+          <li>Pressão de&nbsp;custos do&nbsp;setor</li>
+          <li>Mix de&nbsp;produto menos favorável</li>
+          <li>Maior competitividade nos&nbsp;canais</li>
+          <li class="ad-mais">todas em&nbsp;uma&nbsp;frase, sem&nbsp;hierarquia</li>
+        </ul>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">O que sobreviveu ao teste</div>
+        <ul>
+          <li><strong>Derrubada.</strong> Custo unitário constante</li>
+          <li><strong>Parcial.</strong> Vale para&nbsp;1 dos&nbsp;12 clientes</li>
+          <li><strong>Sem&nbsp;teste possível</strong> com&nbsp;este material</li>
+          <li class="ad-mais">e&nbsp;uma&nbsp;quarta apareceu: o&nbsp;desconto</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> a&nbsp;causa que&nbsp;explica quase toda a&nbsp;queda <strong>não&nbsp;estava na&nbsp;lista original</strong>. Não&nbsp;porque&nbsp;a&nbsp;IA errou: porque&nbsp;ninguém pediu para&nbsp;ela procurar, e&nbsp;desconto concedido é uma&nbsp;decisão
+    interna, não&nbsp;uma&nbsp;tendência de&nbsp;setor. Explicação plausível puxa para&nbsp;fora da&nbsp;empresa, e&nbsp;é lá dentro que&nbsp;costuma estar o&nbsp;que&nbsp;você controla.</p>
+
+    <p>A&nbsp;terceira causa merece uma&nbsp;palavra, porque&nbsp;ela é a&nbsp;mais honesta das&nbsp;três e&nbsp;a&nbsp;mais
+    fácil de&nbsp;tratar mal. <strong>"Sem&nbsp;teste possível" não&nbsp;quer dizer falsa.</strong> A&nbsp;competitividade do&nbsp;mercado pode ser exatamente o&nbsp;motivo de&nbsp;os&nbsp;dois clientes terem
+    conseguido desconto maior. O&nbsp;que&nbsp;ela não&nbsp;pode é entrar no&nbsp;seu&nbsp;relatório como causa
+    verificada, quando&nbsp;o&nbsp;material que&nbsp;você tem não&nbsp;alcança essa pergunta.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com&nbsp;a&nbsp;causa testada e&nbsp;as&nbsp;descartadas registradas, você tem o&nbsp;que&nbsp;a&nbsp;próxima aula precisa. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;alguém questionar uma&nbsp;causa que&nbsp;você apresentou.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O&nbsp;que&nbsp;o&nbsp;teste contra&nbsp;o&nbsp;dado não&nbsp;prova</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Duas coisas andando juntas não provam que uma causou a outra</div>
+      <p>O&nbsp;desconto subiu e&nbsp;a&nbsp;margem caiu no&nbsp;mesmo período, e&nbsp;isso é forte. Não&nbsp;elimina a&nbsp;possibilidade de&nbsp;as&nbsp;duas terem uma&nbsp;terceira origem: uma&nbsp;meta de&nbsp;volume, por&nbsp;exemplo,
+      que&nbsp;empurrou desconto e&nbsp;comprometeu margem ao&nbsp;mesmo tempo. O&nbsp;teste elimina o&nbsp;que&nbsp;é
+      falso; ele não&nbsp;escolhe entre&nbsp;o&nbsp;que&nbsp;sobrou.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Causa única é rara, e a cadeia sugere que ela existe</div>
+      <p>Neste caso três clientes explicam 85% da&nbsp;perda, por&nbsp;dois motivos diferentes. Um&nbsp;relatório que&nbsp;diz "a&nbsp;causa foi o&nbsp;desconto" está certo em&nbsp;85% e&nbsp;apaga o&nbsp;resto. Diga
+      quanto cada causa explica, e&nbsp;o&nbsp;que&nbsp;ficou sem&nbsp;explicação.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O dado que você não tem também é uma resposta</div>
+      <p>Quando&nbsp;a&nbsp;causa depende de&nbsp;informação que&nbsp;não&nbsp;está na&nbsp;sua&nbsp;planilha, o&nbsp;resultado
+      honesto é "não&nbsp;dá para&nbsp;saber com&nbsp;este material, e&nbsp;para&nbsp;saber eu precisaria de&nbsp;X".
+      Essa frase é mais útil numa&nbsp;reunião do&nbsp;que&nbsp;uma&nbsp;causa plausível, porque&nbsp;ela diz o&nbsp;que&nbsp;pedir em&nbsp;seguida.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <div class="tabela">
+      <table>
+        <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
+        <tbody><tr><td>a causa que sobreviveu ao teste, e a lista das que caíram com o motivo</td><td>o que fazer a respeito: saber a causa não escolhe o caminho, e quase sempre há mais de um</td><td>na próxima aula, que compara três caminhos com o custo de cada um antes de recomendar</td></tr></tbody>
+      </table>
+    </div>
+    <p class="fig-leg">Saber que&nbsp;o&nbsp;desconto explica a&nbsp;queda não&nbsp;diz se&nbsp;você aperta a&nbsp;alçada, renegocia a&nbsp;meta do&nbsp;time ou&nbsp;aceita o&nbsp;desconto e&nbsp;mexe no&nbsp;preço. São três
+    decisões diferentes a&nbsp;partir da&nbsp;mesma causa.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Você tem a&nbsp;causa, e&nbsp;ela sobreviveu a&nbsp;um&nbsp;teste. <strong>Falta a&nbsp;parte em&nbsp;que&nbsp;alguém
+    decide.</strong> E&nbsp;aqui aparece o&nbsp;último defeito deste bloco, que&nbsp;é o&nbsp;mais silencioso
+    de&nbsp;todos: quando&nbsp;você pergunta o&nbsp;que&nbsp;fazer, volta <em>uma</em>&nbsp;recomendação, escrita
+    com&nbsp;convicção, sem&nbsp;nenhuma alternativa ao&nbsp;lado para&nbsp;você comparar. A&nbsp;próxima aula é
+    sobre&nbsp;obrigar a&nbsp;aparecerem três.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b2-planilha/">&larr; Aula 4 · Transforme a planilha na leitura que a chefia usa</a><a href="../b2-decisao/">Aula 6 · Compare três caminhos antes de recomendar um &rarr;</a></nav>
 </main>
 
 
