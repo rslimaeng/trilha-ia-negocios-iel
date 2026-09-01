@@ -281,6 +281,20 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
         # .config na classe, e o gate continua cobrando todo o resto.
         if "config" in classes.split():
             continue
+        # A SEGUNDA DISPENSA, e a razao e irma da primeira: .degrau marca a
+        # PERGUNTA EM CONSTRUCAO, nao o pedido pronto. Na aula 1 do B2 a
+        # demonstracao mostra a mesma pergunta em tres versoes, e a terceira e
+        # a que a pessoa copia -- ela e uma pergunta de um paragrafo, e cobrar
+        # dela os seis campos seria cobrar o que a aula ainda nao ensinou.
+        #
+        # 🔴 COM LIMITE CONTAVEL, senao a dispensa vira porta dos fundos: no
+        # maximo UM .degrau por pagina. Quem precisa de dois esta usando a
+        # dispensa para fugir do formato, e o gate acusa.
+        if "degrau" in classes.split():
+            if html.count('prompt-txt degrau') + html.count('degrau prompt-txt') > 1:
+                falhas.append("{}: mais de um prompt .degrau na pagina -- a dispensa "
+                              "vale para UM, que e a pergunta em construcao".format(rel))
+            continue
         texto = corpo.replace("&nbsp;", " ")
         if ident in PENDENTES_DO_FORMATO_ROTULADO:
             # Divida declarada, nao dispensa: o gate abaixo confere que ela

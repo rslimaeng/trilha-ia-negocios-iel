@@ -583,6 +583,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    na pagina, e o G5 usa a mesma classe para nao cobrar o que nao se aplica. */
 .prompt-txt.config{border-left:3px solid var(--accent-line)}
 
+/* A PERGUNTA EM CONSTRUCAO, irma do .config e com o mesmo desenho: o G5 nao
+   cobra dela os seis campos, porque ela ainda nao e um pedido pronto -- e a
+   versao que a demonstracao mostra evoluindo.
+
+   🔴 O display:block existe por COLISAO DE NOME: .degrau ja e um grid de
+   190px + 1fr neste mesmo arquivo (secao 14), e sem esta linha o <pre>
+   viraria grade e o texto quebraria em duas colunas. O nome foi mantido
+   porque e o que o curso usa; a colisao fica neutralizada aqui. */
+.prompt-txt.degrau{display:block;border-left:3px solid var(--ok)}
+
 /* ---------- 12 · TABELA --------------------------------------------------- */
 .tabela{
   overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
@@ -3363,8 +3373,9 @@ Analise a planilha à luz disso.</pre>
       <div class="prompt" style="margin:0">
         <div class="prompt-barra">
           <span class="prompt-rot">Versão 3 &middot; entram o recorte e as duas causas concorrentes</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b2pergunta-v3">Copiar</button>
         </div>
-        <pre class="prompt-txt">Sou gerente comercial do canal
+        <pre class="prompt-txt degrau" id="pr-b2pergunta-v3">Sou gerente comercial do canal
 distribuidor e preciso decidir, nas
 próximas duas semanas, se mexo na
 alçada de desconto do time.
