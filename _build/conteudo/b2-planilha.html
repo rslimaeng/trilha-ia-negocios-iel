@@ -114,9 +114,41 @@
     <p>Existe um efeito colateral bom nisso, e ele aparece rápido. Quando você pede a conta
     separada, a resposta fica curta e conferível, e você percebe em segundos quando ela
     entendeu a sua planilha de outro jeito.</p>
+
+<div class="cartao">
+      <span class="rot">A medida que você não pedir, ela escolhe sozinha</span>
+      <p>Existem três medidas de tendência central, e elas respondem coisas diferentes:
+      <strong>média</strong>, <strong>mediana</strong> e <strong>moda</strong>. A IA
+      quase sempre usa a média, porque é o padrão dela.
+      <strong>Se você quer mediana, você precisa pedir.</strong></p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>A medida</th><th>O que ela responde</th><th>Quando ela engana</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Média</strong></td><td>quanto daria se estivesse tudo distribuído por igual</td><td>com um valor muito fora da curva, ela vai atrás dele e some com o resto</td></tr>
+            <tr><td><strong>Mediana</strong></td><td>o valor do meio, com metade acima e metade abaixo</td><td>não mostra o tamanho dos extremos, e às vezes é o extremo que decide</td></tr>
+            <tr><td><strong>Moda</strong></td><td>o valor que mais se repete</td><td>em base de valor contínuo, quase não se repete nada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>E há três decisões que andam junto com a medida, e que também são suas:</p>
+      <ul class="lista">
+        <li><strong>Tira o valor fora da curva, ou não?</strong> As duas respostas são
+        defensáveis. O que não é defensável é não avisar qual foi usada.</li>
+        <li><strong>Qual período entra na conta?</strong> Um mês a mais ou a menos muda o
+        resultado, e a aula 1 já mostrou isso com a janela da prévia.</li>
+        <li><strong>Contra o que você compara?</strong> Sem escala declarada, "caiu 3
+        pontos" não diz se é muito ou pouco.</li>
+      </ul>
+      <p class="fig-leg">Se você não disser nenhuma das quatro coisas, <strong>ela escolhe
+      pelo método dela e não avisa</strong>. É o mesmo defeito da margem simples contra a
+      ponderada, um parágrafo acima: duas contas legítimas, e só uma responde à sua
+      pergunta.</p>
+    </div>
   </section>
 
-  <section class="secao" id="demonstracao">
+
+      <section class="secao" id="demonstracao">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
@@ -236,12 +268,13 @@ Margem do total do período:
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">A sua vez</div>
-        <h2>A sua análise, em três pedidos separados</h2>
+        <h2>A sua análise, em quatro pedidos separados</h2>
       </div>
     </div>
 
-    <p>São três mensagens, e não uma. <strong>A ordem é o método</strong>: conta, leitura,
-    narrativa. Cada uma só acontece depois que a anterior passou.</p>
+    <p>São quatro mensagens, e não uma. <strong>A ordem é o método</strong>: exploração,
+    conta, leitura, narrativa. Cada uma só acontece depois que a anterior passou, e a
+    primeira existe para as outras três não trabalharem no escuro.</p>
 
     <div class="arquivo">
       <div>
@@ -253,6 +286,27 @@ Margem do total do período:
         mão.</p>
       </div>
       <a class="btn" href="../_arquivos/faturamento-canal-distribuidor.xlsx">Baixar a planilha</a>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Antes de subir qualquer planilha sua</span>
+      <p>A planilha desta aula já vem no formato certo. <strong>A sua provavelmente
+      não</strong>, e a IA é literal: ela analisa a estrutura que recebe. Quatro
+      conferências, que levam dois minutos:</p>
+      <ul class="lista">
+        <li><strong>Cabeçalho descritivo em toda coluna.</strong> "Coluna1", "Dados2" ou
+        em branco deixam a leitura cega. Evite caractere especial no nome.</li>
+        <li><strong>Um formato só dentro de cada coluna.</strong> "jan/26", "01-2026" e
+        "janeiro de 2026" não são a mesma coisa para a máquina, e "SP" não é "São
+        Paulo".</li>
+        <li><strong>Nenhuma célula mesclada.</strong> É o maior inimigo da leitura
+        automática: planilha bonita para humano quebra a lógica de tabela.</li>
+        <li><strong>Nenhuma linha de total no meio dos dados.</strong> Ela vira mais uma
+        venda na conta, e distorce toda média e toda projeção.</li>
+      </ul>
+      <p class="fig-leg">Formato do arquivo: <strong>CSV, xlsx e planilha do Google</strong>
+      são lidos bem. PDF com tabela dentro varia muito, e é onde o exercício costuma falhar
+      sem ninguém entender por quê.</p>
     </div>
 
     <div class="prompt">
@@ -293,6 +347,58 @@ de calcular, em vez de assumir.</pre>
         <div class="passo-n">01</div>
         <div>
           <div class="passo-fn">Passo 1</div>
+          <h3>Antes de qualquer conta, peça o raio-X da base</h3>
+        </div>
+      </div>
+      <p><strong>Este é o passo que quase todo mundo pula</strong>, e pular é a origem da
+      maior parte da frustração com análise por IA: pedir interpretação de uma base que a
+      máquina ainda não mapeou. Ela precisa reconhecer o terreno antes de dizer o que o
+      terreno significa. Cole o pedido abaixo com a planilha anexada, e leia a resposta
+      inteira antes de seguir.</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-explora">Copiar</button>
+        </div>
+        <pre class="prompt-txt" id="pr-b2planilha-explora">Anexei uma planilha de faturamento por pedido de um canal distribuidor.
+Sou gerente comercial e ainda não vou pedir análise: quero entender a
+estrutura do arquivo antes de interpretar qualquer coisa dele.
+
+O que eu preciso: o mapeamento da base, em quatro blocos. Primeiro, a
+estrutura: quantas linhas, quantas colunas, e o período que ela cobre.
+Segundo, coluna por coluna, o que cada uma significa e de que tipo ela é
+(texto, número, data, categoria). Terceiro, os problemas: célula vazia,
+formato misturado dentro da mesma coluna, valor repetido que parece
+duplicata, linha de total no meio dos dados. Quarto, três análises de
+valor que esta base permite fazer.
+
+Restrições: não tire conclusão nenhuma sobre o negócio agora, e não faça
+gráfico. Isto é diagnóstico de estrutura, não de resultado. Nenhum
+jargão de estatística ou de programação.
+
+Critério de sucesso: a resposta serve se eu souber exatamente o que tem
+dentro da planilha, e o quanto dá para confiar nela, sem precisar abrir
+o arquivo.
+
+Na dúvida: se o significado de uma coluna não estiver claro pelo nome
+dela, diga que não está claro em vez de deduzir pelo conteúdo.</pre>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>a contagem de linhas bate com a sua planilha, e <strong>pelo menos uma das três
+        análises sugeridas não estava no seu radar</strong>. É esse item que costuma valer
+        o passo: a máquina cruza colunas que ninguém cruzaria de primeira. Se ela listar
+        coluna que não existe no arquivo, pare: não foi a sua planilha que ela leu.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
           <h3>Peça a conta, e só a conta</h3>
         </div>
       </div>
@@ -311,15 +417,21 @@ de calcular, em vez de assumir.</pre>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">02</div>
+        <div class="passo-n">03</div>
         <div>
-          <div class="passo-fn">Passo 2</div>
+          <div class="passo-fn">Passo 3</div>
           <h3>Agora sim, peça a leitura, com a sua pergunta dentro</h3>
         </div>
       </div>
       <p>Na mesma conversa, cole a sua pergunta da aula 1 e peça o recorte que ela pede:
       quem puxou, quanto cada um pesa no total, e o que separa uma explicação da outra.
       <strong>Peça o número que sustenta cada afirmação</strong>, ao lado dela.</p>
+
+      <p><strong>E peça o cruzamento, que é a parte que a média esconde.</strong> Este é o
+      passo da <strong>segmentação</strong>: em vez de "a margem caiu 3 pontos", você quer
+      saber <em>qual grupo</em> concentra a queda. Cruze por cliente, por linha de produto
+      e por mês, e veja qual dos três cortes separa o problema com mais clareza. Quase
+      sempre um deles concentra quase tudo, e é nele que se mexe.</p>
 
       <div class="destrave">
         <div class="destrave-rot">Se travar na leitura, peça nesta ordem</div>
@@ -349,9 +461,9 @@ de calcular, em vez de assumir.</pre>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">03</div>
+        <div class="passo-n">04</div>
         <div>
-          <div class="passo-fn">Passo 3</div>
+          <div class="passo-fn">Passo 4</div>
           <h3>Peça a versão que a sua chefia recebe</h3>
         </div>
       </div>

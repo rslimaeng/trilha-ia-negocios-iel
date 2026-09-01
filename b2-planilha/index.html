@@ -3204,9 +3204,38 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>Existe um&nbsp;efeito colateral bom nisso, e&nbsp;ele aparece rápido. Quando&nbsp;você pede a&nbsp;conta
     separada, a&nbsp;resposta fica curta e&nbsp;conferível, e&nbsp;você percebe em&nbsp;segundos quando&nbsp;ela
     entendeu a&nbsp;sua&nbsp;planilha de&nbsp;outro jeito.</p>
+
+<div class="cartao">
+      <span class="rot">A medida que você não pedir, ela escolhe sozinha</span>
+      <p>Existem três medidas de&nbsp;tendência central, e&nbsp;elas respondem coisas diferentes:
+      <strong>média</strong>, <strong>mediana</strong> e&nbsp;<strong>moda</strong>. A&nbsp;IA
+      quase sempre usa a&nbsp;média, porque&nbsp;é o&nbsp;padrão dela.
+      <strong>Se&nbsp;você quer mediana, você precisa pedir.</strong></p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>A medida</th><th>O que ela responde</th><th>Quando ela engana</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Média</strong></td><td>quanto daria se estivesse tudo distribuído por igual</td><td>com um valor muito fora da curva, ela vai atrás dele e some com o resto</td></tr>
+            <tr><td><strong>Mediana</strong></td><td>o valor do meio, com metade acima e metade abaixo</td><td>não mostra o tamanho dos extremos, e às vezes é o extremo que decide</td></tr>
+            <tr><td><strong>Moda</strong></td><td>o valor que mais se repete</td><td>em base de valor contínuo, quase não se repete nada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>E&nbsp;há três decisões que&nbsp;andam junto com&nbsp;a&nbsp;medida, e&nbsp;que&nbsp;também são suas:</p>
+      <ul class="lista">
+        <li><strong>Tira o&nbsp;valor fora da&nbsp;curva, ou&nbsp;não?</strong>&nbsp;As&nbsp;duas respostas são
+        defensáveis. O&nbsp;que&nbsp;não&nbsp;é defensável é não&nbsp;avisar qual foi usada.</li>
+        <li><strong>Qual período entra na&nbsp;conta?</strong> Um&nbsp;mês a&nbsp;mais ou&nbsp;a&nbsp;menos muda o&nbsp;resultado, e&nbsp;a&nbsp;aula 1 já&nbsp;mostrou isso com&nbsp;a&nbsp;janela da&nbsp;prévia.</li>
+        <li><strong>Contra&nbsp;o&nbsp;que&nbsp;você compara?</strong> Sem&nbsp;escala declarada, "caiu 3
+        pontos" não&nbsp;diz se&nbsp;é muito ou&nbsp;pouco.</li>
+      </ul>
+      <p class="fig-leg">Se&nbsp;você não&nbsp;disser nenhuma das&nbsp;quatro coisas, <strong>ela escolhe
+      pelo&nbsp;método dela e&nbsp;não&nbsp;avisa</strong>. É o&nbsp;mesmo defeito da&nbsp;margem simples contra&nbsp;a&nbsp;ponderada, um&nbsp;parágrafo acima: duas contas legítimas, e&nbsp;só&nbsp;uma&nbsp;responde à&nbsp;sua&nbsp;pergunta.</p>
+    </div>
   </section>
 
-  <section class="secao" id="demonstracao">
+
+      <section class="secao" id="demonstracao">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
@@ -3315,12 +3344,12 @@ Margem do total do período:
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">A sua vez</div>
-        <h2>A&nbsp;sua&nbsp;análise, em&nbsp;três pedidos separados</h2>
+        <h2>A&nbsp;sua&nbsp;análise, em&nbsp;quatro pedidos separados</h2>
       </div>
     </div>
 
-    <p>São três mensagens, e&nbsp;não&nbsp;uma.&nbsp;<strong>A&nbsp;ordem é o&nbsp;método</strong>: conta, leitura,
-    narrativa. Cada uma&nbsp;só&nbsp;acontece depois que&nbsp;a&nbsp;anterior passou.</p>
+    <p>São quatro mensagens, e&nbsp;não&nbsp;uma.&nbsp;<strong>A&nbsp;ordem é o&nbsp;método</strong>: exploração,
+    conta, leitura, narrativa. Cada uma&nbsp;só&nbsp;acontece depois que&nbsp;a&nbsp;anterior passou, e&nbsp;a&nbsp;primeira existe para&nbsp;as&nbsp;outras três não&nbsp;trabalharem no&nbsp;escuro.</p>
 
     <div class="arquivo">
       <div>
@@ -3330,6 +3359,24 @@ Margem do total do período:
         que&nbsp;responda à&nbsp;pergunta da&nbsp;aula 1; esta serve de&nbsp;substituta e&nbsp;dá para&nbsp;conferir na&nbsp;mão.</p>
       </div>
       <a class="btn" href="../_arquivos/faturamento-canal-distribuidor.xlsx">Baixar a planilha</a>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Antes de subir qualquer planilha sua</span>
+      <p>A&nbsp;planilha desta aula já&nbsp;vem no&nbsp;formato certo. <strong>A&nbsp;sua&nbsp;provavelmente
+      não</strong>, e&nbsp;a&nbsp;IA é literal: ela analisa a&nbsp;estrutura que&nbsp;recebe. Quatro
+      conferências, que&nbsp;levam dois minutos:</p>
+      <ul class="lista">
+        <li><strong>Cabeçalho descritivo em&nbsp;toda coluna.</strong> "Coluna1", "Dados2" ou&nbsp;em&nbsp;branco deixam a&nbsp;leitura cega. Evite caractere especial no&nbsp;nome.</li>
+        <li><strong>Um&nbsp;formato só&nbsp;dentro de&nbsp;cada coluna.</strong> "jan/26", "01-2026" e&nbsp;"janeiro de&nbsp;2026" não&nbsp;são a&nbsp;mesma coisa para&nbsp;a&nbsp;máquina, e&nbsp;"SP" não&nbsp;é "São
+        Paulo".</li>
+        <li><strong>Nenhuma célula mesclada.</strong> É o&nbsp;maior inimigo da&nbsp;leitura
+        automática: planilha bonita para&nbsp;humano quebra a&nbsp;lógica de&nbsp;tabela.</li>
+        <li><strong>Nenhuma linha de&nbsp;total no&nbsp;meio dos&nbsp;dados.</strong> Ela vira mais uma&nbsp;venda na&nbsp;conta, e&nbsp;distorce toda média e&nbsp;toda projeção.</li>
+      </ul>
+      <p class="fig-leg">Formato do&nbsp;arquivo: <strong>CSV, xlsx e&nbsp;planilha do&nbsp;Google</strong>
+      são lidos bem. PDF com&nbsp;tabela dentro varia muito, e&nbsp;é onde&nbsp;o&nbsp;exercício costuma falhar
+      sem&nbsp;ninguém entender por&nbsp;quê.</p>
     </div>
 
     <div class="prompt">
@@ -3368,6 +3415,55 @@ de calcular, em vez de assumir.</pre>
         <div class="passo-n">01</div>
         <div>
           <div class="passo-fn">Passo 1</div>
+          <h3>Antes de&nbsp;qualquer conta, peça o&nbsp;raio-X da&nbsp;base</h3>
+        </div>
+      </div>
+      <p><strong>Este é o&nbsp;passo que&nbsp;quase todo mundo pula</strong>, e&nbsp;pular é a&nbsp;origem da&nbsp;maior parte da&nbsp;frustração com&nbsp;análise por&nbsp;IA: pedir interpretação de&nbsp;uma&nbsp;base que&nbsp;a&nbsp;máquina ainda não&nbsp;mapeou. Ela precisa reconhecer o&nbsp;terreno antes de&nbsp;dizer o&nbsp;que&nbsp;o&nbsp;terreno significa. Cole o&nbsp;pedido abaixo com&nbsp;a&nbsp;planilha anexada, e&nbsp;leia a&nbsp;resposta
+      inteira antes de&nbsp;seguir.</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-explora">Copiar</button>
+        </div>
+        <pre class="prompt-txt" id="pr-b2planilha-explora">Anexei uma planilha de faturamento por pedido de um canal distribuidor.
+Sou gerente comercial e ainda não vou pedir análise: quero entender a
+estrutura do arquivo antes de interpretar qualquer coisa dele.
+
+O que eu preciso: o mapeamento da base, em quatro blocos. Primeiro, a
+estrutura: quantas linhas, quantas colunas, e o período que ela cobre.
+Segundo, coluna por coluna, o que cada uma significa e de que tipo ela é
+(texto, número, data, categoria). Terceiro, os problemas: célula vazia,
+formato misturado dentro da mesma coluna, valor repetido que parece
+duplicata, linha de total no meio dos dados. Quarto, três análises de
+valor que esta base permite fazer.
+
+Restrições: não tire conclusão nenhuma sobre o negócio agora, e não faça
+gráfico. Isto é diagnóstico de estrutura, não de resultado. Nenhum
+jargão de estatística ou de programação.
+
+Critério de sucesso: a resposta serve se eu souber exatamente o que tem
+dentro da planilha, e o quanto dá para confiar nela, sem precisar abrir
+o arquivo.
+
+Na dúvida: se o significado de uma coluna não estiver claro pelo nome
+dela, diga que não está claro em vez de deduzir pelo conteúdo.</pre>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>a&nbsp;contagem de&nbsp;linhas bate com&nbsp;a&nbsp;sua&nbsp;planilha, e&nbsp;<strong>pelo&nbsp;menos uma&nbsp;das&nbsp;três
+        análises sugeridas não&nbsp;estava no&nbsp;seu&nbsp;radar</strong>. É esse item que&nbsp;costuma valer
+        o&nbsp;passo: a&nbsp;máquina cruza colunas que&nbsp;ninguém cruzaria de&nbsp;primeira. Se&nbsp;ela listar
+        coluna que&nbsp;não&nbsp;existe no&nbsp;arquivo, pare: não&nbsp;foi a&nbsp;sua&nbsp;planilha que&nbsp;ela leu.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
           <h3>Peça a&nbsp;conta, e&nbsp;só&nbsp;a&nbsp;conta</h3>
         </div>
       </div>
@@ -3383,15 +3479,20 @@ de calcular, em vez de assumir.</pre>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">02</div>
+        <div class="passo-n">03</div>
         <div>
-          <div class="passo-fn">Passo 2</div>
+          <div class="passo-fn">Passo 3</div>
           <h3>Agora sim, peça a&nbsp;leitura, com&nbsp;a&nbsp;sua&nbsp;pergunta dentro</h3>
         </div>
       </div>
       <p>Na&nbsp;mesma conversa, cole a&nbsp;sua&nbsp;pergunta da&nbsp;aula 1 e&nbsp;peça o&nbsp;recorte que&nbsp;ela pede:
       quem puxou, quanto cada um&nbsp;pesa no&nbsp;total, e&nbsp;o&nbsp;que&nbsp;separa uma&nbsp;explicação da&nbsp;outra.
       <strong>Peça o&nbsp;número que&nbsp;sustenta cada afirmação</strong>, ao&nbsp;lado dela.</p>
+
+      <p><strong>E&nbsp;peça o&nbsp;cruzamento, que&nbsp;é a&nbsp;parte que&nbsp;a&nbsp;média esconde.</strong> Este é o&nbsp;passo da&nbsp;<strong>segmentação</strong>: em&nbsp;vez de&nbsp;"a&nbsp;margem caiu 3 pontos", você quer
+      saber <em>qual grupo</em> concentra a&nbsp;queda. Cruze por&nbsp;cliente, por&nbsp;linha de&nbsp;produto
+      e&nbsp;por&nbsp;mês, e&nbsp;veja qual dos&nbsp;três cortes separa o&nbsp;problema com&nbsp;mais clareza. Quase
+      sempre um&nbsp;deles concentra quase tudo, e&nbsp;é nele que&nbsp;se&nbsp;mexe.</p>
 
       <div class="destrave">
         <div class="destrave-rot">Se travar na leitura, peça nesta ordem</div>
@@ -3417,9 +3518,9 @@ de calcular, em vez de assumir.</pre>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">03</div>
+        <div class="passo-n">04</div>
         <div>
-          <div class="passo-fn">Passo 3</div>
+          <div class="passo-fn">Passo 4</div>
           <h3>Peça a&nbsp;versão que&nbsp;a&nbsp;sua&nbsp;chefia recebe</h3>
         </div>
       </div>
