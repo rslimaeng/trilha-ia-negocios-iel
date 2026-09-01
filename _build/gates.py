@@ -178,7 +178,10 @@ def g2_vocabulario_interno(rel, html):
 
 DIRECAO_DE_CENA = [
     r"pergunte à sala", r"pergunte para a sala", r"a sala responde",
-    r"espere o silêncio", r"aguarde o silêncio", r"plano b",
+    r"espere o silêncio", r"aguarde o silêncio",
+    # \b obrigatorio: sem ele "plano b" casa dentro de "plano bem escrito",
+    # e foi o falso positivo que a trilha IEL pagou em 01/09 reescrevendo a frase.
+    r"plano b\b",
     r"o que apontar", r"roteiro de palco", r"dê um tempo",
     r"circule pela sala", r"anote no quadro", r"projete a tela",
     r"executa ao vivo", r"um grupo por vez", r"minutos por grupo",
@@ -406,7 +409,7 @@ def g15_prosa_sem_quebra_equilibrada(rel, html):
     título isso é o efeito desejado; em prosa é a frase que quebra do nada com
     meia linha vazia à direita, que o Rafael reprovou três vezes.
 
-    Medido no site do Longevidade, 8 páginas: 62 quebras precoces com balance na
+    Medido no site do IC-C, 8 páginas: 62 quebras precoces com balance na
     prosa, 0 sem ele.
     """
     falhas = []
@@ -1862,8 +1865,20 @@ def g49_a_demonstracao_demonstra(rel, html):
     limpo = _sem_css_nem_script(html)
     if not _tipo_da_aula(limpo):
         return []
-    m = re.search(r'<section class="secao" id="demonstracao">(.*?)</section>',
-                  limpo, re.S)
+    # DUAS CONVENCOES DE ID, e as duas sao legitimas.
+    # A trilha nomeia as secoes (id="demonstracao"); o Claude IEL numera
+    # (id="s04"). Pela tabela mestra do COMO-EXECUTAR a QUARTA secao E a
+    # demonstracao -- a posicao ja carrega o significado.
+    #
+    # 🔴 Ate 01/09 este gate procurava so o nome, e por isso acusou 13 aulas do
+    # Claude IEL que tinham demonstracao boa: as 13 comparavam duas versoes da
+    # mesma coisa na s04. Ele conferia o ROTULO em vez da coisa, que e o defeito
+    # que o proprio gate existe para pegar. O framework ja avisava: saiu
+    # "calibrado: NAO" naquele site, e gate que nao se prova nao vale.
+    m = (re.search(r'<section class="secao" id="demonstracao">(.*?)</section>',
+                   limpo, re.S)
+         or re.search(r'<section class="secao" id="s04">(.*?)</section>',
+                      limpo, re.S))
     if not m:
         return ["{}: a aula nao tem secao de demonstracao".format(rel)]
     corpo = m.group(1)
@@ -1879,8 +1894,14 @@ def g49_a_demonstracao_demonstra(rel, html):
 def _demonstracao_sem_resultado(h):
     """Defeito injetado do G49: tira toda peca de resultado de dentro da secao de
     demonstracao, que era o estado das duas aulas do B2 em 01/09."""
-    m = re.search(r'(<section class="secao" id="demonstracao">)(.*?)(</section>)',
-                  h, re.S)
+    # As duas convencoes, como no proprio gate: nomeada e numerada. Sem isto o
+    # injetor nao acha a secao em curso que numera, o gate sai "calibrado: NAO"
+    # e deixa de valer como verificacao justamente onde ele acabou de ser
+    # ajustado para funcionar.
+    m = (re.search(r'(<section class="secao" id="demonstracao">)(.*?)(</section>)',
+                   h, re.S)
+         or re.search(r'(<section class="secao" id="s04">)(.*?)(</section>)',
+                      h, re.S))
     if not m:
         return h
     corpo = m.group(2)
@@ -2013,6 +2034,65 @@ def _prosa_antes_da_peca(h):
 # =========================================================================
 # A LISTA · gate, defeito injetado, página alvo do defeito
 # =========================================================================
+# ---------------------------------------------------------------------------
+# G50 · NOME DE CLIENTE NAO VIAJA COM O TEMPLATE
+#
+# 🔴 POR QUE A LISTA E DE HASH, E NAO DE NOME.
+# Este arquivo e copiado para cada curso, e curso publicado e repositorio
+# PUBLICO. Uma lista legivel de "nomes proibidos" seria, ela mesma, a lista
+# de clientes -- o gate publicaria o que existe para esconder.
+# Aqui mora o sha256 de cada nome em minusculo. O mapa legivel esta em
+# PROVENIENCIA-INTERNA.md, que fica FORA de template/ e nao e copiado.
+#
+# Isto e ofuscacao, nao criptografia: hash de nome proprio curto cai em
+# dicionario. O que ele impede e a EXIBICAO -- o nome nao aparece para quem
+# le o arquivo, que era o problema real.
+#
+# Achado de 01/09/2026: o site da trilha IEL servia 486 ocorrencias de nome
+# de cliente vindas do template, e a pagina componentes/ -- linkada no rodape
+# do Modulo 3 -- trazia duas VISIVEIS na tela.
+# ---------------------------------------------------------------------------
+VETADOS = {
+    "d40d94b7f119c1a9455109c41ffb9bcef7a073f554707d33f775f646732479ba": "in-company",
+    "906491c683716e9a4109329c60cc3d628cfe1f8d5c2b3057c55cce7b2e2c5ad8": "in-company",
+    "c0a497761b175379ed63397cc980546559faa84ca9cbeede773117c31508b6ac": "in-company",
+    "9318c2289e0cb83da73de6a8b3e5340938870f70ff2c0f4e59554e01eb699c2b": "in-company",
+    # sentinela publica, so para a calibracao provar o gate. Nao e cliente.
+    "77c385675177518bc37de1afce334028ad2f3af970c22e6fdd08f91d0ef5975c": "sentinela",
+}
+
+
+def g50_nome_de_cliente_nao_viaja(rel, html):
+    """🔴 Nome de cliente nao entra em arquivo do template.
+
+    Vale para a tela E para o codigo-fonte: comentario tambem e servido ao
+    navegador, e o CSS inteiro vai inlineado em cada pagina. Use o codigo
+    (IC-A, IC-B...) e deixe o nome no PROVENIENCIA-INTERNA.md.
+
+    O QUE ESTE GATE DEIXA PASSAR: o segmento sem o nome. Um caso que diz
+    "bacalhau congelado, APPCC, Europa" identifica o cliente sem nomea-lo, e
+    nenhum hash pega isso. Ver a limpeza do deck de dez/25.
+
+    FALSO POSITIVO CONHECIDO: um dos nomes tambem e palavra comum em
+    portugues. Curso cujo TEMA seja essa palavra vai acusar aqui -- e ai
+    quem decide e o humano, que e mais barato que deixar passar o inverso.
+    """
+    import hashlib
+    falhas = []
+    vistos = set()
+    for palavra in re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ]{3,}", html):
+        p = palavra.lower()
+        if p in vistos:
+            continue
+        vistos.add(p)
+        d = hashlib.sha256(p.encode("utf-8")).hexdigest()
+        if d in VETADOS:
+            falhas.append(
+                "nome de cliente ({}) no arquivo: troque pelo codigo e registre "
+                "no PROVENIENCIA-INTERNA.md".format(VETADOS[d]))
+    return falhas
+
+
 GATES = [
     ("G1", "travessão", g1_travessao,
      lambda h: h.replace("<h1>", "<h1>defeito — injetado ", 1), None),
@@ -2170,8 +2250,9 @@ GATES = [
     ("G46", "as abas abrem", g46_as_abas_abrem,
      lambda h: h.replace('<nav class="abas-fila">', '<div class="abas-fila">', 1),
      "componentes/index.html"),
+    ("G50", "nome de cliente não viaja com o template", g50_nome_de_cliente_nao_viaja,
+     lambda h: h.replace("<h1>", "<h1>Clientesentinela ", 1), None),
 ]
-
 
 def main():
     docs = paginas()

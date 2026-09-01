@@ -5,8 +5,8 @@
    Trocar de cliente é trocar o marca.css, e o gate G-COR confere que este
    arquivo continua sem hex solto.
 
-   Extraído de três cursos que já rodaram: Claude na Prática (Pouchain),
-   Workshop Maria Pitanga e Ideação com AI First (Longevidade). O que está
+   Extraído de três in-company que já rodaram: IC-A, IC-B e IC-C -- o mapa
+   dos códigos está no PROVENIENCIA-INTERNA.md do padrão. O que está
    aqui sobreviveu aos três; o que era de um curso só ficou lá.
    ============================================================================ */
 
@@ -20,7 +20,7 @@
    --col-media a largura do meio, para o bloco que é metade figura e metade
                prosa: demonstração lado a lado, antes-depois com texto dentro.
                Na largura cheia ele foge da coluna de texto e o olho perde o
-               par. Herdada do curso Pouchain, medida lá. Use com `.solta.meia`.
+               par. Herdada do IC-A, medida lá. Use com `.solta.meia`.
    --col-larga o breakout. Figura, tabela e grade SAEM da coluna.
 
    Figura mais larga que o texto lê como editorial. Texto mais estreito que
@@ -39,7 +39,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--text);
-  /* 18,5px / 1,68 medido na aula da Pouchain, que e a entrega que o Rafael
+  /* 18,5px / 1,68 medido na aula do IC-A, que e a entrega que o Rafael
      aponta como a de melhor respiro. Estava em 17px / 1,65, o que dava 87
      caracteres por linha contra os 79 de la: texto 8% menor, entrelinha 3px
      mais apertada e linha 10% mais longa. Era isso que lia como comprimido.
@@ -59,7 +59,7 @@ img{max-width:100%;height:auto}
    no fim da linha para equilibrar o bloco inteiro, e na tela isso aparece como
    a frase que quebra do nada com meia linha vazia à direita.
 
-   Medido no Longevidade, 8 páginas a 1280px, 437 linhas de prosa:
+   Medido no IC-C, 8 páginas a 1280px, 437 linhas de prosa:
      com balance + pretty ..... 62 linhas quebravam com espaço sobrando
      com quebra natural ......... 0
 
@@ -197,13 +197,13 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    No flex a coluna de leitura se centralizava no espaco RESIDUAL -- o que
    sobra depois de tirar os 288px da trilha. Medido a 1265px: 75px de margem
    a esquerda contra 410px a direita, com o centro do texto 167px fora do
-   centro da tela. A mesma aula na Pouchain, que nao tem trilha, mede 235/250.
+   centro da tela. A mesma aula no IC-A, que nao tem trilha, mede 235/250.
    Era isto que o Rafael leu como "torto" e "desenquadrado" quatro vezes.
 
    O grid resolve porque a coluna do meio nao depende do que existe nas
    laterais: a leitura fica no centro da TELA e a trilha ocupa a margem
-   direita, em vez de roubar o centro. Medido depois: 235/250, identico a
-   Pouchain.
+   direita, em vez de roubar o centro. Medido depois: 235/250, identico ao
+   IC-A.
 
    minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
    conteudo da trilha e devolve o problema em tela media. */
@@ -705,7 +705,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .rodape-nav a{font-size:15px}
 
 /* ---------- 16 · A PÁGINA DE CASO, EM CINCO PASSOS ------------------------
-   Vem do Workshop Maria Pitanga, e é a peça que o Rafael chamou de maior ganho
+   Vem do IC-B, e é a peça que o Rafael chamou de maior ganho
    daquele material. Toda página de caso tem os MESMOS cinco passos, na mesma
    ordem, com os mesmos títulos. Verificado nas oito páginas de lá: nenhuma
    variação.
@@ -730,7 +730,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    O filho saia MAIOR que o pai, e o Rafael viu no print da secao 05: os
    quatro passos gritavam mais alto que as oito secoes ao redor.
    Numeral compete com numeral. Medalha nao compete: e outro objeto.
-   E como a Pouchain resolve, e por isso la o passo nunca briga com a secao. */
+   E como o IC-A resolve, e por isso la o passo nunca briga com a secao. */
 .passo-n{
   font-family:var(--font-mono);font-size:13px;font-weight:500;
   color:var(--bg-elev);background:var(--accent);line-height:1;flex:0 0 auto;
@@ -2142,7 +2142,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
                     começou no meio da linha, no resto que a anterior deixou
                     → cura: esta seção
 
-   🔴 Medido no Longevidade: 283 de 491 frases quebravam no meio, e a frase
+   🔴 Medido no IC-C: 283 de 491 frases quebravam no meio, e a frase
    mediana ocupava 497px numa medida de 720px. TRÊS DE CADA QUATRO já cabiam
    numa linha e quebravam mesmo assim.
 
@@ -2215,7 +2215,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    A ESCOLHA, ENTAO, E DECLARADA: a barra vence, e a figura larga mora nas
    paginas que nao tem barra -- caso/ e exemplo/, que e onde a demonstracao
    e o artefato pronto moram de qualquer jeito. As tres entregas de
-   referencia (Maria Pitanga, Longevidade, Pouchain) nao tem barra lateral
+   referencia (IC-A, IC-B e IC-C) nao tem barra lateral
    em aula nenhuma, e e por isso que a figura larga cabe la.
 
    NAO "conserte" isto de novo sem medir a borda direita contra .trilha. */
@@ -2223,8 +2223,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 
 /* ---------- 57 · O SUB-CONCEITO NUMERADO ---------------------------------
-   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem da Pouchain
-   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 da Maria Pitanga.
+   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem do IC-A
+   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 do IC-B.
 
    Resolve o que o Rafael pediu duas vezes: "o conceito tem que ser dividido".
    Uma secao 02 que trata de duas ideias vira dois blocos com numero proprio,
@@ -2311,7 +2311,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 /* ---------- 58 · A MESA · a janela de contexto enchendo -------------------
    A unica peca de verdade nova das tres entregas de referencia, e a mais
-   didatica delas. A Pouchain mostra a MESMA barra em tres momentos da
+   didatica delas. O IC-A mostra a MESMA barra em tres momentos da
    conversa (mensagem 3, 20 e 40) e a pessoa VE a faixa das regras virar uma
    tirinha no meio de uma pilha. Explicar isso em prosa custa dois paragrafos
    e nao convence ninguem.
@@ -2411,8 +2411,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .vf[open] summary::after{content:"esconder"}
 
 /* ---------- 60 · O TESTE RÁPIDO ------------------------------------------
-   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do curso da
-   Maria Pitanga, onde cada card de gatilho termina com o critério de
+   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do IC-B,
+   onde cada card de gatilho termina com o critério de
    identificação -- herdamos a forma, nada do texto.
 
    É a peça mais barata do padrão e uma das mais fortes: sem ela o aluno sai
@@ -2436,7 +2436,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    errado NAQUELE campo. A .anatomia sozinha ensina o que o campo é; ela não
    ensina o que a sala vai fazer com ele.
 
-   Vem dos prints do curso da Mallory, onde a tabela de campos do prompt tem a
+   Vem dos prints do IC-D, onde a tabela de campos do prompt tem a
    coluna do erro ao lado do exemplo bom. É a diferença entre descrever o
    formulário e corrigir a prova.                                            */
 .anatomia.com-erro{grid-template-columns:170px 1fr 1fr 130px}
@@ -2744,7 +2744,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 /* ===========================================================================
    PAGINA DE MODULO — o nivel que faltava entre a capa e a aula
 
-   Extraido do m1/index.html do Claude na Pratica (Pouchain), a unica entrega
+   Extraido do m1/index.html do IC-A, a unica entrega
    com a hierarquia completa capa -> modulo -> aula. Nada aqui foi desenhado:
    os nomes de token foram traduzidos para o vocabulario do template
    (--radius -> --raio, --radius-sm -> --raio-p, --shadow-md -> --sombra) e
@@ -2778,7 +2778,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .aulas-lista{display:flex;flex-direction:column;gap:22px;
   margin-top:22px;margin-bottom:22px}
 /* 22px e o ritmo da casa: medido na capa, 7 de 7 gaps entre blocos de uma
-   secao dao exatamente 22. A Pouchain usa gap:16px com margin-bottom:56px;
+   secao dao exatamente 22. O IC-A usa gap:16px com margin-bottom:56px;
    eu tinha copiado o gap e largado a margem, e o cartao de explicacao ficava
    encostado no primeiro card, com ZERO respiro. A lista nao tem motivo para
    ser excecao ao ritmo, ainda mais com cartao de 355px de altura. */

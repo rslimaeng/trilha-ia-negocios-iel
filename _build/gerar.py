@@ -424,7 +424,7 @@ PAGINAS = {
 # 🔴 Esta é a ÚNICA cura de quebra de linha do padrão. text-wrap:balance e
 # text-wrap:pretty NÃO entram na prosa: eles reservam espaço no fim da linha e
 # criam o defeito oposto, a frase que quebra do nada com meia linha vazia.
-# Medido no Longevidade: 62 quebras assim com balance, 0 sem ele.
+# Medido no IC-C: 62 quebras assim com balance, 0 sem ele.
 # ---------------------------------------------------------------------------
 COLAM = {
     "a", "o", "as", "os", "um", "uma", "uns", "umas",
