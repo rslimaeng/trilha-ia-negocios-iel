@@ -1833,6 +1833,35 @@ MOSTRA_RESULTADO = ("prompt", "previa", "demo", "antes-depois", "calor", "passo"
                     "arquivo")
 
 
+# ---------------------------------------------------------------------------
+# AS DUAS CONVENCOES DE ID DE SECAO
+#
+# A trilha nomeia (id="conceito"); o Claude IEL numera (id="s02"). Pela tabela
+# mestra do COMO-EXECUTAR a posicao JA carrega o significado: 02 conceito,
+# 04 demonstracao. Gate que procura so o nome confere o ROTULO em vez da coisa.
+#
+# 🔴 Custou caro: em 01/09 o G49 acusou 13 aulas do Claude IEL que tinham
+# demonstracao boa, e o G47 e o G48 sairam CEGOS no mesmo site -- tres gates,
+# um defeito. O framework avisava nos tres ("calibrado: NAO"), e ninguem leu.
+# ---------------------------------------------------------------------------
+POSICAO_DA_SECAO = {"conceito": "s02", "demonstracao": "s04"}
+
+
+def secao_por_id(html, nome, com_tag=False):
+    """A secao pelo nome semantico OU pelo numero equivalente.
+
+    com_tag=True devolve o match com a tag de abertura no grupo 1 e o corpo no
+    grupo 2, que e o que os injetores de defeito precisam.
+    """
+    for ident in (nome, POSICAO_DA_SECAO[nome]):
+        alvo = '<section class="secao" id="%s">' % ident
+        pad = (r'(%s)(.*?)(</section>)' if com_tag else r'%s(.*?)</section>')
+        m = re.search(pad % re.escape(alvo), html, re.S)
+        if m:
+            return m
+    return None
+
+
 def g49_a_demonstracao_demonstra(rel, html):
     """🔴 A secao chamada DEMONSTRACAO tem de mostrar alguma coisa acontecendo.
 
@@ -1934,8 +1963,7 @@ def g48_o_contraste_mora_dentro_do_conceito(rel, html):
     limpo = _sem_css_nem_script(html)
     if not _tipo_da_aula(limpo):
         return []
-    m = re.search(r'<section class="secao" id="conceito">(.*?)</section>',
-                  limpo, re.S)
+    m = secao_por_id(limpo, "conceito")
     if not m:
         return []
     secao = m.group(1)
@@ -2005,8 +2033,7 @@ def g47_o_conceito_abre_com_a_peca(rel, html):
     limpo = _sem_css_nem_script(html)
     if not _tipo_da_aula(limpo):
         return []
-    m = re.search(r'<section class="secao" id="conceito">(.*?)</section>',
-                  limpo, re.S)
+    m = secao_por_id(limpo, "conceito")
     if not m:
         return []
     corpo = m.group(1)
@@ -2024,11 +2051,13 @@ def g47_o_conceito_abre_com_a_peca(rel, html):
 
 def _prosa_antes_da_peca(h):
     """Defeito injetado do G47: poe um paragrafo antes da primeira peca do conceito."""
-    m = re.search(r'(<section class="secao" id="conceito">\s*'
-                  r'<div class="secao-topo">.*?</div>\s*</div>)', h, re.S)
-    if not m:
-        return h
-    return h[:m.end(1)] + "\n<p>defeito injetado antes da peca</p>" + h[m.end(1):]
+    for ident in ("conceito", "s02"):
+        m = re.search(r'(<section class="secao" id="%s">\s*'
+                      r'<div class="secao-topo">.*?</div>\s*</div>)' % ident, h, re.S)
+        if m:
+            return (h[:m.end(1)] + "\n<p>defeito injetado antes da peca</p>"
+                    + h[m.end(1):])
+    return h
 
 
 # =========================================================================
@@ -2062,6 +2091,25 @@ VETADOS = {
 }
 
 
+
+def _extras_servidos():
+    """Arquivos que o GitHub Pages SERVE e que paginas() ignora de proposito.
+
+    🔴 paginas() pula _build ("e fonte, nao pagina publicada") e so olha .html.
+    Para quase todo gate isso esta certo: achado em fonte nao aparece na tela de
+    ninguem. Para o G50 a premissa e FALSA -- o Pages serve a raiz inteira do
+    repositorio, e em 01/09 o CLAUDE.md de um curso respondia 200 com 30 nomes
+    de cliente dentro, alem do proprio gerar.py.
+    """
+    fora = []
+    for p in glob.glob(os.path.join(RAIZ, "**", "*"), recursive=True):
+        if os.path.isdir(p) or not p.endswith((".md", ".py", ".css", ".js")):
+            continue
+        fora.append((os.path.relpath(p, RAIZ),
+                     io.open(p, encoding="utf-8", errors="replace").read()))
+    return sorted(fora)
+
+
 def g50_nome_de_cliente_nao_viaja(rel, html):
     """🔴 Nome de cliente nao entra em arquivo do template.
 
@@ -2078,7 +2126,38 @@ def g50_nome_de_cliente_nao_viaja(rel, html):
     quem decide e o humano, que e mais barato que deixar passar o inverso.
     """
     import hashlib
-    falhas = []
+
+    def varre(texto, onde, com_sentinela=True):
+        achados, vistos = [], set()
+        for palavra in re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ]{3,}", texto):
+            p = palavra.lower()
+            if p in vistos:
+                continue
+            vistos.add(p)
+            d = hashlib.sha256(p.encode("utf-8")).hexdigest()
+            if d in VETADOS:
+                # A sentinela mora no proprio gates.py por desenho -- e o que a
+                # calibracao injeta. Contar isso como achado faria o gate se
+                # acusar sozinho em todo curso, para sempre.
+                if VETADOS[d] == "sentinela" and not com_sentinela:
+                    continue
+                achados.append(
+                    "nome de cliente ({}) em {}: troque pelo codigo e registre "
+                    "no PROVENIENCIA-INTERNA.md".format(VETADOS[d], onde))
+        return achados
+
+    falhas = varre(html, rel)
+
+    # Os arquivos servidos que NAO sao pagina entram uma vez so, ancorados na
+    # capa -- que todo curso tem. Ancorar na primeira chamada daria achado
+    # atribuido a pagina aleatoria e dependente da ordem de iteracao.
+    if rel == "index.html":
+        for outro, texto in _extras_servidos():
+            falhas.extend(varre(texto, outro, com_sentinela=False))
+    return falhas
+
+
+def _g50_morto(rel, html):
     vistos = set()
     for palavra in re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ]{3,}", html):
         p = palavra.lower()

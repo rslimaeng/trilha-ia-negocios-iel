@@ -75,6 +75,7 @@ CURSO = {
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
              "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano",
+             "b3-redesenho", "b3-processo",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -82,6 +83,7 @@ TRILHA = [
         ("modulo-1",       "Os quatro blocos do módulo"),
         ("b1-fundamentos", "B1 · Primeiros resultados consistentes"),
         ("b2-analise",     "B2 · Análise e tomada de decisão"),
+        ("b3-redesenho",   "B3 · Redesenho e ganho real"),
     ]),
     ("As aulas do B1", [
         ("a1-degrau",   "Entenda os níveis de uso da IA"),
@@ -98,6 +100,9 @@ TRILHA = [
         ("b2-causa",    "Vá do número para a causa"),
         ("b2-decisao",  "Compare três caminhos antes de recomendar"),
         ("b2-plano",    "Amarre a decisão num plano com dono e prazo"),
+    ]),
+    ("As aulas do B3", [
+        ("b3-processo", "Escolha o processo que vale a pena mudar"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -391,6 +396,35 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b3-redesenho": dict(
+        titulo="B3 · Redesenhe o seu trabalho e entenda o ganho real",
+        kicker="Módulo 1 · Bloco 3 de 4",
+        h1="Redesenhe o seu trabalho e entenda o ganho real",
+        sub="Um processo seu aberto em passos, com o vazamento achado e o preço "
+            "calculado a partir do tempo que você mediu.",
+        selos=["Cinco aulas", "Traga a sua semana"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 (None, "Redesenho e ganho real")],
+    ),
+    "b3-processo": dict(
+        # 🔴 fundamento, como o recorte fechado do Rafael manda (01/09). Ela
+        # estreia TRES coisas que a trilha nunca disse -- os 6 Gatilhos, o PPBR
+        # e a varredura de duas passadas --, e por isso carrega mais explicacao
+        # do que producao. Leva canvas, figura de estrutura e destrave mesmo
+        # assim, porque a pessoa preenche a ficha dela aqui.
+        tipo="fundamento",
+        titulo="Aula 1 · Escolha o processo do seu trabalho que vale a pena mudar",
+        kicker="Módulo 1 · B3 · Redesenho e ganho real",
+        h1="Escolha o processo do seu trabalho que vale a pena mudar",
+        sub="Seis padrões para achar o que incomoda na sua semana, e a segunda pergunta "
+            "que transforma tarefa solta em processo escolhido.",
+        selos=["Traga a sua semana", "Vale para o bloco inteiro"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
                  (None, None)],
     ),
     "modulo": dict(
