@@ -309,40 +309,6 @@ Margem do total do período:
       sem ninguém entender por quê.</p>
     </div>
 
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b2planilha">Copiar</button>
-      </div>
-      <pre class="prompt-txt" id="pr-b2planilha">[P] Você é:
-Um analista de dados que separa a conta da interpretação, e que mostra a
-fórmula de tudo o que calcula.
-
-[C] Contexto:
-Anexei uma planilha de faturamento por pedido de um canal distribuidor.
-Sou gerente comercial e preciso entender uma queda de margem antes de
-decidir se mexo na alçada de desconto do time.
-
-[T] Tarefa:
-Só números, nesta etapa. Calcule a receita líquida total do período, a
-contagem de pedidos, e a margem do período mês a mês.
-
-[F] Formato:
-Ao lado de cada percentual, escreva em uma linha a fórmula que você usou
-para chegar nele.
-
-[L] Limitações:
-Não escreva análise, interpretação, causa nem recomendação agora. Se
-houver mais de uma forma defensável de calcular a margem do período,
-apresente as duas e diga qual responde a "quanto a empresa deixou de
-ganhar". Se alguma coluna estiver ambígua ou faltando, pergunte antes de
-calcular, em vez de assumir.
-
-[Critério de Sucesso]:
-A resposta serve se eu conseguir refazer cada número na planilha em
-menos de dois minutos, seguindo só a fórmula que você escreveu ao lado
-dele.</pre>
-    </div>
 
     <p class="fig-leg"><strong>Repare que este pedido é o oposto do da aula 4 do bloco
     anterior.</strong> Lá o "na dúvida" mandava palpitar, de propósito, para a invenção
@@ -420,9 +386,45 @@ o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
           <h3>Peça a conta, e só a conta</h3>
         </div>
       </div>
-      <p>Cole o pedido acima com a planilha anexada. <strong>Não peça nada de texto
-      ainda.</strong> Depois abra a planilha e confira o total e a contagem de linhas na
-      mão, que leva menos de um minuto.</p>
+      <p>Agora sim entram os números, e <strong>só eles</strong>. Cole o pedido abaixo
+      com a planilha anexada, e não peça nada de texto ainda. Depois abra a planilha e
+      confira o total e a contagem de linhas na mão, que leva menos de um minuto.</p>
+
+      <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido do passo 2, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b2planilha">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b2planilha">[P] Você é:
+Um analista de dados que separa a conta da interpretação, e que mostra a
+fórmula de tudo o que calcula.
+
+[C] Contexto:
+Anexei uma planilha de faturamento por pedido de um canal distribuidor.
+Sou gerente comercial e preciso entender uma queda de margem antes de
+decidir se mexo na alçada de desconto do time.
+
+[T] Tarefa:
+Só números, nesta etapa. Calcule a receita líquida total do período, a
+contagem de pedidos, e a margem do período mês a mês.
+
+[F] Formato:
+Ao lado de cada percentual, escreva em uma linha a fórmula que você usou
+para chegar nele.
+
+[L] Limitações:
+Não escreva análise, interpretação, causa nem recomendação agora. Se
+houver mais de uma forma defensável de calcular a margem do período,
+apresente as duas e diga qual responde a "quanto a empresa deixou de
+ganhar". Se alguma coluna estiver ambígua ou faltando, pergunte antes de
+calcular, em vez de assumir.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir refazer cada número na planilha em
+menos de dois minutos, seguindo só a fórmula que você escreveu ao lado
+dele.</pre>
+    </div>
+
 
       <div class="passo-ok">
         <div class="passo-ok-rot">Deu certo se</div>
@@ -450,6 +452,44 @@ o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
       saber <em>qual grupo</em> concentra a queda. Cruze por cliente, por linha de produto
       e por mês, e veja qual dos três cortes separa o problema com mais clareza. Quase
       sempre um deles concentra quase tudo, e é nele que se mexe.</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O pedido do passo 3, pronto para copiar e adaptar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-leitura">Copiar</button>
+        </div>
+        <pre class="prompt-txt" id="pr-b2planilha-leitura">[P] Você é:
+Um analista de negócio que procura onde o problema se concentra, em vez
+de descrever o problema inteiro.
+
+[C] Contexto:
+Na mesma conversa, com a mesma planilha. Os números do passo anterior
+estão conferidos. A minha pergunta é: a queda de margem veio de desconto
+concedido ou de mudança no mix de produto?
+
+[T] Tarefa:
+Responda à minha pergunta e mostre onde o problema se concentra. Traga o
+ranking de quem mais puxou a margem para baixo e quanto cada um pesa na
+queda total. Separe as duas causas concorrentes, desconto e mix, dizendo
+qual explica cada caso. Cruze por cliente, por linha de produto e por
+mês, e diga qual dos três cortes separa o problema com mais clareza. Diga
+também o que NÃO mudou no período.
+
+[F] Formato:
+Uma tabela por corte, e abaixo de cada uma, duas linhas dizendo o que ela
+revela. Ao lado de toda afirmação, o número que a sustenta.
+
+[L] Limitações:
+Nada de "observa-se uma tendência de queda": toda leitura nomeia alguma
+coisa, um cliente, uma linha ou um mês. Não recomende ação ainda. Se uma
+das duas causas não estiver sustentada pelos dados, diga isso em vez de
+forçar as duas. Se faltar coluna para fazer um dos cruzamentos,
+pergunte antes de responder, em vez de estimar.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir apontar, numa frase, onde mexer primeiro,
+e se a pessoa do lado conseguir conferir essa frase na planilha.</pre>
+      </div>
 
       <div class="destrave">
         <div class="destrave-rot">Se travar na leitura, peça nesta ordem</div>
@@ -488,6 +528,70 @@ o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
       <p>Só agora entra o texto. E o formato não é escolha de estilo: é a mesma decisão
       do <strong>F</strong> do PCTFL+CS, que você já tomou na aula 2. Diga quem lê, em
       quanto tempo, e o que essa pessoa precisa decidir depois de ler.</p>
+
+      <p><strong>A narrativa executiva tem três blocos, e é a ordem deles que faz o
+      trabalho:</strong> <strong>Situação</strong> (o que os dados mostram),
+      <strong>Interpretação</strong> (por que aconteceu) e <strong>Implicação</strong> (o
+      que precisa ser decidido, e por quem). O terceiro é o que quase nunca vem sozinho, e
+      é o único que a sua chefia realmente precisa.</p>
+
+      <div class="antes-depois">
+        <div class="ad antes">
+          <div class="ad-rot">Sem os três blocos</div>
+          <p>"A margem do período caiu de 25,6% em janeiro para 22,5% em julho."</p>
+          <p class="ad-mais">Correto, conferível, e não decide nada. É a primeira linha da
+          tabela escrita por extenso.</p>
+        </div>
+        <div class="ad-seta">&rarr;</div>
+        <div class="ad depois">
+          <div class="ad-rot">Com os três blocos</div>
+          <p>"A margem caiu 3,1 pontos entre janeiro e julho, e três dos doze clientes
+          respondem por 85% dessa queda. A causa é desconto concedido, que nesses três
+          saiu de 4,9% para até 14,4%, com o mix estável. A decisão necessária é rever a
+          alçada de desconto do time antes do fechamento do trimestre, e ela depende da
+          diretoria comercial."</p>
+          <p class="ad-mais">Mesmo dado, e agora existe alguma coisa para aprovar ou
+          recusar.</p>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O pedido do passo 4, pronto para copiar e adaptar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-narrativa">Copiar</button>
+        </div>
+        <pre class="prompt-txt" id="pr-b2planilha-narrativa">[P] Você é:
+Alguém que apresenta resultado para quem decide, e que trata cada palavra
+como espaço caro.
+
+[C] Contexto:
+Na mesma conversa, com a análise do passo anterior pronta. Quem lê é a
+minha diretora, em dois minutos, antes de uma reunião. Ela decide se
+autoriza mexer na alçada de desconto do time.
+
+[T] Tarefa:
+Escreva a narrativa executiva do principal achado, em exatos três
+parágrafos.
+
+[F] Formato:
+Parágrafo 1, Situação: o que os dados mostram, com o número principal.
+Parágrafo 2, Interpretação: por que isso aconteceu, com a causa que o
+cruzamento revelou.
+Parágrafo 3, Implicação: que decisão é necessária, e quem precisa ser
+acionado.
+No máximo 150 palavras no total.
+
+[L] Limitações:
+Nada de "vale destacar", "é importante notar" ou "observa-se". Sem jargão
+técnico e sem jargão de IA. Não repita a tabela por extenso: o número
+entra só onde ele sustenta a frase. Se algum dos três parágrafos não
+tiver sustentação na análise que fizemos, escreva "sem sustentação" nele
+em vez de preencher.
+
+[Critério de Sucesso]:
+A resposta serve se a minha diretora conseguir decidir depois de ler, sem
+me perguntar nada, e se eu puder colar isso num e-mail sem reescrever.</pre>
+      </div>
 
       <div class="canvas solta" data-chave="canvas-analise-executiva">
         <div class="canvas-topo">
@@ -563,6 +667,22 @@ o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
     página.</strong> Repare que a resposta longa que a IA produziu no caminho não é o
     entregável: é matéria-prima. O que sai daqui é a sua análise, com a conta conferida,
     a leitura nomeando gente e a decisão pedida com todas as letras.</p>
+
+    <div class="cartao">
+      <span class="rot">Se a resposta vier pela metade</span>
+      <p>Os quatro pedidos são pesados, e acontece de a IA resumir demais ou parar no meio
+      de uma frase. <strong>Não recomece do zero</strong>, que é o reflexo errado e custa a
+      conversa inteira. Três frases resolvem quase sempre:</p>
+      <ul class="lista">
+        <li><strong>Parou no meio da frase?</strong> Escreva apenas <em>"continue
+        exatamente de onde você parou"</em>. Ela retoma sem perder o que já tinha.</li>
+        <li><strong>Um dos passos veio raso?</strong> <em>"Refaça o passo 3. Você foi
+        superficial: aprofunde cruzando por cliente e por linha de produto."</em></li>
+        <li><strong>A base é grande demais e ela se perdeu?</strong> Volte a rodar
+        <strong>um passo por vez</strong>, em mensagens separadas. É mais lento e é o que
+        funciona quando a planilha tem muitas colunas.</li>
+      </ul>
+    </div>
   </section>
 
   <div class="ate-aqui">
