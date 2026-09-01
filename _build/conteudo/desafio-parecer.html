@@ -1,0 +1,171 @@
+  <section class="secao" id="a-tarefa">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A tarefa</div>
+        <h2>Fecha o mês, e alguém precisa dizer ao comitê o que aconteceu</h2>
+      </div>
+    </div>
+
+    <p>A base chega do jeito que a controladoria manda: uma linha por loja por dia,
+    <strong>600 linhas</strong>, onze colunas. Ninguém no comitê vai ler tabela. O
+    caminho de sempre é passar o dia montando dinâmica no Excel para sair com três
+    conclusões, e as três costumam ser óbvias, do tipo <em>"shopping vende mais que
+    interior"</em>.</p>
+
+    <p>O que se pede aqui é outra coisa: <strong>um parecer que caiba em quatro minutos de
+    leitura</strong>, com os achados que mudam uma decisão, o ranking das lojas e uma
+    recomendação de onde colocar dinheiro na quinzena seguinte.</p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso na vida real</span>
+      <p>Supervisor de rede, gerente comercial, controladoria, planejamento: qualquer
+      pessoa que recebe base grande e precisa devolver leitura curta. <strong>O que custa
+      hoje:</strong> um dia inteiro de tabela dinâmica, todo fechamento.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-contexto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O contexto</div>
+        <h2>Sem contexto de negócio, o que volta é estatística</h2>
+      </div>
+    </div>
+
+    <p>Média, mediana e desvio-padrão não decidem nada. O que separa <em>"loja caiu por
+    sazonalidade"</em> de <em>"loja caiu porque abriu concorrente na esquina"</em> não
+    está na coluna de faturamento: está no que só quem conhece o negócio sabe. Por isso o
+    pedido abaixo carrega quatro coisas que a planilha sozinha não diz.</p>
+
+    <ul class="lista">
+      <li><strong>Quem responde.</strong> Alguém que abre base grande e sai com achado que
+      vale decisão, não um relatório de quarenta páginas.</li>
+      <li><strong>Quem lê.</strong> Um comitê de oito pessoas ocupadas, que decide nos
+      primeiros parágrafos se continua lendo.</li>
+      <li><strong>O que aconteceu no mês.</strong> Uma linha de produto nova que entrou no
+      dia 3, uma loja com obra na praça, um concorrente que abriu no dia 15.</li>
+      <li><strong>O que é normal.</strong> Ticket médio e faturamento diário da rede, para
+      cada loja ter contra o que ser comparada.</li>
+    </ul>
+
+    <p class="fig-leg">Repare que os três primeiros itens são exatamente o que a aula 1 do
+    B2 chama de <strong>persona e hipótese</strong>, e o quarto é o que ela chama de
+    <strong>régua</strong>. O desafio não é um atalho para fora do curso: é o mesmo método
+    com o material já separado.</p>
+  </section>
+
+  <section class="secao" id="o-insumo">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O insumo</div>
+        <h2>Baixe e abra antes de colar</h2>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O arquivo deste desafio</span>
+        <p style="margin:0">Vendas diárias de uma rede fictícia: <strong>20 lojas × 30
+        dias = 600 linhas</strong>, em três abas: a base, o dicionário das lojas com o
+        perfil comercial de cada uma, e o contexto do mês. <strong>Empresa, praças e
+        valores são inventados</strong>, e é o formato que a controladoria de uma rede
+        costuma entregar.</p>
+      </div>
+      <a class="btn" href="../_arquivos/vendas-20-lojas-30-dias.xlsx">Baixar a planilha</a>
+    </div>
+
+    <p><strong>Abra as três abas antes de colar o pedido.</strong> Leva meio minuto e é o
+    que permite desconfiar depois: se o parecer disser que uma loja despencou, você já vai
+    saber onde conferir.</p>
+  </section>
+
+  <section class="secao" id="o-pedido">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">O pedido</div>
+        <h2>Cole isto com a planilha anexada</h2>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido do desafio 1, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-desafio-parecer">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-desafio-parecer">Anexei a base de vendas diárias de uma rede de 20 lojas ao longo de 30
+dias, com três abas: a base, o dicionário das lojas e o contexto do mês.
+Sou supervisor da rede e apresento amanhã ao comitê executivo, que tem
+oito pessoas e nenhum tempo.
+
+O que eu preciso: um parecer de quatro minutos de leitura, nesta ordem.
+Primeiro, uma frase que resuma o mês. Depois, os cinco achados que mudam
+uma decisão, cada um com o número que o sustenta e uma ação com prazo.
+Depois, o ranking das 20 lojas com a diferença de cada uma para o
+benchmark da rede. Por último, onde investir na próxima quinzena e o que
+parar de fazer. Ao lado de cada número, escreva em uma linha de onde ele
+saiu: qual coluna, qual filtro, qual período.
+
+Restrições: nada de achado óbvio. "Shopping vende mais que interior" e
+"fim de semana vende mais que segunda" não contam, e nem entram na lista.
+Procure a loja que quebrou o padrão, o cruzamento que revela oportunidade
+e a alavanca escondida no mix. Use só o que está no arquivo: o contexto
+do mês está na aba 3, e nenhum evento fora dela existiu.
+
+Na dúvida: se alguma coluna estiver ambígua, ou se um achado depender de
+um dado que a base não tem, pergunte antes de escrever, em vez de
+estimar. Antes de redigir o parecer, me devolva em três linhas a sua
+leitura do mês, as duas lojas que quebraram o padrão e o achado
+não-óbvio que já encontrou. Espere meu OK.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>O último parágrafo é o que segura a qualidade.</strong> Ele
+    obriga a IA a mostrar o raciocínio antes de produzir a peça bonita, e é aí que você
+    percebe, em três linhas em vez de três páginas, se ela entendeu a base ou está
+    inventando.</p>
+  </section>
+
+  <section class="secao" id="o-que-conferir">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A conferência</div>
+        <h2>Quatro coisas para checar antes de acreditar no parecer</h2>
+      </div>
+    </div>
+
+    <p>O parecer volta bonito. Isso não quer dizer que está certo, e a diferença entre as
+    duas coisas é você abrir a planilha. <strong>Os quatro números abaixo saem de contas
+    simples na própria base</strong>, e conferir os quatro leva menos de cinco minutos.</p>
+
+    <div class="cartao">
+      <span class="rot">Confira na planilha</span>
+      <ul class="lista">
+        <li><strong>O faturamento total do período.</strong> É a soma da coluna de
+        faturamento, e o parecer tem que bater com ela.</li>
+        <li><strong>As duas lojas que ficaram sem a linha nova.</strong> Some a coluna da
+        linha nova por loja: exatamente duas fecham em zero, e as duas são de interior.</li>
+        <li><strong>A loja que caiu depois do dia 15.</strong> Compare a média diária dela
+        antes e depois. Se o parecer apontar outra loja, ele errou.</li>
+        <li><strong>A loja com obra na praça.</strong> A queda dela está presa a uma
+        janela de oito dias, não ao mês inteiro. Um parecer que disser "caiu no mês"
+        está lendo errado.</li>
+      </ul>
+    </div>
+
+    <p>Se algum dos quatro não bater, <strong>volte e pergunte de onde saiu o número</strong>
+    em vez de recomeçar. É a mesma conversa da aula 4 do bloco 1: o pedido de fonte é o
+    que separa erro de invenção.</p>
+
+    <div class="cartao">
+      <span class="rot">Se o resultado vier raso</span>
+      <p>Três frases resolvem quase sempre. <em>"Os cinco achados ficaram óbvios; me dá
+      três que só quem leu linha a linha veria."</em> · <em>"Para cada uma das três
+      primeiras e das três últimas do ranking, explique em uma linha por que ela está
+      ali."</em> · <em>"A recomendação está vaga: diga quanto, em qual loja e em quantas
+      semanas."</em></p>
+    </div>
+  </section>

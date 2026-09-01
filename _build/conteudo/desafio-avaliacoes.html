@@ -1,0 +1,163 @@
+  <section class="secao" id="a-tarefa">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A tarefa</div>
+        <h2>Cento e cinquenta textos soltos, e uma reunião na segunda de manhã</h2>
+      </div>
+    </div>
+
+    <p>Você responde por cinco lojas e tem reunião com os cinco gerentes na segunda às 8h.
+    As avaliações que os clientes deixaram nas últimas quatro semanas estão todas ali,
+    <strong>150 delas, trinta por loja</strong>, e ler uma por uma, marcar tema por tema
+    e cruzar por loja consome o fim de semana inteiro.</p>
+
+    <p>Este é o desafio de análise que <strong>nenhuma aula do bloco 2 cobre</strong>. Lá o
+    material é número; aqui é texto solto, escrito por gente diferente, sem coluna nenhuma
+    para somar. E a pergunta é a mesma: <strong>o que se repete, e o que fazer a
+    respeito.</strong></p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso na vida real</span>
+      <p>Quem cuida de mais de uma unidade, de atendimento ou de relacionamento com
+      cliente. Vale igual para reclamação em formulário, resposta de pesquisa e conversa de
+      suporte. <strong>O que custa hoje:</strong> seis a oito horas de leitura e tabulação
+      na mão, toda semana.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-contexto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O contexto</div>
+        <h2>A pergunta que vale é qual problema é de quem</h2>
+      </div>
+    </div>
+
+    <p>Sem contexto, o que volta é <em>"sugerimos investir em atendimento"</em>, verdadeiro,
+    inútil, e igual para qualquer empresa. O que transforma a leitura em pauta de reunião é
+    uma distinção só: <strong>o que aparece nas cinco lojas é problema da operação central;
+    o que aparece em uma é problema daquele gerente.</strong> Os dois têm dono diferente, e
+    misturar os dois é o que faz reunião não decidir nada.</p>
+
+    <ul class="lista">
+      <li><strong>Quem responde.</strong> Alguém que sabe que avaliação isolada é ruído, e
+      que o que importa é o padrão que se repete.</li>
+      <li><strong>Quem lê.</strong> Cinco gerentes, numa reunião de operação, que precisam
+      sair com tarefa e não com diagnóstico.</li>
+      <li><strong>O que existe.</strong> Cinco lojas com perfis diferentes: centro,
+      shopping, rua e duas de bairro.</li>
+      <li><strong>Para quando.</strong> As próximas duas semanas, que é o horizonte em que
+      alguém consegue mesmo mexer.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="o-insumo">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O insumo</div>
+        <h2>Baixe e leia cinco avaliações antes de colar</h2>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O arquivo deste desafio</span>
+        <p style="margin:0"><strong>150 avaliações de clientes</strong> de cinco lojas de
+        uma rede fictícia, trinta por loja, com data, loja, autor, nota de 1 a 5 e o texto
+        da avaliação. <strong>Pessoas, lojas e textos são inventados</strong>, e o formato
+        é o mesmo que se exporta de qualquer plataforma de avaliação.</p>
+      </div>
+      <a class="btn" href="../_arquivos/avaliacoes-5-lojas.xlsx">Baixar a planilha</a>
+    </div>
+
+    <p><strong>Leia cinco delas antes de colar o pedido.</strong> Cinco bastam para você
+    formar a sua própria impressão, e é contra ela que você vai comparar o que a IA
+    devolver. Sem essa impressão, qualquer resposta parece boa.</p>
+  </section>
+
+  <section class="secao" id="o-pedido">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">O pedido</div>
+        <h2>Cole isto com a planilha anexada</h2>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido do desafio 2, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-desafio-avaliacoes">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-desafio-avaliacoes">Anexei 150 avaliações de clientes de cinco lojas de uma rede, trinta por
+loja, das últimas quatro semanas. Cada linha tem a data, a loja, o autor,
+a nota de 1 a 5 e o texto. Respondo pelas cinco lojas e tenho reunião com
+os cinco gerentes na segunda às 8h.
+
+O que eu preciso: primeiro o quadro geral, com a nota média, a proporção
+de avaliações de nota 3 ou menos, e qual loja está melhor e pior. Depois
+os temas que se repetem, entre seis e nove, cada um com quantas
+avaliações o citam, se o tom é positivo ou negativo, e dois trechos
+literais que o sustentem. Depois o cruzamento de cada loja por cada tema,
+para eu ver de bater o olho onde está concentrado. Por último, três ações
+para as próximas duas semanas, cada uma dizendo em qual loja e de quem é.
+
+Restrições: separe o que aparece nas cinco lojas do que aparece em uma
+só, porque o primeiro é problema da operação central e o segundo é do
+gerente daquela loja. Não misture os dois na mesma lista. Todo tema
+precisa vir com trecho literal do arquivo; se você não conseguir citar
+o trecho, o tema não entra. Ação genérica do tipo "melhorar a
+comunicação" não conta.
+
+Na dúvida: se uma avaliação puder ser lida de duas formas, diga as duas
+em vez de escolher a mais conveniente. Antes de montar o resultado, me
+devolva quantas avaliações leu por loja, a sua leitura geral em um
+parágrafo e a lista dos temas que agrupou. Espere meu OK.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A restrição do trecho literal é a peça central deste
+    pedido.</strong> Tema sem citação é tema que a IA deduziu do assunto geral, não das
+    suas avaliações, e é exatamente assim que um relatório plausível se descola do que os
+    seus clientes escreveram.</p>
+  </section>
+
+  <section class="secao" id="o-que-conferir">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A conferência</div>
+        <h2>Em texto, conferir é procurar o trecho</h2>
+      </div>
+    </div>
+
+    <p>Análise de número se confere refazendo a conta. <strong>Análise de texto se confere
+    procurando a frase.</strong> É mais rápido do que parece, e é a única forma de saber se
+    o padrão existe ou se foi a IA que o organizou bonito.</p>
+
+    <div class="cartao">
+      <span class="rot">Confira na planilha</span>
+      <ul class="lista">
+        <li><strong>Pegue dois trechos citados e procure na coluna de texto.</strong> Se a
+        frase não estiver lá exatamente como foi citada, o tema inteiro fica sob suspeita.</li>
+        <li><strong>Confira a contagem de um tema.</strong> Escolha o tema mais frequente e
+        conte quantas linhas realmente o mencionam. Diferença pequena é critério; diferença
+        grande é invenção.</li>
+        <li><strong>Confira a nota média.</strong> É a média da coluna de nota, e leva
+        dez segundos.</li>
+        <li><strong>Procure o nome próprio.</strong> Se um atendente aparecer citado, veja
+        se ele aparece em uma loja só. Elogio ou queixa concentrada em uma pessoa é o tipo
+        de achado que muda a conversa com o gerente.</li>
+      </ul>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Se o resultado vier raso</span>
+      <p><em>"Esse tema ficou vago; junte com o outro e me mostre os trechos exatos que
+      sustentam os dois."</em> · <em>"As ações estão genéricas: me dê três específicas para
+      a loja com a pior nota."</em> · <em>"Separe de novo o que é padrão da rede do que é de
+      uma loja. A sua lista misturou os dois."</em></p>
+    </div>
+  </section>

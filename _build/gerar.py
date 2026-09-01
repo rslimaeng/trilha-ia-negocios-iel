@@ -76,6 +76,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "a4-inventa", "a5-cerca",
              "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano",
              "b3-redesenho", "b3-processo",
+             "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -103,6 +104,15 @@ TRILHA = [
     ]),
     ("As aulas do B3", [
         ("b3-processo", "Escolha o processo que vale a pena mudar"),
+    ]),
+    # 🔴 O banco NAO mora dentro de bloco nenhum, e e decisao do Rafael (01/09).
+    # Ele atravessa o curso: o desafio 7 espera o modulo 2 e o 8 espera o B4. Se
+    # nascesse dentro do B2, morreria com o B2.
+    ("Banco de Desafios", [
+        ("desafios",           "Para quem não trouxe material seu"),
+        ("desafio-parecer",    "1 · Planilha vira parecer executivo"),
+        ("desafio-avaliacoes", "2 · Avaliações viram painel"),
+        ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -427,6 +437,62 @@ PAGINAS = {
                  ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
                  (None, None)],
     ),
+    # -----------------------------------------------------------------------
+    # O BANCO DE DESAFIOS
+    #
+    # 🔴 Nenhuma das quatro leva tipo=. Elas nao sao aula: nao tem situacao,
+    # conceito nem "sua vez", e o contrato de tipo do G43 cobraria pecas que
+    # aqui nao fazem sentido. O hub do banco e irmao do hub de bloco.
+    #
+    # Existe porque a turma online chega sem material proprio, e sem isso a
+    # pessoa fica parada na hora do exercicio. Medido na aula de 31/08: o
+    # Rafael parou a turma DUAS vezes para coletar rotina, e nao havia lugar
+    # nenhum no site onde a resposta coubesse.
+    # -----------------------------------------------------------------------
+    "desafios": dict(
+        titulo="Banco de Desafios · material pronto para praticar",
+        kicker="Vale para o curso inteiro",
+        h1="Banco de Desafios",
+        sub="Se você não trouxe uma rotina sua para a aula de hoje, escolha um destes "
+            "e rode agora: o arquivo e o pedido já vêm prontos.",
+        selos=["Oito desafios", "Insumo e pedido prontos"],
+        migalha=[("../", "IA para Negócios"),
+                 (None, "Banco de Desafios")],
+    ),
+    "desafio-parecer": dict(
+        titulo="Desafio 1 · 600 linhas de planilha viram um parecer executivo",
+        kicker="Banco de Desafios · 1 de 8",
+        h1="600 linhas de planilha → parecer executivo para o comitê",
+        sub="Uma base de 20 lojas em 30 dias, e a leitura de quatro minutos que decide "
+            "onde investir na quinzena seguinte.",
+        selos=["Planilha de 600 linhas", "Dados fictícios"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../desafios/", "Banco de Desafios"),
+                 (None, None)],
+    ),
+    "desafio-avaliacoes": dict(
+        titulo="Desafio 2 · 150 avaliações viram um painel de reunião",
+        kicker="Banco de Desafios · 2 de 8",
+        h1="150 avaliações de clientes → painel para a reunião de segunda",
+        sub="Texto solto, escrito por gente diferente, sem coluna para somar, e a "
+            "mesma pergunta: o que se repete, e o que fazer.",
+        selos=["150 avaliações", "Análise de texto"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../desafios/", "Banco de Desafios"),
+                 (None, None)],
+    ),
+    "desafio-plano": dict(
+        titulo="Desafio 3 · uma transcrição vira plano de 30 dias",
+        kicker="Banco de Desafios · 3 de 8",
+        h1="1 transcrição de reunião → plano de 30 dias com dono e prazo",
+        sub="A conversa de equipe que sempre vira nada, convertida em prioridade, "
+            "dono e prazo, com o critério de gravidade já dado.",
+        selos=["Transcrição de reunião", "Dados fictícios"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../desafios/", "Banco de Desafios"),
+                 (None, None)],
+    ),
+
     "modulo": dict(
         titulo="Nome do Módulo",
         kicker="Módulo 1 de N",
