@@ -21,6 +21,7 @@ import os
 import re
 import sys
 import glob
+import unicodedata
 import json
 import importlib.util
 
@@ -2110,6 +2111,101 @@ def _extras_servidos():
     return sorted(fora)
 
 
+
+# ---------------------------------------------------------------------------
+# G51 · A PROMESSA DA EMENTA TEM ENDERECO
+#
+# 🔴 O PRIMEIRO GATE DE CONTEUDO. Os 50 anteriores sao todos de FORMA, e foi
+# por isso que o defeito de 01/09/2026 passou: o PCTFL -- declarado no
+# COMO-EXECUTAR como "o padrao-base do curso inteiro" e prometido na ementa
+# como entregavel do M2 -- apareceu ZERO vezes nas 12 aulas publicadas de um
+# curso, e as 12 passavam em 1.372 checagens com 0 achados.
+#
+# O fio 5 avisava disso desde 31/08 ("nenhum gate e de conteudo") e ninguem
+# fechou. Este gate fecha.
+#
+# ELE NAO LE CONTEUDO. Conta TERMO DECLARADO, que e mecanico e contavel:
+# quem escreve o curso lista em _build/promessas.json o que a ementa promete
+# e em que bloco, e o gate confere que cada termo aparece pelo menos uma vez
+# la dentro, com FRONTEIRA DE PALAVRA (senao "IPO" casa em "equipo").
+#
+# O que ele NAO pega, e esta declarado de proposito: o termo estar presente
+# nao prova que foi ENSINADO. Uma mencao de passagem passa. O gate troca
+# "ausencia silenciosa" por "presenca visivel", que era o buraco real.
+# ---------------------------------------------------------------------------
+
+def texto_visivel(html):
+    """So o que o aluno LE: sem script, style, comentario HTML nem tag.
+
+    🔴 Nasceu de um falso negativo do G51 em 01/09/2026: o termo "criterio de
+    sucesso" aparecia 1x no HTML de cada aula de um curso e ZERO vezes na tela --
+    estava dentro de um COMENTARIO CSS que dizia "e isso que o aluno leva como
+    metodo". O gate teria passado verde para um metodo que ninguem ve.
+    """
+    limpo = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
+    limpo = re.sub(r"<!--.*?-->", " ", limpo, flags=re.S)
+    return re.sub(r"<[^>]+>", " ", limpo)
+
+
+def _promessas():
+    """O contrato ementa -> bloco, se o curso declarou um.
+
+    Formato de _build/promessas.json:
+
+        {"PCTFL": {"blocos": ["b1-", "b2-"], "fonte": "ementa M2, entregavel"},
+         "PPBR":  {"blocos": ["b3-"],        "fonte": "ementa M3"}}
+
+    "blocos" sao PREFIXOS de slug de pagina. Sem o arquivo, o gate se declara
+    nao calibrado em vez de passar verde -- que e o que o framework ja faz com
+    gate que nenhuma pagina exercita.
+    """
+    caminho = os.path.join(AQUI, "promessas.json")
+    if not os.path.exists(caminho):
+        return None
+    return json.loads(io.open(caminho, encoding="utf-8").read())
+
+
+def g51_promessa_da_ementa_tem_endereco(rel, html):
+    """Todo termo que a ementa promete aparece no bloco onde foi prometido."""
+    if rel != "index.html":
+        return []
+    contrato = _promessas()
+    if not contrato:
+        return []
+    corpo = {r: h for r, h in paginas()}
+    # O injetor da calibracao mexe no html RECEBIDO, nao no disco. Sem esta
+    # linha o gate leria o arquivo original e o defeito injetado sumiria.
+    corpo[rel] = html
+    falhas = []
+    for rotulo, regra in sorted(contrato.items()):
+        if rotulo.startswith("_"):
+            continue
+        # O rotulo e a chave do contrato e pode ser descritivo ("PCTFL no B1"),
+        # porque o MESMO termo costuma ser prometido em mais de um bloco por
+        # razoes diferentes. O que se procura e "termo", com o rotulo de fallback.
+        termo = regra.get("termo") or rotulo
+        prefixos = regra.get("blocos") or []
+        alvo = [r for r in corpo if any(r.startswith(p) for p in prefixos)]
+        if not alvo:
+            falhas.append(
+                "promessa {!r}: nenhuma pagina com prefixo {} existe ainda".format(
+                    rotulo, prefixos))
+            continue
+        # Acento nao pode decidir o resultado: quem escreve o contrato digita
+        # "criterio" e a pagina diz "criterio" com acento -- falso positivo.
+        # Aconteceu na primeira sincronizacao, em 01/09/2026.
+        def _sa(t):
+            return "".join(c for c in unicodedata.normalize("NFD", t)
+                           if unicodedata.category(c) != "Mn")
+        padrao = r"(?<![\w-])" + re.escape(_sa(termo)) + r"(?![\w-])"
+        onde = [r for r in alvo if re.search(padrao, _sa(texto_visivel(corpo[r])), flags=re.I)]
+        if not onde:
+            falhas.append(
+                "promessa {!r} SEM ENDERECO: o termo {!r} foi prometido em {} e esta ausente nas {} pagina(s) do bloco ({})".format(
+                    rotulo, termo, regra.get("fonte", "ementa"), len(alvo), ", ".join(sorted(alvo))))
+    return falhas
+
+
 def g50_nome_de_cliente_nao_viaja(rel, html):
     """🔴 Nome de cliente nao entra em arquivo do template.
 
@@ -2331,6 +2427,8 @@ GATES = [
      "componentes/index.html"),
     ("G50", "nome de cliente não viaja com o template", g50_nome_de_cliente_nao_viaja,
      lambda h: h.replace("<h1>", "<h1>Clientesentinela ", 1), None),
+    ("G51", "a promessa da ementa tem endereço", g51_promessa_da_ementa_tem_endereco,
+     lambda h: "", "index.html"),
 ]
 
 def main():

@@ -1,0 +1,39 @@
+{
+  "_leia-me": "Contrato do G51: o que a ementa promete x em que bloco. 'blocos' sao PREFIXOS de slug. So entram blocos FECHADOS -- bloco em construcao nao tem promessa cobrada, e o termo entra quando o bloco fecha. E assim que o gate vira checagem de fechamento: item sem endereco = bloco nao pronto.",
+  "PCTFL no B1": {
+    "termo": "PCTFL",
+    "blocos": [
+      "a1-",
+      "a2-",
+      "a3-",
+      "a4-",
+      "a5-",
+      "b1-"
+    ],
+    "fonte": "ementa M2 — entregavel declarado: Biblioteca com 5 prompts PCTFL por area"
+  },
+  "PCTFL no B2": {
+    "termo": "PCTFL",
+    "blocos": [
+      "b2-"
+    ],
+    "fonte": "COMO-EXECUTAR — padrao-base do curso inteiro, atravessa os blocos"
+  },
+  "criterio de sucesso no B2": {
+    "termo": "criterio de sucesso",
+    "blocos": [
+      "b2-"
+    ],
+    "fonte": "o campo que fecha o PCTFL+CS"
+  },
+  "_pendente-IPO": "IPO e prometido na ementa M4 e entra no contrato quando a aula 3 do B3 existir. Hoje o B3 tem so a aula 1.",
+  "_pendente-B3": "6 Gatilhos e PPBR ja aparecem na aula 1 do B3, mas o bloco esta em construcao: entram no contrato quando o B3 fechar.",
+  "_calibracao": "O injetor do G51 ESVAZIA o html do index, entao todo contrato precisa de uma promessa apontando para index.html -- sem ela o gate nasce cego, e gate cego reprova a suite inteira.",
+  "SENTINELA da capa": {
+    "termo": "Trilha Completa",
+    "blocos": [
+      "index.html"
+    ],
+    "fonte": "calibracao do G51, nao e promessa de ementa"
+  }
+}
