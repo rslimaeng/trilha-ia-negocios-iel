@@ -599,6 +599,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    porque e o que o curso usa; a colisao fica neutralizada aqui. */
 .prompt-txt.degrau{display:block;border-left:3px solid var(--ok)}
 
+/* O PEDIDO DE PESQUISA PROFUNDA, terceira irma das duas de cima. Ele e escrito
+   em PROSA CORRIDA, sem rotulo, porque e o padrao proprio do Rafael para
+   pesquisa (o PHFE) e nao o PCTFL+CS do resto da trilha -- decisao dele em
+   02/09/2026: "e usar o novo para pesquisa e fim, acabou".
+
+   A borda a esquerda diz na pagina que este pedido e de outro tipo, e o G5 usa
+   a mesma classe para nao cobrar dele os seis campos. A dispensa la esta presa
+   a aula b2-fontes, para nao virar porta dos fundos. */
+.prompt-txt.pesquisa{border-left:3px solid var(--accent)}
+
 /* ---------- 12 · TABELA --------------------------------------------------- */
 .tabela{
   overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
@@ -3195,13 +3205,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <h4>Um&nbsp;prompt mais comprido</h4>
           <p>Comprimento não&nbsp;é profundidade. O&nbsp;que&nbsp;muda o&nbsp;resultado é a&nbsp;hipótese, não&nbsp;o&nbsp;tamanho.</p></div>
         <div class="ctr nao"><span class="ctr-selo">Não é</span>
-          <h4>Um&nbsp;padrão que&nbsp;compete com&nbsp;o&nbsp;do&nbsp;curso</h4>
-          <p>São dois níveis: estas quatro decisões, e&nbsp;o&nbsp;pedido de&nbsp;seis campos que&nbsp;você já&nbsp;escreve.</p></div>
+          <h4>Um&nbsp;pedido comprido escrito de&nbsp;improviso</h4>
+          <p>As&nbsp;quatro decisões vêm antes de&nbsp;escrever. Quem começa a&nbsp;escrever já&nbsp;decidiu.</p></div>
       </div>
       <p class="fig-leg"><strong>O&nbsp;quarto cartão é o&nbsp;que&nbsp;evita a&nbsp;confusão que&nbsp;essa aula
-      costuma causar.</strong> Ninguém troca de&nbsp;padrão aqui. As&nbsp;quatro decisões acontecem
-      na&nbsp;sua&nbsp;cabeça e&nbsp;depois entram, cada uma,&nbsp;num&nbsp;campo do&nbsp;pedido que&nbsp;você já&nbsp;sabe
-      escrever.</p>
+      costuma causar.</strong> Pesquisa profunda não&nbsp;é o&nbsp;pedido do&nbsp;dia a&nbsp;dia com&nbsp;mais
+      linhas. É um&nbsp;pedido de&nbsp;outro tipo, e&nbsp;as&nbsp;quatro decisões são o&nbsp;que&nbsp;o&nbsp;distingue.</p>
 
       <div class="analogia">
         <div class="analogia-rot">É como a diferença entre a descrição do imóvel e a vistoria antes de assinar</div>
@@ -3274,51 +3283,49 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     toda pesquisa profissional parte de&nbsp;alguma crença, explícita ou&nbsp;não.&nbsp;Estas quatro
     decisões só&nbsp;tiram a&nbsp;sua&nbsp;da&nbsp;sua&nbsp;cabeça e&nbsp;a&nbsp;colocam na&nbsp;mesa.</p>
 
-    <h3>Onde&nbsp;cada decisão entra no&nbsp;pedido que&nbsp;você já&nbsp;escreve</h3>
+    <h3>Onde&nbsp;cada decisão aparece no&nbsp;pedido</h3>
 
-    <p><strong>Não&nbsp;são dois padrões concorrentes: são dois níveis.</strong> O&nbsp;<strong>PHFE</strong> é um&nbsp;pré-pedido: quatro decisões que&nbsp;acontecem antes e&nbsp;organizam
-    o&nbsp;pensamento. O&nbsp;pedido que&nbsp;vai para&nbsp;a&nbsp;IA continua sendo o&nbsp;<strong>PCTFL+CS</strong>,
-    nos&nbsp;seis campos que&nbsp;você usa desde&nbsp;o&nbsp;bloco 1. <strong>Um&nbsp;decide, o&nbsp;outro
-    escreve.</strong></p>
+    <p>O&nbsp;pedido de&nbsp;pesquisa profunda não&nbsp;tem rótulo nem campo separado: ele é escrito
+    corrido, e&nbsp;<strong>cada uma&nbsp;das&nbsp;quatro decisões vira um&nbsp;trecho dele</strong>. A&nbsp;tabela
+    abaixo mostra onde&nbsp;cada uma&nbsp;cai, para&nbsp;você localizar as&nbsp;suas&nbsp;quando&nbsp;for adaptar.</p>
 
     <div class="tabela">
       <table>
         <thead>
-          <tr><th>A decisão</th><th>Vira conteúdo de qual campo</th><th>Como aparece escrito</th></tr>
+          <tr><th>A decisão</th><th>Onde ela fica</th><th>Como aparece escrita</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>P</strong> &middot; Persona</td>
-            <td>o <strong>[P] Papel / Persona</strong></td>
-            <td>"um analista de inteligência de mercado que não afirma nada sem poder
-            mostrar onde leu"</td>
+            <td>a primeira frase, o "atue como"</td>
+            <td>"atue como um analista de risco sênior especializado na indústria
+            de [SEU SETOR]"</td>
           </tr>
           <tr>
             <td><strong>H</strong> &middot; Hipótese</td>
-            <td>o <strong>[C] Contexto</strong></td>
-            <td>"a minha hipótese é que a queda vem do desconto concedido, e não do mix
-            de produto"</td>
+            <td>a frase do que você acredita, logo depois</td>
+            <td>"a minha hipótese é que a queda de margem vem de desconto concedido, e não
+            do mix de produto"</td>
           </tr>
           <tr>
             <td><strong>F</strong> &middot; Fontes</td>
-            <td>as <strong>[L] Limitações</strong></td>
-            <td>"use relatório setorial e imprensa especializada. Não use fórum nem página
-            de quem vende a solução"</td>
+            <td>o "busque em" e o "ignore"</td>
+            <td>"busque em relatório de consultoria e portal especializado. Ignore
+            informação genérica"</td>
           </tr>
           <tr>
             <td><strong>E</strong> &middot; Estrutura</td>
-            <td>o <strong>[F] Formato</strong></td>
-            <td>"uma tabela com uma linha por prática, com a fonte e o ano na própria
-            linha"</td>
+            <td>o "entregue", no fim</td>
+            <td>"entregue um relatório com 3 seções: riscos de mercado, riscos
+            operacionais, recomendações"</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p class="fig-leg"><strong>Repare no&nbsp;cruzamento das&nbsp;duas linhas do&nbsp;meio</strong>, que&nbsp;é
-    onde&nbsp;a&nbsp;confusão mora: a&nbsp;decisão sobre&nbsp;<em>fontes</em> vira uma&nbsp;limitação, e&nbsp;a&nbsp;decisão
-    sobre&nbsp;<em>estrutura</em> vira o&nbsp;formato. As&nbsp;duas primeiras letras de&nbsp;cada lado não&nbsp;são
-    a&nbsp;mesma coisa, e&nbsp;é por&nbsp;isso que&nbsp;vale ter a&nbsp;tabela na&nbsp;tela em&nbsp;vez de&nbsp;na&nbsp;memória.</p>
+    <p class="fig-leg"><strong>Repare que&nbsp;as&nbsp;duas do&nbsp;meio são as&nbsp;que&nbsp;somem quando&nbsp;alguém
+    escreve com&nbsp;pressa.</strong> Sem&nbsp;a&nbsp;hipótese, você recebe o&nbsp;resumo do&nbsp;assunto. Sem&nbsp;as&nbsp;fontes, você recebe o&nbsp;que&nbsp;estiver mais bem posicionado na&nbsp;internet. As&nbsp;duas pontas,
+    quem responde e&nbsp;o&nbsp;que&nbsp;entregar, todo mundo lembra de&nbsp;escrever.</p>
 
     <h3>O&nbsp;caso que&nbsp;prova que&nbsp;a&nbsp;hipótese muda o&nbsp;resultado</h3>
 
@@ -3445,43 +3452,34 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <span class="prompt-rot">O pedido da direita, inteiro, com as quatro decisões dentro</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2fontes-phfe">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2fontes-phfe">[P] Papel / Persona:
-Um analista de inteligência de mercado que levanta prática comercial em
-fonte publicada, e que não afirma nada sem poder mostrar onde leu.
+      <pre class="prompt-txt pesquisa" id="pr-b2fontes-phfe">Atue como um analista de inteligência de mercado que levanta prática
+comercial em fonte publicada, e que não afirma nada sem poder mostrar
+onde leu.
 
-[C] Contexto:
 Sou gerente comercial de uma distribuidora de insumos industriais no
 Nordeste, e preciso decidir nas próximas duas semanas se mexo na alçada
 de desconto do time. A minha hipótese é que a queda de margem vem de
 desconto concedido, e não de mix de produto.
 
-[T] Tarefa:
 Teste essa hipótese, procurando também o que a contraria. Levante o que
 se pratica hoje em desconto comercial na distribuição industrial no
-Brasil: o intervalo típico, o que costuma justificar desconto acima
-desse intervalo, e dois ou três casos comparáveis.
+Brasil: 1. o intervalo típico; 2. o que costuma justificar desconto
+acima desse intervalo; 3. dois ou três casos comparáveis.
 
-[F] Formato:
-Uma tabela com uma linha por prática, tendo a fonte e o ano na própria
-linha. Depois, meia página de leitura. No fim, três perguntas que eu
-ainda precisaria responder.
-
-[L] Limitações:
 Use relatório setorial, publicação de associação do setor, imprensa
 especializada e dado público de empresa aberta. Não use fórum, post de
 rede social nem página de fornecedor que vende solução para este
-problema. Toda linha da tabela leva o link e o ano. Se não houver fonte
-para uma afirmação, escreva "sem fonte" na coluna em vez de estimar, e
-liste no fim as três maiores incertezas deste levantamento.
+problema. Se não houver fonte para uma afirmação, escreva "sem fonte"
+em vez de estimar.
 
-[Critério de Sucesso]:
-A resposta serve se eu conseguir abrir cada link citado e achar a
-afirmação lá dentro, sem precisar procurar em outro lugar para saber se
-aquilo foi mesmo publicado.</pre>
+Entregue uma tabela com uma linha por prática, tendo a fonte e o ano na
+própria linha. Depois, meia página de leitura, e no fim as três maiores
+incertezas deste levantamento. Cite todas as fontes.</pre>
     </div>
 
     <p class="fig-leg"><strong>As&nbsp;quatro decisões estão todas aí dentro, e&nbsp;vale localizar
-    cada uma.</strong>&nbsp;A&nbsp;<strong>persona</strong> é a&nbsp;primeira frase. A&nbsp;<strong>hipótese</strong> é a&nbsp;última do&nbsp;contexto, e&nbsp;veio do&nbsp;seu&nbsp;cartão da&nbsp;aula 1. As&nbsp;<strong>fontes</strong> ocupam as&nbsp;limitações inteiras. A&nbsp;<strong>estrutura</strong> é o&nbsp;formato. <strong>Troque o&nbsp;contexto pelo&nbsp;seu</strong>, e&nbsp;o&nbsp;resto continua funcionando.</p>
+    cada uma.</strong>&nbsp;A&nbsp;<strong>persona</strong> é a&nbsp;primeira frase. A&nbsp;<strong>hipótese</strong> fecha o&nbsp;segundo parágrafo, e&nbsp;veio do&nbsp;seu&nbsp;cartão da&nbsp;aula 1. As&nbsp;<strong>fontes</strong> são o&nbsp;parágrafo do&nbsp;"use" e&nbsp;do&nbsp;"não&nbsp;use". A&nbsp;<strong>estrutura</strong> é o&nbsp;"entregue" do&nbsp;fim. <strong>Troque o&nbsp;segundo parágrafo
+    pelo&nbsp;seu</strong>, e&nbsp;o&nbsp;resto continua funcionando.</p>
 
     <p class="fig-leg"><strong>O&nbsp;que&nbsp;você deveria ter reparado:</strong> as&nbsp;três
     afirmações marcadas como "sem&nbsp;fonte" no&nbsp;lado direito não&nbsp;são um&nbsp;defeito da&nbsp;resposta.
@@ -3574,40 +3572,24 @@ aquilo foi mesmo publicado.</pre>
                 <span class="prompt-rot">O caminho A, pronto para copiar e adaptar</span>
                 <button class="btn-copiar" type="button" data-alvo="pr-b2fontes-caminho-a">Copiar</button>
               </div>
-              <pre class="prompt-txt" id="pr-b2fontes-caminho-a">[P] Papel / Persona:
-Um analista de risco sênior do setor de [SEU SETOR], que procura
-evidência de fracasso e não de sucesso, e que não ameniza achado ruim.
+              <pre class="prompt-txt pesquisa" id="pr-b2fontes-caminho-a">Atue como um analista de risco sênior especializado na indústria de
+[SEU SETOR].
 
-[C] Contexto:
-Estou planejando [DESCREVA O PROJETO], voltado para [SEU PÚBLICO]. A
-minha hipótese é [O QUE VOCÊ ACREDITA QUE VAI DAR CERTO, E POR QUÊ].
-Preciso saber o que me faria abandonar isso antes de comprometer
-orçamento.
+Estou planejando [DESCREVA SEU PROJETO] focado no mercado de
+[SEU PÚBLICO].
 
-[T] Tarefa:
-Teste a minha hipótese procurando o que a contraria. Levante três
-coisas: projetos parecidos que fracassaram, no Brasil e fora, e o que
-os derrubou; reclamações reais de usuários sobre concorrentes que já
-fizeram algo assim; e barreiras ou tendências negativas que não são
-óbvias para quem está de dentro.
+Realize uma pesquisa profunda sobre: 1. falhas de projetos similares no
+Brasil e no mundo; 2. reclamações de usuários sobre concorrentes que já
+fizeram algo parecido; 3. tendências negativas ou barreiras não-óbvias
+que podem impactar o projeto.
 
-[F] Formato:
-Três blocos: riscos de mercado, riscos de operação e execução, e as
-ações de mitigação que eu deveria tomar antes de começar. Uma linha por
-risco, com a fonte e o ano na própria linha, e o risco ordenado do mais
-provável para o menos.
+Busque em relatórios de consultoria, notícias de portais especializados,
+fóruns de usuários e redes sociais. Ignore informação genérica; foque em
+casos concretos de fracasso.
 
-[L] Limitações:
-Aqui fórum e rede social valem, porque é onde a reclamação real
-aparece; o que não vale é conteúdo institucional de quem vende a
-solução. Ignore afirmação genérica do tipo "o mercado é competitivo":
-só entra caso concreto, com nome e data. Se não houver fonte para um
-risco, sinalize "sem fonte" na linha em vez de estimar.
-
-[Critério de Sucesso]:
-A resposta serve se eu conseguir apontar, numa frase, o motivo mais
-provável de este projeto falhar, e abrir a página que sustenta essa
-frase.</pre>
+Entregue um relatório com 3 seções: riscos de mercado · riscos
+operacionais/técnicos · recomendações para mitigação. Cite todas as
+fontes.</pre>
             </div>
 
             <div class="passo-ok">
@@ -3629,41 +3611,21 @@ frase.</pre>
                 <span class="prompt-rot">O caminho B, pronto para copiar e adaptar</span>
                 <button class="btn-copiar" type="button" data-alvo="pr-b2fontes-caminho-b">Copiar</button>
               </div>
-              <pre class="prompt-txt" id="pr-b2fontes-caminho-b">[P] Papel / Persona:
-Um consultor técnico imparcial em [SUA ÁREA TÉCNICA], que não repete
-material de fabricante e que dá peso ao que aparece depois de meses de
-uso.
+              <pre class="prompt-txt pesquisa" id="pr-b2fontes-caminho-b">Atue como um consultor técnico imparcial especializado em
+[SUA ÁREA TÉCNICA].
 
-[C] Contexto:
-Preciso comparar [SOLUÇÃO A] com [SOLUÇÃO B] para uma empresa de
-[PORTE E SETOR]. A decisão que depende disso é [O QUE VOCÊ VAI
-DECIDIR], e a minha hipótese é [QUAL DAS DUAS VOCÊ ACHA MELHOR, E POR
-QUÊ].
+Preciso comparar [SOLUÇÃO A] contra [SOLUÇÃO B] para uma empresa de
+[TAMANHO/SETOR].
 
-[T] Tarefa:
-Compare as duas testando a minha hipótese. Busque em fórum técnico e
-comunidade de usuários o problema que aparece na operação real;
-na documentação de suporte e no manual, o que cada uma exige para
-funcionar; e em comparativo independente, se houver, o desempenho
-medido.
+Ignore o marketing dos sites oficiais. Pesquise em: 1. fóruns técnicos,
+para achar reclamação real sobre problema, bug e dificuldade de
+manutenção; 2. documentação de suporte e manuais, para comparar
+especificação; 3. whitepapers independentes e benchmarks, se houver.
 
-[F] Formato:
-Uma tabela comparativa com: especificação principal, problema relatado
-por usuário, custo de manter quando houver dado, dificuldade de
-manutenção, e um veredito por linha. Fonte e ano em cada linha. No fim,
-o veredito geral em três frases.
-
-[L] Limitações:
-Ignore o material de marketing dos sites oficiais das duas. Se um dado
-só existir em publicação do próprio fabricante, sinalize isso na linha
-em vez de apresentá-lo como independente. Se não houver comparativo
-independente, diga que não há em vez de deduzir a partir das
-especificações.
-
-[Critério de Sucesso]:
-A resposta serve se eu conseguir defender a escolha para quem vai usar
-a ferramenta todo dia, e responder "de onde você tirou isso?" abrindo
-uma página.</pre>
+Entregue uma tabela comparativa com: especificações principais ·
+problemas relatados por usuários · custo de propriedade, se houver dado ·
+facilidade de manutenção · veredito técnico com justificativa. Cite todas
+as fontes.</pre>
             </div>
 
             <div class="passo-ok">
@@ -3684,38 +3646,19 @@ uma página.</pre>
                 <span class="prompt-rot">O caminho C, pronto para copiar e adaptar</span>
                 <button class="btn-copiar" type="button" data-alvo="pr-b2fontes-caminho-c">Copiar</button>
               </div>
-              <pre class="prompt-txt" id="pr-b2fontes-caminho-c">[P] Papel / Persona:
-Um especialista em [ÁREA, por exemplo legislação trabalhista, práticas
-de sustentabilidade ou segurança alimentar] que separa o que já está em
-vigor do que ainda é projeto.
+              <pre class="prompt-txt pesquisa" id="pr-b2fontes-caminho-c">Atue como um especialista em [ÁREA, por exemplo: legislação
+trabalhista, ESG, segurança alimentar].
 
-[C] Contexto:
-Preciso entender o impacto de [AS REGRAS OU MUDANÇAS QUE VOCÊ QUER
-ENTENDER] sobre [O SEU TEMA ESPECÍFICO], aplicável no Brasil. A minha
-hipótese é [O QUE VOCÊ ACREDITA QUE MUDA NA SUA OPERAÇÃO]. A decisão
-que depende disso é [DECISÃO].
+Preciso entender o impacto das novas [LEIS/REGULAMENTAÇÕES/TENDÊNCIAS]
+sobre [TEMA ESPECÍFICO] aplicáveis ao Brasil.
 
-[T] Tarefa:
-Cruze três coisas e teste a minha hipótese contra elas: normas
-publicadas e propostas em tramitação; relatórios de consultoria e de
-associação do setor; e decisões de tribunal ou orientações de agência
-reguladora.
+Cruze: 1. projetos de lei recentes e leis sancionadas; 2. relatórios de
+consultorias e associações do setor; 3. decisões de tribunais ou
+diretrizes de agências reguladoras.
 
-[F] Formato:
-Resumo executivo em três partes: o que mudou, o impacto na operação e
-no custo, e um plano de três a cinco passos para se adequar. Cada
-afirmação com a norma, o número dela e a data, na própria linha.
-
-[L] Limitações:
-Separe explicitamente o que já está em vigor do que ainda é proposta, e
-nunca apresente proposta como regra vigente. Cite todas as fontes com
-link. Não emita interpretação jurídica: onde a leitura da norma decidir
-o resultado, sinalize "verificar com o jurídico" em vez de concluir.
-
-[Critério de Sucesso]:
-A resposta serve se eu conseguir levar isso para quem responde pela
-área e essa pessoa conferir cada norma citada pelo número, sem refazer
-a pesquisa.</pre>
+Entregue um resumo executivo com: o que mudou · o impacto na operação,
+custo ou posicionamento · plano de 3 a 5 passos para se adequar ou se
+antecipar. Cite todas as fontes.</pre>
             </div>
 
             <div class="passo-ok">
@@ -3738,37 +3681,28 @@ a pesquisa.</pre>
             <span class="prompt-rot">O pedido que entrevista você, opcional</span>
             <button class="btn-copiar" type="button" data-alvo="pr-b2fontes-entrevista">Copiar</button>
           </div>
-          <pre class="prompt-txt" id="pr-b2fontes-entrevista">[P] Papel / Persona:
-Um parceiro de estratégia que entrevista antes de responder, e que
-questiona hipótese fraca em vez de aceitá-la.
+          <pre class="prompt-txt pesquisa" id="pr-b2fontes-entrevista">Atue como um parceiro de estratégia que entrevista antes de responder, e
+que questiona hipótese fraca em vez de aceitá-la.
 
-[C] Contexto:
 Preciso fazer uma pesquisa que vai orientar uma decisão real, e a minha
-visão ainda está turva. Quero fechar as quatro decisões (a cadeira, a
-hipótese, o que vale como fonte e o formato de saída) antes de escrever
-o pedido de pesquisa. O meu desafio, do jeito que ele está na minha
-cabeça, é: [DESCREVA EM DUAS OU TRÊS FRASES].
+visão ainda está turva. Quero fechar as quatro decisões, que são a
+cadeira, a hipótese, o que vale como fonte e o formato de saída, antes
+de escrever o pedido de pesquisa. O meu desafio, do jeito que ele está
+na minha cabeça, é: [DESCREVA EM DUAS OU TRÊS FRASES].
 
-[T] Tarefa:
-Me entreviste para construirmos as quatro decisões juntos. Antes da
-primeira pergunta, abra uma tag &lt;rascunho_mental&gt; para analisar o meu
-desafio e planejar por onde começar.
+Me entreviste para construirmos as quatro decisões juntos, em diálogo
+direto, uma pergunta por vez. Antes da primeira pergunta, abra uma tag
+&lt;rascunho_mental&gt; para analisar o meu desafio e planejar por onde
+começar.
 
-[F] Formato:
-Diálogo direto, uma pergunta por vez. Depois que eu responder às
-quatro, consolide o resultado numa tabela com uma linha por decisão,
-pronta para eu colar no começo do meu pedido de pesquisa.
-
-[L] Limitações:
 Nunca faça as quatro perguntas de uma vez. Se a minha hipótese for
 fraca ou genérica, me questione em vez de aceitar. Se eu responder de
 forma vaga, pergunte de novo em vez de preencher por mim. Não comece a
 pesquisar nada nesta conversa.
 
-[Critério de Sucesso]:
-A resposta serve se, no fim, eu tiver as quatro decisões escritas com
-as minhas palavras, e conseguir colar a tabela como a abertura de um
-pedido de pesquisa.</pre>
+Depois que eu responder às quatro, consolide o resultado numa tabela
+com uma linha por decisão, pronta para eu colar no começo do meu pedido
+de pesquisa.</pre>
         </div>
       </div>
 

@@ -304,6 +304,25 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
                 falhas.append("{}: mais de um prompt .degrau na pagina -- a dispensa "
                               "vale para UM, que e a pergunta em construcao".format(rel))
             continue
+        # A TERCEIRA DISPENSA, e ela nasceu de um defeito DESTE gate.
+        #
+        # 02/09/2026: o Rafael entregou os prompts de pesquisa profunda dele,
+        # prontos, dos slides do IEL. Eles sao escritos em prosa corrida, sem
+        # rotulo nenhum. Este gate exige os seis campos em todo prompt copiavel,
+        # e por causa dele eu mandei REESCREVER o material dele nos seis campos.
+        # Ele abriu a aula: "Mandei o prompt pronto, e chego na aula tem outro
+        # prompt". A decisao dele fecha o assunto: "E usar o novo para pesquisa
+        # e fim, acabou". Pesquisa profunda usa o padrao de pesquisa dele, e o
+        # PCTFL nao tem o que fazer ali.
+        #
+        # 🔴 COM LIMITE CONTAVEL, igual a dispensa de cima, senao ela vira a
+        # porta dos fundos para fugir do formato: a marca so vale na aula de
+        # pesquisa profunda. Em qualquer outra pagina o gate acusa a marca.
+        if "pesquisa" in classes.split():
+            if not rel.startswith("b2-fontes/"):
+                falhas.append("{}: prompt .pesquisa fora da aula de pesquisa profunda "
+                              "-- a dispensa dos seis campos vale so la".format(rel))
+            continue
         texto = corpo.replace("&nbsp;", " ")
         if ident in PENDENTES_DO_FORMATO_ROTULADO:
             # Divida declarada, nao dispensa: o gate abaixo confere que ela
