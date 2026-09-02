@@ -259,6 +259,7 @@ PAGINAS = {
         # E a segunda nao-fundamento que o G44 exige: com uma so, as janelas
         # [2,3,4] e [3,4,5] ficam descobertas.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 4 · Aprenda a fazer boas conferências de trabalho",
         kicker="Módulo 1 · B1 · Primeiros resultados",
         h1="Aprenda a fazer boas conferências de trabalho",
@@ -329,6 +330,7 @@ PAGINAS = {
         # O conceito continua sendo UM: pesquisa profunda e auditoria, nao
         # resumo -- e a fonte citada so vira prova depois que alguem abre.
         tipo="pratica",
+        arquivo=False,
         titulo="Aula 2 · Peça investigação, não resumo",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Peça investigação, não resumo",
@@ -362,6 +364,7 @@ PAGINAS = {
         # narrativa executiva, que e o primeiro dos tres entregaveis declarados
         # na ementa do M5. A planilha e sintetica e sustenta as aulas 1, 5, 6 e 7.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 4 · Transforme a planilha na leitura que a chefia usa",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Transforme a planilha na leitura que a chefia usa",
@@ -397,6 +400,7 @@ PAGINAS = {
         # como ATIVIDADE, que e o que ele e no material do Rafael, e nao como
         # framework a ensinar.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 6 · Compare três caminhos antes de recomendar um",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Compare três caminhos antes de recomendar um",
@@ -413,6 +417,7 @@ PAGINAS = {
         # na ementa: o plano de acao. O canvas dela recolhe o bloco inteiro em
         # seis campos, e e a peca que a pessoa leva para a reuniao.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 7 · Amarre a decisão num plano com dono e prazo",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Amarre a decisão num plano com dono e prazo",
@@ -434,6 +439,7 @@ PAGINAS = {
         # vem antes do formato. Os dois formatos sao dois caminhos do mesmo
         # conceito, e por isso moram na mesma aula em vez de virar duas.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 8 · Transforme a análise no material que a chefia recebe",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Transforme a análise no material que a chefia recebe",
@@ -455,6 +461,7 @@ PAGINAS = {
         # todas as pecas seguintes. Por isso o insumo e um modelo para
         # substituir, e nao uma planilha para analisar.
         tipo="pratica",
+        arquivo=True,
         titulo="Aula 9 · Ponha a cara da sua empresa no que a IA gerou",
         kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Ponha a cara da sua empresa no que a IA gerou",
@@ -1070,6 +1077,51 @@ def nome_curto(slug):
     return None
 
 
+
+def _classe_do_tipo(slug, cfg):
+    """A classe do <main>, e a PERGUNTA OBRIGATORIA da aula de pratica.
+
+    🔴 02/09/2026, decisao do Rafael: "nem toda aula pratica tem arquivo. Ela
+    precisa de um exercicio pratico. O arquivo pode ou nao existir. Talvez o
+    gate seja sempre PERGUNTAR se aquela pratica precisa ou nao de arquivo."
+
+    Ate hoje o G43 EXIGIA .arquivo em toda aula de pratica, e foi essa regra
+    que fez a ficha de conferencia da aula 2 nascer: a aula nao precisava de
+    planilha nenhuma, o contrato pedia um arquivo, e eu inventei um. Ele leu a
+    aula e mandou tirar.
+
+    A pergunta agora e obrigatoria por CONSTRUCAO: aula de pratica sem a chave
+    `arquivo` nao gera. Nao ha default -- default e o que deixa a pergunta
+    passar em branco no fim de uma sessao longa. O valor viaja para a pagina
+    como classe, e o G43 confere o declarado contra o que a pagina tem de fato.
+    """
+    tipo = cfg.get("tipo")
+    if not tipo:
+        return ""
+    classes = ["aula-" + tipo]
+    if tipo == "pratica":
+        if "arquivo" not in cfg:
+            raise SystemExit(
+                "\n🔴 {}: aula de PRATICA sem declarar `arquivo`.\n"
+                "   Toda pratica responde a pergunta: esta aula entrega um\n"
+                "   arquivo para o aluno baixar?\n"
+                "     arquivo=True   ha .arquivo na pagina\n"
+                "     arquivo=False  o exercicio se faz sem arquivo nenhum\n"
+                "   Nao ha default: a pergunta e a regra.".format(slug))
+    return " ".join(classes)
+
+
+def _dado_do_arquivo(cfg):
+    """A resposta da pergunta, como DADO e nao como estilo.
+
+    Foi classe por dez minutos e o G6 acusou sete "classe sem CSS", com razao:
+    classe e para pintar. Isto e declaracao, e declaracao mora em data-.
+    """
+    if cfg.get("tipo") != "pratica":
+        return ""
+    return ' data-arquivo="%s"' % ("sim" if cfg["arquivo"] else "nao")
+
+
 def monta(slug, cfg, fragmento):
     selos = "".join('<span class="selo">%s</span>' % s for s in cfg.get("selos", []))
     if cfg.get("migalha"):
@@ -1106,7 +1158,8 @@ def monta(slug, cfg, fragmento):
         sigla=CURSO["sigla"], nome=CURSO["nome"], sub=CURSO["sub"],
         migalha=migalha, kicker=cfg["kicker"], h1=cfg["h1"],
         # aula-pratica ou aula-fundamento. Pagina que nao e aula fica sem.
-        tipo=("aula-" + cfg["tipo"]) if cfg.get("tipo") else "",
+        tipo=_classe_do_tipo(slug, cfg),
+        dado_arquivo=_dado_do_arquivo(cfg),
         sub_pagina=cfg["sub"], selos=selos, corpo=fragmento,
         abre_trilha=abre, fecha_trilha=fecha, rodape=rodape(slug),
     )
@@ -1142,7 +1195,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 %(migalha)s
 
 %(abre_trilha)s
-<main class="folha %(tipo)s">
+<main class="folha %(tipo)s"%(dado_arquivo)s>
   <div class="heroi">
     <div class="heroi-kicker">%(kicker)s</div>
     <h1>%(h1)s</h1>

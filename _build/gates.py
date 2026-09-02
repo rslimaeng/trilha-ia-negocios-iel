@@ -768,7 +768,13 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
     # lado do que nao destrava ensina que o segundo e mais facil.
     passos = [c for _, c in blocos_por_classe(html, "passo")]
     if passos:
-        com_d = [c for c in passos if 'class="destrave"' in c]
+        # 🔴 02/09/2026: era 'class="destrave"' em texto puro, e por isso o
+        # gate NAO ENXERGAVA class="cartao destrave". Um destrave que divide o
+        # container com outra classe existia na pagina e o gate acusava falta.
+        # E o mesmo defeito dos meus greps: procurar a string em vez do limite
+        # da palavra. O tem() do G43 ja fazia certo desde sempre.
+        _destrave = re.compile(r'class="(?:[^"]* )?destrave(?: [^"]*)?"')
+        com_d = [c for c in passos if _destrave.search(c)]
         # NAO e "tudo ou nada" aqui: "abra uma conversa nova" nao tem o que
         # destravar. O que nao pode e o exercicio inteiro sem nenhum -- foi
         # assim que as 5 aulas de nivelamento do piloto IEL sairam, 17 passos
@@ -778,7 +784,7 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
                           "o aluno a produzir texto proprio precisa de um"
                           .format(rel, len(passos)))
         for corpo in com_d:
-            if 'class="destrave-nao"' not in corpo:
+            if not re.search(r'class="(?:[^"]* )?destrave-nao(?: [^"]*)?"', corpo):
                 falhas.append("{}: um passo com destrave nao diz o que NAO conta "
                               "como resposta".format(rel))
 
@@ -792,7 +798,7 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
                           "ou todas têm, ou o padrão quebrou"
                           .format(rel, i, len(com), len(perguntas)))
         for corpo in com:
-            if 'class="destrave-nao"' not in corpo:
+            if not re.search(r'class="(?:[^"]* )?destrave-nao(?: [^"]*)?"', corpo):
                 falhas.append("{}: bloco {}: uma pergunta não diz o que NÃO conta "
                               "como resposta".format(rel, i))
     return falhas
@@ -1544,10 +1550,34 @@ def g43_a_aula_cumpre_o_contrato_do_tipo_dela(rel, html):
     falhas = []
 
     if tipo == "pratica":
-        for peca in ("arquivo", "passo"):
-            if not tem(peca):
-                falhas.append("{}: aula de PRATICA sem .{}. A secao 05 tem as tres "
-                              "sempre: .arquivo, .passo e .prompt".format(rel, peca))
+        if not tem("passo"):
+            falhas.append("{}: aula de PRATICA sem .passo. O que faz a aula ser "
+                          "pratica e o EXERCICIO, e ele e obrigatorio".format(rel))
+        # 🔴 O ARQUIVO DEIXOU DE SER OBRIGATORIO EM 02/09/2026, e a mudanca
+        # nasceu de um defeito deste gate. Ele exigia .arquivo em toda pratica,
+        # e por causa disso eu inventei uma ficha de conferencia em xlsx para a
+        # aula 2, que nao precisava de planilha nenhuma. O Rafael leu a aula e
+        # mandou tirar: "nem toda aula pratica tem arquivo. Ela precisa de um
+        # exercicio pratico. O arquivo pode ou nao existir. Talvez o gate seja
+        # sempre PERGUNTAR se aquela pratica precisa ou nao de arquivo."
+        #
+        # Entao o gate parou de EXIGIR e passou a CONFERIR a resposta. A
+        # pergunta e obrigatoria no gerar.py (aula de pratica sem a chave
+        # `arquivo` nao gera) e a resposta viaja na classe do <main>. Aqui eu
+        # so checo se o declarado bate com o que a pagina tem -- os dois lados
+        # do drift, porque declarar "tem" e nao ter engana tanto quanto o
+        # contrario.
+        declara_com = 'data-arquivo="sim"' in limpo
+        declara_sem = 'data-arquivo="nao"' in limpo
+        if declara_com and not tem("arquivo"):
+            falhas.append("{}: declara arquivo=True e nao tem .arquivo na "
+                          "pagina".format(rel))
+        if declara_sem and tem("arquivo"):
+            falhas.append("{}: declara arquivo=False e tem .arquivo na pagina"
+                          .format(rel))
+        if not declara_com and not declara_sem:
+            falhas.append("{}: aula de PRATICA que nao declara se tem arquivo. "
+                          "A pergunta e obrigatoria, e mora no gerar.py".format(rel))
         if "prompt-txt" not in limpo:
             falhas.append("{}: aula de PRATICA sem pedido pronto para copiar"
                           .format(rel))
