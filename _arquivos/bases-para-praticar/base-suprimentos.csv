@@ -1,0 +1,21 @@
+# CONTEXTO,,,,
+Evento,Congresso Anual XPTO,,,
+Data_Prevista,15 a 17 ago 2026,,,
+Participantes_Esperados,400 medicos + 50 equipe,,,
+Orcamento_Maximo,R$ 200.000,,,
+Responsavel_Avaliacao,Analista de Suprimentos,,,
+Data_Avaliacao,28 mar 2026,,,
+,,,,
+Criterio,Peso_Pct,Fornecedor_A_HotelGrand,Fornecedor_B_BlueStar,Fornecedor_C_CentroSul,Fornecedor_D_EventPro
+Custo_Total_Evento_R$,25,185000,162000,210000,178000
+Capacidade_Plenaria_pessoas,15,500,350,600,400
+Localidade_SP_distancia_aeroporto_km,10,18,8,25,12
+Historico_Parceria_anos,10,0,3,5,1
+SLA_Suporte_horas_resposta,10,4,2,8,3
+Compliance_LGPD_certificado,10,Sim,Sim,Sim,Nao
+Seguro_Evento_incluido,10,Nao,Sim,Sim,Nao
+Clausula_Reajuste_Pct_ao_ano,10,8,5,6,7
+Nota_Referencias_0_a_10,10,7,9,8,6
+Flexibilidade_Cancelamento_dias_antecedencia,5,30,15,45,20
+Infraestrutura_AV_inclusa,5,Nao,Sim,Sim,Nao
+Estacionamento_vagas,5,80,150,200,100

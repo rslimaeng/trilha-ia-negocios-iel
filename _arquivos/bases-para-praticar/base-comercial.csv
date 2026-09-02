@@ -1,0 +1,801 @@
+ID,Curso,Origem,Especialidade_Medico,Consultor,Etapa,Status,Valor_Proposta_R$,Data_Primeiro_Contato,Dias_No_Funil,Motivo_Perda,Turma_Interesse,Score_Lead,Observacoes
+1,EAD,Google Ads,Endocrinologia,Vendedor 5,Lead Captado,Em andamento,1020.00,08/06/2026,49,,T2/26,93,Aguardando primeiro contato
+2,SHHE,Webinar,Neurologia,Vendedor 3,Negociação,Em andamento,13410.00,30/04/2026,2,,T3/26,99,Proposta revisada enviada
+3,HTI,Webinar,Nutrologia,Vendedor 6,Proposta Enviada,Em andamento,17748.00,06/03/2026,89,,T4/26,68,Follow-up agendado para 3 dias
+4,POS,Webinar,Clínica Geral,Vendedor 5,Proposta Enviada,Em andamento,38000.00,17/03/2026,74,,T3/26,32,Aguardando leitura
+5,POS,Instagram,Ginecologia,Vendedor 6,Matriculado,Ganho,32300.00,13/01/2026,96,,T4/26,66,Boleto gerado
+6,R2,WhatsApp,Cardiologia,Vendedor 4,Contato Realizado,Em andamento,8500.00,18/06/2026,87,,T2/26,42,Pediu proposta
+7,EAD,Indicação,Dermatologia,Vendedor 1,Proposta Enviada,Em andamento,1140.00,03/02/2026,47,,T1/26,67,Proposta personalizada enviada
+8,EAD,Site Orgânico,Endocrinologia,Vendedor 5,Contato Realizado,Em andamento,1140.00,04/04/2026,113,,T3/26,51,Interesse demonstrado
+9,POS,Instagram,Geriatria,Vendedor 1,Proposta Enviada,Em andamento,38000.00,20/01/2026,60,,T2/26,58,Aguardando leitura
+10,EAD,Site Orgânico,Ortopedia,Vendedor 3,Contato Realizado,Em andamento,1200.00,09/03/2026,2,,T1/26,88,Interesse demonstrado
+11,EAD,Instagram,Medicina do Trabalho,Vendedor 2,Matriculado,Ganho,1200.00,22/06/2026,14,,T2/26,90,Pagamento confirmado
+12,R2,Congresso,Nutrologia,Vendedor 6,Contato Realizado,Em andamento,8500.00,29/04/2026,82,,T3/26,82,Demo agendada
+13,SHHE,Indicação,Ginecologia,Vendedor 3,Perdido,Perdido,14900.00,02/03/2026,13,Questões financeiras pessoais,T2/26,79,Não retornou após 5 contatos
+14,NEXAL,Congresso,Psiquiatria,Vendedor 6,Matriculado,Ganho,9800.00,17/04/2026,114,,T1/26,92,Parcelado 12x aprovado
+15,NEXAL,Indicação,Geriatria,Vendedor 3,Contato Realizado,Em andamento,9800.00,03/04/2026,31,,T1/26,77,Pediu proposta
+16,EAD,WhatsApp,Ginecologia,Vendedor 2,Proposta Enviada,Em andamento,1200.00,27/04/2026,109,,T1/26,57,Aguardando leitura
+17,EAD,Parceiro Clínica,Ginecologia,Vendedor 7,Matriculado,Ganho,1200.00,25/05/2026,17,,T2/26,38,Boleto gerado
+18,R2,Email Marketing,Cardiologia,Vendedor 3,Matriculado,Ganho,7225.00,02/06/2026,116,,T1/26,65,Boleto gerado
+19,SHHE,Congresso,Dermatologia,Vendedor 1,Contato Realizado,Em andamento,13410.00,07/01/2026,111,,T2/26,31,Interesse demonstrado
+20,SHHE,Parceiro Clínica,Nutrologia,Vendedor 7,Contato Realizado,Em andamento,14900.00,18/04/2026,17,,T1/26,38,Interesse demonstrado
+21,POS,WhatsApp,Ortopedia,Vendedor 6,Contato Realizado,Em andamento,36100.00,07/06/2026,29,,T1/26,96,Interesse demonstrado
+22,POS,Indicação,Ginecologia,Vendedor 2,Matriculado,Ganho,38000.00,28/01/2026,88,,T4/26,86,Pagamento confirmado
+23,HTI,WhatsApp,Medicina do Trabalho,Vendedor 5,Lead Captado,Em andamento,17748.00,12/06/2026,80,,T3/26,78,Aguardando primeiro contato
+24,POS,Congresso,Medicina do Trabalho,Vendedor 2,Contato Realizado,Em andamento,34200.00,17/06/2026,15,,T2/26,85,Interesse demonstrado
+25,SHHE,Site Orgânico,Nutrologia,Vendedor 1,Negociação,Em andamento,14900.00,25/01/2026,94,,T3/26,84,Esperando retorno do cônjuge
+26,EAD,Instagram,Nutrologia,Vendedor 5,Matriculado,Ganho,1200.00,24/01/2026,9,,T1/26,41,Parcelado 12x aprovado
+27,HTI,WhatsApp,Endocrinologia,Vendedor 6,Lead Captado,Em andamento,16860.60,26/03/2026,72,,T1/26,82,Aguardando primeiro contato
+28,EAD,Site Orgânico,Geriatria,Vendedor 7,Perdido,Perdido,1140.00,01/04/2026,40,Escolheu concorrente,T2/26,49,Confirmou escolha do concorrente
+29,POS,Email Marketing,Clínica Geral,Vendedor 3,Matriculado,Ganho,38000.00,13/03/2026,15,,T2/26,84,Pagamento confirmado
+30,R2,Instagram,Ginecologia,Vendedor 5,Proposta Enviada,Em andamento,7225.00,28/03/2026,40,,T3/26,30,Follow-up agendado para 3 dias
+31,SHHE,Parceiro Clínica,Neurologia,Vendedor 2,Lead Captado,Em andamento,13410.00,08/01/2026,82,,T1/26,97,Aguardando primeiro contato
+32,POS,Site Orgânico,Pediatria,Vendedor 3,Contato Realizado,Em andamento,38000.00,25/03/2026,93,,T1/26,36,Demo agendada
+33,SHHE,Parceiro Clínica,Ginecologia,Vendedor 4,Contato Realizado,Em andamento,14900.00,19/04/2026,85,,T4/26,86,Interesse demonstrado
+34,NEXAL,Email Marketing,Ortopedia,Vendedor 7,Proposta Enviada,Em andamento,9800.00,23/06/2026,37,,T4/26,97,Aguardando leitura
+35,NEXAL,Indicação,Cardiologia,Vendedor 2,Perdido,Perdido,9800.00,22/02/2026,1,Proposta não aprovada pela empresa,T2/26,47,Não retornou após 5 contatos
+36,NEXAL,WhatsApp,Clínica Geral,Vendedor 7,Negociação,Em andamento,9800.00,03/02/2026,23,,T4/26,98,Proposta revisada enviada
+37,R2,Congresso,Neurologia,Vendedor 1,Proposta Enviada,Em andamento,8500.00,11/01/2026,111,,T4/26,32,Proposta personalizada enviada
+38,HTI,WhatsApp,Medicina do Trabalho,Vendedor 2,Negociação,Em andamento,15973.20,17/04/2026,82,,T3/26,44,Em análise de parcelamento
+39,HTI,WhatsApp,Endocrinologia,Vendedor 1,Perdido,Perdido,17748.00,26/06/2026,107,Adiou para próxima turma,T1/26,85,Lead frio
+40,SHHE,Site Orgânico,Medicina do Trabalho,Vendedor 2,Negociação,Em andamento,14900.00,21/03/2026,112,,T3/26,58,Esperando retorno do cônjuge
+41,SHHE,LinkedIn,Ortopedia,Vendedor 4,Contato Realizado,Em andamento,14155.00,31/03/2026,25,,T3/26,48,Demo agendada
+42,HTI,Google Ads,Dermatologia,Vendedor 5,Contato Realizado,Em andamento,17748.00,17/06/2026,98,,T1/26,52,Pediu proposta
+43,POS,Webinar,Medicina do Trabalho,Vendedor 1,Negociação,Em andamento,34200.00,25/05/2026,119,,T3/26,70,Proposta revisada enviada
+44,POS,LinkedIn,Pediatria,Vendedor 2,Matriculado,Ganho,32300.00,01/06/2026,36,,T1/26,75,Pagamento confirmado
+45,NEXAL,Webinar,Pediatria,Vendedor 7,Lead Captado,Em andamento,8330.00,20/01/2026,37,,T1/26,94,Aguardando primeiro contato
+46,POS,Parceiro Clínica,Ortopedia,Vendedor 1,Matriculado,Ganho,38000.00,27/05/2026,58,,T2/26,71,Parcelado 12x aprovado
+47,R2,Google Ads,Ginecologia,Vendedor 2,Contato Realizado,Em andamento,7225.00,22/01/2026,44,,T2/26,35,Demo agendada
+48,EAD,Webinar,Pediatria,Vendedor 6,Negociação,Em andamento,1200.00,06/04/2026,47,,T3/26,79,Em análise de parcelamento
+49,NEXAL,Parceiro Clínica,Ginecologia,Vendedor 1,Matriculado,Ganho,9800.00,26/03/2026,9,,T1/26,79,Pix recebido
+50,NEXAL,Parceiro Clínica,Endocrinologia,Vendedor 3,Contato Realizado,Em andamento,8820.00,31/03/2026,19,,T3/26,80,Demo agendada
+51,R2,LinkedIn,Dermatologia,Vendedor 6,Proposta Enviada,Em andamento,7225.00,02/02/2026,43,,T1/26,84,Aguardando leitura
+52,NEXAL,Indicação,Nutrologia,Vendedor 3,Contato Realizado,Em andamento,9800.00,05/05/2026,44,,T2/26,58,Demo agendada
+53,SHHE,LinkedIn,Dermatologia,Vendedor 1,Matriculado,Ganho,14155.00,19/05/2026,99,,T1/26,73,Boleto gerado
+54,R2,Site Orgânico,Endocrinologia,Vendedor 5,Contato Realizado,Em andamento,7650.00,09/06/2026,99,,T2/26,86,Demo agendada
+55,POS,WhatsApp,Neurologia,Vendedor 4,Proposta Enviada,Em andamento,38000.00,14/03/2026,79,,T4/26,59,Aguardando leitura
+56,SHHE,Instagram,Pediatria,Vendedor 1,Contato Realizado,Em andamento,13410.00,23/04/2026,74,,T4/26,66,Interesse demonstrado
+57,R2,Congresso,Psiquiatria,Vendedor 5,Matriculado,Ganho,7225.00,05/02/2026,78,,T3/26,36,Parcelado 12x aprovado
+58,NEXAL,Congresso,Clínica Geral,Vendedor 4,Matriculado,Ganho,8330.00,14/03/2026,16,,T1/26,50,Pix recebido
+59,POS,Congresso,Endocrinologia,Vendedor 1,Proposta Enviada,Em andamento,38000.00,26/04/2026,105,,T3/26,33,Proposta personalizada enviada
+60,HTI,Site Orgânico,Ortopedia,Vendedor 3,Proposta Enviada,Em andamento,17748.00,27/02/2026,48,,T1/26,70,Follow-up agendado para 3 dias
+61,EAD,WhatsApp,Endocrinologia,Vendedor 5,Lead Captado,Em andamento,1020.00,28/06/2026,61,,T2/26,90,Aguardando primeiro contato
+62,R2,Indicação,Clínica Geral,Vendedor 7,Proposta Enviada,Em andamento,7225.00,21/05/2026,20,,T4/26,44,Proposta personalizada enviada
+63,SHHE,Instagram,Clínica Geral,Vendedor 7,Proposta Enviada,Em andamento,13410.00,09/06/2026,102,,T4/26,38,Follow-up agendado para 3 dias
+64,POS,Parceiro Clínica,Ortopedia,Vendedor 7,Matriculado,Ganho,36100.00,06/02/2026,31,,T3/26,84,Pagamento confirmado
+65,R2,WhatsApp,Cardiologia,Vendedor 6,Proposta Enviada,Em andamento,7650.00,22/01/2026,86,,T3/26,38,Aguardando leitura
+66,R2,Congresso,Ortopedia,Vendedor 6,Lead Captado,Em andamento,7225.00,12/01/2026,61,,T4/26,77,Aguardando primeiro contato
+67,EAD,Indicação,Nutrologia,Vendedor 1,Lead Captado,Em andamento,1200.00,18/06/2026,94,,T1/26,72,Aguardando primeiro contato
+68,HTI,WhatsApp,Ortopedia,Vendedor 3,Matriculado,Ganho,17748.00,25/06/2026,107,,T4/26,91,Boleto gerado
+69,SHHE,LinkedIn,Geriatria,Vendedor 1,Perdido,Perdido,14900.00,21/02/2026,38,Preço acima do esperado,T2/26,35,Não retornou após 5 contatos
+70,NEXAL,Congresso,Psiquiatria,Vendedor 1,Negociação,Em andamento,9800.00,15/06/2026,5,,T2/26,66,Esperando retorno do cônjuge
+71,HTI,WhatsApp,Dermatologia,Vendedor 7,Matriculado,Ganho,17748.00,13/04/2026,114,,T4/26,79,Pix recebido
+72,SHHE,Webinar,Geriatria,Vendedor 2,Proposta Enviada,Em andamento,12665.00,10/03/2026,67,,T1/26,84,Follow-up agendado para 3 dias
+73,POS,Parceiro Clínica,Endocrinologia,Vendedor 6,Proposta Enviada,Em andamento,38000.00,25/03/2026,11,,T3/26,69,Proposta personalizada enviada
+74,R2,Site Orgânico,Endocrinologia,Vendedor 4,Proposta Enviada,Em andamento,8500.00,01/04/2026,6,,T4/26,65,Aguardando leitura
+75,HTI,LinkedIn,Neurologia,Vendedor 4,Proposta Enviada,Em andamento,16860.60,23/06/2026,103,,T2/26,33,Follow-up agendado para 3 dias
+76,R2,Webinar,Ginecologia,Vendedor 5,Lead Captado,Em andamento,7225.00,04/04/2026,83,,T3/26,79,Aguardando primeiro contato
+77,R2,Google Ads,Neurologia,Vendedor 2,Perdido,Perdido,8500.00,20/01/2026,57,Sem tempo no momento,T3/26,80,Não retornou após 5 contatos
+78,EAD,Instagram,Cardiologia,Vendedor 7,Lead Captado,Em andamento,1200.00,13/05/2026,64,,T4/26,45,Aguardando primeiro contato
+79,NEXAL,Webinar,Cardiologia,Vendedor 6,Proposta Enviada,Em andamento,9800.00,01/02/2026,26,,T2/26,39,Proposta personalizada enviada
+80,SHHE,Webinar,Clínica Geral,Vendedor 1,Matriculado,Ganho,12665.00,20/06/2026,41,,T3/26,38,Pix recebido
+81,NEXAL,Google Ads,Geriatria,Vendedor 4,Perdido,Perdido,8820.00,03/04/2026,23,Questões financeiras pessoais,T2/26,45,Lead frio
+82,SHHE,Email Marketing,Pediatria,Vendedor 7,Proposta Enviada,Em andamento,14155.00,30/04/2026,48,,T2/26,41,Follow-up agendado para 3 dias
+83,NEXAL,Site Orgânico,Geriatria,Vendedor 4,Negociação,Em andamento,9800.00,15/04/2026,99,,T1/26,46,Esperando retorno do cônjuge
+84,EAD,LinkedIn,Pediatria,Vendedor 2,Matriculado,Ganho,1200.00,22/05/2026,17,,T2/26,46,Parcelado 12x aprovado
+85,R2,Indicação,Clínica Geral,Vendedor 6,Contato Realizado,Em andamento,8500.00,24/03/2026,21,,T2/26,74,Pediu proposta
+86,NEXAL,LinkedIn,Dermatologia,Vendedor 5,Matriculado,Ganho,9310.00,02/02/2026,36,,T3/26,98,Pagamento confirmado
+87,R2,Google Ads,Medicina do Trabalho,Vendedor 6,Contato Realizado,Em andamento,7650.00,04/06/2026,80,,T3/26,35,Demo agendada
+88,HTI,Indicação,Neurologia,Vendedor 1,Negociação,Em andamento,15973.20,27/05/2026,27,,T4/26,33,Em análise de parcelamento
+89,EAD,Congresso,Dermatologia,Vendedor 4,Perdido,Perdido,1200.00,25/06/2026,32,Perfil não alinhado com o curso,T3/26,88,Lead frio
+90,EAD,Indicação,Endocrinologia,Vendedor 2,Proposta Enviada,Em andamento,1200.00,29/03/2026,27,,T2/26,70,Aguardando leitura
+91,NEXAL,WhatsApp,Psiquiatria,Vendedor 5,Matriculado,Ganho,9310.00,28/01/2026,72,,T3/26,60,Parcelado 12x aprovado
+92,HTI,Instagram,Pediatria,Vendedor 5,Contato Realizado,Em andamento,17748.00,09/04/2026,38,,T4/26,61,Demo agendada
+93,NEXAL,Parceiro Clínica,Geriatria,Vendedor 3,Contato Realizado,Em andamento,9800.00,12/05/2026,64,,T4/26,93,Interesse demonstrado
+94,POS,Indicação,Clínica Geral,Vendedor 2,Negociação,Em andamento,38000.00,30/05/2026,28,,T3/26,36,Aguardando aprovação financeira
+95,NEXAL,Webinar,Medicina do Trabalho,Vendedor 1,Matriculado,Ganho,9800.00,18/05/2026,37,,T1/26,43,Parcelado 12x aprovado
+96,SHHE,Instagram,Geriatria,Vendedor 3,Matriculado,Ganho,14900.00,13/04/2026,6,,T1/26,54,Pix recebido
+97,R2,Instagram,Clínica Geral,Vendedor 2,Negociação,Em andamento,7225.00,13/03/2026,71,,T1/26,46,Aguardando aprovação financeira
+98,POS,WhatsApp,Nutrologia,Vendedor 6,Perdido,Perdido,32300.00,20/02/2026,19,Questões financeiras pessoais,T4/26,94,Lead frio
+99,HTI,Indicação,Endocrinologia,Vendedor 4,Proposta Enviada,Em andamento,17748.00,27/04/2026,67,,T2/26,95,Follow-up agendado para 3 dias
+100,NEXAL,Parceiro Clínica,Nutrologia,Vendedor 5,Proposta Enviada,Em andamento,9310.00,18/03/2026,95,,T3/26,94,Aguardando leitura
+101,R2,Webinar,Geriatria,Vendedor 6,Proposta Enviada,Em andamento,7225.00,05/04/2026,3,,T3/26,44,Proposta personalizada enviada
+102,R2,Instagram,Geriatria,Vendedor 1,Matriculado,Ganho,8500.00,02/05/2026,77,,T3/26,59,Pagamento confirmado
+103,R2,Webinar,Endocrinologia,Vendedor 6,Negociação,Em andamento,8075.00,08/04/2026,100,,T2/26,61,Aguardando aprovação financeira
+104,R2,LinkedIn,Cardiologia,Vendedor 7,Proposta Enviada,Em andamento,8500.00,16/04/2026,20,,T2/26,82,Aguardando leitura
+105,R2,Webinar,Geriatria,Vendedor 4,Lead Captado,Em andamento,8500.00,23/02/2026,67,,T3/26,91,Aguardando primeiro contato
+106,NEXAL,Google Ads,Pediatria,Vendedor 6,Proposta Enviada,Em andamento,9800.00,24/06/2026,87,,T3/26,91,Follow-up agendado para 3 dias
+107,SHHE,Instagram,Ortopedia,Vendedor 3,Contato Realizado,Em andamento,14900.00,15/03/2026,99,,T2/26,92,Interesse demonstrado
+108,POS,WhatsApp,Ortopedia,Vendedor 1,Matriculado,Ganho,38000.00,27/05/2026,16,,T4/26,80,Pix recebido
+109,SHHE,Instagram,Ginecologia,Vendedor 3,Perdido,Perdido,14900.00,24/04/2026,45,Proposta não aprovada pela empresa,T4/26,57,Lead frio
+110,R2,Instagram,Ortopedia,Vendedor 4,Proposta Enviada,Em andamento,8500.00,31/05/2026,79,,T2/26,61,Follow-up agendado para 3 dias
+111,EAD,Congresso,Cardiologia,Vendedor 4,Proposta Enviada,Em andamento,1200.00,26/03/2026,53,,T4/26,42,Aguardando leitura
+112,SHHE,Indicação,Ortopedia,Vendedor 5,Proposta Enviada,Em andamento,14900.00,16/06/2026,62,,T2/26,66,Proposta personalizada enviada
+113,NEXAL,Indicação,Clínica Geral,Vendedor 4,Negociação,Em andamento,9310.00,10/01/2026,95,,T2/26,83,Proposta revisada enviada
+114,HTI,Site Orgânico,Pediatria,Vendedor 5,Perdido,Perdido,15085.80,16/03/2026,119,Preço acima do esperado,T1/26,68,Confirmou escolha do concorrente
+115,R2,LinkedIn,Nutrologia,Vendedor 3,Negociação,Em andamento,7650.00,15/05/2026,70,,T4/26,47,Em análise de parcelamento
+116,NEXAL,Email Marketing,Clínica Geral,Vendedor 3,Contato Realizado,Em andamento,9800.00,07/03/2026,83,,T2/26,31,Pediu proposta
+117,NEXAL,Instagram,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,9800.00,13/06/2026,79,,T4/26,84,Pix recebido
+118,HTI,Site Orgânico,Neurologia,Vendedor 7,Contato Realizado,Em andamento,17748.00,24/03/2026,62,,T2/26,30,Interesse demonstrado
+119,POS,Email Marketing,Pediatria,Vendedor 1,Proposta Enviada,Em andamento,38000.00,30/05/2026,39,,T1/26,63,Aguardando leitura
+120,NEXAL,Email Marketing,Ginecologia,Vendedor 4,Contato Realizado,Em andamento,9800.00,14/04/2026,21,,T3/26,45,Pediu proposta
+121,NEXAL,WhatsApp,Medicina do Trabalho,Vendedor 5,Contato Realizado,Em andamento,9800.00,09/02/2026,62,,T4/26,77,Interesse demonstrado
+122,EAD,Congresso,Pediatria,Vendedor 1,Negociação,Em andamento,1080.00,25/02/2026,106,,T2/26,40,Em análise de parcelamento
+123,R2,WhatsApp,Clínica Geral,Vendedor 6,Contato Realizado,Em andamento,7225.00,10/05/2026,71,,T2/26,98,Demo agendada
+124,SHHE,WhatsApp,Ortopedia,Vendedor 2,Contato Realizado,Em andamento,14900.00,30/05/2026,92,,T4/26,41,Pediu proposta
+125,POS,Indicação,Pediatria,Vendedor 5,Negociação,Em andamento,38000.00,15/01/2026,73,,T4/26,69,Aguardando aprovação financeira
+126,POS,Instagram,Ginecologia,Vendedor 4,Contato Realizado,Em andamento,38000.00,19/04/2026,6,,T3/26,38,Pediu proposta
+127,HTI,LinkedIn,Pediatria,Vendedor 7,Proposta Enviada,Em andamento,17748.00,04/02/2026,99,,T4/26,77,Proposta personalizada enviada
+128,POS,Site Orgânico,Psiquiatria,Vendedor 7,Matriculado,Ganho,34200.00,19/05/2026,112,,T2/26,74,Pagamento confirmado
+129,SHHE,Congresso,Psiquiatria,Vendedor 6,Contato Realizado,Em andamento,14900.00,01/01/2026,107,,T1/26,68,Interesse demonstrado
+130,EAD,Congresso,Psiquiatria,Vendedor 6,Proposta Enviada,Em andamento,1200.00,28/04/2026,32,,T3/26,49,Proposta personalizada enviada
+131,SHHE,LinkedIn,Ginecologia,Vendedor 1,Matriculado,Ganho,14155.00,05/01/2026,99,,T2/26,56,Pagamento confirmado
+132,HTI,Parceiro Clínica,Ginecologia,Vendedor 2,Negociação,Em andamento,15973.20,13/01/2026,112,,T2/26,35,Em análise de parcelamento
+133,POS,Email Marketing,Ortopedia,Vendedor 5,Matriculado,Ganho,32300.00,05/02/2026,8,,T3/26,59,Pix recebido
+134,R2,Parceiro Clínica,Neurologia,Vendedor 1,Proposta Enviada,Em andamento,8500.00,06/02/2026,113,,T2/26,82,Proposta personalizada enviada
+135,NEXAL,Indicação,Ortopedia,Vendedor 6,Matriculado,Ganho,9800.00,23/06/2026,81,,T4/26,93,Pagamento confirmado
+136,NEXAL,Site Orgânico,Ortopedia,Vendedor 3,Matriculado,Ganho,9800.00,18/03/2026,20,,T4/26,53,Parcelado 12x aprovado
+137,SHHE,Email Marketing,Dermatologia,Vendedor 1,Matriculado,Ganho,12665.00,15/01/2026,60,,T4/26,83,Boleto gerado
+138,POS,Email Marketing,Dermatologia,Vendedor 5,Proposta Enviada,Em andamento,38000.00,26/04/2026,119,,T3/26,41,Aguardando leitura
+139,EAD,Email Marketing,Ginecologia,Vendedor 3,Proposta Enviada,Em andamento,1140.00,11/01/2026,78,,T1/26,54,Aguardando leitura
+140,EAD,Congresso,Cardiologia,Vendedor 2,Contato Realizado,Em andamento,1200.00,04/01/2026,39,,T2/26,54,Pediu proposta
+141,HTI,Webinar,Cardiologia,Vendedor 4,Negociação,Em andamento,17748.00,03/03/2026,51,,T3/26,66,Em análise de parcelamento
+142,POS,Congresso,Neurologia,Vendedor 3,Proposta Enviada,Em andamento,38000.00,08/05/2026,66,,T4/26,42,Aguardando leitura
+143,POS,WhatsApp,Cardiologia,Vendedor 3,Proposta Enviada,Em andamento,38000.00,26/02/2026,73,,T2/26,32,Proposta personalizada enviada
+144,R2,Parceiro Clínica,Medicina do Trabalho,Vendedor 4,Proposta Enviada,Em andamento,8500.00,26/03/2026,26,,T2/26,78,Aguardando leitura
+145,SHHE,Webinar,Ortopedia,Vendedor 4,Perdido,Perdido,14900.00,06/05/2026,33,Desistiu por mudança de prioridades,T4/26,51,Confirmou escolha do concorrente
+146,NEXAL,Google Ads,Endocrinologia,Vendedor 4,Negociação,Em andamento,9800.00,19/05/2026,118,,T1/26,97,Aguardando aprovação financeira
+147,HTI,Indicação,Ginecologia,Vendedor 2,Contato Realizado,Em andamento,15973.20,18/01/2026,30,,T2/26,31,Demo agendada
+148,R2,Webinar,Nutrologia,Vendedor 7,Negociação,Em andamento,7650.00,07/06/2026,120,,T4/26,92,Aguardando aprovação financeira
+149,HTI,Congresso,Ortopedia,Vendedor 2,Lead Captado,Em andamento,16860.60,12/03/2026,93,,T3/26,32,Aguardando primeiro contato
+150,SHHE,LinkedIn,Clínica Geral,Vendedor 6,Contato Realizado,Em andamento,14900.00,15/05/2026,80,,T3/26,75,Interesse demonstrado
+151,POS,LinkedIn,Nutrologia,Vendedor 2,Negociação,Em andamento,38000.00,27/02/2026,90,,T3/26,40,Aguardando aprovação financeira
+152,HTI,Site Orgânico,Psiquiatria,Vendedor 2,Negociação,Em andamento,17748.00,03/01/2026,82,,T2/26,40,Em análise de parcelamento
+153,POS,WhatsApp,Medicina do Trabalho,Vendedor 1,Perdido,Perdido,36100.00,11/01/2026,118,Não respondeu após follow-up,T2/26,90,Não retornou após 5 contatos
+154,HTI,LinkedIn,Neurologia,Vendedor 3,Matriculado,Ganho,16860.60,09/01/2026,85,,T2/26,70,Pagamento confirmado
+155,SHHE,Parceiro Clínica,Endocrinologia,Vendedor 1,Matriculado,Ganho,12665.00,20/01/2026,51,,T3/26,50,Boleto gerado
+156,R2,Site Orgânico,Neurologia,Vendedor 6,Proposta Enviada,Em andamento,7225.00,05/02/2026,95,,T1/26,94,Aguardando leitura
+157,NEXAL,Indicação,Clínica Geral,Vendedor 2,Proposta Enviada,Em andamento,9800.00,04/06/2026,44,,T4/26,71,Follow-up agendado para 3 dias
+158,EAD,Instagram,Pediatria,Vendedor 2,Contato Realizado,Em andamento,1140.00,21/04/2026,49,,T2/26,78,Demo agendada
+159,R2,Instagram,Cardiologia,Vendedor 4,Lead Captado,Em andamento,8500.00,08/04/2026,20,,T2/26,79,Aguardando primeiro contato
+160,NEXAL,LinkedIn,Clínica Geral,Vendedor 7,Perdido,Perdido,9800.00,11/03/2026,47,Escolheu concorrente,T2/26,41,Lead frio
+161,POS,Webinar,Ortopedia,Vendedor 6,Negociação,Em andamento,38000.00,23/01/2026,4,,T3/26,100,Aguardando aprovação financeira
+162,R2,Parceiro Clínica,Nutrologia,Vendedor 1,Proposta Enviada,Em andamento,8500.00,10/04/2026,53,,T1/26,61,Aguardando leitura
+163,R2,Google Ads,Neurologia,Vendedor 2,Contato Realizado,Em andamento,8500.00,10/03/2026,39,,T4/26,48,Demo agendada
+164,SHHE,Site Orgânico,Dermatologia,Vendedor 2,Proposta Enviada,Em andamento,12665.00,03/04/2026,10,,T3/26,61,Aguardando leitura
+165,EAD,Webinar,Medicina do Trabalho,Vendedor 6,Contato Realizado,Em andamento,1200.00,19/03/2026,18,,T1/26,80,Interesse demonstrado
+166,R2,Site Orgânico,Nutrologia,Vendedor 2,Proposta Enviada,Em andamento,7225.00,16/06/2026,106,,T2/26,68,Proposta personalizada enviada
+167,R2,Email Marketing,Pediatria,Vendedor 3,Contato Realizado,Em andamento,8500.00,16/03/2026,41,,T4/26,61,Interesse demonstrado
+168,POS,Instagram,Psiquiatria,Vendedor 3,Contato Realizado,Em andamento,36100.00,01/06/2026,26,,T2/26,100,Demo agendada
+169,EAD,Webinar,Geriatria,Vendedor 5,Proposta Enviada,Em andamento,1200.00,27/06/2026,107,,T1/26,82,Aguardando leitura
+170,POS,Google Ads,Neurologia,Vendedor 3,Proposta Enviada,Em andamento,34200.00,19/04/2026,20,,T4/26,39,Proposta personalizada enviada
+171,R2,Webinar,Medicina do Trabalho,Vendedor 2,Negociação,Em andamento,7225.00,18/04/2026,89,,T1/26,76,Aguardando aprovação financeira
+172,HTI,Email Marketing,Neurologia,Vendedor 4,Proposta Enviada,Em andamento,15973.20,12/01/2026,79,,T4/26,72,Proposta personalizada enviada
+173,HTI,Indicação,Clínica Geral,Vendedor 3,Contato Realizado,Em andamento,15973.20,23/05/2026,67,,T2/26,87,Interesse demonstrado
+174,POS,Webinar,Neurologia,Vendedor 6,Matriculado,Ganho,38000.00,07/01/2026,45,,T4/26,43,Pix recebido
+175,POS,LinkedIn,Clínica Geral,Vendedor 1,Perdido,Perdido,38000.00,21/03/2026,45,Adiou para próxima turma,T4/26,56,Confirmou escolha do concorrente
+176,POS,WhatsApp,Pediatria,Vendedor 7,Proposta Enviada,Em andamento,34200.00,23/03/2026,58,,T1/26,68,Follow-up agendado para 3 dias
+177,EAD,LinkedIn,Ginecologia,Vendedor 1,Proposta Enviada,Em andamento,1200.00,12/02/2026,87,,T2/26,96,Follow-up agendado para 3 dias
+178,R2,Google Ads,Nutrologia,Vendedor 6,Proposta Enviada,Em andamento,8500.00,14/04/2026,30,,T2/26,53,Aguardando leitura
+179,EAD,Site Orgânico,Psiquiatria,Vendedor 7,Matriculado,Ganho,1200.00,01/06/2026,58,,T4/26,79,Pagamento confirmado
+180,EAD,Email Marketing,Cardiologia,Vendedor 3,Matriculado,Ganho,1020.00,17/01/2026,102,,T1/26,98,Boleto gerado
+181,NEXAL,WhatsApp,Cardiologia,Vendedor 2,Contato Realizado,Em andamento,8820.00,06/05/2026,111,,T3/26,79,Pediu proposta
+182,POS,Parceiro Clínica,Clínica Geral,Vendedor 3,Proposta Enviada,Em andamento,38000.00,14/02/2026,80,,T3/26,40,Aguardando leitura
+183,SHHE,WhatsApp,Clínica Geral,Vendedor 5,Proposta Enviada,Em andamento,14900.00,27/06/2026,48,,T2/26,95,Proposta personalizada enviada
+184,POS,Parceiro Clínica,Endocrinologia,Vendedor 6,Proposta Enviada,Em andamento,38000.00,12/06/2026,63,,T2/26,51,Proposta personalizada enviada
+185,NEXAL,Google Ads,Endocrinologia,Vendedor 3,Matriculado,Ganho,9310.00,02/04/2026,7,,T1/26,92,Boleto gerado
+186,SHHE,Site Orgânico,Ortopedia,Vendedor 6,Matriculado,Ganho,14900.00,06/05/2026,88,,T4/26,86,Parcelado 12x aprovado
+187,SHHE,LinkedIn,Medicina do Trabalho,Vendedor 7,Matriculado,Ganho,14900.00,09/01/2026,38,,T3/26,58,Pix recebido
+188,SHHE,Webinar,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,14900.00,11/05/2026,71,,T1/26,44,Pix recebido
+189,R2,WhatsApp,Ortopedia,Vendedor 1,Matriculado,Ganho,7225.00,23/04/2026,93,,T2/26,84,Pagamento confirmado
+190,EAD,Email Marketing,Dermatologia,Vendedor 1,Perdido,Perdido,1200.00,31/03/2026,34,Escolheu concorrente,T4/26,45,Lead frio
+191,SHHE,Parceiro Clínica,Geriatria,Vendedor 3,Matriculado,Ganho,14155.00,20/04/2026,81,,T2/26,47,Boleto gerado
+192,SHHE,Indicação,Medicina do Trabalho,Vendedor 3,Negociação,Em andamento,14155.00,13/02/2026,69,,T3/26,67,Esperando retorno do cônjuge
+193,R2,Instagram,Ortopedia,Vendedor 4,Matriculado,Ganho,8500.00,16/04/2026,97,,T1/26,65,Boleto gerado
+194,EAD,Google Ads,Cardiologia,Vendedor 5,Matriculado,Ganho,1020.00,23/06/2026,32,,T4/26,92,Boleto gerado
+195,R2,Instagram,Neurologia,Vendedor 2,Proposta Enviada,Em andamento,8500.00,24/01/2026,82,,T4/26,95,Aguardando leitura
+196,NEXAL,WhatsApp,Pediatria,Vendedor 2,Proposta Enviada,Em andamento,9800.00,24/01/2026,112,,T4/26,75,Follow-up agendado para 3 dias
+197,R2,Site Orgânico,Cardiologia,Vendedor 2,Matriculado,Ganho,8500.00,24/03/2026,35,,T3/26,73,Boleto gerado
+198,R2,Webinar,Nutrologia,Vendedor 4,Matriculado,Ganho,8500.00,10/06/2026,13,,T4/26,32,Pagamento confirmado
+199,SHHE,Webinar,Pediatria,Vendedor 7,Perdido,Perdido,14900.00,26/06/2026,26,Sem tempo no momento,T3/26,50,Não retornou após 5 contatos
+200,HTI,WhatsApp,Dermatologia,Vendedor 7,Proposta Enviada,Em andamento,15973.20,14/01/2026,22,,T4/26,69,Aguardando leitura
+201,EAD,Email Marketing,Psiquiatria,Vendedor 4,Contato Realizado,Em andamento,1200.00,24/02/2026,1,,T4/26,39,Demo agendada
+202,R2,Email Marketing,Ortopedia,Vendedor 4,Proposta Enviada,Em andamento,8500.00,29/03/2026,90,,T1/26,84,Aguardando leitura
+203,SHHE,Webinar,Clínica Geral,Vendedor 5,Proposta Enviada,Em andamento,13410.00,27/01/2026,104,,T1/26,70,Proposta personalizada enviada
+204,NEXAL,Google Ads,Psiquiatria,Vendedor 1,Matriculado,Ganho,8330.00,14/06/2026,18,,T2/26,38,Pagamento confirmado
+205,R2,Google Ads,Pediatria,Vendedor 3,Matriculado,Ganho,7650.00,08/02/2026,96,,T4/26,86,Boleto gerado
+206,HTI,LinkedIn,Endocrinologia,Vendedor 1,Contato Realizado,Em andamento,15973.20,31/03/2026,50,,T4/26,70,Demo agendada
+207,SHHE,Instagram,Neurologia,Vendedor 7,Proposta Enviada,Em andamento,14155.00,05/06/2026,77,,T3/26,33,Aguardando leitura
+208,NEXAL,Email Marketing,Ortopedia,Vendedor 6,Negociação,Em andamento,8820.00,17/03/2026,51,,T1/26,60,Em análise de parcelamento
+209,POS,LinkedIn,Cardiologia,Vendedor 2,Matriculado,Ganho,38000.00,04/01/2026,68,,T3/26,70,Boleto gerado
+210,POS,Parceiro Clínica,Psiquiatria,Vendedor 3,Negociação,Em andamento,38000.00,01/05/2026,98,,T1/26,32,Aguardando aprovação financeira
+211,HTI,Instagram,Cardiologia,Vendedor 7,Perdido,Perdido,15085.80,10/05/2026,51,Proposta não aprovada pela empresa,T4/26,84,Confirmou escolha do concorrente
+212,POS,LinkedIn,Neurologia,Vendedor 6,Negociação,Em andamento,38000.00,22/01/2026,36,,T3/26,40,Proposta revisada enviada
+213,SHHE,Congresso,Nutrologia,Vendedor 2,Negociação,Em andamento,12665.00,16/06/2026,107,,T1/26,69,Em análise de parcelamento
+214,EAD,Email Marketing,Ginecologia,Vendedor 5,Contato Realizado,Em andamento,1200.00,27/04/2026,15,,T1/26,69,Pediu proposta
+215,EAD,Google Ads,Clínica Geral,Vendedor 7,Matriculado,Ganho,1080.00,11/02/2026,2,,T4/26,74,Pix recebido
+216,SHHE,WhatsApp,Endocrinologia,Vendedor 4,Matriculado,Ganho,14900.00,31/01/2026,94,,T1/26,72,Parcelado 12x aprovado
+217,NEXAL,Congresso,Clínica Geral,Vendedor 3,Matriculado,Ganho,9310.00,20/01/2026,81,,T4/26,88,Pix recebido
+218,HTI,Webinar,Medicina do Trabalho,Vendedor 5,Proposta Enviada,Em andamento,17748.00,27/01/2026,99,,T1/26,59,Aguardando leitura
+219,R2,Indicação,Ginecologia,Vendedor 1,Matriculado,Ganho,8500.00,01/05/2026,6,,T3/26,79,Boleto gerado
+220,SHHE,Indicação,Ortopedia,Vendedor 1,Perdido,Perdido,13410.00,18/04/2026,84,Não respondeu após follow-up,T3/26,61,Não retornou após 5 contatos
+221,EAD,WhatsApp,Dermatologia,Vendedor 1,Lead Captado,Em andamento,1200.00,09/05/2026,16,,T1/26,52,Aguardando primeiro contato
+222,R2,Indicação,Psiquiatria,Vendedor 7,Matriculado,Ganho,7225.00,21/03/2026,37,,T3/26,41,Parcelado 12x aprovado
+223,HTI,WhatsApp,Cardiologia,Vendedor 3,Negociação,Em andamento,17748.00,09/06/2026,95,,T2/26,89,Esperando retorno do cônjuge
+224,R2,Webinar,Cardiologia,Vendedor 4,Perdido,Perdido,7225.00,04/03/2026,102,Sem tempo no momento,T1/26,82,Lead frio
+225,SHHE,Congresso,Nutrologia,Vendedor 4,Matriculado,Ganho,14900.00,01/01/2026,43,,T4/26,69,Pagamento confirmado
+226,SHHE,Congresso,Cardiologia,Vendedor 2,Negociação,Em andamento,14900.00,13/03/2026,19,,T1/26,35,Proposta revisada enviada
+227,R2,Site Orgânico,Geriatria,Vendedor 3,Negociação,Em andamento,7650.00,29/05/2026,11,,T1/26,94,Proposta revisada enviada
+228,EAD,Site Orgânico,Clínica Geral,Vendedor 6,Negociação,Em andamento,1200.00,03/02/2026,85,,T2/26,67,Esperando retorno do cônjuge
+229,NEXAL,Site Orgânico,Geriatria,Vendedor 1,Matriculado,Ganho,9800.00,11/03/2026,58,,T2/26,39,Boleto gerado
+230,SHHE,Parceiro Clínica,Clínica Geral,Vendedor 5,Contato Realizado,Em andamento,14900.00,22/03/2026,60,,T4/26,45,Pediu proposta
+231,NEXAL,Email Marketing,Pediatria,Vendedor 3,Negociação,Em andamento,8330.00,24/01/2026,16,,T2/26,68,Aguardando aprovação financeira
+232,SHHE,WhatsApp,Endocrinologia,Vendedor 7,Matriculado,Ganho,14900.00,12/05/2026,51,,T1/26,68,Pix recebido
+233,SHHE,Indicação,Psiquiatria,Vendedor 1,Negociação,Em andamento,13410.00,05/03/2026,71,,T1/26,89,Aguardando aprovação financeira
+234,SHHE,LinkedIn,Ginecologia,Vendedor 7,Matriculado,Ganho,14900.00,20/02/2026,17,,T4/26,77,Pagamento confirmado
+235,R2,Parceiro Clínica,Dermatologia,Vendedor 1,Lead Captado,Em andamento,8500.00,15/06/2026,26,,T4/26,46,Aguardando primeiro contato
+236,NEXAL,LinkedIn,Ginecologia,Vendedor 2,Lead Captado,Em andamento,9310.00,12/04/2026,56,,T4/26,33,Aguardando primeiro contato
+237,EAD,Site Orgânico,Endocrinologia,Vendedor 3,Contato Realizado,Em andamento,1200.00,13/03/2026,36,,T4/26,49,Demo agendada
+238,R2,Parceiro Clínica,Medicina do Trabalho,Vendedor 5,Matriculado,Ganho,8500.00,21/05/2026,53,,T4/26,37,Pagamento confirmado
+239,NEXAL,Site Orgânico,Endocrinologia,Vendedor 2,Contato Realizado,Em andamento,8330.00,05/03/2026,68,,T1/26,78,Pediu proposta
+240,NEXAL,Webinar,Ortopedia,Vendedor 1,Negociação,Em andamento,9310.00,24/03/2026,65,,T4/26,64,Proposta revisada enviada
+241,HTI,WhatsApp,Medicina do Trabalho,Vendedor 5,Lead Captado,Em andamento,15085.80,13/03/2026,100,,T1/26,90,Aguardando primeiro contato
+242,R2,Email Marketing,Endocrinologia,Vendedor 7,Proposta Enviada,Em andamento,8500.00,17/05/2026,35,,T1/26,58,Aguardando leitura
+243,POS,WhatsApp,Endocrinologia,Vendedor 5,Proposta Enviada,Em andamento,38000.00,28/06/2026,104,,T3/26,33,Aguardando leitura
+244,EAD,WhatsApp,Medicina do Trabalho,Vendedor 6,Contato Realizado,Em andamento,1200.00,07/05/2026,108,,T3/26,52,Interesse demonstrado
+245,HTI,LinkedIn,Ginecologia,Vendedor 5,Negociação,Em andamento,17748.00,03/05/2026,68,,T1/26,72,Proposta revisada enviada
+246,SHHE,WhatsApp,Geriatria,Vendedor 5,Perdido,Perdido,12665.00,24/03/2026,112,Preço acima do esperado,T1/26,48,Confirmou escolha do concorrente
+247,EAD,Google Ads,Clínica Geral,Vendedor 1,Negociação,Em andamento,1200.00,06/04/2026,10,,T4/26,42,Esperando retorno do cônjuge
+248,NEXAL,WhatsApp,Endocrinologia,Vendedor 5,Matriculado,Ganho,9800.00,13/06/2026,102,,T4/26,70,Boleto gerado
+249,EAD,Congresso,Geriatria,Vendedor 6,Matriculado,Ganho,1200.00,31/05/2026,86,,T2/26,78,Pix recebido
+250,EAD,Instagram,Endocrinologia,Vendedor 5,Matriculado,Ganho,1080.00,11/04/2026,74,,T1/26,53,Pix recebido
+251,R2,Email Marketing,Neurologia,Vendedor 6,Contato Realizado,Em andamento,8500.00,26/03/2026,19,,T1/26,60,Interesse demonstrado
+252,NEXAL,Google Ads,Neurologia,Vendedor 7,Matriculado,Ganho,8820.00,27/03/2026,82,,T4/26,31,Pix recebido
+253,SHHE,Email Marketing,Geriatria,Vendedor 7,Proposta Enviada,Em andamento,12665.00,01/01/2026,14,,T1/26,79,Proposta personalizada enviada
+254,EAD,Site Orgânico,Endocrinologia,Vendedor 2,Negociação,Em andamento,1200.00,20/05/2026,45,,T4/26,42,Em análise de parcelamento
+255,R2,Email Marketing,Endocrinologia,Vendedor 2,Lead Captado,Em andamento,7225.00,17/03/2026,5,,T1/26,70,Aguardando primeiro contato
+256,HTI,LinkedIn,Nutrologia,Vendedor 5,Matriculado,Ganho,17748.00,20/01/2026,94,,T1/26,73,Parcelado 12x aprovado
+257,EAD,Indicação,Psiquiatria,Vendedor 4,Contato Realizado,Em andamento,1200.00,14/01/2026,21,,T1/26,72,Demo agendada
+258,SHHE,Site Orgânico,Geriatria,Vendedor 6,Matriculado,Ganho,13410.00,09/03/2026,70,,T3/26,68,Boleto gerado
+259,HTI,Indicação,Psiquiatria,Vendedor 6,Negociação,Em andamento,17748.00,14/01/2026,20,,T3/26,30,Em análise de parcelamento
+260,HTI,Instagram,Neurologia,Vendedor 4,Negociação,Em andamento,17748.00,07/01/2026,13,,T2/26,51,Esperando retorno do cônjuge
+261,HTI,Webinar,Clínica Geral,Vendedor 3,Matriculado,Ganho,17748.00,19/06/2026,63,,T3/26,41,Parcelado 12x aprovado
+262,SHHE,WhatsApp,Psiquiatria,Vendedor 3,Contato Realizado,Em andamento,14900.00,23/04/2026,34,,T4/26,63,Demo agendada
+263,NEXAL,Parceiro Clínica,Ginecologia,Vendedor 5,Matriculado,Ganho,8820.00,22/01/2026,13,,T3/26,99,Parcelado 12x aprovado
+264,R2,Email Marketing,Ortopedia,Vendedor 7,Matriculado,Ganho,7225.00,18/04/2026,67,,T4/26,60,Parcelado 12x aprovado
+265,NEXAL,LinkedIn,Psiquiatria,Vendedor 1,Matriculado,Ganho,9310.00,13/05/2026,74,,T2/26,45,Parcelado 12x aprovado
+266,SHHE,Google Ads,Cardiologia,Vendedor 1,Contato Realizado,Em andamento,14900.00,21/01/2026,55,,T4/26,55,Pediu proposta
+267,SHHE,Parceiro Clínica,Dermatologia,Vendedor 3,Perdido,Perdido,12665.00,23/01/2026,9,Perfil não alinhado com o curso,T4/26,100,Não retornou após 5 contatos
+268,NEXAL,Congresso,Pediatria,Vendedor 1,Lead Captado,Em andamento,8820.00,31/05/2026,80,,T4/26,44,Aguardando primeiro contato
+269,SHHE,Google Ads,Medicina do Trabalho,Vendedor 6,Negociação,Em andamento,14900.00,28/01/2026,119,,T1/26,66,Esperando retorno do cônjuge
+270,POS,Instagram,Psiquiatria,Vendedor 4,Negociação,Em andamento,36100.00,10/01/2026,61,,T2/26,65,Em análise de parcelamento
+271,SHHE,Parceiro Clínica,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,14900.00,26/03/2026,51,,T2/26,36,Parcelado 12x aprovado
+272,NEXAL,WhatsApp,Ginecologia,Vendedor 3,Matriculado,Ganho,9800.00,13/03/2026,40,,T4/26,42,Boleto gerado
+273,SHHE,Instagram,Geriatria,Vendedor 2,Matriculado,Ganho,14900.00,17/04/2026,35,,T1/26,54,Parcelado 12x aprovado
+274,SHHE,Site Orgânico,Geriatria,Vendedor 2,Matriculado,Ganho,12665.00,15/01/2026,48,,T2/26,38,Pix recebido
+275,EAD,Congresso,Psiquiatria,Vendedor 5,Matriculado,Ganho,1140.00,26/05/2026,113,,T1/26,52,Boleto gerado
+276,SHHE,Indicação,Cardiologia,Vendedor 7,Negociação,Em andamento,14900.00,20/02/2026,91,,T3/26,77,Em análise de parcelamento
+277,R2,Site Orgânico,Neurologia,Vendedor 7,Matriculado,Ganho,8500.00,06/05/2026,48,,T4/26,52,Parcelado 12x aprovado
+278,R2,Congresso,Nutrologia,Vendedor 3,Contato Realizado,Em andamento,8500.00,26/06/2026,96,,T1/26,66,Demo agendada
+279,POS,Indicação,Endocrinologia,Vendedor 1,Negociação,Em andamento,38000.00,26/02/2026,110,,T2/26,56,Esperando retorno do cônjuge
+280,EAD,Site Orgânico,Ortopedia,Vendedor 7,Matriculado,Ganho,1020.00,03/01/2026,88,,T4/26,46,Boleto gerado
+281,R2,Indicação,Cardiologia,Vendedor 3,Negociação,Em andamento,8500.00,14/06/2026,92,,T3/26,84,Em análise de parcelamento
+282,NEXAL,Webinar,Dermatologia,Vendedor 5,Negociação,Em andamento,8820.00,09/06/2026,67,,T4/26,43,Aguardando aprovação financeira
+283,R2,WhatsApp,Ortopedia,Vendedor 4,Negociação,Em andamento,8500.00,25/06/2026,39,,T1/26,91,Aguardando aprovação financeira
+284,NEXAL,Instagram,Neurologia,Vendedor 3,Matriculado,Ganho,9800.00,16/06/2026,84,,T3/26,54,Boleto gerado
+285,R2,Email Marketing,Ginecologia,Vendedor 1,Matriculado,Ganho,7225.00,14/04/2026,77,,T3/26,47,Pagamento confirmado
+286,EAD,Webinar,Dermatologia,Vendedor 3,Perdido,Perdido,1200.00,10/01/2026,50,Não respondeu após follow-up,T3/26,58,Confirmou escolha do concorrente
+287,R2,Webinar,Neurologia,Vendedor 3,Negociação,Em andamento,7225.00,18/06/2026,22,,T2/26,67,Aguardando aprovação financeira
+288,POS,Google Ads,Geriatria,Vendedor 3,Matriculado,Ganho,36100.00,16/02/2026,98,,T3/26,41,Boleto gerado
+289,NEXAL,Email Marketing,Geriatria,Vendedor 1,Proposta Enviada,Em andamento,8330.00,26/03/2026,114,,T3/26,63,Aguardando leitura
+290,NEXAL,Webinar,Clínica Geral,Vendedor 2,Lead Captado,Em andamento,8820.00,29/05/2026,75,,T1/26,90,Aguardando primeiro contato
+291,R2,LinkedIn,Neurologia,Vendedor 2,Negociação,Em andamento,8500.00,08/02/2026,7,,T2/26,55,Esperando retorno do cônjuge
+292,POS,Parceiro Clínica,Pediatria,Vendedor 5,Proposta Enviada,Em andamento,34200.00,21/01/2026,24,,T4/26,72,Aguardando leitura
+293,SHHE,WhatsApp,Neurologia,Vendedor 7,Lead Captado,Em andamento,14900.00,13/02/2026,27,,T2/26,92,Aguardando primeiro contato
+294,SHHE,Parceiro Clínica,Psiquiatria,Vendedor 4,Proposta Enviada,Em andamento,14900.00,09/04/2026,62,,T1/26,34,Aguardando leitura
+295,SHHE,WhatsApp,Ginecologia,Vendedor 3,Matriculado,Ganho,14155.00,05/01/2026,25,,T1/26,61,Boleto gerado
+296,EAD,WhatsApp,Dermatologia,Vendedor 5,Contato Realizado,Em andamento,1140.00,20/03/2026,76,,T2/26,38,Demo agendada
+297,NEXAL,Instagram,Pediatria,Vendedor 4,Negociação,Em andamento,9310.00,22/04/2026,44,,T2/26,73,Em análise de parcelamento
+298,NEXAL,Email Marketing,Endocrinologia,Vendedor 1,Proposta Enviada,Em andamento,9800.00,03/02/2026,29,,T2/26,32,Aguardando leitura
+299,R2,Google Ads,Clínica Geral,Vendedor 3,Matriculado,Ganho,7225.00,07/04/2026,5,,T3/26,98,Pagamento confirmado
+300,R2,Indicação,Neurologia,Vendedor 7,Matriculado,Ganho,8500.00,26/06/2026,7,,T1/26,83,Parcelado 12x aprovado
+301,POS,LinkedIn,Ortopedia,Vendedor 3,Negociação,Em andamento,38000.00,27/06/2026,27,,T1/26,68,Em análise de parcelamento
+302,EAD,LinkedIn,Neurologia,Vendedor 6,Proposta Enviada,Em andamento,1140.00,05/02/2026,90,,T4/26,43,Aguardando leitura
+303,EAD,Parceiro Clínica,Clínica Geral,Vendedor 3,Contato Realizado,Em andamento,1200.00,20/02/2026,64,,T2/26,63,Pediu proposta
+304,SHHE,WhatsApp,Geriatria,Vendedor 2,Proposta Enviada,Em andamento,14900.00,08/05/2026,71,,T2/26,91,Proposta personalizada enviada
+305,SHHE,Indicação,Ginecologia,Vendedor 4,Contato Realizado,Em andamento,14900.00,27/05/2026,107,,T4/26,49,Demo agendada
+306,R2,LinkedIn,Geriatria,Vendedor 4,Contato Realizado,Em andamento,8500.00,01/03/2026,83,,T4/26,67,Interesse demonstrado
+307,POS,Indicação,Clínica Geral,Vendedor 1,Contato Realizado,Em andamento,38000.00,16/03/2026,110,,T3/26,70,Interesse demonstrado
+308,EAD,LinkedIn,Clínica Geral,Vendedor 1,Matriculado,Ganho,1200.00,05/02/2026,2,,T2/26,72,Pix recebido
+309,POS,Parceiro Clínica,Dermatologia,Vendedor 4,Contato Realizado,Em andamento,32300.00,16/02/2026,44,,T1/26,81,Interesse demonstrado
+310,POS,Instagram,Psiquiatria,Vendedor 4,Matriculado,Ganho,32300.00,16/06/2026,54,,T2/26,44,Boleto gerado
+311,EAD,Indicação,Endocrinologia,Vendedor 7,Proposta Enviada,Em andamento,1140.00,26/05/2026,62,,T4/26,53,Aguardando leitura
+312,POS,WhatsApp,Medicina do Trabalho,Vendedor 7,Matriculado,Ganho,32300.00,03/02/2026,94,,T4/26,92,Pagamento confirmado
+313,POS,Webinar,Ginecologia,Vendedor 7,Proposta Enviada,Em andamento,38000.00,23/06/2026,2,,T2/26,73,Aguardando leitura
+314,R2,Parceiro Clínica,Clínica Geral,Vendedor 2,Matriculado,Ganho,8500.00,30/03/2026,62,,T4/26,49,Pagamento confirmado
+315,HTI,Google Ads,Ortopedia,Vendedor 1,Negociação,Em andamento,17748.00,12/02/2026,112,,T1/26,92,Esperando retorno do cônjuge
+316,SHHE,WhatsApp,Dermatologia,Vendedor 7,Negociação,Em andamento,14155.00,07/04/2026,83,,T4/26,60,Aguardando aprovação financeira
+317,POS,Webinar,Medicina do Trabalho,Vendedor 2,Contato Realizado,Em andamento,38000.00,22/03/2026,58,,T1/26,93,Pediu proposta
+318,EAD,Indicação,Clínica Geral,Vendedor 2,Proposta Enviada,Em andamento,1140.00,01/01/2026,71,,T1/26,68,Aguardando leitura
+319,R2,Email Marketing,Neurologia,Vendedor 4,Negociação,Em andamento,8500.00,14/01/2026,47,,T2/26,88,Esperando retorno do cônjuge
+320,R2,Parceiro Clínica,Medicina do Trabalho,Vendedor 2,Matriculado,Ganho,8500.00,26/04/2026,92,,T1/26,42,Boleto gerado
+321,HTI,WhatsApp,Nutrologia,Vendedor 1,Matriculado,Ganho,15085.80,21/05/2026,38,,T3/26,43,Pagamento confirmado
+322,SHHE,Webinar,Endocrinologia,Vendedor 1,Matriculado,Ganho,13410.00,28/01/2026,53,,T3/26,55,Boleto gerado
+323,HTI,Site Orgânico,Cardiologia,Vendedor 2,Matriculado,Ganho,17748.00,28/03/2026,92,,T1/26,83,Pagamento confirmado
+324,EAD,Parceiro Clínica,Clínica Geral,Vendedor 1,Matriculado,Ganho,1200.00,31/05/2026,85,,T2/26,93,Pagamento confirmado
+325,R2,Indicação,Ortopedia,Vendedor 2,Matriculado,Ganho,8500.00,11/05/2026,119,,T2/26,52,Boleto gerado
+326,HTI,Site Orgânico,Neurologia,Vendedor 6,Negociação,Em andamento,17748.00,09/04/2026,65,,T4/26,61,Esperando retorno do cônjuge
+327,POS,WhatsApp,Dermatologia,Vendedor 2,Matriculado,Ganho,38000.00,04/06/2026,53,,T3/26,100,Pix recebido
+328,EAD,Congresso,Neurologia,Vendedor 5,Contato Realizado,Em andamento,1140.00,16/03/2026,92,,T3/26,46,Pediu proposta
+329,EAD,Google Ads,Ortopedia,Vendedor 6,Matriculado,Ganho,1200.00,30/01/2026,91,,T3/26,91,Parcelado 12x aprovado
+330,EAD,Congresso,Dermatologia,Vendedor 1,Proposta Enviada,Em andamento,1200.00,28/01/2026,67,,T1/26,78,Follow-up agendado para 3 dias
+331,HTI,Indicação,Cardiologia,Vendedor 3,Matriculado,Ganho,17748.00,24/06/2026,37,,T3/26,48,Pagamento confirmado
+332,EAD,Instagram,Cardiologia,Vendedor 1,Negociação,Em andamento,1200.00,26/04/2026,105,,T1/26,58,Em análise de parcelamento
+333,SHHE,Congresso,Geriatria,Vendedor 3,Matriculado,Ganho,14900.00,08/04/2026,119,,T4/26,83,Pix recebido
+334,R2,Indicação,Ginecologia,Vendedor 4,Proposta Enviada,Em andamento,8075.00,24/04/2026,112,,T2/26,77,Aguardando leitura
+335,R2,Parceiro Clínica,Cardiologia,Vendedor 1,Matriculado,Ganho,8500.00,25/04/2026,38,,T2/26,39,Boleto gerado
+336,SHHE,Congresso,Clínica Geral,Vendedor 2,Lead Captado,Em andamento,14900.00,09/03/2026,72,,T2/26,50,Aguardando primeiro contato
+337,HTI,WhatsApp,Pediatria,Vendedor 4,Perdido,Perdido,17748.00,24/03/2026,20,Preço acima do esperado,T3/26,92,Confirmou escolha do concorrente
+338,R2,WhatsApp,Clínica Geral,Vendedor 1,Matriculado,Ganho,8075.00,17/02/2026,29,,T1/26,94,Boleto gerado
+339,POS,Congresso,Ortopedia,Vendedor 2,Contato Realizado,Em andamento,38000.00,24/02/2026,114,,T3/26,72,Interesse demonstrado
+340,NEXAL,Email Marketing,Medicina do Trabalho,Vendedor 6,Negociação,Em andamento,9310.00,16/06/2026,106,,T1/26,44,Esperando retorno do cônjuge
+341,POS,Email Marketing,Neurologia,Vendedor 6,Perdido,Perdido,38000.00,24/06/2026,6,Adiou para próxima turma,T4/26,44,Não retornou após 5 contatos
+342,NEXAL,Congresso,Geriatria,Vendedor 3,Lead Captado,Em andamento,9310.00,06/04/2026,106,,T4/26,92,Aguardando primeiro contato
+343,NEXAL,Email Marketing,Nutrologia,Vendedor 6,Contato Realizado,Em andamento,9800.00,18/05/2026,22,,T1/26,38,Demo agendada
+344,EAD,Email Marketing,Neurologia,Vendedor 2,Matriculado,Ganho,1200.00,29/06/2026,69,,T4/26,39,Boleto gerado
+345,HTI,Webinar,Geriatria,Vendedor 3,Lead Captado,Em andamento,17748.00,15/02/2026,7,,T3/26,39,Aguardando primeiro contato
+346,NEXAL,Site Orgânico,Psiquiatria,Vendedor 2,Matriculado,Ganho,9800.00,05/01/2026,41,,T4/26,45,Pagamento confirmado
+347,EAD,Parceiro Clínica,Clínica Geral,Vendedor 1,Matriculado,Ganho,1200.00,19/01/2026,90,,T3/26,94,Pagamento confirmado
+348,NEXAL,Instagram,Medicina do Trabalho,Vendedor 7,Proposta Enviada,Em andamento,9800.00,12/04/2026,49,,T1/26,90,Follow-up agendado para 3 dias
+349,R2,Email Marketing,Endocrinologia,Vendedor 4,Proposta Enviada,Em andamento,7225.00,20/05/2026,109,,T3/26,48,Proposta personalizada enviada
+350,EAD,WhatsApp,Ginecologia,Vendedor 6,Matriculado,Ganho,1200.00,11/01/2026,16,,T1/26,80,Pagamento confirmado
+351,NEXAL,Email Marketing,Geriatria,Vendedor 4,Perdido,Perdido,9800.00,16/04/2026,28,Questões financeiras pessoais,T2/26,50,Lead frio
+352,SHHE,Parceiro Clínica,Dermatologia,Vendedor 5,Contato Realizado,Em andamento,13410.00,26/05/2026,103,,T1/26,100,Interesse demonstrado
+353,EAD,Congresso,Clínica Geral,Vendedor 3,Matriculado,Ganho,1200.00,20/02/2026,13,,T4/26,72,Pix recebido
+354,SHHE,Email Marketing,Clínica Geral,Vendedor 3,Negociação,Em andamento,14900.00,05/05/2026,41,,T4/26,72,Esperando retorno do cônjuge
+355,EAD,Parceiro Clínica,Endocrinologia,Vendedor 6,Negociação,Em andamento,1020.00,20/04/2026,41,,T2/26,30,Esperando retorno do cônjuge
+356,SHHE,Email Marketing,Geriatria,Vendedor 4,Matriculado,Ganho,14900.00,03/04/2026,108,,T2/26,72,Parcelado 12x aprovado
+357,POS,Webinar,Nutrologia,Vendedor 1,Proposta Enviada,Em andamento,36100.00,14/02/2026,14,,T1/26,65,Follow-up agendado para 3 dias
+358,R2,Email Marketing,Dermatologia,Vendedor 4,Matriculado,Ganho,8500.00,20/01/2026,94,,T1/26,94,Pagamento confirmado
+359,R2,Parceiro Clínica,Psiquiatria,Vendedor 1,Negociação,Em andamento,8500.00,08/03/2026,71,,T4/26,49,Esperando retorno do cônjuge
+360,POS,Email Marketing,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,38000.00,09/05/2026,60,,T1/26,80,Pix recebido
+361,R2,Indicação,Neurologia,Vendedor 5,Matriculado,Ganho,7225.00,25/06/2026,79,,T2/26,95,Boleto gerado
+362,POS,Google Ads,Endocrinologia,Vendedor 6,Perdido,Perdido,34200.00,07/02/2026,112,Desistiu por mudança de prioridades,T3/26,35,Lead frio
+363,POS,Email Marketing,Clínica Geral,Vendedor 3,Proposta Enviada,Em andamento,38000.00,22/02/2026,86,,T3/26,79,Proposta personalizada enviada
+364,POS,Indicação,Ginecologia,Vendedor 4,Proposta Enviada,Em andamento,34200.00,12/06/2026,67,,T3/26,63,Aguardando leitura
+365,R2,Parceiro Clínica,Endocrinologia,Vendedor 2,Matriculado,Ganho,8500.00,17/06/2026,76,,T1/26,96,Pix recebido
+366,POS,Email Marketing,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,32300.00,05/05/2026,45,,T4/26,30,Aguardando leitura
+367,SHHE,Webinar,Endocrinologia,Vendedor 5,Lead Captado,Em andamento,13410.00,24/02/2026,36,,T2/26,53,Aguardando primeiro contato
+368,NEXAL,Parceiro Clínica,Geriatria,Vendedor 1,Contato Realizado,Em andamento,9800.00,26/03/2026,54,,T1/26,91,Pediu proposta
+369,POS,Webinar,Cardiologia,Vendedor 6,Contato Realizado,Em andamento,32300.00,06/01/2026,53,,T2/26,35,Demo agendada
+370,R2,Parceiro Clínica,Endocrinologia,Vendedor 5,Negociação,Em andamento,8500.00,27/05/2026,115,,T2/26,37,Proposta revisada enviada
+371,NEXAL,Google Ads,Ortopedia,Vendedor 2,Negociação,Em andamento,9310.00,05/01/2026,82,,T3/26,40,Proposta revisada enviada
+372,POS,Parceiro Clínica,Pediatria,Vendedor 1,Negociação,Em andamento,38000.00,16/04/2026,107,,T2/26,53,Esperando retorno do cônjuge
+373,SHHE,WhatsApp,Pediatria,Vendedor 6,Negociação,Em andamento,14900.00,09/04/2026,49,,T2/26,43,Aguardando aprovação financeira
+374,SHHE,Congresso,Ortopedia,Vendedor 4,Proposta Enviada,Em andamento,14900.00,25/01/2026,78,,T2/26,90,Aguardando leitura
+375,R2,Indicação,Ortopedia,Vendedor 6,Matriculado,Ganho,8500.00,18/06/2026,62,,T2/26,99,Pagamento confirmado
+376,EAD,Site Orgânico,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,1200.00,16/05/2026,90,,T4/26,59,Proposta personalizada enviada
+377,POS,WhatsApp,Medicina do Trabalho,Vendedor 1,Matriculado,Ganho,32300.00,28/06/2026,108,,T1/26,84,Boleto gerado
+378,NEXAL,Webinar,Cardiologia,Vendedor 1,Contato Realizado,Em andamento,9310.00,20/05/2026,113,,T4/26,62,Demo agendada
+379,HTI,Indicação,Medicina do Trabalho,Vendedor 6,Contato Realizado,Em andamento,17748.00,17/06/2026,49,,T2/26,70,Interesse demonstrado
+380,NEXAL,LinkedIn,Endocrinologia,Vendedor 2,Matriculado,Ganho,9800.00,18/05/2026,34,,T4/26,76,Pix recebido
+381,EAD,Site Orgânico,Cardiologia,Vendedor 2,Negociação,Em andamento,1140.00,15/02/2026,62,,T3/26,91,Esperando retorno do cônjuge
+382,NEXAL,Parceiro Clínica,Nutrologia,Vendedor 1,Matriculado,Ganho,8820.00,18/06/2026,18,,T1/26,59,Parcelado 12x aprovado
+383,EAD,Google Ads,Clínica Geral,Vendedor 5,Negociação,Em andamento,1020.00,21/05/2026,44,,T1/26,50,Em análise de parcelamento
+384,EAD,Indicação,Clínica Geral,Vendedor 1,Contato Realizado,Em andamento,1140.00,23/01/2026,56,,T1/26,63,Demo agendada
+385,NEXAL,LinkedIn,Medicina do Trabalho,Vendedor 7,Matriculado,Ganho,9800.00,17/06/2026,79,,T3/26,37,Boleto gerado
+386,EAD,Webinar,Pediatria,Vendedor 7,Contato Realizado,Em andamento,1080.00,13/05/2026,120,,T3/26,54,Demo agendada
+387,R2,Congresso,Ortopedia,Vendedor 4,Proposta Enviada,Em andamento,8500.00,10/01/2026,87,,T3/26,60,Aguardando leitura
+388,HTI,Google Ads,Clínica Geral,Vendedor 3,Matriculado,Ganho,17748.00,12/04/2026,86,,T4/26,55,Pagamento confirmado
+389,EAD,LinkedIn,Clínica Geral,Vendedor 6,Proposta Enviada,Em andamento,1020.00,30/05/2026,72,,T3/26,74,Proposta personalizada enviada
+390,SHHE,Parceiro Clínica,Cardiologia,Vendedor 2,Perdido,Perdido,14155.00,08/03/2026,1,Sem tempo no momento,T4/26,94,Lead frio
+391,R2,LinkedIn,Ortopedia,Vendedor 3,Proposta Enviada,Em andamento,8500.00,12/05/2026,103,,T3/26,98,Aguardando leitura
+392,NEXAL,Webinar,Psiquiatria,Vendedor 6,Negociação,Em andamento,9800.00,28/03/2026,97,,T4/26,88,Aguardando aprovação financeira
+393,POS,LinkedIn,Dermatologia,Vendedor 7,Proposta Enviada,Em andamento,32300.00,23/06/2026,29,,T2/26,70,Proposta personalizada enviada
+394,NEXAL,Congresso,Ortopedia,Vendedor 7,Matriculado,Ganho,9800.00,15/03/2026,32,,T1/26,81,Pix recebido
+395,HTI,Congresso,Endocrinologia,Vendedor 2,Proposta Enviada,Em andamento,17748.00,27/05/2026,115,,T3/26,53,Aguardando leitura
+396,EAD,Email Marketing,Pediatria,Vendedor 4,Contato Realizado,Em andamento,1080.00,09/03/2026,31,,T2/26,59,Demo agendada
+397,SHHE,Parceiro Clínica,Nutrologia,Vendedor 5,Matriculado,Ganho,14900.00,21/01/2026,118,,T4/26,30,Pagamento confirmado
+398,POS,WhatsApp,Medicina do Trabalho,Vendedor 3,Negociação,Em andamento,36100.00,12/03/2026,112,,T4/26,53,Esperando retorno do cônjuge
+399,POS,Email Marketing,Medicina do Trabalho,Vendedor 5,Lead Captado,Em andamento,32300.00,03/05/2026,55,,T1/26,94,Aguardando primeiro contato
+400,POS,Google Ads,Pediatria,Vendedor 7,Matriculado,Ganho,38000.00,26/06/2026,41,,T1/26,31,Boleto gerado
+401,POS,Parceiro Clínica,Clínica Geral,Vendedor 3,Proposta Enviada,Em andamento,32300.00,17/02/2026,34,,T3/26,60,Proposta personalizada enviada
+402,POS,Parceiro Clínica,Nutrologia,Vendedor 3,Contato Realizado,Em andamento,38000.00,18/04/2026,27,,T3/26,76,Interesse demonstrado
+403,NEXAL,Webinar,Endocrinologia,Vendedor 6,Contato Realizado,Em andamento,9310.00,28/02/2026,88,,T1/26,64,Demo agendada
+404,R2,Site Orgânico,Psiquiatria,Vendedor 5,Contato Realizado,Em andamento,7650.00,02/05/2026,20,,T1/26,52,Interesse demonstrado
+405,POS,Google Ads,Neurologia,Vendedor 6,Negociação,Em andamento,38000.00,05/05/2026,101,,T3/26,62,Aguardando aprovação financeira
+406,POS,LinkedIn,Geriatria,Vendedor 5,Lead Captado,Em andamento,32300.00,02/05/2026,33,,T1/26,87,Aguardando primeiro contato
+407,NEXAL,WhatsApp,Nutrologia,Vendedor 6,Negociação,Em andamento,8330.00,30/03/2026,33,,T1/26,82,Aguardando aprovação financeira
+408,NEXAL,Parceiro Clínica,Cardiologia,Vendedor 6,Negociação,Em andamento,8820.00,14/02/2026,69,,T3/26,75,Esperando retorno do cônjuge
+409,EAD,Congresso,Pediatria,Vendedor 1,Matriculado,Ganho,1200.00,07/06/2026,49,,T3/26,89,Boleto gerado
+410,SHHE,WhatsApp,Psiquiatria,Vendedor 4,Negociação,Em andamento,14900.00,19/01/2026,109,,T1/26,50,Esperando retorno do cônjuge
+411,SHHE,WhatsApp,Nutrologia,Vendedor 4,Proposta Enviada,Em andamento,14900.00,15/06/2026,78,,T4/26,64,Proposta personalizada enviada
+412,NEXAL,Parceiro Clínica,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,9800.00,06/01/2026,110,,T2/26,60,Aguardando leitura
+413,NEXAL,LinkedIn,Cardiologia,Vendedor 5,Proposta Enviada,Em andamento,9800.00,02/05/2026,9,,T1/26,33,Proposta personalizada enviada
+414,R2,LinkedIn,Clínica Geral,Vendedor 3,Negociação,Em andamento,8500.00,10/04/2026,84,,T3/26,59,Proposta revisada enviada
+415,EAD,Instagram,Pediatria,Vendedor 4,Contato Realizado,Em andamento,1140.00,13/02/2026,108,,T1/26,34,Pediu proposta
+416,NEXAL,WhatsApp,Pediatria,Vendedor 2,Perdido,Perdido,9310.00,11/03/2026,120,Questões financeiras pessoais,T4/26,47,Confirmou escolha do concorrente
+417,R2,Google Ads,Medicina do Trabalho,Vendedor 6,Negociação,Em andamento,7650.00,25/05/2026,82,,T4/26,97,Esperando retorno do cônjuge
+418,NEXAL,Webinar,Ortopedia,Vendedor 5,Matriculado,Ganho,9800.00,04/04/2026,40,,T4/26,63,Boleto gerado
+419,NEXAL,Indicação,Ginecologia,Vendedor 6,Matriculado,Ganho,8330.00,30/03/2026,18,,T3/26,90,Pagamento confirmado
+420,EAD,Webinar,Pediatria,Vendedor 3,Lead Captado,Em andamento,1200.00,16/03/2026,103,,T2/26,30,Aguardando primeiro contato
+421,SHHE,Site Orgânico,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,14900.00,15/06/2026,92,,T4/26,78,Follow-up agendado para 3 dias
+422,NEXAL,LinkedIn,Psiquiatria,Vendedor 4,Proposta Enviada,Em andamento,8330.00,06/06/2026,103,,T3/26,66,Aguardando leitura
+423,EAD,Congresso,Dermatologia,Vendedor 2,Contato Realizado,Em andamento,1200.00,04/02/2026,24,,T3/26,44,Pediu proposta
+424,POS,Parceiro Clínica,Pediatria,Vendedor 3,Matriculado,Ganho,38000.00,24/03/2026,25,,T1/26,49,Pagamento confirmado
+425,R2,Indicação,Endocrinologia,Vendedor 7,Proposta Enviada,Em andamento,8500.00,23/04/2026,92,,T1/26,59,Follow-up agendado para 3 dias
+426,SHHE,Indicação,Pediatria,Vendedor 5,Proposta Enviada,Em andamento,14900.00,08/05/2026,101,,T3/26,89,Aguardando leitura
+427,HTI,WhatsApp,Clínica Geral,Vendedor 1,Matriculado,Ganho,17748.00,10/03/2026,8,,T4/26,39,Parcelado 12x aprovado
+428,SHHE,Email Marketing,Dermatologia,Vendedor 1,Proposta Enviada,Em andamento,14900.00,05/03/2026,16,,T4/26,86,Follow-up agendado para 3 dias
+429,EAD,Indicação,Cardiologia,Vendedor 2,Matriculado,Ganho,1200.00,20/06/2026,67,,T2/26,90,Parcelado 12x aprovado
+430,EAD,Instagram,Nutrologia,Vendedor 5,Negociação,Em andamento,1200.00,21/05/2026,96,,T1/26,62,Em análise de parcelamento
+431,EAD,Instagram,Cardiologia,Vendedor 3,Matriculado,Ganho,1020.00,25/02/2026,86,,T1/26,60,Parcelado 12x aprovado
+432,NEXAL,Indicação,Endocrinologia,Vendedor 1,Proposta Enviada,Em andamento,9800.00,04/03/2026,51,,T1/26,35,Aguardando leitura
+433,EAD,Webinar,Geriatria,Vendedor 6,Contato Realizado,Em andamento,1020.00,05/03/2026,12,,T2/26,93,Demo agendada
+434,EAD,Parceiro Clínica,Nutrologia,Vendedor 1,Negociação,Em andamento,1200.00,15/06/2026,46,,T2/26,98,Aguardando aprovação financeira
+435,SHHE,Webinar,Cardiologia,Vendedor 3,Perdido,Perdido,12665.00,30/03/2026,83,Desistiu por mudança de prioridades,T2/26,32,Confirmou escolha do concorrente
+436,POS,WhatsApp,Geriatria,Vendedor 5,Proposta Enviada,Em andamento,38000.00,23/04/2026,63,,T3/26,99,Aguardando leitura
+437,POS,Email Marketing,Medicina do Trabalho,Vendedor 5,Negociação,Em andamento,38000.00,30/04/2026,94,,T3/26,100,Proposta revisada enviada
+438,HTI,Congresso,Endocrinologia,Vendedor 2,Proposta Enviada,Em andamento,17748.00,04/04/2026,70,,T4/26,30,Aguardando leitura
+439,R2,Site Orgânico,Geriatria,Vendedor 5,Matriculado,Ganho,8075.00,04/04/2026,110,,T2/26,71,Pagamento confirmado
+440,EAD,Congresso,Psiquiatria,Vendedor 5,Negociação,Em andamento,1200.00,22/05/2026,99,,T2/26,66,Esperando retorno do cônjuge
+441,POS,WhatsApp,Clínica Geral,Vendedor 7,Negociação,Em andamento,38000.00,03/02/2026,6,,T2/26,34,Proposta revisada enviada
+442,HTI,Webinar,Cardiologia,Vendedor 7,Lead Captado,Em andamento,15973.20,10/04/2026,108,,T4/26,97,Aguardando primeiro contato
+443,HTI,WhatsApp,Cardiologia,Vendedor 6,Matriculado,Ganho,17748.00,23/02/2026,120,,T4/26,40,Parcelado 12x aprovado
+444,EAD,Indicação,Nutrologia,Vendedor 6,Matriculado,Ganho,1200.00,05/04/2026,106,,T1/26,64,Pagamento confirmado
+445,EAD,LinkedIn,Dermatologia,Vendedor 7,Perdido,Perdido,1140.00,26/01/2026,13,Não respondeu após follow-up,T4/26,54,Lead frio
+446,R2,Email Marketing,Medicina do Trabalho,Vendedor 4,Perdido,Perdido,8075.00,23/05/2026,96,Perfil não alinhado com o curso,T1/26,75,Confirmou escolha do concorrente
+447,POS,Site Orgânico,Clínica Geral,Vendedor 5,Matriculado,Ganho,36100.00,10/05/2026,52,,T3/26,50,Parcelado 12x aprovado
+448,NEXAL,WhatsApp,Ortopedia,Vendedor 3,Matriculado,Ganho,9800.00,12/06/2026,98,,T4/26,71,Boleto gerado
+449,R2,Congresso,Cardiologia,Vendedor 2,Matriculado,Ganho,7650.00,03/04/2026,33,,T4/26,87,Parcelado 12x aprovado
+450,HTI,Indicação,Dermatologia,Vendedor 6,Lead Captado,Em andamento,17748.00,19/03/2026,114,,T1/26,68,Aguardando primeiro contato
+451,SHHE,WhatsApp,Ginecologia,Vendedor 1,Matriculado,Ganho,13410.00,12/03/2026,106,,T2/26,42,Pagamento confirmado
+452,POS,WhatsApp,Endocrinologia,Vendedor 5,Proposta Enviada,Em andamento,36100.00,01/03/2026,32,,T3/26,68,Follow-up agendado para 3 dias
+453,R2,Site Orgânico,Medicina do Trabalho,Vendedor 5,Matriculado,Ganho,7650.00,04/05/2026,42,,T2/26,92,Pagamento confirmado
+454,R2,Instagram,Ginecologia,Vendedor 4,Matriculado,Ganho,8500.00,15/01/2026,11,,T3/26,74,Parcelado 12x aprovado
+455,POS,LinkedIn,Cardiologia,Vendedor 4,Matriculado,Ganho,36100.00,03/01/2026,119,,T4/26,36,Pix recebido
+456,R2,Indicação,Nutrologia,Vendedor 6,Negociação,Em andamento,8500.00,28/06/2026,65,,T2/26,49,Aguardando aprovação financeira
+457,EAD,Site Orgânico,Pediatria,Vendedor 1,Negociação,Em andamento,1140.00,26/02/2026,12,,T4/26,67,Em análise de parcelamento
+458,SHHE,Google Ads,Nutrologia,Vendedor 7,Negociação,Em andamento,13410.00,21/05/2026,7,,T4/26,63,Aguardando aprovação financeira
+459,POS,Congresso,Psiquiatria,Vendedor 1,Matriculado,Ganho,32300.00,04/05/2026,18,,T2/26,92,Parcelado 12x aprovado
+460,EAD,Parceiro Clínica,Cardiologia,Vendedor 6,Negociação,Em andamento,1080.00,05/03/2026,68,,T2/26,39,Esperando retorno do cônjuge
+461,POS,WhatsApp,Neurologia,Vendedor 6,Contato Realizado,Em andamento,34200.00,19/04/2026,53,,T3/26,74,Demo agendada
+462,NEXAL,WhatsApp,Medicina do Trabalho,Vendedor 4,Lead Captado,Em andamento,9800.00,31/03/2026,22,,T4/26,48,Aguardando primeiro contato
+463,HTI,Email Marketing,Cardiologia,Vendedor 4,Proposta Enviada,Em andamento,15085.80,22/01/2026,94,,T1/26,36,Follow-up agendado para 3 dias
+464,R2,Google Ads,Dermatologia,Vendedor 7,Proposta Enviada,Em andamento,7225.00,20/03/2026,15,,T4/26,90,Follow-up agendado para 3 dias
+465,NEXAL,Email Marketing,Geriatria,Vendedor 6,Contato Realizado,Em andamento,9310.00,08/03/2026,67,,T4/26,48,Pediu proposta
+466,EAD,Indicação,Psiquiatria,Vendedor 6,Perdido,Perdido,1140.00,07/03/2026,6,Sem tempo no momento,T1/26,66,Lead frio
+467,EAD,Parceiro Clínica,Dermatologia,Vendedor 7,Negociação,Em andamento,1200.00,10/04/2026,9,,T3/26,76,Aguardando aprovação financeira
+468,HTI,Instagram,Neurologia,Vendedor 2,Proposta Enviada,Em andamento,17748.00,26/01/2026,66,,T3/26,92,Aguardando leitura
+469,R2,LinkedIn,Endocrinologia,Vendedor 5,Negociação,Em andamento,8500.00,06/01/2026,72,,T1/26,61,Esperando retorno do cônjuge
+470,NEXAL,Webinar,Psiquiatria,Vendedor 4,Contato Realizado,Em andamento,9800.00,01/04/2026,88,,T3/26,68,Demo agendada
+471,R2,Instagram,Ginecologia,Vendedor 4,Proposta Enviada,Em andamento,8500.00,08/01/2026,114,,T3/26,58,Follow-up agendado para 3 dias
+472,NEXAL,Site Orgânico,Neurologia,Vendedor 5,Contato Realizado,Em andamento,9800.00,23/06/2026,67,,T2/26,83,Demo agendada
+473,R2,Google Ads,Psiquiatria,Vendedor 3,Perdido,Perdido,8500.00,19/05/2026,58,Sem tempo no momento,T2/26,47,Confirmou escolha do concorrente
+474,R2,Email Marketing,Endocrinologia,Vendedor 3,Matriculado,Ganho,8075.00,04/02/2026,117,,T4/26,48,Boleto gerado
+475,NEXAL,LinkedIn,Ortopedia,Vendedor 6,Perdido,Perdido,9800.00,23/03/2026,24,Sem tempo no momento,T1/26,70,Não retornou após 5 contatos
+476,POS,Instagram,Pediatria,Vendedor 4,Perdido,Perdido,34200.00,12/03/2026,120,Sem tempo no momento,T2/26,43,Lead frio
+477,SHHE,Indicação,Medicina do Trabalho,Vendedor 6,Proposta Enviada,Em andamento,14155.00,01/03/2026,79,,T2/26,59,Aguardando leitura
+478,HTI,WhatsApp,Clínica Geral,Vendedor 4,Matriculado,Ganho,17748.00,04/06/2026,65,,T4/26,77,Boleto gerado
+479,POS,Webinar,Pediatria,Vendedor 5,Contato Realizado,Em andamento,38000.00,15/04/2026,5,,T1/26,64,Interesse demonstrado
+480,SHHE,Email Marketing,Cardiologia,Vendedor 7,Contato Realizado,Em andamento,14900.00,07/06/2026,111,,T4/26,71,Interesse demonstrado
+481,SHHE,Site Orgânico,Psiquiatria,Vendedor 1,Lead Captado,Em andamento,13410.00,08/04/2026,106,,T3/26,80,Aguardando primeiro contato
+482,R2,LinkedIn,Pediatria,Vendedor 2,Matriculado,Ganho,8500.00,04/03/2026,113,,T4/26,35,Parcelado 12x aprovado
+483,R2,Indicação,Cardiologia,Vendedor 3,Proposta Enviada,Em andamento,8500.00,15/03/2026,100,,T4/26,51,Proposta personalizada enviada
+484,NEXAL,Parceiro Clínica,Ginecologia,Vendedor 4,Negociação,Em andamento,9800.00,15/06/2026,60,,T4/26,41,Aguardando aprovação financeira
+485,SHHE,Parceiro Clínica,Geriatria,Vendedor 6,Contato Realizado,Em andamento,14900.00,26/04/2026,42,,T1/26,52,Interesse demonstrado
+486,R2,Email Marketing,Pediatria,Vendedor 7,Proposta Enviada,Em andamento,7650.00,11/02/2026,84,,T1/26,41,Follow-up agendado para 3 dias
+487,EAD,Webinar,Neurologia,Vendedor 3,Contato Realizado,Em andamento,1080.00,11/05/2026,50,,T2/26,78,Pediu proposta
+488,POS,Indicação,Endocrinologia,Vendedor 3,Negociação,Em andamento,34200.00,08/02/2026,111,,T2/26,48,Proposta revisada enviada
+489,EAD,Indicação,Psiquiatria,Vendedor 3,Proposta Enviada,Em andamento,1020.00,15/03/2026,58,,T2/26,45,Follow-up agendado para 3 dias
+490,SHHE,Indicação,Medicina do Trabalho,Vendedor 1,Proposta Enviada,Em andamento,14900.00,08/05/2026,64,,T1/26,93,Follow-up agendado para 3 dias
+491,SHHE,Parceiro Clínica,Neurologia,Vendedor 2,Negociação,Em andamento,14900.00,03/06/2026,11,,T1/26,61,Esperando retorno do cônjuge
+492,R2,Congresso,Cardiologia,Vendedor 7,Contato Realizado,Em andamento,8500.00,31/03/2026,84,,T1/26,48,Demo agendada
+493,EAD,Parceiro Clínica,Medicina do Trabalho,Vendedor 3,Proposta Enviada,Em andamento,1200.00,28/01/2026,7,,T4/26,52,Follow-up agendado para 3 dias
+494,EAD,Instagram,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,1140.00,24/05/2026,74,,T2/26,88,Pix recebido
+495,HTI,LinkedIn,Dermatologia,Vendedor 3,Proposta Enviada,Em andamento,17748.00,18/01/2026,105,,T4/26,100,Follow-up agendado para 3 dias
+496,NEXAL,Webinar,Endocrinologia,Vendedor 7,Matriculado,Ganho,9800.00,15/05/2026,43,,T4/26,97,Boleto gerado
+497,EAD,Email Marketing,Medicina do Trabalho,Vendedor 7,Contato Realizado,Em andamento,1080.00,16/05/2026,81,,T1/26,91,Pediu proposta
+498,EAD,Parceiro Clínica,Geriatria,Vendedor 3,Proposta Enviada,Em andamento,1020.00,08/03/2026,41,,T3/26,46,Aguardando leitura
+499,R2,Webinar,Ortopedia,Vendedor 4,Matriculado,Ganho,8500.00,16/02/2026,104,,T2/26,67,Boleto gerado
+500,HTI,LinkedIn,Ginecologia,Vendedor 2,Negociação,Em andamento,17748.00,23/02/2026,95,,T4/26,82,Aguardando aprovação financeira
+501,NEXAL,WhatsApp,Ortopedia,Vendedor 1,Matriculado,Ganho,9800.00,21/02/2026,82,,T3/26,62,Pagamento confirmado
+502,NEXAL,Instagram,Ortopedia,Vendedor 6,Proposta Enviada,Em andamento,9800.00,25/06/2026,15,,T3/26,73,Proposta personalizada enviada
+503,EAD,Parceiro Clínica,Medicina do Trabalho,Vendedor 7,Matriculado,Ganho,1200.00,28/03/2026,43,,T4/26,90,Pagamento confirmado
+504,EAD,Google Ads,Pediatria,Vendedor 5,Negociação,Em andamento,1020.00,27/03/2026,69,,T4/26,82,Aguardando aprovação financeira
+505,R2,Instagram,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,8075.00,05/01/2026,69,,T2/26,72,Pix recebido
+506,HTI,Google Ads,Dermatologia,Vendedor 1,Lead Captado,Em andamento,17748.00,17/05/2026,81,,T2/26,79,Aguardando primeiro contato
+507,R2,LinkedIn,Dermatologia,Vendedor 4,Matriculado,Ganho,7650.00,11/03/2026,5,,T4/26,41,Parcelado 12x aprovado
+508,SHHE,WhatsApp,Pediatria,Vendedor 1,Perdido,Perdido,14900.00,19/03/2026,68,Sem tempo no momento,T1/26,77,Lead frio
+509,SHHE,LinkedIn,Pediatria,Vendedor 6,Lead Captado,Em andamento,14900.00,09/05/2026,116,,T2/26,54,Aguardando primeiro contato
+510,POS,Congresso,Dermatologia,Vendedor 1,Proposta Enviada,Em andamento,32300.00,26/01/2026,112,,T2/26,56,Aguardando leitura
+511,HTI,Webinar,Psiquiatria,Vendedor 4,Matriculado,Ganho,17748.00,21/03/2026,1,,T1/26,41,Pix recebido
+512,POS,Indicação,Clínica Geral,Vendedor 6,Matriculado,Ganho,34200.00,06/01/2026,40,,T3/26,56,Pix recebido
+513,SHHE,Email Marketing,Dermatologia,Vendedor 3,Negociação,Em andamento,12665.00,21/06/2026,57,,T1/26,64,Proposta revisada enviada
+514,SHHE,Instagram,Clínica Geral,Vendedor 7,Perdido,Perdido,14155.00,27/01/2026,66,Não respondeu após follow-up,T3/26,100,Não retornou após 5 contatos
+515,NEXAL,Google Ads,Geriatria,Vendedor 1,Proposta Enviada,Em andamento,9800.00,19/01/2026,22,,T3/26,73,Aguardando leitura
+516,POS,Indicação,Endocrinologia,Vendedor 7,Negociação,Em andamento,34200.00,28/01/2026,7,,T4/26,36,Aguardando aprovação financeira
+517,POS,Site Orgânico,Endocrinologia,Vendedor 4,Negociação,Em andamento,36100.00,26/06/2026,81,,T4/26,75,Esperando retorno do cônjuge
+518,NEXAL,Email Marketing,Geriatria,Vendedor 1,Matriculado,Ganho,9310.00,30/04/2026,11,,T2/26,41,Parcelado 12x aprovado
+519,HTI,Webinar,Dermatologia,Vendedor 4,Matriculado,Ganho,15085.80,01/05/2026,60,,T2/26,58,Boleto gerado
+520,R2,Instagram,Nutrologia,Vendedor 2,Contato Realizado,Em andamento,7650.00,25/03/2026,43,,T4/26,92,Demo agendada
+521,HTI,Webinar,Clínica Geral,Vendedor 3,Negociação,Em andamento,15085.80,14/03/2026,22,,T3/26,46,Aguardando aprovação financeira
+522,POS,LinkedIn,Nutrologia,Vendedor 6,Matriculado,Ganho,32300.00,17/05/2026,39,,T4/26,81,Parcelado 12x aprovado
+523,SHHE,Parceiro Clínica,Cardiologia,Vendedor 6,Contato Realizado,Em andamento,14900.00,17/01/2026,50,,T3/26,56,Pediu proposta
+524,R2,Site Orgânico,Psiquiatria,Vendedor 6,Matriculado,Ganho,8075.00,02/03/2026,89,,T2/26,39,Parcelado 12x aprovado
+525,HTI,Parceiro Clínica,Medicina do Trabalho,Vendedor 2,Proposta Enviada,Em andamento,17748.00,24/04/2026,106,,T2/26,69,Proposta personalizada enviada
+526,HTI,Parceiro Clínica,Clínica Geral,Vendedor 4,Matriculado,Ganho,15085.80,08/04/2026,105,,T3/26,93,Pagamento confirmado
+527,HTI,Email Marketing,Endocrinologia,Vendedor 6,Perdido,Perdido,15973.20,01/01/2026,104,Sem tempo no momento,T2/26,87,Confirmou escolha do concorrente
+528,NEXAL,Site Orgânico,Medicina do Trabalho,Vendedor 6,Proposta Enviada,Em andamento,9800.00,23/03/2026,88,,T3/26,68,Proposta personalizada enviada
+529,EAD,WhatsApp,Clínica Geral,Vendedor 6,Lead Captado,Em andamento,1140.00,02/02/2026,52,,T3/26,37,Aguardando primeiro contato
+530,R2,Indicação,Ginecologia,Vendedor 4,Negociação,Em andamento,8500.00,14/03/2026,15,,T1/26,60,Em análise de parcelamento
+531,EAD,Parceiro Clínica,Psiquiatria,Vendedor 4,Proposta Enviada,Em andamento,1200.00,08/04/2026,52,,T4/26,99,Follow-up agendado para 3 dias
+532,EAD,Google Ads,Pediatria,Vendedor 5,Contato Realizado,Em andamento,1200.00,03/04/2026,108,,T4/26,49,Interesse demonstrado
+533,EAD,Google Ads,Endocrinologia,Vendedor 7,Lead Captado,Em andamento,1200.00,05/05/2026,19,,T4/26,47,Aguardando primeiro contato
+534,SHHE,Site Orgânico,Pediatria,Vendedor 1,Matriculado,Ganho,14900.00,16/02/2026,80,,T4/26,95,Parcelado 12x aprovado
+535,R2,Webinar,Psiquiatria,Vendedor 3,Contato Realizado,Em andamento,8500.00,02/01/2026,78,,T4/26,60,Pediu proposta
+536,R2,Instagram,Psiquiatria,Vendedor 6,Negociação,Em andamento,8500.00,26/05/2026,5,,T4/26,77,Aguardando aprovação financeira
+537,R2,Webinar,Geriatria,Vendedor 7,Contato Realizado,Em andamento,7650.00,13/03/2026,68,,T4/26,96,Demo agendada
+538,R2,Parceiro Clínica,Clínica Geral,Vendedor 5,Negociação,Em andamento,7650.00,21/06/2026,85,,T1/26,99,Esperando retorno do cônjuge
+539,R2,Indicação,Nutrologia,Vendedor 6,Matriculado,Ganho,8500.00,12/05/2026,59,,T4/26,72,Parcelado 12x aprovado
+540,NEXAL,Instagram,Dermatologia,Vendedor 5,Lead Captado,Em andamento,9310.00,19/03/2026,96,,T3/26,37,Aguardando primeiro contato
+541,R2,Google Ads,Medicina do Trabalho,Vendedor 7,Matriculado,Ganho,8500.00,09/06/2026,104,,T1/26,66,Parcelado 12x aprovado
+542,HTI,Google Ads,Ortopedia,Vendedor 7,Matriculado,Ganho,17748.00,03/02/2026,33,,T3/26,65,Pix recebido
+543,HTI,LinkedIn,Medicina do Trabalho,Vendedor 5,Perdido,Perdido,15973.20,18/06/2026,20,Desistiu por mudança de prioridades,T3/26,52,Não retornou após 5 contatos
+544,EAD,Email Marketing,Pediatria,Vendedor 5,Matriculado,Ganho,1020.00,29/03/2026,5,,T1/26,48,Boleto gerado
+545,POS,Site Orgânico,Psiquiatria,Vendedor 5,Matriculado,Ganho,34200.00,12/02/2026,82,,T2/26,74,Pagamento confirmado
+546,EAD,Instagram,Clínica Geral,Vendedor 7,Contato Realizado,Em andamento,1200.00,19/03/2026,61,,T4/26,98,Demo agendada
+547,POS,Site Orgânico,Pediatria,Vendedor 3,Contato Realizado,Em andamento,32300.00,04/01/2026,56,,T3/26,87,Interesse demonstrado
+548,EAD,WhatsApp,Ortopedia,Vendedor 4,Perdido,Perdido,1200.00,17/05/2026,118,Adiou para próxima turma,T4/26,64,Não retornou após 5 contatos
+549,NEXAL,Instagram,Clínica Geral,Vendedor 3,Matriculado,Ganho,9800.00,22/06/2026,60,,T2/26,54,Pix recebido
+550,EAD,Google Ads,Nutrologia,Vendedor 6,Lead Captado,Em andamento,1200.00,18/01/2026,107,,T1/26,82,Aguardando primeiro contato
+551,R2,LinkedIn,Neurologia,Vendedor 2,Proposta Enviada,Em andamento,7650.00,06/03/2026,37,,T2/26,34,Follow-up agendado para 3 dias
+552,R2,LinkedIn,Ginecologia,Vendedor 6,Matriculado,Ganho,7225.00,03/06/2026,28,,T1/26,45,Pagamento confirmado
+553,R2,Google Ads,Psiquiatria,Vendedor 4,Matriculado,Ganho,7650.00,17/02/2026,73,,T1/26,53,Pix recebido
+554,NEXAL,Webinar,Neurologia,Vendedor 7,Matriculado,Ganho,9800.00,20/04/2026,99,,T3/26,62,Boleto gerado
+555,HTI,Instagram,Ginecologia,Vendedor 2,Proposta Enviada,Em andamento,17748.00,09/03/2026,34,,T2/26,86,Follow-up agendado para 3 dias
+556,POS,Email Marketing,Medicina do Trabalho,Vendedor 2,Contato Realizado,Em andamento,38000.00,06/02/2026,14,,T4/26,57,Pediu proposta
+557,EAD,LinkedIn,Pediatria,Vendedor 4,Proposta Enviada,Em andamento,1200.00,19/01/2026,10,,T3/26,87,Follow-up agendado para 3 dias
+558,POS,Google Ads,Neurologia,Vendedor 4,Lead Captado,Em andamento,38000.00,10/04/2026,86,,T3/26,49,Aguardando primeiro contato
+559,POS,Parceiro Clínica,Ginecologia,Vendedor 6,Matriculado,Ganho,32300.00,03/05/2026,63,,T4/26,81,Pagamento confirmado
+560,R2,Email Marketing,Ginecologia,Vendedor 2,Perdido,Perdido,7225.00,04/05/2026,100,Escolheu concorrente,T3/26,72,Confirmou escolha do concorrente
+561,NEXAL,Site Orgânico,Ginecologia,Vendedor 4,Perdido,Perdido,8820.00,04/04/2026,12,Questões financeiras pessoais,T3/26,40,Não retornou após 5 contatos
+562,NEXAL,Email Marketing,Endocrinologia,Vendedor 6,Lead Captado,Em andamento,9800.00,18/02/2026,85,,T3/26,79,Aguardando primeiro contato
+563,EAD,WhatsApp,Pediatria,Vendedor 7,Matriculado,Ganho,1200.00,18/02/2026,95,,T2/26,34,Boleto gerado
+564,HTI,Parceiro Clínica,Cardiologia,Vendedor 2,Proposta Enviada,Em andamento,15085.80,14/06/2026,70,,T3/26,93,Aguardando leitura
+565,POS,Indicação,Ginecologia,Vendedor 3,Lead Captado,Em andamento,32300.00,11/01/2026,93,,T4/26,45,Aguardando primeiro contato
+566,EAD,Congresso,Pediatria,Vendedor 4,Matriculado,Ganho,1140.00,29/05/2026,20,,T2/26,39,Pagamento confirmado
+567,EAD,Google Ads,Pediatria,Vendedor 4,Lead Captado,Em andamento,1140.00,04/03/2026,6,,T2/26,31,Aguardando primeiro contato
+568,EAD,Indicação,Dermatologia,Vendedor 1,Matriculado,Ganho,1200.00,13/02/2026,79,,T1/26,43,Pagamento confirmado
+569,POS,Parceiro Clínica,Medicina do Trabalho,Vendedor 5,Lead Captado,Em andamento,38000.00,28/03/2026,55,,T4/26,71,Aguardando primeiro contato
+570,EAD,Parceiro Clínica,Ortopedia,Vendedor 5,Proposta Enviada,Em andamento,1020.00,12/01/2026,28,,T2/26,72,Follow-up agendado para 3 dias
+571,HTI,Instagram,Endocrinologia,Vendedor 1,Proposta Enviada,Em andamento,15973.20,22/05/2026,48,,T2/26,86,Follow-up agendado para 3 dias
+572,R2,Indicação,Endocrinologia,Vendedor 7,Matriculado,Ganho,7650.00,07/04/2026,79,,T2/26,32,Parcelado 12x aprovado
+573,HTI,Indicação,Ginecologia,Vendedor 5,Perdido,Perdido,15973.20,01/06/2026,84,Proposta não aprovada pela empresa,T4/26,90,Confirmou escolha do concorrente
+574,SHHE,Email Marketing,Endocrinologia,Vendedor 4,Proposta Enviada,Em andamento,14900.00,03/03/2026,53,,T2/26,34,Aguardando leitura
+575,SHHE,Webinar,Medicina do Trabalho,Vendedor 7,Negociação,Em andamento,12665.00,31/03/2026,39,,T4/26,30,Proposta revisada enviada
+576,SHHE,LinkedIn,Ortopedia,Vendedor 7,Negociação,Em andamento,12665.00,19/05/2026,98,,T2/26,89,Proposta revisada enviada
+577,NEXAL,Indicação,Cardiologia,Vendedor 7,Matriculado,Ganho,8820.00,02/05/2026,109,,T4/26,52,Boleto gerado
+578,EAD,Indicação,Ginecologia,Vendedor 4,Proposta Enviada,Em andamento,1200.00,06/03/2026,56,,T3/26,88,Follow-up agendado para 3 dias
+579,HTI,Indicação,Ortopedia,Vendedor 5,Contato Realizado,Em andamento,17748.00,12/05/2026,63,,T1/26,39,Demo agendada
+580,EAD,Webinar,Medicina do Trabalho,Vendedor 6,Proposta Enviada,Em andamento,1200.00,23/06/2026,96,,T3/26,59,Follow-up agendado para 3 dias
+581,NEXAL,Email Marketing,Clínica Geral,Vendedor 5,Matriculado,Ganho,8330.00,07/04/2026,26,,T2/26,39,Parcelado 12x aprovado
+582,R2,Webinar,Ginecologia,Vendedor 2,Contato Realizado,Em andamento,8075.00,15/02/2026,59,,T4/26,77,Demo agendada
+583,POS,Email Marketing,Neurologia,Vendedor 3,Perdido,Perdido,38000.00,02/02/2026,43,Preço acima do esperado,T1/26,65,Lead frio
+584,HTI,Webinar,Pediatria,Vendedor 2,Contato Realizado,Em andamento,17748.00,17/03/2026,29,,T2/26,51,Pediu proposta
+585,R2,Email Marketing,Clínica Geral,Vendedor 2,Matriculado,Ganho,8500.00,25/02/2026,111,,T4/26,89,Pix recebido
+586,HTI,Site Orgânico,Geriatria,Vendedor 1,Proposta Enviada,Em andamento,17748.00,29/05/2026,56,,T2/26,49,Aguardando leitura
+587,HTI,Site Orgânico,Ginecologia,Vendedor 7,Perdido,Perdido,15973.20,10/05/2026,99,Preço acima do esperado,T4/26,97,Não retornou após 5 contatos
+588,POS,LinkedIn,Pediatria,Vendedor 2,Proposta Enviada,Em andamento,36100.00,04/01/2026,97,,T4/26,57,Follow-up agendado para 3 dias
+589,NEXAL,Instagram,Cardiologia,Vendedor 4,Perdido,Perdido,9800.00,21/06/2026,62,Proposta não aprovada pela empresa,T2/26,88,Confirmou escolha do concorrente
+590,EAD,Parceiro Clínica,Ginecologia,Vendedor 2,Negociação,Em andamento,1200.00,14/04/2026,112,,T2/26,77,Em análise de parcelamento
+591,EAD,Indicação,Neurologia,Vendedor 7,Proposta Enviada,Em andamento,1080.00,16/05/2026,43,,T1/26,67,Proposta personalizada enviada
+592,NEXAL,Parceiro Clínica,Ortopedia,Vendedor 6,Matriculado,Ganho,8330.00,21/01/2026,88,,T3/26,37,Pix recebido
+593,HTI,LinkedIn,Psiquiatria,Vendedor 3,Negociação,Em andamento,17748.00,04/04/2026,47,,T2/26,38,Proposta revisada enviada
+594,SHHE,WhatsApp,Cardiologia,Vendedor 6,Contato Realizado,Em andamento,14900.00,29/05/2026,95,,T2/26,58,Interesse demonstrado
+595,NEXAL,Instagram,Ortopedia,Vendedor 4,Proposta Enviada,Em andamento,9800.00,06/04/2026,9,,T3/26,87,Proposta personalizada enviada
+596,R2,Congresso,Clínica Geral,Vendedor 2,Matriculado,Ganho,7650.00,17/05/2026,106,,T3/26,87,Pix recebido
+597,EAD,LinkedIn,Cardiologia,Vendedor 2,Contato Realizado,Em andamento,1200.00,15/02/2026,115,,T3/26,39,Demo agendada
+598,SHHE,Instagram,Clínica Geral,Vendedor 4,Contato Realizado,Em andamento,14900.00,22/02/2026,112,,T1/26,67,Interesse demonstrado
+599,EAD,Congresso,Endocrinologia,Vendedor 2,Proposta Enviada,Em andamento,1200.00,15/06/2026,95,,T1/26,67,Follow-up agendado para 3 dias
+600,HTI,Indicação,Cardiologia,Vendedor 1,Perdido,Perdido,15973.20,16/04/2026,43,Adiou para próxima turma,T3/26,92,Confirmou escolha do concorrente
+601,EAD,Congresso,Ortopedia,Vendedor 2,Negociação,Em andamento,1140.00,20/03/2026,17,,T2/26,63,Proposta revisada enviada
+602,POS,WhatsApp,Dermatologia,Vendedor 1,Matriculado,Ganho,38000.00,14/03/2026,46,,T4/26,51,Boleto gerado
+603,EAD,Congresso,Dermatologia,Vendedor 5,Perdido,Perdido,1020.00,27/06/2026,91,Sem tempo no momento,T2/26,60,Lead frio
+604,HTI,WhatsApp,Medicina do Trabalho,Vendedor 5,Proposta Enviada,Em andamento,17748.00,22/02/2026,24,,T1/26,70,Proposta personalizada enviada
+605,SHHE,WhatsApp,Pediatria,Vendedor 6,Perdido,Perdido,14155.00,01/02/2026,39,Preço acima do esperado,T4/26,93,Lead frio
+606,POS,WhatsApp,Endocrinologia,Vendedor 7,Perdido,Perdido,36100.00,26/03/2026,65,Proposta não aprovada pela empresa,T4/26,67,Confirmou escolha do concorrente
+607,EAD,Google Ads,Medicina do Trabalho,Vendedor 4,Perdido,Perdido,1200.00,26/06/2026,44,Escolheu concorrente,T4/26,35,Lead frio
+608,EAD,Congresso,Clínica Geral,Vendedor 3,Lead Captado,Em andamento,1140.00,26/02/2026,108,,T4/26,75,Aguardando primeiro contato
+609,NEXAL,Indicação,Medicina do Trabalho,Vendedor 4,Contato Realizado,Em andamento,9310.00,13/03/2026,29,,T2/26,32,Demo agendada
+610,R2,Webinar,Neurologia,Vendedor 4,Perdido,Perdido,8075.00,19/02/2026,51,Desistiu por mudança de prioridades,T3/26,95,Lead frio
+611,EAD,WhatsApp,Psiquiatria,Vendedor 5,Matriculado,Ganho,1200.00,09/04/2026,48,,T3/26,31,Pix recebido
+612,NEXAL,WhatsApp,Dermatologia,Vendedor 2,Matriculado,Ganho,9800.00,24/04/2026,28,,T4/26,86,Pix recebido
+613,SHHE,Site Orgânico,Geriatria,Vendedor 2,Contato Realizado,Em andamento,14155.00,23/01/2026,77,,T2/26,56,Interesse demonstrado
+614,POS,Congresso,Nutrologia,Vendedor 7,Perdido,Perdido,36100.00,07/04/2026,97,Escolheu concorrente,T1/26,82,Confirmou escolha do concorrente
+615,NEXAL,Site Orgânico,Endocrinologia,Vendedor 6,Negociação,Em andamento,9310.00,05/02/2026,97,,T2/26,53,Em análise de parcelamento
+616,NEXAL,Congresso,Pediatria,Vendedor 7,Matriculado,Ganho,9800.00,30/05/2026,107,,T3/26,93,Parcelado 12x aprovado
+617,SHHE,Indicação,Ginecologia,Vendedor 5,Proposta Enviada,Em andamento,13410.00,12/06/2026,107,,T4/26,45,Aguardando leitura
+618,EAD,Instagram,Psiquiatria,Vendedor 5,Negociação,Em andamento,1080.00,04/03/2026,83,,T1/26,45,Esperando retorno do cônjuge
+619,POS,LinkedIn,Medicina do Trabalho,Vendedor 4,Proposta Enviada,Em andamento,38000.00,22/04/2026,73,,T3/26,90,Aguardando leitura
+620,HTI,WhatsApp,Ortopedia,Vendedor 4,Negociação,Em andamento,15085.80,11/02/2026,34,,T1/26,48,Esperando retorno do cônjuge
+621,POS,Google Ads,Nutrologia,Vendedor 5,Lead Captado,Em andamento,38000.00,12/06/2026,54,,T3/26,36,Aguardando primeiro contato
+622,NEXAL,Congresso,Neurologia,Vendedor 7,Negociação,Em andamento,8330.00,16/02/2026,81,,T1/26,51,Esperando retorno do cônjuge
+623,NEXAL,Instagram,Dermatologia,Vendedor 4,Matriculado,Ganho,9800.00,17/05/2026,13,,T3/26,48,Pagamento confirmado
+624,SHHE,Congresso,Dermatologia,Vendedor 3,Matriculado,Ganho,14900.00,11/02/2026,44,,T1/26,57,Boleto gerado
+625,R2,Email Marketing,Cardiologia,Vendedor 1,Matriculado,Ganho,8075.00,15/05/2026,89,,T1/26,83,Parcelado 12x aprovado
+626,HTI,LinkedIn,Endocrinologia,Vendedor 7,Negociação,Em andamento,17748.00,03/04/2026,89,,T2/26,86,Esperando retorno do cônjuge
+627,SHHE,Instagram,Ginecologia,Vendedor 4,Matriculado,Ganho,14900.00,27/06/2026,17,,T2/26,59,Pix recebido
+628,SHHE,Email Marketing,Endocrinologia,Vendedor 7,Proposta Enviada,Em andamento,12665.00,29/01/2026,101,,T1/26,32,Proposta personalizada enviada
+629,POS,Indicação,Cardiologia,Vendedor 7,Lead Captado,Em andamento,34200.00,01/06/2026,66,,T1/26,90,Aguardando primeiro contato
+630,NEXAL,Indicação,Clínica Geral,Vendedor 3,Matriculado,Ganho,8330.00,01/02/2026,13,,T2/26,55,Boleto gerado
+631,EAD,WhatsApp,Ginecologia,Vendedor 7,Contato Realizado,Em andamento,1080.00,29/05/2026,36,,T3/26,75,Demo agendada
+632,R2,Parceiro Clínica,Cardiologia,Vendedor 6,Negociação,Em andamento,8500.00,29/05/2026,105,,T1/26,97,Proposta revisada enviada
+633,EAD,Email Marketing,Dermatologia,Vendedor 5,Perdido,Perdido,1140.00,26/01/2026,1,Não respondeu após follow-up,T4/26,76,Confirmou escolha do concorrente
+634,R2,Google Ads,Pediatria,Vendedor 4,Perdido,Perdido,8500.00,01/04/2026,107,Perfil não alinhado com o curso,T4/26,57,Confirmou escolha do concorrente
+635,SHHE,Site Orgânico,Clínica Geral,Vendedor 1,Perdido,Perdido,14900.00,29/01/2026,60,Questões financeiras pessoais,T2/26,93,Não retornou após 5 contatos
+636,EAD,Instagram,Ortopedia,Vendedor 4,Lead Captado,Em andamento,1200.00,30/01/2026,64,,T4/26,66,Aguardando primeiro contato
+637,R2,Instagram,Neurologia,Vendedor 1,Proposta Enviada,Em andamento,8075.00,16/03/2026,53,,T4/26,54,Follow-up agendado para 3 dias
+638,POS,WhatsApp,Endocrinologia,Vendedor 7,Perdido,Perdido,38000.00,27/01/2026,87,Perfil não alinhado com o curso,T4/26,96,Confirmou escolha do concorrente
+639,EAD,LinkedIn,Clínica Geral,Vendedor 5,Proposta Enviada,Em andamento,1080.00,27/01/2026,76,,T2/26,38,Proposta personalizada enviada
+640,SHHE,WhatsApp,Cardiologia,Vendedor 6,Matriculado,Ganho,14900.00,01/03/2026,16,,T4/26,93,Pix recebido
+641,EAD,Parceiro Clínica,Medicina do Trabalho,Vendedor 3,Matriculado,Ganho,1020.00,13/04/2026,83,,T3/26,90,Parcelado 12x aprovado
+642,POS,Congresso,Dermatologia,Vendedor 5,Matriculado,Ganho,38000.00,06/03/2026,16,,T4/26,93,Boleto gerado
+643,EAD,Google Ads,Ginecologia,Vendedor 7,Matriculado,Ganho,1020.00,08/05/2026,9,,T1/26,52,Parcelado 12x aprovado
+644,R2,WhatsApp,Endocrinologia,Vendedor 3,Negociação,Em andamento,8500.00,20/01/2026,98,,T4/26,89,Proposta revisada enviada
+645,NEXAL,Webinar,Pediatria,Vendedor 6,Proposta Enviada,Em andamento,9800.00,19/05/2026,104,,T1/26,34,Proposta personalizada enviada
+646,HTI,Site Orgânico,Pediatria,Vendedor 3,Matriculado,Ganho,17748.00,10/01/2026,59,,T1/26,52,Pix recebido
+647,EAD,Google Ads,Pediatria,Vendedor 2,Contato Realizado,Em andamento,1080.00,05/05/2026,50,,T1/26,92,Pediu proposta
+648,R2,Congresso,Medicina do Trabalho,Vendedor 2,Negociação,Em andamento,7225.00,10/05/2026,21,,T1/26,80,Esperando retorno do cônjuge
+649,POS,Parceiro Clínica,Psiquiatria,Vendedor 6,Matriculado,Ganho,32300.00,24/03/2026,37,,T1/26,33,Pagamento confirmado
+650,SHHE,WhatsApp,Nutrologia,Vendedor 1,Matriculado,Ganho,14900.00,10/06/2026,98,,T3/26,78,Pagamento confirmado
+651,POS,WhatsApp,Nutrologia,Vendedor 2,Proposta Enviada,Em andamento,34200.00,05/03/2026,32,,T2/26,69,Aguardando leitura
+652,HTI,LinkedIn,Dermatologia,Vendedor 7,Proposta Enviada,Em andamento,17748.00,25/03/2026,69,,T1/26,88,Aguardando leitura
+653,POS,Parceiro Clínica,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,34200.00,31/05/2026,61,,T1/26,70,Proposta personalizada enviada
+654,R2,Site Orgânico,Nutrologia,Vendedor 6,Contato Realizado,Em andamento,8500.00,26/06/2026,13,,T2/26,73,Interesse demonstrado
+655,R2,WhatsApp,Endocrinologia,Vendedor 6,Proposta Enviada,Em andamento,8500.00,08/05/2026,26,,T1/26,98,Follow-up agendado para 3 dias
+656,NEXAL,Instagram,Ginecologia,Vendedor 3,Perdido,Perdido,9800.00,27/02/2026,103,Escolheu concorrente,T1/26,73,Não retornou após 5 contatos
+657,HTI,Parceiro Clínica,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,17748.00,20/01/2026,102,,T3/26,94,Proposta personalizada enviada
+658,POS,Congresso,Nutrologia,Vendedor 5,Proposta Enviada,Em andamento,38000.00,12/05/2026,80,,T4/26,100,Follow-up agendado para 3 dias
+659,HTI,Congresso,Endocrinologia,Vendedor 6,Negociação,Em andamento,15973.20,30/04/2026,106,,T3/26,98,Em análise de parcelamento
+660,R2,Indicação,Ortopedia,Vendedor 5,Proposta Enviada,Em andamento,8500.00,08/02/2026,31,,T3/26,85,Proposta personalizada enviada
+661,NEXAL,LinkedIn,Neurologia,Vendedor 5,Matriculado,Ganho,9800.00,15/03/2026,106,,T2/26,62,Boleto gerado
+662,POS,Email Marketing,Clínica Geral,Vendedor 5,Contato Realizado,Em andamento,38000.00,21/03/2026,103,,T4/26,92,Pediu proposta
+663,POS,Site Orgânico,Neurologia,Vendedor 7,Contato Realizado,Em andamento,38000.00,08/01/2026,18,,T3/26,65,Pediu proposta
+664,R2,Google Ads,Neurologia,Vendedor 1,Lead Captado,Em andamento,7650.00,06/01/2026,63,,T1/26,40,Aguardando primeiro contato
+665,R2,Instagram,Clínica Geral,Vendedor 2,Matriculado,Ganho,7650.00,24/01/2026,85,,T4/26,47,Boleto gerado
+666,HTI,Parceiro Clínica,Geriatria,Vendedor 6,Perdido,Perdido,16860.60,29/05/2026,86,Questões financeiras pessoais,T3/26,93,Lead frio
+667,SHHE,Parceiro Clínica,Clínica Geral,Vendedor 1,Matriculado,Ganho,14900.00,30/05/2026,107,,T4/26,60,Parcelado 12x aprovado
+668,SHHE,Google Ads,Clínica Geral,Vendedor 5,Contato Realizado,Em andamento,14900.00,15/04/2026,57,,T3/26,37,Interesse demonstrado
+669,R2,WhatsApp,Geriatria,Vendedor 7,Proposta Enviada,Em andamento,8500.00,24/06/2026,61,,T2/26,65,Follow-up agendado para 3 dias
+670,NEXAL,Webinar,Geriatria,Vendedor 3,Matriculado,Ganho,9800.00,05/06/2026,83,,T1/26,36,Boleto gerado
+671,NEXAL,Congresso,Psiquiatria,Vendedor 3,Matriculado,Ganho,8820.00,25/06/2026,47,,T1/26,98,Boleto gerado
+672,POS,Site Orgânico,Ginecologia,Vendedor 2,Perdido,Perdido,38000.00,24/01/2026,39,Não respondeu após follow-up,T3/26,56,Lead frio
+673,POS,WhatsApp,Neurologia,Vendedor 2,Matriculado,Ganho,38000.00,21/01/2026,111,,T4/26,90,Parcelado 12x aprovado
+674,NEXAL,Site Orgânico,Clínica Geral,Vendedor 1,Contato Realizado,Em andamento,9800.00,17/01/2026,65,,T3/26,83,Pediu proposta
+675,EAD,Congresso,Geriatria,Vendedor 3,Negociação,Em andamento,1200.00,14/01/2026,98,,T2/26,86,Proposta revisada enviada
+676,HTI,Site Orgânico,Cardiologia,Vendedor 4,Proposta Enviada,Em andamento,16860.60,29/01/2026,11,,T2/26,61,Aguardando leitura
+677,EAD,Google Ads,Medicina do Trabalho,Vendedor 4,Proposta Enviada,Em andamento,1200.00,03/05/2026,58,,T2/26,63,Follow-up agendado para 3 dias
+678,EAD,Parceiro Clínica,Nutrologia,Vendedor 1,Proposta Enviada,Em andamento,1200.00,05/04/2026,54,,T2/26,80,Proposta personalizada enviada
+679,R2,Email Marketing,Ginecologia,Vendedor 7,Perdido,Perdido,7650.00,10/06/2026,79,Não respondeu após follow-up,T1/26,89,Lead frio
+680,NEXAL,Google Ads,Ginecologia,Vendedor 2,Negociação,Em andamento,9310.00,08/02/2026,34,,T1/26,77,Proposta revisada enviada
+681,R2,LinkedIn,Ginecologia,Vendedor 4,Negociação,Em andamento,7225.00,27/04/2026,118,,T4/26,45,Proposta revisada enviada
+682,EAD,Email Marketing,Cardiologia,Vendedor 1,Matriculado,Ganho,1200.00,07/05/2026,37,,T4/26,46,Parcelado 12x aprovado
+683,SHHE,Parceiro Clínica,Cardiologia,Vendedor 1,Proposta Enviada,Em andamento,13410.00,18/04/2026,25,,T2/26,82,Follow-up agendado para 3 dias
+684,HTI,Instagram,Dermatologia,Vendedor 5,Negociação,Em andamento,17748.00,30/05/2026,48,,T4/26,40,Aguardando aprovação financeira
+685,POS,Google Ads,Nutrologia,Vendedor 4,Proposta Enviada,Em andamento,38000.00,09/04/2026,92,,T4/26,62,Follow-up agendado para 3 dias
+686,HTI,Congresso,Ginecologia,Vendedor 7,Proposta Enviada,Em andamento,17748.00,01/04/2026,61,,T1/26,30,Proposta personalizada enviada
+687,R2,Parceiro Clínica,Psiquiatria,Vendedor 3,Perdido,Perdido,7650.00,03/02/2026,48,Questões financeiras pessoais,T1/26,52,Não retornou após 5 contatos
+688,SHHE,Congresso,Pediatria,Vendedor 3,Matriculado,Ganho,14900.00,23/03/2026,12,,T4/26,48,Pix recebido
+689,HTI,WhatsApp,Ginecologia,Vendedor 5,Negociação,Em andamento,15085.80,03/04/2026,36,,T4/26,66,Esperando retorno do cônjuge
+690,R2,Instagram,Ortopedia,Vendedor 3,Proposta Enviada,Em andamento,8500.00,06/05/2026,41,,T2/26,86,Follow-up agendado para 3 dias
+691,SHHE,Google Ads,Ginecologia,Vendedor 5,Contato Realizado,Em andamento,14900.00,11/02/2026,34,,T4/26,85,Demo agendada
+692,POS,Indicação,Pediatria,Vendedor 3,Perdido,Perdido,36100.00,28/04/2026,63,Desistiu por mudança de prioridades,T1/26,48,Lead frio
+693,NEXAL,LinkedIn,Cardiologia,Vendedor 1,Proposta Enviada,Em andamento,8330.00,11/05/2026,22,,T3/26,57,Aguardando leitura
+694,HTI,Congresso,Medicina do Trabalho,Vendedor 5,Proposta Enviada,Em andamento,17748.00,08/05/2026,32,,T1/26,72,Follow-up agendado para 3 dias
+695,NEXAL,LinkedIn,Psiquiatria,Vendedor 3,Negociação,Em andamento,9800.00,24/03/2026,108,,T2/26,33,Aguardando aprovação financeira
+696,POS,Webinar,Pediatria,Vendedor 4,Perdido,Perdido,36100.00,02/01/2026,85,Adiou para próxima turma,T1/26,87,Não retornou após 5 contatos
+697,EAD,Parceiro Clínica,Endocrinologia,Vendedor 5,Matriculado,Ganho,1020.00,14/03/2026,83,,T3/26,37,Pagamento confirmado
+698,R2,Parceiro Clínica,Psiquiatria,Vendedor 7,Proposta Enviada,Em andamento,8500.00,13/04/2026,31,,T1/26,32,Follow-up agendado para 3 dias
+699,SHHE,Site Orgânico,Psiquiatria,Vendedor 3,Matriculado,Ganho,13410.00,31/01/2026,20,,T3/26,92,Parcelado 12x aprovado
+700,EAD,Instagram,Neurologia,Vendedor 6,Contato Realizado,Em andamento,1080.00,05/04/2026,13,,T2/26,92,Interesse demonstrado
+701,POS,Webinar,Dermatologia,Vendedor 6,Negociação,Em andamento,38000.00,19/04/2026,97,,T3/26,53,Em análise de parcelamento
+702,EAD,Site Orgânico,Clínica Geral,Vendedor 7,Negociação,Em andamento,1200.00,27/02/2026,87,,T2/26,93,Aguardando aprovação financeira
+703,NEXAL,Webinar,Psiquiatria,Vendedor 7,Perdido,Perdido,9800.00,08/02/2026,39,Sem tempo no momento,T3/26,61,Confirmou escolha do concorrente
+704,POS,Instagram,Medicina do Trabalho,Vendedor 7,Negociação,Em andamento,38000.00,28/01/2026,66,,T4/26,82,Aguardando aprovação financeira
+705,POS,Parceiro Clínica,Dermatologia,Vendedor 3,Proposta Enviada,Em andamento,38000.00,09/05/2026,99,,T1/26,44,Aguardando leitura
+706,EAD,Webinar,Endocrinologia,Vendedor 1,Contato Realizado,Em andamento,1200.00,22/01/2026,6,,T4/26,68,Interesse demonstrado
+707,R2,Webinar,Neurologia,Vendedor 2,Negociação,Em andamento,8500.00,17/02/2026,44,,T2/26,53,Aguardando aprovação financeira
+708,EAD,Parceiro Clínica,Dermatologia,Vendedor 1,Matriculado,Ganho,1200.00,05/01/2026,69,,T1/26,80,Pagamento confirmado
+709,HTI,Google Ads,Neurologia,Vendedor 2,Negociação,Em andamento,17748.00,18/06/2026,112,,T4/26,68,Esperando retorno do cônjuge
+710,EAD,Site Orgânico,Dermatologia,Vendedor 7,Contato Realizado,Em andamento,1200.00,29/01/2026,25,,T1/26,54,Demo agendada
+711,SHHE,Webinar,Neurologia,Vendedor 5,Matriculado,Ganho,14900.00,10/06/2026,108,,T2/26,41,Pix recebido
+712,POS,Google Ads,Pediatria,Vendedor 2,Lead Captado,Em andamento,38000.00,09/02/2026,116,,T4/26,92,Aguardando primeiro contato
+713,HTI,Webinar,Medicina do Trabalho,Vendedor 5,Contato Realizado,Em andamento,16860.60,11/04/2026,107,,T1/26,72,Demo agendada
+714,HTI,Site Orgânico,Psiquiatria,Vendedor 1,Negociação,Em andamento,16860.60,22/05/2026,77,,T3/26,34,Em análise de parcelamento
+715,POS,Webinar,Ortopedia,Vendedor 6,Matriculado,Ganho,34200.00,05/05/2026,116,,T2/26,37,Pagamento confirmado
+716,POS,Parceiro Clínica,Nutrologia,Vendedor 6,Lead Captado,Em andamento,34200.00,02/05/2026,54,,T1/26,93,Aguardando primeiro contato
+717,POS,Site Orgânico,Ginecologia,Vendedor 5,Proposta Enviada,Em andamento,38000.00,30/03/2026,61,,T4/26,59,Aguardando leitura
+718,SHHE,Parceiro Clínica,Neurologia,Vendedor 3,Perdido,Perdido,12665.00,18/06/2026,108,Desistiu por mudança de prioridades,T2/26,67,Confirmou escolha do concorrente
+719,EAD,Site Orgânico,Psiquiatria,Vendedor 1,Perdido,Perdido,1080.00,03/04/2026,95,Desistiu por mudança de prioridades,T2/26,56,Não retornou após 5 contatos
+720,EAD,LinkedIn,Neurologia,Vendedor 2,Contato Realizado,Em andamento,1200.00,05/06/2026,21,,T4/26,42,Interesse demonstrado
+721,POS,Instagram,Cardiologia,Vendedor 5,Negociação,Em andamento,38000.00,08/03/2026,46,,T3/26,50,Proposta revisada enviada
+722,R2,Indicação,Clínica Geral,Vendedor 3,Proposta Enviada,Em andamento,8075.00,31/01/2026,30,,T2/26,92,Proposta personalizada enviada
+723,NEXAL,WhatsApp,Ginecologia,Vendedor 1,Matriculado,Ganho,9800.00,08/02/2026,115,,T1/26,36,Parcelado 12x aprovado
+724,POS,LinkedIn,Clínica Geral,Vendedor 1,Negociação,Em andamento,32300.00,27/01/2026,110,,T1/26,94,Aguardando aprovação financeira
+725,SHHE,LinkedIn,Cardiologia,Vendedor 3,Contato Realizado,Em andamento,14900.00,24/04/2026,91,,T4/26,42,Demo agendada
+726,EAD,WhatsApp,Nutrologia,Vendedor 1,Contato Realizado,Em andamento,1020.00,23/04/2026,26,,T4/26,30,Demo agendada
+727,POS,WhatsApp,Dermatologia,Vendedor 6,Contato Realizado,Em andamento,38000.00,17/04/2026,48,,T3/26,61,Demo agendada
+728,R2,Site Orgânico,Cardiologia,Vendedor 5,Matriculado,Ganho,8500.00,15/04/2026,118,,T4/26,96,Pix recebido
+729,HTI,Webinar,Endocrinologia,Vendedor 1,Lead Captado,Em andamento,15085.80,18/01/2026,67,,T1/26,73,Aguardando primeiro contato
+730,POS,Google Ads,Psiquiatria,Vendedor 7,Proposta Enviada,Em andamento,38000.00,14/06/2026,85,,T2/26,37,Aguardando leitura
+731,EAD,Congresso,Dermatologia,Vendedor 2,Proposta Enviada,Em andamento,1080.00,22/05/2026,90,,T3/26,70,Proposta personalizada enviada
+732,HTI,Instagram,Ortopedia,Vendedor 6,Perdido,Perdido,15973.20,25/04/2026,52,Não respondeu após follow-up,T4/26,74,Confirmou escolha do concorrente
+733,POS,Email Marketing,Dermatologia,Vendedor 7,Lead Captado,Em andamento,38000.00,02/02/2026,50,,T3/26,57,Aguardando primeiro contato
+734,R2,Congresso,Dermatologia,Vendedor 6,Proposta Enviada,Em andamento,7650.00,06/01/2026,21,,T1/26,99,Aguardando leitura
+735,NEXAL,Email Marketing,Dermatologia,Vendedor 4,Proposta Enviada,Em andamento,9310.00,16/01/2026,15,,T3/26,63,Aguardando leitura
+736,R2,WhatsApp,Clínica Geral,Vendedor 7,Matriculado,Ganho,8500.00,18/03/2026,58,,T1/26,88,Pix recebido
+737,SHHE,Parceiro Clínica,Medicina do Trabalho,Vendedor 4,Matriculado,Ganho,13410.00,17/05/2026,86,,T2/26,74,Pix recebido
+738,NEXAL,Parceiro Clínica,Neurologia,Vendedor 5,Matriculado,Ganho,9310.00,05/03/2026,95,,T1/26,71,Boleto gerado
+739,NEXAL,Webinar,Clínica Geral,Vendedor 5,Matriculado,Ganho,8330.00,21/01/2026,53,,T1/26,37,Parcelado 12x aprovado
+740,SHHE,Webinar,Cardiologia,Vendedor 2,Lead Captado,Em andamento,13410.00,14/04/2026,68,,T4/26,63,Aguardando primeiro contato
+741,EAD,Site Orgânico,Pediatria,Vendedor 4,Perdido,Perdido,1200.00,17/04/2026,94,Sem tempo no momento,T2/26,94,Lead frio
+742,POS,Webinar,Endocrinologia,Vendedor 4,Negociação,Em andamento,36100.00,27/06/2026,16,,T2/26,88,Em análise de parcelamento
+743,HTI,Google Ads,Ortopedia,Vendedor 3,Perdido,Perdido,17748.00,15/04/2026,78,Escolheu concorrente,T1/26,77,Confirmou escolha do concorrente
+744,NEXAL,Indicação,Ortopedia,Vendedor 5,Contato Realizado,Em andamento,9800.00,19/03/2026,48,,T3/26,92,Demo agendada
+745,SHHE,Google Ads,Medicina do Trabalho,Vendedor 2,Lead Captado,Em andamento,14900.00,14/03/2026,114,,T2/26,53,Aguardando primeiro contato
+746,HTI,LinkedIn,Ortopedia,Vendedor 3,Lead Captado,Em andamento,17748.00,04/05/2026,54,,T3/26,87,Aguardando primeiro contato
+747,POS,Webinar,Geriatria,Vendedor 1,Negociação,Em andamento,32300.00,10/05/2026,18,,T4/26,87,Em análise de parcelamento
+748,SHHE,WhatsApp,Clínica Geral,Vendedor 1,Negociação,Em andamento,14155.00,10/04/2026,53,,T2/26,80,Esperando retorno do cônjuge
+749,R2,Indicação,Neurologia,Vendedor 2,Matriculado,Ganho,7650.00,12/02/2026,12,,T1/26,69,Pagamento confirmado
+750,EAD,Congresso,Clínica Geral,Vendedor 5,Perdido,Perdido,1140.00,14/01/2026,74,Questões financeiras pessoais,T2/26,90,Confirmou escolha do concorrente
+751,HTI,LinkedIn,Neurologia,Vendedor 6,Contato Realizado,Em andamento,17748.00,22/02/2026,36,,T2/26,86,Demo agendada
+752,R2,Parceiro Clínica,Nutrologia,Vendedor 2,Negociação,Em andamento,8500.00,06/01/2026,111,,T3/26,85,Proposta revisada enviada
+753,POS,Indicação,Ortopedia,Vendedor 3,Proposta Enviada,Em andamento,38000.00,26/01/2026,15,,T2/26,66,Follow-up agendado para 3 dias
+754,SHHE,Instagram,Clínica Geral,Vendedor 5,Proposta Enviada,Em andamento,14900.00,13/02/2026,87,,T1/26,71,Follow-up agendado para 3 dias
+755,HTI,Indicação,Dermatologia,Vendedor 2,Contato Realizado,Em andamento,17748.00,24/03/2026,53,,T3/26,78,Demo agendada
+756,HTI,Email Marketing,Cardiologia,Vendedor 1,Negociação,Em andamento,17748.00,11/05/2026,64,,T4/26,44,Esperando retorno do cônjuge
+757,HTI,WhatsApp,Pediatria,Vendedor 6,Proposta Enviada,Em andamento,17748.00,15/04/2026,4,,T2/26,32,Proposta personalizada enviada
+758,R2,Parceiro Clínica,Neurologia,Vendedor 7,Proposta Enviada,Em andamento,8075.00,02/02/2026,84,,T3/26,82,Proposta personalizada enviada
+759,HTI,Congresso,Cardiologia,Vendedor 1,Perdido,Perdido,17748.00,13/02/2026,70,Não respondeu após follow-up,T4/26,87,Lead frio
+760,HTI,Webinar,Medicina do Trabalho,Vendedor 3,Matriculado,Ganho,17748.00,16/01/2026,1,,T4/26,64,Pix recebido
+761,EAD,Site Orgânico,Nutrologia,Vendedor 1,Matriculado,Ganho,1140.00,11/05/2026,108,,T3/26,35,Boleto gerado
+762,EAD,Congresso,Medicina do Trabalho,Vendedor 7,Proposta Enviada,Em andamento,1200.00,01/02/2026,90,,T2/26,65,Proposta personalizada enviada
+763,SHHE,Parceiro Clínica,Ortopedia,Vendedor 1,Proposta Enviada,Em andamento,13410.00,12/06/2026,44,,T3/26,87,Proposta personalizada enviada
+764,SHHE,WhatsApp,Nutrologia,Vendedor 5,Negociação,Em andamento,14155.00,05/01/2026,43,,T2/26,30,Em análise de parcelamento
+765,HTI,Indicação,Neurologia,Vendedor 5,Proposta Enviada,Em andamento,15973.20,06/05/2026,91,,T4/26,98,Follow-up agendado para 3 dias
+766,EAD,LinkedIn,Ortopedia,Vendedor 7,Matriculado,Ganho,1020.00,24/04/2026,86,,T1/26,75,Parcelado 12x aprovado
+767,R2,WhatsApp,Psiquiatria,Vendedor 5,Matriculado,Ganho,7225.00,03/01/2026,90,,T1/26,89,Pix recebido
+768,SHHE,Webinar,Ginecologia,Vendedor 5,Matriculado,Ganho,12665.00,24/06/2026,36,,T3/26,54,Pagamento confirmado
+769,R2,Instagram,Geriatria,Vendedor 5,Proposta Enviada,Em andamento,8500.00,10/01/2026,47,,T3/26,93,Aguardando leitura
+770,EAD,Parceiro Clínica,Cardiologia,Vendedor 7,Contato Realizado,Em andamento,1020.00,12/04/2026,82,,T1/26,65,Pediu proposta
+771,R2,Webinar,Endocrinologia,Vendedor 6,Contato Realizado,Em andamento,7650.00,22/06/2026,73,,T2/26,38,Pediu proposta
+772,SHHE,LinkedIn,Endocrinologia,Vendedor 3,Perdido,Perdido,12665.00,14/05/2026,30,Proposta não aprovada pela empresa,T2/26,32,Confirmou escolha do concorrente
+773,EAD,Congresso,Medicina do Trabalho,Vendedor 3,Matriculado,Ganho,1200.00,20/04/2026,1,,T1/26,71,Parcelado 12x aprovado
+774,POS,Instagram,Clínica Geral,Vendedor 4,Negociação,Em andamento,38000.00,13/05/2026,47,,T1/26,58,Aguardando aprovação financeira
+775,NEXAL,Site Orgânico,Ortopedia,Vendedor 2,Proposta Enviada,Em andamento,9800.00,27/03/2026,25,,T1/26,33,Aguardando leitura
+776,SHHE,Site Orgânico,Clínica Geral,Vendedor 5,Contato Realizado,Em andamento,14900.00,17/01/2026,40,,T1/26,33,Interesse demonstrado
+777,POS,Indicação,Medicina do Trabalho,Vendedor 1,Negociação,Em andamento,38000.00,06/03/2026,108,,T2/26,43,Em análise de parcelamento
+778,SHHE,WhatsApp,Ginecologia,Vendedor 1,Proposta Enviada,Em andamento,12665.00,19/01/2026,31,,T4/26,42,Aguardando leitura
+779,POS,Parceiro Clínica,Clínica Geral,Vendedor 7,Perdido,Perdido,38000.00,22/03/2026,49,Escolheu concorrente,T2/26,37,Não retornou após 5 contatos
+780,HTI,Instagram,Medicina do Trabalho,Vendedor 4,Proposta Enviada,Em andamento,17748.00,15/01/2026,87,,T1/26,67,Proposta personalizada enviada
+781,POS,LinkedIn,Medicina do Trabalho,Vendedor 1,Proposta Enviada,Em andamento,32300.00,18/06/2026,77,,T1/26,88,Proposta personalizada enviada
+782,POS,Site Orgânico,Medicina do Trabalho,Vendedor 6,Contato Realizado,Em andamento,34200.00,07/01/2026,87,,T4/26,96,Interesse demonstrado
+783,R2,Email Marketing,Clínica Geral,Vendedor 7,Lead Captado,Em andamento,7650.00,01/06/2026,9,,T2/26,46,Aguardando primeiro contato
+784,NEXAL,Site Orgânico,Pediatria,Vendedor 4,Negociação,Em andamento,9800.00,05/02/2026,32,,T1/26,37,Proposta revisada enviada
+785,NEXAL,Parceiro Clínica,Psiquiatria,Vendedor 6,Perdido,Perdido,8330.00,21/03/2026,46,Questões financeiras pessoais,T2/26,48,Não retornou após 5 contatos
+786,NEXAL,Parceiro Clínica,Nutrologia,Vendedor 3,Proposta Enviada,Em andamento,9800.00,31/05/2026,67,,T2/26,37,Follow-up agendado para 3 dias
+787,R2,Congresso,Ginecologia,Vendedor 2,Proposta Enviada,Em andamento,8500.00,21/02/2026,82,,T1/26,73,Follow-up agendado para 3 dias
+788,EAD,Webinar,Geriatria,Vendedor 4,Perdido,Perdido,1140.00,26/03/2026,89,Adiou para próxima turma,T3/26,83,Não retornou após 5 contatos
+789,SHHE,LinkedIn,Pediatria,Vendedor 1,Perdido,Perdido,14900.00,01/01/2026,29,Não respondeu após follow-up,T2/26,89,Confirmou escolha do concorrente
+790,SHHE,Email Marketing,Pediatria,Vendedor 4,Matriculado,Ganho,12665.00,07/04/2026,43,,T2/26,81,Boleto gerado
+791,HTI,WhatsApp,Ginecologia,Vendedor 7,Proposta Enviada,Em andamento,16860.60,06/02/2026,15,,T3/26,86,Follow-up agendado para 3 dias
+792,EAD,Parceiro Clínica,Nutrologia,Vendedor 7,Perdido,Perdido,1200.00,14/03/2026,26,Sem tempo no momento,T2/26,63,Confirmou escolha do concorrente
+793,SHHE,WhatsApp,Ortopedia,Vendedor 5,Contato Realizado,Em andamento,14900.00,09/03/2026,23,,T1/26,32,Pediu proposta
+794,SHHE,Site Orgânico,Neurologia,Vendedor 1,Matriculado,Ganho,14900.00,23/02/2026,120,,T3/26,88,Boleto gerado
+795,NEXAL,WhatsApp,Neurologia,Vendedor 5,Perdido,Perdido,8330.00,22/04/2026,80,Escolheu concorrente,T1/26,48,Lead frio
+796,SHHE,Email Marketing,Ortopedia,Vendedor 2,Matriculado,Ganho,14900.00,20/04/2026,77,,T2/26,35,Boleto gerado
+797,R2,Instagram,Endocrinologia,Vendedor 3,Proposta Enviada,Em andamento,7650.00,13/03/2026,102,,T2/26,95,Aguardando leitura
+798,POS,Email Marketing,Geriatria,Vendedor 7,Matriculado,Ganho,32300.00,07/06/2026,85,,T1/26,51,Parcelado 12x aprovado
+799,EAD,Congresso,Nutrologia,Vendedor 2,Negociação,Em andamento,1200.00,06/04/2026,42,,T4/26,93,Em análise de parcelamento
+800,NEXAL,Parceiro Clínica,Psiquiatria,Vendedor 4,Perdido,Perdido,9310.00,10/01/2026,84,Não respondeu após follow-up,T2/26,55,Não retornou após 5 contatos

@@ -3347,6 +3347,41 @@ Margem do total do período:
     <p class="fig-leg"><strong>Os&nbsp;dois primeiros números não&nbsp;têm método nenhum, e&nbsp;é por&nbsp;isso que&nbsp;eles vêm primeiro.</strong> Eles não&nbsp;conferem a&nbsp;análise: conferem se&nbsp;ela leu
     o&nbsp;arquivo inteiro. Só&nbsp;depois que&nbsp;isso está de&nbsp;pé faz sentido discutir a&nbsp;terceira
     linha, que&nbsp;é onde&nbsp;a&nbsp;decisão de&nbsp;negócio se&nbsp;esconde.</p>
+
+    <h3>O&nbsp;que&nbsp;aconteceu quando&nbsp;a&nbsp;conta não&nbsp;bateu</h3>
+
+    <p>Vale contar, porque&nbsp;não&nbsp;é hipótese: aconteceu em&nbsp;sala, com&nbsp;uma&nbsp;planilha de&nbsp;mil
+    linhas e&nbsp;um&nbsp;pedido parecido com&nbsp;o&nbsp;do&nbsp;passo 2. As&nbsp;médias que&nbsp;voltaram não&nbsp;batiam com&nbsp;a&nbsp;planilha. A&nbsp;pergunta seguinte foi para&nbsp;a&nbsp;própria IA, e&nbsp;a&nbsp;resposta dela é a&nbsp;peça mais
+    útil desta aula inteira.</p>
+
+    <div class="cartao">
+      <span class="rot">A confissão, com as palavras dela</span>
+      <pre class="prompt-txt">"Fiz uma leitura aproximada dos dados, estimando as médias
+com base na amostragem visual dos primeiros registros."</pre>
+      <p style="margin-bottom:0">Ela não&nbsp;calculou. Ela <strong>olhou o&nbsp;começo do&nbsp;arquivo e&nbsp;estimou</strong>, e&nbsp;depois escreveu o&nbsp;resultado com&nbsp;a&nbsp;mesma segurança de&nbsp;quem tinha
+      somado tudo. Nada na&nbsp;resposta dizia isso, e&nbsp;ninguém teria descoberto sem&nbsp;conferir os&nbsp;dois primeiros números na&nbsp;mão.</p>
+    </div>
+
+    <p>O&nbsp;que&nbsp;veio depois é o&nbsp;que&nbsp;muda a&nbsp;lição:</p>
+
+    <ul class="lista">
+      <li><strong>A&nbsp;correção óbvia não&nbsp;bastou.</strong> Acrescentar
+      <em>"considerando sempre todas as&nbsp;linhas e&nbsp;todos os&nbsp;dados da&nbsp;planilha"</em> ao&nbsp;pedido pareceu resolver, e&nbsp;a&nbsp;resposta seguinte errou de&nbsp;novo.</li>
+      <li><strong>O&nbsp;que&nbsp;funcionou foi pedir à&nbsp;IA que&nbsp;reescrevesse o&nbsp;próprio
+      pedido</strong>, e&nbsp;rodar o&nbsp;pedido reescrito em&nbsp;uma&nbsp;conversa nova. Trocar a&nbsp;conversa
+      importa: a&nbsp;conversa velha já&nbsp;tinha os&nbsp;números errados dentro dela.</li>
+      <li><strong>Outra IA, com&nbsp;o&nbsp;pedido original, acertava desde&nbsp;o&nbsp;começo.</strong> A&nbsp;mesma planilha, o&nbsp;mesmo texto, resultado diferente.</li>
+    </ul>
+
+    <div class="aviso ok">
+      <div class="aviso-t">A lição não é qual ferramenta usar</div>
+      <p>É tentador concluir que uma IA é melhor que a outra e trocar de ferramenta. Não
+      é isso. <strong>O que muda não é a IA, é o pedido</strong>, e a prova é que a
+      mesma ferramenta acertou depois que o pedido foi reescrito. Não existe a melhor nem
+      a pior: existe o pedido que fecha a brecha por onde a estimativa entrou. E existe a
+      conferência dos três números acima, que é o que faz você descobrir isso em um
+      minuto em vez de na reunião.</p>
+    </div>
   </section>
 
   <section class="secao" id="sua-vez">
@@ -3379,11 +3414,46 @@ Margem do total do período:
       <ul class="lista">
         <li><strong>Cabeçalho descritivo em&nbsp;toda coluna.</strong> "Coluna1", "Dados2" ou&nbsp;em&nbsp;branco deixam a&nbsp;leitura cega. Evite caractere especial no&nbsp;nome.</li>
         <li><strong>Um&nbsp;formato só&nbsp;dentro de&nbsp;cada coluna.</strong> "jan/26", "01-2026" e&nbsp;"janeiro de&nbsp;2026" não&nbsp;são a&nbsp;mesma coisa para&nbsp;a&nbsp;máquina, e&nbsp;"SP" não&nbsp;é "São
-        Paulo".</li>
+        Paulo". <strong>Nem "RJ" é "rj"</strong>, e&nbsp;essa é a&nbsp;que&nbsp;mais passa
+        despercebida.</li>
         <li><strong>Nenhuma célula mesclada.</strong> É o&nbsp;maior inimigo da&nbsp;leitura
         automática: planilha bonita para&nbsp;humano quebra a&nbsp;lógica de&nbsp;tabela.</li>
         <li><strong>Nenhuma linha de&nbsp;total no&nbsp;meio dos&nbsp;dados.</strong> Ela vira mais uma&nbsp;venda na&nbsp;conta, e&nbsp;distorce toda média e&nbsp;toda projeção.</li>
+        <li><strong>Número como número, data como data.</strong> Valor guardado como
+        texto não&nbsp;entra em&nbsp;soma nenhuma, e&nbsp;o&nbsp;total sai menor sem&nbsp;ninguém avisar. É o&nbsp;erro que&nbsp;some na&nbsp;tela e&nbsp;aparece no&nbsp;resultado.</li>
       </ul>
+
+      <p><strong>O segundo item merece um caso, porque ele é o que quebra na sala.</strong>
+      Basta uma coluna de estado com "RJ" em umas linhas e "rj" em outras para a máquina
+      tratar as duas como <strong>dois lugares diferentes</strong>. O relatório sai com
+      duas linhas para o Rio, cada uma com metade do volume, e nenhuma das duas está
+      errada do ponto de vista dela. O mesmo acontece com "Centro-Oeste" e
+      "centro-oeste".</p>
+
+      <div class="antes-depois">
+        <div class="ad antes">
+          <div class="ad-rot">O que a máquina lê na coluna Estado</div>
+          <ul>
+            <li>RJ, 84 pedidos</li>
+            <li>rj, 61 pedidos</li>
+            <li class="ad-mais">duas categorias, e&nbsp;o&nbsp;Rio some do&nbsp;topo do&nbsp;ranking</li>
+          </ul>
+        </div>
+        <div class="ad-seta" aria-hidden="true">&rarr;</div>
+        <div class="ad depois">
+          <div class="ad-rot">Depois de padronizar a coluna</div>
+          <ul>
+            <li>RJ, 145 pedidos</li>
+            <li>uma&nbsp;categoria só</li>
+            <li class="ad-mais">e&nbsp;o&nbsp;ranking muda de&nbsp;dono</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="fig-leg"><strong>E&nbsp;o&nbsp;atalho, que&nbsp;é o&nbsp;que&nbsp;vale a&nbsp;pena guardar:</strong> em&nbsp;vez de&nbsp;auditar a&nbsp;qualidade da&nbsp;base à&nbsp;mão, coluna por&nbsp;coluna, mande o&nbsp;arquivo e&nbsp;peça
+      isso à&nbsp;própria IA. O&nbsp;pedido do&nbsp;passo 1, logo abaixo, faz exatamente essa varredura,
+      e&nbsp;devolve a&nbsp;lista do&nbsp;que&nbsp;está inconsistente antes de&nbsp;você tirar qualquer
+      conclusão.</p>
       <p class="fig-leg">Formato do&nbsp;arquivo: <strong>CSV, xlsx e&nbsp;planilha do&nbsp;Google</strong>
       são lidos bem. PDF com&nbsp;tabela dentro varia muito, e&nbsp;é onde&nbsp;o&nbsp;exercício costuma falhar
       sem&nbsp;ninguém entender por&nbsp;quê.</p>
@@ -3402,15 +3472,20 @@ Margem do total do período:
           <h3>Antes de&nbsp;qualquer conta, peça o&nbsp;raio-X da&nbsp;base</h3>
         </div>
       </div>
-      <p><strong>Este é o&nbsp;passo que&nbsp;quase todo mundo pula</strong>, e&nbsp;pular é a&nbsp;origem da&nbsp;maior parte da&nbsp;frustração com&nbsp;análise por&nbsp;IA: pedir interpretação de&nbsp;uma&nbsp;base que&nbsp;a&nbsp;máquina ainda não&nbsp;mapeou. Ela precisa reconhecer o&nbsp;terreno antes de&nbsp;dizer o&nbsp;que&nbsp;o&nbsp;terreno significa. Cole o&nbsp;pedido abaixo com&nbsp;a&nbsp;planilha anexada, e&nbsp;leia a&nbsp;resposta
-      inteira antes de&nbsp;seguir.</p>
+      <p><strong>Este é o passo que quase todo mundo pula</strong>, e pular é a origem da
+      maior parte da frustração com análise por IA: pedir interpretação de uma base que a
+      máquina ainda não mapeou. <strong>Ele não existe para você conhecer a base, e sim
+      para impedir que ela chute o formato.</strong> Sem esta passada, a leitura seguinte
+      é feita em cima da estrutura que a máquina supôs, e supor estrutura é o começo de
+      toda conta errada desta aula. Cole o pedido abaixo com a planilha anexada, e leia a
+      resposta inteira antes de seguir.</p>
 
       <div class="prompt">
         <div class="prompt-barra">
           <span class="prompt-rot">O pedido do passo 1, pronto para copiar</span>
           <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-explora">Copiar</button>
         </div>
-        <pre class="prompt-txt" id="pr-b2planilha-explora">[P] Você é:
+        <pre class="prompt-txt" id="pr-b2planilha-explora">[P] Papel / Persona:
 Um analista de dados que audita a estrutura de uma base antes de
 interpretar qualquer coisa dela.
 
@@ -3469,7 +3544,7 @@ o quanto dá para confiar nela, sem precisar abrir o arquivo.</pre>
         <span class="prompt-rot">O pedido do passo 2, pronto para copiar</span>
         <button class="btn-copiar" type="button" data-alvo="pr-b2planilha">Copiar</button>
       </div>
-      <pre class="prompt-txt" id="pr-b2planilha">[P] Você é:
+      <pre class="prompt-txt" id="pr-b2planilha">[P] Papel / Persona:
 Um analista de dados que separa a conta da interpretação, e que mostra a
 fórmula de tudo o que calcula.
 
@@ -3529,7 +3604,7 @@ dele.</pre>
           <span class="prompt-rot">O pedido do passo 3, pronto para copiar e adaptar</span>
           <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-leitura">Copiar</button>
         </div>
-        <pre class="prompt-txt" id="pr-b2planilha-leitura">[P] Você é:
+        <pre class="prompt-txt" id="pr-b2planilha-leitura">[P] Papel / Persona:
 Um analista de negócio que procura onde o problema se concentra, em vez
 de descrever o problema inteiro.
 
@@ -3619,7 +3694,7 @@ e se a pessoa do lado conseguir conferir essa frase na planilha.</pre>
           <span class="prompt-rot">O pedido do passo 4, pronto para copiar e adaptar</span>
           <button class="btn-copiar" type="button" data-alvo="pr-b2planilha-narrativa">Copiar</button>
         </div>
-        <pre class="prompt-txt" id="pr-b2planilha-narrativa">[P] Você é:
+        <pre class="prompt-txt" id="pr-b2planilha-narrativa">[P] Papel / Persona:
 Alguém que apresenta resultado para quem decide, e que trata cada palavra
 como espaço caro.
 

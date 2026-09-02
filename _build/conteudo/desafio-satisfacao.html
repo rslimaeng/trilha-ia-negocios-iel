@@ -1,0 +1,282 @@
+  <section class="secao" id="a-tarefa">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A tarefa</div>
+        <h2>Mil pessoas responderam, e ninguém sabe dizer o que fazer com isso</h2>
+      </div>
+    </div>
+
+    <p>A pesquisa foi aplicada, o prazo fechou e o arquivo chegou: <strong>1.000 respostas
+    e 22 colunas</strong>. Quinze dimensões avaliadas de 0 a 10, seis campos de perfil de
+    quem respondeu, e um campo de comentário livre que a maioria preencheu.</p>
+
+    <p>O que costuma acontecer com um arquivo desses é uma de duas coisas. Ou alguém tira a
+    média de tudo, apresenta um número redondo e a reunião termina sem decisão. Ou o
+    arquivo fica na pasta compartilhada até a próxima pesquisa.</p>
+
+    <p>O que se pede aqui é o caminho inteiro: <strong>da estrutura do arquivo até o
+    diagnóstico com dono</strong>, passando pelo recorte que desfaz a média e pela leitura
+    dos comentários. É o mesmo percurso das aulas 4 e 5 do B2, com a base já separada.</p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso na vida real</span>
+      <p>Qualidade, atendimento, RH, marketing, operações, coordenação acadêmica: qualquer
+      área que aplica pesquisa e precisa devolver diagnóstico. <strong>O que custa
+      hoje:</strong> uma semana entre receber o arquivo e ter algo que a diretoria consiga
+      ler, e quase sempre a leitura vira "a satisfação está ok".</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-contexto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O contexto</div>
+        <h2>A média desta base esconde um abismo de quase seis pontos</h2>
+      </div>
+    </div>
+
+    <p>Esta base tem uma propriedade que a torna boa para praticar, e ela é a mesma coisa
+    que acontece na sua: <strong>o resultado médio não descreve ninguém</strong>. A
+    satisfação geral fica em 5,90, e nenhum grupo relevante da base vive perto desse
+    número.</p>
+
+    <p>Duas conclusões opostas saem do mesmo arquivo, e a diferença entre elas é apenas o
+    corte escolhido:</p>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">Cortando por região</div>
+        <ul>
+          <li>Nordeste 6,11 &middot; Centro-Oeste 6,02</li>
+          <li>Sudeste 5,79 &middot; Sul 5,70</li>
+          <li class="ad-mais">quatro números quase iguais, e a conclusão é "está tudo igual"</li>
+        </ul>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">Cortando por perfil de cliente</div>
+        <ul>
+          <li>Premium 8,68, com 304 respostas</li>
+          <li>Standard 6,20 &middot; Em Risco 2,93</li>
+          <li class="ad-mais">5,75 pontos entre o topo e a base, na mesma empresa</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O corte da esquerda é o mais fácil de pedir, e é o que não
+    acha nada.</strong> É por isso que este desafio pede os cortes todos, um a um, em vez
+    de deixar a IA escolher qual mostrar.</p>
+
+    <ul class="lista">
+      <li><strong>Quem responde.</strong> Alguém que trata "não dá para saber com esta
+      base" como resposta legítima, e que não inventa causa para número que não tem
+      explicação no arquivo.</li>
+      <li><strong>Quem lê.</strong> Uma diretoria que decide onde alocar esforço no
+      trimestre, e que vai perguntar de onde saiu cada número.</li>
+      <li><strong>O que a base tem.</strong> Quinze dimensões, seis campos de perfil, e
+      comentário livre em parte das linhas. Nenhuma coluna de data, então não há
+      série temporal para analisar.</li>
+      <li><strong>O que é normal.</strong> Nada nesta base é confortável: as quinze
+      dimensões ficam abaixo de 7,5. Um valor fixo de corte não separa nada aqui, e é por
+      isso que o pedido manda ranquear.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="o-insumo">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O insumo</div>
+        <h2>Baixe e abra antes de colar</h2>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O arquivo deste desafio</span>
+        <p style="margin:0">Uma aba, <strong>1.000 linhas e 22 colunas</strong>: gênero,
+        estado, região, idade, formação, perfil de cliente, quinze notas de 0 a 10 e o
+        comentário livre. <strong>Dados fictícios</strong>, e o arquivo já está no formato
+        certo, sem célula mesclada e sem linha de total.</p>
+      </div>
+      <a class="btn" href="../_arquivos/pesquisa-satisfacao-1000.xlsx">Baixar a base</a>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">O que existe dentro do arquivo, medido</span>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>O que</th><th>Quanto</th></tr></thead>
+          <tbody>
+            <tr><td>respostas</td><td>1.000</td></tr>
+            <tr><td>colunas</td><td>22, sendo 15 dimensões de nota</td></tr>
+            <tr><td>regiões presentes</td><td>4, e não há Norte na base</td></tr>
+            <tr><td>estados presentes</td><td>12</td></tr>
+            <tr><td>comentários preenchidos</td><td>748 das 1.000 linhas</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A ausência do Norte é de propósito. <strong>Se a resposta vier com
+      um mapa que mostra o Norte com valor zero</strong>, você acabou de ver a diferença
+      entre "não existe na base" e "existe e vale zero", que é um dos erros mais comuns e
+      mais caros de leitura de dado.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-pedido">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">O pedido</div>
+        <h2>Cole isto com a base anexada</h2>
+      </div>
+    </div>
+
+    <p>Este é o pedido consolidado, que percorre as quatro etapas de uma vez. <strong>Se
+    você tiver tempo, prefira os quatro pedidos separados</strong>, que estão na biblioteca
+    e devolvem um resultado mais fundo: o consolidado ganha em velocidade e perde em
+    profundidade.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido deste desafio, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-desafio-satisfacao">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-desafio-satisfacao">[P] Papel / Persona:
+Um analista sênior que vai da estrutura da base ao diagnóstico sem
+pular etapa, e que trata "não dá para saber com este arquivo" como
+resposta legítima.
+
+[C] Contexto:
+Anexei uma pesquisa de satisfação com 1.000 respostas e 22 colunas:
+seis campos de perfil de quem respondeu, quinze dimensões avaliadas
+de 0 a 10 e um campo de comentário livre. Preciso levar para a
+diretoria um diagnóstico que diga onde mexer primeiro no trimestre.
+
+[T] Tarefa:
+Execute quatro etapas, nesta ordem, sem pular nenhuma.
+1. Estrutura: quantas linhas e colunas, o que cada coluna significa,
+   e que problemas de qualidade existem no arquivo.
+2. Recorte: cruze a satisfação geral com cada campo de perfil, um de
+   cada vez, e diga qual corte separa o problema e qual não separa.
+3. Prioridade: ranqueie as quinze dimensões da pior para a melhor e
+   detalhe as três piores, com a média, o percentual de notas baixas
+   e o grupo mais afetado em cada uma.
+4. Causa: leia os comentários preenchidos e traga os cinco temas mais
+   recorrentes, com volume de menções e uma citação literal de cada.
+
+[F] Formato:
+Um bloco por etapa, com título numerado. Tabelas nas etapas 2 e 3,
+com o número de respondentes ao lado de cada grupo. Ao lado de toda
+afirmação, o número que a sustenta. No fim de tudo, três parágrafos
+de narrativa executiva: o que os dados mostram, por que acontece, e
+que decisão é necessária.
+
+[L] Limitações:
+Não use valor fixo de corte para separar dimensão crítica de não
+crítica: ranqueie. Se uma categoria não existir na base, sinalize que
+ela está ausente em vez de mostrá-la com valor zero. Se dois recortes
+diferentes puderem receber o mesmo nome, dê nomes distintos aos dois.
+Use apenas citação literal dos comentários, sem reescrever. Não
+proponha ação na etapa 3. Se algum cruzamento não puder ser feito com
+as colunas que existem, sinalize qual coluna falta.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir escolher, numa frase, qual grupo e
+qual dimensão atacar primeiro, e se alguém com o arquivo aberto
+conseguir refazer cada número que eu apresentar.</pre>
+    </div>
+
+    <p class="fig-leg">Os quatro pedidos separados, com os campos completos de cada um,
+    estão na <a href="../b2-biblioteca/#quatro-pedidos">biblioteca de prompts</a>. Eles são
+    a mesma sequência, um por mensagem.</p>
+  </section>
+
+  <section class="secao" id="o-que-conferir">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A conferência</div>
+        <h2>Cinco números para checar antes de acreditar no diagnóstico</h2>
+      </div>
+    </div>
+
+    <p>Todos foram medidos no arquivo. <strong>Confira estes cinco antes de olhar qualquer
+    conclusão</strong>: se algum não bater, a leitura inteira que veio depois está apoiada
+    em conta errada.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>O que conferir</th><th>O valor no arquivo</th><th>O que ele pega</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>a contagem de linhas</td>
+            <td>1.000</td>
+            <td>se ela leu o arquivo inteiro, ou só o começo dele</td>
+          </tr>
+          <tr>
+            <td>a média da satisfação geral</td>
+            <td>5,90</td>
+            <td>a conta mais simples da base. Se esta erra, nenhuma outra vale</td>
+          </tr>
+          <tr>
+            <td>a pior dimensão</td>
+            <td>a de problemas relatados, com 4,78</td>
+            <td>se o ranking foi calculado ou chutado pela ordem das colunas</td>
+          </tr>
+          <tr>
+            <td>quantos deram nota abaixo de 6 na satisfação geral</td>
+            <td>430 respostas, 43,0%</td>
+            <td>se ela sabe separar contagem de percentual, e sobre que base calculou</td>
+          </tr>
+          <tr>
+            <td>quantos comentários existem de verdade</td>
+            <td>748 das 1.000 linhas</td>
+            <td>se ela tratou linha vazia como comentário, o que infla todo tema</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O terceiro é o mais revelador dos cinco.</strong> As quinze
+    dimensões desta base ficam todas abaixo de 7,5, então qualquer resposta que diga "as
+    dimensões críticas são as que ficaram abaixo do corte" está listando as quinze e
+    chamando isso de análise.</p>
+
+    <div class="cartao">
+      <span class="rot">O que uma boa resposta encontra, e uma resposta rasa não</span>
+      <ul class="lista">
+        <li><strong>Que o perfil separa e a região não.</strong> Por região, os quatro
+        valores ficam entre 5,70 e 6,11. Por perfil, vão de 2,93 a 8,68. Quem cortou só
+        por região conclui que está tudo igual.</li>
+        <li><strong>Que o indicador de recomendação é negativo.</strong> Calculado a
+        partir da dimensão de recomendação, ele dá -26,9, com 243 promotores contra 512
+        detratores. É um número que muda o tom da reunião inteira, e ele não aparece se
+        ninguém pedir.</li>
+        <li><strong>Que 252 pessoas não escreveram nada.</strong> Tratar as 1.000 linhas
+        como se todas tivessem comentário infla o volume de cada tema em um terço.</li>
+        <li><strong>Que não há coluna de data.</strong> Qualquer afirmação sobre evolução,
+        tendência ou piora ao longo do tempo é invenção: a base é uma fotografia.</li>
+      </ul>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Se o resultado vier raso</span>
+      <p>Três frases resolvem quase sempre. <em>"Você usou um valor de corte para escolher
+      as dimensões críticas; refaça ranqueando as quinze."</em> · <em>"Refaça o cruzamento
+      por perfil de cliente e diga o tamanho de cada grupo."</em> · <em>"Os temas dos
+      comentários estão genéricos: traga a citação literal de cada um e diga quantas linhas
+      estavam vazias."</em></p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Quando terminar, tem mais seis bases</span>
+      <p>Seis arquivos de áreas diferentes, com <strong>três pedidos prontos para cada
+      um</strong>: comercial, eventos, financeiro, operações, RH e suprimentos. Dados
+      fictícios, no formato que os pedidos esperam. Estão na
+      <a href="../b2-biblioteca/#por-setor">biblioteca, no bloco por setor</a>, e servem
+      para você repetir o percurso deste desafio com a base mais parecida com a sua.</p>
+    </div>
+  </section>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System XPTO · modelo para adaptar</title>
+<style>
+  :root{
+    /* ---- as cores, e o papel de cada uma ---- */
+    --tinta:        #16202B;   /* texto principal            */
+    --tinta-fraca:  #5B6B7C;   /* texto de apoio e legenda   */
+    --papel:        #FFFFFF;   /* fundo de cartão e de tela  */
+    --papel-fraco:  #F4F6F8;   /* fundo de seção e de tabela */
+    --linha:        #DDE3E9;   /* borda, divisor, contorno   */
+    --marca:        #1B4D8F;   /* a cor da marca: título, botão, destaque */
+    --marca-fraca:  #E8EFF8;   /* fundo do que está em destaque */
+    --bom:          #1E7A4B;   /* indicador dentro da meta   */
+    --atencao:      #A66A00;   /* indicador em observação    */
+    --ruim:         #B3261E;   /* indicador fora da meta     */
+
+    --fonte-titulo: Georgia, "Times New Roman", serif;
+    --fonte-texto:  "Helvetica Neue", Arial, sans-serif;
+
+    --raio: 10px;
+    --gap: 20px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 80px;background:var(--papel-fraco);
+    color:var(--tinta);font-family:var(--fonte-texto);
+    font-size:16px;line-height:1.6;
+  }
+  .folha{max-width:920px;margin:0 auto}
+  header.capa{
+    background:var(--marca);color:#fff;border-radius:var(--raio);
+    padding:32px 28px;margin-bottom:28px;
+  }
+  header.capa h1{font-family:var(--fonte-titulo);font-size:30px;margin:0 0 8px}
+  header.capa p{margin:0;opacity:.92;max-width:62ch}
+  h2{
+    font-family:var(--fonte-titulo);font-size:22px;margin:36px 0 6px;
+    padding-bottom:8px;border-bottom:2px solid var(--linha);
+  }
+  h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;
+     color:var(--tinta-fraca);margin:22px 0 8px}
+  p{max-width:70ch}
+  .nota{color:var(--tinta-fraca);font-size:14px}
+  section.bloco{
+    background:var(--papel);border:1px solid var(--linha);
+    border-radius:var(--raio);padding:22px 24px;margin-bottom:var(--gap);
+  }
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--linha);
+        vertical-align:top}
+  th{background:var(--papel-fraco);font-size:13px;text-transform:uppercase;
+     letter-spacing:.05em;color:var(--tinta-fraca)}
+  .amostra{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+  .cor{border:1px solid var(--linha);border-radius:var(--raio);
+       overflow:hidden;width:150px;background:var(--papel)}
+  .cor .bloco-cor{height:56px}
+  .cor .rot{padding:8px 10px;font-size:12px;line-height:1.45}
+  .cor code{font-size:11px;color:var(--tinta-fraca)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+  .kpi{border:1px solid var(--linha);border-left:4px solid var(--marca);
+       border-radius:var(--raio);padding:14px 16px;background:var(--papel)}
+  .kpi .n{font-family:var(--fonte-titulo);font-size:28px;line-height:1.1}
+  .kpi .l{font-size:12px;text-transform:uppercase;letter-spacing:.05em;
+          color:var(--tinta-fraca);margin-top:4px}
+  .kpi.bom{border-left-color:var(--bom)} .kpi.bom .n{color:var(--bom)}
+  .kpi.atencao{border-left-color:var(--atencao)} .kpi.atencao .n{color:var(--atencao)}
+  .kpi.ruim{border-left-color:var(--ruim)} .kpi.ruim .n{color:var(--ruim)}
+  .barra-linha{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:14px}
+  .barra-linha .nome{width:170px;flex:none}
+  .barra-linha .trilho{flex:1;height:14px;background:var(--papel-fraco);
+                       border-radius:7px;overflow:hidden}
+  .barra-linha .preench{height:100%;background:var(--marca)}
+  .barra-linha .val{width:44px;text-align:right;flex:none;color:var(--tinta-fraca)}
+  .nunca{border-left:4px solid var(--ruim);background:#FDF3F2}
+  .nunca li{margin-bottom:7px}
+  .colar{background:var(--tinta);color:#EDF1F5;border-radius:var(--raio);padding:20px}
+  .colar h2{color:#fff;border-bottom-color:rgba(255,255,255,.25);margin-top:0}
+  .colar pre{
+    white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:13px;line-height:1.55;background:rgba(255,255,255,.06);
+    border-radius:8px;padding:16px;margin:12px 0 0;overflow-x:auto;
+  }
+  button.copiar{
+    background:#fff;color:var(--tinta);border:0;border-radius:8px;
+    padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;
+  }
+  @media print{body{background:#fff;padding:0}section.bloco{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="folha">
+
+<header class="capa">
+  <h1>Design System XPTO</h1>
+  <p>Este documento diz como a marca se comporta. Ele existe para ser colado numa
+  conversa de IA antes de pedir qualquer peça visual, e para que ela pare de escolher
+  cor, fonte e formato por conta própria. <strong>Troque tudo o que estiver aqui pelos
+  valores da sua empresa.</strong> XPTO é uma empresa fictícia.</p>
+</header>
+
+<section class="bloco">
+  <h2>Como usar este arquivo</h2>
+  <ol>
+    <li>Substitua os códigos de cor, as duas fontes e as regras pelos da sua empresa.
+    Se você não tem manual de marca, pegue as cores do seu site ou do seu logotipo.</li>
+    <li>Preencha a seção <strong>O que esta marca nunca faz</strong>. É a mais
+    importante, e é a que quase ninguém escreve.</li>
+    <li>Copie o bloco do fim da página e cole na conversa <strong>antes</strong> de
+    pedir o painel, o relatório ou os slides.</li>
+  </ol>
+  <p class="nota">Regra que vale o documento inteiro: ele funciona na proporção em que
+  for literal. "Visual profissional" não é uma regra, porque cada pessoa entende uma
+  coisa. "Nunca use gradiente" é uma regra, porque só tem um jeito de cumprir.</p>
+</section>
+
+<section class="bloco">
+  <h2>Cor</h2>
+  <p>Nenhuma cor entra numa peça sem estar nesta lista, e cada uma tem um papel
+  declarado. Cor com dois papéis vira decoração.</p>
+
+  <div class="amostra">
+    <div class="cor"><div class="bloco-cor" style="background:#1B4D8F"></div>
+      <div class="rot"><strong>Marca</strong><br><code>#1B4D8F</code><br>título, botão principal, barra de gráfico</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#E8EFF8"></div>
+      <div class="rot"><strong>Marca fraca</strong><br><code>#E8EFF8</code><br>fundo do que está em destaque</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#16202B"></div>
+      <div class="rot"><strong>Tinta</strong><br><code>#16202B</code><br>todo texto de leitura</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#5B6B7C"></div>
+      <div class="rot"><strong>Tinta fraca</strong><br><code>#5B6B7C</code><br>legenda, rótulo, apoio</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#1E7A4B"></div>
+      <div class="rot"><strong>Bom</strong><br><code>#1E7A4B</code><br>indicador dentro da meta</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#A66A00"></div>
+      <div class="rot"><strong>Atenção</strong><br><code>#A66A00</code><br>indicador em observação</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#B3261E"></div>
+      <div class="rot"><strong>Ruim</strong><br><code>#B3261E</code><br>indicador fora da meta</div></div>
+    <div class="cor"><div class="bloco-cor" style="background:#F4F6F8;border-bottom:1px solid #DDE3E9"></div>
+      <div class="rot"><strong>Papel fraco</strong><br><code>#F4F6F8</code><br>fundo de seção e de tabela</div></div>
+  </div>
+
+  <h3>Regras de uso</h3>
+  <ul>
+    <li>As três cores de estado (bom, atenção, ruim) só aparecem em número e em
+    indicador. Nunca em texto corrido, nunca em fundo de bloco inteiro.</li>
+    <li>Texto sobre a cor da marca é sempre branco. Texto sobre fundo claro é sempre
+    a tinta.</li>
+    <li>Um gráfico usa a cor da marca em todas as barras. A cor muda apenas para
+    marcar o item que está fora da meta.</li>
+  </ul>
+</section>
+
+<section class="bloco">
+  <h2>Tipografia</h2>
+  <p>Duas famílias, e cada uma tem o seu lugar. Uma terceira fonte numa peça é sinal de
+  que alguém decidiu por conta própria.</p>
+  <table>
+    <thead><tr><th>Família</th><th>Onde entra</th><th>Onde nunca entra</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong style="font-family:var(--fonte-titulo)">Georgia</strong><br>
+        <span class="nota">com alternativa Times New Roman</span></td>
+        <td>título de página, título de seção e o número grande do indicador</td>
+        <td>texto de leitura, tabela, legenda, botão</td>
+      </tr>
+      <tr>
+        <td><strong>Helvetica Neue</strong><br>
+        <span class="nota">com alternativa Arial</span></td>
+        <td>todo o resto: parágrafo, tabela, rótulo, botão, legenda</td>
+        <td>título de seção</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Tamanhos</h3>
+  <ul>
+    <li>Título de página 30px · título de seção 22px · texto 16px · legenda 14px ·
+    rótulo 12px em maiúsculas.</li>
+    <li>Parágrafo nunca passa de 70 caracteres por linha.</li>
+  </ul>
+</section>
+
+<section class="bloco">
+  <h2>Componentes</h2>
+
+  <h3>Indicador</h3>
+  <p>De quatro a seis por peça, no topo. Acima de seis vira ruído e ninguém lê nenhum.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="n">1.240</div><div class="l">Respostas</div></div>
+    <div class="kpi bom"><div class="n">8,4</div><div class="l">Nota média</div></div>
+    <div class="kpi atencao"><div class="n">62%</div><div class="l">Recomendariam</div></div>
+    <div class="kpi ruim"><div class="n">4,8</div><div class="l">Pior dimensão</div></div>
+  </div>
+
+  <h3>Cartão</h3>
+  <p>Fundo branco, borda de 1px na cor de linha, canto de 10px, sem sombra. Todo bloco
+  de conteúdo mora dentro de um cartão.</p>
+
+  <h3>Tabela</h3>
+  <table>
+    <thead><tr><th>Dimensão</th><th>Nota</th><th>Situação</th></tr></thead>
+    <tbody>
+      <tr><td>Atendimento</td><td>8,9</td><td style="color:var(--bom)">dentro da meta</td></tr>
+      <tr><td>Prazo de resposta</td><td>7,1</td><td style="color:var(--atencao)">em observação</td></tr>
+      <tr><td>Resolução de problema</td><td>4,8</td><td style="color:var(--ruim)">fora da meta</td></tr>
+    </tbody>
+  </table>
+  <p class="nota">Cabeçalho em maiúsculas pequenas, fundo cinza claro, uma linha de
+  divisão por registro. Sem zebra, sem borda vertical.</p>
+
+  <h3>Gráfico</h3>
+  <p>Barra horizontal, ordenada da pior para a melhor, com o valor no fim da linha.
+  Sem legenda quando há uma série só, sem grade de fundo, sem efeito de profundidade.</p>
+  <div class="barra-linha"><span class="nome">Resolução de problema</span>
+    <span class="trilho"><span class="preench" style="width:48%;background:var(--ruim)"></span></span>
+    <span class="val">4,8</span></div>
+  <div class="barra-linha"><span class="nome">Prazo de resposta</span>
+    <span class="trilho"><span class="preench" style="width:71%"></span></span>
+    <span class="val">7,1</span></div>
+  <div class="barra-linha"><span class="nome">Atendimento</span>
+    <span class="trilho"><span class="preench" style="width:89%"></span></span>
+    <span class="val">8,9</span></div>
+</section>
+
+<section class="bloco nunca">
+  <h2>O que esta marca nunca faz</h2>
+  <p>Esta é a seção que faz o documento funcionar. Sem ela, a IA preenche todo espaço
+  vazio com o padrão dela, que é o mesmo de todo mundo. <strong>Cada linha aqui tem que
+  ser verificável a olho nu.</strong></p>
+  <ul>
+    <li>Nunca usa gradiente, em nenhum elemento.</li>
+    <li>Nunca usa sombra em cartão, botão ou tabela.</li>
+    <li>Nunca usa emoji dentro de peça de trabalho.</li>
+    <li>Nunca usa mais de duas famílias de fonte na mesma peça.</li>
+    <li>Nunca usa gráfico de pizza, e nunca usa gráfico em três dimensões.</li>
+    <li>Nunca usa foto de banco de imagens como fundo de texto.</li>
+    <li>Nunca escreve título só em maiúsculas, exceto rótulo de 12px.</li>
+    <li>Nunca usa cor fora da paleta declarada acima, nem uma variação clara dela.</li>
+    <li>Nunca usa animação, transição ou movimento em peça que vai ser impressa ou
+    enviada em PDF.</li>
+    <li>Nunca escreve número sem a unidade, e nunca escreve percentual sem dizer de
+    que base ele saiu.</li>
+  </ul>
+</section>
+
+<section class="bloco colar">
+  <h2>O texto pronto para colar na conversa</h2>
+  <p style="color:#C8D4E0">Copie este bloco e cole antes de pedir a peça. Ele é o mesmo
+  documento acima, escrito no formato que a IA usa melhor.</p>
+  <button class="copiar" type="button" onclick="copiar(this)">Copiar o design system</button>
+  <pre id="ds">DESIGN SYSTEM DA EMPRESA (siga à risca em tudo o que gerar)
+
+CORES, e o papel de cada uma. Não use nenhuma outra.
+- Marca #1B4D8F: título, botão principal, barra de gráfico
+- Marca fraca #E8EFF8: fundo do que está em destaque
+- Tinta #16202B: todo texto de leitura
+- Tinta fraca #5B6B7C: legenda, rótulo, texto de apoio
+- Papel #FFFFFF: fundo de cartão
+- Papel fraco #F4F6F8: fundo de seção e de tabela
+- Linha #DDE3E9: borda e divisor
+- Bom #1E7A4B: indicador dentro da meta
+- Atenção #A66A00: indicador em observação
+- Ruim #B3261E: indicador fora da meta
+
+TIPOGRAFIA, duas famílias e mais nenhuma.
+- Georgia (alternativa Times New Roman): título de página, título de
+  seção e o número grande do indicador
+- Helvetica Neue (alternativa Arial): parágrafo, tabela, rótulo,
+  botão, legenda
+- Tamanhos: título de página 30px, título de seção 22px, texto 16px,
+  legenda 14px, rótulo 12px em maiúsculas
+
+COMPONENTES
+- Indicador: de 4 a 6 no topo da peça, nunca mais. Número grande em
+  Georgia, rótulo em maiúsculas pequenas, borda esquerda de 4px na
+  cor do estado
+- Cartão: fundo branco, borda de 1px na cor de linha, canto de 10px,
+  sem sombra
+- Tabela: cabeçalho em maiúsculas pequenas com fundo cinza claro, uma
+  linha de divisão por registro, sem zebra e sem borda vertical
+- Gráfico: barra horizontal ordenada da pior para a melhor, valor no
+  fim da linha, sem grade de fundo e sem legenda quando há uma série
+  só. Todas as barras na cor da marca; a cor muda apenas para marcar
+  o item fora da meta
+
+O QUE ESTA MARCA NUNCA FAZ
+- Nunca gradiente, em nenhum elemento
+- Nunca sombra em cartão, botão ou tabela
+- Nunca emoji em peça de trabalho
+- Nunca mais de duas famílias de fonte na mesma peça
+- Nunca gráfico de pizza, nunca gráfico em três dimensões
+- Nunca foto de banco de imagens como fundo de texto
+- Nunca título só em maiúsculas, exceto rótulo de 12px
+- Nunca cor fora da paleta acima, nem variação clara dela
+- Nunca animação ou transição em peça que vai virar PDF
+- Nunca número sem unidade, nunca percentual sem dizer de que base
+  ele saiu
+
+SE FALTAR REGRA: escolha a opção mais sóbria e me diga, no fim da
+resposta, qual decisão você tomou por conta própria e por quê.</pre>
+</section>
+
+<p class="nota" style="text-align:center;margin-top:30px">
+Design System XPTO · modelo do curso IA para Negócios · empresa e valores fictícios,
+feitos para serem substituídos.</p>
+
+</div>
+<script>
+function copiar(b){
+  var t = document.getElementById('ds').innerText;
+  function ok(){ var v = b.textContent; b.textContent = 'Copiado';
+                 setTimeout(function(){ b.textContent = v; }, 1600); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(ok, fallback);
+  } else { fallback(); }
+  function fallback(){
+    var a = document.createElement('textarea');
+    a.value = t; document.body.appendChild(a); a.select();
+    try { document.execCommand('copy'); ok(); } catch(e) {}
+    document.body.removeChild(a);
+  }
+}
+</script>
+</body>
+</html>

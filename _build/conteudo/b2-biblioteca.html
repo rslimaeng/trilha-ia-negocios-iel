@@ -1,0 +1,1040 @@
+  <section class="secao" id="o-que-tem">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que tem aqui</div>
+        <h2>Pedidos prontos para copiar, adaptar e rodar hoje</h2>
+      </div>
+    </div>
+
+    <p>Esta página não é aula. É <strong>referência</strong>: você volta nela quando tiver
+    um arquivo na mão e pouco tempo. Todos os pedidos estão no formato de seis campos que o
+    curso usa, e todos foram escritos para serem adaptados, nunca colados como estão.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>O bloco</th><th>Serve para</th><th>Quantos</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>A análise de uma pesquisa, em quatro pedidos</strong></td>
+            <td>uma base de respostas com notas e comentários, do zero ao diagnóstico</td>
+            <td>4 pedidos, na ordem</td>
+          </tr>
+          <tr>
+            <td><strong>Por setor</strong></td>
+            <td>a base típica da sua área, com o cenário já montado</td>
+            <td>6 setores, 3 pedidos cada</td>
+          </tr>
+          <tr>
+            <td><strong>As seis perguntas de uma linha</strong></td>
+            <td>documento denso que você precisa interrogar antes de aprovar</td>
+            <td>6 perguntas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Como usar sem se frustrar</span>
+      <ul class="lista">
+        <li><strong>Troque o que está entre colchetes.</strong> Todo pedido tem um cenário
+        dentro, e o cenário é exemplo. O seu contexto no lugar dele muda o resultado mais
+        do que qualquer ajuste de redação.</li>
+        <li><strong>Rode em sequência, na mesma conversa.</strong> Onde há três pedidos, o
+        segundo usa o que o primeiro descobriu. Abrir conversa nova entre eles joga fora o
+        contexto e obriga a recomeçar.</li>
+        <li><strong>Confira a conta antes de acreditar na leitura.</strong> A régua da aula
+        4 vale aqui inteira, e vale mais ainda em pedido pronto, que dá a sensação de já
+        ter sido testado por alguém.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="quatro-pedidos">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">A pesquisa, em quatro pedidos</div>
+        <h2>Do arquivo que você nunca abriu até o diagnóstico com dono</h2>
+      </div>
+    </div>
+
+    <p>Esta é a sequência rodada em sala sobre uma pesquisa de satisfação, e ela funciona em
+    qualquer base de respostas com notas e comentários. <strong>São quatro pedidos e não
+    um</strong>: as tarefas são diferentes, e um pedido só devolve as quatro coisas pela
+    metade.</p>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">A base para rodar os quatro</span>
+        <p style="margin:0">Pesquisa de satisfação com <strong>1.000 respostas e 22
+        colunas</strong>: perfil de quem respondeu, quinze dimensões avaliadas de 0 a 10 e
+        um campo de comentário livre. <strong>Dados fictícios.</strong></p>
+      </div>
+      <a class="btn" href="../_arquivos/pesquisa-satisfacao-1000.xlsx">Baixar a base</a>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">1 &middot; a exploratória, antes de qualquer conclusão</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-bib-exploratoria">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-bib-exploratoria">[P] Papel / Persona:
+Um analista de dados que audita a estrutura de uma base antes de
+interpretar qualquer coisa dela.
+
+[C] Contexto:
+Anexei uma base de pesquisa de satisfação com respostas de clientes.
+Ainda não vou pedir análise: quero entender o arquivo antes de tirar
+conclusão, e saber o quanto dá para confiar nele.
+
+[T] Tarefa:
+Faça o mapeamento da base. Diga quantas linhas e quantas colunas ela
+tem. Explique, coluna por coluna, o que cada uma significa e de que
+tipo ela é (texto, número, categoria). Aponte os problemas: célula
+vazia, formato misturado dentro da mesma coluna, categoria escrita de
+dois jeitos, linha de total no meio dos dados. Por fim, sugira três
+análises de valor que esta base permite fazer.
+
+[F] Formato:
+Quatro blocos, nesta ordem: estrutura da base; qualidade e tipos de
+dado; observações gerais; sugestões de análise. Lista com marcador, e
+negrito no que eu preciso ver de relance.
+
+[L] Limitações:
+Não tire conclusão nenhuma sobre o negócio agora e não faça gráfico.
+Isto é diagnóstico de estrutura, não de resultado. Nenhum jargão de
+estatística ou de programação. Se o significado de uma coluna não
+estiver claro pelo nome dela, sinalize que não está claro em vez de
+deduzir pelo conteúdo.
+
+[Critério de Sucesso]:
+A resposta serve se eu souber exatamente o que tem dentro do arquivo,
+e o quanto dá para confiar nele, sem precisar abri-lo.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">2 &middot; a demográfica, que é onde a média se desfaz</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-bib-demografica">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-bib-demografica">[P] Papel / Persona:
+Um analista que procura onde o resultado se concentra, em vez de
+descrever o resultado médio.
+
+[C] Contexto:
+Na mesma conversa, com a mesma base. A estrutura já foi mapeada. A
+minha pergunta agora é: a insatisfação está espalhada ou existe um
+grupo que concentra o problema?
+
+[T] Tarefa:
+Cruze a nota de satisfação geral com cada uma das variáveis de perfil
+disponíveis, uma de cada vez. Para cada corte, mostre a média por
+grupo, o tamanho de cada grupo e a diferença entre o melhor e o pior.
+No fim, diga qual dos cortes separa o problema com mais clareza e
+qual não separa nada.
+
+[F] Formato:
+Uma tabela por corte, com o número de respondentes ao lado de cada
+grupo. Abaixo de cada tabela, duas linhas dizendo o que ela revela.
+No fim, o ranking dos cortes, do que mais separa para o que menos
+separa.
+
+[L] Limitações:
+Não use recorte com menos de trinta respostas sem avisar que a
+amostra é pequena. Se uma categoria esperada não existir na base,
+sinalize que ela está ausente em vez de mostrá-la com valor zero. Se
+dois recortes diferentes puderem receber o mesmo nome, dê nomes
+distintos aos dois e explique a diferença, para não sair o mesmo
+rótulo com dois números diferentes. Não recomende ação ainda.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir dizer, numa frase, qual grupo
+concentra o problema, e se alguém conseguir conferir essa frase
+abrindo a base.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">3 &middot; os pontos críticos, ranqueados</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-bib-criticos">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-bib-criticos">[P] Papel / Persona:
+Um diretor de operações que precisa escolher onde mexer primeiro, e
+que trata "tudo está ruim" como resposta inútil.
+
+[C] Contexto:
+Na mesma conversa. Já sei qual grupo concentra o problema. Agora
+preciso saber quais dimensões avaliadas puxam o resultado para baixo
+e o quanto cada uma pesa.
+
+[T] Tarefa:
+Ranqueie todas as dimensões da pior para a melhor e traga as três
+piores em detalhe. Para cada uma: a média, o percentual de notas
+baixas, a correlação com a satisfação geral, e o grupo mais afetado.
+Estime também quanto a satisfação geral subiria se essas três
+melhorassem.
+
+[F] Formato:
+Primeiro o ranking completo, uma linha por dimensão. Depois um bloco
+por dimensão crítica, com os quatro itens acima e uma frase de
+leitura gerencial no fim de cada bloco.
+
+[L] Limitações:
+Ranqueie sempre, e nunca use um valor fixo de corte para separar
+crítico de não crítico: nesta base todas as dimensões podem ficar
+abaixo de qualquer corte razoável, e aí o corte não filtra nada. Não
+proponha ação nesta etapa. Se a estimativa de ganho não puder ser
+calculada com o que existe na base, sinalize isso em vez de
+apresentar um número que parece apurado.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir escolher uma única dimensão para
+atacar primeiro e defender essa escolha com um número.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">4 &middot; a qualitativa, que é onde está o porquê</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-bib-qualitativa">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-bib-qualitativa">[P] Papel / Persona:
+Um especialista em voz do cliente que trabalha com o que as pessoas
+escreveram, e que não parafraseia o que elas disseram.
+
+[C] Contexto:
+Na mesma conversa. O diagnóstico quantitativo está pronto. Falta o
+porquê, e ele está no campo de comentário livre, que nem todo mundo
+preencheu.
+
+[T] Tarefa:
+Leia todos os comentários preenchidos. Diga quantos foram, extraia os
+cinco temas mais recorrentes com o volume de menções e o sentimento
+de cada um, e para cada tema negativo diga em qual grupo de perfil
+ele se concentra. Cruze os temas com o ranking de dimensões do passo
+anterior e diga onde os dois batem e onde discordam.
+
+[F] Formato:
+Uma lista ranqueada dos cinco temas, cada um com: tema, número de
+menções, sentimento, grupo mais afetado, e uma citação literal do
+arquivo. No fim, um parágrafo sobre onde o texto contradiz o número.
+
+[L] Limitações:
+Use apenas citações literais, sem reescrever nem resumir a fala de
+ninguém. Ignore os comentários em branco e diga quantos ficaram de
+fora. Não trate um comentário isolado como padrão. Se um tema não se
+concentrar em nenhum grupo, sinalize que ele é transversal em vez de
+forçar uma associação.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir apresentar a voz do cliente com
+evidência literal, e se eu souber em qual ponto o que as pessoas
+escreveram contradiz o que as notas dizem.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A ordem é o método, e ela vale para qualquer base.</strong>
+    Estrutura, depois recorte, depois prioridade, depois causa. Pular o primeiro é o que
+    faz a IA supor o formato do arquivo, e supor formato é a origem de quase toda conta
+    errada.</p>
+  </section>
+
+  <section class="secao" id="por-setor">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Por setor</div>
+        <h2>Seis áreas, três pedidos cada, com a base para praticar junto</h2>
+      </div>
+    </div>
+
+    <p>Cada setor tem <strong>três pedidos na mesma sequência</strong>: o raio-X da base, o
+    diagnóstico e a peça executiva. Rode os três na mesma conversa, sem abrir chat novo
+    entre eles. As bases são fictícias e as áreas são reais.</p>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">As seis bases para praticar</span>
+        <p style="margin:0">Um arquivo por setor, no mesmo formato que os pedidos abaixo
+        esperam. <strong>Dados fictícios de uma empresa fictícia.</strong> Se você tem o
+        arquivo real da sua área, use o seu: os pedidos foram escritos para serem
+        adaptados.</p>
+      </div>
+      <a class="btn" href="../_arquivos/bases-para-praticar/base-comercial.csv">Comercial</a>
+    </div>
+
+    <div class="setores">
+
+      <details class="setor" open>
+        <summary><span class="setor-selo">RH</span> Pipeline de recrutamento, 94 candidatos em 6 vagas</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> seis processos seletivos rodando ao mesmo tempo, e
+          a diretora precisa saber onde eles travam antes da reunião com os gestores.
+          <a href="../_arquivos/bases-para-praticar/base-rh.csv">Baixar a base de RH</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; o raio-X do pipeline</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-rh1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-rh1">[P] Papel / Persona:
+Um especialista em recrutamento e seleção que lê funil antes de
+opinar sobre candidato.
+
+[C] Contexto:
+A Empresa XPTO está conduzindo seis processos seletivos ao mesmo
+tempo. O arquivo anexo tem 94 candidatos distribuídos entre as vagas,
+com etapa atual, notas de triagem, entrevista, teste técnico e
+entrevista com gestor, resultado, dias no processo e observações.
+
+[T] Tarefa:
+Faça a análise exploratória do pipeline. Mapeie quantos candidatos
+existem por vaga, em qual etapa eles estão concentrados e qual é a
+taxa de aprovação em cada etapa do funil.
+
+[F] Formato:
+Três blocos: distribuição por vaga; funil por etapa, com quantos
+entraram e quantos avançaram em cada fase; primeiras observações.
+Tabelas resumidas e lista com marcador.
+
+[L] Limitações:
+Não faça recomendação ainda: esta etapa é o diagnóstico estrutural do
+pipeline. Não use jargão de recrutamento sem explicar. Se alguma vaga
+tiver poucos candidatos para sustentar uma taxa, sinalize a limitação
+em vez de apresentar o percentual como se fosse comparável.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir responder "qual vaga está mais
+atrasada e em qual etapa?" sem abrir o arquivo.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; aprovados contra reprovados</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-rh2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-rh2">[P] Papel / Persona:
+Um consultor de RH especialista em qualidade de processo seletivo,
+que analisa o processo e não as pessoas.
+
+[C] Contexto:
+Na mesma conversa, continuando a análise do pipeline da Empresa XPTO.
+Precisamos entender o que diferencia os candidatos aprovados dos
+reprovados em cada vaga, para calibrar os critérios do próximo
+processo.
+
+[T] Tarefa:
+Compare as médias de nota de triagem e de entrevista entre aprovados
+e reprovados, por vaga. Identifique os principais motivos de
+reprovação e diga se há padrão entre eles.
+
+[F] Formato:
+Tabela comparativa de notas médias por vaga e status, seguida da
+lista dos três motivos de reprovação mais frequentes por vaga, com a
+contagem de cada um.
+
+[L] Limitações:
+Não invente padrão que não está nos dados. Foque em padrões do
+processo, nunca em julgamento de pessoa. Se uma vaga tiver poucos
+reprovados, sinalize a limitação amostral antes de apresentar a
+comparação.
+
+[Critério de Sucesso]:
+A resposta serve se o gestor de cada área conseguir revisar os
+critérios de triagem antes de abrir o próximo processo, usando só o
+que está aqui.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; a narrativa para a liderança</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-rh3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-rh3">[P] Papel / Persona:
+Um diretor de RH preparando o ponto de situação para quem decide, e
+que escreve para gestor de negócio, não para gente de RH.
+
+[C] Contexto:
+Na mesma conversa. Os processos foram analisados e os gargalos estão
+identificados. Preciso de um resumo consolidado para apresentar à
+liderança e aos gestores das áreas contratantes.
+
+[T] Tarefa:
+Redija o resumo executivo com o status atual de cada vaga, os
+principais gargalos identificados e três recomendações concretas para
+acelerar os processos em aberto.
+
+[F] Formato:
+Um parágrafo de contexto, seguido de uma tabela por vaga com
+candidatos ativos, próximo passo e prazo estimado, e no fim as três
+recomendações em ordem de prioridade.
+
+[L] Limitações:
+Sem linguagem técnica de recrutamento. Não passe de uma página. Cada
+recomendação tem de ser específica para os dados analisados, nunca
+boa prática genérica. Se algum prazo não puder ser estimado com o que
+existe no arquivo, sinalize isso em vez de estimar.
+
+[Critério de Sucesso]:
+A resposta serve se quem decide conseguir dizer se precisa interferir
+em algum processo ou se pode aguardar, sem pedir mais detalhes.</pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="setor">
+        <summary><span class="setor-selo">Financeiro</span> Orçado contra realizado, 12 meses e 6 linhas de produto</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> virada de ano, e o relatório anual precisa sair com
+          os desvios explicados, não só apontados.
+          <a href="../_arquivos/bases-para-praticar/base-financeiro.csv">Baixar a base
+          financeira</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; o consolidado orçado contra realizado</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-fin1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-fin1">[P] Papel / Persona:
+Um analista de planejamento financeiro que separa o resultado da
+explicação do resultado.
+
+[C] Contexto:
+A Empresa XPTO opera seis linhas de produto. O arquivo anexo tem
+receita orçada e realizada por linha e por mês, ao longo de doze
+meses, com os motivos de desvio já registrados pela equipe.
+
+[T] Tarefa:
+Faça a análise exploratória da base. Calcule a receita total orçada e
+a realizada por linha no período, a variação em valor e em percentual,
+e indique quais linhas fecharam acima, dentro e abaixo do orçamento.
+
+[F] Formato:
+Uma tabela consolidada por linha, com orçado, realizado, variação em
+valor, variação em percentual e situação. Antes dela, um parágrafo de
+contexto.
+
+[L] Limitações:
+Não faça projeção. Não misture análise de causa com análise de
+resultado: separe os blocos. Se algum mês estiver incompleto na base,
+sinalize antes de incluí-lo no consolidado.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir ver de relance quais linhas foram
+âncora de receita e quais puxaram o resultado para baixo.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; desvio estrutural contra desvio pontual</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-fin2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-fin2">[P] Papel / Persona:
+Um controller que classifica desvio pela chance de ele se repetir, e
+não pelo tamanho dele.
+
+[C] Contexto:
+Na mesma conversa, continuando a análise da Empresa XPTO. O panorama
+geral já está pronto. Agora precisamos entender os desvios mais
+relevantes e as causas registradas.
+
+[T] Tarefa:
+Identifique os três maiores desvios negativos e os dois maiores
+positivos do período. Para cada um, extraia o motivo já registrado no
+arquivo e avalie se a causa é estrutural, que tende a se repetir, ou
+pontual, que foi evento isolado.
+
+[F] Formato:
+Uma tabela com linha, mês, desvio em valor, motivo registrado,
+classificação e risco de recorrência.
+
+[L] Limitações:
+Baseie-se apenas nos dados e nos motivos que estão no arquivo. Não
+julgue a gestão de nenhuma linha. Se um motivo registrado não for
+claro o suficiente para classificar, sinalize com "verificar com a
+equipe" em vez de decidir por conta própria.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir separar o que precisa de ação
+imediata do que é ruído pontual, sem fazer novas perguntas à equipe.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; a narrativa e as ações corretivas</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-fin3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-fin3">[P] Papel / Persona:
+Quem assina o relatório financeiro do período para a diretoria, e
+escreve para diretor de área, não para o time de finanças.
+
+[C] Contexto:
+Na mesma conversa. A análise dos doze meses da Empresa XPTO está
+concluída, com os desvios classificados. Preciso da narrativa anual
+para o conselho.
+
+[T] Tarefa:
+Redija o parágrafo de narrativa financeira do período, resumindo o
+desempenho, destacando os dois desvios mais relevantes e propondo
+duas ações corretivas para o próximo trimestre.
+
+[F] Formato:
+Um parágrafo executivo de no máximo oito linhas, seguido das duas
+ações no formato: ação, tipo de responsável sugerido, prazo.
+
+[L] Limitações:
+Não use termo contábil sem explicar. Não passe de uma página. Não
+soe alarmista, mesmo nos desvios negativos. Se faltar informação para
+propor prazo em alguma ação, sinalize o que seria preciso saber em vez
+de inventar uma data.
+
+[Critério de Sucesso]:
+A resposta serve se o diretor de operações entender o cenário
+financeiro do período sem abrir a planilha.</pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="setor">
+        <summary><span class="setor-selo">Suprimentos</span> Quatro propostas de fornecedor, com pesos e critérios eliminatórios</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> quatro propostas na mesa, orçamento fechado e uma
+          reunião de aprovação marcada.
+          <a href="../_arquivos/bases-para-praticar/base-suprimentos.csv">Baixar a base de
+          suprimentos</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; a leitura exploratória dos fornecedores</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-sup1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-sup1">[P] Papel / Persona:
+Um especialista em gestão de contratos que organiza a comparação
+antes de opinar sobre ela.
+
+[C] Contexto:
+A Empresa XPTO está avaliando quatro fornecedores para sediar um
+evento de grande porte. O arquivo anexo traz os critérios de
+avaliação com os pesos definidos pela equipe, incluindo custo,
+capacidade, localização, histórico, tempo de resposta, conformidade
+com a lei de dados, seguro, reajuste e referências.
+
+[T] Tarefa:
+Faça a leitura exploratória da base. Descreva os quatro fornecedores
+com seus principais atributos e aponte quais critérios têm maior peso
+na decisão, segundo o próprio arquivo.
+
+[F] Formato:
+Uma tabela resumida dos quatro fornecedores com os principais
+critérios, seguida de um parágrafo explicando a lógica de pesos que a
+equipe definiu.
+
+[L] Limitações:
+Não faça recomendação nesta etapa e não emita opinião sobre nenhum
+fornecedor. Se algum critério estiver ambíguo no arquivo, sinalize
+com "verificar com a equipe" em vez de interpretar.
+
+[Critério de Sucesso]:
+A resposta serve se alguém que não acompanhou o processo entender
+quais fornecedores estão na mesa e quais critérios mais pesam.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; o score ponderado e a triagem</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-sup2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-sup2">[P] Papel / Persona:
+Um analista de suprimentos que calcula antes de recomendar, e que
+mostra a conta de cada score.
+
+[C] Contexto:
+Na mesma conversa, continuando a avaliação dos quatro fornecedores da
+Empresa XPTO. O orçamento máximo, a capacidade mínima exigida e os
+requisitos obrigatórios estão declarados no próprio arquivo.
+
+[T] Tarefa:
+Aplique os pesos do arquivo para calcular o score ponderado de cada
+fornecedor. Identifique quais estão dentro do orçamento e quais
+atendem aos requisitos obrigatórios. Elimine os que não passam nos
+critérios eliminatórios e diga por quê.
+
+[F] Formato:
+Uma tabela com fornecedor, score total, dentro do orçamento, cada
+requisito obrigatório e a situação final. Ao lado do score, a conta
+que o produziu. Depois, um parágrafo de conclusão da triagem.
+
+[L] Limitações:
+Não invente score: calcule apenas com os dados do arquivo. Não
+recomende o fornecedor final nesta etapa, que é de triagem. Se algum
+critério estiver ambíguo, sinalize com "verificar com a equipe".
+
+[Critério de Sucesso]:
+A resposta serve se a equipe conseguir ver de relance quem segue para
+a fase final e por qual motivo cada eliminado saiu.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; a recomendação formal</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-sup3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-sup3">[P] Papel / Persona:
+Quem assina a recomendação de fornecedor para a diretoria aprovar, e
+que declara o risco da própria escolha.
+
+[C] Contexto:
+Na mesma conversa. A triagem terminou e os fornecedores elegíveis
+estão identificados. Preciso de uma recomendação fundamentada antes
+do prazo de assinatura.
+
+[T] Tarefa:
+Redija a recomendação com a justificativa baseada nos dados
+analisados. Inclua os dois principais riscos da escolha recomendada e
+sugira uma cláusula de proteção para cada um.
+
+[F] Formato:
+Um parágrafo de recomendação, seguido de uma tabela comparativa final
+entre o recomendado e a melhor alternativa, critério a critério, e no
+fim a lista de dois riscos com a cláusula sugerida para cada.
+
+[L] Limitações:
+Não opine sobre a legalidade de nenhuma cláusula: sinalize que a
+validação jurídica é necessária antes da assinatura. Baseie-se apenas
+nos dados do arquivo. Nada de lista genérica de boas práticas de
+contrato.
+
+[Critério de Sucesso]:
+A resposta serve se quem decide conseguir aprovar ou questionar a
+recomendação sem abrir o arquivo original.</pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="setor">
+        <summary><span class="setor-selo">Comercial</span> Funil de 800 leads, seis meses e seis produtos</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> fechamento de semestre, e a apresentação para a
+          diretoria precisa dizer onde o funil vaza.
+          <a href="../_arquivos/bases-para-praticar/base-comercial.csv">Baixar a base
+          comercial</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; o mapeamento do funil</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-com1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-com1">[P] Papel / Persona:
+Um analista de vendas que mede o funil antes de discutir o que fazer
+com ele.
+
+[C] Contexto:
+A Empresa XPTO opera seis linhas de produto. O arquivo anexo tem 800
+leads de um semestre, com etapa do funil, situação, vendedor,
+produto, origem, valor da proposta, pontuação do lead e turma de
+interesse.
+
+[T] Tarefa:
+Faça a análise exploratória do funil. Calcule quantos leads existem
+por produto, por etapa e por situação. Mostre a taxa de conversão
+geral e a taxa por produto.
+
+[F] Formato:
+Tabela de distribuição por produto e situação; tabela de conversão
+por produto com leads totais, fechados e percentual; distribuição por
+etapa do funil com contagem. No fim, três observações em lista.
+
+[L] Limitações:
+Não faça análise de causa nesta etapa. Se algum produto tiver poucos
+leads para sustentar uma taxa de conversão comparável, sinalize a
+limitação em vez de apresentar o percentual como equivalente aos
+demais.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir responder "qual produto tem a melhor
+e a pior conversão?" sem abrir o arquivo.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; o diagnóstico das perdas</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-com2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-com2">[P] Papel / Persona:
+Um diretor comercial que procura o padrão do processo, e não o
+desempenho de uma pessoa.
+
+[C] Contexto:
+Na mesma conversa, continuando a análise do funil da Empresa XPTO.
+Precisamos entender onde e por que os leads estão sendo perdidos,
+para direcionar o esforço do time no próximo trimestre.
+
+[T] Tarefa:
+Analise os leads perdidos. Identifique os três principais motivos de
+perda, com a frequência de cada um e o valor de receita potencial
+perdida por motivo. Cruze com o produto e com o vendedor para ver se
+há concentração.
+
+[F] Formato:
+Uma tabela com motivo, frequência, receita potencial perdida, produto
+mais afetado e onde há concentração. Depois, os três padrões mais
+relevantes em lista.
+
+[L] Limitações:
+Baseie-se apenas nos dados. Se um campo estiver vazio, ignore-o em
+vez de preencher com suposição. Não personalize crítica a nenhum
+vendedor: foque no padrão do processo. Se um motivo de perda não
+tiver volume suficiente para virar padrão, sinalize isso.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir identificar qual ajuste no processo
+teria o maior impacto na conversão do próximo trimestre.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; o relatório e as prioridades do próximo ciclo</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-com3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-com3">[P] Papel / Persona:
+Quem apresenta o resultado comercial do semestre e sai da reunião com
+a alocação do próximo definida.
+
+[C] Contexto:
+Na mesma conversa. A análise do funil da Empresa XPTO está concluída.
+Preciso da narrativa consolidada com os números do semestre, os
+destaques e as três prioridades para o próximo.
+
+[T] Tarefa:
+Redija o relatório executivo do funil com a taxa de conversão geral,
+os dois produtos de melhor desempenho, o principal gargalo
+identificado e três ações prioritárias com o tipo de responsável
+sugerido.
+
+[F] Formato:
+Um parágrafo de sumário; uma tabela de desempenho por produto com
+leads, fechados, taxa, receita gerada e pontuação média; e a lista de
+três ações no formato ação, responsável sugerido, prazo.
+
+[L] Limitações:
+Não use jargão de vendas sem explicar. Não passe de uma página. Cada
+recomendação tem de estar ancorada nos dados do funil analisado. Se
+alguma ação depender de informação que a base não tem, sinalize qual
+informação falta.
+
+[Critério de Sucesso]:
+A resposta serve se quem decide conseguir escolher onde alocar
+esforço no próximo trimestre sem pedir mais dados.</pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="setor">
+        <summary><span class="setor-selo">Operações</span> 500 avaliações de turma, cinco cursos e cinco dimensões</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> relatório semestral de satisfação, com nota
+          numérica de um lado e comentário aberto do outro.
+          <a href="../_arquivos/bases-para-praticar/base-operacoes.csv">Baixar a base de
+          operações</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; o indicador de recomendação por curso</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-ope1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-ope1">[P] Papel / Persona:
+Um analista de experiência do cliente que calcula o indicador antes
+de interpretar o que ele significa.
+
+[C] Contexto:
+A Empresa XPTO coleta uma avaliação ao final de cada turma. O arquivo
+anexo tem 500 avaliações de um semestre, de cinco cursos, com nota de
+recomendação de 0 a 10 e a avaliação de cinco dimensões.
+
+[T] Tarefa:
+Calcule o indicador de recomendação por curso. Classifique os
+respondentes em promotores, com nota 9 ou 10; neutros, com 7 ou 8; e
+detratores, de 0 a 6. Calcule o indicador de cada curso, que é o
+percentual de promotores menos o de detratores, e o indicador geral.
+
+[F] Formato:
+Uma tabela por curso com percentual de promotores, neutros,
+detratores e o indicador final. Depois, o indicador geral em
+destaque, e o ranking dos cursos do melhor para o pior.
+
+[L] Limitações:
+Use apenas a coluna de recomendação para este cálculo, sem misturar
+com as notas de dimensão. Não infira causa nesta etapa. Se algum
+curso tiver poucas respostas para o indicador ser comparável,
+sinalize a limitação em vez de ranqueá-lo junto com os outros.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir apresentar o número para a diretoria
+sem refazer nenhum cálculo à mão.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; as dimensões críticas e os temas dos comentários</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-ope2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-ope2">[P] Papel / Persona:
+Um especialista em voz do cliente que trabalha com a fala literal de
+quem respondeu.
+
+[C] Contexto:
+Na mesma conversa. O indicador de recomendação já está calculado.
+Agora precisamos entender o que gera a insatisfação: o arquivo tem
+notas por dimensão e comentários abertos.
+
+[T] Tarefa:
+Identifique as duas dimensões com as menores médias em cada curso.
+Depois leia os comentários abertos e extraia os cinco temas mais
+recorrentes, de reclamação ou de elogio, com o volume de menções e o
+sentimento de cada um.
+
+[F] Formato:
+Uma tabela de médias por dimensão e por curso, com as duas piores de
+cada curso em destaque. Depois, a lista ranqueada dos cinco temas
+com tema, menções, sentimento e uma citação literal do arquivo.
+
+[L] Limitações:
+Use apenas citações literais, sem reescrever nem resumir a fala de
+ninguém. Ignore linhas de comentário vazio e diga quantas foram. Nada
+de recomendação genérica do tipo "melhorar a plataforma": seja
+específico sobre o que as pessoas reclamam dentro de cada dimensão.
+Se um tema aparecer poucas vezes, sinalize que ele não é padrão.
+
+[Critério de Sucesso]:
+A resposta serve se a coordenação conseguir priorizar qual dimensão
+atacar primeiro em cada curso sem ler todos os comentários.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; o plano de ação para a diretoria</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-ope3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-ope3">[P] Papel / Persona:
+Quem transforma o resultado de satisfação em plano que alguém executa
+no ciclo seguinte.
+
+[C] Contexto:
+Na mesma conversa. O diagnóstico quantitativo e a análise qualitativa
+da Empresa XPTO estão concluídos. Preciso do relatório com plano para
+a reunião mensal de resultados.
+
+[T] Tarefa:
+Redija o relatório executivo do semestre com o indicador geral e por
+curso, as duas dimensões críticas identificadas, e um plano com três
+iniciativas priorizadas para o próximo ciclo.
+
+[F] Formato:
+Um parágrafo de sumário; uma tabela do indicador por curso; e uma
+tabela de plano com iniciativa, dimensão impactada, curso
+prioritário, tipo de responsável e prazo.
+
+[L] Limitações:
+Cada iniciativa tem de ser específica e executável, sem recomendação
+vaga. Não inclua iniciativa que exija investimento que os dados não
+mencionam. Não passe de uma página. Se alguma iniciativa não puder
+ter prazo estimado com o que existe, sinalize isso.
+
+[Critério de Sucesso]:
+A resposta serve se o plano puder ser aprovado na reunião sem pedido
+de reformulação.</pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="setor">
+        <summary><span class="setor-selo">Eventos</span> 400 avaliações pós-evento, seis dimensões e comentários</summary>
+        <div class="setor-corpo">
+          <p><strong>O cenário:</strong> o evento acabou, o planejamento da próxima edição
+          começa em trinta dias, e o aprendizado ainda está solto.
+          <a href="../_arquivos/bases-para-praticar/base-eventos.csv">Baixar a base de
+          eventos</a>.</p>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">1 &middot; o diagnóstico quantitativo por dimensão</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-eve1">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-eve1">[P] Papel / Persona:
+Um analista de eventos que mede a experiência antes de propor
+qualquer mudança na próxima edição.
+
+[C] Contexto:
+A Empresa XPTO realizou um evento de grande porte. O arquivo anexo
+tem 400 avaliações com nota geral de 0 a 10, seis dimensões
+avaliadas, perfil de quem respondeu, canal de origem e se foi a
+primeira participação.
+
+[T] Tarefa:
+Faça o diagnóstico geral. Calcule a nota média geral e a média por
+dimensão. Mostre a distribuição de participantes por perfil e
+identifique quais dimensões ficaram acima e quais ficaram abaixo da
+nota geral.
+
+[F] Formato:
+Tabela de notas médias por dimensão com ranking, da melhor para a
+pior; tabela de distribuição por perfil; e um parágrafo com os
+destaques positivos e negativos.
+
+[L] Limitações:
+Não analise comentários nesta etapa. Não arredonde as médias: use uma
+casa decimal. Se algum perfil tiver poucas respostas para a média ser
+comparável, sinalize a limitação.
+
+[Critério de Sucesso]:
+A resposta serve se a equipe conseguir responder "o que funcionou e o
+que não funcionou?" com números, sem abrir o arquivo.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">2 &middot; a voz de quem participou</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-eve2">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-eve2">[P] Papel / Persona:
+Um especialista em voz do participante, que apresenta evidência
+literal e não paráfrase.
+
+[C] Contexto:
+Na mesma conversa. O diagnóstico quantitativo do evento da Empresa
+XPTO está pronto. Falta entender o que as pessoas escreveram, em
+especial quem deu nota abaixo de 7.
+
+[T] Tarefa:
+Leia todos os comentários abertos. Extraia os cinco temas mais
+recorrentes, de reclamação e de elogio, com volume de menções e
+sentimento. Para cada tema negativo, diga se ele se concentra em
+algum perfil específico de participante.
+
+[F] Formato:
+Lista ranqueada dos cinco temas, cada um com tema, menções,
+sentimento, perfil mais afetado e uma citação literal do arquivo. No
+fim, um parágrafo sobre o tema mais crítico.
+
+[L] Limitações:
+Use apenas citações literais. Ignore linhas de comentário vazio e
+diga quantas foram. Não generalize um comentário isolado como padrão.
+Mantenha a análise quantitativa e a qualitativa em blocos separados.
+Se um tema não se concentrar em nenhum perfil, sinalize que ele é
+transversal.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir apresentar a voz dos participantes
+com evidência real, sem ler as 400 respostas uma a uma.</pre>
+          </div>
+
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">3 &middot; o relatório pós-evento e o briefing da próxima</span>
+              <button class="btn-copiar" type="button" data-alvo="pr-bib-eve3">Copiar</button>
+            </div>
+            <pre class="prompt-txt" id="pr-bib-eve3">[P] Papel / Persona:
+Quem encerra o ciclo de um evento e abre o do próximo com o
+aprendizado documentado.
+
+[C] Contexto:
+Na mesma conversa. A análise do evento da Empresa XPTO está completa,
+quantitativa e qualitativa. O planejamento da próxima edição começa
+em trinta dias e precisa de um documento único de referência.
+
+[T] Tarefa:
+Redija o relatório executivo pós-evento com a nota geral, os três
+principais pontos fortes, os três principais pontos de melhoria e
+três recomendações concretas para a próxima edição, cada uma com
+nível de prioridade.
+
+[F] Formato:
+Um parágrafo de sumário; uma tabela de pontos fortes e de melhoria
+com dimensão, nota e a evidência nos dados; e uma tabela de
+recomendações com recomendação, dimensão impactada, prioridade e
+prazo sugerido.
+
+[L] Limitações:
+Cada recomendação tem de ser específica e executável. Não passe de
+uma página. Não repita dado bruto já apresentado nas etapas
+anteriores: esta é a síntese. Se alguma recomendação depender de
+aumento de orçamento, sinalize isso explicitamente.
+
+[Critério de Sucesso]:
+A resposta serve se quem for planejar a próxima edição conseguir usar
+este documento como única referência do que aconteceu na anterior.</pre>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <p class="fig-leg"><strong>Repare que os três pedidos de cada setor são o mesmo
+    esqueleto.</strong> Raio-X, diagnóstico, peça executiva. A diferença entre o primeiro e
+    o terceiro não é complexidade técnica: é a quantidade de contexto que você já
+    acumulou na conversa.</p>
+  </section>
+
+  <section class="secao" id="uma-linha">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">As seis de uma linha</div>
+        <h2>Seis perguntas para interrogar um documento antes de aprovar</h2>
+      </div>
+    </div>
+
+    <p>Estas seis não seguem o padrão de seis campos, e é de propósito: <strong>elas são
+    uma linha só</strong>. Servem para o documento denso que chegou para você aprovar, com
+    pouco tempo e muita página. Cole a pergunta, anexe o arquivo, leia a resposta.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>A pergunta</th><th>Quando ela serve</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>80/20.</strong> "Se alguém tivesse duas horas para entender tudo
+            neste documento, quais 20% das ideias dariam 80% da compreensão?"</td>
+            <td>documento longo, pouco tempo, e você precisa saber onde focar</td>
+          </tr>
+          <tr>
+            <td><strong>Princípios.</strong> "Tire todo o jargão. Quais são os três
+            princípios centrais que este documento inteiro defende?"</td>
+            <td>proposta cheia de termo técnico, e você quer o argumento central</td>
+          </tr>
+          <tr>
+            <td><strong>Conversor de ação.</strong> "Converta cada conclusão deste
+            documento num próximo passo específico que eu possa dar esta semana."</td>
+            <td>documento cheio de achados e sem clareza sobre o que fazer</td>
+          </tr>
+          <tr>
+            <td><strong>Caçador de suposição.</strong> "Liste todas as suposições que este
+            documento faz e que não estão sustentadas por dados dentro dele."</td>
+            <td><strong>antes de aprovar qualquer proposta ou análise recebida</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Construtor de objeção.</strong> "Você é um crítico hostil. Quais
+            são os cinco argumentos mais fortes contra a tese central deste documento?"</td>
+            <td>antes de apresentar uma proposta sua, ou antes de recusar uma de outro</td>
+          </tr>
+          <tr>
+            <td><strong>Segunda ordem.</strong> "Quais são as consequências não óbvias, de
+            segunda ordem, se tudo que está neste documento for verdade?"</td>
+            <td>decisão com impacto de médio prazo que ninguém mapeou ainda</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A quarta é a que mais paga o tempo investido.</strong> Toda
+    proposta se apoia em coisas que ninguém escreveu, e quem lista as suposições antes de
+    aprovar descobre em dois minutos o que descobriria em três meses de execução. E repare
+    que nenhuma das seis pede a opinião da IA: as seis pedem que ela leia o que está lá.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que estas seis não estão no formato de seis campos</span>
+      <p>Porque o formato existe para pedido que produz uma peça, e estas seis produzem uma
+      leitura. Elas não têm formato de saída para declarar nem critério de aceitação além do
+      óbvio, e <strong>a força delas está em serem curtas o bastante para você usar sem
+      pensar</strong>. Se a resposta vier rasa, aí sim vale escrever o pedido inteiro.</p>
+    </div>
+  </section>

@@ -235,7 +235,16 @@ def g4_minutagem_fora_da_capa(rel, html):
 # sao o mesmo PCTFL+CS, um em prosa e outro rotulado, e o rotulado ganhou
 # porque o aluno reencontra os campos com o nome que o curso usa.
 # Subir isto para o padrao e decisao dele, com a sincronizacao inteira.
-CAMPOS_DO_PEDIDO = ("[P] Você é:", "[C] Contexto:", "[T] Tarefa:",
+# 🔴 O PRIMEIRO CAMPO TEM DOIS NOMES ACEITOS, e nao e frouxidao.
+# Ele ensina PERSONA em sala ("quem e a persona que a IA vai ter que atuar?") e
+# o material do Back Office ja escreve "[P] Papel / Persona" na mesma celula. O
+# B2 passou a usar a forma com os dois nomes em 02/09; o B1, os desafios e as
+# paginas-modelo continuam na forma curta. Aceitar as duas evita reprovar
+# material que nao mudou -- e a tupla e FECHADA: qualquer terceira forma cai.
+#
+# Os outros cinco campos continuam exatos. Afrouxar um so nao afrouxa os outros.
+CAMPOS_DO_PEDIDO = (("[P] Papel / Persona:", "[P] Você é:"),
+                    "[C] Contexto:", "[T] Tarefa:",
                     "[F] Formato:", "[L] Limitações:", "[Critério de Sucesso]:")
 
 # 🔴 A MIGRACAO E PARCIAL, E ESTA LISTA E O QUE IMPEDE QUE ISSO SE PERCA.
@@ -307,9 +316,13 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
             continue
         pos = -1
         for peca in CAMPOS_DO_PEDIDO:
-            onde = texto.find(peca)
+            # Campo com mais de um nome aceito vem como tupla. Vale o primeiro
+            # que a pagina usar; se nenhum aparecer, o campo falta.
+            formas = peca if isinstance(peca, tuple) else (peca,)
+            onde = max((texto.find(f) for f in formas), key=lambda x: (x >= 0, -x))
             if onde < 0:
-                falhas.append("prompt {} de {}: falta o campo {!r}".format(i, rel, peca))
+                falhas.append("prompt {} de {}: falta o campo {!r}".format(
+                    i, rel, " ou ".join(formas)))
                 continue
             # A ORDEM importa tanto quanto a presenca: formato pedido em [T] e
             # tarefa pedida em [F] passariam num gate que so conta presenca, e

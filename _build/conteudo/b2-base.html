@@ -166,6 +166,102 @@
     fora, e a fonte citada continua sendo texto até você abrir. A ficha que você baixou
     lá serve aqui sem uma alteração.</p>
 
+
+    <h3>O protocolo que faz a resposta apontar para o trecho</h3>
+
+    <p>O <strong>NotebookLM</strong> é o caderno em que você joga os documentos da sua
+    empresa e pergunta sobre eles. Ele responde só a partir do que está ali dentro, e
+    devolve junto o pedaço do arquivo que sustenta cada frase. Tem plano gratuito, e nada
+    do que está nesta aula depende de plano pago.</p>
+
+    <p>A ferramenta cita sozinha, e mesmo assim ela responde melhor quando o pedido
+    <strong>exige</strong> a citação em vez de esperar por ela. São três regras, e as
+    três cabem dentro do pedido que você já sabe escrever.</p>
+
+    <div class="cartao">
+      <span class="rot">As três regras, e onde cada uma mora no pedido</span>
+      <ul class="lista">
+        <li><strong>Toda afirmação carrega o trecho de onde saiu.</strong> Isso é
+        <strong>[F]ormato</strong>: você pede que a resposta traga, ao lado de cada
+        ponto, a seção ou a cláusula que o sustenta.</li>
+        <li><strong>O que não está no documento é dito, não completado.</strong> Isso é
+        <strong>[L]imitação</strong>: quando a informação não existe nos arquivos, a
+        resposta escreve que não consta, em vez de preencher com a média do mercado.</li>
+        <li><strong>Número, prazo e artigo de lei saem marcados para conferência.</strong>
+        Também é <strong>[L]</strong>: peça a marca <span class="selo selo-mono">verificar
+        na fonte</span> em toda alíquota, prazo legal e artigo citado, com a indicação de
+        onde ir conferir.</li>
+      </ul>
+      <p class="fig-leg">A terceira existe porque a citação prova a <strong>origem</strong>
+      e não a <strong>leitura</strong>. Ela pode apontar o parágrafo certo e concluir
+      errado a partir dele, e isso acontece mais nas categorias em que o erro custa caro:
+      prazo, valor e obrigação legal.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido para uma base fechada, pronto para copiar e adaptar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b2base-notebook">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b2base-notebook">[P] Papel / Persona:
+Um analista que responde exclusivamente a partir dos documentos
+carregados, e que trata "não consta" como resposta legítima.
+
+[C] Contexto:
+Carreguei nesta base dois arquivos da minha empresa: a política
+comercial vigente e a ata da reunião em que ela foi revisada. Sou
+gerente comercial e preciso saber o que posso aprovar sozinho antes
+de responder a um cliente ainda hoje.
+
+[T] Tarefa:
+Responda, critério por critério, até que percentual de desconto a
+alçada de gerente vai, quem aprova acima disso, e que exigência
+adicional existe para cliente sem histórico. Depois compare os dois
+documentos e diga o que foi combinado na ata e não virou regra
+escrita na política.
+
+[F] Formato:
+Uma linha por critério, e ao lado de cada uma a seção do documento
+que a sustenta. No fim, um bloco curto só com as divergências entre
+os dois arquivos.
+
+[L] Limitações:
+Use apenas os documentos carregados. Se alguma coisa não estiver
+neles, escreva "não consta nos documentos carregados" em vez de
+completar com prática de mercado. Não interprete cláusula do ponto
+de vista jurídico. Marque com "verificar na fonte" todo prazo, valor
+e obrigação legal que você citar, e diga onde eu confiro cada um.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir clicar em cada citação, cair no
+trecho que diz aquilo, e responder ao cliente sem abrir os dois
+arquivos inteiros.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que a tarefa pede duas coisas, e a segunda é a que
+    justifica a base fechada.</strong> A primeira parte qualquer ferramenta faz. A
+    comparação entre a política e a ata é o que só acontece quando os dois arquivos estão
+    na mesma base, e é onde costuma aparecer o combinado que ninguém escreveu.</p>
+
+    <h3>Onde ela não serve, e são dois casos concretos</h3>
+
+    <div class="duo">
+      <div class="cartao">
+        <span class="rot">Pesquisa que exige raciocínio em etapas</span>
+        <p>Para um panorama rápido de um assunto novo, o modo pesquisa resolve. Quando a
+        pergunta exige encadear várias etapas de raciocínio, comparar cenários e pesar
+        contradições entre fontes, a conversa comum com pesquisa profunda entrega melhor.
+        <strong>Use a base fechada para organizar, e a conversa comum para sintetizar.</strong></p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Documento que muda toda semana</span>
+        <p>Arquivo do Google carregado na base é <strong>documento vivo</strong>: quando
+        alguém edita, você sincroniza e a versão nova entra. PDF é estático, e ninguém
+        avisa que ele envelheceu. Se a sua política muda com frequência, suba a versão
+        que sincroniza, ou você vai conferir citação contra um texto revogado.</p>
+      </div>
+    </div>
+
     <h3>A regra de montagem, e ela é uma só</h3>
 
     <p><strong>Um assunto por base.</strong> Não misture o contrato do fornecedor com a
@@ -400,6 +496,13 @@ cliente novo? Se não puder, quem aprova e em quanto tempo?</pre>
     <p class="fig-leg">Documento e planilha são materiais diferentes e pedem tratamento
     diferente. Misturar os dois na mesma ferramenta é a origem de metade da frustração de
     quem começa.</p>
+    </div>
+
+
+    <div class="cartao">
+      <span class="rot">Onde isto reaparece, mais para a frente</span>
+      <p>Quando a base fechada deixa de ser uma consulta e vira um assistente que você
+      abre todo dia, isso tem nome (Claude Projects, Gems, GPT) e é assunto do bloco 4.</p>
     </div>
   </section>
 

@@ -1,0 +1,73 @@
+Curso,Modalidade,Mes,Ano,Turmas_Previstas,Turmas_Realizadas,Alunos_Orcados,Alunos_Matriculados,Ticket_Medio_Orcado,Ticket_Medio_Realizado,Receita_Orcada,Receita_Realizada,Variacao_R$,Variacao_Pct,Motivo_Desvio
+HTI,Presencial,Janeiro,2026,2,2,120,106,17748,17748,2129760,1881288,-248472,-11.7,Cancelamentos por questões financeiras dos alunos
+SHHE,Presencial,Janeiro,2026,1,1,40,38,14900,14155.0,596000,537890.0,-58110.0,-9.8,Baixa adesão na semana de lançamento
+NEXAL,Presencial,Janeiro,2026,1,1,35,29,9800,8820.0,343000,255780.0,-87220.0,-25.4,Cancelamentos por questões financeiras dos alunos
+POS,Presencial,Janeiro,2026,1,1,25,18,38000,38000,950000,684000,-266000,-28.0,Competição com curso concorrente
+R2,Híbrido,Janeiro,2026,1,1,20,19,8500,8500,170000,161500,-8500,-5.0,Impacto de feriado prolongado
+EAD,Online,Janeiro,2026,3,3,450,423,1200,1200,540000,507600,-32400,-6.0,Baixa adesão na semana de lançamento
+HTI,Presencial,Fevereiro,2026,2,2,120,148,17748,15973.0,2129760,2364034.0,234274.0,11.0,Boca a boca positivo
+SHHE,Presencial,Fevereiro,2026,1,1,40,46,14900,14900,596000,685400,89400,15.0,Black Friday educacional
+NEXAL,Presencial,Fevereiro,2026,1,1,35,42,9800,9310.0,343000,391020.0,48020.0,14.0,Ação de reengajamento de ex-alunos
+POS,Presencial,Fevereiro,2026,1,1,25,30,38000,34200.0,950000,1026000.0,76000.0,8.0,Boca a boca positivo
+R2,Híbrido,Fevereiro,2026,1,1,20,21,8500,8500,170000,178500,8500,5.0,Black Friday educacional
+EAD,Online,Fevereiro,2026,3,3,450,495,1200,1200,540000,594000,54000,10.0,Boca a boca positivo
+HTI,Presencial,Março,2026,2,2,120,126,17748,15973.0,2129760,2012623.0,-117137.0,-5.5,Problemas técnicos na plataforma EAD
+SHHE,Presencial,Março,2026,1,1,40,43,14900,14900,596000,640700,44700,7.5,Ação de reengajamento de ex-alunos
+NEXAL,Presencial,Março,2026,1,1,35,33,9800,9800,343000,323400,-19600,-5.7,Competição com curso concorrente
+POS,Presencial,Março,2026,1,1,25,25,38000,34200.0,950000,855000.0,-95000.0,-10.0,Cancelamentos por questões financeiras dos alunos
+R2,Híbrido,Março,2026,1,1,20,20,8500,7650.0,170000,153000.0,-17000.0,-10.0,Competição com curso concorrente
+EAD,Online,Março,2026,3,3,450,483,1200,1140.0,540000,550620.0,10620.0,2.0,Meta atingida
+HTI,Presencial,Abril,2026,2,2,120,110,17748,17748,2129760,1952280,-177480,-8.3,Cancelamentos por questões financeiras dos alunos
+SHHE,Presencial,Abril,2026,1,1,40,41,14900,14900,596000,610900,14900,2.5,Dentro do esperado
+NEXAL,Presencial,Abril,2026,1,1,35,33,9800,9800,343000,323400,-19600,-5.7,Cancelamentos por questões financeiras dos alunos
+POS,Presencial,Abril,2026,1,1,25,28,38000,36100.0,950000,1010800.0,60800.0,6.4,Boca a boca positivo
+R2,Híbrido,Abril,2026,1,1,20,21,8500,8500,170000,178500,8500,5.0,Ação de reengajamento de ex-alunos
+EAD,Online,Abril,2026,3,3,450,453,1200,1200,540000,543600,3600,0.7,Sem variação relevante
+HTI,Presencial,Maio,2026,2,2,120,126,17748,17748,2129760,2236248,106488,5.0,Boca a boca positivo
+SHHE,Presencial,Maio,2026,1,1,40,34,14900,14155.0,596000,481270.0,-114730.0,-19.2,Competição com curso concorrente
+NEXAL,Presencial,Maio,2026,1,1,35,36,9800,8820.0,343000,317520.0,-25480.0,-7.4,Instabilidade macroeconômica no mês
+POS,Presencial,Maio,2026,1,1,25,25,38000,36100.0,950000,902500.0,-47500.0,-5.0,Cancelamentos por questões financeiras dos alunos
+R2,Híbrido,Maio,2026,1,1,20,19,8500,8500,170000,161500,-8500,-5.0,Problemas técnicos na plataforma EAD
+EAD,Online,Maio,2026,3,3,450,432,1200,1200,540000,518400,-21600,-4.0,Impacto de feriado prolongado
+HTI,Presencial,Junho,2026,2,2,120,88,17748,17748,2129760,1561824,-567936,-26.7,Baixa adesão na semana de lançamento
+SHHE,Presencial,Junho,2026,1,1,40,36,14900,13410.0,596000,482760.0,-113240.0,-19.0,Instabilidade macroeconômica no mês
+NEXAL,Presencial,Junho,2026,1,1,35,30,9800,8820.0,343000,264600.0,-78400.0,-22.9,Baixa adesão na semana de lançamento
+POS,Presencial,Junho,2026,1,1,25,22,38000,34200.0,950000,752400.0,-197600.0,-20.8,Competição com curso concorrente
+R2,Híbrido,Junho,2026,1,1,20,21,8500,8500,170000,178500,8500,5.0,Black Friday educacional
+EAD,Online,Junho,2026,3,3,450,444,1200,1200,540000,532800,-7200,-1.3,Dentro do esperado
+HTI,Presencial,Julho,2026,2,2,120,128,17748,15973.0,2129760,2044570.0,-85190.0,-4.0,Cancelamentos por questões financeiras dos alunos
+SHHE,Presencial,Julho,2026,1,1,40,48,14900,14900,596000,715200,119200,20.0,Black Friday educacional
+NEXAL,Presencial,Julho,2026,1,1,35,46,9800,9800,343000,450800,107800,31.4,Black Friday educacional
+POS,Presencial,Julho,2026,1,1,25,25,38000,34200.0,950000,855000.0,-95000.0,-10.0,Cancelamento de turma
+R2,Híbrido,Julho,2026,1,1,20,21,8500,7650.0,170000,160650.0,-9350.0,-5.5,Cancelamentos por questões financeiras dos alunos
+EAD,Online,Julho,2026,3,3,450,594,1200,1200,540000,712800,172800,32.0,Campanha de indicação bem-sucedida
+HTI,Presencial,Agosto,2026,2,2,120,136,17748,16861.0,2129760,2293042.0,163282.0,7.7,Ação de reengajamento de ex-alunos
+SHHE,Presencial,Agosto,2026,1,1,40,52,14900,13410.0,596000,697320.0,101320.0,17.0,Ação de reengajamento de ex-alunos
+NEXAL,Presencial,Agosto,2026,1,1,35,41,9800,9800,343000,401800,58800,17.1,Boca a boca positivo
+POS,Presencial,Agosto,2026,1,1,25,27,38000,34200.0,950000,923400.0,-26600.0,-2.8,Sem variação relevante
+R2,Híbrido,Agosto,2026,1,1,20,24,8500,8075.0,170000,193800.0,23800.0,14.0,Ação de reengajamento de ex-alunos
+EAD,Online,Agosto,2026,3,3,450,489,1200,1200,540000,586800,46800,8.7,Boca a boca positivo
+HTI,Presencial,Setembro,2026,2,2,120,132,17748,17748,2129760,2342736,212976,10.0,Turma extra aberta por demanda
+SHHE,Presencial,Setembro,2026,1,1,40,41,14900,14900,596000,610900,14900,2.5,Sem variação relevante
+NEXAL,Presencial,Setembro,2026,1,1,35,39,9800,9800,343000,382200,39200,11.4,Ação de reengajamento de ex-alunos
+POS,Presencial,Setembro,2026,1,1,25,31,38000,36100.0,950000,1119100.0,169100.0,17.8,Black Friday educacional
+R2,Híbrido,Setembro,2026,1,1,20,20,8500,8500,170000,170000,0,0.0,Sem variação relevante
+EAD,Online,Setembro,2026,3,3,450,531,1200,1200,540000,637200,97200,18.0,Turma extra aberta por demanda
+HTI,Presencial,Outubro,2026,2,2,120,108,17748,17748,2129760,1916784,-212976,-10.0,Instabilidade macroeconômica no mês
+SHHE,Presencial,Outubro,2026,1,1,40,40,14900,14155.0,596000,566200.0,-29800.0,-5.0,Baixa adesão na semana de lançamento
+NEXAL,Presencial,Outubro,2026,1,1,35,32,9800,9800,343000,313600,-29400,-8.6,Competição com curso concorrente
+POS,Presencial,Outubro,2026,1,1,25,25,38000,38000,950000,950000,0,0.0,Meta atingida
+R2,Híbrido,Outubro,2026,1,1,20,16,8500,8500,170000,136000,-34000,-20.0,Problemas técnicos na plataforma EAD
+EAD,Online,Outubro,2026,3,3,450,468,1200,1140.0,540000,533520.0,-6480.0,-1.2,Meta atingida
+HTI,Presencial,Novembro,2026,2,2,120,120,17748,15973.0,2129760,1916784.0,-212976.0,-10.0,Competição com curso concorrente
+SHHE,Presencial,Novembro,2026,1,1,40,31,14900,14900,596000,461900,-134100,-22.5,Cancelamentos por questões financeiras dos alunos
+NEXAL,Presencial,Novembro,2026,1,1,35,31,9800,8820.0,343000,273420.0,-69580.0,-20.3,Baixa adesão na semana de lançamento
+POS,Presencial,Novembro,2026,1,1,25,19,38000,34200.0,950000,649800.0,-300200.0,-31.6,Baixa adesão na semana de lançamento
+R2,Híbrido,Novembro,2026,1,1,20,18,8500,8500,170000,153000,-17000,-10.0,Cancelamento de turma
+EAD,Online,Novembro,2026,3,3,450,459,1200,1200,540000,550800,10800,2.0,Sem variação relevante
+HTI,Presencial,Dezembro,2026,2,2,120,100,17748,17748,2129760,1774800,-354960,-16.7,Competição com curso concorrente
+SHHE,Presencial,Dezembro,2026,1,1,40,27,14900,14900,596000,402300,-193700,-32.5,Cancelamentos por questões financeiras dos alunos
+NEXAL,Presencial,Dezembro,2026,1,1,35,24,9800,9800,343000,235200,-107800,-31.4,Instabilidade macroeconômica no mês
+POS,Presencial,Dezembro,2026,1,1,25,18,38000,38000,950000,684000,-266000,-28.0,Impacto de feriado prolongado
+R2,Híbrido,Dezembro,2026,1,1,20,13,8500,8500,170000,110500,-59500,-35.0,Problemas técnicos na plataforma EAD
+EAD,Online,Dezembro,2026,3,3,450,345,1200,1140.0,540000,393300.0,-146700.0,-27.2,Problemas técnicos na plataforma EAD

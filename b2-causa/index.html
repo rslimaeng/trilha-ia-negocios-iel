@@ -3232,6 +3232,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p>Uma&nbsp;sugestão bastante usada é encadear porquês: você pergunta por&nbsp;que&nbsp;aconteceu,
     e&nbsp;sobre&nbsp;a&nbsp;resposta pergunta de&nbsp;novo, até&nbsp;chegar em&nbsp;alguma coisa que&nbsp;você controla.
+    A&nbsp;técnica tem nome, <strong>os&nbsp;5 Porquês</strong>, e&nbsp;nasceu no&nbsp;chão de&nbsp;fábrica da&nbsp;Toyota para&nbsp;achar falha de&nbsp;sistema em&nbsp;vez de&nbsp;culpado.
     <strong>Costuma-se dizer cinco, e&nbsp;o&nbsp;número não&nbsp;importa</strong>: o&nbsp;que&nbsp;importa é onde&nbsp;a&nbsp;cadeia para.&nbsp;Você adapta.</p>
 
     <p>O&nbsp;que&nbsp;muda quando&nbsp;existe IA na&nbsp;conversa é onde&nbsp;mora o&nbsp;risco. A&nbsp;cadeia continua a&nbsp;mesma; o&nbsp;cuidado novo é que&nbsp;<strong>cada elo agora chega pronto</strong>, escrito com&nbsp;segurança, e&nbsp;o&nbsp;encadeamento inteiro pode descer cinco níveis sem&nbsp;tocar no&nbsp;seu&nbsp;dado
@@ -3279,6 +3280,123 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p><strong>Pare quando&nbsp;chegar em&nbsp;algo que&nbsp;você controla.</strong> Descer além disso
     produz explicações cada vez mais gerais, do&nbsp;tipo "o&nbsp;mercado está difícil", que&nbsp;são
     verdadeiras e&nbsp;não&nbsp;sugerem nada que&nbsp;você possa fazer na&nbsp;segunda-feira.</p>
+
+    <p>Existe uma segunda regra, e ela é o teste que diz se a cadeia terminou cedo demais:
+    <strong>quando a resposta de um porquê é o nome de uma pessoa ou de um departamento,
+    você ainda está no sintoma.</strong> "Porque o vendedor deu desconto demais" não é
+    causa: é a descrição do sintoma com um culpado colado. A causa está no que
+    permitiu aquilo, e é ela que processo, sistema ou contrato conseguem corrigir.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">A cadeia dos 5 Porquês, pronta para copiar e adaptar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b2causa-porques">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b2causa-porques">[P] Papel / Persona:
+Um consultor de excelência operacional que procura falha de sistema,
+e que trata culpar pessoa como sinal de análise malfeita.
+
+[C] Contexto:
+Na mesma conversa da análise da planilha. O achado conferido é este:
+a margem caiu 3,1 pontos entre janeiro e julho, e dois dos doze
+clientes concentram a queda, com o desconto médio deles saindo de
+4,9% para 12,9% e 14,4%. O mix de produto ficou estável nos dois.
+
+[T] Tarefa:
+Aplique a técnica dos 5 Porquês sobre esse achado até chegar a uma
+causa que processo, sistema ou contrato consigam corrigir. Antes da
+resposta final, abra uma tag &lt;rascunho_mental&gt; para testar suas
+hipóteses e descartar as que o dado não sustenta.
+
+[F] Formato:
+O problema inicial em uma frase, com o número que o evidencia. Depois
+a cadeia, um porquê por linha, e ao lado de cada elo a evidência que
+o sustenta ou a marca [HIPÓTESE] quando não houver dado. No fim, a
+causa raiz em negrito e o tipo de solução que ela exige (processo,
+sistema, contrato ou comunicação).
+
+[L] Limitações:
+Não pare no sintoma "o desconto subiu": chegue ao mecanismo que
+permitiu que ele subisse. Não aponte pessoa nem departamento como
+causa. Sinalize com [HIPÓTESE] todo elo que você não conseguir sustentar
+na planilha, e diga que dado seria preciso para confirmá-lo.
+
+[Critério de Sucesso]:
+A resposta serve se eu souber exatamente o que precisa mudar na
+próxima semana, e se cada elo da cadeia estiver ou sustentado por um
+número ou marcado como hipótese.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;marca [HIPÓTESE] é o&nbsp;que&nbsp;separa este pedido de&nbsp;uma&nbsp;história bem contada.</strong> Sem&nbsp;ela, a&nbsp;cadeia volta inteira com&nbsp;o&nbsp;mesmo tom de&nbsp;certeza do&nbsp;primeiro ao&nbsp;quinto elo, e&nbsp;você não&nbsp;tem como saber onde&nbsp;ela saiu do&nbsp;dado e&nbsp;entrou na&nbsp;plausibilidade.</p>
+
+
+    <h3>Quatro ângulos para&nbsp;interrogar a&nbsp;mesma leitura</h3>
+
+    <p>A&nbsp;cadeia de&nbsp;porquês é um&nbsp;jeito de&nbsp;não&nbsp;aceitar a&nbsp;primeira explicação.
+    <strong>Há outros três</strong>, e&nbsp;cada um&nbsp;enxerga um&nbsp;tipo diferente de&nbsp;cegueira. Você
+    não&nbsp;usa os&nbsp;quatro de&nbsp;uma&nbsp;vez: escolhe a&nbsp;lente conforme&nbsp;o&nbsp;que&nbsp;está em&nbsp;jogo.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O ângulo</th><th>A pergunta que ele dispara</th><th>Quando ele serve</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Expandir perspectivas</strong></td>
+            <td>que ângulos relevantes eu não estou vendo?</td>
+            <td>quando a leitura saiu de um corte só, ou quando o assunto é novo para você</td>
+          </tr>
+          <tr>
+            <td><strong>Pontos cegos</strong></td>
+            <td>que riscos eu não estou considerando?</td>
+            <td>antes de levar o achado para quem decide e gastar dinheiro em cima dele</td>
+          </tr>
+          <tr>
+            <td><strong>Questionar premissas</strong></td>
+            <td>isso é dado ou é intuição herdada?</td>
+            <td>quando a explicação se apoia em "sempre foi assim" ou "todo mundo sabe que"</td>
+          </tr>
+          <tr>
+            <td><strong>Simular quem é afetado</strong></td>
+            <td>como cada parte reage a isso?</td>
+            <td>quando a causa aponta para uma mudança que mexe na rotina de alguém</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;terceiro é o&nbsp;mais difícil de&nbsp;aplicar em&nbsp;si mesmo, e&nbsp;é o&nbsp;que&nbsp;mais rende.</strong> Toda área tem uma&nbsp;crença que&nbsp;ninguém questiona porque&nbsp;ela deu
+    certo uma&nbsp;vez. A&nbsp;IA não&nbsp;tem apego à&nbsp;decisão que&nbsp;você tomou no&nbsp;ano passado, e&nbsp;por&nbsp;isso
+    consegue perguntar o&nbsp;que&nbsp;ninguém na&nbsp;sala pergunta.</p>
+
+    <h3>O&nbsp;caso que&nbsp;prova que&nbsp;o&nbsp;ângulo decide o&nbsp;achado</h3>
+
+    <p>Este exemplo vem de&nbsp;outra base, uma&nbsp;pesquisa de&nbsp;satisfação com&nbsp;mil respostas, e&nbsp;entra aqui porque&nbsp;ele mostra a&nbsp;coisa acontecendo com&nbsp;números conferidos. A&nbsp;mesma
+    pergunta, "onde&nbsp;está a&nbsp;insatisfação?", em&nbsp;dois cortes diferentes:</p>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">Cortando por região</div>
+        <ul>
+          <li>Nordeste 6,11 &middot; Centro-Oeste 6,02</li>
+          <li>Sudeste 5,79 &middot; Sul 5,70</li>
+          <li class="ad-mais">quatro números quase iguais, e&nbsp;a&nbsp;conclusão é "está tudo igual"</li>
+        </ul>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">Cortando por perfil de cliente</div>
+        <ul>
+          <li>Premium 8,68</li>
+          <li>Standard 6,20 &middot; Em&nbsp;Risco 2,93</li>
+          <li class="ad-mais">um&nbsp;abismo de&nbsp;5,75 pontos entre&nbsp;o&nbsp;topo e&nbsp;a&nbsp;base</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Nenhum dos&nbsp;dois lados está errado, e&nbsp;os&nbsp;dois saíram da&nbsp;mesma base.</strong> Quem analisa num&nbsp;ângulo só&nbsp;conclui que&nbsp;não&nbsp;há nada para&nbsp;fazer.
+    Mudar o&nbsp;ângulo é o&nbsp;que&nbsp;acha. E&nbsp;repare que&nbsp;o&nbsp;corte da&nbsp;esquerda é o&nbsp;mais óbvio de&nbsp;pedir, que&nbsp;é justamente por&nbsp;isso que&nbsp;ele costuma ser o&nbsp;único que&nbsp;alguém pede.</p>
   </section>
 
   <section class="secao" id="demonstracao">

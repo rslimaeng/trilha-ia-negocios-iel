@@ -1,0 +1,401 @@
+ID,Edicao_Congresso,Perfil_Participante,Estado,Especialidade,Como_Ficou_Sabendo,Primeiro_Congresso,Nota_Geral_0_10,Nota_Conteudo_Cientifico,Nota_Palestrantes,Nota_Logistica,Nota_Credenciamento,Nota_Coffee_Refeicoes,Nota_App_Evento,Interesse_Proxima_Edicao,Indicaria_Para_Colegas,Comentario_Aberto
+1,Congresso Anual XPTO,Médico participante,CE,Medicina Integrativa,Indicação de colega,Não,7,7,6,6,6,6,7,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+2,Congresso Anual XPTO,Patrocinador,MT,Ginecologia,Indicação de colega,Sim,9,10,10,9,9,9,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+3,Congresso Anual XPTO,Médico residente,PE,Medicina Integrativa,Congresso anterior,Sim,8,8,8,8,6,9,7,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+4,Congresso Anual XPTO,Médico residente,MT,Ginecologia,Congresso anterior,Não,7,8,6,5,4,5,5,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+5,Congresso Anual XPTO,Médico participante,PR,Neurologia,Redes sociais,Sim,10,10,10,10,9,10,9,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+6,Congresso Anual XPTO,Patrocinador,MG,Clínica Geral,Site XPTO,Sim,10,10,10,9,8,8,10,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+7,Congresso Anual XPTO,Médico participante,MG,Cardiologia,Email marketing,Não,7,8,6,6,7,7,7,Sim,Talvez,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+8,Congresso Anual XPTO,Equipe interna XPTO,MA,Ginecologia,Congresso anterior,Não,9,8,8,9,6,7,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+9,Congresso Anual XPTO,Patrocinador,PR,Nutrologia,Site XPTO,Sim,10,9,10,10,8,10,7,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+10,Congresso Anual XPTO,Médico palestrante,BA,Nutrologia,Congresso anterior,Não,8,8,7,7,9,8,6,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+11,Congresso Anual XPTO,Convidado especial,AM,Ginecologia,Email marketing,Não,5,6,6,4,6,5,4,Talvez,Não,Wi-Fi caiu no segundo dia. Apresentações com vídeo ficaram prejudicadas.
+12,Congresso Anual XPTO,Médico participante,RS,Clínica Geral,Congresso anterior,Sim,2,6,6,4,3,5,3,Não,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+13,Congresso Anual XPTO,Convidado especial,SE,Clínica Geral,Email marketing,Não,10,10,10,10,9,10,10,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+14,Congresso Anual XPTO,Médico palestrante,RN,Geriatria,Redes sociais,Não,10,10,10,10,8,10,9,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+15,Congresso Anual XPTO,Médico palestrante,SC,Psiquiatria,Congresso anterior,Sim,10,10,10,9,9,8,10,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+16,Congresso Anual XPTO,Médico palestrante,CE,Pediatria,Site XPTO,Não,10,9,10,9,9,9,10,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+17,Congresso Anual XPTO,Equipe interna XPTO,PB,Ortopedia,Site XPTO,Não,10,10,10,10,9,10,8,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+18,Congresso Anual XPTO,Convidado especial,BA,Cardiologia,Indicação de colega,Não,7,6,8,7,7,8,6,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+19,Congresso Anual XPTO,Médico palestrante,MT,Endocrinologia,Site XPTO,Sim,9,9,9,10,6,8,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+20,Congresso Anual XPTO,Convidado especial,PR,Psiquiatria,Site XPTO,Não,8,8,7,7,8,7,7,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+21,Congresso Anual XPTO,Médico residente,MT,Geriatria,Parceiro clínica,Sim,7,7,7,6,5,8,6,Sim,Talvez,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+22,Congresso Anual XPTO,Médico residente,MG,Clínica Geral,Email marketing,Sim,2,6,6,4,3,5,3,Não,Não,Sinalização do hotel confusa. Me perdi indo para o workshop.
+23,Congresso Anual XPTO,Médico palestrante,SC,Clínica Geral,Redes sociais,Não,10,10,10,10,9,9,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+24,Congresso Anual XPTO,Médico participante,SE,Endocrinologia,Indicação de colega,Sim,8,9,9,9,6,9,7,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+25,Congresso Anual XPTO,Médico participante,RS,Pediatria,Email marketing,Sim,7,7,7,8,7,6,4,Sim,Talvez,App do evento com informações desatualizadas em alguns momentos.
+26,Congresso Anual XPTO,Equipe interna XPTO,PI,Geriatria,Indicação de colega,Não,10,10,10,10,9,8,9,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+27,Congresso Anual XPTO,Médico palestrante,RS,Geriatria,Redes sociais,Não,8,7,7,7,7,8,5,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+28,Congresso Anual XPTO,Convidado especial,RN,Ginecologia,WhatsApp,Não,8,7,8,8,6,8,5,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+29,Congresso Anual XPTO,Patrocinador,PR,Ginecologia,Congresso anterior,Sim,9,9,9,10,8,7,8,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+30,Congresso Anual XPTO,Médico residente,PB,Psiquiatria,Email marketing,Não,9,8,10,7,10,7,8,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+31,Congresso Anual XPTO,Médico palestrante,RN,Medicina Integrativa,Site XPTO,Sim,9,9,10,10,8,9,9,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+32,Congresso Anual XPTO,Médico residente,AM,Endocrinologia,Redes sociais,Não,8,7,8,8,7,6,8,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+33,Congresso Anual XPTO,Médico residente,AM,Neurologia,Email marketing,Sim,10,9,9,8,8,10,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+34,Congresso Anual XPTO,Convidado especial,DF,Clínica Geral,Parceiro clínica,Sim,2,6,6,4,3,5,3,Não,Não,Microfone com chiado durante a palestra principal. Dificultou muito.
+35,Congresso Anual XPTO,Médico residente,AM,Psiquiatria,Email marketing,Não,7,8,6,6,4,6,4,Sim,Talvez,Conteúdo excelente mas programação muito densa para 2 dias.
+36,Congresso Anual XPTO,Médico participante,ES,Psiquiatria,Indicação de colega,Sim,5,6,6,5,6,5,5,Talvez,Não,App do evento com erros na programação — entrei na sala errada.
+37,Congresso Anual XPTO,Médico residente,RN,Geriatria,Congresso anterior,Sim,9,10,10,7,9,8,6,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+38,Congresso Anual XPTO,Médico palestrante,BA,Dermatologia,Indicação de colega,Não,9,8,10,7,6,8,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+39,Congresso Anual XPTO,Médico palestrante,PR,Medicina Integrativa,Congresso anterior,Não,8,8,9,8,6,9,7,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+40,Congresso Anual XPTO,Médico residente,DF,Neurologia,Email marketing,Não,10,10,10,10,8,8,7,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+41,Congresso Anual XPTO,Equipe interna XPTO,GO,Ortopedia,Email marketing,Não,9,9,8,10,6,7,8,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+42,Congresso Anual XPTO,Patrocinador,MA,Psiquiatria,Email marketing,Não,8,8,8,8,8,8,8,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+43,Congresso Anual XPTO,Equipe interna XPTO,AM,Neurologia,Congresso anterior,Sim,7,6,6,7,7,8,7,Sim,Talvez,App do evento com informações desatualizadas em alguns momentos.
+44,Congresso Anual XPTO,Equipe interna XPTO,PB,Pediatria,Site XPTO,Sim,7,7,7,5,5,7,7,Sim,Talvez,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+45,Congresso Anual XPTO,Equipe interna XPTO,GO,Ginecologia,Site XPTO,Não,10,9,10,9,8,8,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+46,Congresso Anual XPTO,Equipe interna XPTO,RS,Dermatologia,Redes sociais,Sim,4,6,6,4,5,5,3,Não,Não,App do evento com erros na programação — entrei na sala errada.
+47,Congresso Anual XPTO,Equipe interna XPTO,MA,Ortopedia,Site XPTO,Não,8,7,8,6,7,6,5,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+48,Congresso Anual XPTO,Médico residente,RN,Geriatria,Redes sociais,Sim,8,8,7,9,8,6,7,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+49,Congresso Anual XPTO,Patrocinador,SC,Psiquiatria,WhatsApp,Não,9,10,8,9,8,9,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+50,Congresso Anual XPTO,Convidado especial,RN,Clínica Geral,Email marketing,Não,8,7,7,8,6,8,8,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+51,Congresso Anual XPTO,Convidado especial,AM,Geriatria,Parceiro clínica,Não,9,8,9,8,10,8,7,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+52,Congresso Anual XPTO,Convidado especial,RN,Ginecologia,Redes sociais,Não,10,10,9,10,7,10,10,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+53,Congresso Anual XPTO,Médico residente,PE,Clínica Geral,Site XPTO,Não,10,10,10,9,9,8,10,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+54,Congresso Anual XPTO,Médico palestrante,SP,Nutrologia,Redes sociais,Não,9,8,9,9,9,9,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+55,Congresso Anual XPTO,Médico palestrante,MA,Geriatria,Email marketing,Não,9,10,8,9,7,10,9,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+56,Congresso Anual XPTO,Médico participante,SC,Dermatologia,Indicação de colega,Sim,8,7,9,9,5,8,8,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+57,Congresso Anual XPTO,Equipe interna XPTO,MT,Neurologia,Indicação de colega,Não,8,8,7,8,8,8,6,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+58,Congresso Anual XPTO,Patrocinador,PR,Geriatria,Indicação de colega,Não,10,9,9,10,10,10,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+59,Congresso Anual XPTO,Patrocinador,MT,Neurologia,Email marketing,Não,8,8,8,7,7,6,7,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+60,Congresso Anual XPTO,Convidado especial,PI,Ginecologia,WhatsApp,Sim,9,10,8,10,6,7,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+61,Congresso Anual XPTO,Médico participante,AL,Endocrinologia,Congresso anterior,Sim,6,6,6,6,3,7,5,Talvez,Talvez,Palestrante do horário nobre cancelou sem aviso adequado.
+62,Congresso Anual XPTO,Equipe interna XPTO,MT,Neurologia,Email marketing,Não,8,8,9,7,9,6,6,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+63,Congresso Anual XPTO,Médico palestrante,MG,Dermatologia,Indicação de colega,Sim,5,6,6,4,3,5,5,Talvez,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+64,Congresso Anual XPTO,Médico participante,DF,Cardiologia,Indicação de colega,Sim,9,9,9,10,6,9,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+65,Congresso Anual XPTO,Médico residente,ES,Neurologia,Email marketing,Sim,7,6,6,6,8,8,4,Sim,Talvez,App do evento com informações desatualizadas em alguns momentos.
+66,Congresso Anual XPTO,Médico residente,RJ,Geriatria,Redes sociais,Não,10,9,10,9,8,8,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+67,Congresso Anual XPTO,Convidado especial,GO,Neurologia,Site XPTO,Sim,10,10,10,10,8,10,9,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+68,Congresso Anual XPTO,Médico participante,SC,Pediatria,Email marketing,Não,9,10,10,10,7,8,6,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+69,Congresso Anual XPTO,Equipe interna XPTO,MG,Ortopedia,Parceiro clínica,Sim,7,8,8,7,5,7,6,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+70,Congresso Anual XPTO,Médico participante,DF,Geriatria,Parceiro clínica,Não,7,6,7,5,5,6,6,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+71,Congresso Anual XPTO,Equipe interna XPTO,MT,Ortopedia,Redes sociais,Não,10,10,9,10,10,10,8,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+72,Congresso Anual XPTO,Convidado especial,MG,Ginecologia,Parceiro clínica,Sim,9,8,9,7,8,10,9,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+73,Congresso Anual XPTO,Convidado especial,PR,Clínica Geral,Email marketing,Não,7,6,7,7,4,7,7,Sim,Talvez,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+74,Congresso Anual XPTO,Patrocinador,CE,Clínica Geral,Redes sociais,Sim,8,7,7,6,8,7,5,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+75,Congresso Anual XPTO,Médico participante,DF,Pediatria,Parceiro clínica,Não,9,9,9,7,10,10,6,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+76,Congresso Anual XPTO,Médico residente,RS,Cardiologia,Email marketing,Não,9,8,8,10,9,10,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+77,Congresso Anual XPTO,Médico participante,PI,Ginecologia,Congresso anterior,Sim,10,10,10,10,10,9,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+78,Congresso Anual XPTO,Médico residente,PE,Cardiologia,Indicação de colega,Não,8,7,9,6,9,9,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+79,Congresso Anual XPTO,Médico residente,CE,Dermatologia,Redes sociais,Sim,9,9,9,8,8,9,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+80,Congresso Anual XPTO,Médico residente,GO,Medicina Integrativa,Indicação de colega,Não,8,8,8,8,6,9,8,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+81,Congresso Anual XPTO,Equipe interna XPTO,RJ,Geriatria,Redes sociais,Sim,8,8,9,9,8,7,5,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+82,Congresso Anual XPTO,Convidado especial,RS,Geriatria,Redes sociais,Não,9,10,8,8,7,10,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+83,Congresso Anual XPTO,Médico participante,AL,Neurologia,Email marketing,Não,6,6,6,5,4,6,6,Talvez,Talvez,Palestrante do horário nobre cancelou sem aviso adequado.
+84,Congresso Anual XPTO,Patrocinador,GO,Neurologia,Site XPTO,Não,9,9,8,9,9,7,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+85,Congresso Anual XPTO,Médico residente,PB,Endocrinologia,Parceiro clínica,Não,10,9,10,8,10,8,10,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+86,Congresso Anual XPTO,Médico participante,SC,Cardiologia,Parceiro clínica,Não,8,7,9,6,6,6,5,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+87,Congresso Anual XPTO,Patrocinador,MG,Cardiologia,Indicação de colega,Não,6,6,6,4,6,6,6,Talvez,Talvez,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+88,Congresso Anual XPTO,Médico residente,MA,Dermatologia,Redes sociais,Não,8,8,8,9,9,6,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+89,Congresso Anual XPTO,Equipe interna XPTO,AM,Nutrologia,Email marketing,Não,9,9,10,7,9,9,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+90,Congresso Anual XPTO,Equipe interna XPTO,CE,Pediatria,Parceiro clínica,Sim,9,10,8,7,7,7,9,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+91,Congresso Anual XPTO,Médico residente,AM,Cardiologia,WhatsApp,Não,4,6,6,5,3,5,3,Não,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+92,Congresso Anual XPTO,Médico residente,RS,Geriatria,Parceiro clínica,Não,10,10,10,8,10,9,10,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+93,Congresso Anual XPTO,Médico residente,PI,Medicina Integrativa,Parceiro clínica,Não,9,8,9,7,10,10,7,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+94,Congresso Anual XPTO,Patrocinador,PR,Ginecologia,Redes sociais,Não,8,7,9,7,5,7,8,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+95,Congresso Anual XPTO,Médico palestrante,SP,Medicina Integrativa,Parceiro clínica,Não,10,9,10,8,9,9,8,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+96,Congresso Anual XPTO,Médico residente,PI,Pediatria,Indicação de colega,Não,8,9,7,6,6,7,6,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+97,Congresso Anual XPTO,Equipe interna XPTO,RN,Nutrologia,Parceiro clínica,Não,8,9,9,8,9,6,8,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+98,Congresso Anual XPTO,Médico participante,PE,Medicina Integrativa,WhatsApp,Não,8,7,7,8,7,9,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+99,Congresso Anual XPTO,Médico palestrante,MG,Ginecologia,Indicação de colega,Sim,9,10,8,10,10,9,8,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+100,Congresso Anual XPTO,Médico participante,PR,Geriatria,Site XPTO,Sim,9,8,8,8,8,8,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+101,Congresso Anual XPTO,Patrocinador,CE,Neurologia,Parceiro clínica,Sim,7,8,7,5,6,6,6,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+102,Congresso Anual XPTO,Equipe interna XPTO,BA,Cardiologia,Congresso anterior,Não,9,8,8,8,9,7,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+103,Congresso Anual XPTO,Médico palestrante,AL,Endocrinologia,Parceiro clínica,Sim,9,8,10,8,7,10,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+104,Congresso Anual XPTO,Patrocinador,ES,Ginecologia,Parceiro clínica,Não,5,6,6,4,3,5,5,Talvez,Não,Microfone com chiado durante a palestra principal. Dificultou muito.
+105,Congresso Anual XPTO,Convidado especial,DF,Ortopedia,Indicação de colega,Não,9,10,9,8,7,9,9,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+106,Congresso Anual XPTO,Equipe interna XPTO,MA,Ginecologia,Site XPTO,Sim,9,10,8,7,8,9,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+107,Congresso Anual XPTO,Equipe interna XPTO,AM,Dermatologia,Parceiro clínica,Não,9,9,9,10,9,8,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+108,Congresso Anual XPTO,Médico participante,RN,Nutrologia,WhatsApp,Não,9,8,9,9,8,9,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+109,Congresso Anual XPTO,Patrocinador,DF,Geriatria,Indicação de colega,Não,10,9,10,10,9,10,10,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+110,Congresso Anual XPTO,Médico residente,BA,Geriatria,Parceiro clínica,Sim,10,10,10,9,9,10,8,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+111,Congresso Anual XPTO,Convidado especial,AL,Endocrinologia,Email marketing,Não,9,9,10,8,7,9,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+112,Congresso Anual XPTO,Equipe interna XPTO,GO,Cardiologia,Site XPTO,Não,9,10,9,9,7,9,6,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+113,Congresso Anual XPTO,Médico participante,MT,Neurologia,Site XPTO,Sim,5,6,6,6,6,5,5,Talvez,Não,App do evento com erros na programação — entrei na sala errada.
+114,Congresso Anual XPTO,Patrocinador,CE,Medicina Integrativa,Congresso anterior,Não,9,9,9,10,8,7,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+115,Congresso Anual XPTO,Médico participante,GO,Ginecologia,Email marketing,Sim,8,9,9,8,6,6,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+116,Congresso Anual XPTO,Médico participante,PI,Ginecologia,Email marketing,Sim,8,9,9,8,7,9,6,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+117,Congresso Anual XPTO,Médico palestrante,MA,Geriatria,WhatsApp,Não,10,10,9,9,7,10,8,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+118,Congresso Anual XPTO,Equipe interna XPTO,BA,Neurologia,WhatsApp,Sim,10,9,10,10,10,8,7,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+119,Congresso Anual XPTO,Equipe interna XPTO,DF,Cardiologia,Site XPTO,Não,7,6,6,7,4,5,5,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+120,Congresso Anual XPTO,Equipe interna XPTO,PI,Geriatria,Parceiro clínica,Não,8,7,7,6,8,9,8,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+121,Congresso Anual XPTO,Médico residente,MT,Geriatria,Parceiro clínica,Não,4,6,6,5,4,5,3,Não,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+122,Congresso Anual XPTO,Equipe interna XPTO,AL,Geriatria,Site XPTO,Não,9,9,8,7,10,10,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+123,Congresso Anual XPTO,Médico palestrante,BA,Nutrologia,Redes sociais,Não,8,9,8,7,8,9,5,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+124,Congresso Anual XPTO,Médico residente,RJ,Pediatria,Congresso anterior,Sim,8,8,8,9,5,9,8,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+125,Congresso Anual XPTO,Equipe interna XPTO,RJ,Medicina Integrativa,Redes sociais,Não,7,7,7,8,5,6,5,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+126,Congresso Anual XPTO,Médico participante,MT,Nutrologia,Email marketing,Sim,6,6,6,4,5,5,5,Talvez,Talvez,Microfone com chiado durante a palestra principal. Dificultou muito.
+127,Congresso Anual XPTO,Médico palestrante,SC,Endocrinologia,Parceiro clínica,Não,8,7,7,9,7,7,5,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+128,Congresso Anual XPTO,Médico participante,MA,Ginecologia,WhatsApp,Não,10,10,9,10,10,10,10,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+129,Congresso Anual XPTO,Médico palestrante,SP,Cardiologia,WhatsApp,Não,6,6,6,5,7,5,6,Talvez,Talvez,Wi-Fi caiu no segundo dia. Apresentações com vídeo ficaram prejudicadas.
+130,Congresso Anual XPTO,Médico residente,PR,Endocrinologia,WhatsApp,Sim,8,7,8,7,7,6,5,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+131,Congresso Anual XPTO,Médico palestrante,PR,Ginecologia,Site XPTO,Sim,10,9,10,10,10,10,10,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+132,Congresso Anual XPTO,Equipe interna XPTO,PR,Ortopedia,Email marketing,Não,8,9,9,6,5,9,6,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+133,Congresso Anual XPTO,Patrocinador,PB,Neurologia,Parceiro clínica,Não,9,9,10,10,10,10,8,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+134,Congresso Anual XPTO,Convidado especial,MT,Dermatologia,WhatsApp,Não,7,7,6,5,5,5,6,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+135,Congresso Anual XPTO,Médico participante,MA,Medicina Integrativa,Site XPTO,Não,8,7,8,9,6,6,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+136,Congresso Anual XPTO,Médico residente,RS,Pediatria,Parceiro clínica,Não,10,10,9,10,10,9,8,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+137,Congresso Anual XPTO,Médico palestrante,PB,Dermatologia,Site XPTO,Não,9,9,9,8,9,8,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+138,Congresso Anual XPTO,Médico palestrante,RS,Psiquiatria,Email marketing,Não,8,8,8,9,8,6,7,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+139,Congresso Anual XPTO,Convidado especial,SE,Pediatria,Email marketing,Não,5,6,6,5,6,5,3,Talvez,Não,Palestrante do horário nobre cancelou sem aviso adequado.
+140,Congresso Anual XPTO,Médico palestrante,SE,Dermatologia,Email marketing,Sim,9,10,10,9,6,10,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+141,Congresso Anual XPTO,Convidado especial,PB,Nutrologia,WhatsApp,Não,8,7,9,6,8,9,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+142,Congresso Anual XPTO,Médico residente,SE,Ortopedia,Congresso anterior,Não,9,8,9,9,9,9,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+143,Congresso Anual XPTO,Médico palestrante,RJ,Geriatria,Site XPTO,Não,8,7,7,8,5,7,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+144,Congresso Anual XPTO,Convidado especial,BA,Medicina Integrativa,Parceiro clínica,Sim,8,9,8,7,5,6,6,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+145,Congresso Anual XPTO,Patrocinador,RN,Clínica Geral,Indicação de colega,Não,10,9,10,10,7,8,10,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+146,Congresso Anual XPTO,Convidado especial,GO,Pediatria,Redes sociais,Não,9,10,9,9,10,8,8,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+147,Congresso Anual XPTO,Médico palestrante,DF,Ginecologia,Site XPTO,Não,8,9,8,9,8,6,7,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+148,Congresso Anual XPTO,Médico participante,RS,Neurologia,Indicação de colega,Sim,10,9,10,9,7,10,10,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+149,Congresso Anual XPTO,Equipe interna XPTO,ES,Geriatria,Redes sociais,Não,6,6,7,7,3,6,3,Talvez,Talvez,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+150,Congresso Anual XPTO,Equipe interna XPTO,ES,Endocrinologia,Site XPTO,Não,10,10,10,8,9,9,10,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+151,Congresso Anual XPTO,Equipe interna XPTO,PI,Cardiologia,Site XPTO,Não,10,10,9,9,9,9,9,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+152,Congresso Anual XPTO,Equipe interna XPTO,RJ,Clínica Geral,Email marketing,Sim,10,9,9,10,10,8,8,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+153,Congresso Anual XPTO,Médico participante,RN,Endocrinologia,Email marketing,Sim,8,8,9,8,9,6,5,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+154,Congresso Anual XPTO,Patrocinador,AM,Clínica Geral,Email marketing,Não,6,6,7,4,4,5,6,Talvez,Talvez,Microfone com chiado durante a palestra principal. Dificultou muito.
+155,Congresso Anual XPTO,Médico participante,PE,Geriatria,Redes sociais,Não,10,9,10,10,8,8,10,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+156,Congresso Anual XPTO,Patrocinador,PR,Psiquiatria,Parceiro clínica,Não,9,9,10,8,8,7,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+157,Congresso Anual XPTO,Médico residente,PR,Ortopedia,Site XPTO,Não,8,9,8,8,8,9,6,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+158,Congresso Anual XPTO,Médico residente,AM,Cardiologia,Indicação de colega,Não,7,6,6,5,4,5,5,Sim,Talvez,Conteúdo excelente mas programação muito densa para 2 dias.
+159,Congresso Anual XPTO,Equipe interna XPTO,RS,Endocrinologia,Congresso anterior,Sim,8,8,9,8,9,7,8,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+160,Congresso Anual XPTO,Equipe interna XPTO,MG,Psiquiatria,Congresso anterior,Não,9,10,9,8,9,7,8,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+161,Congresso Anual XPTO,Equipe interna XPTO,BA,Nutrologia,Email marketing,Sim,4,6,6,4,4,5,4,Não,Não,Wi-Fi caiu no segundo dia. Apresentações com vídeo ficaram prejudicadas.
+162,Congresso Anual XPTO,Equipe interna XPTO,RS,Nutrologia,Congresso anterior,Não,8,8,9,7,5,7,7,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+163,Congresso Anual XPTO,Médico participante,RN,Nutrologia,Indicação de colega,Sim,10,9,10,10,9,9,8,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+164,Congresso Anual XPTO,Médico participante,SP,Psiquiatria,Redes sociais,Não,8,9,8,8,5,6,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+165,Congresso Anual XPTO,Médico palestrante,RS,Nutrologia,Congresso anterior,Não,10,10,10,10,10,10,8,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+166,Congresso Anual XPTO,Médico residente,CE,Pediatria,Congresso anterior,Não,9,10,9,7,8,9,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+167,Congresso Anual XPTO,Convidado especial,RJ,Pediatria,Parceiro clínica,Não,10,10,10,9,9,9,10,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+168,Congresso Anual XPTO,Patrocinador,CE,Cardiologia,Congresso anterior,Não,8,8,7,7,5,7,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+169,Congresso Anual XPTO,Equipe interna XPTO,SP,Medicina Integrativa,Email marketing,Sim,10,10,10,10,7,10,7,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+170,Congresso Anual XPTO,Convidado especial,BA,Neurologia,Congresso anterior,Não,8,7,7,9,9,8,6,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+171,Congresso Anual XPTO,Médico participante,ES,Clínica Geral,Redes sociais,Não,8,8,7,6,6,8,6,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+172,Congresso Anual XPTO,Médico residente,PE,Medicina Integrativa,Indicação de colega,Não,7,6,7,5,6,7,4,Sim,Talvez,Conteúdo excelente mas programação muito densa para 2 dias.
+173,Congresso Anual XPTO,Médico palestrante,MG,Ginecologia,Indicação de colega,Sim,10,10,9,8,10,10,7,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+174,Congresso Anual XPTO,Convidado especial,PB,Neurologia,Email marketing,Não,9,9,8,9,6,9,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+175,Congresso Anual XPTO,Médico palestrante,SE,Dermatologia,Congresso anterior,Sim,10,10,9,8,8,9,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+176,Congresso Anual XPTO,Convidado especial,SE,Cardiologia,Site XPTO,Não,8,8,8,9,5,9,6,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+177,Congresso Anual XPTO,Médico palestrante,MA,Psiquiatria,Site XPTO,Não,9,8,10,8,9,10,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+178,Congresso Anual XPTO,Médico residente,GO,Cardiologia,Email marketing,Sim,9,8,10,9,6,9,8,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+179,Congresso Anual XPTO,Médico residente,SP,Nutrologia,Parceiro clínica,Não,6,6,7,4,7,5,6,Talvez,Talvez,Microfone com chiado durante a palestra principal. Dificultou muito.
+180,Congresso Anual XPTO,Convidado especial,SE,Ortopedia,Parceiro clínica,Não,7,6,8,7,5,7,7,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+181,Congresso Anual XPTO,Médico participante,MG,Ginecologia,Redes sociais,Não,10,9,10,10,10,9,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+182,Congresso Anual XPTO,Equipe interna XPTO,RJ,Neurologia,Redes sociais,Sim,9,10,9,10,6,7,8,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+183,Congresso Anual XPTO,Médico palestrante,RJ,Endocrinologia,WhatsApp,Não,9,8,9,7,6,9,8,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+184,Congresso Anual XPTO,Médico participante,PR,Geriatria,Indicação de colega,Não,10,9,9,10,9,8,9,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+185,Congresso Anual XPTO,Médico residente,SC,Clínica Geral,Site XPTO,Sim,8,8,7,8,7,6,6,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+186,Congresso Anual XPTO,Médico participante,PI,Ginecologia,Email marketing,Não,5,6,6,4,4,5,3,Talvez,Não,Palestrante do horário nobre cancelou sem aviso adequado.
+187,Congresso Anual XPTO,Patrocinador,PR,Endocrinologia,Congresso anterior,Não,9,8,10,7,9,8,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+188,Congresso Anual XPTO,Médico residente,AL,Cardiologia,Site XPTO,Sim,9,9,10,8,9,8,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+189,Congresso Anual XPTO,Médico palestrante,MA,Psiquiatria,Site XPTO,Sim,10,10,10,9,10,10,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+190,Congresso Anual XPTO,Médico palestrante,MA,Clínica Geral,Congresso anterior,Não,8,9,8,6,5,9,6,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+191,Congresso Anual XPTO,Médico residente,RS,Geriatria,Indicação de colega,Não,9,10,8,8,6,8,7,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+192,Congresso Anual XPTO,Médico participante,RJ,Psiquiatria,Site XPTO,Sim,10,10,9,8,8,8,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+193,Congresso Anual XPTO,Médico participante,AM,Cardiologia,Site XPTO,Sim,7,8,6,7,6,8,7,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+194,Congresso Anual XPTO,Equipe interna XPTO,BA,Psiquiatria,Indicação de colega,Sim,8,7,9,7,8,9,7,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+195,Congresso Anual XPTO,Médico participante,PE,Ginecologia,Site XPTO,Não,7,6,8,8,8,7,5,Sim,Talvez,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+196,Congresso Anual XPTO,Médico participante,SC,Endocrinologia,Redes sociais,Não,7,6,7,5,8,8,6,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+197,Congresso Anual XPTO,Médico residente,DF,Pediatria,Indicação de colega,Não,10,10,10,10,8,10,8,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+198,Congresso Anual XPTO,Médico palestrante,SP,Cardiologia,Congresso anterior,Não,8,9,9,7,5,8,7,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+199,Congresso Anual XPTO,Médico residente,MG,Dermatologia,Parceiro clínica,Não,9,9,10,10,6,7,6,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+200,Congresso Anual XPTO,Patrocinador,PE,Cardiologia,Parceiro clínica,Não,10,10,10,9,10,8,8,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+201,Congresso Anual XPTO,Patrocinador,SE,Medicina Integrativa,WhatsApp,Não,2,6,6,4,3,5,3,Não,Não,Coffee break acabou antes do intervalo terminar. Problema de planejamento.
+202,Congresso Anual XPTO,Convidado especial,BA,Psiquiatria,Site XPTO,Não,10,10,10,10,7,10,10,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+203,Congresso Anual XPTO,Médico palestrante,DF,Nutrologia,Email marketing,Não,8,7,9,8,8,7,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+204,Congresso Anual XPTO,Médico residente,RJ,Clínica Geral,WhatsApp,Sim,8,7,7,9,8,6,5,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+205,Congresso Anual XPTO,Médico residente,RS,Cardiologia,Congresso anterior,Sim,7,6,6,7,4,8,4,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+206,Congresso Anual XPTO,Médico residente,PI,Pediatria,Indicação de colega,Sim,8,7,9,6,5,8,6,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+207,Congresso Anual XPTO,Equipe interna XPTO,PE,Neurologia,Indicação de colega,Não,9,10,8,10,7,10,8,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+208,Congresso Anual XPTO,Médico participante,AL,Geriatria,Indicação de colega,Não,8,8,9,8,7,9,6,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+209,Congresso Anual XPTO,Médico residente,MG,Psiquiatria,WhatsApp,Sim,9,8,8,8,7,7,7,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+210,Congresso Anual XPTO,Médico palestrante,BA,Endocrinologia,Redes sociais,Não,5,6,6,4,3,5,3,Talvez,Não,Wi-Fi caiu no segundo dia. Apresentações com vídeo ficaram prejudicadas.
+211,Congresso Anual XPTO,Médico residente,SC,Psiquiatria,Site XPTO,Sim,9,8,9,10,6,8,8,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+212,Congresso Anual XPTO,Convidado especial,PR,Psiquiatria,Parceiro clínica,Não,6,6,6,4,4,7,3,Talvez,Talvez,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+213,Congresso Anual XPTO,Médico palestrante,PR,Dermatologia,Congresso anterior,Não,9,10,10,9,9,8,7,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+214,Congresso Anual XPTO,Equipe interna XPTO,PR,Geriatria,Parceiro clínica,Não,8,8,9,7,5,7,8,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+215,Congresso Anual XPTO,Equipe interna XPTO,SE,Pediatria,Email marketing,Não,7,8,6,5,5,5,7,Sim,Talvez,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+216,Congresso Anual XPTO,Médico residente,PI,Ortopedia,Congresso anterior,Sim,5,6,6,4,3,5,3,Talvez,Não,Palestrante do horário nobre cancelou sem aviso adequado.
+217,Congresso Anual XPTO,Médico palestrante,SE,Neurologia,Email marketing,Não,9,8,9,9,8,8,7,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+218,Congresso Anual XPTO,Equipe interna XPTO,RN,Cardiologia,Indicação de colega,Sim,9,8,10,8,10,10,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+219,Congresso Anual XPTO,Médico residente,SE,Clínica Geral,Congresso anterior,Não,9,10,9,9,6,7,6,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+220,Congresso Anual XPTO,Médico residente,SP,Ortopedia,Email marketing,Sim,8,9,9,6,5,7,8,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+221,Congresso Anual XPTO,Equipe interna XPTO,SE,Psiquiatria,Redes sociais,Sim,10,10,10,8,8,10,9,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+222,Congresso Anual XPTO,Médico residente,MG,Neurologia,Congresso anterior,Não,9,9,8,7,10,8,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+223,Congresso Anual XPTO,Equipe interna XPTO,AL,Clínica Geral,Indicação de colega,Sim,10,10,10,8,9,10,10,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+224,Congresso Anual XPTO,Convidado especial,ES,Pediatria,Email marketing,Sim,9,8,10,9,7,10,8,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+225,Congresso Anual XPTO,Patrocinador,RJ,Nutrologia,Congresso anterior,Não,8,7,8,9,9,6,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+226,Congresso Anual XPTO,Médico palestrante,PE,Neurologia,Indicação de colega,Não,8,7,8,8,6,9,5,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+227,Congresso Anual XPTO,Médico residente,RN,Ginecologia,Site XPTO,Sim,8,9,9,9,9,8,5,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+228,Congresso Anual XPTO,Médico palestrante,RJ,Ginecologia,Redes sociais,Sim,10,10,10,8,10,8,9,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+229,Congresso Anual XPTO,Médico residente,PE,Psiquiatria,Indicação de colega,Não,10,10,9,9,10,9,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+230,Congresso Anual XPTO,Patrocinador,DF,Endocrinologia,Congresso anterior,Sim,7,7,8,7,5,7,7,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+231,Congresso Anual XPTO,Médico palestrante,SP,Cardiologia,Site XPTO,Não,7,8,8,8,5,5,6,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+232,Congresso Anual XPTO,Médico participante,PB,Ginecologia,Parceiro clínica,Não,8,9,8,7,7,8,7,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+233,Congresso Anual XPTO,Médico palestrante,MT,Cardiologia,Congresso anterior,Não,8,9,9,7,7,7,5,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+234,Congresso Anual XPTO,Equipe interna XPTO,MT,Dermatologia,Site XPTO,Não,10,10,10,8,8,8,9,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+235,Congresso Anual XPTO,Convidado especial,AL,Neurologia,Indicação de colega,Não,8,7,8,6,7,6,7,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+236,Congresso Anual XPTO,Patrocinador,DF,Cardiologia,Indicação de colega,Sim,10,10,9,10,10,10,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+237,Congresso Anual XPTO,Médico residente,DF,Endocrinologia,Parceiro clínica,Sim,6,7,7,7,7,7,3,Talvez,Talvez,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+238,Congresso Anual XPTO,Convidado especial,BA,Cardiologia,WhatsApp,Sim,9,8,9,8,7,10,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+239,Congresso Anual XPTO,Médico participante,ES,Ginecologia,Congresso anterior,Sim,10,10,10,10,9,10,7,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+240,Congresso Anual XPTO,Convidado especial,ES,Neurologia,Congresso anterior,Não,10,9,9,9,7,8,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+241,Congresso Anual XPTO,Equipe interna XPTO,MG,Neurologia,Indicação de colega,Não,9,8,8,10,8,10,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+242,Congresso Anual XPTO,Médico residente,SC,Geriatria,Email marketing,Não,10,9,10,9,10,10,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+243,Congresso Anual XPTO,Médico participante,RJ,Dermatologia,WhatsApp,Sim,10,10,10,10,7,10,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+244,Congresso Anual XPTO,Equipe interna XPTO,AL,Pediatria,Redes sociais,Sim,9,9,8,8,7,8,7,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+245,Congresso Anual XPTO,Médico palestrante,PB,Dermatologia,Redes sociais,Não,8,7,8,6,7,7,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+246,Congresso Anual XPTO,Patrocinador,SP,Nutrologia,Indicação de colega,Não,10,10,10,8,10,8,7,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+247,Congresso Anual XPTO,Médico palestrante,ES,Ginecologia,Email marketing,Sim,10,9,10,9,9,10,10,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+248,Congresso Anual XPTO,Médico participante,SP,Medicina Integrativa,Indicação de colega,Não,9,9,10,8,6,8,7,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+249,Congresso Anual XPTO,Patrocinador,GO,Ginecologia,Parceiro clínica,Não,9,8,9,7,9,10,9,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+250,Congresso Anual XPTO,Médico residente,RS,Geriatria,Indicação de colega,Não,10,10,10,8,7,9,9,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+251,Congresso Anual XPTO,Médico participante,AL,Pediatria,Parceiro clínica,Sim,8,7,8,7,8,6,6,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+252,Congresso Anual XPTO,Médico residente,GO,Geriatria,Congresso anterior,Sim,5,6,6,6,3,5,4,Talvez,Não,Palestrante do horário nobre cancelou sem aviso adequado.
+253,Congresso Anual XPTO,Patrocinador,SC,Geriatria,Indicação de colega,Sim,9,9,9,8,9,10,9,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+254,Congresso Anual XPTO,Patrocinador,SE,Psiquiatria,WhatsApp,Não,9,10,10,10,6,9,7,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+255,Congresso Anual XPTO,Patrocinador,PI,Medicina Integrativa,Congresso anterior,Não,8,8,9,6,7,6,7,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+256,Congresso Anual XPTO,Médico palestrante,BA,Clínica Geral,Indicação de colega,Sim,8,7,8,9,9,6,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+257,Congresso Anual XPTO,Convidado especial,RN,Endocrinologia,Site XPTO,Não,7,7,6,8,5,6,6,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+258,Congresso Anual XPTO,Convidado especial,MA,Cardiologia,Redes sociais,Não,9,9,10,8,10,8,6,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+259,Congresso Anual XPTO,Médico participante,GO,Medicina Integrativa,Congresso anterior,Sim,10,10,10,10,9,8,8,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+260,Congresso Anual XPTO,Convidado especial,GO,Neurologia,Congresso anterior,Sim,8,8,7,9,9,9,7,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+261,Congresso Anual XPTO,Médico residente,RJ,Cardiologia,Email marketing,Não,9,9,8,8,7,9,8,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+262,Congresso Anual XPTO,Patrocinador,BA,Dermatologia,Site XPTO,Não,7,8,7,7,4,5,5,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+263,Congresso Anual XPTO,Médico palestrante,SP,Ginecologia,Congresso anterior,Não,8,8,8,6,5,6,8,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+264,Congresso Anual XPTO,Médico participante,RJ,Psiquiatria,Indicação de colega,Não,8,7,7,6,8,6,7,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+265,Congresso Anual XPTO,Patrocinador,MA,Clínica Geral,Parceiro clínica,Não,8,8,8,7,9,7,8,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+266,Congresso Anual XPTO,Médico residente,RS,Ginecologia,Congresso anterior,Não,7,7,7,5,7,8,7,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+267,Congresso Anual XPTO,Equipe interna XPTO,PR,Ginecologia,Congresso anterior,Não,10,10,10,10,8,9,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+268,Congresso Anual XPTO,Convidado especial,RJ,Ortopedia,Parceiro clínica,Não,9,9,9,7,7,7,8,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+269,Congresso Anual XPTO,Equipe interna XPTO,AL,Psiquiatria,WhatsApp,Não,5,6,6,4,5,5,3,Talvez,Não,Sinalização do hotel confusa. Me perdi indo para o workshop.
+270,Congresso Anual XPTO,Patrocinador,GO,Ortopedia,Indicação de colega,Sim,8,8,7,9,9,6,8,Sim,Sim,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+271,Congresso Anual XPTO,Médico palestrante,PR,Psiquiatria,Email marketing,Sim,9,8,9,7,7,10,7,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+272,Congresso Anual XPTO,Médico residente,AM,Endocrinologia,Site XPTO,Não,9,9,9,7,7,8,9,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+273,Congresso Anual XPTO,Médico residente,SE,Dermatologia,Redes sociais,Não,9,10,8,9,6,8,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+274,Congresso Anual XPTO,Convidado especial,CE,Clínica Geral,Site XPTO,Não,8,7,7,9,6,8,5,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+275,Congresso Anual XPTO,Equipe interna XPTO,SE,Clínica Geral,Indicação de colega,Não,9,9,10,8,7,7,6,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+276,Congresso Anual XPTO,Médico residente,RJ,Pediatria,Parceiro clínica,Não,9,8,8,8,8,10,7,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+277,Congresso Anual XPTO,Convidado especial,AM,Ortopedia,Parceiro clínica,Não,10,10,10,10,8,10,8,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+278,Congresso Anual XPTO,Médico palestrante,MG,Neurologia,Indicação de colega,Não,9,9,9,7,8,8,9,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+279,Congresso Anual XPTO,Médico participante,RN,Ortopedia,WhatsApp,Não,9,9,9,7,9,10,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+280,Congresso Anual XPTO,Equipe interna XPTO,DF,Medicina Integrativa,WhatsApp,Sim,10,9,10,8,10,9,7,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+281,Congresso Anual XPTO,Médico palestrante,PR,Cardiologia,Congresso anterior,Não,8,7,7,9,7,6,7,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+282,Congresso Anual XPTO,Médico participante,PE,Medicina Integrativa,WhatsApp,Sim,9,10,10,8,6,8,8,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+283,Congresso Anual XPTO,Equipe interna XPTO,PB,Geriatria,Email marketing,Não,9,10,9,8,9,9,6,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+284,Congresso Anual XPTO,Médico palestrante,CE,Nutrologia,Parceiro clínica,Sim,10,10,10,9,10,10,9,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+285,Congresso Anual XPTO,Patrocinador,RS,Dermatologia,WhatsApp,Não,10,10,10,8,7,10,9,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+286,Congresso Anual XPTO,Médico residente,SE,Neurologia,Site XPTO,Sim,9,9,8,9,7,8,9,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+287,Congresso Anual XPTO,Equipe interna XPTO,RN,Cardiologia,WhatsApp,Não,7,8,7,7,7,5,4,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+288,Congresso Anual XPTO,Equipe interna XPTO,MA,Neurologia,Site XPTO,Não,9,10,10,10,10,10,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+289,Congresso Anual XPTO,Patrocinador,AL,Geriatria,Indicação de colega,Não,10,9,10,10,10,8,10,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+290,Congresso Anual XPTO,Médico palestrante,DF,Nutrologia,Email marketing,Não,8,7,9,8,8,9,7,Sim,Sim,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+291,Congresso Anual XPTO,Convidado especial,CE,Ginecologia,Congresso anterior,Sim,7,8,6,7,6,7,6,Sim,Talvez,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+292,Congresso Anual XPTO,Convidado especial,MT,Pediatria,WhatsApp,Não,7,7,8,7,5,6,5,Sim,Talvez,Organização boa mas coffee break repetitivo no segundo dia.
+293,Congresso Anual XPTO,Equipe interna XPTO,DF,Cardiologia,WhatsApp,Não,10,10,10,9,9,8,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+294,Congresso Anual XPTO,Convidado especial,AM,Ortopedia,Site XPTO,Sim,10,10,10,9,10,9,10,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+295,Congresso Anual XPTO,Médico palestrante,DF,Nutrologia,WhatsApp,Não,10,10,9,9,10,8,10,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+296,Congresso Anual XPTO,Patrocinador,SP,Psiquiatria,Site XPTO,Não,8,8,9,8,5,8,8,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+297,Congresso Anual XPTO,Patrocinador,DF,Ginecologia,Indicação de colega,Não,9,8,10,7,6,10,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+298,Congresso Anual XPTO,Médico participante,BA,Neurologia,Parceiro clínica,Não,8,7,8,6,5,8,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+299,Congresso Anual XPTO,Patrocinador,RJ,Nutrologia,Redes sociais,Não,6,6,6,4,4,5,5,Talvez,Talvez,App do evento com erros na programação — entrei na sala errada.
+300,Congresso Anual XPTO,Equipe interna XPTO,RN,Ortopedia,Parceiro clínica,Não,6,6,6,6,3,5,5,Talvez,Talvez,Sinalização do hotel confusa. Me perdi indo para o workshop.
+301,Congresso Anual XPTO,Médico residente,MG,Dermatologia,Parceiro clínica,Sim,4,6,6,5,4,5,4,Não,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+302,Congresso Anual XPTO,Convidado especial,RS,Pediatria,Email marketing,Não,8,7,9,8,8,7,6,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+303,Congresso Anual XPTO,Convidado especial,ES,Medicina Integrativa,Email marketing,Não,10,10,10,10,10,10,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+304,Congresso Anual XPTO,Médico palestrante,RS,Pediatria,Congresso anterior,Não,9,10,10,9,10,9,9,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+305,Congresso Anual XPTO,Patrocinador,MA,Dermatologia,Indicação de colega,Não,7,8,6,5,7,7,4,Sim,Talvez,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+306,Congresso Anual XPTO,Médico participante,CE,Ginecologia,Indicação de colega,Não,8,7,9,7,5,7,6,Sim,Sim,Conteúdo excelente mas programação muito densa para 2 dias.
+307,Congresso Anual XPTO,Patrocinador,AM,Clínica Geral,Indicação de colega,Sim,8,8,7,7,8,7,5,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+308,Congresso Anual XPTO,Patrocinador,SC,Neurologia,WhatsApp,Não,8,9,9,9,6,9,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+309,Congresso Anual XPTO,Equipe interna XPTO,PB,Ortopedia,Redes sociais,Não,8,9,7,7,7,7,7,Sim,Sim,Organização boa mas coffee break repetitivo no segundo dia.
+310,Congresso Anual XPTO,Médico palestrante,RJ,Neurologia,Indicação de colega,Sim,9,8,10,8,7,7,7,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+311,Congresso Anual XPTO,Convidado especial,RS,Psiquiatria,Email marketing,Não,8,7,7,9,5,6,6,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+312,Congresso Anual XPTO,Patrocinador,RN,Endocrinologia,Indicação de colega,Não,9,9,8,8,9,10,6,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+313,Congresso Anual XPTO,Equipe interna XPTO,PR,Endocrinologia,Redes sociais,Não,9,9,10,9,10,9,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+314,Congresso Anual XPTO,Equipe interna XPTO,RS,Geriatria,Email marketing,Não,7,6,8,8,7,6,4,Sim,Talvez,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+315,Congresso Anual XPTO,Médico participante,SE,Endocrinologia,Congresso anterior,Não,10,10,10,9,7,10,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+316,Congresso Anual XPTO,Equipe interna XPTO,BA,Geriatria,Congresso anterior,Não,10,9,10,9,8,9,8,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+317,Congresso Anual XPTO,Equipe interna XPTO,PR,Clínica Geral,Congresso anterior,Não,10,10,10,8,9,9,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+318,Congresso Anual XPTO,Médico palestrante,AM,Psiquiatria,Redes sociais,Não,10,10,10,9,9,10,9,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+319,Congresso Anual XPTO,Médico participante,RN,Ortopedia,Congresso anterior,Não,9,9,8,8,9,9,7,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+320,Congresso Anual XPTO,Convidado especial,AM,Dermatologia,Parceiro clínica,Não,9,9,10,7,7,10,9,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+321,Congresso Anual XPTO,Médico palestrante,PI,Endocrinologia,Site XPTO,Sim,7,7,6,8,8,8,4,Sim,Talvez,Localização ótima mas estacionamento insuficiente.
+322,Congresso Anual XPTO,Equipe interna XPTO,AM,Endocrinologia,WhatsApp,Não,10,10,9,9,8,8,7,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+323,Congresso Anual XPTO,Patrocinador,MT,Ortopedia,Parceiro clínica,Não,10,10,9,9,7,8,9,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+324,Congresso Anual XPTO,Equipe interna XPTO,MA,Psiquiatria,Site XPTO,Não,9,10,9,9,7,9,8,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+325,Congresso Anual XPTO,Médico palestrante,SE,Medicina Integrativa,Email marketing,Sim,7,7,7,6,7,5,6,Sim,Talvez,Conteúdo excelente mas programação muito densa para 2 dias.
+326,Congresso Anual XPTO,Equipe interna XPTO,RJ,Nutrologia,Parceiro clínica,Sim,10,10,10,8,7,9,8,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+327,Congresso Anual XPTO,Convidado especial,GO,Psiquiatria,Email marketing,Sim,8,8,8,7,5,7,5,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+328,Congresso Anual XPTO,Equipe interna XPTO,RJ,Cardiologia,Congresso anterior,Não,9,10,8,8,9,7,7,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+329,Congresso Anual XPTO,Médico palestrante,MG,Cardiologia,Indicação de colega,Sim,10,10,10,10,10,9,7,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+330,Congresso Anual XPTO,Convidado especial,RJ,Clínica Geral,Email marketing,Não,8,7,7,6,5,6,8,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+331,Congresso Anual XPTO,Médico residente,AM,Psiquiatria,Congresso anterior,Não,9,8,8,8,6,9,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+332,Congresso Anual XPTO,Equipe interna XPTO,AM,Cardiologia,WhatsApp,Sim,9,9,10,9,10,7,7,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+333,Congresso Anual XPTO,Médico palestrante,MG,Clínica Geral,Redes sociais,Sim,10,10,10,9,9,8,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+334,Congresso Anual XPTO,Médico palestrante,MA,Dermatologia,Site XPTO,Sim,3,6,6,4,3,5,3,Não,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+335,Congresso Anual XPTO,Médico palestrante,PI,Geriatria,Redes sociais,Sim,10,10,10,8,7,9,10,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+336,Congresso Anual XPTO,Médico palestrante,PE,Cardiologia,Site XPTO,Não,9,10,9,10,8,8,7,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+337,Congresso Anual XPTO,Patrocinador,RJ,Ortopedia,Parceiro clínica,Sim,4,6,6,5,3,5,3,Não,Não,Microfone com chiado durante a palestra principal. Dificultou muito.
+338,Congresso Anual XPTO,Médico palestrante,SE,Pediatria,Redes sociais,Sim,7,8,6,8,4,8,7,Sim,Talvez,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+339,Congresso Anual XPTO,Equipe interna XPTO,DF,Endocrinologia,Indicação de colega,Não,9,8,9,9,8,8,6,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+340,Congresso Anual XPTO,Médico residente,SC,Ginecologia,Indicação de colega,Sim,7,8,7,8,7,8,6,Sim,Talvez,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+341,Congresso Anual XPTO,Patrocinador,MA,Clínica Geral,Redes sociais,Não,9,9,9,9,9,8,7,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+342,Congresso Anual XPTO,Equipe interna XPTO,MG,Endocrinologia,Parceiro clínica,Não,9,8,8,7,10,7,6,Sim,Sim,Excelente curadoria de palestrantes. Cada apresentação trouxe valor real.
+343,Congresso Anual XPTO,Médico participante,CE,Cardiologia,Email marketing,Não,10,10,9,8,10,10,9,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+344,Congresso Anual XPTO,Equipe interna XPTO,PR,Medicina Integrativa,WhatsApp,Sim,9,10,8,9,9,7,7,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+345,Congresso Anual XPTO,Médico participante,MG,Nutrologia,Congresso anterior,Sim,9,8,10,7,9,10,6,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+346,Congresso Anual XPTO,Médico participante,PB,Ortopedia,Indicação de colega,Não,6,6,6,6,7,6,6,Talvez,Talvez,Coffee break acabou antes do intervalo terminar. Problema de planejamento.
+347,Congresso Anual XPTO,Médico palestrante,MT,Endocrinologia,Email marketing,Não,7,6,8,8,5,7,6,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+348,Congresso Anual XPTO,Equipe interna XPTO,ES,Geriatria,Redes sociais,Não,4,6,6,4,3,5,3,Não,Não,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+349,Congresso Anual XPTO,Médico palestrante,PB,Dermatologia,Parceiro clínica,Não,10,10,9,8,9,8,8,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+350,Congresso Anual XPTO,Médico residente,RN,Ginecologia,Email marketing,Sim,10,10,10,10,7,10,9,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+351,Congresso Anual XPTO,Convidado especial,SP,Clínica Geral,Parceiro clínica,Sim,5,6,6,6,3,5,3,Talvez,Não,Credenciamento demorou mais de 50 minutos. Perdi a primeira palestra.
+352,Congresso Anual XPTO,Médico residente,PE,Geriatria,Indicação de colega,Não,9,10,8,9,10,7,8,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+353,Congresso Anual XPTO,Médico residente,RJ,Nutrologia,Parceiro clínica,Sim,5,6,6,4,6,5,5,Talvez,Não,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+354,Congresso Anual XPTO,Convidado especial,AL,Pediatria,Congresso anterior,Sim,9,8,9,10,6,10,9,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+355,Congresso Anual XPTO,Convidado especial,SC,Clínica Geral,Site XPTO,Não,10,9,9,10,9,8,10,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+356,Congresso Anual XPTO,Convidado especial,PE,Cardiologia,Indicação de colega,Sim,9,9,8,8,10,9,6,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+357,Congresso Anual XPTO,Equipe interna XPTO,SP,Clínica Geral,Congresso anterior,Não,7,7,8,6,4,6,7,Sim,Talvez,Bom de forma geral. O credenciamento poderia ter mais pontos de atendimento.
+358,Congresso Anual XPTO,Convidado especial,PB,Neurologia,Parceiro clínica,Sim,6,6,6,5,3,6,3,Talvez,Talvez,Palestrante do horário nobre cancelou sem aviso adequado.
+359,Congresso Anual XPTO,Médico palestrante,GO,Psiquiatria,Congresso anterior,Não,9,10,10,10,7,7,6,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+360,Congresso Anual XPTO,Médico participante,SE,Neurologia,Congresso anterior,Não,10,10,10,8,7,10,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+361,Congresso Anual XPTO,Convidado especial,RS,Endocrinologia,Parceiro clínica,Sim,9,9,10,8,10,10,8,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+362,Congresso Anual XPTO,Médico participante,SE,Endocrinologia,Email marketing,Sim,8,7,8,9,7,9,5,Sim,Sim,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+363,Congresso Anual XPTO,Médico palestrante,MT,Geriatria,Email marketing,Não,9,8,10,7,7,10,8,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+364,Congresso Anual XPTO,Convidado especial,ES,Neurologia,WhatsApp,Sim,9,9,10,10,6,9,6,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+365,Congresso Anual XPTO,Patrocinador,DF,Ortopedia,Email marketing,Não,10,9,10,10,7,10,10,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+366,Congresso Anual XPTO,Equipe interna XPTO,SE,Psiquiatria,Indicação de colega,Sim,9,10,10,8,8,10,8,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+367,Congresso Anual XPTO,Equipe interna XPTO,PI,Psiquiatria,Congresso anterior,Não,8,8,9,6,9,9,7,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+368,Congresso Anual XPTO,Equipe interna XPTO,SE,Cardiologia,Congresso anterior,Não,10,10,9,10,10,10,8,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+369,Congresso Anual XPTO,Equipe interna XPTO,SP,Endocrinologia,WhatsApp,Não,6,6,6,6,7,5,6,Talvez,Talvez,Coffee break acabou antes do intervalo terminar. Problema de planejamento.
+370,Congresso Anual XPTO,Convidado especial,SE,Endocrinologia,Email marketing,Não,10,9,10,10,10,9,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+371,Congresso Anual XPTO,Médico palestrante,PE,Medicina Integrativa,Site XPTO,Sim,10,10,10,8,10,8,7,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+372,Congresso Anual XPTO,Patrocinador,RJ,Cardiologia,Parceiro clínica,Sim,9,10,8,9,10,8,7,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+373,Congresso Anual XPTO,Equipe interna XPTO,MG,Cardiologia,Indicação de colega,Não,9,8,9,8,7,7,8,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+374,Congresso Anual XPTO,Convidado especial,AL,Clínica Geral,Site XPTO,Não,10,10,9,9,9,10,9,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+375,Congresso Anual XPTO,Médico palestrante,PE,Clínica Geral,WhatsApp,Sim,8,9,7,7,7,8,5,Sim,Sim,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+376,Congresso Anual XPTO,Equipe interna XPTO,RJ,Pediatria,Parceiro clínica,Não,9,10,8,8,8,7,6,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+377,Congresso Anual XPTO,Equipe interna XPTO,SE,Endocrinologia,Email marketing,Não,6,6,6,4,4,6,4,Talvez,Talvez,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+378,Congresso Anual XPTO,Médico residente,MT,Dermatologia,WhatsApp,Não,9,10,10,8,10,10,9,Sim,Sim,O Dr. Ítalo é um inspirador nato. Presença obrigatória.
+379,Congresso Anual XPTO,Convidado especial,MT,Geriatria,Redes sociais,Não,10,9,10,10,10,10,9,Sim,Sim,Já indiquei para 5 colegas. Vale muito o investimento.
+380,Congresso Anual XPTO,Médico participante,MG,Clínica Geral,WhatsApp,Sim,9,10,8,7,9,9,7,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."
+381,Congresso Anual XPTO,Equipe interna XPTO,CE,Nutrologia,Email marketing,Sim,9,9,10,7,7,10,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+382,Congresso Anual XPTO,Patrocinador,DF,Medicina Integrativa,Congresso anterior,Não,7,8,8,7,6,7,4,Sim,Talvez,Salas um pouco frias no segundo período. Sugiro ajuste no ar-condicionado.
+383,Congresso Anual XPTO,Equipe interna XPTO,SP,Ginecologia,Email marketing,Não,9,10,9,8,8,9,7,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+384,Congresso Anual XPTO,Patrocinador,MT,Medicina Integrativa,Congresso anterior,Não,10,10,10,10,10,10,10,Sim,Sim,"O melhor congresso da área no Brasil, sem dúvida. Estarei no próximo."
+385,Congresso Anual XPTO,Patrocinador,ES,Dermatologia,Indicação de colega,Sim,10,10,10,10,9,10,10,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+386,Congresso Anual XPTO,Convidado especial,SP,Geriatria,Site XPTO,Não,9,8,8,7,9,8,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+387,Congresso Anual XPTO,Patrocinador,MT,Medicina Integrativa,Parceiro clínica,Sim,10,9,10,10,9,8,7,Sim,Sim,A equipe de suporte foi extremamente atenciosa durante todo o evento.
+388,Congresso Anual XPTO,Médico residente,AM,Geriatria,WhatsApp,Não,7,6,6,8,5,6,4,Sim,Talvez,Adorei os palestrantes principais. Os workshops simultâneos foram irregulares.
+389,Congresso Anual XPTO,Médico palestrante,SC,Endocrinologia,Parceiro clínica,Não,8,8,9,9,7,9,6,Sim,Sim,App do evento com informações desatualizadas em alguns momentos.
+390,Congresso Anual XPTO,Convidado especial,RJ,Medicina Integrativa,Email marketing,Sim,6,6,7,4,3,6,5,Talvez,Talvez,Cronograma atrasou mais de 1h30 no segundo dia sem comunicação.
+391,Congresso Anual XPTO,Médico participante,SP,Neurologia,Email marketing,Sim,9,10,9,10,9,8,7,Sim,Sim,Palestrantes de altíssimo nível. Conteúdo científico denso e aplicável.
+392,Congresso Anual XPTO,Médico palestrante,PI,Geriatria,Redes sociais,Não,10,9,10,10,8,10,9,Sim,Sim,Organização impecável. Logística funcionou perfeitamente do início ao fim.
+393,Congresso Anual XPTO,Médico residente,ES,Clínica Geral,Indicação de colega,Não,7,6,6,6,8,7,5,Sim,Talvez,"Sinalização boa na maioria dos espaços, mas confusa no subsolo."
+394,Congresso Anual XPTO,Patrocinador,DF,Medicina Integrativa,Redes sociais,Não,9,9,10,7,9,9,7,Sim,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+395,Congresso Anual XPTO,Patrocinador,AL,Endocrinologia,Redes sociais,Sim,7,8,8,6,8,7,6,Sim,Talvez,App do evento com informações desatualizadas em alguns momentos.
+396,Congresso Anual XPTO,Patrocinador,CE,Ginecologia,Congresso anterior,Não,8,9,8,8,8,8,6,Sim,Sim,Localização ótima mas estacionamento insuficiente.
+397,Congresso Anual XPTO,Médico participante,MG,Endocrinologia,Indicação de colega,Sim,10,10,10,10,10,8,10,Sim,Sim,Estrutura do evento impecável. Credenciamento rápido e eficiente.
+398,Congresso Anual XPTO,Equipe interna XPTO,BA,Cardiologia,Congresso anterior,Não,9,10,10,8,9,8,6,Sim,Sim,Networking incrível. Já tenho novos parceiros de consultório.
+399,Congresso Anual XPTO,Convidado especial,SE,Medicina Integrativa,Congresso anterior,Sim,10,10,10,8,10,8,7,Sim,Sim,O coffee break estava excelente. Detalhe que faz diferença no longo dia.
+400,Congresso Anual XPTO,Equipe interna XPTO,DF,Ginecologia,Redes sociais,Não,9,8,8,10,10,8,8,Sim,Sim,"Materiais e apostilas de alta qualidade, bem organizados."

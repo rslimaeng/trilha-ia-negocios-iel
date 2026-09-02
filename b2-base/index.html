@@ -3262,6 +3262,93 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     ferramenta é o&nbsp;mesmo problema da&nbsp;aula passada, com&nbsp;outra roupa: a&nbsp;resposta vem de&nbsp;fora, e&nbsp;a&nbsp;fonte citada continua sendo texto até&nbsp;você abrir. A&nbsp;ficha que&nbsp;você baixou
     lá serve aqui sem&nbsp;uma&nbsp;alteração.</p>
 
+
+    <h3>O&nbsp;protocolo que&nbsp;faz a&nbsp;resposta apontar para&nbsp;o&nbsp;trecho</h3>
+
+    <p>O&nbsp;<strong>NotebookLM</strong> é o&nbsp;caderno em&nbsp;que&nbsp;você joga os&nbsp;documentos da&nbsp;sua&nbsp;empresa e&nbsp;pergunta sobre&nbsp;eles. Ele responde só&nbsp;a&nbsp;partir do&nbsp;que&nbsp;está ali dentro, e&nbsp;devolve junto o&nbsp;pedaço do&nbsp;arquivo que&nbsp;sustenta cada frase. Tem plano gratuito, e&nbsp;nada
+    do&nbsp;que&nbsp;está nesta aula depende de&nbsp;plano pago.</p>
+
+    <p>A&nbsp;ferramenta cita sozinha, e&nbsp;mesmo assim ela responde melhor quando&nbsp;o&nbsp;pedido
+    <strong>exige</strong> a&nbsp;citação em&nbsp;vez de&nbsp;esperar por&nbsp;ela. São três regras, e&nbsp;as&nbsp;três cabem dentro do&nbsp;pedido que&nbsp;você já&nbsp;sabe escrever.</p>
+
+    <div class="cartao">
+      <span class="rot">As três regras, e onde cada uma mora no pedido</span>
+      <ul class="lista">
+        <li><strong>Toda afirmação carrega o&nbsp;trecho de&nbsp;onde&nbsp;saiu.</strong> Isso é
+        <strong>[F]ormato</strong>: você pede que&nbsp;a&nbsp;resposta traga, ao&nbsp;lado de&nbsp;cada
+        ponto, a&nbsp;seção ou&nbsp;a&nbsp;cláusula que&nbsp;o&nbsp;sustenta.</li>
+        <li><strong>O&nbsp;que&nbsp;não&nbsp;está no&nbsp;documento é dito, não&nbsp;completado.</strong> Isso é
+        <strong>[L]imitação</strong>: quando&nbsp;a&nbsp;informação não&nbsp;existe nos&nbsp;arquivos, a&nbsp;resposta escreve que&nbsp;não&nbsp;consta, em&nbsp;vez de&nbsp;preencher com&nbsp;a&nbsp;média do&nbsp;mercado.</li>
+        <li><strong>Número, prazo e&nbsp;artigo de&nbsp;lei saem marcados para&nbsp;conferência.</strong>
+        Também é <strong>[L]</strong>: peça a&nbsp;marca <span class="selo selo-mono">verificar
+        na&nbsp;fonte</span> em&nbsp;toda alíquota, prazo legal e&nbsp;artigo citado, com&nbsp;a&nbsp;indicação de&nbsp;onde&nbsp;ir conferir.</li>
+      </ul>
+      <p class="fig-leg">A&nbsp;terceira existe porque&nbsp;a&nbsp;citação prova a&nbsp;<strong>origem</strong>
+      e&nbsp;não&nbsp;a&nbsp;<strong>leitura</strong>. Ela pode apontar o&nbsp;parágrafo certo e&nbsp;concluir
+      errado a&nbsp;partir dele, e&nbsp;isso acontece mais nas&nbsp;categorias em&nbsp;que&nbsp;o&nbsp;erro custa caro:
+      prazo, valor e&nbsp;obrigação legal.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido para uma base fechada, pronto para copiar e adaptar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b2base-notebook">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b2base-notebook">[P] Papel / Persona:
+Um analista que responde exclusivamente a partir dos documentos
+carregados, e que trata "não consta" como resposta legítima.
+
+[C] Contexto:
+Carreguei nesta base dois arquivos da minha empresa: a política
+comercial vigente e a ata da reunião em que ela foi revisada. Sou
+gerente comercial e preciso saber o que posso aprovar sozinho antes
+de responder a um cliente ainda hoje.
+
+[T] Tarefa:
+Responda, critério por critério, até que percentual de desconto a
+alçada de gerente vai, quem aprova acima disso, e que exigência
+adicional existe para cliente sem histórico. Depois compare os dois
+documentos e diga o que foi combinado na ata e não virou regra
+escrita na política.
+
+[F] Formato:
+Uma linha por critério, e ao lado de cada uma a seção do documento
+que a sustenta. No fim, um bloco curto só com as divergências entre
+os dois arquivos.
+
+[L] Limitações:
+Use apenas os documentos carregados. Se alguma coisa não estiver
+neles, escreva "não consta nos documentos carregados" em vez de
+completar com prática de mercado. Não interprete cláusula do ponto
+de vista jurídico. Marque com "verificar na fonte" todo prazo, valor
+e obrigação legal que você citar, e diga onde eu confiro cada um.
+
+[Critério de Sucesso]:
+A resposta serve se eu conseguir clicar em cada citação, cair no
+trecho que diz aquilo, e responder ao cliente sem abrir os dois
+arquivos inteiros.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;tarefa pede duas coisas, e&nbsp;a&nbsp;segunda é a&nbsp;que&nbsp;justifica a&nbsp;base fechada.</strong> A&nbsp;primeira parte qualquer ferramenta faz. A&nbsp;comparação entre&nbsp;a&nbsp;política e&nbsp;a&nbsp;ata é o&nbsp;que&nbsp;só&nbsp;acontece quando&nbsp;os&nbsp;dois arquivos estão
+    na&nbsp;mesma base, e&nbsp;é onde&nbsp;costuma aparecer o&nbsp;combinado que&nbsp;ninguém escreveu.</p>
+
+    <h3>Onde&nbsp;ela não&nbsp;serve, e&nbsp;são dois casos concretos</h3>
+
+    <div class="duo">
+      <div class="cartao">
+        <span class="rot">Pesquisa que exige raciocínio em etapas</span>
+        <p>Para&nbsp;um&nbsp;panorama rápido de&nbsp;um&nbsp;assunto novo, o&nbsp;modo pesquisa resolve. Quando&nbsp;a&nbsp;pergunta exige encadear várias etapas de&nbsp;raciocínio, comparar cenários e&nbsp;pesar
+        contradições entre&nbsp;fontes, a&nbsp;conversa comum com&nbsp;pesquisa profunda entrega melhor.
+        <strong>Use a&nbsp;base fechada para&nbsp;organizar, e&nbsp;a&nbsp;conversa comum para&nbsp;sintetizar.</strong></p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Documento que muda toda semana</span>
+        <p>Arquivo do&nbsp;Google carregado na&nbsp;base é <strong>documento vivo</strong>: quando&nbsp;alguém edita, você sincroniza e&nbsp;a&nbsp;versão nova entra. PDF é estático, e&nbsp;ninguém
+        avisa que&nbsp;ele envelheceu. Se&nbsp;a&nbsp;sua&nbsp;política muda com&nbsp;frequência, suba a&nbsp;versão
+        que&nbsp;sincroniza, ou&nbsp;você vai conferir citação contra&nbsp;um&nbsp;texto revogado.</p>
+      </div>
+    </div>
+
     <h3>A&nbsp;regra de&nbsp;montagem, e&nbsp;ela é uma&nbsp;só</h3>
 
     <p><strong>Um&nbsp;assunto por&nbsp;base.</strong> Não&nbsp;misture o&nbsp;contrato do&nbsp;fornecedor com&nbsp;a&nbsp;política de&nbsp;RH na&nbsp;mesma. Não&nbsp;é organização: é qualidade de&nbsp;resposta. Quando&nbsp;os&nbsp;documentos falam de&nbsp;coisas diferentes, a&nbsp;citação passa a&nbsp;apontar para&nbsp;o&nbsp;arquivo
@@ -3476,6 +3563,13 @@ cliente novo? Se não puder, quem aprova e em quanto tempo?</pre>
     </div>
     <p class="fig-leg">Documento e&nbsp;planilha são materiais diferentes e&nbsp;pedem tratamento
     diferente. Misturar os&nbsp;dois na&nbsp;mesma ferramenta é a&nbsp;origem de&nbsp;metade da&nbsp;frustração de&nbsp;quem começa.</p>
+    </div>
+
+
+    <div class="cartao">
+      <span class="rot">Onde isto reaparece, mais para a frente</span>
+      <p>Quando&nbsp;a&nbsp;base fechada deixa de&nbsp;ser uma&nbsp;consulta e&nbsp;vira um&nbsp;assistente que&nbsp;você
+      abre todo dia, isso tem nome (Claude Projects, Gems, GPT) e&nbsp;é assunto do&nbsp;bloco 4.</p>
     </div>
   </section>
 

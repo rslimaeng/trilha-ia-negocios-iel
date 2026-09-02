@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satisfação do Cliente — Relatório Executivo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#14213D;
+    --slate:#5B6472;
+    --slate-light:#8A94A6;
+    --green:#2F7D5B;
+    --green-bg:#EAF3EE;
+    --brick:#A8452F;
+    --brick-bg:#F8ECE9;
+    --gold:#B8862A;
+    --gold-bg:#FBF3E3;
+    --paper:#F4F5F7;
+    --card:#FFFFFF;
+    --rule:#DBDFE5;
+    --rule-strong:#B9C0CB;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-variant-numeric:tabular-nums;
+    line-height:1.45;
+  }
+  .report-head{
+    background:var(--ink);
+    color:#fff;
+    padding:28px clamp(16px,4vw,48px) 0;
+  }
+  .report-head .top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:12px;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,0.16);
+  }
+  .report-head h1{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-weight:400;
+    font-size:clamp(22px,3vw,30px);
+    margin:0 0 4px;
+    letter-spacing:0.2px;
+  }
+  .report-head .subtitle{
+    color:rgba(255,255,255,0.68);
+    font-size:14px;
+    margin:0;
+  }
+  .report-head .meta{
+    text-align:right;
+    font-size:13px;
+    color:rgba(255,255,255,0.68);
+  }
+  .tabs{
+    display:flex;
+    gap:clamp(14px,3vw,32px);
+    padding-top:14px;
+    overflow-x:auto;
+  }
+  .tab-btn{
+    background:none;
+    border:none;
+    color:rgba(255,255,255,0.62);
+    font-size:14.5px;
+    font-family:inherit;
+    padding:10px 2px 14px;
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+  }
+  .tab-btn:hover{color:#fff;}
+  .tab-btn.active{
+    color:#fff;
+    border-bottom:2px solid var(--gold);
+  }
+  .tab-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  main{
+    max-width:1180px;
+    margin:0 auto;
+    padding:32px clamp(16px,4vw,48px) 64px;
+  }
+  .panel{display:none;}
+  .panel.active{display:block;animation:fade .25s ease;}
+  @media (prefers-reduced-motion:reduce){.panel.active{animation:none;}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+
+  h2.section-title{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-weight:400;
+    font-size:20px;
+    margin:0 0 4px;
+  }
+  p.section-note{
+    color:var(--slate);
+    font-size:13.5px;
+    margin:0 0 22px;
+    max-width:70ch;
+  }
+
+  .kpi-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .kpi-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:18px 20px;
+  }
+  .kpi-card .label{
+    font-size:12.5px;
+    color:var(--slate);
+    margin:0 0 8px;
+  }
+  .kpi-card .value{
+    font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+    font-size:30px;
+    margin:0;
+    line-height:1;
+  }
+  .kpi-card .sub{
+    font-size:12.5px;
+    color:var(--slate-light);
+    margin:8px 0 0;
+  }
+  .kpi-card.flag-green .value{color:var(--green);}
+  .kpi-card.flag-brick .value{color:var(--brick);}
+  .kpi-card.flag-gold .value{color:var(--gold);}
+
+  .grid-2{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:20px;
+    align-items:start;
+  }
+  @media (max-width:820px){.grid-2{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:20px 22px;
+  }
+  .card h3{
+    font-size:14.5px;
+    font-weight:600;
+    margin:0 0 4px;
+  }
+  .card .card-note{
+    font-size:12.5px;
+    color:var(--slate);
+    margin:0 0 14px;
+  }
+  .chart-wrap{position:relative;height:280px;}
+  .chart-wrap.tall{height:320px;}
+
+  .insight-box{
+    border-left:3px solid var(--gold);
+    background:var(--gold-bg);
+    padding:14px 18px;
+    border-radius:0 3px 3px 0;
+    margin-bottom:16px;
+  }
+  .insight-box h4{
+    margin:0 0 8px;
+    font-size:13.5px;
+  }
+  .insight-box ol{
+    margin:0;
+    padding-left:18px;
+    font-size:13.5px;
+  }
+  .insight-box li{margin-bottom:6px;}
+  .insight-box li:last-child{margin-bottom:0;}
+
+  .callout{
+    border:1px solid var(--rule);
+    border-left:3px solid var(--brick);
+    background:var(--brick-bg);
+    padding:14px 18px;
+    border-radius:0 3px 3px 0;
+    font-size:13.5px;
+    margin-top:16px;
+  }
+  .callout.pos{border-left-color:var(--green);background:var(--green-bg);}
+  .callout strong{display:block;margin-bottom:3px;font-size:13.5px;}
+
+  table.stmt{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+    margin-top:4px;
+  }
+  table.stmt th{
+    text-align:left;
+    font-weight:600;
+    color:var(--slate);
+    font-size:12px;
+    padding:6px 8px;
+    border-bottom:1px solid var(--rule-strong);
+  }
+  table.stmt td{
+    padding:7px 8px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.stmt td:not(:first-child), table.stmt th:not(:first-child){text-align:right;}
+  table.stmt tr:last-child td{border-bottom:none;}
+
+  footer{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(16px,4vw,48px) 40px;
+    color:var(--slate-light);
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="report-head">
+  <div class="top">
+    <div>
+      <h1>Satisfação do Cliente — Relatório Executivo</h1>
+      <p class="subtitle">Base: 1.000 respondentes · Escala de satisfação 0–10</p>
+    </div>
+    <div class="meta">Preparado a partir da pesquisa E2 — Satisfação<br>Setembro 2026</div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="geral">Visão Geral</button>
+    <button class="tab-btn" data-tab="segmentacao">Segmentação de Clientes</button>
+    <button class="tab-btn" data-tab="diagnostico">Diagnóstico Operacional</button>
+    <button class="tab-btn" data-tab="voz">Voz do Cliente</button>
+  </nav>
+</div>
+
+<main>
+
+  <!-- TAB 1: VISÃO GERAL -->
+  <section class="panel active" id="panel-geral">
+    <h2 class="section-title">Visão Geral</h2>
+    <p class="section-note">Os quatro números que sustentam as decisões deste relatório.</p>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <p class="label">Satisfação geral (P01)</p>
+        <p class="value">5,90 / 10</p>
+        <p class="sub">média sobre 1.000 respondentes</p>
+      </div>
+      <div class="kpi-card flag-brick">
+        <p class="label">Maior alavanca de variação</p>
+        <p class="value">Perfil de Cliente</p>
+        <p class="sub">5,75 pts de diferença entre Em Risco e Premium — região, idade e gênero não discriminam</p>
+      </div>
+      <div class="kpi-card flag-green">
+        <p class="label">Ganho estimado se agir</p>
+        <p class="value">+0,49 pt</p>
+        <p class="sub">de 5,90 para ~6,39, via 2 alavancas operacionais específicas</p>
+      </div>
+      <div class="kpi-card flag-gold">
+        <p class="label">Sentimento — comentários abertos</p>
+        <p class="value">45,9% positivo</p>
+        <p class="sub">33,4% negativo · 20,7% neutro (n=748)</p>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <h4>O que importa para a diretoria</h4>
+      <ol>
+        <li><strong>O problema é de segmento, não demográfico.</strong> "Em Risco" é 32% da base, nota média 2,93, e 99,4% dá nota 0–6 — é risco de churn ativo, não insatisfação difusa.</li>
+        <li><strong>O maior ganho de satisfação geral não vem do item com pior nota isolada.</strong> "Problemas" tem a pior média (4,78), mas efeito estatístico nulo sobre a nota geral. Experiência de Compra e Qualidade — notas medianas — são as duas alavancas com efeito comprovado.</li>
+        <li><strong>O canal de voz do cliente não captura causa.</strong> 54% de quem comenta não menciona um motivo específico (respostas genéricas como "OK", "Perfeito!").</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TAB 2: SEGMENTACAO -->
+  <section class="panel" id="panel-segmentacao">
+    <h2 class="section-title">Segmentação de Clientes</h2>
+    <p class="section-note">Perfil de Cliente é a única variável demográfica/comercial que discrimina satisfação real nesta base.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Satisfação média por Perfil de Cliente</h3>
+        <p class="card-note">Passe o cursor para ver % de detratores (nota 0–6) e promotores (nota 9–10)</p>
+        <div class="chart-wrap"><canvas id="chartPerfil"></canvas></div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Subgrupo mais crítico da base</h3>
+          <p class="card-note">Cruzamento Perfil × Faixa Etária</p>
+          <table class="stmt">
+            <tr><th>Segmento</th><th>n</th><th>Nota média</th></tr>
+            <tr><td>Em Risco, 46–55 anos</td><td>45</td><td style="color:var(--brick);font-weight:600;">2,22</td></tr>
+            <tr><td>Em Risco (geral)</td><td>322</td><td>2,93</td></tr>
+            <tr><td>Standard (geral)</td><td>374</td><td>6,20</td></tr>
+            <tr><td>Premium (geral)</td><td>304</td><td>8,68</td></tr>
+          </table>
+          <div class="callout">
+            <strong>Fica invisível em qualquer corte por idade sozinho</strong>
+            A faixa 46–55 parece saudável no agregado (6,20) porque também concentra a maior fatia de clientes Premium. O pior subgrupo do dataset está escondido dentro dela.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>Nota metodológica — por que região e gênero não aparecem neste relatório</strong>
+      Gênero não discrimina satisfação (5,90 em ambos). A variação aparente por região e por idade, isolada, é efeito de composição de carteira (cada região/faixa tem uma mistura diferente de Em Risco/Standard/Premium) — não uma diferença real de experiência. Controlando por Perfil de Cliente, a variação regional cai de ~1 ponto para 0,3 ponto.
+    </div>
+  </section>
+
+  <!-- TAB 3: DIAGNOSTICO -->
+  <section class="panel" id="panel-diagnostico">
+    <h2 class="section-title">Diagnóstico Operacional</h2>
+    <p class="section-note">Dos 14 critérios avaliados (P02–P15), 3 se destacam nas notas mais baixas — mas nem todos movem a satisfação geral.</p>
+
+    <div class="kpi-row" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+      <div class="kpi-card">
+        <p class="label">Nota mais baixa do questionário</p>
+        <p class="value">4,78</p>
+        <p class="sub">Problemas — único item estatisticamente distinto dos demais</p>
+      </div>
+      <div class="kpi-card flag-green">
+        <p class="label">Alavancas com efeito líquido comprovado</p>
+        <p class="value">Experiência + Qualidade</p>
+        <p class="sub">únicos 2 itens com contribuição isolada estatisticamente significativa sobre a nota geral</p>
+      </div>
+      <div class="kpi-card">
+        <p class="label">Impacto projetado</p>
+        <p class="value">5,90 → 6,39</p>
+        <p class="sub">melhorando Experiência de Compra e Qualidade em 2 pontos cada</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Nota média (bruta) dos 3 piores critérios</h3>
+        <p class="card-note">Intervalo de confiança 95% — só "Problemas" é distinto dos demais 13 critérios</p>
+        <div class="chart-wrap"><canvas id="chartNotas"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Efeito líquido sobre a satisfação geral</h3>
+        <p class="card-note">Contribuição isolada, controlando os outros 13 critérios e o Perfil de Cliente</p>
+        <div class="chart-wrap"><canvas id="chartEfeito"></canvas></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>"Problemas" não move a média — mas ameaça a carteira Premium</strong>
+      Apesar da pior nota do questionário, o efeito líquido de "Problemas" sobre a satisfação geral é estatisticamente nulo. Porém, clientes Premium avaliam esse item 2,55 pontos abaixo do próprio padrão nos demais critérios — o maior desvio da base. É um argumento de retenção da carteira mais rentável, não de KPI de pesquisa. São duas decisões de investimento com lógicas de retorno diferentes.
+    </div>
+  </section>
+
+  <!-- TAB 4: VOZ DO CLIENTE -->
+  <section class="panel" id="panel-voz">
+    <h2 class="section-title">Voz do Cliente</h2>
+    <p class="section-note">Análise dos comentários abertos — 748 de 1.000 respondentes comentaram.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Sentimento geral</h3>
+        <p class="card-note">Validado contra a nota numérica (positivo = 8,11 · neutro = 5,91 · negativo = 2,85)</p>
+        <div class="chart-wrap"><canvas id="chartSentimento"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>5 temas mais recorrentes</h3>
+        <p class="card-note">Por volume de menções, coloridos pelo sentimento dominante</p>
+        <div class="chart-wrap tall"><canvas id="chartTemas"></canvas></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>54% dos comentários não dizem o motivo</strong>
+      407 dos 748 comentários são respostas genéricas sem tema específico ("OK", "Perfeito!", "Regular"). É maior que qualquer um dos 5 temas identificados — o canal de pesquisa atual não está elicitando a causa da nota na maioria das respostas.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Fonte: pesquisa de satisfação E2 (n=1.000). Todos os números refletem exclusivamente as análises realizadas nesta base — nenhum dado adicional foi introduzido.
+</footer>
+
+<script>
+  // --- Navegação por abas ---
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  tabButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      tabButtons.forEach(b=>b.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // --- Paleta ---
+  const C = {
+    green:'#2F7D5B', greenBg:'rgba(47,125,91,0.14)',
+    brick:'#A8452F', brickBg:'rgba(168,69,47,0.14)',
+    gold:'#B8862A', goldBg:'rgba(184,134,42,0.16)',
+    slate:'#8A94A6', slateBg:'rgba(138,148,166,0.16)',
+    ink:'#14213D'
+  };
+  Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+  Chart.defaults.font.size = 12.5;
+  Chart.defaults.color = '#5B6472';
+
+  // --- Tab 2: Perfil de Cliente ---
+  new Chart(document.getElementById('chartPerfil'), {
+    type:'bar',
+    data:{
+      labels:['Em Risco','Standard','Premium'],
+      datasets:[{
+        label:'Nota média',
+        data:[2.93, 6.20, 8.68],
+        backgroundColor:[C.brick, C.gold, C.green],
+        borderRadius:3,
+        maxBarThickness:70
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            afterLabel:(ctx)=>{
+              const extra = [
+                'n=322 · 99,4% detratores · 0,0% promotores',
+                'n=374 · 58,8% detratores · 10,7% promotores',
+                'n=304 · 3,6% detratores · 60,2% promotores'
+              ];
+              return extra[ctx.dataIndex];
+            }
+          }
+        }
+      },
+      scales:{ y:{ min:0, max:10, ticks:{stepSize:2} } }
+    }
+  });
+
+  // --- Tab 3: Notas brutas com IC95 (via barras de erro simuladas com 2 datasets) ---
+  new Chart(document.getElementById('chartNotas'), {
+    type:'bar',
+    data:{
+      labels:['Problemas','Experiência\nde Compra','Qualidade'],
+      datasets:[{
+        label:'Nota média',
+        data:[4.78, 5.83, 5.88],
+        backgroundColor:[C.brick, C.slate, C.slate],
+        borderRadius:3,
+        maxBarThickness:60
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            afterLabel:(ctx)=>{
+              const ic = ['IC95%: 4,64–4,92 (distinto dos demais)','IC95%: 5,66–6,00 (empatado com 10+ itens)','IC95%: 5,71–6,06 (empatado com 10+ itens)'];
+              return ic[ctx.dataIndex];
+            }
+          }
+        }
+      },
+      scales:{ y:{ min:0, max:10 } }
+    }
+  });
+
+  // --- Tab 3: Efeito líquido (regressão controlada) ---
+  new Chart(document.getElementById('chartEfeito'), {
+    type:'bar',
+    data:{
+      labels:['Problemas','Experiência\nde Compra','Qualidade'],
+      datasets:[{
+        label:'Coeficiente líquido',
+        data:[-0.014, 0.130, 0.113],
+        backgroundColor:[C.slate, C.green, C.green],
+        borderRadius:3,
+        maxBarThickness:60
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            afterLabel:(ctx)=>{
+              const sig = ['não significativo (p=0,542)','significativo (p<0,001)','significativo (p<0,001)'];
+              return sig[ctx.dataIndex];
+            }
+          }
+        }
+      },
+      scales:{ x:{ min:-0.05, max:0.18 } }
+    }
+  });
+
+  // --- Tab 4: Sentimento (donut) ---
+  new Chart(document.getElementById('chartSentimento'), {
+    type:'doughnut',
+    data:{
+      labels:['Positivo (343)','Negativo (250)','Neutro (155)'],
+      datasets:[{
+        data:[45.9, 33.4, 20.7],
+        backgroundColor:[C.green, C.brick, C.slate],
+        borderColor:'#fff',
+        borderWidth:2
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      cutout:'62%',
+      plugins:{ legend:{ position:'bottom', labels:{boxWidth:12, padding:14} } }
+    }
+  });
+
+  // --- Tab 4: Temas (barra horizontal) ---
+  new Chart(document.getElementById('chartTemas'), {
+    type:'bar',
+    data:{
+      labels:['Atendimento','Recomendação /\nLealdade','Experiência\nde Compra','Problemas /\nDefeito','Tempo /\nDemora'],
+      datasets:[{
+        label:'Menções',
+        data:[84, 74, 69, 63, 32],
+        backgroundColor:[C.green, C.brick, C.green, C.brick, C.brick],
+        borderRadius:3
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            afterLabel:(ctx)=>{
+              const s = ['71% positivo / 29% negativo','30% positivo / 70% negativo','84% positivo / 16% negativo','100% negativo','100% negativo'];
+              return s[ctx.dataIndex];
+            }
+          }
+        }
+      },
+      scales:{ x:{ beginAtZero:true } }
+    }
+  });
+</script>
+
+</body>
+</html>

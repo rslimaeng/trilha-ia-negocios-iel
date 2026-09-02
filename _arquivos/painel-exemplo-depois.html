@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Satisfação do Cliente · Relatório Executivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+/* =========================================================================
+   TOKENS — copiados do JED Design System (sem alteração)
+   ========================================================================= */
+:root{
+  --green-50:#F1F8F4; --green-100:#E1F0E8; --green-200:#C2DFCE; --green-300:#93C3A9;
+  --green-400:#5FA079; --green-500:#3C8159; --green-600:#2E6B45; --green-700:#22593A;
+  --green-800:#1B4A2C; --green-900:#123320;
+  --lime-300:#CBE067; --lime-400:#B4D335; --lime-500:#9FC131; --lime-600:#7C991F;
+  --orange-400:#EE8B57; --orange-500:#E2703A; --orange-600:#C2571F;
+  --teal-400:#7FBDB6; --teal-500:#5FA8A0; --teal-600:#3F8880;
+  --blue:#2F5AE0; --violet:#6E6BE8; --crimson:#C63A2B; --gold:#E3A72F;
+  --ink-900:#121A15; --ink-800:#1E2A23; --ink-700:#33403A; --ink-600:#4B584F;
+  --ink-500:#657168; --ink-400:#8B968E; --ink-300:#B4BDB6;
+  --line-300:#CED6D0; --line-200:#DFE5E0; --line-100:#EDF1ED;
+  --surface-3:#EAF0EB; --surface-2:#F3F6F1; --surface-1:#FAFBF7; --surface-0:#FFFFFF;
+  --success:#1F7A4D; --success-bg:#E4F3EB;
+  --warning:#B57A0E; --warning-bg:#FBF0D9;
+  --danger:#BC3324;  --danger-bg:#FBE7E3;
+  --info:#2F5AE0;    --info-bg:#E7ECFC;
+  --bg:var(--surface-1); --panel:var(--surface-0); --panel-2:var(--surface-2);
+  --text:var(--ink-900); --text-muted:var(--ink-500); --text-subtle:var(--ink-400);
+  --border:var(--line-200); --border-strong:var(--line-300);
+  --brand:var(--green-700); --brand-hover:var(--green-600); --brand-press:var(--green-800);
+  --on-brand:#FFFFFF; --accent:var(--lime-500); --on-accent:var(--green-900);
+  --ring:rgba(60,129,89,.42);
+  --font-display:"Bricolage Grotesque",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-ui:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r-xs:6px; --r-sm:10px; --r-md:14px; --r-lg:20px; --r-xl:28px; --r-2xl:36px; --r-pill:999px;
+  --sh-xs:0 1px 2px rgba(18,26,21,.06);
+  --sh-sm:0 2px 8px rgba(18,26,21,.06),0 1px 2px rgba(18,26,21,.04);
+  --sh-md:0 10px 26px rgba(18,26,21,.08),0 2px 6px rgba(18,26,21,.05);
+  --e-standard:cubic-bezier(.4,0,.2,1); --e-emphasized:cubic-bezier(.32,.72,0,1);
+  --t-fast:120ms; --t-base:200ms; --t-slow:320ms;
+  --nav-w:264px; --max:1180px;
+}
+:root[data-theme="dark"]{
+  --green-700:#3F8E62; --green-600:#4CA173; --green-800:#2A6B49;
+  --ink-900:#EAF1EC; --ink-800:#D6E1DA; --ink-700:#B7C6BC; --ink-600:#93A79A;
+  --ink-500:#7E9188; --ink-400:#5F7269; --ink-300:#41524A;
+  --line-300:#33443B; --line-200:#273630; --line-100:#1E2C26;
+  --surface-3:#20302A; --surface-2:#182219; --surface-1:#0E1611; --surface-0:#141E18;
+  --success:#39A870; --success-bg:#12281D;
+  --warning:#D9A63C; --warning-bg:#2C2210;
+  --danger:#E06A5A;  --danger-bg:#2E1512;
+  --info:#6E8CF0;    --info-bg:#141E33;
+  --text:#EAF1EC; --text-muted:#9DB0A5; --text-subtle:#71857A;
+  --brand:#4FA574; --brand-hover:#5FB283; --brand-press:#3F8E62; --on-brand:#0A1410;
+  --accent:#B4D335; --on-accent:#0F1E08; --ring:rgba(120,196,150,.42);
+  --sh-xs:0 1px 2px rgba(0,0,0,.4);
+  --sh-sm:0 2px 8px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.3);
+  --sh-md:0 10px 26px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.35);
+}
+
+/* BASE (do sistema) */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background var(--t-base) var(--e-standard),color var(--t-base) var(--e-standard)}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.05;color:var(--text)}
+p{margin:0}
+:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring);border-radius:var(--r-sm)}
+.icon{width:24px;height:24px;stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* SHELL / SIDENAV (do sistema) */
+.shell{display:grid;grid-template-columns:var(--nav-w) 1fr;min-height:100vh}
+.sidenav{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;border-right:1px solid var(--border);background:var(--panel);padding:26px 20px;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:11px;margin-bottom:26px}
+.brand-mark{width:38px;height:38px;border-radius:11px;background:var(--brand);display:grid;place-items:center;box-shadow:var(--sh-sm);flex:none}
+.brand-mark svg{width:20px;height:20px}
+.brand-name{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:-.02em;line-height:1.15}
+.brand-name small{display:block;font-family:var(--font-ui);font-weight:500;font-size:11px;letter-spacing:.02em;color:var(--text-subtle)}
+.nav-label{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-subtle);padding:0 10px;margin-bottom:6px}
+.nav{margin-bottom:auto}
+.nav a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--r-sm);font-size:14px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:background var(--t-fast),color var(--t-fast)}
+.nav a .icon{width:18px;height:18px}
+.nav a:hover{background:var(--surface-2);color:var(--text)}
+.nav a.active{background:var(--green-100);color:var(--brand);font-weight:600}
+:root[data-theme="dark"] .nav a.active{background:var(--surface-3);color:var(--brand-hover)}
+.theme-toggle{margin-top:16px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface-2);color:var(--text);font:inherit;font-size:13px;font-weight:500;cursor:pointer}
+.theme-toggle:hover{border-color:var(--border-strong)}
+.theme-toggle .icon{width:18px;height:18px}
+.source-note{font-size:11px;color:var(--text-subtle);line-height:1.5;margin-top:14px;padding:0 2px}
+
+/* CONTENT */
+.content{min-width:0;padding:0 clamp(20px,5vw,56px)}
+.wrap{max-width:var(--max);margin:0 auto;padding:44px 0 64px}
+.panel{display:none}
+.panel.active{display:block;animation:fade .2s ease}
+@media (prefers-reduced-motion:reduce){.panel.active{animation:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}
+.eyebrow::before{content:"";width:20px;height:2px;background:var(--accent);border-radius:2px}
+.sec-title{font-size:clamp(1.5rem,2.6vw,2rem);margin:14px 0 8px}
+.sec-intro{max-width:64ch;color:var(--text-muted);font-size:1rem}
+.mini-title{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle);margin:0 0 4px}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip-meta{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--border);border-radius:var(--r-pill);font-size:13px;font-weight:500;background:var(--panel)}
+.chip-meta b{color:var(--brand);font-weight:600}
+
+/* STAT CARDS (do sistema, estendido para 4 colunas) */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 22px}
+.stat-row.c4{grid-template-columns:repeat(4,1fr)}
+.stat{border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;background:var(--panel);box-shadow:var(--sh-xs)}
+.stat .sl{font-size:12px;color:var(--text-muted)}
+.stat .sv{font-family:var(--font-display);font-weight:800;font-size:26px;margin-top:7px;line-height:1.1}
+.stat .sd{font-size:12px;font-weight:600;margin-top:5px;color:var(--text-subtle)}
+.up{color:var(--success)} .down{color:var(--danger)}
+@media (max-width:960px){.stat-row,.stat-row.c4{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.stat-row,.stat-row.c4{grid-template-columns:1fr}}
+
+/* CARD / DEMO (do sistema) */
+.demo{border:1px solid var(--border);border-radius:var(--r-lg);background:var(--panel);padding:22px;box-shadow:var(--sh-xs)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media (max-width:880px){.duo{grid-template-columns:1fr}}
+.chart-wrap{position:relative;height:260px;margin-top:14px}
+
+/* PILL / ALERT (do sistema) */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;line-height:1.2}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill--done{background:var(--success-bg);color:var(--success)}
+.pill--prep{background:var(--warning-bg);color:var(--warning)}
+.pill--cancel{background:var(--danger-bg);color:var(--danger)}
+.pill--road{background:rgba(95,168,160,.16);color:var(--teal-600)}
+:root[data-theme="dark"] .pill--road{color:var(--teal-400)}
+.pill--plain{background:var(--surface-3);color:var(--text-muted)}
+.pill--plain::before{display:none}
+
+.alert{display:flex;gap:12px;padding:15px 17px;border-radius:var(--r-md);font-size:14px;border:1px solid transparent;align-items:flex-start;margin-top:16px}
+.alert .icon{width:20px;height:20px;margin-top:1px;flex:none}
+.alert b{font-weight:600}
+.alert--info{background:var(--info-bg);color:var(--info);border-color:color-mix(in srgb,var(--info) 22%,transparent)}
+.alert--success{background:var(--success-bg);color:var(--success);border-color:color-mix(in srgb,var(--success) 22%,transparent)}
+.alert--warn{background:var(--warning-bg);color:var(--warning);border-color:color-mix(in srgb,var(--warning) 22%,transparent)}
+.alert--danger{background:var(--danger-bg);color:var(--danger);border-color:color-mix(in srgb,var(--danger) 22%,transparent)}
+.alert .body{color:var(--text)}
+.alert .body b{color:inherit;display:block;margin-bottom:6px}
+.alert ol,.alert p.note{margin:0;padding-left:18px;font-size:13.5px;color:var(--text-muted)}
+.alert ol li{margin-bottom:5px}
+.alert ol li:last-child{margin-bottom:0}
+
+/* TABLE (do sistema) */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden}
+.tbl th{background:var(--surface-2);text-align:left;padding:9px 12px;font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--text-subtle)}
+.tbl td{padding:10px 12px;border-top:1px solid var(--line-100)}
+.tbl td.num{font-variant-numeric:tabular-nums}
+.tbl .quote{color:var(--text-muted);font-style:italic;font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ============================ SIDE NAV ============================ -->
+  <aside class="sidenav">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--lime-400)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l5-5 4 4 7-8"/><path d="M15 7h5v5"/></svg>
+      </div>
+      <div class="brand-name">Satisfação do Cliente<small>Relatório Executivo · Pesquisa E2</small></div>
+    </div>
+
+    <nav class="nav" id="tabs">
+      <div class="nav-label">Painéis</div>
+      <a data-tab="geral" class="active">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Visão Geral
+      </a>
+      <a data-tab="segmentacao">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+        Segmentação
+      </a>
+      <a data-tab="diagnostico">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg>
+        Diagnóstico
+      </a>
+      <a data-tab="voz">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 4v-4H5.5A1.5 1.5 0 0 1 4 14.5v-9Z"/></svg>
+        Voz do Cliente
+      </a>
+    </nav>
+
+    <button class="theme-toggle" id="themeBtn" aria-label="Alternar tema">
+      <span id="themeLabel">Tema claro</span>
+      <svg class="icon" id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+    </button>
+    <p class="source-note">Base: 1.000 respondentes. Todos os números refletem apenas as análises já realizadas nesta pesquisa.</p>
+  </aside>
+
+  <!-- ============================ CONTENT ============================ -->
+  <div class="content">
+    <div class="wrap">
+
+      <!-- PAINEL 1 — VISÃO GERAL -->
+      <section class="panel active" id="panel-geral">
+        <span class="eyebrow">Painel 01</span>
+        <h2 class="sec-title">Visão Geral</h2>
+        <p class="sec-intro">Os quatro números que sustentam as decisões deste relatório.</p>
+        <div class="chip-row">
+          <span class="chip-meta">📋 Pesquisa <b>E2</b></span>
+          <span class="chip-meta">👥 <b>1.000</b> respondentes</span>
+          <span class="chip-meta">🗓️ <b>Set/2026</b></span>
+        </div>
+
+        <div class="stat-row c4">
+          <div class="stat">
+            <div class="sl">Satisfação geral (P01)</div>
+            <div class="sv">5,90 / 10</div>
+            <div class="sd">média sobre 1.000 respondentes</div>
+          </div>
+          <div class="stat">
+            <div class="sl">Maior alavanca de variação</div>
+            <div class="sv" style="font-size:20px">Perfil de Cliente</div>
+            <div class="sd">5,75 pts entre Em Risco e Premium</div>
+          </div>
+          <div class="stat">
+            <div class="sl">Ganho estimado se agir</div>
+            <div class="sv">+0,49 pt</div>
+            <div class="sd up">↑ 5,90 → 6,39 projetado</div>
+          </div>
+          <div class="stat">
+            <div class="sl">Sentimento — comentários</div>
+            <div class="sv">45,9%</div>
+            <div class="sd">positivo · 33,4% negativo · 20,7% neutro</div>
+          </div>
+        </div>
+
+        <div class="alert alert--warn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <div class="body">
+            <b>O que importa para a diretoria</b>
+            <ol>
+              <li><b>O problema é de segmento, não demográfico.</b> "Em Risco" é 32% da base, nota média 2,93, e 99,4% dá nota 0–6 — é risco de churn ativo, não insatisfação difusa.</li>
+              <li><b>O maior ganho de satisfação geral não vem do item com pior nota isolada.</b> "Problemas" tem a pior média (4,78), mas efeito estatístico nulo sobre a nota geral. Experiência de Compra e Qualidade — notas medianas — são as duas alavancas com efeito comprovado.</li>
+              <li><b>O canal de voz do cliente não captura causa.</b> 54% de quem comenta não menciona um motivo específico.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAINEL 2 — SEGMENTAÇÃO -->
+      <section class="panel" id="panel-segmentacao">
+        <span class="eyebrow">Painel 02</span>
+        <h2 class="sec-title">Segmentação de Clientes</h2>
+        <p class="sec-intro">Perfil de Cliente é a única variável demográfica/comercial que discrimina satisfação real nesta base.</p>
+
+        <div class="duo" style="margin-top:22px">
+          <div class="demo">
+            <div class="mini-title">Satisfação média por perfil</div>
+            <div class="chart-wrap"><canvas id="chartPerfil"></canvas></div>
+          </div>
+
+          <div>
+            <div class="demo">
+              <div class="mini-title">Subgrupo mais crítico da base</div>
+              <table class="tbl" style="margin-top:10px">
+                <tr><th>Segmento</th><th>n</th><th>Nota média</th></tr>
+                <tr><td><span class="pill pill--cancel">Em Risco</span> 46–55 anos</td><td class="num">45</td><td class="num" style="color:var(--danger);font-weight:700">2,22</td></tr>
+                <tr><td><span class="pill pill--cancel">Em Risco</span> geral</td><td class="num">322</td><td class="num">2,93</td></tr>
+                <tr><td><span class="pill pill--prep">Standard</span> geral</td><td class="num">374</td><td class="num">6,20</td></tr>
+                <tr><td><span class="pill pill--done">Premium</span> geral</td><td class="num">304</td><td class="num">8,68</td></tr>
+              </table>
+            </div>
+            <div class="alert alert--danger">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+              <div class="body"><b>Fica invisível em qualquer corte por idade sozinho</b>
+              A faixa 46–55 parece saudável no agregado (6,20) porque também concentra a maior fatia de clientes Premium. O pior subgrupo do dataset está escondido dentro dela.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert--info">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+          <div class="body"><b>Por que região e gênero não aparecem neste relatório</b>
+          Gênero não discrimina satisfação (5,90 em ambos). A variação aparente por região e por idade, isolada, é efeito de composição de carteira — não uma diferença real de experiência. Controlando por Perfil de Cliente, a variação regional cai de ~1 ponto para 0,3 ponto.</div>
+        </div>
+      </section>
+
+      <!-- PAINEL 3 — DIAGNÓSTICO -->
+      <section class="panel" id="panel-diagnostico">
+        <span class="eyebrow">Painel 03</span>
+        <h2 class="sec-title">Diagnóstico Operacional</h2>
+        <p class="sec-intro">Dos 14 critérios avaliados (P02–P15), 3 se destacam nas notas mais baixas — mas nem todos movem a satisfação geral.</p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <div class="sl">Nota mais baixa do questionário</div>
+            <div class="sv">4,78</div>
+            <div class="sd">Problemas — único item estatisticamente distinto dos demais</div>
+          </div>
+          <div class="stat">
+            <div class="sl">Alavancas com efeito comprovado</div>
+            <div class="sv" style="font-size:19px">Experiência + Qualidade</div>
+            <div class="sd">únicos 2 itens com efeito líquido significativo</div>
+          </div>
+          <div class="stat">
+            <div class="sl">Impacto projetado</div>
+            <div class="sv up">5,90 → 6,39</div>
+            <div class="sd">melhorando os 2 itens acima em 2 pontos cada</div>
+          </div>
+        </div>
+
+        <div class="duo">
+          <div class="demo">
+            <div class="mini-title">Nota média (bruta)</div>
+            <div class="chart-wrap"><canvas id="chartNotas"></canvas></div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <span class="pill pill--cancel">Distinto dos demais</span>
+              <span class="pill pill--plain">Empatado com 10+ itens</span>
+            </div>
+          </div>
+          <div class="demo">
+            <div class="mini-title">Efeito líquido sobre a satisfação geral</div>
+            <div class="chart-wrap"><canvas id="chartEfeito"></canvas></div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <span class="pill pill--done">Significativo (p&lt;0,001)</span>
+              <span class="pill pill--plain">Não significativo (p=0,542)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert--danger">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <div class="body"><b>"Problemas" não move a média — mas ameaça a carteira Premium</b>
+          Apesar da pior nota do questionário, o efeito líquido de "Problemas" sobre a satisfação geral é estatisticamente nulo. Porém, clientes Premium avaliam esse item 2,55 pontos abaixo do próprio padrão nos demais critérios — o maior desvio da base. É um argumento de retenção da carteira mais rentável, não de KPI de pesquisa.</div>
+        </div>
+      </section>
+
+      <!-- PAINEL 4 — VOZ DO CLIENTE -->
+      <section class="panel" id="panel-voz">
+        <span class="eyebrow">Painel 04</span>
+        <h2 class="sec-title">Voz do Cliente</h2>
+        <p class="sec-intro">Análise dos comentários abertos — 748 de 1.000 respondentes comentaram.</p>
+
+        <div class="duo" style="margin-top:22px">
+          <div class="demo">
+            <div class="mini-title">Sentimento geral</div>
+            <div class="chart-wrap"><canvas id="chartSentimento"></canvas></div>
+          </div>
+
+          <div class="demo">
+            <div class="mini-title">5 temas mais recorrentes</div>
+            <table class="tbl" style="margin-top:10px">
+              <tr><th>Tema</th><th>Menções</th><th>Sentimento</th></tr>
+              <tr><td>Atendimento</td><td class="num">84</td><td><span class="pill pill--done">71% positivo</span></td></tr>
+              <tr><td>Recomendação / Lealdade</td><td class="num">74</td><td><span class="pill pill--cancel">70% negativo</span></td></tr>
+              <tr><td>Experiência de Compra</td><td class="num">69</td><td><span class="pill pill--done">84% positivo</span></td></tr>
+              <tr><td>Problemas / Defeito</td><td class="num">63</td><td><span class="pill pill--cancel">100% negativo</span></td></tr>
+              <tr><td>Tempo / Demora</td><td class="num">32</td><td><span class="pill pill--cancel">100% negativo</span></td></tr>
+            </table>
+            <p class="quote" style="margin-top:10px;font-size:12px;color:var(--text-subtle)">Citações mais frequentes: "Bom serviço" · "Pior compra da minha vida" · "Boa experiência" · "Produto defeituoso" · "Demorado"</p>
+          </div>
+        </div>
+
+        <div class="alert alert--warn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <div class="body"><b>54% dos comentários não dizem o motivo</b>
+          407 dos 748 comentários são respostas genéricas sem tema específico ("OK", "Perfeito!", "Regular"). É maior que qualquer um dos 5 temas identificados — o canal de pesquisa atual não está elicitando a causa da nota na maioria das respostas.</div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ---- Navegação por painéis ---- */
+  const tabLinks = document.querySelectorAll('.nav a[data-tab]');
+  const panels = document.querySelectorAll('.panel');
+  tabLinks.forEach(link=>{
+    link.addEventListener('click', ()=>{
+      tabLinks.forEach(l=>l.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      link.classList.add('active');
+      document.getElementById('panel-'+link.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* ---- Tema (lógica do design system) ---- */
+  const root=document.documentElement, tBtn=document.getElementById('themeBtn'),
+        tLabel=document.getElementById('themeLabel'), tIcon=document.getElementById('themeIcon');
+  const sun='<circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>';
+  const moon='<path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/>';
+  tBtn.addEventListener('click',()=>{
+    const dark=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme',dark?'light':'dark');
+    tLabel.textContent=dark?'Tema claro':'Tema escuro';
+    tIcon.innerHTML=dark?sun:moon;
+    setTimeout(refreshChartColors,180);
+  });
+
+  /* ---- Tokens de cor lidos ao vivo (reagem ao tema) ---- */
+  function tok(name){ return getComputedStyle(root).getPropertyValue(name).trim(); }
+  function colors(){
+    return {
+      success: tok('--success'), warning: tok('--warning'), danger: tok('--danger'),
+      teal: tok('--teal-500'), muted: tok('--text-subtle'), text: tok('--text-muted'), panel: tok('--panel')
+    };
+  }
+
+  Chart.defaults.font.family = "'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif";
+  Chart.defaults.font.size = 12.5;
+
+  let charts = {};
+
+  function buildCharts(){
+    const C = colors();
+    Chart.defaults.color = C.text;
+
+    charts.perfil = new Chart(document.getElementById('chartPerfil'), {
+      type:'bar',
+      data:{ labels:['Em Risco','Standard','Premium'],
+        datasets:[{ label:'Nota média', data:[2.93,6.20,8.68],
+          backgroundColor:[C.danger,C.warning,C.success], borderRadius:6, maxBarThickness:64 }] },
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false},
+          tooltip:{ callbacks:{ afterLabel:(ctx)=>{
+            const extra=['n=322 · 99,4% detratores · 0,0% promotores',
+                          'n=374 · 58,8% detratores · 10,7% promotores',
+                          'n=304 · 3,6% detratores · 60,2% promotores'];
+            return extra[ctx.dataIndex]; } } } },
+        scales:{ y:{ min:0, max:10, ticks:{stepSize:2}, grid:{color:C.muted+'33'} }, x:{grid:{display:false}} } }
+    });
+
+    charts.notas = new Chart(document.getElementById('chartNotas'), {
+      type:'bar',
+      data:{ labels:['Problemas','Experiência\nde Compra','Qualidade'],
+        datasets:[{ label:'Nota média', data:[4.78,5.83,5.88],
+          backgroundColor:[C.danger,C.muted,C.muted], borderRadius:6, maxBarThickness:56 }] },
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false},
+          tooltip:{ callbacks:{ afterLabel:(ctx)=>{
+            const ic=['IC95%: 4,64–4,92 (distinto dos demais)','IC95%: 5,66–6,00 (empatado com 10+ itens)','IC95%: 5,71–6,06 (empatado com 10+ itens)'];
+            return ic[ctx.dataIndex]; } } } },
+        scales:{ y:{ min:0, max:10, grid:{color:C.muted+'33'} }, x:{grid:{display:false}} } }
+    });
+
+    charts.efeito = new Chart(document.getElementById('chartEfeito'), {
+      type:'bar',
+      data:{ labels:['Problemas','Experiência\nde Compra','Qualidade'],
+        datasets:[{ label:'Coeficiente líquido', data:[-0.014,0.130,0.113],
+          backgroundColor:[C.muted,C.success,C.success], borderRadius:6, maxBarThickness:56 }] },
+      options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false},
+          tooltip:{ callbacks:{ afterLabel:(ctx)=>{
+            const sig=['não significativo (p=0,542)','significativo (p<0,001)','significativo (p<0,001)'];
+            return sig[ctx.dataIndex]; } } } },
+        scales:{ x:{ min:-0.05, max:0.18, grid:{color:C.muted+'33'} }, y:{grid:{display:false}} } }
+    });
+
+    charts.sentimento = new Chart(document.getElementById('chartSentimento'), {
+      type:'doughnut',
+      data:{ labels:['Positivo (343)','Negativo (250)','Neutro (155)'],
+        datasets:[{ data:[45.9,33.4,20.7], backgroundColor:[C.success,C.danger,C.teal],
+          borderColor:C.panel, borderWidth:3 }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'62%',
+        plugins:{ legend:{ position:'bottom', labels:{boxWidth:11, padding:14} } } }
+    });
+  }
+
+  function refreshChartColors(){
+    const C = colors();
+    Chart.defaults.color = C.text;
+    charts.perfil.data.datasets[0].backgroundColor = [C.danger,C.warning,C.success];
+    charts.notas.data.datasets[0].backgroundColor = [C.danger,C.muted,C.muted];
+    charts.efeito.data.datasets[0].backgroundColor = [C.muted,C.success,C.success];
+    charts.sentimento.data.datasets[0].backgroundColor = [C.success,C.danger,C.teal];
+    charts.sentimento.data.datasets[0].borderColor = C.panel;
+    Object.values(charts).forEach(c=>c.update());
+  }
+
+  buildCharts();
+</script>
+</body>
+</html>

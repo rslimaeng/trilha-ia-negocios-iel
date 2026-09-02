@@ -74,9 +74,9 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
-             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano",
+             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano", "b2-visual", "b2-marca", "b2-biblioteca",
              "b3-redesenho", "b3-processo",
-             "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano",
+             "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -101,6 +101,8 @@ TRILHA = [
         ("b2-causa",    "Vá do número para a causa"),
         ("b2-decisao",  "Compare três caminhos antes de recomendar"),
         ("b2-plano",    "Amarre a decisão num plano com dono e prazo"),
+        ("b2-visual",   "Transforme a análise no material da chefia"),
+        ("b2-marca",    "Ponha a cara da sua empresa no que a IA gerou"),
     ]),
     ("As aulas do B3", [
         ("b3-processo", "Escolha o processo que vale a pena mudar"),
@@ -113,6 +115,7 @@ TRILHA = [
         ("desafio-parecer",    "1 · Planilha vira parecer executivo"),
         ("desafio-avaliacoes", "2 · Avaliações viram painel"),
         ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
+        ("desafio-satisfacao", "4 · Pesquisa de satisfação vira diagnóstico"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -286,7 +289,7 @@ PAGINAS = {
         h1="Use IA para melhorar a análise e a tomada de decisão",
         sub="Uma pergunta de verdade da sua área, o material que responde a ela, e a "
             "decisão que sai disso com o plano amarrado.",
-        selos=["Sete aulas", "Traga uma pergunta em aberto"],
+        selos=["Nove aulas", "Traga uma pergunta em aberto"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  (None, "Análise e decisão")],
@@ -406,6 +409,78 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-visual": dict(
+        # 🔴 pratica. Ela nao produz analise nova: pega a que a aula 4 deixou
+        # pronta e transforma na peca que outra pessoa recebe. E a primeira das
+        # duas aulas de outra natureza -- as sete anteriores respondem a uma
+        # pergunta, esta e a nona produzem um objeto.
+        #
+        # Um conceito so, e ele NAO e "deck" nem "painel": e que a narrativa
+        # vem antes do formato. Os dois formatos sao dois caminhos do mesmo
+        # conceito, e por isso moram na mesma aula em vez de virar duas.
+        tipo="pratica",
+        titulo="Aula 8 · Transforme a análise no material que a chefia recebe",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Transforme a análise no material que a chefia recebe",
+        sub="Quatro respostas soltas num chat não são uma entrega. O que a peça precisa "
+            "provar se decide antes de escolher se ela é slide ou tela.",
+        selos=["Usa a análise da aula 4", "Deck ou painel"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-marca": dict(
+        # 🔴 pratica, e vem DEPOIS da 8 porque essa e a sequencia que o Rafael
+        # declarou: dados, comunicacao visual, e o design system como
+        # OTIMIZACAO do que ja existe. Nao sao aulas irmas -- esta so faz
+        # sentido com a peca da aula anterior na mao.
+        #
+        # O entregavel dela nao e a peca vestida: e o DOCUMENTO, que serve a
+        # todas as pecas seguintes. Por isso o insumo e um modelo para
+        # substituir, e nao uma planilha para analisar.
+        tipo="pratica",
+        titulo="Aula 9 · Ponha a cara da sua empresa no que a IA gerou",
+        kicker="Módulo 1 · B2 · Análise e decisão",
+        h1="Ponha a cara da sua empresa no que a IA gerou",
+        sub="Um documento de uma página, literal o suficiente para ser conferido a olho "
+            "nu, faz a IA parar de escolher o visual por você.",
+        selos=["Usa a peça da aula 8", "Modelo para baixar"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
+    ),
+    "b2-biblioteca": dict(
+        # 🔴 SEM tipo=, e pela mesma razao das quatro paginas do Banco de
+        # Desafios: nao e aula. Nao tem situacao, conceito nem "sua vez", e o
+        # contrato de tipo do G43 cobraria pecas que aqui nao fazem sentido.
+        # E referencia -- a pessoa volta nela com um arquivo na mao.
+        #
+        # Fica FORA da TRILHA de proposito: entrar na lista das aulas do B2
+        # faria dela uma decima aula. Ela e linkada da capa do bloco.
+        titulo="Biblioteca de prompts do B2",
+        kicker="Referência · vale para o bloco inteiro",
+        h1="Biblioteca de prompts",
+        sub="Os pedidos da aula sobre a pesquisa, os três de cada setor e as seis "
+            "perguntas de uma linha. Para copiar, adaptar e rodar hoje.",
+        selos=["28 pedidos prontos", "Seis bases para praticar"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, "Biblioteca de prompts")],
+    ),
+    "desafio-satisfacao": dict(
+        titulo="Desafio 4 · uma pesquisa de satisfação vira diagnóstico",
+        kicker="Banco de Desafios · 4 de 8",
+        h1="1.000 respostas de pesquisa → diagnóstico com dono",
+        sub="Quinze dimensões, seis campos de perfil e um campo de comentário. A média "
+            "não descreve ninguém, e o corte certo é o que revela isso.",
+        selos=["1.000 respostas", "Dados fictícios"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../desafios/", "Banco de Desafios"),
                  (None, None)],
     ),
     "b3-redesenho": dict(

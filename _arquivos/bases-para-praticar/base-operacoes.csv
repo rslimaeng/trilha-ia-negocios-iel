@@ -1,0 +1,501 @@
+ID,Curso,Turma,Mes_Realizacao,Cidade,Nota_NPS_0_10,Nota_Conteudo,Nota_Professor,Nota_Plataforma_EAD,Nota_Suporte,Nota_Logistica,Perfil_Aluno,Modalidade,Recomendaria,Comentario_Aberto
+1,SHHE,T4/26,Fevereiro,São Paulo,10,10,9,9,10,8,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+2,NEXAL,T4/26,Maio,Fortaleza,8,9,7,8,8,9,Coordenador de área,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+3,POS,T4/26,Março,Fortaleza,10,10,10,10,8,9,Coordenador de área,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+4,NEXAL,T1/26,Março,Fortaleza,10,10,10,7,10,9,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+5,HTI,T3/26,Janeiro,São Paulo,8,9,8,7,8,8,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+6,R2,T3/26,Janeiro,Fortaleza,10,10,10,10,10,8,Coordenador de área,Híbrido,Sim,O suporte antes e durante o curso foi impecável.
+7,SHHE,T4/26,Fevereiro,São Paulo,10,10,9,10,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+8,SHHE,T4/26,Junho,São Paulo,9,10,8,8,8,8,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+9,POS,T3/26,Março,Fortaleza,8,8,9,8,8,8,Médico recém-formado,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+10,R2,T1/26,Fevereiro,Fortaleza,7,7,8,7,8,6,Coordenador de área,Híbrido,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+11,R2,T4/26,Fevereiro,Fortaleza,9,9,10,9,9,7,Residente,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+12,R2,T2/26,Janeiro,Fortaleza,10,10,10,7,9,9,Médico,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+13,NEXAL,T2/26,Fevereiro,Fortaleza,8,9,7,8,6,8,Médico recém-formado,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+14,SHHE,T3/26,Abril,São Paulo,10,9,10,10,10,8,Coordenador de área,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+15,SHHE,T2/26,Março,São Paulo,10,10,9,9,9,10,Especialista,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+16,HTI,T2/26,Abril,Fortaleza,8,7,9,7,9,9,Coordenador de área,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+17,HTI,T3/26,Junho,São Paulo,9,10,10,8,10,8,Coordenador de área,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+18,SHHE,T5/26,Junho,São Paulo,8,9,7,5,9,6,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+19,NEXAL,T5/26,Março,Fortaleza,9,8,10,7,10,10,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+20,NEXAL,T1/26,Janeiro,Fortaleza,9,9,9,9,8,9,Residente,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+21,HTI,T4/26,Janeiro,Fortaleza,10,10,10,10,10,10,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+22,HTI,T1/26,Março,Fortaleza,10,10,10,10,10,10,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+23,R2,T2/26,Junho,Fortaleza,10,9,10,9,9,9,Médico,Híbrido,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+24,HTI,T2/26,Março,Fortaleza,10,9,9,7,10,9,Coordenador de área,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+25,SHHE,T2/26,Junho,Fortaleza,9,8,9,6,7,10,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+26,HTI,T5/26,Janeiro,Fortaleza,8,7,7,7,7,7,Médico,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+27,POS,T1/26,Janeiro,Fortaleza,8,7,9,5,7,6,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+28,HTI,T4/26,Maio,Fortaleza,8,9,9,6,7,9,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+29,SHHE,T2/26,Janeiro,São Paulo,7,7,8,6,5,8,Residente,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+30,SHHE,T1/26,Junho,São Paulo,9,9,8,6,8,10,Especialista,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+31,POS,T1/26,Junho,Fortaleza,9,10,8,8,7,9,Coordenador de área,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+32,NEXAL,T2/26,Junho,Fortaleza,10,10,10,10,8,10,Médico,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+33,R2,T4/26,Abril,Fortaleza,9,10,8,6,8,7,Médico recém-formado,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+34,NEXAL,T2/26,Junho,Fortaleza,9,8,10,6,7,8,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+35,NEXAL,T2/26,Fevereiro,Fortaleza,8,9,7,6,9,8,Residente,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+36,NEXAL,T1/26,Maio,Fortaleza,10,10,10,9,8,9,Especialista,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+37,SHHE,T2/26,Maio,Fortaleza,10,9,10,8,10,10,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+38,HTI,T1/26,Abril,Fortaleza,7,8,6,5,6,5,Residente,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+39,SHHE,T5/26,Janeiro,São Paulo,9,8,10,7,8,10,Residente,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+40,SHHE,T3/26,Março,São Paulo,10,9,10,10,8,10,Coordenador de área,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+41,SHHE,T4/26,Abril,São Paulo,9,9,8,9,7,10,Coordenador de área,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+42,NEXAL,T5/26,Maio,Fortaleza,7,8,6,6,8,8,Especialista,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+43,NEXAL,T4/26,Maio,Fortaleza,9,8,9,7,10,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+44,HTI,T1/26,Maio,São Paulo,8,8,8,8,8,9,Coordenador de área,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+45,R2,T1/26,Abril,Fortaleza,10,9,10,8,9,10,Especialista,Híbrido,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+46,R2,T4/26,Junho,Fortaleza,10,10,9,10,10,9,Residente,Híbrido,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+47,HTI,T3/26,Junho,São Paulo,2,5,6,3,4,4,Residente,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+48,SHHE,T5/26,Maio,São Paulo,10,9,9,7,10,10,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+49,R2,T2/26,Abril,Fortaleza,7,7,7,6,8,7,Coordenador de área,Híbrido,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+50,HTI,T5/26,Março,São Paulo,8,7,9,8,8,6,Residente,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+51,HTI,T1/26,Janeiro,São Paulo,9,9,10,8,10,8,Residente,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+52,SHHE,T2/26,Fevereiro,São Paulo,9,8,9,7,8,8,Médico,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+53,SHHE,T3/26,Abril,São Paulo,10,9,10,8,8,10,Médico,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+54,HTI,T3/26,Janeiro,São Paulo,9,9,9,6,7,7,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+55,R2,T1/26,Janeiro,Fortaleza,7,6,7,6,8,8,Especialista,Híbrido,Talvez,Alguns módulos muito densos para o tempo disponível.
+56,NEXAL,T3/26,Junho,Fortaleza,10,10,9,9,10,10,Médico recém-formado,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+57,NEXAL,T3/26,Janeiro,Fortaleza,0,5,6,3,4,4,Médico recém-formado,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+58,SHHE,T3/26,Abril,São Paulo,9,9,10,9,8,7,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+59,NEXAL,T1/26,Junho,Fortaleza,8,8,7,8,9,6,Especialista,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+60,POS,T1/26,Junho,Fortaleza,8,9,7,6,6,7,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+61,NEXAL,T5/26,Abril,Fortaleza,7,7,6,7,6,6,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+62,HTI,T1/26,Abril,São Paulo,2,5,6,3,4,4,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+63,SHHE,T5/26,Junho,São Paulo,5,6,6,3,4,5,Coordenador de área,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+64,R2,T4/26,Fevereiro,Fortaleza,8,7,8,5,6,6,Especialista,Híbrido,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+65,HTI,T5/26,Março,Fortaleza,8,8,9,5,8,6,Médico recém-formado,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+66,POS,T4/26,Março,Fortaleza,10,10,9,8,8,10,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+67,POS,T3/26,Fevereiro,Fortaleza,10,10,9,10,10,9,Médico recém-formado,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+68,SHHE,T1/26,Maio,São Paulo,9,10,8,8,10,8,Coordenador de área,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+69,POS,T1/26,Março,Fortaleza,7,8,6,5,5,6,Coordenador de área,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+70,NEXAL,T2/26,Janeiro,Fortaleza,9,9,9,9,9,10,Coordenador de área,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+71,R2,T3/26,Março,Fortaleza,10,9,10,10,8,9,Especialista,Híbrido,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+72,HTI,T3/26,Abril,São Paulo,9,9,10,9,9,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+73,SHHE,T1/26,Março,São Paulo,9,10,8,9,10,8,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+74,NEXAL,T4/26,Fevereiro,Fortaleza,10,9,10,9,10,9,Coordenador de área,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+75,HTI,T1/26,Fevereiro,São Paulo,8,9,7,8,6,9,Coordenador de área,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+76,POS,T3/26,Janeiro,Fortaleza,6,5,6,6,5,4,Médico recém-formado,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+77,NEXAL,T1/26,Maio,Fortaleza,7,7,8,7,7,6,Médico,Presencial,Talvez,Material impresso com alguns erros de formatação.
+78,HTI,T5/26,Fevereiro,São Paulo,10,10,10,10,8,8,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+79,SHHE,T5/26,Junho,Fortaleza,9,9,8,6,8,8,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+80,R2,T3/26,Janeiro,Fortaleza,5,5,6,4,5,4,Coordenador de área,Híbrido,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+81,SHHE,T3/26,Janeiro,São Paulo,9,9,10,9,8,10,Especialista,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+82,NEXAL,T5/26,Maio,Fortaleza,9,10,8,6,8,7,Residente,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+83,NEXAL,T2/26,Fevereiro,Fortaleza,9,8,10,8,9,8,Médico recém-formado,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+84,HTI,T5/26,Março,São Paulo,9,8,9,9,7,9,Coordenador de área,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+85,R2,T2/26,Janeiro,Fortaleza,9,9,10,7,9,8,Coordenador de área,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+86,NEXAL,T4/26,Abril,Fortaleza,2,5,6,3,4,4,Médico recém-formado,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+87,R2,T4/26,Janeiro,Fortaleza,8,7,8,7,8,7,Residente,Híbrido,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+88,HTI,T1/26,Abril,São Paulo,8,7,7,6,8,9,Médico,Presencial,Talvez,Material impresso com alguns erros de formatação.
+89,R2,T3/26,Maio,Fortaleza,8,7,7,6,8,9,Residente,Híbrido,Talvez,Material impresso com alguns erros de formatação.
+90,R2,T5/26,Maio,Fortaleza,10,10,10,8,10,8,Médico recém-formado,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+91,SHHE,T2/26,Abril,São Paulo,8,9,9,7,7,9,Coordenador de área,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+92,POS,T3/26,Abril,Fortaleza,9,9,9,7,9,7,Especialista,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+93,NEXAL,T1/26,Junho,Fortaleza,5,6,6,3,4,4,Médico,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+94,R2,T4/26,Janeiro,Fortaleza,10,10,10,8,10,10,Médico recém-formado,Híbrido,Sim,O suporte antes e durante o curso foi impecável.
+95,HTI,T4/26,Janeiro,São Paulo,10,10,9,10,10,9,Médico recém-formado,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+96,HTI,T5/26,Abril,São Paulo,9,10,8,7,7,9,Residente,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+97,NEXAL,T1/26,Abril,Fortaleza,9,8,9,6,9,8,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+98,NEXAL,T3/26,Abril,Fortaleza,8,7,7,8,7,8,Médico recém-formado,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+99,POS,T5/26,Abril,Fortaleza,4,5,6,4,4,4,Especialista,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+100,HTI,T3/26,Junho,Fortaleza,8,7,8,8,7,6,Médico recém-formado,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+101,POS,T1/26,Abril,Fortaleza,0,5,6,3,4,4,Especialista,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+102,NEXAL,T4/26,Fevereiro,Fortaleza,9,9,8,9,10,8,Residente,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+103,POS,T1/26,Março,Fortaleza,10,10,9,7,9,10,Médico,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+104,POS,T4/26,Junho,Fortaleza,8,7,7,6,9,8,Médico,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+105,POS,T5/26,Abril,Fortaleza,10,10,9,9,10,10,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+106,HTI,T1/26,Fevereiro,Fortaleza,9,10,8,6,9,10,Médico recém-formado,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+107,POS,T4/26,Março,Fortaleza,8,7,8,6,7,7,Residente,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+108,HTI,T3/26,Junho,São Paulo,10,9,10,7,9,9,Médico recém-formado,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+109,SHHE,T1/26,Fevereiro,São Paulo,8,7,7,8,6,7,Médico,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+110,POS,T4/26,Maio,Fortaleza,8,9,7,6,8,9,Coordenador de área,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+111,R2,T4/26,Junho,Fortaleza,4,5,6,3,4,4,Coordenador de área,Híbrido,Não,Apostila com erros em vários módulos.
+112,NEXAL,T1/26,Fevereiro,Fortaleza,3,5,6,3,4,4,Coordenador de área,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+113,R2,T1/26,Abril,Fortaleza,7,7,7,6,7,5,Médico,Híbrido,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+114,R2,T2/26,Março,Fortaleza,8,8,9,7,7,8,Residente,Híbrido,Talvez,Alguns módulos muito densos para o tempo disponível.
+115,HTI,T1/26,Fevereiro,São Paulo,9,8,10,7,8,10,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+116,R2,T5/26,Março,Fortaleza,8,8,7,6,6,7,Residente,Híbrido,Talvez,Alguns módulos muito densos para o tempo disponível.
+117,R2,T3/26,Maio,Fortaleza,10,10,10,7,10,8,Coordenador de área,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+118,R2,T5/26,Janeiro,Fortaleza,7,7,8,5,7,5,Médico recém-formado,Híbrido,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+119,SHHE,T4/26,Abril,São Paulo,10,9,9,10,10,10,Coordenador de área,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+120,NEXAL,T2/26,Fevereiro,Fortaleza,0,5,6,3,4,4,Especialista,Presencial,Não,Apostila com erros em vários módulos.
+121,NEXAL,T3/26,Maio,Fortaleza,6,5,6,4,6,4,Residente,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+122,SHHE,T3/26,Janeiro,São Paulo,8,7,9,5,6,8,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+123,NEXAL,T1/26,Junho,Fortaleza,10,10,10,8,10,10,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+124,HTI,T3/26,Fevereiro,São Paulo,8,8,7,5,9,8,Médico recém-formado,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+125,POS,T2/26,Março,Fortaleza,8,9,9,8,7,9,Residente,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+126,NEXAL,T2/26,Abril,Fortaleza,5,5,6,3,4,4,Médico recém-formado,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+127,SHHE,T3/26,Janeiro,São Paulo,10,10,10,8,8,9,Médico,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+128,SHHE,T4/26,Junho,São Paulo,6,7,6,3,4,7,Coordenador de área,Presencial,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+129,HTI,T1/26,Junho,São Paulo,6,5,6,4,4,4,Médico,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+130,NEXAL,T1/26,Fevereiro,Fortaleza,6,7,6,4,6,6,Coordenador de área,Presencial,Não,Conteúdo repetitivo em relação ao que aprendi em outro curso.
+131,SHHE,T1/26,Maio,São Paulo,9,8,8,6,7,9,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+132,POS,T2/26,Janeiro,Fortaleza,10,9,9,10,10,9,Especialista,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+133,SHHE,T4/26,Junho,São Paulo,10,9,10,8,8,9,Médico,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+134,NEXAL,T1/26,Maio,Fortaleza,8,8,7,5,7,7,Coordenador de área,Presencial,Talvez,Material impresso com alguns erros de formatação.
+135,R2,T2/26,Junho,Fortaleza,9,10,10,8,9,9,Médico,Híbrido,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+136,POS,T3/26,Março,Fortaleza,10,10,9,7,9,9,Especialista,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+137,POS,T4/26,Junho,Fortaleza,10,10,9,7,10,10,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+138,NEXAL,T2/26,Fevereiro,Fortaleza,10,10,10,10,10,10,Coordenador de área,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+139,NEXAL,T2/26,Junho,Fortaleza,10,10,10,10,10,9,Coordenador de área,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+140,R2,T4/26,Maio,Fortaleza,9,10,10,7,7,8,Especialista,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+141,SHHE,T1/26,Março,São Paulo,10,9,9,9,10,9,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+142,SHHE,T5/26,Abril,São Paulo,10,9,10,8,8,9,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+143,POS,T3/26,Janeiro,Fortaleza,10,10,10,7,10,9,Médico,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+144,NEXAL,T2/26,Janeiro,Fortaleza,8,7,9,8,7,7,Coordenador de área,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+145,R2,T3/26,Abril,Fortaleza,9,9,9,6,9,7,Residente,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+146,HTI,T5/26,Fevereiro,São Paulo,1,5,6,3,4,4,Residente,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+147,SHHE,T3/26,Janeiro,São Paulo,10,9,10,8,10,8,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+148,SHHE,T5/26,Maio,São Paulo,10,10,10,9,10,10,Residente,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+149,NEXAL,T4/26,Fevereiro,Fortaleza,8,7,7,7,8,6,Residente,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+150,SHHE,T5/26,Janeiro,Fortaleza,9,9,8,7,7,8,Especialista,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+151,R2,T5/26,Janeiro,Fortaleza,9,9,8,6,9,7,Especialista,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+152,NEXAL,T3/26,Abril,Fortaleza,9,9,9,8,8,7,Especialista,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+153,R2,T1/26,Maio,Fortaleza,10,9,9,10,10,8,Especialista,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+154,SHHE,T4/26,Janeiro,São Paulo,5,6,6,3,4,4,Médico recém-formado,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+155,R2,T5/26,Março,Fortaleza,9,8,9,8,9,10,Médico,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+156,SHHE,T2/26,Maio,São Paulo,10,10,10,10,8,8,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+157,R2,T1/26,Abril,Fortaleza,5,5,6,4,4,4,Especialista,Híbrido,Não,Wi-Fi do local caiu no segundo dia. Prejudicou as apresentações.
+158,NEXAL,T1/26,Janeiro,Fortaleza,7,7,7,7,7,8,Residente,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+159,R2,T4/26,Janeiro,Fortaleza,8,8,8,8,7,9,Especialista,Híbrido,Talvez,Material impresso com alguns erros de formatação.
+160,NEXAL,T1/26,Junho,Fortaleza,9,9,9,6,7,8,Médico recém-formado,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+161,SHHE,T1/26,Março,São Paulo,9,8,8,9,10,7,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+162,POS,T5/26,Abril,Fortaleza,6,5,7,3,7,7,Residente,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+163,NEXAL,T1/26,Março,Fortaleza,8,9,8,6,9,6,Especialista,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+164,HTI,T5/26,Fevereiro,São Paulo,7,6,7,4,8,5,Especialista,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+165,POS,T2/26,Janeiro,Fortaleza,7,6,8,7,7,7,Residente,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+166,SHHE,T1/26,Março,São Paulo,8,9,8,8,7,8,Residente,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+167,HTI,T4/26,Março,São Paulo,8,7,8,8,9,9,Médico recém-formado,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+168,POS,T3/26,Junho,Fortaleza,9,8,10,7,7,8,Especialista,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+169,HTI,T2/26,Abril,São Paulo,9,9,8,9,9,7,Coordenador de área,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+170,POS,T5/26,Janeiro,Fortaleza,3,5,6,3,4,4,Residente,Presencial,Não,Wi-Fi do local caiu no segundo dia. Prejudicou as apresentações.
+171,SHHE,T2/26,Junho,São Paulo,1,5,6,3,4,4,Coordenador de área,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+172,POS,T4/26,Março,Fortaleza,8,9,8,7,6,7,Coordenador de área,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+173,NEXAL,T2/26,Maio,Fortaleza,9,10,9,9,9,10,Especialista,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+174,HTI,T1/26,Janeiro,Fortaleza,1,5,6,3,4,4,Médico recém-formado,Presencial,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+175,NEXAL,T4/26,Fevereiro,Fortaleza,8,8,9,8,6,7,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+176,NEXAL,T4/26,Abril,Fortaleza,10,10,10,10,8,10,Residente,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+177,NEXAL,T3/26,Junho,Fortaleza,8,8,9,6,6,9,Médico,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+178,HTI,T2/26,Março,São Paulo,9,10,10,8,9,8,Médico recém-formado,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+179,SHHE,T5/26,Abril,Fortaleza,9,8,10,9,8,10,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+180,NEXAL,T5/26,Fevereiro,Fortaleza,9,8,10,7,7,10,Especialista,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+181,SHHE,T3/26,Fevereiro,Fortaleza,2,5,6,3,4,4,Médico recém-formado,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+182,HTI,T2/26,Abril,São Paulo,10,9,9,8,10,9,Médico recém-formado,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+183,POS,T3/26,Junho,Fortaleza,4,5,6,3,4,4,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+184,HTI,T2/26,Março,São Paulo,7,6,7,6,6,8,Médico,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+185,HTI,T4/26,Janeiro,São Paulo,9,8,10,9,10,9,Coordenador de área,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+186,SHHE,T3/26,Janeiro,São Paulo,9,10,10,6,7,9,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+187,R2,T5/26,Maio,Fortaleza,0,5,6,3,4,4,Médico recém-formado,Híbrido,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+188,R2,T1/26,Maio,Fortaleza,9,8,8,8,7,8,Médico,Híbrido,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+189,SHHE,T2/26,Janeiro,São Paulo,10,10,10,10,9,8,Especialista,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+190,NEXAL,T4/26,Junho,Fortaleza,10,10,10,10,9,10,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+191,NEXAL,T4/26,Janeiro,Fortaleza,9,10,9,7,8,10,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+192,POS,T5/26,Junho,Fortaleza,8,8,9,5,9,9,Residente,Presencial,Talvez,Material impresso com alguns erros de formatação.
+193,NEXAL,T1/26,Abril,Fortaleza,7,6,8,6,8,7,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+194,POS,T1/26,Janeiro,Fortaleza,7,7,7,5,7,6,Médico,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+195,NEXAL,T3/26,Fevereiro,Fortaleza,10,9,9,9,8,10,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+196,R2,T3/26,Fevereiro,Fortaleza,9,9,9,7,8,7,Médico recém-formado,Híbrido,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+197,R2,T1/26,Maio,Fortaleza,10,10,10,10,10,10,Residente,Híbrido,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+198,HTI,T4/26,Abril,Fortaleza,8,7,7,8,7,8,Médico recém-formado,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+199,SHHE,T5/26,Janeiro,São Paulo,9,10,8,9,9,8,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+200,R2,T5/26,Janeiro,Fortaleza,8,7,7,8,6,9,Especialista,Híbrido,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+201,NEXAL,T3/26,Abril,Fortaleza,5,5,6,3,6,5,Coordenador de área,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+202,HTI,T3/26,Maio,Fortaleza,8,7,7,5,8,9,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+203,HTI,T2/26,Junho,São Paulo,8,9,7,5,8,6,Médico,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+204,NEXAL,T1/26,Março,Fortaleza,8,9,8,7,7,7,Médico recém-formado,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+205,HTI,T2/26,Março,São Paulo,10,10,10,10,8,9,Médico recém-formado,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+206,POS,T3/26,Março,Fortaleza,10,10,9,7,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+207,R2,T2/26,Junho,Fortaleza,9,8,10,6,7,10,Médico,Híbrido,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+208,HTI,T2/26,Abril,São Paulo,7,6,7,5,7,7,Coordenador de área,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+209,R2,T1/26,Fevereiro,Fortaleza,7,7,7,7,6,8,Residente,Híbrido,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+210,NEXAL,T4/26,Fevereiro,Fortaleza,10,10,10,7,9,10,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+211,SHHE,T1/26,Abril,Fortaleza,2,5,6,3,4,4,Médico,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+212,HTI,T3/26,Abril,São Paulo,8,8,9,7,6,9,Especialista,Presencial,Talvez,Material impresso com alguns erros de formatação.
+213,HTI,T1/26,Junho,São Paulo,10,9,10,8,10,9,Médico recém-formado,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+214,R2,T5/26,Abril,Fortaleza,9,8,10,6,8,7,Residente,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+215,HTI,T1/26,Maio,São Paulo,4,5,6,3,5,5,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+216,SHHE,T3/26,Abril,São Paulo,10,10,10,9,10,8,Médico,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+217,R2,T5/26,Abril,Fortaleza,10,10,9,8,10,8,Residente,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+218,NEXAL,T4/26,Fevereiro,Fortaleza,10,10,10,10,10,8,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+219,HTI,T2/26,Junho,São Paulo,0,5,6,3,4,4,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+220,HTI,T1/26,Maio,São Paulo,8,7,9,6,7,6,Médico,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+221,NEXAL,T4/26,Abril,Fortaleza,10,10,10,10,10,10,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+222,NEXAL,T3/26,Junho,Fortaleza,8,9,9,8,6,8,Médico recém-formado,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+223,SHHE,T4/26,Fevereiro,São Paulo,7,7,6,5,8,7,Residente,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+224,SHHE,T4/26,Junho,Fortaleza,8,9,9,8,7,8,Especialista,Presencial,Talvez,Material impresso com alguns erros de formatação.
+225,POS,T5/26,Abril,Fortaleza,10,10,10,8,8,10,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+226,POS,T4/26,Maio,Fortaleza,10,10,10,7,8,10,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+227,SHHE,T5/26,Março,São Paulo,9,9,9,8,7,9,Médico,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+228,HTI,T2/26,Março,São Paulo,6,6,6,3,7,6,Médico,Presencial,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+229,NEXAL,T2/26,Março,Fortaleza,10,10,10,8,8,10,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+230,POS,T5/26,Janeiro,Fortaleza,8,7,8,7,7,9,Coordenador de área,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+231,HTI,T3/26,Março,São Paulo,7,7,8,6,6,6,Especialista,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+232,POS,T5/26,Fevereiro,Fortaleza,8,7,8,8,7,9,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+233,SHHE,T5/26,Abril,São Paulo,9,10,10,8,10,9,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+234,POS,T4/26,Abril,Fortaleza,2,5,6,3,4,4,Médico recém-formado,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+235,SHHE,T5/26,Maio,São Paulo,9,10,9,6,10,8,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+236,POS,T5/26,Abril,Fortaleza,10,9,9,9,8,10,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+237,NEXAL,T5/26,Abril,Fortaleza,10,9,9,7,9,9,Médico recém-formado,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+238,SHHE,T2/26,Junho,São Paulo,7,8,7,4,8,6,Médico,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+239,HTI,T2/26,Maio,São Paulo,9,8,8,6,10,7,Médico recém-formado,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+240,POS,T1/26,Janeiro,Fortaleza,8,8,7,6,8,9,Médico recém-formado,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+241,POS,T2/26,Junho,Fortaleza,2,5,6,3,4,4,Coordenador de área,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+242,NEXAL,T3/26,Junho,Fortaleza,6,7,6,5,6,7,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+243,POS,T4/26,Abril,Fortaleza,7,7,7,4,8,5,Médico recém-formado,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+244,HTI,T5/26,Abril,Fortaleza,10,9,10,10,10,8,Residente,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+245,R2,T5/26,Fevereiro,Fortaleza,8,9,9,8,6,7,Residente,Híbrido,Talvez,Material impresso com alguns erros de formatação.
+246,R2,T3/26,Abril,Fortaleza,10,9,10,9,10,8,Coordenador de área,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+247,POS,T5/26,Junho,Fortaleza,7,8,8,6,6,7,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+248,R2,T5/26,Abril,Fortaleza,4,5,6,3,4,4,Médico,Híbrido,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+249,POS,T3/26,Fevereiro,Fortaleza,10,10,9,7,9,10,Coordenador de área,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+250,HTI,T5/26,Março,Fortaleza,10,9,10,9,8,9,Especialista,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+251,POS,T4/26,Fevereiro,Fortaleza,10,10,10,8,9,10,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+252,NEXAL,T2/26,Fevereiro,Fortaleza,10,10,10,8,8,8,Médico,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+253,HTI,T2/26,Janeiro,São Paulo,9,10,8,8,8,10,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+254,R2,T4/26,Maio,Fortaleza,8,9,9,6,6,9,Coordenador de área,Híbrido,Talvez,Alguns módulos muito densos para o tempo disponível.
+255,HTI,T5/26,Janeiro,Fortaleza,9,8,8,9,8,7,Médico recém-formado,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+256,NEXAL,T1/26,Fevereiro,Fortaleza,10,10,10,10,10,8,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+257,HTI,T5/26,Maio,São Paulo,9,10,10,8,10,7,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+258,R2,T4/26,Março,Fortaleza,9,8,9,9,9,8,Especialista,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+259,SHHE,T2/26,Maio,São Paulo,8,9,7,6,9,6,Médico recém-formado,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+260,NEXAL,T1/26,Abril,Fortaleza,9,10,8,9,8,9,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+261,HTI,T4/26,Maio,São Paulo,8,8,8,6,6,6,Médico,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+262,R2,T5/26,Abril,Fortaleza,10,10,9,10,8,10,Coordenador de área,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+263,POS,T4/26,Maio,Fortaleza,6,6,6,5,6,5,Especialista,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+264,HTI,T2/26,Fevereiro,Fortaleza,1,5,6,3,4,4,Médico,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+265,HTI,T2/26,Abril,Fortaleza,3,5,6,3,4,4,Médico recém-formado,Presencial,Não,Intervalo muito curto para o volume de conteúdo.
+266,POS,T1/26,Junho,Fortaleza,5,5,6,3,6,5,Residente,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+267,NEXAL,T3/26,Maio,Fortaleza,8,9,7,7,8,6,Médico,Presencial,Talvez,Material impresso com alguns erros de formatação.
+268,POS,T5/26,Abril,Fortaleza,8,7,7,6,8,7,Médico,Presencial,Talvez,Material impresso com alguns erros de formatação.
+269,SHHE,T1/26,Fevereiro,São Paulo,9,9,8,6,10,7,Especialista,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+270,R2,T4/26,Março,Fortaleza,10,9,9,9,10,10,Médico,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+271,POS,T4/26,Janeiro,Fortaleza,8,8,7,8,6,8,Médico,Presencial,Talvez,Material impresso com alguns erros de formatação.
+272,HTI,T5/26,Março,São Paulo,10,10,9,7,10,10,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+273,HTI,T5/26,Abril,São Paulo,10,10,10,10,10,10,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+274,POS,T2/26,Fevereiro,Fortaleza,10,10,10,9,8,9,Médico recém-formado,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+275,NEXAL,T5/26,Abril,Fortaleza,3,5,6,3,4,4,Médico,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+276,R2,T3/26,Março,Fortaleza,10,10,10,7,10,8,Coordenador de área,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+277,NEXAL,T4/26,Junho,Fortaleza,10,9,10,7,8,10,Médico recém-formado,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+278,NEXAL,T1/26,Abril,Fortaleza,7,7,7,7,6,6,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+279,R2,T1/26,Fevereiro,Fortaleza,6,5,6,6,6,4,Médico recém-formado,Híbrido,Não,Apostila com erros em vários módulos.
+280,HTI,T3/26,Março,Fortaleza,10,10,10,7,9,10,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+281,R2,T4/26,Janeiro,Fortaleza,9,8,8,8,9,10,Médico,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+282,NEXAL,T2/26,Janeiro,Fortaleza,8,8,8,8,8,9,Especialista,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+283,SHHE,T3/26,Janeiro,São Paulo,7,8,6,4,6,7,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+284,SHHE,T4/26,Maio,Fortaleza,10,10,10,7,8,9,Médico recém-formado,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+285,R2,T5/26,Junho,Fortaleza,9,10,8,6,10,10,Especialista,Híbrido,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+286,SHHE,T5/26,Março,São Paulo,8,8,7,8,8,6,Residente,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+287,POS,T3/26,Janeiro,Fortaleza,8,9,7,7,9,7,Coordenador de área,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+288,SHHE,T5/26,Fevereiro,São Paulo,8,8,9,6,8,8,Especialista,Presencial,Talvez,Material impresso com alguns erros de formatação.
+289,HTI,T1/26,Abril,São Paulo,10,10,10,8,9,10,Médico,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+290,HTI,T4/26,Março,São Paulo,10,10,10,7,9,8,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+291,SHHE,T1/26,Fevereiro,São Paulo,9,9,9,8,8,10,Médico recém-formado,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+292,NEXAL,T1/26,Março,Fortaleza,10,10,10,7,8,8,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+293,POS,T4/26,Junho,Fortaleza,10,10,10,8,9,8,Residente,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+294,R2,T5/26,Março,Fortaleza,9,9,9,8,10,8,Médico recém-formado,Híbrido,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+295,NEXAL,T1/26,Fevereiro,Fortaleza,8,8,7,8,8,8,Coordenador de área,Presencial,Talvez,Material impresso com alguns erros de formatação.
+296,SHHE,T2/26,Janeiro,São Paulo,10,10,9,10,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+297,NEXAL,T2/26,Janeiro,Fortaleza,8,8,8,6,7,8,Especialista,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+298,SHHE,T3/26,Fevereiro,Fortaleza,9,10,8,6,7,8,Médico,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+299,HTI,T3/26,Fevereiro,São Paulo,10,10,10,10,9,10,Especialista,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+300,HTI,T4/26,Abril,São Paulo,5,5,6,3,5,4,Residente,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+301,NEXAL,T2/26,Maio,Fortaleza,8,8,9,5,8,6,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+302,R2,T3/26,Fevereiro,Fortaleza,10,10,10,7,8,9,Residente,Híbrido,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+303,POS,T2/26,Junho,Fortaleza,7,7,6,7,6,8,Especialista,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+304,SHHE,T1/26,Maio,São Paulo,10,9,10,7,10,9,Residente,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+305,POS,T3/26,Maio,Fortaleza,8,9,7,7,9,7,Especialista,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+306,NEXAL,T4/26,Abril,Fortaleza,10,10,10,9,10,10,Médico,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+307,HTI,T3/26,Abril,São Paulo,8,9,8,5,7,9,Especialista,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+308,NEXAL,T4/26,Junho,Fortaleza,6,6,6,6,5,4,Especialista,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+309,R2,T2/26,Abril,Fortaleza,4,5,6,3,5,5,Coordenador de área,Híbrido,Não,Intervalo muito curto para o volume de conteúdo.
+310,POS,T3/26,Janeiro,Fortaleza,8,9,7,7,6,8,Coordenador de área,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+311,SHHE,T5/26,Fevereiro,São Paulo,10,9,10,9,9,8,Médico,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+312,HTI,T3/26,Março,São Paulo,9,10,8,7,9,8,Residente,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+313,POS,T2/26,Março,Fortaleza,10,10,10,10,9,9,Médico,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+314,HTI,T5/26,Janeiro,São Paulo,10,9,9,9,10,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+315,HTI,T3/26,Junho,Fortaleza,10,10,10,8,10,8,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+316,R2,T4/26,Janeiro,Fortaleza,1,5,6,3,4,4,Residente,Híbrido,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+317,NEXAL,T4/26,Maio,Fortaleza,10,10,10,10,9,8,Especialista,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+318,POS,T4/26,Março,Fortaleza,9,8,9,8,10,9,Médico recém-formado,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+319,SHHE,T4/26,Janeiro,São Paulo,10,10,10,7,10,9,Médico recém-formado,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+320,POS,T2/26,Abril,Fortaleza,8,9,7,7,8,7,Médico,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+321,R2,T2/26,Fevereiro,Fortaleza,10,10,10,8,8,9,Coordenador de área,Híbrido,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+322,POS,T5/26,Junho,Fortaleza,10,9,9,10,10,10,Especialista,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+323,SHHE,T1/26,Março,São Paulo,9,8,9,7,10,10,Especialista,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+324,NEXAL,T4/26,Junho,Fortaleza,9,10,10,6,7,10,Médico,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+325,SHHE,T1/26,Fevereiro,São Paulo,6,5,6,3,4,7,Coordenador de área,Presencial,Não,Conteúdo repetitivo em relação ao que aprendi em outro curso.
+326,R2,T4/26,Fevereiro,Fortaleza,10,10,10,10,8,10,Médico,Híbrido,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+327,NEXAL,T3/26,Maio,Fortaleza,8,8,9,6,7,8,Médico recém-formado,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+328,R2,T3/26,Maio,Fortaleza,9,9,9,7,9,8,Residente,Híbrido,Sim,O suporte antes e durante o curso foi impecável.
+329,POS,T1/26,Março,Fortaleza,9,8,9,6,7,9,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+330,HTI,T5/26,Abril,São Paulo,4,5,6,3,4,4,Médico recém-formado,Presencial,Não,Apostila com erros em vários módulos.
+331,NEXAL,T1/26,Fevereiro,Fortaleza,8,8,9,7,8,9,Especialista,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+332,HTI,T5/26,Fevereiro,Fortaleza,7,6,7,4,6,8,Especialista,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+333,R2,T4/26,Fevereiro,Fortaleza,7,6,6,4,6,6,Residente,Híbrido,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+334,HTI,T3/26,Janeiro,São Paulo,4,5,6,4,5,4,Especialista,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+335,HTI,T2/26,Maio,São Paulo,10,10,10,9,10,10,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+336,R2,T2/26,Fevereiro,Fortaleza,10,10,10,8,10,10,Coordenador de área,Híbrido,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+337,HTI,T5/26,Abril,São Paulo,7,7,7,6,8,6,Médico recém-formado,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+338,POS,T3/26,Fevereiro,Fortaleza,10,9,9,10,10,9,Médico,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+339,NEXAL,T3/26,Janeiro,Fortaleza,10,10,10,7,10,8,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+340,POS,T1/26,Junho,Fortaleza,10,10,10,7,8,10,Médico recém-formado,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+341,POS,T2/26,Abril,Fortaleza,10,10,10,7,8,10,Médico,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+342,SHHE,T2/26,Fevereiro,Fortaleza,10,9,9,10,8,10,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+343,NEXAL,T2/26,Junho,Fortaleza,9,8,9,8,8,9,Médico recém-formado,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+344,POS,T4/26,Junho,Fortaleza,9,8,8,7,9,7,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+345,HTI,T3/26,Maio,Fortaleza,9,8,10,6,9,9,Médico recém-formado,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+346,HTI,T3/26,Abril,São Paulo,10,10,10,7,8,8,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+347,SHHE,T3/26,Maio,São Paulo,2,5,6,3,4,4,Médico,Presencial,Não,Apostila com erros em vários módulos.
+348,NEXAL,T2/26,Junho,Fortaleza,10,9,10,7,10,10,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+349,SHHE,T5/26,Março,São Paulo,10,10,9,8,10,10,Coordenador de área,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+350,HTI,T4/26,Março,São Paulo,8,9,9,8,7,6,Médico recém-formado,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+351,SHHE,T5/26,Maio,São Paulo,10,10,10,9,9,10,Médico recém-formado,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+352,NEXAL,T1/26,Maio,Fortaleza,10,10,9,10,10,8,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+353,SHHE,T4/26,Fevereiro,São Paulo,8,9,8,5,8,6,Especialista,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+354,SHHE,T4/26,Abril,São Paulo,9,8,8,8,9,8,Coordenador de área,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+355,SHHE,T1/26,Abril,São Paulo,9,10,10,9,10,10,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+356,NEXAL,T5/26,Março,Fortaleza,9,9,9,6,8,7,Coordenador de área,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+357,NEXAL,T5/26,Abril,Fortaleza,9,8,10,7,9,8,Médico recém-formado,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+358,SHHE,T3/26,Janeiro,São Paulo,8,7,8,8,9,7,Coordenador de área,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+359,SHHE,T2/26,Fevereiro,São Paulo,5,5,6,5,4,4,Residente,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+360,NEXAL,T1/26,Abril,Fortaleza,7,6,7,7,6,8,Coordenador de área,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+361,SHHE,T1/26,Abril,Fortaleza,10,9,10,9,10,10,Médico recém-formado,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+362,R2,T1/26,Março,Fortaleza,9,10,10,6,8,8,Residente,Híbrido,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+363,NEXAL,T3/26,Maio,Fortaleza,10,10,10,10,8,9,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+364,SHHE,T1/26,Fevereiro,São Paulo,5,5,6,3,6,4,Especialista,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+365,POS,T4/26,Janeiro,Fortaleza,8,8,7,6,9,6,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+366,NEXAL,T1/26,Junho,Fortaleza,10,9,9,9,9,10,Coordenador de área,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+367,POS,T4/26,Abril,Fortaleza,10,10,10,9,8,10,Médico recém-formado,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+368,POS,T3/26,Maio,Fortaleza,10,9,9,10,10,8,Residente,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+369,NEXAL,T5/26,Março,Fortaleza,7,8,8,7,8,5,Coordenador de área,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+370,HTI,T1/26,Abril,São Paulo,4,5,6,3,4,5,Especialista,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+371,HTI,T5/26,Março,Fortaleza,8,7,8,7,8,6,Médico recém-formado,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+372,NEXAL,T1/26,Maio,Fortaleza,10,9,9,7,8,9,Residente,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+373,POS,T3/26,Março,Fortaleza,10,10,10,8,10,8,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+374,NEXAL,T1/26,Fevereiro,Fortaleza,9,10,10,6,10,7,Especialista,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+375,POS,T4/26,Janeiro,Fortaleza,7,8,7,4,8,5,Residente,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+376,NEXAL,T5/26,Maio,Fortaleza,9,8,10,6,9,10,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+377,NEXAL,T2/26,Março,Fortaleza,9,8,10,9,8,9,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+378,POS,T2/26,Janeiro,Fortaleza,10,10,9,9,10,10,Médico recém-formado,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+379,HTI,T2/26,Fevereiro,Fortaleza,8,7,9,7,9,9,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+380,R2,T4/26,Abril,Fortaleza,10,9,10,9,10,10,Coordenador de área,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+381,POS,T4/26,Fevereiro,Fortaleza,9,8,10,9,9,10,Médico,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+382,HTI,T4/26,Maio,São Paulo,5,6,6,4,5,5,Especialista,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+383,POS,T1/26,Fevereiro,Fortaleza,9,8,10,8,10,10,Médico,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+384,R2,T4/26,Fevereiro,Fortaleza,8,9,7,8,6,6,Coordenador de área,Híbrido,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+385,SHHE,T1/26,Maio,São Paulo,10,10,10,10,10,9,Coordenador de área,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+386,NEXAL,T3/26,Março,Fortaleza,9,10,10,8,10,8,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+387,POS,T3/26,Abril,Fortaleza,7,6,7,6,5,7,Coordenador de área,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+388,HTI,T4/26,Maio,São Paulo,10,10,9,7,9,9,Médico recém-formado,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+389,R2,T1/26,Maio,Fortaleza,9,9,8,8,8,8,Médico recém-formado,Híbrido,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+390,HTI,T3/26,Janeiro,São Paulo,10,10,10,8,9,10,Especialista,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+391,SHHE,T4/26,Junho,São Paulo,8,8,7,5,7,9,Coordenador de área,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+392,R2,T4/26,Fevereiro,Fortaleza,10,10,10,7,10,9,Residente,Híbrido,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+393,HTI,T1/26,Junho,Fortaleza,9,10,9,9,7,10,Especialista,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+394,HTI,T5/26,Junho,São Paulo,10,10,10,7,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+395,POS,T5/26,Junho,Fortaleza,9,9,8,6,8,9,Médico recém-formado,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+396,SHHE,T3/26,Abril,São Paulo,7,6,7,5,7,5,Especialista,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+397,POS,T4/26,Fevereiro,Fortaleza,10,10,10,10,10,10,Especialista,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+398,NEXAL,T5/26,Janeiro,Fortaleza,10,9,10,9,8,9,Especialista,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+399,NEXAL,T3/26,Março,Fortaleza,10,9,10,9,10,10,Especialista,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+400,SHHE,T2/26,Maio,São Paulo,8,9,7,5,7,8,Residente,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+401,NEXAL,T3/26,Junho,Fortaleza,9,10,9,9,8,9,Residente,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+402,R2,T3/26,Maio,Fortaleza,8,8,9,6,9,7,Coordenador de área,Híbrido,Talvez,Alguns módulos muito densos para o tempo disponível.
+403,HTI,T1/26,Março,São Paulo,7,6,7,4,6,7,Coordenador de área,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+404,R2,T1/26,Junho,Fortaleza,10,10,9,8,10,8,Coordenador de área,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+405,NEXAL,T5/26,Janeiro,Fortaleza,8,9,9,5,6,9,Médico recém-formado,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+406,SHHE,T3/26,Junho,Fortaleza,10,9,9,10,9,8,Médico recém-formado,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+407,R2,T3/26,Janeiro,Fortaleza,10,10,9,8,10,8,Residente,Híbrido,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+408,SHHE,T5/26,Maio,São Paulo,5,5,6,3,4,6,Médico,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+409,HTI,T4/26,Fevereiro,Fortaleza,9,10,9,8,7,10,Médico,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+410,SHHE,T5/26,Junho,São Paulo,9,8,9,9,9,10,Residente,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+411,R2,T4/26,Maio,Fortaleza,8,9,8,7,7,8,Especialista,Híbrido,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+412,POS,T1/26,Fevereiro,Fortaleza,9,9,10,9,10,8,Residente,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+413,POS,T3/26,Janeiro,Fortaleza,10,10,10,8,9,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+414,NEXAL,T5/26,Março,Fortaleza,8,9,8,5,8,7,Médico recém-formado,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+415,NEXAL,T2/26,Fevereiro,Fortaleza,10,9,9,8,10,10,Médico recém-formado,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+416,NEXAL,T2/26,Março,Fortaleza,9,9,9,7,9,9,Especialista,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+417,POS,T3/26,Abril,Fortaleza,9,9,8,9,7,10,Especialista,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+418,POS,T3/26,Janeiro,Fortaleza,10,9,9,9,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+419,POS,T4/26,Março,Fortaleza,9,10,8,7,10,9,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+420,SHHE,T2/26,Março,São Paulo,10,10,10,7,10,10,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+421,R2,T5/26,Abril,Fortaleza,4,5,6,3,4,4,Coordenador de área,Híbrido,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+422,HTI,T4/26,Fevereiro,São Paulo,5,6,6,3,4,5,Médico recém-formado,Presencial,Não,Apostila com erros em vários módulos.
+423,R2,T1/26,Abril,Fortaleza,8,9,9,7,8,6,Residente,Híbrido,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+424,NEXAL,T3/26,Abril,Fortaleza,10,9,9,9,10,9,Coordenador de área,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+425,NEXAL,T2/26,Junho,Fortaleza,10,10,10,7,9,8,Coordenador de área,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+426,POS,T4/26,Janeiro,Fortaleza,10,9,10,9,8,10,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+427,NEXAL,T5/26,Abril,Fortaleza,8,8,9,5,6,6,Médico recém-formado,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+428,R2,T2/26,Maio,Fortaleza,10,9,10,10,9,8,Coordenador de área,Híbrido,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+429,POS,T4/26,Junho,Fortaleza,7,7,6,5,7,8,Médico recém-formado,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+430,HTI,T4/26,Maio,São Paulo,9,9,8,6,8,9,Coordenador de área,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+431,NEXAL,T2/26,Maio,Fortaleza,9,9,10,9,8,9,Médico recém-formado,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+432,SHHE,T2/26,Fevereiro,São Paulo,6,7,7,3,5,6,Médico,Presencial,Não,Wi-Fi do local caiu no segundo dia. Prejudicou as apresentações.
+433,NEXAL,T2/26,Junho,Fortaleza,7,7,6,7,7,6,Residente,Presencial,Talvez,Material impresso com alguns erros de formatação.
+434,HTI,T2/26,Abril,Fortaleza,10,9,10,8,10,8,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+435,POS,T2/26,Fevereiro,Fortaleza,10,10,9,7,9,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+436,HTI,T4/26,Junho,São Paulo,10,10,10,8,9,8,Médico recém-formado,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+437,POS,T3/26,Maio,Fortaleza,6,6,6,3,7,7,Coordenador de área,Presencial,Não,Suporte não respondeu meu e-mail em 3 dias. Abaixo do esperado.
+438,NEXAL,T3/26,Março,Fortaleza,10,10,10,9,9,8,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+439,HTI,T3/26,Junho,São Paulo,8,7,7,6,6,7,Médico recém-formado,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+440,SHHE,T4/26,Janeiro,Fortaleza,10,10,10,9,10,10,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+441,SHHE,T2/26,Maio,São Paulo,10,10,9,9,8,9,Médico,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+442,SHHE,T3/26,Abril,São Paulo,10,10,10,9,8,8,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+443,POS,T1/26,Junho,Fortaleza,10,10,9,10,9,9,Médico,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+444,NEXAL,T2/26,Janeiro,Fortaleza,9,8,8,9,10,10,Médico recém-formado,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+445,SHHE,T5/26,Junho,Fortaleza,9,9,8,8,9,7,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+446,R2,T2/26,Fevereiro,Fortaleza,7,6,6,5,5,5,Coordenador de área,Híbrido,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+447,R2,T1/26,Fevereiro,Fortaleza,8,7,9,7,8,9,Médico recém-formado,Híbrido,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+448,SHHE,T3/26,Abril,São Paulo,7,8,6,7,5,6,Residente,Presencial,Talvez,Bom curso mas esperava mais casos clínicos práticos.
+449,SHHE,T1/26,Fevereiro,Fortaleza,8,9,8,8,8,7,Médico recém-formado,Presencial,Talvez,Alguns módulos muito densos para o tempo disponível.
+450,POS,T2/26,Abril,Fortaleza,9,10,9,6,9,9,Especialista,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+451,NEXAL,T3/26,Abril,Fortaleza,10,10,10,7,10,10,Médico,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+452,POS,T1/26,Maio,Fortaleza,6,5,6,3,4,6,Residente,Presencial,Não,Wi-Fi do local caiu no segundo dia. Prejudicou as apresentações.
+453,NEXAL,T4/26,Abril,Fortaleza,9,8,10,7,10,8,Residente,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+454,HTI,T2/26,Junho,São Paulo,9,8,10,6,9,8,Médico recém-formado,Presencial,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+455,NEXAL,T2/26,Janeiro,Fortaleza,10,10,10,8,9,10,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+456,HTI,T4/26,Março,São Paulo,9,9,9,9,9,8,Especialista,Presencial,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+457,HTI,T3/26,Junho,São Paulo,8,9,9,5,6,9,Residente,Presencial,Talvez,"Válido, mas a carga horária poderia ser melhor distribuída."
+458,POS,T2/26,Fevereiro,Fortaleza,8,7,9,8,9,7,Residente,Presencial,Talvez,Material impresso com alguns erros de formatação.
+459,HTI,T2/26,Março,Fortaleza,9,10,10,7,8,10,Residente,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+460,NEXAL,T1/26,Junho,Fortaleza,6,6,7,3,7,5,Coordenador de área,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+461,HTI,T5/26,Junho,São Paulo,7,8,7,6,5,8,Especialista,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+462,POS,T4/26,Maio,Fortaleza,7,8,8,7,7,6,Médico recém-formado,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+463,HTI,T5/26,Maio,São Paulo,8,9,8,8,9,6,Médico,Presencial,Talvez,O suporte demorou para responder minhas dúvidas pré-evento.
+464,NEXAL,T3/26,Junho,Fortaleza,9,9,10,8,9,7,Médico,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+465,POS,T2/26,Maio,Fortaleza,9,10,9,8,7,10,Médico recém-formado,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+466,R2,T4/26,Maio,Fortaleza,9,10,9,6,7,7,Médico recém-formado,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+467,HTI,T2/26,Março,São Paulo,10,10,10,10,8,10,Coordenador de área,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+468,R2,T5/26,Janeiro,Fortaleza,10,10,10,10,8,9,Médico recém-formado,Híbrido,Sim,"Professor incrível, conteúdo denso mas muito bem explicado."
+469,HTI,T3/26,Janeiro,São Paulo,9,8,10,9,9,9,Especialista,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+470,SHHE,T3/26,Abril,São Paulo,8,9,9,7,7,7,Médico recém-formado,Presencial,Talvez,Material impresso com alguns erros de formatação.
+471,POS,T3/26,Fevereiro,Fortaleza,10,9,10,9,9,10,Especialista,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+472,HTI,T4/26,Março,São Paulo,9,9,8,8,10,9,Especialista,Presencial,Sim,Excelente curadoria de palestrantes. Muito além do esperado.
+473,NEXAL,T2/26,Fevereiro,Fortaleza,8,7,7,7,8,7,Coordenador de área,Presencial,Talvez,Conteúdo sólido mas o ritmo poderia ser mais cadenciado.
+474,SHHE,T1/26,Janeiro,São Paulo,10,10,10,9,9,10,Médico recém-formado,Presencial,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+475,POS,T2/26,Abril,Fortaleza,6,7,6,3,6,5,Coordenador de área,Presencial,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+476,SHHE,T5/26,Fevereiro,São Paulo,8,8,7,6,7,7,Coordenador de área,Presencial,Talvez,Bom de forma geral. A plataforma EAD precisa melhorar.
+477,SHHE,T1/26,Março,São Paulo,2,5,6,3,4,4,Coordenador de área,Presencial,Não,Conteúdo repetitivo em relação ao que aprendi em outro curso.
+478,R2,T5/26,Abril,Fortaleza,9,9,10,8,9,9,Coordenador de área,Híbrido,Sim,Transformador. Indicarei para toda a minha equipe da clínica.
+479,NEXAL,T2/26,Março,Fortaleza,9,8,10,7,9,8,Médico recém-formado,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+480,SHHE,T1/26,Maio,São Paulo,9,8,10,7,9,8,Coordenador de área,Presencial,Sim,Superou minhas expectativas. Material didático de altíssima qualidade.
+481,R2,T1/26,Abril,Fortaleza,9,9,10,9,7,8,Médico,Híbrido,Sim,O suporte antes e durante o curso foi impecável.
+482,POS,T5/26,Junho,Fortaleza,4,5,6,3,4,4,Médico,Presencial,Não,Esperava mais interação ao vivo. Ficou muito teórico.
+483,R2,T3/26,Junho,Fortaleza,2,5,6,3,4,4,Residente,Híbrido,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+484,NEXAL,T5/26,Junho,Fortaleza,9,9,8,9,8,9,Médico,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+485,HTI,T3/26,Maio,Fortaleza,10,10,9,10,9,9,Residente,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+486,SHHE,T2/26,Janeiro,São Paulo,9,8,9,6,7,10,Médico recém-formado,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+487,POS,T4/26,Junho,Fortaleza,9,9,8,6,9,9,Residente,Presencial,Sim,Conteúdo atualizado e imediatamente aplicável na prática clínica.
+488,NEXAL,T4/26,Janeiro,Fortaleza,7,7,6,5,7,5,Especialista,Presencial,Talvez,Bom conteúdo mas apresentação dos slides poderia ser mais visual.
+489,HTI,T5/26,Março,Fortaleza,9,10,8,8,7,8,Médico,Presencial,Sim,O suporte antes e durante o curso foi impecável.
+490,HTI,T1/26,Março,São Paulo,2,5,6,3,4,4,Residente,Presencial,Não,"Temperatura do espaço muito baixa, dificultou a concentração."
+491,SHHE,T5/26,Fevereiro,São Paulo,5,6,6,4,4,6,Residente,Presencial,Não,Cronograma atrasou mais de 1h no segundo dia sem aviso.
+492,SHHE,T4/26,Janeiro,São Paulo,10,9,10,9,8,10,Residente,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."
+493,R2,T2/26,Janeiro,Fortaleza,9,10,8,8,10,10,Coordenador de área,Híbrido,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+494,R2,T1/26,Março,Fortaleza,8,7,7,8,7,9,Médico,Híbrido,Talvez,Material impresso com alguns erros de formatação.
+495,HTI,T4/26,Junho,São Paulo,10,9,10,7,10,10,Médico recém-formado,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+496,NEXAL,T3/26,Fevereiro,Fortaleza,9,8,9,9,10,10,Coordenador de área,Presencial,Sim,Melhor curso que fiz nos últimos anos. Recomendo a todos os colegas.
+497,POS,T1/26,Abril,Fortaleza,6,7,6,6,6,7,Especialista,Presencial,Não,Plataforma travou várias vezes durante o módulo 3. Muito frustrante.
+498,R2,T1/26,Fevereiro,Fortaleza,10,10,10,8,10,8,Médico recém-formado,Híbrido,Sim,"Conteúdo excelente, professor muito didático. Já apliquei na prática."
+499,HTI,T3/26,Abril,Fortaleza,10,9,10,10,9,10,Médico,Presencial,Sim,Valeu cada centavo. O networking foi um bônus inesperado.
+500,HTI,T4/26,Fevereiro,São Paulo,10,9,10,8,10,9,Médico recém-formado,Presencial,Sim,"A plataforma EAD funcionou perfeitamente, sem nenhuma interrupção."

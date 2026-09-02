@@ -1,0 +1,95 @@
+ID,Vaga,Area,Localidade,Origem,Etapa_Atual,Status,Nota_Triagem,Nota_Entrevista_RH,Nota_Teste_Tecnico,Nota_Entrevista_Gestor,Resultado,Motivo_Reprovacao,Dias_No_Processo,Observacoes
+1,Consultor Comercial Closer,Comercial,SP,Programa de Indicação Interna,Triagem,Reprovado,7.8,0,0,0,Reprovado,Soft skills abaixo do esperado,7,
+2,Consultor Comercial Closer,Comercial,SP,LinkedIn,Entrevista Gestor,Em andamento,3.2,4.5,5.3,7.3,Em andamento,,42,Referências sendo verificadas
+3,Consultor Comercial Closer,Comercial,SP,Indeed,Entrevista RH,Reprovado,6.8,8.5,0,0,Reprovado,Soft skills abaixo do esperado,45,Histórico de job-hopping preocupante
+4,Consultor Comercial Closer,Comercial,SP,Site,Entrevista RH,Reprovado,4.4,8.2,0,0,Reprovado,Não retornou contato,7,Comunicação abaixo do esperado
+5,Consultor Comercial Closer,Comercial,SP,Site,Entrevista Gestor,Em andamento,8.2,8.0,6.9,9.4,Em andamento,,36,"Teste enviado, prazo: 5 dias"
+6,Consultor Comercial Closer,Comercial,SP,Programa de Indicação Interna,Entrevista Gestor,Reprovado,8.6,7.2,7.9,4.3,Reprovado,Sem experiência no setor de saúde/educação,6,Experiência insuficiente para o nível da vaga
+7,Consultor Comercial Closer,Comercial,SP,LinkedIn,Teste Técnico,Reprovado,5.9,8.6,4.9,0,Reprovado,Reprovado no teste técnico,14,Comunicação abaixo do esperado
+8,Consultor Comercial Closer,Comercial,SP,Programa de Indicação Interna,Proposta,Aprovado,7.2,7.4,4.9,8.0,Aprovado,,25,Melhor candidato do processo
+9,Consultor Comercial Closer,Comercial,SP,Programa de Indicação Interna,Entrevista Gestor,Em andamento,4.4,5.8,8.2,4.3,Em andamento,,21,Proposta em análise pelo candidato
+10,Consultor Comercial Closer,Comercial,SP,Site,Triagem,Em andamento,8.9,0,0,0,Em andamento,,21,Em processo de agendamento
+11,Consultor Comercial Closer,Comercial,SP,Programa de Indicação Interna,Teste Técnico,Reprovado,8.8,7.5,4.8,0,Reprovado,Soft skills abaixo do esperado,16,
+12,Consultor Comercial Closer,Comercial,SP,Catho,Entrevista RH,Reprovado,6.8,8.9,0,0,Reprovado,Lacuna técnica crítica,9,
+13,Consultor Comercial Closer,Comercial,SP,Indeed,Triagem,Reprovado,3.3,0,0,0,Reprovado,Soft skills abaixo do esperado,44,Histórico de job-hopping preocupante
+14,Consultor Comercial Closer,Comercial,SP,Catho,Triagem,Em andamento,5.5,0,0,0,Em andamento,,34,"Teste enviado, prazo: 5 dias"
+15,Consultor Comercial Closer,Comercial,SP,Catho,Proposta,Reprovado,3.1,8.0,7.7,7.0,Reprovado,Reprovado no teste técnico,8,Comunicação abaixo do esperado
+16,Consultor Comercial Closer,Comercial,SP,Indeed,Entrevista RH,Em andamento,3.0,8.0,0,0,Em andamento,,33,Em processo de agendamento
+17,Consultor Comercial Closer,Comercial,SP,Catho,Proposta,Reprovado,8.7,5.6,7.5,7.3,Reprovado,Soft skills abaixo do esperado,35,
+18,Analista de Sistemas,TI,CE,LinkedIn,Entrevista Gestor,Em andamento,6.2,4.6,6.0,9.4,Em andamento,,16,Aguardando entrevista com gestor
+19,Analista de Sistemas,TI,CE,Indicação,Proposta,Em andamento,9.2,4.5,6.7,4.4,Em andamento,,9,Em processo de agendamento
+20,Analista de Sistemas,TI,CE,Programa de Indicação Interna,Teste Técnico,Em andamento,6.6,5.5,8.8,0,Em andamento,,28,Em processo de agendamento
+21,Analista de Sistemas,TI,CE,Catho,Entrevista Gestor,Em andamento,7.5,7.9,6.2,7.7,Em andamento,,34,Proposta em análise pelo candidato
+22,Analista de Sistemas,TI,CE,LinkedIn,Entrevista RH,Em andamento,3.4,4.1,0,0,Em andamento,,38,Em processo de agendamento
+23,Analista de Sistemas,TI,CE,LinkedIn,Triagem,Reprovado,7.1,0,0,0,Reprovado,Perfil não aderente,22,Boa entrevista mas erro crítico no case
+24,Analista de Sistemas,TI,CE,Catho,Entrevista RH,Reprovado,7.3,5.2,0,0,Reprovado,Candidato desistiu do processo,16,Histórico de job-hopping preocupante
+25,Analista de Sistemas,TI,CE,Indeed,Entrevista RH,Em andamento,3.6,6.4,0,0,Em andamento,,30,Aguardando entrevista com gestor
+26,Analista de Sistemas,TI,CE,Programa de Indicação Interna,Entrevista Gestor,Reprovado,7.2,4.3,8.0,8.4,Reprovado,Lacuna técnica crítica,13,
+27,Analista de Sistemas,TI,CE,Indeed,Triagem,Em andamento,4.2,0,0,0,Em andamento,,5,Proposta em análise pelo candidato
+28,Analista de Sistemas,TI,CE,Catho,Triagem,Em andamento,7.2,0,0,0,Em andamento,,1,Aguardando entrevista com gestor
+29,Analista de Sistemas,TI,CE,Indicação,Entrevista RH,Em andamento,6.2,5.2,0,0,Em andamento,,4,Em processo de agendamento
+30,Analista de Sistemas,TI,CE,Indeed,Triagem,Em andamento,5.5,0,0,0,Em andamento,,30,"Teste enviado, prazo: 5 dias"
+31,Analista de Sistemas,TI,CE,Indeed,Entrevista Gestor,Reprovado,7.7,8.3,7.6,6.7,Reprovado,Lacuna técnica crítica,4,
+32,Analista de Sistemas,TI,CE,Programa de Indicação Interna,Teste Técnico,Em andamento,7.9,4.3,7.2,0,Em andamento,,33,Referências sendo verificadas
+33,Analista de Sistemas,TI,CE,Indicação,Triagem,Em andamento,6.3,0,0,0,Em andamento,,5,Referências sendo verificadas
+34,Analista de Sistemas,TI,CE,LinkedIn,Entrevista Gestor,Em andamento,4.5,4.7,8.9,5.4,Em andamento,,40,Aguardando entrevista com gestor
+35,Analista de Eventos,Eventos,CE,Indeed,Entrevista Gestor,Em andamento,6.7,5.7,5.4,7.7,Em andamento,,17,Proposta em análise pelo candidato
+36,Analista de Eventos,Eventos,CE,Indicação,Entrevista Gestor,Em andamento,4.9,5.7,8.1,4.4,Em andamento,,37,Aguardando entrevista com gestor
+37,Analista de Eventos,Eventos,CE,LinkedIn,Teste Técnico,Reprovado,6.3,4.7,5.9,0,Reprovado,Pretensão salarial acima do budget,16,Comunicação abaixo do esperado
+38,Analista de Eventos,Eventos,CE,Site,Entrevista RH,Em andamento,8.4,7.9,0,0,Em andamento,,42,Referências sendo verificadas
+39,Analista de Eventos,Eventos,CE,LinkedIn,Entrevista Gestor,Reprovado,6.6,9.1,4.6,8.8,Reprovado,Pretensão salarial acima do budget,36,Experiência insuficiente para o nível da vaga
+40,Analista de Eventos,Eventos,CE,Site,Entrevista RH,Em andamento,4.4,5.9,0,0,Em andamento,,17,Referências sendo verificadas
+41,Analista de Eventos,Eventos,CE,Indeed,Entrevista RH,Em andamento,8.9,4.3,0,0,Em andamento,,18,Aguardando entrevista com gestor
+42,Analista de Eventos,Eventos,CE,LinkedIn,Entrevista RH,Reprovado,3.9,9.4,0,0,Reprovado,Candidato desistiu do processo,36,Histórico de job-hopping preocupante
+43,Analista de Eventos,Eventos,CE,Catho,Triagem,Em andamento,3.5,0,0,0,Em andamento,,10,Referências sendo verificadas
+44,Analista de Eventos,Eventos,CE,LinkedIn,Proposta,Em andamento,6.8,4.8,4.7,5.7,Em andamento,,3,"Teste enviado, prazo: 5 dias"
+45,Analista de Eventos,Eventos,CE,Indicação,Entrevista Gestor,Em andamento,7.3,5.9,7.1,8.8,Em andamento,,10,Em processo de agendamento
+46,Analista de Eventos,Eventos,CE,Indicação,Proposta,Aprovado,8.3,8.8,4.1,8.1,Aprovado,,27,Referências muito positivas
+47,Analista de Eventos,Eventos,CE,Site,Entrevista RH,Reprovado,7.6,6.1,0,0,Reprovado,Candidato desistiu do processo,15,Experiência insuficiente para o nível da vaga
+48,Analista de Eventos,Eventos,CE,Indeed,Entrevista RH,Reprovado,8.3,8.8,0,0,Reprovado,Lacuna técnica crítica,26,Comunicação abaixo do esperado
+49,Analista de Eventos,Eventos,CE,Site,Proposta,Em andamento,9.3,5.5,7.5,6.2,Em andamento,,35,"Teste enviado, prazo: 5 dias"
+50,Assistente Financeiro,Financeiro,CE,LinkedIn,Triagem,Reprovado,9.3,0,0,0,Reprovado,Sem experiência no setor de saúde/educação,3,Boa entrevista mas erro crítico no case
+51,Assistente Financeiro,Financeiro,CE,Catho,Teste Técnico,Em andamento,7.7,5.7,7.3,0,Em andamento,,33,Aguardando entrevista com gestor
+52,Assistente Financeiro,Financeiro,CE,Indeed,Proposta,Em andamento,4.2,4.2,6.4,6.9,Em andamento,,44,Em processo de agendamento
+53,Assistente Financeiro,Financeiro,CE,Site,Teste Técnico,Em andamento,9.2,9.1,7.4,0,Em andamento,,43,Aguardando entrevista com gestor
+54,Assistente Financeiro,Financeiro,CE,Programa de Indicação Interna,Proposta,Em andamento,6.3,7.7,5.8,7.8,Em andamento,,13,Proposta em análise pelo candidato
+55,Assistente Financeiro,Financeiro,CE,Programa de Indicação Interna,Proposta,Em andamento,7.4,9.0,7.4,5.7,Em andamento,,1,"Teste enviado, prazo: 5 dias"
+56,Assistente Financeiro,Financeiro,CE,Site,Entrevista RH,Reprovado,8.1,7.3,0,0,Reprovado,Candidato desistiu do processo,29,Experiência insuficiente para o nível da vaga
+57,Assistente Financeiro,Financeiro,CE,Catho,Teste Técnico,Reprovado,8.9,8.4,4.9,0,Reprovado,Pretensão salarial acima do budget,19,
+58,Assistente Financeiro,Financeiro,CE,Programa de Indicação Interna,Entrevista Gestor,Reprovado,5.2,8.5,8.1,7.7,Reprovado,Lacuna técnica crítica,10,Boa entrevista mas erro crítico no case
+59,Assistente Financeiro,Financeiro,CE,LinkedIn,Entrevista RH,Reprovado,6.1,8.7,0,0,Reprovado,Não retornou contato,41,
+60,Assistente Financeiro,Financeiro,CE,Indicação,Entrevista Gestor,Em andamento,5.5,6.2,4.8,7.8,Em andamento,,7,Proposta em análise pelo candidato
+61,Assistente Financeiro,Financeiro,CE,Indicação,Entrevista RH,Reprovado,9.2,6.8,0,0,Reprovado,Lacuna técnica crítica,8,Histórico de job-hopping preocupante
+62,Assistente Financeiro,Financeiro,CE,Indicação,Proposta,Negociação,7.3,9.4,7.3,9.2,Negociação,,40,Analisando benefícios
+63,Assistente Financeiro,Financeiro,CE,Catho,Teste Técnico,Reprovado,8.9,6.5,4.9,0,Reprovado,Candidato desistiu do processo,29,Comunicação abaixo do esperado
+64,Assistente Financeiro,Financeiro,CE,Indicação,Proposta,Em andamento,4.8,8.3,6.7,5.3,Em andamento,,19,Em processo de agendamento
+65,Coordenador Educacional,Educacional,CE,Site,Entrevista RH,Reprovado,8.8,4.4,0,0,Reprovado,Não retornou contato,45,Experiência insuficiente para o nível da vaga
+66,Coordenador Educacional,Educacional,CE,Programa de Indicação Interna,Entrevista RH,Em andamento,5.7,5.8,0,0,Em andamento,,4,Em processo de agendamento
+67,Coordenador Educacional,Educacional,CE,Indeed,Teste Técnico,Reprovado,8.0,9.2,4.1,0,Reprovado,Não retornou contato,31,Boa entrevista mas erro crítico no case
+68,Coordenador Educacional,Educacional,CE,Site,Entrevista RH,Em andamento,5.5,8.9,0,0,Em andamento,,35,Referências sendo verificadas
+69,Coordenador Educacional,Educacional,CE,Catho,Proposta,Em andamento,6.2,5.5,6.7,6.1,Em andamento,,26,Em processo de agendamento
+70,Coordenador Educacional,Educacional,CE,Indeed,Proposta,Em andamento,9.4,6.9,9.0,7.3,Em andamento,,6,Proposta em análise pelo candidato
+71,Coordenador Educacional,Educacional,CE,Indicação,Proposta,Em andamento,4.2,5.4,5.8,6.5,Em andamento,,25,"Teste enviado, prazo: 5 dias"
+72,Coordenador Educacional,Educacional,CE,Indeed,Entrevista RH,Em andamento,3.5,4.1,0,0,Em andamento,,23,Em processo de agendamento
+73,Coordenador Educacional,Educacional,CE,Programa de Indicação Interna,Triagem,Reprovado,9.2,0,0,0,Reprovado,Perfil não aderente,16,Experiência insuficiente para o nível da vaga
+74,Coordenador Educacional,Educacional,CE,LinkedIn,Entrevista Gestor,Em andamento,4.6,6.6,4.6,9.2,Em andamento,,17,"Teste enviado, prazo: 5 dias"
+75,Coordenador Educacional,Educacional,CE,Indicação,Entrevista Gestor,Em andamento,9.3,8.0,8.3,4.9,Em andamento,,38,Aguardando entrevista com gestor
+76,Coordenador Educacional,Educacional,CE,Site,Entrevista Gestor,Em andamento,8.9,6.1,9.2,5.1,Em andamento,,41,Em processo de agendamento
+77,Coordenador Educacional,Educacional,CE,LinkedIn,Entrevista Gestor,Em andamento,5.0,7.8,8.4,8.4,Em andamento,,3,"Teste enviado, prazo: 5 dias"
+78,Coordenador Educacional,Educacional,CE,Catho,Teste Técnico,Reprovado,5.4,6.8,5.9,0,Reprovado,Não retornou contato,32,Boa entrevista mas erro crítico no case
+79,Coordenador Educacional,Educacional,CE,Indeed,Proposta,Em andamento,7.1,8.6,7.9,6.4,Em andamento,,42,"Teste enviado, prazo: 5 dias"
+80,Analista de Marketing,Marketing,SP,Catho,Proposta,Reprovado,6.5,6.7,6.4,8.0,Reprovado,Lacuna técnica crítica,6,Comunicação abaixo do esperado
+81,Analista de Marketing,Marketing,SP,Indeed,Entrevista RH,Reprovado,6.0,7.4,0,0,Reprovado,Perfil não aderente,32,Comunicação abaixo do esperado
+82,Analista de Marketing,Marketing,SP,Indicação,Teste Técnico,Reprovado,5.3,5.4,5.5,0,Reprovado,Sem experiência no setor de saúde/educação,36,Boa entrevista mas erro crítico no case
+83,Analista de Marketing,Marketing,SP,Catho,Proposta,Em andamento,3.6,8.0,6.7,8.2,Em andamento,,42,Proposta em análise pelo candidato
+84,Analista de Marketing,Marketing,SP,Indeed,Entrevista Gestor,Em andamento,3.6,5.2,7.8,5.7,Em andamento,,31,Referências sendo verificadas
+85,Analista de Marketing,Marketing,SP,Catho,Entrevista RH,Reprovado,9.5,7.0,0,0,Reprovado,Candidato desistiu do processo,18,Comunicação abaixo do esperado
+86,Analista de Marketing,Marketing,SP,Site,Entrevista RH,Em andamento,7.7,5.7,0,0,Em andamento,,45,Em processo de agendamento
+87,Analista de Marketing,Marketing,SP,Indicação,Entrevista RH,Em andamento,6.1,8.0,0,0,Em andamento,,34,Referências sendo verificadas
+88,Analista de Marketing,Marketing,SP,Site,Proposta,Em andamento,8.4,5.6,6.0,5.7,Em andamento,,9,"Teste enviado, prazo: 5 dias"
+89,Analista de Marketing,Marketing,SP,LinkedIn,Proposta,Em andamento,6.6,7.8,4.7,8.8,Em andamento,,1,Referências sendo verificadas
+90,Analista de Marketing,Marketing,SP,Site,Teste Técnico,Reprovado,5.9,5.0,4.3,0,Reprovado,Candidato desistiu do processo,8,Boa entrevista mas erro crítico no case
+91,Analista de Marketing,Marketing,SP,Indeed,Teste Técnico,Reprovado,6.8,7.8,4.8,0,Reprovado,Sem experiência no setor de saúde/educação,6,Experiência insuficiente para o nível da vaga
+92,Analista de Marketing,Marketing,SP,LinkedIn,Entrevista Gestor,Em andamento,5.7,7.3,7.4,8.3,Em andamento,,29,"Teste enviado, prazo: 5 dias"
+93,Analista de Marketing,Marketing,SP,Catho,Proposta,Em andamento,5.0,7.4,7.4,8.1,Em andamento,,14,Em processo de agendamento
+94,Analista de Marketing,Marketing,SP,Site,Entrevista Gestor,Em andamento,4.0,5.0,4.4,4.0,Em andamento,,39,Proposta em análise pelo candidato
