@@ -878,6 +878,26 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .btn:hover{background:var(--accent-dark);color:var(--bg-elev)}
 
+/* O SEGUNDO BOTAO DO BLOCO DE ARQUIVO. Nasceu em 02/09: o aluno clicava e
+   o HTML ABRIA no navegador, e o Rafael pediu tambem o download -- ele quer
+   levar o arquivo para outro chat e dizer "esta e a referencia".
+   Sao duas acoes diferentes com o mesmo arquivo, entao sao dois botoes:
+   abrir para ver agora, baixar para usar depois.
+
+   🔴 O padding e 10/19 e nao 11/20 de proposito: o .btn tem border:0, e este
+   tem borda de 1px. Sem tirar 1px de cada lado os dois ficam com alturas
+   diferentes lado a lado, e isso e visivel. */
+.btn-2{
+  background:transparent;color:var(--accent);
+  border:1px solid var(--border-strong);padding:10px 19px;
+}
+.btn-2:hover{background:var(--accent-soft);color:var(--accent-dark);border-color:var(--accent)}
+
+/* Os dois botoes viram UM filho do grid do .arquivo, que e 1fr auto. Sem
+   este envelope o segundo <a> criaria uma terceira coluna e quebraria o
+   bloco -- e ele e usado em 16 paginas. */
+.arq-acoes{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
 /* ---------- 19 · MATRIZ DE DECISÃO ---------------------------------------- */
 .matriz{
   display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;margin:22px 0;

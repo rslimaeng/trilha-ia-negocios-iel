@@ -972,6 +972,26 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .btn:hover{background:var(--accent-dark);color:var(--bg-elev)}
 
+/* O SEGUNDO BOTAO DO BLOCO DE ARQUIVO. Nasceu em 02/09: o aluno clicava e
+   o HTML ABRIA no navegador, e o Rafael pediu tambem o download -- ele quer
+   levar o arquivo para outro chat e dizer "esta e a referencia".
+   Sao duas acoes diferentes com o mesmo arquivo, entao sao dois botoes:
+   abrir para ver agora, baixar para usar depois.
+
+   🔴 O padding e 10/19 e nao 11/20 de proposito: o .btn tem border:0, e este
+   tem borda de 1px. Sem tirar 1px de cada lado os dois ficam com alturas
+   diferentes lado a lado, e isso e visivel. */
+.btn-2{
+  background:transparent;color:var(--accent);
+  border:1px solid var(--border-strong);padding:10px 19px;
+}
+.btn-2:hover{background:var(--accent-soft);color:var(--accent-dark);border-color:var(--accent)}
+
+/* Os dois botoes viram UM filho do grid do .arquivo, que e 1fr auto. Sem
+   este envelope o segundo <a> criaria uma terceira coluna e quebraria o
+   bloco -- e ele e usado em 16 paginas. */
+.arq-acoes{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
 /* ---------- 19 · MATRIZ DE DECISÃO ---------------------------------------- */
 .matriz{
   display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;margin:22px 0;
@@ -3369,7 +3389,10 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         fictícia, com&nbsp;as&nbsp;quatro partes prontas e&nbsp;o&nbsp;bloco final já&nbsp;formatado para&nbsp;colar na&nbsp;conversa. <strong>Ele existe para&nbsp;ser substituído</strong>, e&nbsp;é isso que&nbsp;o&nbsp;passo 1
         pede.</p>
       </div>
-      <a class="btn" href="../_arquivos/design-system-exemplo.html">Baixar o modelo</a>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/design-system-exemplo.html">Abrir</a>
+        <a class="btn btn-2" href="../_arquivos/design-system-exemplo.html" download>Baixar</a>
+      </div>
     </div>
 
     <div class="arquivo">
@@ -3382,7 +3405,10 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         declarados. <strong>Ele vem em três versões de cor e fonte, e o botão do topo
         troca as três ao vivo</strong>, para você comparar antes de escolher.</p>
       </div>
-      <a class="btn" href="../_arquivos/design-system-completo.html">Abrir o completo</a>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/design-system-completo.html">Abrir</a>
+        <a class="btn btn-2" href="../_arquivos/design-system-completo.html" download>Baixar</a>
+      </div>
     </div>
 
     <div class="arquivo">
@@ -3393,8 +3419,15 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <strong>Vira PDF pelo&nbsp;Imprimir do&nbsp;navegador</strong>, sem&nbsp;instalar nada, e&nbsp;as&nbsp;três
         versões de&nbsp;cor e&nbsp;fonte são as&nbsp;mesmas.</p>
       </div>
-      <a class="btn" href="../_arquivos/apresentacao-modelo.html">Abrir a apresentação</a>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/apresentacao-modelo.html">Abrir</a>
+        <a class="btn btn-2" href="../_arquivos/apresentacao-modelo.html" download>Baixar</a>
+      </div>
     </div>
+
+    <p class="fig-leg"><strong>Abrir é para&nbsp;ver agora; baixar é para&nbsp;usar depois.</strong>
+    O&nbsp;arquivo baixado é o&nbsp;que&nbsp;você anexa numa&nbsp;conversa nova dizendo "esta é a&nbsp;referência
+    da&nbsp;minha&nbsp;empresa", e&nbsp;a&nbsp;partir daí tudo o&nbsp;que&nbsp;ela gerar já&nbsp;sai com&nbsp;a&nbsp;sua&nbsp;cara.</p>
 
     <p class="fig-leg"><strong>Os&nbsp;três são o&nbsp;mesmo documento em&nbsp;níveis diferentes</strong>,
     e&nbsp;é de&nbsp;propósito que&nbsp;você vê os&nbsp;três. Design system não&nbsp;é uma&nbsp;coisa que&nbsp;existe ou&nbsp;não&nbsp;existe: é uma&nbsp;coisa que&nbsp;cresce. Comece pelo&nbsp;de&nbsp;uma&nbsp;página, e&nbsp;só&nbsp;suba de&nbsp;nível quando&nbsp;a&nbsp;falta doer.</p>
