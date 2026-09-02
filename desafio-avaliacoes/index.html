@@ -416,6 +416,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:22px;box-shadow:var(--sombra-p);
 }
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
+/* Dois cartoes seguidos encostavam: o .cartao nunca teve margem propria, e o
+   espacamento vinha so do bloco anterior. Onde ha dois em sequencia -- as
+   paginas de desafio chegam a cinco -- as bordas se tocavam. Mesmo valor e
+   mesma forma do .cr-campo + .cr-campo que ja existia aqui. Rafael, 02/09:
+   "me incomodou que nao tem espacamento". */
+.cartao + .cartao{margin-top:18px}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
 .grade{display:grid;gap:16px;margin:22px 0}
@@ -3256,6 +3262,17 @@ parágrafo e a lista dos temas que agrupou. Espere meu OK.</pre>
     <div class="cartao">
       <span class="rot">Se o resultado vier raso</span>
       <p><em>"Esse tema ficou vago; junte com&nbsp;o&nbsp;outro e&nbsp;me mostre os&nbsp;trechos exatos que&nbsp;sustentam os&nbsp;dois."</em> · <em>"As&nbsp;ações estão genéricas: me dê três específicas para&nbsp;a&nbsp;loja com&nbsp;a&nbsp;pior nota."</em> · <em>"Separe de&nbsp;novo o&nbsp;que&nbsp;é padrão da&nbsp;rede do&nbsp;que&nbsp;é de&nbsp;uma&nbsp;loja. A&nbsp;sua&nbsp;lista misturou os&nbsp;dois."</em></p>
+    </div>
+    <div class="cartao">
+      <span class="rot">Este pedido faz o caminho curto, e isso é uma escolha</span>
+      <p>O pedido acima devolve o resultado inteiro de uma vez, porque aqui o objetivo é você
+      sair da aula com a peça na mão. <strong>Não é assim que a análise se faz quando há
+      tempo.</strong> A <a href="../b2-planilha/">aula 4</a> separa o mesmo trabalho em
+      <strong>quatro pedidos</strong>, que são o raio-X da base, a conta, a leitura e a
+      narrativa. A razão está lá: são tarefas diferentes, e pedido que junta tarefa
+      diferente entrega as duas pela metade.</p>
+      <p>Os&nbsp;quatro estão prontos para&nbsp;copiar na&nbsp;<a href="../b2-biblioteca/">biblioteca</a>. Se&nbsp;sobrar tempo depois de&nbsp;rodar este
+      desafio, refaça o&nbsp;mesmo arquivo pelo&nbsp;caminho longo e&nbsp;compare: <strong>o&nbsp;que&nbsp;aparecer no&nbsp;segundo e&nbsp;não&nbsp;apareceu no&nbsp;primeiro é o&nbsp;que&nbsp;o&nbsp;atalho custou.</strong></p>
     </div>
   </section>
 

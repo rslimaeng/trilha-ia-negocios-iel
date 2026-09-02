@@ -322,6 +322,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:22px;box-shadow:var(--sombra-p);
 }
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
+/* Dois cartoes seguidos encostavam: o .cartao nunca teve margem propria, e o
+   espacamento vinha so do bloco anterior. Onde ha dois em sequencia -- as
+   paginas de desafio chegam a cinco -- as bordas se tocavam. Mesmo valor e
+   mesma forma do .cr-campo + .cr-campo que ja existia aqui. Rafael, 02/09:
+   "me incomodou que nao tem espacamento". */
+.cartao + .cartao{margin-top:18px}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
 .grade{display:grid;gap:16px;margin:22px 0}

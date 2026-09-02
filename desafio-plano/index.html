@@ -416,6 +416,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:22px;box-shadow:var(--sombra-p);
 }
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
+/* Dois cartoes seguidos encostavam: o .cartao nunca teve margem propria, e o
+   espacamento vinha so do bloco anterior. Onde ha dois em sequencia -- as
+   paginas de desafio chegam a cinco -- as bordas se tocavam. Mesmo valor e
+   mesma forma do .cr-campo + .cr-campo que ja existia aqui. Rafael, 02/09:
+   "me incomodou que nao tem espacamento". */
+.cartao + .cartao{margin-top:18px}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
 .grade{display:grid;gap:16px;margin:22px 0}
@@ -3261,6 +3267,15 @@ uma das decisões que vai propor para a diretoria. Espere meu OK.</pre>
       <span class="rot">Se o resultado vier raso</span>
       <p><em>"Reavalie essa classificação: se&nbsp;aquilo destrava quatro pessoas, é alto
       impacto, não&nbsp;baixo."</em> · <em>"O&nbsp;plano ficou ambicioso demais; deixe só&nbsp;o&nbsp;piloto na&nbsp;última semana."</em> · <em>"Para&nbsp;cada decisão de&nbsp;diretoria, diga exatamente o&nbsp;valor ou&nbsp;a&nbsp;contratação pedida e&nbsp;até&nbsp;quando&nbsp;precisa da&nbsp;resposta."</em></p>
+    </div>
+    <div class="cartao">
+      <span class="rot">Este pedido faz o caminho curto, e isso é uma escolha</span>
+      <p>O&nbsp;pedido acima vai do&nbsp;arquivo ao&nbsp;plano numa&nbsp;tacada, porque&nbsp;aqui o&nbsp;objetivo é você
+      sair da&nbsp;aula com&nbsp;a&nbsp;peça na&nbsp;mão. <strong>Não&nbsp;é assim que&nbsp;a&nbsp;decisão se&nbsp;faz quando&nbsp;há
+      tempo.</strong> A&nbsp;<a href="../b2-causa/">aula 5</a> testa cada explicação antes de&nbsp;aceitá-la, e&nbsp;a&nbsp;<a href="../b2-plano/">aula 7</a> transforma a&nbsp;decisão em&nbsp;linhas com&nbsp;dono
+      e&nbsp;prazo. Aqui os&nbsp;dois passos vêm juntos, e&nbsp;juntos eles se&nbsp;conferem menos.</p>
+      <p>Os&nbsp;pedidos das&nbsp;duas estão prontos para&nbsp;copiar na&nbsp;<a href="../b2-biblioteca/">biblioteca</a>. Se&nbsp;sobrar tempo depois de&nbsp;rodar este
+      desafio, refaça o&nbsp;mesmo arquivo pelo&nbsp;caminho longo e&nbsp;compare: <strong>o&nbsp;que&nbsp;aparecer no&nbsp;segundo e&nbsp;não&nbsp;apareceu no&nbsp;primeiro é o&nbsp;que&nbsp;o&nbsp;atalho custou.</strong></p>
     </div>
   </section>
 
