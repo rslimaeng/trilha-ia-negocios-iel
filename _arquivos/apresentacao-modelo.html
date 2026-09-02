@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-v="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apresentação · modelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&family=Manrope:wght@600;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   AS MESMAS TRES VARIACOES DO DESIGN SYSTEM.
+   Este arquivo e o par do design-system-completo.html: os tokens sao os
+   mesmos, com os mesmos nomes. Se voce mudar a cor la, muda aqui igual, e a
+   apresentacao continua sendo a mesma marca.
+   ========================================================================== */
+:root{
+  --n-50:#F7F9FB; --n-100:#EDF1F5; --n-200:#DDE4EB; --n-300:#C2CCD6;
+  --n-400:#94A2B1; --n-500:#6B7A89; --n-600:#4E5B68; --n-700:#3A444F;
+  --n-800:#262D35; --n-900:#151A20;
+  --m-50:#F0F5FA; --m-100:#DCE8F4; --m-200:#BAD0E8; --m-300:#8EAFD6;
+  --m-400:#5C88BE; --m-500:#35649F; --m-600:#244D80; --m-700:#1B3B62;
+  --m-800:#142C49; --m-900:#0E1E32;
+  --fonte-titulo:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --fonte-texto:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:700;
+}
+html[data-v="b"]{
+  --n-50:#F9F8F6; --n-100:#F0EEEA; --n-200:#E1DED7; --n-300:#C7C2B8;
+  --n-400:#9C968A; --n-500:#746E62; --n-600:#55504A; --n-700:#3E3A35;
+  --n-800:#292623; --n-900:#171512;
+  --m-50:#EFF6F5; --m-100:#DAEAE8; --m-200:#B4D5D1; --m-300:#83B8B2;
+  --m-400:#4E948D; --m-500:#2E766F; --m-600:#1F5D57; --m-700:#174945;
+  --m-800:#123734; --m-900:#0C2523;
+  --fonte-titulo:"Newsreader",Georgia,"Times New Roman",serif;
+  --fonte-texto:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:600;
+}
+html[data-v="c"]{
+  --n-50:#F6F7F8; --n-100:#EBEDEF; --n-200:#DADDE1; --n-300:#B9BEC5;
+  --n-400:#8A9199; --n-500:#646C74; --n-600:#4A5158; --n-700:#363B41;
+  --n-800:#23272B; --n-900:#131619;
+  --m-50:#FDF4EE; --m-100:#FAE6D8; --m-200:#F3C9AE; --m-300:#E9A47B;
+  --m-400:#DB7B45; --m-500:#C05621; --m-600:#9E4319; --m-700:#7C3414;
+  --m-800:#5C270F; --m-900:#3D1A0A;
+  --fonte-titulo:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --fonte-texto:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:800;
+}
+:root, html[data-v]{
+  --tinta:var(--n-900); --tinta-media:var(--n-600); --tinta-fraca:var(--n-400);
+  --papel:#FFFFFF; --papel-fraco:var(--n-50); --linha:var(--n-200);
+  --marca:var(--m-600); --marca-viva:var(--m-500); --marca-fundo:var(--m-50);
+  --marca-linha:var(--m-200); --marca-tinta:var(--m-800); --marca-escuro:var(--m-900);
+  --bom:#1E7A4B; --bom-fundo:#EAF5EF;
+  --atencao:#A66A00; --atencao-fundo:#FBF3E3;
+  --ruim:#B3261E; --ruim-fundo:#FBEDEC;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--n-200);font-family:var(--fonte-texto);color:var(--tinta);
+  -webkit-font-smoothing:antialiased;counter-reset:slide-num}
+h1,h2,h3,h4{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);margin:0;line-height:1.15}
+
+/* ---------- o seletor, que some na impressao ---------------------------- */
+.barra-top{position:sticky;top:0;z-index:30;background:var(--papel);
+  border-bottom:1px solid var(--linha);padding:12px 20px;display:flex;gap:18px;
+  align-items:center;flex-wrap:wrap}
+.barra-top b{font-family:var(--fonte-titulo);font-size:14px;margin-right:auto}
+.barra-top b span{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-fraca);margin-top:2px}
+.seletor{display:flex;gap:4px;background:var(--n-100);padding:4px;border-radius:10px}
+.seletor button{font:inherit;font-size:13px;font-weight:600;border:0;cursor:pointer;
+  padding:7px 14px;border-radius:7px;background:transparent;color:var(--tinta-media)}
+.seletor button[aria-pressed="true"]{background:var(--papel);color:var(--marca);
+  box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.dica{font-size:13px;color:var(--tinta-media)}
+.dica kbd{font-family:var(--mono);font-size:11px;background:var(--n-100);
+  border:1px solid var(--linha);border-radius:4px;padding:2px 6px}
+
+/* ---------- o slide -----------------------------------------------------
+   A4 paisagem, 297 x 210mm. E a mesma mecanica que voce ja usa: cada
+   .slide vira uma pagina no PDF, e o navegador faz a conversao sozinho
+   pelo Imprimir. Nao precisa de programa nenhum.                         */
+.slide{
+  width:297mm;height:210mm;min-height:210mm;max-height:210mm;max-width:297mm;
+  margin:16px auto;padding:16mm 22mm 12mm;background:var(--papel);position:relative;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);page-break-after:always;
+  display:flex;flex-direction:column;counter-increment:slide-num;overflow:hidden;
+}
+.slide:after{content:counter(slide-num);position:absolute;right:22mm;bottom:8mm;
+  font-family:var(--mono);font-size:10px;color:var(--tinta-fraca)}
+.slide:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5mm;
+  background:var(--marca)}
+.olho{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinta-fraca);margin-bottom:6mm;display:block}
+.slide h2{font-size:34px;max-width:24ch;margin-bottom:5mm}
+.slide h2 em{font-style:normal;color:var(--marca)}
+.linha-fina{height:1px;background:var(--linha);margin:0 0 7mm}
+.pe{margin-top:auto;padding-top:5mm;border-top:1px solid var(--linha);
+  font-size:12px;color:var(--tinta-fraca);display:flex;gap:14px}
+.pe strong{color:var(--tinta-media);font-weight:600}
+
+/* capa */
+.capa{background:var(--marca-escuro);color:#fff;justify-content:center}
+.capa:before{background:var(--marca-viva);width:8mm}
+.capa:after{color:rgba(255,255,255,.4)}
+.capa .olho{color:rgba(255,255,255,.55)}
+.capa h1{font-size:60px;max-width:20ch;line-height:1.05}
+.capa h1 em{font-style:normal;color:var(--m-300)}
+.capa p{font-size:19px;color:rgba(255,255,255,.75);max-width:52ch;margin:6mm 0 0}
+.capa .assinatura{margin-top:12mm;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.06em;color:rgba(255,255,255,.55)}
+
+/* colunas e blocos */
+.cols{display:grid;gap:8mm;flex:1;align-content:start}
+.c2{grid-template-columns:1fr 1fr} .c3{grid-template-columns:repeat(3,1fr)}
+.bloco{border:1px solid var(--linha);border-radius:10px;padding:6mm;background:var(--papel)}
+.bloco .n-passo{font-family:var(--mono);font-size:11px;color:var(--marca);
+  letter-spacing:.08em;display:block;margin-bottom:3mm}
+.bloco h3{font-size:19px;margin-bottom:3mm}
+.bloco p{margin:0;font-size:14.5px;color:var(--tinta-media);line-height:1.55}
+
+/* indicadores */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm}
+.kpi{border-left:3px solid var(--marca);padding-left:5mm}
+.kpi .rot{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--tinta-fraca);margin-bottom:2mm}
+.kpi .n{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:40px;
+  line-height:1;font-variant-numeric:tabular-nums}
+.kpi .d{font-size:13px;margin-top:2mm;font-variant-numeric:tabular-nums}
+.sobe{color:var(--bom)} .desce{color:var(--ruim)}
+
+/* tabela */
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:3.4mm 4mm;border-bottom:1px solid var(--linha)}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-fraca);font-weight:600;background:var(--papel-fraco)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+.tab-env{border:1px solid var(--linha);border-radius:10px;overflow:hidden}
+.selo{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  padding:2px 9px;border-radius:999px}
+.selo-b{background:var(--bom-fundo);color:var(--bom)}
+.selo-a{background:var(--atencao-fundo);color:var(--atencao)}
+.selo-r{background:var(--ruim-fundo);color:var(--ruim)}
+.selo-n{background:var(--n-100);color:var(--tinta-media)}
+
+/* grafico */
+.graf{display:flex;align-items:flex-end;gap:5mm;height:78mm}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:2mm;height:100%}
+.col i{display:block;background:var(--marca-viva);border-radius:3px 3px 0 0}
+.col i.destaque{background:var(--marca)}
+.col span{font-family:var(--mono);font-size:10.5px;color:var(--tinta-fraca);text-align:center}
+.leitura{border-left:3px solid var(--marca);padding-left:5mm}
+.leitura p{font-size:15px;line-height:1.6;color:var(--tinta-media);margin:0 0 3mm}
+.leitura p:last-child{margin-bottom:0}
+.leitura strong{color:var(--tinta)}
+
+/* decisao */
+.decisao{border:1px solid var(--linha);border-left:3px solid;border-radius:0 10px 10px 0;
+  padding:5mm 6mm;margin-bottom:4mm}
+.decisao b{display:block;font-family:var(--fonte-titulo);font-size:16px;margin-bottom:1.5mm}
+.decisao p{margin:0;font-size:14px;color:var(--tinta-media)}
+.d-r{border-left-color:var(--ruim)} .d-a{border-left-color:var(--atencao)}
+.d-b{border-left-color:var(--bom)}
+
+/* fecho */
+.fecho{background:var(--marca-fundo);justify-content:center}
+.fecho h2{font-size:44px;max-width:22ch;color:var(--marca-tinta)}
+.fecho .prox{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm;margin-top:10mm}
+.fecho .prox div{border-top:2px solid var(--marca);padding-top:4mm}
+.fecho .prox b{display:block;font-family:var(--fonte-titulo);font-size:16px;margin-bottom:2mm}
+.fecho .prox p{margin:0;font-size:14px;color:var(--tinta-media)}
+.fecho .prox span{font-family:var(--mono);font-size:10.5px;color:var(--marca);
+  letter-spacing:.08em;display:block;margin-bottom:2mm}
+
+@media print{
+  body{background:#fff}
+  .barra-top{display:none}
+  .slide{margin:0 auto;box-shadow:none;page-break-after:always;
+    page-break-inside:avoid;break-inside:avoid;overflow:hidden}
+  .slide:last-of-type{page-break-after:auto}
+}
+@page{size:A4 landscape;margin:0}
+</style>
+</head>
+<body>
+
+<div class="barra-top">
+  <b>Apresentação · modelo <span>troque o conteúdo · imprima em PDF</span></b>
+  <div class="seletor" role="group" aria-label="Escolha a variação">
+    <button type="button" data-set="a" aria-pressed="true">A · Institucional</button>
+    <button type="button" data-set="b" aria-pressed="false">B · Editorial</button>
+    <button type="button" data-set="c" aria-pressed="false">C · Técnico</button>
+  </div>
+  <span class="dica">Para gerar o PDF: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>P</kbd> → Salvar como PDF</span>
+</div>
+
+<!-- 1 · CAPA -->
+<section class="slide capa">
+  <span class="olho">Nome da empresa · área · mês de referência</span>
+  <h1>O que o fechamento de agosto <em>mostrou</em>, e o que ele exige agora</h1>
+  <p>A margem caiu pelo terceiro mês seguido, e a causa não é a que a reunião passada
+  assumiu. Este documento mostra onde ela está e o que muda na segunda-feira.</p>
+  <div class="assinatura">Seu nome · seu cargo · 00 de mês de 2026</div>
+</section>
+
+<!-- 2 · O QUE ESTE DOCUMENTO RESPONDE -->
+<section class="slide">
+  <span class="olho">O que este documento responde</span>
+  <h2>Três perguntas, e a terceira é a que <em>ninguém trouxe pronta</em></h2>
+  <div class="linha-fina"></div>
+  <div class="cols c3">
+    <div class="bloco">
+      <span class="n-passo">01</span>
+      <h3>Onde a margem caiu</h3>
+      <p>Por canal e por linha de produto, com o número de cada um e o peso na
+      diferença total do trimestre.</p>
+    </div>
+    <div class="bloco">
+      <span class="n-passo">02</span>
+      <h3>Por que ela caiu</h3>
+      <p>A hipótese que a reunião passada assumiu, testada contra o dado, e a causa
+      que apareceu no lugar dela.</p>
+    </div>
+    <div class="bloco">
+      <span class="n-passo">03</span>
+      <h3>O que fazer, e quem decide</h3>
+      <p>Três caminhos com o custo de cada um, a recomendação, e o que precisa de
+      aprovação para andar.</p>
+    </div>
+  </div>
+  <div class="pe">
+    <span><strong>Base:</strong> fechamento consolidado de agosto</span>
+    <span><strong>Corte:</strong> 02/09</span>
+    <span><strong>Fonte:</strong> sistema de vendas, exportado em 01/09</span>
+  </div>
+</section>
+
+<!-- 3 · OS NUMEROS -->
+<section class="slide">
+  <span class="olho">O trimestre em quatro números</span>
+  <h2>O volume subiu e a margem caiu, e é essa <em>tesoura</em> que importa</h2>
+  <div class="linha-fina"></div>
+  <div class="kpis">
+    <div class="kpi"><span class="rot">Receita</span><div class="n">R$ 1,24 mi</div>
+      <div class="d sobe">▲ 8,2% contra julho</div></div>
+    <div class="kpi"><span class="rot">Margem bruta</span><div class="n">28,4%</div>
+      <div class="d desce">▼ 2,1 p.p. contra julho</div></div>
+    <div class="kpi"><span class="rot">Pedidos</span><div class="n">1.842</div>
+      <div class="d sobe">▲ 3,0% contra julho</div></div>
+    <div class="kpi"><span class="rot">Ticket médio</span><div class="n">R$ 673</div>
+      <div class="d sobe">▲ 5,1% contra julho</div></div>
+  </div>
+  <div style="margin-top:10mm" class="leitura">
+    <p><strong>Três dos quatro números subiram</strong>, e mesmo assim o resultado piorou.
+    Quem lê só o primeiro cartão sai com a impressão contrária à do fechamento.</p>
+    <p>Por isso todo indicador aqui carrega a comparação com o período anterior: o número
+    sozinho não diz se é bom, e quem lê inventa uma referência que não é a sua.</p>
+  </div>
+  <div class="pe"><span><strong>Comparação:</strong> julho de 2026, mesma base</span></div>
+</section>
+
+<!-- 4 · A TABELA -->
+<section class="slide">
+  <span class="olho">Onde a queda aconteceu</span>
+  <h2>A margem caiu em <em>um canal só</em>, e ele responde por 61% da diferença</h2>
+  <div class="linha-fina"></div>
+  <div class="tab-env">
+    <table>
+      <thead><tr><th>Canal</th><th class="num">Receita</th><th class="num">Margem</th>
+        <th class="num">Variação</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td>Distribuidor</td><td class="num">R$ 612.400</td><td class="num">21,3%</td>
+          <td class="num desce">▼ 6,4 p.p.</td><td><span class="selo selo-r">atrasado</span></td></tr>
+        <tr><td>Varejo direto</td><td class="num">R$ 428.100</td><td class="num">34,8%</td>
+          <td class="num sobe">▲ 0,9 p.p.</td><td><span class="selo selo-b">no prazo</span></td></tr>
+        <tr><td>Licitação</td><td class="num">R$ 141.900</td><td class="num">29,1%</td>
+          <td class="num desce">▼ 0,4 p.p.</td><td><span class="selo selo-a">em risco</span></td></tr>
+        <tr><td>Exportação</td><td class="num">—</td><td class="num">—</td>
+          <td class="num">—</td><td><span class="selo selo-n">sem dado</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:8mm" class="leitura">
+    <p><strong>A linha de exportação escreve "sem dado" em vez de ficar em branco.</strong>
+    Célula vazia é lida como zero, e alguém vai tomar decisão em cima disso.</p>
+  </div>
+  <div class="pe"><span><strong>Variação:</strong> contra o mesmo trimestre de 2025</span>
+    <span><strong>p.p.:</strong> pontos percentuais</span></div>
+</section>
+
+<!-- 5 · O GRAFICO -->
+<section class="slide">
+  <span class="olho">A série do semestre</span>
+  <h2>A queda começou em <em>junho</em>, e não em agosto como a reunião assumiu</h2>
+  <div class="linha-fina"></div>
+  <div class="cols c2" style="align-items:start">
+    <div>
+      <span class="olho" style="margin-bottom:4mm">Margem bruta por mês · %</span>
+      <div class="graf">
+        <div class="col"><i style="height:88%"></i><span>mar</span></div>
+        <div class="col"><i style="height:86%"></i><span>abr</span></div>
+        <div class="col"><i style="height:85%"></i><span>mai</span></div>
+        <div class="col"><i class="destaque" style="height:71%"></i><span>jun</span></div>
+        <div class="col"><i style="height:66%"></i><span>jul</span></div>
+        <div class="col"><i style="height:58%"></i><span>ago</span></div>
+      </div>
+    </div>
+    <div class="leitura">
+      <p><strong>Junho é a barra que muda o diagnóstico.</strong> Foi o mês em que a
+      política de desconto do canal distribuidor foi flexibilizada, e a curva não voltou
+      desde então.</p>
+      <p>Agosto é só o mês em que o efeito ficou grande o bastante para aparecer no
+      fechamento. Tratar agosto como a causa leva a mexer na coisa errada.</p>
+      <p><strong>Uma cor só</strong>, porque a série é uma. A barra escura marca o ponto
+      de virada, que é a única informação a mais que o gráfico precisa dar.</p>
+    </div>
+  </div>
+  <div class="pe"><span><strong>Série:</strong> março a agosto de 2026</span></div>
+</section>
+
+<!-- 6 · A DECISAO -->
+<section class="slide">
+  <span class="olho">O que precisa de decisão</span>
+  <h2>Três caminhos, e o custo de <em>não escolher nenhum</em></h2>
+  <div class="linha-fina"></div>
+  <div class="decisao d-r">
+    <b>Apertar a alçada de desconto do canal distribuidor</b>
+    <p>Recupera cerca de 4 p.p. de margem em dois meses, e coloca em risco os três
+    contratos que renovam em novembro. Precisa de decisão da diretoria comercial.</p>
+  </div>
+  <div class="decisao d-a">
+    <b>Renegociar com os dois fornecedores da linha de entrada</b>
+    <p>Efeito menor e mais lento, cerca de 1,5 p.p. em quatro meses, e não mexe na
+    relação com o cliente. Precisa de aval de compras.</p>
+  </div>
+  <div class="decisao d-b">
+    <b>Trocar o mix da linha de entrada</b>
+    <p>É o de maior efeito e o de execução mais longa. Só faz sentido se a decisão
+    sair até o fim de setembro, para pegar a virada do trimestre.</p>
+  </div>
+  <div class="leitura" style="margin-top:2mm">
+    <p><strong>Não escolher também é uma escolha</strong>, e ela custa cerca de 0,7 p.p.
+    de margem por mês, no ritmo dos últimos três.</p>
+  </div>
+  <div class="pe"><span><strong>Recomendação:</strong> o segundo caminho, e o terceiro em paralelo</span></div>
+</section>
+
+<!-- 7 · FECHO -->
+<section class="slide fecho">
+  <span class="olho">O que acontece a seguir</span>
+  <h2>A causa está identificada. O que falta é <em>a decisão de setembro</em>.</h2>
+  <div class="prox">
+    <div><span>Até 08/09</span><b>Aval de compras</b>
+      <p>Abrir a renegociação com os dois fornecedores da linha de entrada.</p></div>
+    <div><span>Até 15/09</span><b>Cenário da alçada</b>
+      <p>Simular o efeito nos três contratos que renovam em novembro.</p></div>
+    <div><span>Até 30/09</span><b>Decisão do mix</b>
+      <p>Ou entra na virada do trimestre, ou fica para o ano que vem.</p></div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll(".seletor button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.documentElement.dataset.v = b.dataset.set;
+    document.querySelectorAll(".seletor button").forEach(o =>
+      o.setAttribute("aria-pressed", String(o === b)));
+  });
+});
+</script>
+</body>
+</html>

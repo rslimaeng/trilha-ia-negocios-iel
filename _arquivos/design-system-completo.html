@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-v="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design System · modelo completo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&family=Manrope:wght@600;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   AS TRES VARIACOES.
+   Cada uma troca DUAS coisas ao mesmo tempo: a familia de cor e o par de
+   fontes. Trocar so a cor nao muda o carater da marca, e e por isso que o
+   seletor mexe nos dois juntos.
+   Voce vai apagar duas delas e ficar com uma. Ate la, clique e compare.
+   ========================================================================== */
+
+:root{
+  /* neutro frio, para a variacao A */
+  --n-50:#F7F9FB; --n-100:#EDF1F5; --n-200:#DDE4EB; --n-300:#C2CCD6;
+  --n-400:#94A2B1; --n-500:#6B7A89; --n-600:#4E5B68; --n-700:#3A444F;
+  --n-800:#262D35; --n-900:#151A20;
+
+  /* azul institucional */
+  --m-50:#F0F5FA; --m-100:#DCE8F4; --m-200:#BAD0E8; --m-300:#8EAFD6;
+  --m-400:#5C88BE; --m-500:#35649F; --m-600:#244D80; --m-700:#1B3B62;
+  --m-800:#142C49; --m-900:#0E1E32;
+
+  --fonte-titulo:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --fonte-texto:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:700;
+  --nome-v:"A · Institucional";
+  --nome-cor:"Azul institucional";
+  --nome-fonte:"Archivo com Source Sans 3";
+}
+
+html[data-v="b"]{
+  /* neutro levemente quente */
+  --n-50:#F9F8F6; --n-100:#F0EEEA; --n-200:#E1DED7; --n-300:#C7C2B8;
+  --n-400:#9C968A; --n-500:#746E62; --n-600:#55504A; --n-700:#3E3A35;
+  --n-800:#292623; --n-900:#171512;
+
+  /* verde petroleo */
+  --m-50:#EFF6F5; --m-100:#DAEAE8; --m-200:#B4D5D1; --m-300:#83B8B2;
+  --m-400:#4E948D; --m-500:#2E766F; --m-600:#1F5D57; --m-700:#174945;
+  --m-800:#123734; --m-900:#0C2523;
+
+  --fonte-titulo:"Newsreader",Georgia,"Times New Roman",serif;
+  --fonte-texto:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:600;
+  --nome-v:"B · Editorial";
+  --nome-cor:"Verde petróleo";
+  --nome-fonte:"Newsreader com Public Sans";
+}
+
+html[data-v="c"]{
+  /* grafite */
+  --n-50:#F6F7F8; --n-100:#EBEDEF; --n-200:#DADDE1; --n-300:#B9BEC5;
+  --n-400:#8A9199; --n-500:#646C74; --n-600:#4A5158; --n-700:#363B41;
+  --n-800:#23272B; --n-900:#131619;
+
+  /* ambar queimado */
+  --m-50:#FDF4EE; --m-100:#FAE6D8; --m-200:#F3C9AE; --m-300:#E9A47B;
+  --m-400:#DB7B45; --m-500:#C05621; --m-600:#9E4319; --m-700:#7C3414;
+  --m-800:#5C270F; --m-900:#3D1A0A;
+
+  --fonte-titulo:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --fonte-texto:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --peso-titulo:800;
+  --nome-v:"C · Técnico";
+  --nome-cor:"Âmbar queimado";
+  --nome-fonte:"Manrope com IBM Plex Sans";
+}
+
+/* ---------- os papeis, e e por eles que o resto do arquivo pinta ---------
+   Regra que vale nas tres: componente NUNCA usa --m-500 direto. Ele usa
+   --tinta, --papel, --marca. Assim, trocar a variacao troca a pagina
+   inteira sem editar um componente sequer -- e e exatamente isso que voce
+   quer quando trocar de marca no ano que vem.                            */
+:root, html[data-v]{
+  --tinta:var(--n-900);
+  --tinta-media:var(--n-600);
+  --tinta-fraca:var(--n-400);
+  --papel:#FFFFFF;
+  --papel-fraco:var(--n-50);
+  --papel-medio:var(--n-100);
+  --linha:var(--n-200);
+  --linha-forte:var(--n-300);
+  --marca:var(--m-600);
+  --marca-viva:var(--m-500);
+  --marca-fundo:var(--m-50);
+  --marca-linha:var(--m-200);
+  --marca-tinta:var(--m-800);
+
+  /* semanticos: eles NAO mudam entre as variacoes, de proposito. Verde e
+     "deu certo" em qualquer marca, e um vermelho que muda de tom a cada
+     tema ensina a sala a nao confiar na cor.                            */
+  --bom:#1E7A4B;      --bom-fundo:#EAF5EF;
+  --atencao:#A66A00;  --atencao-fundo:#FBF3E3;
+  --ruim:#B3261E;     --ruim-fundo:#FBEDEC;
+
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --r-p:6px; --r-m:10px; --r-g:16px;
+  --e-1:4px; --e-2:8px; --e-3:12px; --e-4:16px;
+  --e-5:24px; --e-6:32px; --e-7:48px; --e-8:64px;
+  --sombra:0 1px 2px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.04);
+  --sombra-g:0 4px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--papel-fraco);color:var(--tinta);
+  font-family:var(--fonte-texto);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);line-height:1.2;margin:0}
+a{color:var(--marca)}
+code,kbd{font-family:var(--mono);font-size:.88em}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--e-5)}
+
+/* ---------- topo e seletor ---------------------------------------------- */
+.topo{background:var(--papel);border-bottom:1px solid var(--linha);position:sticky;top:0;z-index:20}
+.topo-in{display:flex;align-items:center;gap:var(--e-5);flex-wrap:wrap;padding:var(--e-4) 0}
+.topo h1{font-size:20px;margin-right:auto}
+.topo h1 span{display:block;font-family:var(--mono);font-size:11px;font-weight:400;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-fraca);margin-top:3px}
+.seletor{display:flex;gap:var(--e-1);background:var(--papel-medio);padding:4px;border-radius:var(--r-m)}
+.seletor button{
+  font:inherit;font-size:13px;font-weight:600;border:0;cursor:pointer;
+  padding:7px 14px;border-radius:calc(var(--r-m) - 3px);
+  background:transparent;color:var(--tinta-media);
+}
+.seletor button[aria-pressed="true"]{background:var(--papel);color:var(--marca);box-shadow:var(--sombra)}
+
+/* ---------- secoes ------------------------------------------------------- */
+section{padding:var(--e-7) 0;border-bottom:1px solid var(--linha)}
+.rot{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--tinta-fraca);display:block;margin-bottom:var(--e-2)}
+section > .wrap > h2{font-size:30px;margin-bottom:var(--e-2)}
+.sub{color:var(--tinta-media);max-width:62ch;margin:0 0 var(--e-5)}
+h3{font-size:18px;margin:var(--e-6) 0 var(--e-3)}
+h3:first-of-type{margin-top:0}
+
+.cartao{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:var(--e-5)}
+.nota{background:var(--marca-fundo);border-left:3px solid var(--marca);padding:var(--e-4) var(--e-5);
+  border-radius:0 var(--r-p) var(--r-p) 0;color:var(--marca-tinta);font-size:15px}
+.nota strong{color:var(--marca-tinta)}
+
+/* ---------- cor ---------------------------------------------------------- */
+.escala{display:grid;grid-template-columns:repeat(10,1fr);border-radius:var(--r-m);overflow:hidden;
+  border:1px solid var(--linha)}
+.tom{border:0;padding:0;cursor:pointer;font:inherit;text-align:left;position:relative;
+  aspect-ratio:1/1.35;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--e-2)}
+.tom b{font-family:var(--mono);font-size:11px;font-weight:600;display:block}
+.tom small{font-family:var(--mono);font-size:9.5px;opacity:.75;display:block;letter-spacing:.02em}
+.tom.claro{color:var(--n-800)} .tom.escuro{color:#fff}
+.tom:hover:after{content:"copiar";position:absolute;top:6px;left:6px;font-family:var(--mono);
+  font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.tom.ok:after{content:"copiado ✓";opacity:1}
+.semantica{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--e-4)}
+.sem{border-radius:var(--r-m);padding:var(--e-4);border:1px solid}
+.sem b{display:block;font-family:var(--fonte-titulo);font-size:15px}
+.sem span{font-family:var(--mono);font-size:11px}
+
+/* ---------- tipografia --------------------------------------------------- */
+.tipo-linha{display:grid;grid-template-columns:120px 1fr;gap:var(--e-5);align-items:baseline;
+  padding:var(--e-3) 0;border-bottom:1px solid var(--linha)}
+.tipo-linha:last-child{border-bottom:0}
+.tipo-meta{font-family:var(--mono);font-size:11px;color:var(--tinta-fraca);line-height:1.5}
+.t-d1{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:40px;line-height:1.15}
+.t-d2{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:28px;line-height:1.2}
+.t-d3{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:20px;line-height:1.3}
+.t-b{font-size:16px} .t-p{font-size:14px;color:var(--tinta-media)}
+.t-r{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-fraca)}
+
+/* ---------- espaco e raio ------------------------------------------------ */
+.reguas{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-6)}
+.barra{display:flex;align-items:center;gap:var(--e-3);margin-bottom:var(--e-2)}
+.barra i{display:block;height:14px;background:var(--marca-viva);border-radius:2px}
+.barra span{font-family:var(--mono);font-size:11px;color:var(--tinta-fraca);white-space:nowrap}
+.raios{display:flex;gap:var(--e-4);align-items:flex-end}
+.raio{width:76px;height:76px;background:var(--marca-fundo);border:1px solid var(--marca-linha);
+  display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--marca-tinta)}
+
+/* ---------- componentes -------------------------------------------------- */
+.linha-comp{display:flex;gap:var(--e-3);flex-wrap:wrap;align-items:center;margin-bottom:var(--e-4)}
+.btn{font:inherit;font-weight:600;font-size:14px;border-radius:var(--r-p);padding:10px 18px;
+  border:1px solid transparent;cursor:pointer;line-height:1.2}
+.btn-1{background:var(--marca);color:#fff}
+.btn-1:hover{background:var(--marca-tinta)}
+.btn-2{background:var(--papel);color:var(--marca);border-color:var(--linha-forte)}
+.btn-2:hover{border-color:var(--marca);background:var(--marca-fundo)}
+.btn-3{background:transparent;color:var(--tinta-media);padding-left:8px;padding-right:8px}
+.btn-3:hover{color:var(--tinta)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.campo{display:block;margin-bottom:var(--e-4);max-width:340px}
+.campo label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+.campo input{width:100%;font:inherit;font-size:14px;padding:9px 12px;border-radius:var(--r-p);
+  border:1px solid var(--linha-forte);background:var(--papel);color:var(--tinta)}
+.campo input:focus{outline:2px solid var(--marca-viva);outline-offset:1px;border-color:var(--marca)}
+.campo input[aria-invalid]{border-color:var(--ruim)}
+.campo .ajuda{font-size:12px;color:var(--tinta-fraca);margin-top:4px}
+.campo .erro{font-size:12px;color:var(--ruim);margin-top:4px}
+.selo{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.03em;
+  padding:3px 9px;border-radius:999px}
+.selo-b{background:var(--bom-fundo);color:var(--bom)}
+.selo-a{background:var(--atencao-fundo);color:var(--atencao)}
+.selo-r{background:var(--ruim-fundo);color:var(--ruim)}
+.selo-n{background:var(--papel-medio);color:var(--tinta-media)}
+.aviso{border-radius:var(--r-m);padding:var(--e-4);border-left:3px solid;margin-bottom:var(--e-3);font-size:15px}
+.aviso b{display:block;font-family:var(--fonte-titulo);margin-bottom:2px}
+.aviso-b{background:var(--bom-fundo);border-color:var(--bom);color:var(--bom)}
+.aviso-a{background:var(--atencao-fundo);border-color:var(--atencao);color:var(--atencao)}
+.aviso-r{background:var(--ruim-fundo);border-color:var(--ruim);color:var(--ruim)}
+
+/* indicador, tabela, grafico */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:var(--e-4)}
+.kpi{background:var(--papel);border:1px solid var(--linha);border-radius:var(--r-m);padding:var(--e-4)}
+.kpi .rot{margin-bottom:var(--e-1)}
+.kpi .n{font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:34px;line-height:1.05;
+  font-variant-numeric:tabular-nums}
+.kpi .d{font-size:13px;margin-top:4px;font-variant-numeric:tabular-nums}
+.sobe{color:var(--bom)} .desce{color:var(--ruim)}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--papel)}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--linha)}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-fraca);font-weight:600;background:var(--papel-fraco)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+.tab-env{border:1px solid var(--linha);border-radius:var(--r-m);overflow:hidden}
+.graf{display:flex;align-items:flex-end;gap:var(--e-3);height:170px;padding-top:var(--e-3)}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;height:100%}
+.col i{display:block;background:var(--marca-viva);border-radius:3px 3px 0 0}
+.col i.fraco{background:var(--marca-200,var(--m-200))}
+.col span{font-family:var(--mono);font-size:10.5px;color:var(--tinta-fraca);text-align:center}
+
+/* ---------- painel aplicado --------------------------------------------- */
+.painel{border:1px solid var(--linha);border-radius:var(--r-g);overflow:hidden;background:var(--papel);
+  box-shadow:var(--sombra-g);display:grid;grid-template-columns:214px 1fr}
+.pn-lado{background:var(--n-900);color:var(--n-300);padding:var(--e-4) 0}
+.pn-marca{display:flex;align-items:center;gap:9px;padding:0 var(--e-4) var(--e-5)}
+.pn-logo{width:26px;height:26px;border-radius:7px;background:var(--marca-viva);display:grid;place-items:center;
+  color:#fff;font-family:var(--fonte-titulo);font-weight:var(--peso-titulo);font-size:13px}
+.pn-marca b{color:#fff;font-family:var(--fonte-titulo);font-size:14px}
+.pn-lado a{display:block;padding:8px var(--e-4);color:var(--n-400);text-decoration:none;font-size:13.5px}
+.pn-lado a.on{color:#fff;background:rgba(255,255,255,.07);box-shadow:inset 2px 0 0 var(--marca-viva)}
+.pn-corpo{padding:var(--e-5);background:var(--papel-fraco)}
+.pn-topo{display:flex;align-items:center;gap:var(--e-3);margin-bottom:var(--e-5)}
+.pn-topo h4{font-size:19px;margin-right:auto}
+.pn-grade{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-4);margin-top:var(--e-4)}
+
+/* ---------- nunca faz ---------------------------------------------------- */
+.nunca{list-style:none;padding:0;margin:0;display:grid;gap:var(--e-2)}
+.nunca li{background:var(--papel);border:1px solid var(--linha);border-left:3px solid var(--ruim);
+  border-radius:0 var(--r-p) var(--r-p) 0;padding:var(--e-3) var(--e-4);font-size:15px}
+
+/* ---------- o texto para colar ------------------------------------------- */
+.colar{position:relative}
+.colar pre{background:var(--n-900);color:var(--n-100);border-radius:var(--r-m);padding:var(--e-5);
+  font-family:var(--mono);font-size:12.5px;line-height:1.75;overflow-x:auto;margin:0;white-space:pre-wrap}
+.colar .btn{position:absolute;top:var(--e-3);right:var(--e-3)}
+
+footer{padding:var(--e-6) 0;color:var(--tinta-fraca);font-size:13px}
+
+@media (max-width:900px){
+  .painel{grid-template-columns:1fr} .pn-lado{display:none}
+  .reguas,.pn-grade{grid-template-columns:1fr}
+  .escala{grid-template-columns:repeat(5,1fr)}
+  .tipo-linha{grid-template-columns:1fr;gap:var(--e-1)}
+}
+@media print{
+  .seletor,.colar .btn{display:none}
+  body{background:#fff}
+  section{break-inside:avoid;border-bottom:1px solid #ddd}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <h1>Design System <span>modelo completo · troque tudo pelo da sua empresa</span></h1>
+    <div class="seletor" role="group" aria-label="Escolha a variação">
+      <button type="button" data-set="a" aria-pressed="true">A · Institucional</button>
+      <button type="button" data-set="b" aria-pressed="false">B · Editorial</button>
+      <button type="button" data-set="c" aria-pressed="false">C · Técnico</button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Como usar este arquivo</span>
+    <h2>Escolha uma das três, apague as outras duas, e troque os valores</h2>
+    <p class="sub">Os três botões lá em cima trocam a cor <strong>e</strong> as fontes ao mesmo
+    tempo, na página inteira. Clique nos três antes de decidir: no papel toda paleta parece
+    razoável, e é vendo o painel montado que você percebe qual combina com a sua empresa.</p>
+
+    <div class="nota">
+      <strong>Este arquivo é o documento, não é uma peça pronta.</strong> Ele existe para você
+      colar o texto do fim da página numa conversa de IA, junto com o que quer que ela produza.
+      Quanto mais literal estiver aqui, menos a IA inventa: <strong>"azul da marca"</strong> vira
+      três azuis diferentes em três pedidos; <strong>#244D80</strong> volta igual sempre.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Cor</span>
+    <h2 style="font-family:var(--fonte-titulo)">A cor da marca, em dez tons</h2>
+    <p class="sub">Uma marca não tem uma cor: tem uma família. O tom forte é para o que exige
+    ação, o claro é para fundo, e os do meio quase nunca se usam sozinhos.
+    <strong>Clique em qualquer quadrado para copiar o código.</strong></p>
+
+    <h3>Marca <span style="font-family:var(--mono);font-size:12px;font-weight:400;color:var(--tinta-fraca)">— <span id="nome-cor"></span></span></h3>
+    <div class="escala" id="esc-m"></div>
+
+    <h3>Neutro</h3>
+    <div class="escala" id="esc-n"></div>
+
+    <h3>Os três que significam alguma coisa</h3>
+    <p class="sub" style="margin-bottom:var(--e-4)">Estes <strong>não mudam</strong> entre as três
+    variações, e é de propósito. Verde é "deu certo" em qualquer marca. Um vermelho que muda de
+    tom a cada tema ensina quem lê a não confiar na cor.</p>
+    <div class="semantica">
+      <div class="sem" style="background:var(--bom-fundo);border-color:var(--bom);color:var(--bom)">
+        <b>Deu certo</b><span>#1E7A4B</span></div>
+      <div class="sem" style="background:var(--atencao-fundo);border-color:var(--atencao);color:var(--atencao)">
+        <b>Precisa de atenção</b><span>#A66A00</span></div>
+      <div class="sem" style="background:var(--ruim-fundo);border-color:var(--ruim);color:var(--ruim)">
+        <b>Deu errado</b><span>#B3261E</span></div>
+    </div>
+
+    <h3>Regras de uso</h3>
+    <div class="cartao">
+      <ul style="margin:0;padding-left:20px;color:var(--tinta-media)">
+        <li><strong>O tom 600 é o da marca</strong> em botão, link e destaque. O 500 é a versão viva,
+        para gráfico e ícone.</li>
+        <li><strong>Fundo colorido só no tom 50.</strong> Qualquer coisa mais escura atrás de texto
+        preto perde leitura.</li>
+        <li><strong>Texto branco só do 600 para cima.</strong> Do 400 para baixo, use o tom 900 como
+        cor de texto.</li>
+        <li><strong>A cor nunca é o único sinal.</strong> Toda linha vermelha carrega também a palavra
+        que diz o que houve, porque quem imprime em preto e branco continua precisando entender.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Tipografia</span>
+    <h2>Duas fontes, e cada uma com um trabalho</h2>
+    <p class="sub">Uma para título, uma para texto. Nesta variação:
+    <strong><span id="nome-fonte"></span></strong>. Duas famílias bastam para qualquer documento
+    de empresa; a terceira só aparece quando alguém quis enfeitar.</p>
+
+    <div class="cartao">
+      <div class="tipo-linha">
+        <div class="tipo-meta">Título 1<br>40px · 1,15</div>
+        <div class="t-d1">O número caiu, e o motivo está na segunda linha</div>
+      </div>
+      <div class="tipo-linha">
+        <div class="tipo-meta">Título 2<br>28px · 1,2</div>
+        <div class="t-d2">Margem por canal, últimos seis meses</div>
+      </div>
+      <div class="tipo-linha">
+        <div class="tipo-meta">Título 3<br>20px · 1,3</div>
+        <div class="t-d3">O que muda na segunda-feira</div>
+      </div>
+      <div class="tipo-linha">
+        <div class="tipo-meta">Texto<br>16px · 1,6</div>
+        <div class="t-b">A queda concentrou-se no canal distribuidor, e não no varejo direto.
+        Três clientes respondem por 61% da diferença.</div>
+      </div>
+      <div class="tipo-linha">
+        <div class="tipo-meta">Apoio<br>14px · 1,5</div>
+        <div class="t-p">Fonte: fechamento de agosto, base consolidada em 02/09.</div>
+      </div>
+      <div class="tipo-linha">
+        <div class="tipo-meta">Rótulo<br>11px · maiúscula</div>
+        <div class="t-r">Receita líquida por canal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Espaço e raio</span>
+    <h2>Por que o material parece bagunçado mesmo com a cor certa</h2>
+    <p class="sub">Quase sempre é espaçamento aleatório. Uma régua de oito valores resolve, e o
+    pedido para a IA fica curto: <strong>"use múltiplos de 4"</strong>.</p>
+    <div class="reguas">
+      <div class="cartao">
+        <h3 style="margin-top:0">A régua</h3>
+        <div class="barra"><i style="width:4px"></i><span>4px · dentro de um selo</span></div>
+        <div class="barra"><i style="width:8px"></i><span>8px · entre ícone e texto</span></div>
+        <div class="barra"><i style="width:12px"></i><span>12px · entre linhas de lista</span></div>
+        <div class="barra"><i style="width:16px"></i><span>16px · dentro de um cartão</span></div>
+        <div class="barra"><i style="width:24px"></i><span>24px · entre cartões</span></div>
+        <div class="barra"><i style="width:32px"></i><span>32px · antes de um título</span></div>
+        <div class="barra"><i style="width:48px"></i><span>48px · entre seções</span></div>
+        <div class="barra"><i style="width:64px"></i><span>64px · antes do rodapé</span></div>
+      </div>
+      <div class="cartao">
+        <h3 style="margin-top:0">Os raios</h3>
+        <div class="raios">
+          <div class="raio" style="border-radius:6px">6px</div>
+          <div class="raio" style="border-radius:10px">10px</div>
+          <div class="raio" style="border-radius:16px">16px</div>
+        </div>
+        <p class="t-p" style="margin-top:var(--e-4)"><strong>6px</strong> em botão e campo,
+        <strong>10px</strong> em cartão e tabela, <strong>16px</strong> só no contêiner maior.
+        Fora disso, canto reto. Raio grande demais em elemento pequeno é a marca visual do
+        material feito com pressa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Componentes</span>
+    <h2>As peças, e cada uma com os estados que ela realmente tem</h2>
+    <p class="sub">O que falta na maioria dos documentos não é a peça: é o <strong>estado</strong>.
+    Um botão desabilitado, um campo com erro e uma linha sem dado são onde o material improvisado
+    aparece, porque ninguém tinha decidido antes.</p>
+
+    <h3>Botão</h3>
+    <div class="cartao">
+      <div class="linha-comp">
+        <button class="btn btn-1">Gerar relatório</button>
+        <button class="btn btn-2">Exportar</button>
+        <button class="btn btn-3">Cancelar</button>
+        <button class="btn btn-1" disabled>Sem permissão</button>
+      </div>
+      <p class="t-p" style="margin:0"><strong>Um primário por tela.</strong> Dois botões cheios lado
+      a lado significam que ninguém decidiu qual é a ação principal, e quem lê também não decide.</p>
+    </div>
+
+    <h3>Campo</h3>
+    <div class="cartao">
+      <div style="display:flex;gap:var(--e-5);flex-wrap:wrap">
+        <div class="campo">
+          <label for="c1">Meta do trimestre</label>
+          <input id="c1" value="R$ 1.240.000">
+          <div class="ajuda">Valor bruto, sem impostos</div>
+        </div>
+        <div class="campo">
+          <label for="c2">Prazo de resposta</label>
+          <input id="c2" value="quinze" aria-invalid="true">
+          <div class="erro">Escreva em dias, só com número</div>
+        </div>
+      </div>
+      <p class="t-p" style="margin:0"><strong>O erro diz o que fazer</strong>, não que houve erro.
+      "Campo inválido" faz a pessoa tentar de novo às cegas.</p>
+    </div>
+
+    <h3>Selo e aviso</h3>
+    <div class="cartao">
+      <div class="linha-comp">
+        <span class="selo selo-b">no prazo</span>
+        <span class="selo selo-a">em risco</span>
+        <span class="selo selo-r">atrasado</span>
+        <span class="selo selo-n">sem dado</span>
+      </div>
+      <div class="aviso aviso-b"><b>Fechamento conciliado</b>As três contas bateram com o extrato.</div>
+      <div class="aviso aviso-a"><b>Dois pedidos acima da alçada</b>Aguardando aprovação do diretor comercial.</div>
+      <div class="aviso aviso-r"><b>A base de agosto não fechou</b>Diferença de R$ 18.400 entre o sistema e a planilha.</div>
+    </div>
+
+    <h3>Indicador</h3>
+    <div class="kpis">
+      <div class="kpi"><span class="rot">Receita do mês</span>
+        <div class="n">R$ 1,24 mi</div><div class="d sobe">▲ 8,2% contra julho</div></div>
+      <div class="kpi"><span class="rot">Margem bruta</span>
+        <div class="n">28,4%</div><div class="d desce">▼ 2,1 p.p. contra julho</div></div>
+      <div class="kpi"><span class="rot">Pedidos</span>
+        <div class="n">1.842</div><div class="d sobe">▲ 3,0% contra julho</div></div>
+      <div class="kpi"><span class="rot">Ticket médio</span>
+        <div class="n">R$ 673</div><div class="d sobe">▲ 5,1% contra julho</div></div>
+    </div>
+    <p class="t-p" style="margin-top:var(--e-3)"><strong>Todo indicador carrega a comparação.</strong>
+    Número sozinho não diz se é bom, e quem lê inventa uma referência que não é a sua.</p>
+
+    <h3>Tabela</h3>
+    <div class="tab-env">
+      <table>
+        <thead><tr><th>Canal</th><th class="num">Receita</th><th class="num">Margem</th><th>Situação</th></tr></thead>
+        <tbody>
+          <tr><td>Distribuidor</td><td class="num">R$ 612.400</td><td class="num">21,3%</td><td><span class="selo selo-r">atrasado</span></td></tr>
+          <tr><td>Varejo direto</td><td class="num">R$ 428.100</td><td class="num">34,8%</td><td><span class="selo selo-b">no prazo</span></td></tr>
+          <tr><td>Licitação</td><td class="num">R$ 141.900</td><td class="num">29,1%</td><td><span class="selo selo-a">em risco</span></td></tr>
+          <tr><td>Exportação</td><td class="num">—</td><td class="num">—</td><td><span class="selo selo-n">sem dado</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-p" style="margin-top:var(--e-3)"><strong>Número à direita, texto à esquerda</strong>,
+    e a linha sem dado escreve que não tem em vez de ficar em branco. Célula vazia é lida como zero.</p>
+
+    <h3>Gráfico</h3>
+    <div class="cartao">
+      <span class="rot">Receita por mês · R$ mil</span>
+      <div class="graf">
+        <div class="col"><i style="height:52%"></i><span>mar</span></div>
+        <div class="col"><i style="height:61%"></i><span>abr</span></div>
+        <div class="col"><i style="height:58%"></i><span>mai</span></div>
+        <div class="col"><i style="height:74%"></i><span>jun</span></div>
+        <div class="col"><i style="height:69%"></i><span>jul</span></div>
+        <div class="col"><i style="height:88%"></i><span>ago</span></div>
+      </div>
+      <p class="t-p" style="margin:var(--e-3) 0 0"><strong>Uma cor só</strong> quando a série é uma.
+      Seis cores para seis meses é decoração, e faz quem lê procurar um significado que não existe.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Aplicado</span>
+    <h2>As mesmas peças, montadas numa tela de verdade</h2>
+    <p class="sub">Esta é a prova de que o documento funciona: <strong>nada aqui embaixo tem cor
+    própria.</strong> Tudo vem dos tokens de cima, e é por isso que os três botões do topo trocam
+    esta tela inteira sem que ninguém edite um componente.</p>
+
+    <div class="painel">
+      <nav class="pn-lado">
+        <div class="pn-marca"><span class="pn-logo">N</span><b>Nome da empresa</b></div>
+        <a href="#" class="on">Painel</a>
+        <a href="#">Vendas</a>
+        <a href="#">Clientes</a>
+        <a href="#">Relatórios</a>
+        <a href="#">Configurações</a>
+      </nav>
+      <div class="pn-corpo">
+        <div class="pn-topo">
+          <h4>Fechamento de agosto</h4>
+          <button class="btn btn-2">Exportar</button>
+          <button class="btn btn-1">Gerar relatório</button>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span class="rot">Receita</span><div class="n">R$ 1,24 mi</div>
+            <div class="d sobe">▲ 8,2%</div></div>
+          <div class="kpi"><span class="rot">Margem</span><div class="n">28,4%</div>
+            <div class="d desce">▼ 2,1 p.p.</div></div>
+          <div class="kpi"><span class="rot">Pedidos</span><div class="n">1.842</div>
+            <div class="d sobe">▲ 3,0%</div></div>
+        </div>
+        <div class="pn-grade">
+          <div class="cartao">
+            <span class="rot">Receita por mês</span>
+            <div class="graf" style="height:130px">
+              <div class="col"><i style="height:52%"></i><span>mar</span></div>
+              <div class="col"><i style="height:61%"></i><span>abr</span></div>
+              <div class="col"><i style="height:58%"></i><span>mai</span></div>
+              <div class="col"><i style="height:74%"></i><span>jun</span></div>
+              <div class="col"><i style="height:69%"></i><span>jul</span></div>
+              <div class="col"><i style="height:88%"></i><span>ago</span></div>
+            </div>
+          </div>
+          <div class="cartao">
+            <span class="rot">O que precisa de decisão</span>
+            <div class="aviso aviso-r" style="margin-top:var(--e-3)"><b>Base de agosto</b>Diferença de R$ 18.400.</div>
+            <div class="aviso aviso-a" style="margin-bottom:0"><b>Dois pedidos acima da alçada</b>Aguardando o diretor.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="rot">Os limites</span>
+    <h2>O que esta marca nunca faz</h2>
+    <p class="sub">Esta é a seção que mais economiza retrabalho, e a que quase todo mundo pula.
+    Ela é curta de propósito: <strong>uma proibição que você não consegue explicar em uma linha
+    não é regra, é gosto.</strong> Troque estas pelas suas.</p>
+    <ul class="nunca">
+      <li>Nunca usa gradiente. O fundo é chapado, sempre.</li>
+      <li>Nunca põe texto em cima de foto sem uma tarja atrás.</li>
+      <li>Nunca usa uma terceira fonte, nem para "dar um destaque".</li>
+      <li>Nunca usa cor só para enfeitar: toda cor aqui significa alguma coisa.</li>
+      <li>Nunca usa ícone com preenchimento e contorno na mesma tela.</li>
+      <li>Nunca escreve número sem a unidade e sem o período de comparação.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap colar">
+    <span class="rot">O texto pronto para colar na conversa</span>
+    <h2>É este bloco que faz a IA acertar de primeira</h2>
+    <p class="sub">Ele muda junto com a variação escolhida. Copie, cole no começo do seu pedido, e
+    peça a peça depois. <strong>Troque os valores pelos da sua empresa antes de usar de verdade.</strong></p>
+    <button class="btn btn-1" id="btn-colar" type="button">Copiar</button>
+    <pre id="txt-colar"></pre>
+  </div>
+</section>
+
+<footer class="wrap">
+  Modelo do curso IA para Negócios · IEL Ceará. Os valores são de exemplo:
+  troque todos pelos da sua empresa.
+</footer>
+
+<script>
+/* ---------- as escalas, lidas do proprio CSS ----------------------------- */
+const TONS = [50,100,200,300,400,500,600,700,800,900];
+
+function pinta(){
+  const cs = getComputedStyle(document.documentElement);
+  for (const [id, pre] of [["esc-m","--m-"],["esc-n","--n-"]]) {
+    const alvo = document.getElementById(id);
+    alvo.innerHTML = "";
+    TONS.forEach(t => {
+      const hex = cs.getPropertyValue(pre + t).trim();
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "tom " + (t >= 500 ? "escuro" : "claro");
+      b.style.background = hex;
+      b.innerHTML = "<b>" + t + "</b><small>" + hex.toUpperCase() + "</small>";
+      b.addEventListener("click", () => {
+        navigator.clipboard.writeText(hex.toUpperCase());
+        b.classList.add("ok");
+        setTimeout(() => b.classList.remove("ok"), 1200);
+      });
+      alvo.appendChild(b);
+    });
+  }
+  const nome = n => cs.getPropertyValue(n).trim().replace(/^"|"$/g, "");
+  document.getElementById("nome-cor").textContent = nome("--nome-cor");
+  document.getElementById("nome-fonte").textContent = nome("--nome-fonte");
+  document.getElementById("txt-colar").textContent = texto(cs, nome);
+}
+
+/* ---------- o bloco que a pessoa cola na conversa ------------------------ */
+function texto(cs, nome){
+  const v = t => cs.getPropertyValue(t).trim().toUpperCase();
+  const fonteTitulo = cs.getPropertyValue("--fonte-titulo").trim().split(",")[0].replace(/"/g,"");
+  const fonteTexto  = cs.getPropertyValue("--fonte-texto").trim().split(",")[0].replace(/"/g,"");
+  return `Use este design system em tudo o que você produzir para mim.
+Não substitua nenhum valor por aproximação, e não acrescente cor,
+fonte ou efeito que não esteja escrito aqui.
+
+COR
+Marca, use o 600 em botão, link e destaque: ${v("--m-600")}
+Marca viva, para gráfico e ícone: ${v("--m-500")}
+Fundo da marca, só este tom: ${v("--m-50")}
+Texto: ${v("--n-900")}  ·  Texto de apoio: ${v("--n-600")}
+Linha e borda: ${v("--n-200")}  ·  Fundo de página: ${v("--n-50")}
+Deu certo: #1E7A4B  ·  Atenção: #A66A00  ·  Deu errado: #B3261E
+
+TIPOGRAFIA
+Título: ${fonteTitulo}
+Texto: ${fonteTexto}
+Título 1 40px, Título 2 28px, Título 3 20px,
+texto 16px com entrelinha 1,6, apoio 14px, rótulo 11px em maiúscula.
+
+ESPAÇO E RAIO
+Todo espaçamento é múltiplo de 4: 4, 8, 12, 16, 24, 32, 48, 64.
+Raio 6px em botão e campo, 10px em cartão e tabela, 16px no contêiner.
+
+REGRAS
+Um botão principal por tela.
+Número à direita na tabela, texto à esquerda.
+Todo indicador vem com a comparação do período anterior.
+Célula sem dado escreve "sem dado", nunca fica vazia.
+Gráfico de série única usa uma cor só.
+A cor nunca é o único sinal: junto dela vem sempre a palavra.
+
+O QUE NUNCA FAZER
+Gradiente. Terceira fonte. Texto sobre foto sem tarja.
+Cor sem significado. Ícone preenchido e contornado na mesma tela.
+Número sem unidade e sem período de comparação.`;
+}
+
+document.querySelectorAll(".seletor button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.documentElement.dataset.v = b.dataset.set;
+    document.querySelectorAll(".seletor button").forEach(o =>
+      o.setAttribute("aria-pressed", String(o === b)));
+    pinta();
+  });
+});
+
+document.getElementById("btn-colar").addEventListener("click", e => {
+  navigator.clipboard.writeText(document.getElementById("txt-colar").textContent);
+  e.target.textContent = "Copiado ✓";
+  setTimeout(() => e.target.textContent = "Copiar", 1400);
+});
+
+pinta();
+</script>
+</body>
+</html>
