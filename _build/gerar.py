@@ -95,7 +95,7 @@ TRILHA = [
     ]),
     ("As aulas do B2", [
         ("b2-pergunta", "Formule a pergunta que a análise responde"),
-        ("b2-fontes",   "Pesquise com método e confira a fonte"),
+        ("b2-fontes",   "Peça investigação, não resumo"),
         ("b2-base",     "Faça a IA responder pelos seus documentos"),
         ("b2-planilha", "Transforme a planilha na leitura executiva"),
         ("b2-causa",    "Vá do número para a causa"),
@@ -312,16 +312,29 @@ PAGINAS = {
                  (None, None)],
     ),
     "b2-fontes": dict(
-        # 🔴 pratica. Ela fecha o PHFE (as letras F e E) E entrega a ficha de
-        # conferencia preenchida, que e artefato que sai da tela. O conceito e
-        # UM: a fonte citada so vira prova depois que alguem abre.
+        # 🔴 pratica. Ela e a aula de PESQUISA PROFUNDA, e entrega a ficha de
+        # conferencia preenchida, que e artefato que sai da tela.
+        #
+        # 🔴 ATE 02/09 ESTE COMENTARIO DIZIA "ela fecha o PHFE (as letras F e E)",
+        # e a PAGINA dizia PCTFL. Era o mesmo defeito nos dois lugares: a aula
+        # nasceu com o PHFE na cabeca e saiu etiquetada com o outro padrao, e
+        # entao ela falava de um campo [E] que o PCTFL+CS nao tem. Quem auditou
+        # foi o Rafael: "para mim essa aula nao esta fazendo sentido".
+        #
+        # A correcao NAO foi trocar a letra. Os dois padroes convivem em NIVEIS
+        # diferentes: o PHFE e um pre-prompt, quatro decisoes que a pessoa toma
+        # antes; o pedido que vai para a IA continua sendo PCTFL+CS nos seis
+        # campos rotulados. A pagina diz isso numa tabela, de proposito.
+        #
+        # O conceito continua sendo UM: pesquisa profunda e auditoria, nao
+        # resumo -- e a fonte citada so vira prova depois que alguem abre.
         tipo="pratica",
-        titulo="Aula 2 · Pesquise com método e confira de onde veio a resposta",
+        titulo="Aula 2 · Peça investigação, não resumo",
         kicker="Módulo 1 · B2 · Análise e decisão",
-        h1="Pesquise com método e confira de onde veio a resposta",
-        sub="De que tipo de fonte a resposta pode vir, em que formato ela precisa "
-            "chegar, e por que a referência que veio junto ainda é texto.",
-        selos=["Use a pergunta da aula 1", "Ficha de conferência"],
+        h1="Peça investigação, não resumo",
+        sub="O que muda quando você decide a cadeira, a hipótese, as fontes e o formato "
+            "antes de perguntar, e por que a referência que volta junto ainda é texto.",
+        selos=["Use a pergunta da aula 1", "Três caminhos por área"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b2-analise/", "B2 · Análise e decisão"),
