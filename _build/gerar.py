@@ -77,6 +77,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano", "b2-visual", "b2-marca", "b2-biblioteca",
              "b3-redesenho", "b3-processo",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
+             "caso-producao",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -116,6 +117,9 @@ TRILHA = [
         ("desafio-avaliacoes", "2 · Avaliações viram painel"),
         ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
         ("desafio-satisfacao", "4 · Pesquisa de satisfação vira diagnóstico"),
+    ]),
+    ("Desafio de análise por área", [
+        ("caso-producao", "Produção · onde a perda mora"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -501,6 +505,28 @@ PAGINAS = {
         selos=["1.000 respostas", "Dados fictícios"],
         migalha=[("../", "IA para Negócios"),
                  ("../desafios/", "Banco de Desafios"),
+                 (None, None)],
+    ),
+    # -----------------------------------------------------------------------
+    # O DESAFIO DE ANALISE POR AREA
+    #
+    # 🔴 Ele NAO e o Banco de Desafios, e a diferenca nao e de nome. No banco o
+    # pedido vem pronto para copiar: o objetivo e a pessoa sair da aula com a
+    # peca na mao. Aqui o pedido nasce VAZIO e a pessoa escreve o dela antes de
+    # ver qualquer sugestao, porque o objetivo e outro: sentir que nao sabe
+    # pedir, e so entao ver a diferenca que o padrao faz.
+    #
+    # A pagina hub e as outras cinco areas vem depois. Esta e a primeira, e ela
+    # estreia o vocabulario do desafio inteiro.
+    # -----------------------------------------------------------------------
+    "caso-producao": dict(
+        titulo="Análise por área · Produção",
+        kicker="Desafio de análise · Produção",
+        h1="Um ano de chão de fábrica → o parecer que diz onde a perda mora",
+        sub="5.490 apontamentos de produção, três turnos e cinco etapas. A leitura de "
+            "uma dimensão de cada vez produz uma conclusão confiante e errada.",
+        selos=["5.490 linhas", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
                  (None, None)],
     ),
     "b3-redesenho": dict(
