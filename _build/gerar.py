@@ -77,7 +77,8 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano", "b2-visual", "b2-marca", "b2-biblioteca",
              "b3-redesenho", "b3-processo",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
-             "caso-producao",
+             "analise-por-area", "caso-producao", "caso-comercial", "caso-marketing",
+             "caso-operacoes", "caso-financeiro", "caso-rh",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -118,8 +119,17 @@ TRILHA = [
         ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
         ("desafio-satisfacao", "4 · Pesquisa de satisfação vira diagnóstico"),
     ]),
+    # 🔴 O desafio de analise NAO e o Banco de Desafios, e a diferenca nao e de
+    # nome. No banco o pedido vem pronto para copiar. Aqui o criador nasce VAZIO
+    # e a pessoa escreve o dela antes de ver qualquer sugestao.
     ("Desafio de análise por área", [
-        ("caso-producao", "Produção · onde a perda mora"),
+        ("analise-por-area", "Os seis casos, e por onde começar"),
+        ("caso-producao",    "1 · Produção · onde a perda mora"),
+        ("caso-comercial",   "2 · Comercial · o denominador da taxa"),
+        ("caso-marketing",   "3 · Marketing · a média que esconde"),
+        ("caso-operacoes",   "4 · Operações · o que não dá para concluir"),
+        ("caso-financeiro",  "5 · Financeiro · volume ou preço"),
+        ("caso-rh",          "6 · RH · quando a resposta é recusar"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -519,14 +529,80 @@ PAGINAS = {
     # A pagina hub e as outras cinco areas vem depois. Esta e a primeira, e ela
     # estreia o vocabulario do desafio inteiro.
     # -----------------------------------------------------------------------
+    "analise-por-area": dict(
+        titulo="Desafio de análise por área",
+        kicker="Vale para o curso inteiro",
+        h1="Seis casos de análise, um por área",
+        sub="Você escolhe o que se parece com o seu trabalho, escreve o pedido sozinho, "
+            "e só depois abre a sugestão para comparar.",
+        selos=["Seis casos", "O pedido nasce vazio"],
+        migalha=[("../", "IA para Negócios"),
+                 (None, "Desafio de análise por área")],
+    ),
     "caso-producao": dict(
         titulo="Análise por área · Produção",
-        kicker="Desafio de análise · Produção",
+        kicker="Desafio de análise · 1 de 6",
         h1="Um ano de chão de fábrica → o parecer que diz onde a perda mora",
         sub="5.490 apontamentos de produção, três turnos e cinco etapas. A leitura de "
             "uma dimensão de cada vez produz uma conclusão confiante e errada.",
         selos=["5.490 linhas", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
+                 (None, None)],
+    ),
+    "caso-comercial": dict(
+        titulo="Análise por área · Comercial",
+        kicker="Desafio de análise · 2 de 6",
+        h1="O funil inteiro → quem converte e qual canal merece verba",
+        sub="800 oportunidades, e 500 delas ainda em aberto. Quem entra no denominador "
+            "de uma taxa é decisão de negócio disfarçada de conta.",
+        selos=["800 oportunidades", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
+                 (None, None)],
+    ),
+    "caso-marketing": dict(
+        titulo="Análise por área · Marketing",
+        kicker="Desafio de análise · 3 de 6",
+        h1="Pesquisa de uma feira → onde investir no ano que vem",
+        sub="400 respostas e nota geral 8,37. Os dois itens pior avaliados são "
+            "exatamente os dois que decidem quem volta.",
+        selos=["400 respostas", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
+                 (None, None)],
+    ),
+    "caso-operacoes": dict(
+        titulo="Análise por área · Operações",
+        kicker="Desafio de análise · 4 de 6",
+        h1="Satisfação por lote entregue → o que o dado não permite concluir",
+        sub="500 respostas, cinco notas e duas colunas que parecem independentes. "
+            "Às vezes a análise mais valiosa é a que devolve a pergunta.",
+        selos=["500 respostas", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
+                 (None, None)],
+    ),
+    "caso-financeiro": dict(
+        titulo="Análise por área · Financeiro",
+        kicker="Desafio de análise · 5 de 6",
+        h1="Orçado contra realizado → o rombo foi de volume ou de preço",
+        sub="72 linhas e um desvio de 4,6% no ano. Receita é quantidade vezes preço, "
+            "e o desvio se abre nas duas parcelas.",
+        selos=["72 linhas", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
+                 (None, None)],
+    ),
+    "caso-rh": dict(
+        titulo="Análise por área · RH",
+        kicker="Desafio de análise · 6 de 6",
+        h1="Seis vagas abertas → onde o processo seletivo trava",
+        sub="94 candidatos e dois aprovados. É o único caso em que a resposta certa "
+            "é recusar a pergunta que foi feita.",
+        selos=["94 candidatos", "Você escreve o pedido"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../analise-por-area/", "Análise por área"),
                  (None, None)],
     ),
     "b3-redesenho": dict(

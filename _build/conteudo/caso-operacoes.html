@@ -1,0 +1,335 @@
+  <section class="secao" id="a-tarefa">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A tarefa</div>
+        <h2>O NPS subiu no varejo, e alguém vai propor migrar tudo para lá</h2>
+      </div>
+    </div>
+
+    <p>A empresa mede satisfação a cada lote entregue. São <strong>500 respostas</strong>,
+    com a linha de produto, o lote, o mês, a cidade, o canal, o perfil de quem respondeu,
+    cinco notas de zero a dez e um comentário. O NPS geral fechou em <strong>43,8</strong>.</p>
+
+    <p>Quando se abre o número por canal, o varejo aparece acima do distribuidor, e a
+    conclusão se monta sozinha na reunião: <em>"o varejo atende melhor, vamos crescer por
+    ali"</em>. É uma frase cara: mexer em canal significa mexer em contrato, em equipe e em
+    margem. <strong>E ela pode não estar dita pelo dado</strong>, mesmo que o número esteja
+    certo.</p>
+
+    <p>O que se pede aqui é <strong>um parecer de quatro minutos</strong> que diga onde a
+    insatisfação está de verdade, o que dela é atribuível ao canal, e quais comparações
+    <strong>esta base não permite fazer</strong>.</p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso na vida real</span>
+      <p>Operações, qualidade, atendimento ao cliente, e a direção comercial que decide
+      política de canal. <strong>O que custa hoje:</strong> uma decisão de canal tomada em
+      cima de uma diferença que talvez seja de produto, e que ninguém consegue desfazer no
+      trimestre seguinte.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-contexto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O contexto</div>
+        <h2>Antes de comparar dois grupos, veja se eles são dois</h2>
+      </div>
+    </div>
+
+    <p>Toda comparação entre dois grupos assume uma coisa que ninguém verifica: que os dois
+    grupos <strong>diferem só naquilo que você está comparando</strong>. Quando eles diferem
+    em mais de uma coisa ao mesmo tempo, o número sai certo e a conclusão sai errada, porque
+    não há como saber qual das diferenças produziu o resultado.</p>
+
+    <ul class="lista">
+      <li><strong>Quem responde.</strong> Alguém que lê pesquisa de cliente com desconfiança
+      de método, e não só de número.</li>
+      <li><strong>Quem lê.</strong> A direção, que pode mudar política de canal com base
+      neste texto.</li>
+      <li><strong>Se as colunas são mesmo independentes.</strong> A base tem linha de produto
+      e canal em colunas separadas. <strong>Colunas separadas não são variáveis
+      independentes</strong>, e checar isso é uma tabela de contagem, não uma estatística.</li>
+      <li><strong>Quem respondeu por quem.</strong> Os perfis vão de quem assina a compra a
+      quem só recebe a carga. A insatisfação de um deles pesa muito mais na renovação do que
+      a dos outros.</li>
+    </ul>
+
+    <p class="fig-leg">O terceiro item tem nome, e vale aprender o nome:
+    <strong>confundimento</strong>. Duas variáveis andam tão juntas que o efeito de uma não
+    se separa do da outra. Não é um defeito da planilha e não se conserta com mais conta: é
+    um limite do que aquele dado pode responder, e <strong>o parecer honesto declara o limite
+    em vez de contorná-lo</strong>. É a mesma disciplina da
+    <a href="../a4-inventa/">aula 4 do bloco 1</a>, onde o pedido de fonte separa erro de
+    invenção.</p>
+  </section>
+
+  <section class="secao" id="o-insumo">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O insumo</div>
+        <h2>Baixe e cruze linha com canal antes de qualquer média</h2>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O arquivo deste caso</span>
+        <p style="margin:0">Pesquisa de satisfação de uma indústria fictícia:
+        <strong>500 respostas</strong> e quinze colunas, uma aba só. Traz a linha de produto,
+        o lote, o mês da entrega, a cidade, o canal, o perfil do cliente,
+        <strong>cinco notas de zero a dez</strong> mais a nota de recomendação, e o
+        comentário aberto. <strong>Empresa, clientes e respostas são inventados.</strong></p>
+      </div>
+      <a class="btn" href="../_arquivos/operacoes.xlsx">Baixar a planilha</a>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Linha_Produto</th><th>Lote</th><th>Cidade</th><th>Canal</th><th>Perfil_Cliente</th><th>Nota_NPS_0_10</th><th>Nota_Produto</th><th>Nota_Entrega</th></tr></thead>
+        <tbody>
+          <tr><td>LP-100</td><td>L4/26</td><td>São Paulo</td><td>Distribuidor</td><td>Assistente de compras</td><td>10</td><td>10</td><td>9</td></tr>
+          <tr><td>LP-200</td><td>L4/26</td><td>Fortaleza</td><td>Distribuidor</td><td>Coordenador de compras</td><td>8</td><td>9</td><td>8</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg">Duas respostas, com oito das quinze colunas. <strong>Linha de produto e
+    canal aparecem lado a lado como se fossem duas informações</strong>, e é exatamente essa
+    aparência que a seção seguinte pede para você testar.</p>
+
+    <div class="cartao">
+      <span class="rot">Antes de sair da planilha, faça uma tabela de contagem</span>
+      <ul class="lista">
+        <li><strong>Cruze linha de produto com canal e conte as linhas.</strong> Uma tabela
+        dinâmica de contagem, dois minutos. É a checagem mais barata desta página e a que
+        muda mais coisa.</li>
+        <li><strong>Conte quantas respostas há em cada perfil de cliente.</strong> São cinco
+        perfis, e eles não têm o mesmo peso na decisão de recompra.</li>
+        <li><strong>Veja quantos lotes diferentes existem.</strong> São cinco, e eles são
+        cronológicos: dá para perguntar se a operação melhorou ao longo do ano.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="o-exercicio">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">O exercício</div>
+        <h2>Escreva o pedido você, antes de ver o de qualquer outra pessoa</h2>
+      </div>
+    </div>
+
+    <p>Esta é a parte que vale a aula, e ela só funciona de um jeito: <strong>você escreve
+    primeiro</strong>. Os seis campos abaixo estão vazios de propósito. Preencha o que
+    conseguir, deixe em branco o que não souber, e repare em qual campo a sua mão trava:
+    <strong>o campo que trava é exatamente o que estava faltando</strong> nos pedidos que
+    você já fez e que voltaram genéricos.</p>
+
+    <p>O prompt monta sozinho à direita conforme você escreve. Quando terminar, copie, rode
+    na ferramenta com a planilha anexada, e <strong>só então</strong> abra as duas caixas do
+    fim da página.</p>
+
+<div class="criador">
+      <div class="cr-lado">
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
+          <div class="cr-dica">Quem a IA deve ser para responder isto bem</div>
+          <textarea id="cp-papel" data-exemplo="Você é analista de compras industriais. Você lê cotação de fornecedor para achar onde o preço esconde condição, e entrega a comparação para quem assina o contrato." data-titulo="PAPEL" rows="2" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-contexto"><span class="cr-sig">C</span> · Contexto</label>
+          <div class="cr-dica">O que ela precisa saber: o arquivo, as dimensões, quem lê</div>
+          <textarea id="cp-contexto" data-exemplo="Anexei as cotações de 8 fornecedores para o mesmo insumo, ao longo de 6 meses. As colunas são fornecedor, data, preço unitário, prazo de entrega, prazo de pagamento e quantidade mínima. Quem lê é a diretoria, que renova o contrato no mês que vem." data-titulo="CONTEXTO" rows="5" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-tarefa"><span class="cr-sig">T</span> · Tarefa</label>
+          <div class="cr-dica">O que fazer. Comece com verbo</div>
+          <textarea id="cp-tarefa" data-exemplo="Compare os 8 fornecedores considerando preço e condição juntos, e não só o preço unitário. Diga qual é o mais barato de verdade quando o prazo de pagamento entra na conta." data-titulo="TAREFA" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-formato"><span class="cr-sig">F</span> · Formato</label>
+          <div class="cr-dica">Como entregar: estrutura, tamanho, ordem das partes</div>
+          <textarea id="cp-formato" data-exemplo="Uma tabela com os 8 fornecedores ordenados pelo custo real, e três parágrafos: quem ganha, quem perde, e o que negociar com o segundo colocado." data-titulo="FORMATO" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-limites"><span class="cr-sig">L</span> · Limitações</label>
+          <div class="cr-dica">O que NÃO fazer. Inclua sempre o que ela faz quando faltar dado</div>
+          <textarea id="cp-limites" data-exemplo="Use apenas o que está no arquivo e não estime frete que não esteja lá. Se algum fornecedor tiver menos de 3 cotações no período, sinalize que a média dele não é comparável em vez de rankeá-lo junto." data-titulo="LIMITAÇÕES" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-sucesso"><span class="cr-sig">CS</span> · Critério de sucesso</label>
+          <div class="cr-dica">Quando a resposta é boa? Quem decide o quê depois de ler?</div>
+          <textarea id="cp-sucesso" data-exemplo="A diretoria escolhe com quem renovar e entra na negociação sabendo qual condição pedir." data-titulo="CRITÉRIO DE SUCESSO" rows="3" placeholder="Escreva aqui"></textarea>
+        </div>
+      </div>
+
+      <div class="cr-lado">
+        <div class="cr-barra">
+          <span class="prompt-rot">O seu pedido</span>
+          <div class="cr-botoes">
+            <button class="btn-fantasma" type="button" data-acao="exemplo">Exemplo de outra área</button>
+            <button class="btn-fantasma" type="button" data-acao="limpar">Limpar</button>
+            <button class="btn-copiar" type="button" data-acao="copiar">Copiar</button>
+          </div>
+        </div>
+        <pre class="cr-txt"></pre>
+      </div>
+    </div>
+
+    <p class="fig-leg">O botão <strong>Exemplo de outra área</strong> preenche os seis
+    campos com um pedido de <strong>compras</strong>, que não é nenhum dos casos deste
+    desafio. Ele serve para você ver a forma de um campo preenchido quando não souber por
+    onde começar. <strong>Ele não é a resposta deste caso</strong>, e nem dá para ser: fala
+    de outro arquivo. Depois de olhar, use o Limpar e escreva o seu.</p>
+
+
+    <div class="cartao">
+      <span class="rot">Se travar no primeiro campo</span>
+      <p>Travar é o resultado esperado. Volte uma tela e releia a seção 02: o terceiro item
+      é o que faz a Tarefa deste caso começar por uma contagem, e não por uma média.
+      <strong>Escreva mesmo assim, ainda que ruim.</strong> O pedido ruim que você escreveu
+      ensina mais que o pedido bom que você leu.</p>
+    </div>
+
+    <details class="gabarito">
+      <summary>Só depois de tentar · uma sugestão de pedido</summary>
+      <div class="gabarito-corpo">
+        <p>O seu vai ser diferente deste, e tudo bem. <strong>Compare a estrutura, não as
+        palavras:</strong> veja quais dos seis campos você deixou em branco, e o que o campo
+        preenchido aqui pede que o seu não pedia.</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A sugestão, nos seis campos</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-caso-operacoes">Copiar</button>
+          </div>
+          <pre class="prompt-txt" id="pr-caso-operacoes">[P] Papel / Persona: Você é analista de operações e qualidade. Você lê pesquisa
+de cliente sabendo que duas colunas separadas nem sempre são duas informações
+diferentes, e entrega o que o dado sustenta junto com o que ele não sustenta.
+
+[C] Contexto: Anexei a pesquisa de satisfação de uma indústria, em uma aba, com
+500 respostas e quinze colunas. Há cinco notas de zero a dez, que são
+Nota_Produto, Nota_Atendimento, Nota_Entrega, Nota_Suporte e Nota_Logistica, mais
+a Nota_NPS_0_10 e a coluna Recomendaria. As dimensões de corte são Linha_Produto
+com cinco valores, Canal com dois, Cidade com duas, Perfil_Cliente com cinco e
+Lote com cinco, que são cronológicos. Quem lê é a direção, que pode mudar
+política de canal em cima deste texto.
+
+[T] Tarefa: Comece por uma tabela de contagem cruzando Linha_Produto com Canal, e
+me diga se as duas variam de forma independente ou se cada linha de produto usa
+um canal só. Se elas não forem independentes, diga explicitamente quais
+comparações a base deixa de permitir por causa disso. Depois calcule o NPS geral,
+tratando nota 9 e 10 como promotor e de 0 a 6 como detrator, e abra o NPS por
+cada uma das cinco dimensões. Compare também as médias das cinco notas entre si e
+diga qual delas está fora do padrão das outras. Por último, veja se o NPS muda ao
+longo dos cinco lotes.
+
+[F] Formato: Um parecer de quatro minutos de leitura. Comece pela tabela de
+contagem e pela conclusão que ela impõe, antes de qualquer média. Depois uma
+tabela do NPS por dimensão, com o número de respostas de cada grupo ao lado.
+Depois as cinco notas ordenadas pela média. Feche com o que fazer, separando o
+que o dado sustenta do que só uma nova coleta poderia responder.
+
+[L] Limitações: Use apenas o que está no arquivo e não estime nada que falte. Não
+atribua ao canal uma diferença que a base não permite separar do produto: se as
+duas colunas andarem juntas, diga isso em vez de escolher uma. Não compare grupos
+sem informar quantas respostas cada um tem. Se um recorte tiver poucas respostas, sinalize que ele não é comparável em vez de colocá-lo na mesma tabela dos outros. Se alguma coluna estiver ambígua, pergunte antes de calcular.
+
+[Critério de Sucesso]: A direção sai da leitura sabendo qual das cinco notas
+puxa a satisfação para baixo, qual perfil de cliente está mais insatisfeito, e
+por que a comparação entre canais não pode embasar decisão nenhuma com o dado
+que existe hoje.</pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="gabarito">
+      <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
+      <div class="gabarito-corpo">
+        <p>Abaixo estão os achados que a base sustenta, com o número de cada um.
+        <strong>Serve para conferir o seu, não para substituí-lo.</strong></p>
+
+        <p><strong>A primeira tabela é uma contagem, e ela derruba a pergunta original.</strong>
+        Cruzando linha de produto com canal, as 500 respostas se distribuem assim:</p>
+
+        <div class="tabela">
+          <table>
+            <thead><tr><th>Respostas</th><th>Distribuidor</th><th>Varejo</th></tr></thead>
+            <tbody>
+              <tr><td>LP-100</td><td>101</td><td>0</td></tr>
+              <tr><td>LP-200</td><td>115</td><td>0</td></tr>
+              <tr><td>LP-300</td><td>108</td><td>0</td></tr>
+              <tr><td>LP-400</td><td>93</td><td>0</td></tr>
+              <tr><td><strong>LP-500</strong></td><td>0</td><td><strong>83</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fig-leg">🔴 <strong>Cada linha de produto usa um canal só, e o varejo vende
+        um produto só.</strong> Dizer <em>"o varejo tem NPS 48,2"</em> e dizer
+        <em>"a LP-500 tem NPS 48,2"</em> é a mesma frase, escrita de dois jeitos. A base não
+        tem como separar as duas coisas.</p>
+
+        <ul class="lista">
+          <li><strong>A comparação entre canais não pode embasar decisão.</strong> O varejo
+          marca <strong>48,2</strong> e o distribuidor <strong>42,9</strong>, e a diferença é
+          real. O que não existe é como saber se ela vem do canal ou do produto que só ele
+          vende. <strong>Para responder isso seria preciso ter a mesma linha vendida nos dois
+          canais</strong>, e nenhuma está.</li>
+          <li><strong>A entrega é o problema, e ela é a única fora do padrão.</strong>
+          <strong>Nota_Entrega fica em 6,98</strong>, quase um ponto abaixo da segunda pior.
+          Suporte marca 7,84, logística 7,85, produto 8,34 e atendimento 8,43.
+          <strong>O produto agrada e o processo de entregá-lo não</strong>, e essa conclusão
+          não depende de canal nenhum.</li>
+          <li><strong>Quem decide a compra é quem está mais insatisfeito.</strong> O
+          <strong>coordenador de compras</strong> marca NPS <strong>30,0</strong> em 110
+          respostas, contra <strong>53,4</strong> do comprador em 88. São
+          <strong>23 pontos</strong> de diferença dentro da mesma base, e é o recorte com o
+          maior peso na renovação.</li>
+          <li><strong>A operação melhorou ao longo do ano, e isso muda o tom do parecer.</strong>
+          O lote <strong>L1/26</strong> fecha em <strong>30,1</strong> e o
+          <strong>L4/26</strong> em <strong>50,0</strong>. Uma parte do NPS geral de 43,8 é
+          herança do começo do ano, não retrato de hoje.</li>
+        </ul>
+
+        <div class="cartao">
+          <span class="rot">Os números da pesquisa, para conferir os seus</span>
+          <p><strong>500</strong> respostas · NPS geral <strong>43,8</strong> · nota média
+          <strong>8,24</strong> · <strong>417</strong> por distribuidor e <strong>83</strong>
+          por varejo · <strong>5</strong> linhas, <strong>5</strong> lotes,
+          <strong>5</strong> perfis, <strong>2</strong> cidades. Se o seu parecer divergir de
+          algum destes, o lugar de procurar é o filtro, não a conta.</p>
+        </div>
+
+        <div class="cartao">
+          <span class="rot">O parecer certo diz o que não dá para responder</span>
+          <p>Um parecer que ordena os canais e recomenda o varejo está <strong>errado com
+          aparência de certo</strong>, e é o resultado mais provável de um pedido que não
+          avisa nada. Um parecer que diz <em>"a base não separa canal de produto, e por isso
+          esta comparação fica sem resposta"</em> entrega menos linhas e vale mais, porque
+          impede uma decisão cara.</p>
+          <p><strong>Declarar o limite é entrega, não desculpa.</strong> E ele vem com o
+          próximo passo: para responder de verdade, seria preciso vender ao menos uma linha
+          nos dois canais e medir de novo.</p>
+        </div>
+
+        <div class="cartao">
+          <span class="rot">Se o seu resultado veio raso</span>
+          <p>Três frases resolvem quase sempre. <em>"Antes de qualquer média, me dá a tabela
+          de contagem cruzando linha de produto com canal."</em> · <em>"Ao lado de cada NPS,
+          me diga quantas respostas tem o grupo."</em> · <em>"Diga quais comparações esta base
+          não permite fazer e por quê."</em></p>
+        </div>
+
+        <p>O que este caso ensina não é sobre NPS. <strong>É que a análise mais valiosa às
+        vezes é a que devolve uma pergunta sem resposta</strong>, e que duas colunas lado a
+        lado não são prova de duas variáveis. A sua base tem isso sempre que uma escolha
+        antiga amarrou duas coisas: a filial que só atende um segmento, o vendedor que só
+        cobre uma região. <a href="../b2-decisao/">A aula 6 do bloco 2</a> é onde comparar
+        vira recomendar.</p>
+      </div>
+    </details>
+  </section>

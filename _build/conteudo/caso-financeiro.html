@@ -1,0 +1,329 @@
+  <section class="secao" id="a-tarefa">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A tarefa</div>
+        <h2>Fechou o ano 4,6% abaixo do orçado, e a explicação de sempre é que vendeu menos</h2>
+      </div>
+    </div>
+
+    <p>O orçamento contra o realizado está fechado, mês a mês e linha a linha. São
+    <strong>72 linhas</strong>, uma para cada combinação de linha de produto e mês, com o
+    número de lotes, os pedidos orçados e fechados, o ticket médio dos dois lados, a receita
+    dos dois lados e o motivo anotado do desvio.</p>
+
+    <p>O ano fechou <strong>R$ 2.613.737 abaixo do orçado</strong>, que dá
+    <strong>4,6%</strong>. Na reunião de fechamento a frase é sempre a mesma:
+    <em>"o mercado apertou, vendemos menos"</em>. Ela pode estar certa e pode ser a metade
+    errada da história, e <strong>a diferença entre as duas muda quem é chamado para
+    resolver</strong>: vender menos é problema de comercial, vender pelo preço errado é
+    problema de política de desconto.</p>
+
+    <p>O que se pede aqui é <strong>um parecer de quatro minutos</strong> que decomponha o
+    rombo, diga quanto dele veio de volume e quanto veio de preço, e aponte onde atacar
+    primeiro.</p>
+
+    <div class="cartao">
+      <span class="rot">Quem faz isso na vida real</span>
+      <p>Controladoria, financeiro, planejamento, sócio que acompanha resultado, e a gerência
+      comercial que responde pela meta. <strong>O que custa hoje:</strong> o ano seguinte
+      recebe uma meta de volume maior para tapar um buraco que era de preço, e o buraco se
+      repete com mais esforço.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="o-contexto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O contexto</div>
+        <h2>Receita é sempre quantidade vezes preço, e o desvio se separa nos dois</h2>
+      </div>
+    </div>
+
+    <p>Um total que não bate nunca tem uma causa só, porque ele nunca tem uma parcela só.
+    <strong>Receita é quantidade multiplicada por preço</strong>, e por isso um desvio de
+    receita se abre em duas contas que se somam: o que se perdeu por ter vendido menos
+    unidades, e o que se perdeu por ter vendido cada unidade mais barato.</p>
+
+    <p>As duas contas usam colunas que já estão no arquivo. O que não está no arquivo é a
+    instrução de fazê-las: <strong>uma IA que recebe esta planilha sem contexto devolve o
+    ranking dos piores meses</strong>, que é verdade e não é resposta.</p>
+
+    <ul class="lista">
+      <li><strong>Quem responde.</strong> Alguém de controladoria, que separa efeito de preço
+      de efeito de volume antes de opinar sobre causa.</li>
+      <li><strong>Quem lê.</strong> A direção, que na semana seguinte define a meta e a
+      política de desconto do ano que vem.</li>
+      <li><strong>Como a conta se abre.</strong> O desvio de volume é a diferença de pedidos
+      multiplicada pelo ticket orçado. O desvio de preço é a diferença de ticket multiplicada
+      pelos pedidos realizados. <strong>As duas somadas fecham o desvio total</strong>, e é
+      assim que se confere se a decomposição está certa.</li>
+      <li><strong>Percentual e valor não apontam para o mesmo lugar.</strong> A linha que cai
+      mais em percentual quase nunca é a que perde mais dinheiro, porque elas têm tamanhos
+      diferentes.</li>
+    </ul>
+
+    <p class="fig-leg">O terceiro item é o que separa este caso de um resumo de planilha, e a
+    fórmula não é complicada: <strong>ela é só a que ninguém escreve no pedido</strong>. É a
+    mesma diferença que a <a href="../b2-planilha/">aula 4 do bloco 2</a> faz entre pedir o
+    número e pedir a conta que produz o número.</p>
+  </section>
+
+  <section class="secao" id="o-insumo">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O insumo</div>
+        <h2>Baixe e confira que orçado e realizado existem dos dois lados</h2>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O arquivo deste caso</span>
+        <p style="margin:0">Orçado contra realizado de uma indústria fictícia:
+        <strong>72 linhas</strong> e quinze colunas, uma aba só. Uma linha por combinação de
+        linha de produto e mês, com lotes previstos e realizados, pedidos orçados e fechados,
+        ticket médio dos dois lados, receita dos dois lados, a variação já calculada e o
+        motivo anotado. <strong>Empresa e valores são inventados.</strong></p>
+      </div>
+      <a class="btn" href="../_arquivos/financeiro.xlsx">Baixar a planilha</a>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Linha_Produto</th><th>Canal</th><th>Mes</th><th>Pedidos_Orcados</th><th>Pedidos_Fechados</th><th>Ticket_Medio_Orcado</th><th>Ticket_Medio_Realizado</th><th>Receita_Orcada</th><th>Receita_Realizada</th></tr></thead>
+        <tbody>
+          <tr><td>LP-300</td><td>Distribuidor</td><td>Janeiro</td><td>120</td><td>106</td><td>17.748</td><td>17.748</td><td>2.129.760</td><td>1.881.288</td></tr>
+          <tr><td>LP-100</td><td>Distribuidor</td><td>Janeiro</td><td>40</td><td>38</td><td>14.900</td><td>14.155</td><td>596.000</td><td>537.890</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg">Duas linhas do arquivo. <strong>Repare que elas quebram por motivos
+    diferentes:</strong> na primeira o ticket ficou igual e faltaram pedidos, na segunda os
+    pedidos quase bateram e o ticket caiu. As duas aparecem como <em>receita abaixo do
+    orçado</em>, e o parecer que não separar as duas vai tratá-las igual.</p>
+
+    <div class="cartao">
+      <span class="rot">Antes de sair da planilha, confira três coisas</span>
+      <ul class="lista">
+        <li><strong>Que a coluna de variação bate com a subtração.</strong> Ela vem
+        calculada, e conferir uma linha na mão é o que autoriza confiar nas outras 71.</li>
+        <li><strong>Quantas linhas de produto existem.</strong> São seis, e uma delas fechou
+        o ano acima do orçado.</li>
+        <li><strong>Que todo mês tem as mesmas linhas.</strong> Doze meses e seis linhas dão
+        exatamente 72, e é isso que permite comparar mês com mês sem ajuste.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="o-exercicio">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">O exercício</div>
+        <h2>Escreva o pedido você, antes de ver o de qualquer outra pessoa</h2>
+      </div>
+    </div>
+
+    <p>Esta é a parte que vale a aula, e ela só funciona de um jeito: <strong>você escreve
+    primeiro</strong>. Os seis campos abaixo estão vazios de propósito. Preencha o que
+    conseguir, deixe em branco o que não souber, e repare em qual campo a sua mão trava:
+    <strong>o campo que trava é exatamente o que estava faltando</strong> nos pedidos que
+    você já fez e que voltaram genéricos.</p>
+
+    <p>O prompt monta sozinho à direita conforme você escreve. Quando terminar, copie, rode
+    na ferramenta com a planilha anexada, e <strong>só então</strong> abra as duas caixas do
+    fim da página.</p>
+
+<div class="criador">
+      <div class="cr-lado">
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
+          <div class="cr-dica">Quem a IA deve ser para responder isto bem</div>
+          <textarea id="cp-papel" data-exemplo="Você é analista de compras industriais. Você lê cotação de fornecedor para achar onde o preço esconde condição, e entrega a comparação para quem assina o contrato." data-titulo="PAPEL" rows="2" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-contexto"><span class="cr-sig">C</span> · Contexto</label>
+          <div class="cr-dica">O que ela precisa saber: o arquivo, as dimensões, quem lê</div>
+          <textarea id="cp-contexto" data-exemplo="Anexei as cotações de 8 fornecedores para o mesmo insumo, ao longo de 6 meses. As colunas são fornecedor, data, preço unitário, prazo de entrega, prazo de pagamento e quantidade mínima. Quem lê é a diretoria, que renova o contrato no mês que vem." data-titulo="CONTEXTO" rows="5" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-tarefa"><span class="cr-sig">T</span> · Tarefa</label>
+          <div class="cr-dica">O que fazer. Comece com verbo</div>
+          <textarea id="cp-tarefa" data-exemplo="Compare os 8 fornecedores considerando preço e condição juntos, e não só o preço unitário. Diga qual é o mais barato de verdade quando o prazo de pagamento entra na conta." data-titulo="TAREFA" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-formato"><span class="cr-sig">F</span> · Formato</label>
+          <div class="cr-dica">Como entregar: estrutura, tamanho, ordem das partes</div>
+          <textarea id="cp-formato" data-exemplo="Uma tabela com os 8 fornecedores ordenados pelo custo real, e três parágrafos: quem ganha, quem perde, e o que negociar com o segundo colocado." data-titulo="FORMATO" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-limites"><span class="cr-sig">L</span> · Limitações</label>
+          <div class="cr-dica">O que NÃO fazer. Inclua sempre o que ela faz quando faltar dado</div>
+          <textarea id="cp-limites" data-exemplo="Use apenas o que está no arquivo e não estime frete que não esteja lá. Se algum fornecedor tiver menos de 3 cotações no período, sinalize que a média dele não é comparável em vez de rankeá-lo junto." data-titulo="LIMITAÇÕES" rows="4" placeholder="Escreva aqui"></textarea>
+        </div>
+        <div class="cr-campo">
+          <label class="cr-rot" for="cp-sucesso"><span class="cr-sig">CS</span> · Critério de sucesso</label>
+          <div class="cr-dica">Quando a resposta é boa? Quem decide o quê depois de ler?</div>
+          <textarea id="cp-sucesso" data-exemplo="A diretoria escolhe com quem renovar e entra na negociação sabendo qual condição pedir." data-titulo="CRITÉRIO DE SUCESSO" rows="3" placeholder="Escreva aqui"></textarea>
+        </div>
+      </div>
+
+      <div class="cr-lado">
+        <div class="cr-barra">
+          <span class="prompt-rot">O seu pedido</span>
+          <div class="cr-botoes">
+            <button class="btn-fantasma" type="button" data-acao="exemplo">Exemplo de outra área</button>
+            <button class="btn-fantasma" type="button" data-acao="limpar">Limpar</button>
+            <button class="btn-copiar" type="button" data-acao="copiar">Copiar</button>
+          </div>
+        </div>
+        <pre class="cr-txt"></pre>
+      </div>
+    </div>
+
+    <p class="fig-leg">O botão <strong>Exemplo de outra área</strong> preenche os seis
+    campos com um pedido de <strong>compras</strong>, que não é nenhum dos casos deste
+    desafio. Ele serve para você ver a forma de um campo preenchido quando não souber por
+    onde começar. <strong>Ele não é a resposta deste caso</strong>, e nem dá para ser: fala
+    de outro arquivo. Depois de olhar, use o Limpar e escreva o seu.</p>
+
+
+    <div class="cartao">
+      <span class="rot">Se travar no primeiro campo</span>
+      <p>Travar é o resultado esperado. Volte uma tela e releia a seção 02: o terceiro item
+      já traz as duas fórmulas, e escrevê-las dentro da Tarefa é metade deste exercício.
+      <strong>Escreva mesmo assim, ainda que ruim.</strong> O pedido ruim que você escreveu
+      ensina mais que o pedido bom que você leu.</p>
+    </div>
+
+    <details class="gabarito">
+      <summary>Só depois de tentar · uma sugestão de pedido</summary>
+      <div class="gabarito-corpo">
+        <p>O seu vai ser diferente deste, e tudo bem. <strong>Compare a estrutura, não as
+        palavras:</strong> veja quais dos seis campos você deixou em branco, e o que o campo
+        preenchido aqui pede que o seu não pedia.</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A sugestão, nos seis campos</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-caso-financeiro">Copiar</button>
+          </div>
+          <pre class="prompt-txt" id="pr-caso-financeiro">[P] Papel / Persona: Você é analista de controladoria. Você abre desvio de
+receita em efeito de volume e efeito de preço antes de opinar sobre causa, e
+entrega a leitura para quem define meta e política de desconto.
+
+[C] Contexto: Anexei o orçado contra o realizado de uma indústria, em uma aba,
+com 72 linhas e quinze colunas. Cada linha é a combinação de uma das seis linhas
+de produto com um dos doze meses. As colunas que importam são Linha_Produto,
+Canal, Mes, Pedidos_Orcados, Pedidos_Fechados, Ticket_Medio_Orcado,
+Ticket_Medio_Realizado, Receita_Orcada, Receita_Realizada e Motivo_Desvio. Quem
+lê é a direção, que na semana seguinte define a meta e a política de desconto do
+ano que vem.
+
+[T] Tarefa: Decomponha o desvio total de receita em duas parcelas. A parcela de
+volume é a diferença entre pedidos fechados e orçados multiplicada pelo ticket
+médio orçado. A parcela de preço é a diferença entre o ticket realizado e o
+orçado multiplicada pelos pedidos fechados. Some as duas e confirme que elas
+fecham o desvio total antes de seguir. Diga qual das duas responde pela maior
+parte do rombo, em reais e em percentual do desvio. Depois abra o desvio por
+linha de produto e por mês, sempre com o percentual e o valor absoluto lado a
+lado, e diga onde os dois apontam para lugares diferentes. Por último, cruze os
+seus achados com a coluna Motivo_Desvio e diga se o motivo anotado explica o que
+a conta mostrou.
+
+[F] Formato: Um parecer de quatro minutos de leitura. Comece por uma frase que
+resuma o ano. Depois a decomposição em volume e preço, com a verificação de que
+as duas somam o total. Depois uma tabela das seis linhas de produto com receita
+orçada, realizada, variação em reais e variação em percentual. Depois os meses
+ordenados pelo valor perdido. Feche com o que atacar primeiro, dizendo se é
+assunto de comercial ou de política de preço.
+
+[L] Limitações: Use apenas o que está no arquivo e não estime nada que falte. Não
+trate o desvio como um número só: se a decomposição não fechar com o total,
+mostre a diferença em vez de arredondá-la. Não ordene linhas de produto só por
+percentual, porque elas têm tamanhos muito diferentes. Se o motivo anotado contradisser a conta, sinalize a contradição em vez de escolher um dos dois. Se alguma coluna estiver ambígua, pergunte antes de calcular.
+
+[Critério de Sucesso]: A direção sai da leitura sabendo se o problema do ano foi
+de volume ou de preço, qual linha de produto merece atenção primeiro, e consegue
+refazer a decomposição na planilha a partir do que o parecer descreve.</pre>
+        </div>
+      </div>
+    </details>
+
+    <details class="gabarito">
+      <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
+      <div class="gabarito-corpo">
+        <p>Abaixo estão os achados que a base sustenta, com o número de cada um.
+        <strong>Serve para conferir o seu, não para substituí-lo.</strong></p>
+
+        <p><strong>O ano fechou em R$ 54.131.383 contra R$ 56.745.120 orçados</strong>, o que
+        dá <strong>R$ 2.613.737 a menos</strong>, ou 4,6%. A frase da reunião diz que vendeu
+        menos. A conta diz outra coisa.</p>
+
+        <div class="tabela">
+          <table>
+            <thead><tr><th>De onde veio o desvio</th><th>Valor</th><th>Do rombo</th></tr></thead>
+            <tbody>
+              <tr><td>Volume · pedidos que não vieram</td><td>R$ 363.176</td><td>13,9%</td></tr>
+              <tr><td><strong>Preço · desconto no ticket</strong></td><td><strong>R$ 2.250.612</strong></td><td><strong>86,1%</strong></td></tr>
+              <tr><td>Soma das duas parcelas</td><td>R$ 2.613.788</td><td>fecha com o total</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fig-leg">A soma difere do desvio real em <strong>R$ 51</strong>, que é
+        arredondamento de centavos ao longo de 72 linhas. <strong>Um parecer que mostra essa
+        diferença de R$ 51 é melhor que um que a esconde</strong>: é ela que prova que a
+        decomposição foi feita e não estimada.</p>
+
+        <ul class="lista">
+          <li><strong>O problema do ano foi de preço, não de volume.</strong>
+          <strong>86,1%</strong> do rombo é desconto dado sobre o ticket orçado. A empresa
+          entregou quase o volume que planejou e recebeu menos por ele.
+          <strong>Meta maior de volume no ano seguinte não resolve isso</strong>, e ainda
+          aumenta a pressão que gera o desconto.</li>
+          <li><strong>A pior linha em percentual não é a que perde mais dinheiro.</strong> A
+          <strong>LP-400</strong> cai <strong>8,7%</strong>, a maior queda percentual, e perde
+          <strong>R$ 988.000</strong>. A <strong>LP-300</strong> cai só
+          <strong>4,9%</strong> e perde <strong>R$ 1.260.107</strong>, porque é muito maior.
+          Quem ordenar por percentual ataca a segunda maior perda achando que ataca a
+          primeira.</li>
+          <li><strong>Uma linha fechou acima do orçado, e ninguém comenta.</strong> A
+          <strong>LP-600</strong> fecha <strong>2,8% acima</strong>, com
+          <strong>R$ 181.440</strong> a mais. Num ano de queda, é o único lugar onde há algo
+          que deu certo para copiar.</li>
+          <li><strong>A perda está concentrada em quatro meses.</strong>
+          <strong>Dezembro</strong> cai <strong>23,9%</strong>, <strong>junho</strong>
+          <strong>20,2%</strong>, <strong>novembro</strong> 15,3% e <strong>janeiro</strong>
+          14,8%. E o ano não foi ruim inteiro: <strong>setembro fechou 11,3% acima</strong> e
+          fevereiro 10,8% acima. Uma média anual de 4,6% descreve mal um ano assim.</li>
+        </ul>
+
+        <div class="cartao">
+          <span class="rot">Os números do ano, para conferir os seus</span>
+          <p>Receita orçada <strong>R$ 56.745.120</strong> · realizada
+          <strong>R$ 54.131.383</strong> · desvio <strong>R$ 2.613.737</strong> ou
+          <strong>4,6%</strong> · <strong>72</strong> linhas · <strong>6</strong> linhas de
+          produto × <strong>12</strong> meses. Se o seu parecer divergir de algum destes, o
+          lugar de procurar é o filtro, não a conta.</p>
+        </div>
+
+        <div class="cartao">
+          <span class="rot">Se o seu resultado veio raso</span>
+          <p>Três frases resolvem quase sempre. <em>"Não quero o ranking dos piores meses:
+          quero o desvio separado em quanto foi volume e quanto foi preço."</em> ·
+          <em>"Mostre a soma das duas parcelas e prove que ela fecha com o desvio
+          total."</em> · <em>"Ao lado de cada percentual, me dê o valor em reais, porque as
+          linhas têm tamanhos diferentes."</em></p>
+        </div>
+
+        <p>O que este caso ensina não é sobre orçamento. <strong>É que todo total é o produto
+        de duas coisas, e que o desvio do total se abre nas duas</strong>. Vale para receita,
+        que é pedido vezes ticket, e vale para custo, que é consumo vezes preço, e para hora
+        trabalhada, que é gente vezes tempo. <a href="../b2-causa/">A aula 5 do bloco 2</a> é
+        onde ir do número para a causa vira método.</p>
+      </div>
+    </details>
+  </section>
