@@ -601,7 +601,28 @@ def g18_criador_completo(rel, html):
 
     E ele nasce PREENCHIDO: ferramenta que abre vazia é formulário, e formulário
     vazio numa sala faz a pessoa olhar para o lado antes de digitar.
+
+    🔴 A DISPENSA DAS PAGINAS `caso-*`, decidida pelo Rafael em 07/09/2026.
+
+    Nelas o criador nasce VAZIO, e isso e o exercicio, nao um defeito. A razao
+    e dele: o ponto da aula e a pessoa SENTIR que nao sabe pedir, e so entao
+    ver a diferenca que o padrao faz. Preenchido, ela le a resposta que deveria
+    escrever, e o exercicio deixa de existir pelo mesmo motivo que um gabarito
+    aberto o mata, que e o G9.
+
+    A regra geral continua valendo em toda AULA: la a ferramenta ensina o
+    mecanismo, e vazia ela ensina constrangimento. O que muda na pagina de caso
+    e a funcao da peca: ela nao demonstra, ela cobra.
+
+    🔴 COM LIMITE CONTAVEL, igual as dispensas do G5, senao vira a porta dos
+    fundos para nao preencher: vale so em `caso-*`, e so para UM criador por
+    pagina. O segundo criador vazio na mesma pagina o gate acusa.
+
+    E o resto do contrato continua inteiro, inclusive aqui: os seis campos na
+    ordem, os tres botoes, o label de cada campo e o lugar onde o prompt monta.
+    A dispensa e do CONTEUDO inicial, nao da peca.
     """
+    e_caso = rel.startswith("caso-")
     falhas = []
     for i, (_, bloco) in enumerate(blocos_por_classe(html, "criador"), 1):
         rot = "criador {} de {}".format(i, rel)
@@ -617,6 +638,10 @@ def g18_criador_completo(rel, html):
         for m in re.finditer(r'<textarea[^>]*data-titulo="([^"]+)"[^>]*>(.*?)</textarea>',
                              bloco, flags=re.S):
             if not m.group(2).strip():
+                if e_caso and i == 1:
+                    # A dispensa declarada na docstring. O campo vazio aqui e o
+                    # exercicio, e o `i == 1` e o limite contavel.
+                    continue
                 falhas.append("{}: o campo {} abre vazio".format(rot, m.group(1)))
         for m in re.finditer(r'<textarea[^>]*id="([^"]+)"', bloco):
             if 'for="%s"' % m.group(1) not in bloco:

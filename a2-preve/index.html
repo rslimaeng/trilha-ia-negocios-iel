@@ -3527,7 +3527,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     var campos = [].slice.call(c.querySelectorAll('textarea[data-titulo]'));
     var saida  = c.querySelector('.cr-txt');
     if(!campos.length || !saida) return;
-    var exemplo = campos.map(function(t){ return t.value; });
+    /* O exemplo do botao sai do data-exemplo quando ele existe, e do proprio
+       campo quando nao existe. Nas AULAS o criador nasce preenchido e o botao
+       devolve a pessoa ao ponto de partida depois de um Limpar. Nas paginas de
+       caso ele nasce vazio, e sem isto o botao ficaria morto: restaurar vazio
+       e nao fazer nada. Botao morto e pior que botao ausente.
+
+       🔴 O exemplo de uma pagina de caso e sempre de OUTRA area que nao a dela.
+       Preenchido com o exemplo do proprio caso, o botao entrega a resposta que
+       a pessoa deveria escrever, e mata o exercicio do mesmo jeito que um
+       gabarito aberto. De outra area, ele mostra o FORMATO sem dar a resposta. */
+    var exemplo = campos.map(function(t){ return t.dataset.exemplo || t.value; });
 
     function texto(){
       return campos.filter(function(t){ return t.value.trim(); })

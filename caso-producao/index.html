@@ -3231,9 +3231,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <thead><tr><th>Data</th><th>Turno</th><th>Etapa</th><th>UnidadesProcessadas</th><th>UnidadesDefeituosas</th><th>MinutosParada</th><th>CustoSucataUSD</th></tr></thead>
         <tbody>
           <tr><td>01/01/2024</td><td>A</td><td>Corte</td><td>913</td><td>6</td><td>7</td><td>7,2</td></tr>
-          <tr><td>01/01/2024</td><td>A</td><td>Soldagem</td><td>987</td><td>21</td><td>15</td><td>42,0</td></tr>
+          <tr><td>01/01/2024</td><td>A</td><td>Processamento</td><td>987</td><td>21</td><td>15</td><td>42,0</td></tr>
           <tr><td>01/01/2024</td><td>A</td><td>Montagem</td><td>943</td><td>9</td><td>5</td><td>16,2</td></tr>
-          <tr><td>01/01/2024</td><td>A</td><td>Pintura</td><td>837</td><td>9</td><td>33</td><td>13,5</td></tr>
+          <tr><td>01/01/2024</td><td>A</td><td>Acabamento</td><td>837</td><td>9</td><td>33</td><td>13,5</td></tr>
           <tr><td>01/01/2024</td><td>A</td><td>Embalagem</td><td>982</td><td>20</td><td>6</td><td>20,0</td></tr>
         </tbody>
       </table>
@@ -3276,32 +3276,32 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
           <div class="cr-dica">Quem a IA deve ser para responder isto bem</div>
-          <textarea id="cp-papel" data-titulo="PAPEL" rows="2" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-papel" data-exemplo="Você é analista de compras industriais. Você lê cotação de fornecedor para achar onde o preço esconde condição, e entrega a comparação para quem assina o contrato." data-titulo="PAPEL" rows="2" placeholder="Escreva aqui"></textarea>
         </div>
         <div class="cr-campo">
           <label class="cr-rot" for="cp-contexto"><span class="cr-sig">C</span> · Contexto</label>
           <div class="cr-dica">O que ela precisa saber: o arquivo, as dimensões, quem lê</div>
-          <textarea id="cp-contexto" data-titulo="CONTEXTO" rows="5" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-contexto" data-exemplo="Anexei as cotações de 8 fornecedores para o mesmo insumo, ao longo de 6 meses. As colunas são fornecedor, data, preço unitário, prazo de entrega, prazo de pagamento e quantidade mínima. Quem lê é a diretoria, que renova o contrato no mês que vem." data-titulo="CONTEXTO" rows="5" placeholder="Escreva aqui"></textarea>
         </div>
         <div class="cr-campo">
           <label class="cr-rot" for="cp-tarefa"><span class="cr-sig">T</span> · Tarefa</label>
           <div class="cr-dica">O que fazer. Comece com verbo</div>
-          <textarea id="cp-tarefa" data-titulo="TAREFA" rows="4" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-tarefa" data-exemplo="Compare os 8 fornecedores considerando preço e condição juntos, e não só o preço unitário. Diga qual é o mais barato de verdade quando o prazo de pagamento entra na conta." data-titulo="TAREFA" rows="4" placeholder="Escreva aqui"></textarea>
         </div>
         <div class="cr-campo">
           <label class="cr-rot" for="cp-formato"><span class="cr-sig">F</span> · Formato</label>
           <div class="cr-dica">Como entregar: estrutura, tamanho, ordem das partes</div>
-          <textarea id="cp-formato" data-titulo="FORMATO" rows="4" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-formato" data-exemplo="Uma tabela com os 8 fornecedores ordenados pelo custo real, e três parágrafos: quem ganha, quem perde, e o que negociar com o segundo colocado." data-titulo="FORMATO" rows="4" placeholder="Escreva aqui"></textarea>
         </div>
         <div class="cr-campo">
           <label class="cr-rot" for="cp-limites"><span class="cr-sig">L</span> · Limitações</label>
           <div class="cr-dica">O que NÃO fazer. Inclua sempre o que ela faz quando faltar dado</div>
-          <textarea id="cp-limites" data-titulo="LIMITAÇÕES" rows="4" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-limites" data-exemplo="Use apenas o que está no arquivo e não estime frete que não esteja lá. Se algum fornecedor tiver menos de 3 cotações no período, sinalize que a média dele não é comparável em vez de rankeá-lo junto." data-titulo="LIMITAÇÕES" rows="4" placeholder="Escreva aqui"></textarea>
         </div>
         <div class="cr-campo">
           <label class="cr-rot" for="cp-sucesso"><span class="cr-sig">CS</span> · Critério de sucesso</label>
           <div class="cr-dica">Quando a resposta é boa? Quem decide o quê depois de ler?</div>
-          <textarea id="cp-sucesso" data-titulo="CRITÉRIO DE SUCESSO" rows="3" placeholder="Escreva aqui"></textarea>
+          <textarea id="cp-sucesso" data-exemplo="A diretoria escolhe com quem renovar e entra na negociação sabendo qual condição pedir." data-titulo="CRITÉRIO DE SUCESSO" rows="3" placeholder="Escreva aqui"></textarea>
         </div>
       </div>
 
@@ -3309,7 +3309,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="cr-barra">
           <span class="prompt-rot">O seu pedido</span>
           <div class="cr-botoes">
-            <button class="btn-fantasma" type="button" data-acao="exemplo">Exemplo</button>
+            <button class="btn-fantasma" type="button" data-acao="exemplo">Exemplo de outra área</button>
             <button class="btn-fantasma" type="button" data-acao="limpar">Limpar</button>
             <button class="btn-copiar" type="button" data-acao="copiar">Copiar</button>
           </div>
@@ -3317,6 +3317,11 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <pre class="cr-txt"></pre>
       </div>
     </div>
+
+    <p class="fig-leg">O&nbsp;botão <strong>Exemplo de&nbsp;outra área</strong> preenche os&nbsp;seis
+    campos com&nbsp;um&nbsp;pedido de&nbsp;<strong>compras</strong>, que&nbsp;não&nbsp;é nenhum dos&nbsp;casos deste
+    desafio. Ele serve para&nbsp;você ver a&nbsp;forma de&nbsp;um&nbsp;campo preenchido quando&nbsp;não&nbsp;souber por&nbsp;onde&nbsp;começar. <strong>Ele não&nbsp;é a&nbsp;resposta deste caso</strong>, e&nbsp;nem dá para&nbsp;ser: fala
+    de&nbsp;outro arquivo. Depois de&nbsp;olhar, use o&nbsp;Limpar e&nbsp;escreva o&nbsp;seu.</p>
 
     <div class="cartao">
       <span class="rot">Se travar no primeiro campo</span>
@@ -3343,7 +3348,7 @@ entrega o achado para quem decide onde alocar time e manutenção.
 aba. São 5.490 linhas e sete colunas: Data, Turno, Etapa, UnidadesProcessadas,
 UnidadesDefeituosas, MinutosParada e CustoSucataUSD. Cada linha é a combinação
 de um dia, um dos três turnos (A, B, C) e uma das cinco etapas (Corte,
-Soldagem, Montagem, Pintura, Embalagem), o que dá 366 dias e 15 combinações de
+Processamento, Montagem, Acabamento, Embalagem), o que dá 366 dias e 15 combinações
 turno e etapa por dia. Quem lê o resultado é a direção industrial, na reunião
 mensal de resultado. A régua de comparação sai da própria base: a taxa média de
 defeito do conjunto, e o tempo médio de parada por combinação de turno e etapa.
@@ -3391,7 +3396,7 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
         <p><strong>A leitura fácil, e por que ela está errada.</strong> Olhando só a coluna
         de turno, o turno C tem <strong>1,92%</strong> de defeito contra 1,45% do A e 1,46%
         do B, e a conclusão salta sozinha: o turno da noite é pior. <strong>Tire a
-        soldagem da conta e o turno C cai para 1,43%</strong>, que é menos que os turnos A e
+        etapa de processamento da conta e o turno C cai para 1,43%</strong>, que é menos que os turnos A e
         B juntos, em 1,45%. O turno da noite não é pior. Ele carrega um problema que não é
         dele.</p>
 
@@ -3400,10 +3405,10 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
             <thead><tr><th>Taxa de defeito</th><th>Turno A</th><th>Turno B</th><th>Turno C</th></tr></thead>
             <tbody>
               <tr><td>Corte</td><td>1,41%</td><td>1,44%</td><td>1,44%</td></tr>
-              <tr><td>Embalagem</td><td>1,45%</td><td>1,48%</td><td>1,39%</td></tr>
+              <tr><td><strong>Processamento</strong></td><td>1,41%</td><td>1,45%</td><td><strong>3,95%</strong></td></tr>
               <tr><td>Montagem</td><td>1,50%</td><td>1,45%</td><td>1,45%</td></tr>
-              <tr><td>Pintura</td><td>1,46%</td><td>1,46%</td><td>1,46%</td></tr>
-              <tr><td><strong>Soldagem</strong></td><td>1,41%</td><td>1,45%</td><td><strong>3,95%</strong></td></tr>
+              <tr><td>Acabamento</td><td>1,46%</td><td>1,46%</td><td>1,46%</td></tr>
+              <tr><td>Embalagem</td><td>1,45%</td><td>1,48%</td><td>1,39%</td></tr>
             </tbody>
           </table>
         </div>
@@ -3411,10 +3416,10 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
         <strong>Uma&nbsp;fica em&nbsp;3,95%</strong>, e&nbsp;ela não&nbsp;aparece em&nbsp;nenhuma das&nbsp;duas leituras de&nbsp;uma&nbsp;dimensão só.</p>
 
         <ul class="lista">
-          <li><strong>Soldagem no&nbsp;turno C é o&nbsp;problema, e&nbsp;ele é um&nbsp;só.</strong>&nbsp;<strong>3,95%</strong> contra&nbsp;1,45% das&nbsp;outras quatorze combinações. São
+          <li><strong>O&nbsp;processamento no&nbsp;turno C é o&nbsp;problema, e&nbsp;ele é um&nbsp;só.</strong>&nbsp;<strong>3,95%</strong> contra&nbsp;1,45% das&nbsp;outras quatorze combinações. São
           <strong>13.343 peças defeituosas</strong>, ou&nbsp;15,9% de&nbsp;tudo que&nbsp;a&nbsp;fábrica refugou
           no&nbsp;ano, produzidas por&nbsp;uma&nbsp;combinação que&nbsp;responde por&nbsp;6,5% do&nbsp;volume.</li>
-          <li><strong>O&nbsp;excesso custa cerca de&nbsp;USD 12.957 por&nbsp;ano.</strong> Se&nbsp;a&nbsp;soldagem do&nbsp;turno C tivesse a&nbsp;taxa das&nbsp;outras, teriam saído 4.888 peças defeituosas em&nbsp;vez de&nbsp;13.343: <strong>8.455 peças a&nbsp;mais</strong>, a&nbsp;um&nbsp;custo médio de&nbsp;sucata de&nbsp;USD 1,53
+          <li><strong>O&nbsp;excesso custa cerca de&nbsp;USD 12.957 por&nbsp;ano.</strong> Se&nbsp;o&nbsp;processamento do&nbsp;turno C tivesse a&nbsp;taxa das&nbsp;outras, teriam saído 4.888 peças defeituosas em&nbsp;vez de&nbsp;13.343: <strong>8.455 peças a&nbsp;mais</strong>, a&nbsp;um&nbsp;custo médio de&nbsp;sucata de&nbsp;USD 1,53
           por&nbsp;peça. É <strong>10,1% de&nbsp;toda a&nbsp;sucata do&nbsp;ano</strong>, que&nbsp;soma USD 128.405.</li>
           <li><strong>É crônico, não&nbsp;é um&nbsp;incidente.</strong> Mês a&nbsp;mês a&nbsp;taxa fica entre&nbsp;3,68% e&nbsp;4,16%, sem&nbsp;tendência e&nbsp;sem&nbsp;mês fora da&nbsp;curva. <strong>Nada quebrou em&nbsp;alguma data</strong>: a&nbsp;condição está lá desde&nbsp;janeiro, o&nbsp;que&nbsp;aponta para&nbsp;equipamento, parâmetro ou&nbsp;treinamento, e&nbsp;não&nbsp;para&nbsp;uma&nbsp;falha pontual.</li>
           <li><strong>A parada de linha é outro problema, em outro lugar.</strong> Montagem no
@@ -3536,7 +3541,17 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
     var campos = [].slice.call(c.querySelectorAll('textarea[data-titulo]'));
     var saida  = c.querySelector('.cr-txt');
     if(!campos.length || !saida) return;
-    var exemplo = campos.map(function(t){ return t.value; });
+    /* O exemplo do botao sai do data-exemplo quando ele existe, e do proprio
+       campo quando nao existe. Nas AULAS o criador nasce preenchido e o botao
+       devolve a pessoa ao ponto de partida depois de um Limpar. Nas paginas de
+       caso ele nasce vazio, e sem isto o botao ficaria morto: restaurar vazio
+       e nao fazer nada. Botao morto e pior que botao ausente.
+
+       🔴 O exemplo de uma pagina de caso e sempre de OUTRA area que nao a dela.
+       Preenchido com o exemplo do proprio caso, o botao entrega a resposta que
+       a pessoa deveria escrever, e mata o exercicio do mesmo jeito que um
+       gabarito aberto. De outra area, ele mostra o FORMATO sem dar a resposta. */
+    var exemplo = campos.map(function(t){ return t.dataset.exemplo || t.value; });
 
     function texto(){
       return campos.filter(function(t){ return t.value.trim(); })

@@ -44,7 +44,13 @@ CASOS = {
     "producao": dict(
         origem="2-treinamentos-in-company/collaborative-workshop/turma-5/"
                "factory_production_data_BIG.csv",
-        de_para=[],
+        # 🔴 O CSV de origem e de metal-mecanica: ele solda e pinta. Nove das
+        # empresas da turma sao industria de alimentos, e laticinio nao solda.
+        # As duas etapas trocam por nomes que servem aos tres setores da sala,
+        # alimentos, confeccao e transformacao. Numero nenhum e tocado: o
+        # achado continua sendo o mesmo cruzamento, com o rotulo novo.
+        de_para=[(r"\bSoldagem\b", "Processamento"),
+                 (r"\bPintura\b", "Acabamento")],
     ),
 }
 
