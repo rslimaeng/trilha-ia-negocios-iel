@@ -1528,6 +1528,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3224,29 +3240,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>Você olha a&nbsp;sua&nbsp;tabela e&nbsp;já&nbsp;tem uma&nbsp;opinião sobre&nbsp;qual passo é o&nbsp;problema</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Dois passos culpados, e&nbsp;a&nbsp;pergunta decide qual</h2>
       </div>
     </div>
 
-    <p>Ela vem antes de&nbsp;qualquer conta, e&nbsp;quase sempre aponta para&nbsp;o&nbsp;passo que&nbsp;mais cansa.
-    No&nbsp;orçamento, seria montar a&nbsp;proposta: é o&nbsp;que&nbsp;dá trabalho, é o&nbsp;que&nbsp;você faz de&nbsp;novo toda
-    vez, e&nbsp;é o&nbsp;que&nbsp;você reclamaria numa&nbsp;conversa de&nbsp;corredor.</p>
-
-    <p><strong>A&nbsp;tabela que&nbsp;você preencheu na&nbsp;aula passada discorda.</strong> Ela tem uma&nbsp;coluna de&nbsp;tempo, e&nbsp;o&nbsp;tempo não&nbsp;tem opinião. Quando&nbsp;os&nbsp;números viram barras lado a&nbsp;lado,
-    costuma aparecer um&nbsp;passo desproporcional que&nbsp;ninguém tinha mencionado, e&nbsp;ele quase nunca
-    é o&nbsp;que&nbsp;cansa.</p>
-
-    <p>A&nbsp;razão é simples e&nbsp;desconfortável: <strong>o&nbsp;que&nbsp;cansa é o&nbsp;que&nbsp;exige a&nbsp;sua&nbsp;atenção; o&nbsp;que&nbsp;atrasa é o&nbsp;que&nbsp;acontece sem&nbsp;você.</strong> Espera não&nbsp;cansa ninguém. Ela só&nbsp;aparece
-    quando&nbsp;alguém soma.</p>
-
-    <div class="cartao">
-      <span class="rot">Por que a ordem desta aula é essa</span>
-      <p>Primeiro medir, depois nomear, e&nbsp;só&nbsp;então procurar a&nbsp;causa. <strong>Quem inverte
-      começa explicando por&nbsp;que&nbsp;o&nbsp;processo é ruim</strong>, e&nbsp;a&nbsp;explicação sempre convence,
-      inclusive quando&nbsp;está errada. Com&nbsp;a&nbsp;barra desenhada antes, a&nbsp;conversa muda: deixa de&nbsp;ser
-      sobre&nbsp;quem tem razão e&nbsp;passa a&nbsp;ser sobre&nbsp;onde&nbsp;está o&nbsp;número.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;<strong>o&nbsp;passo que&nbsp;mais demora e&nbsp;o&nbsp;passo que&nbsp;mais come o&nbsp;seu&nbsp;dia podem ser diferentes</strong>, e&nbsp;a&nbsp;pergunta que&nbsp;você faz decide qual dos&nbsp;dois você acha.</p>
     </div>
+
+    <p>Você olha a&nbsp;sua&nbsp;tabela e&nbsp;já&nbsp;tem uma&nbsp;opinião sobre&nbsp;qual passo é o&nbsp;problema. Ela quase sempre aponta o&nbsp;que&nbsp;mais cansa, e&nbsp;a&nbsp;coluna de&nbsp;tempo costuma discordar.</p>
   </section>
 
   <section class="secao" id="conceito">

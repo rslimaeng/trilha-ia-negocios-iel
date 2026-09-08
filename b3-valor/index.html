@@ -1528,6 +1528,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3224,23 +3240,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>"Interessante. E&nbsp;quanto isso vale?"</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>O&nbsp;número medido e&nbsp;o&nbsp;número chutado</h2>
       </div>
     </div>
 
-    <p>É a&nbsp;primeira pergunta de&nbsp;quem aprova, e&nbsp;ela não&nbsp;é hostilidade. Quem decide tem uma&nbsp;fila de&nbsp;coisas boas para&nbsp;fazer e&nbsp;um&nbsp;orçamento que&nbsp;não&nbsp;cobre todas. <strong>Sem&nbsp;um&nbsp;número,
-    a&nbsp;sua&nbsp;proposta compete por&nbsp;simpatia</strong>, e&nbsp;simpatia perde para&nbsp;qualquer coisa que&nbsp;tenha planilha.</p>
-
-    <p>Na&nbsp;aula 1 você deixou um&nbsp;campo em&nbsp;branco de&nbsp;propósito. Se&nbsp;tivesse preenchido lá, teria
-    escrito um&nbsp;chute, porque&nbsp;ninguém sabe de&nbsp;cabeça quanto tempo cada etapa leva.
-    <strong>Agora você sabe:</strong> mediu na&nbsp;aula 3, e&nbsp;achou onde&nbsp;vaza na&nbsp;aula 4.</p>
-
-    <div class="cartao">
-      <span class="rot">O que muda com o tempo medido na mão</span>
-      <p>A&nbsp;conta é a&nbsp;mesma que&nbsp;você faria no&nbsp;primeiro dia. <strong>O&nbsp;que&nbsp;mudou foi a&nbsp;qualidade do&nbsp;que&nbsp;entra nela.</strong> Um&nbsp;ROI construído em&nbsp;cima de&nbsp;"acho que&nbsp;leva umas&nbsp;duas horas" cai na&nbsp;primeira pergunta; o&nbsp;mesmo ROI em&nbsp;cima de&nbsp;uma&nbsp;tabela com&nbsp;passo,
-      tempo e&nbsp;frequência sustenta a&nbsp;conversa inteira, inclusive as&nbsp;objeções.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;um&nbsp;número que&nbsp;você <strong>mediu</strong> sustenta uma&nbsp;decisão e&nbsp;um&nbsp;número que&nbsp;você chutou não,&nbsp;e&nbsp;a&nbsp;diferença aparece na&nbsp;sua&nbsp;própria folha.</p>
     </div>
+
+    <p>"Interessante. E&nbsp;quanto isso vale?" é a&nbsp;primeira pergunta de&nbsp;quem aprova. Na&nbsp;aula 1 você deixou esse campo em&nbsp;branco de&nbsp;propósito, porque&nbsp;ali qualquer valor seria chute.</p>
   </section>
 
   <section class="secao" id="conceito">

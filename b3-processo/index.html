@@ -1528,6 +1528,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3224,31 +3240,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>Você automatizou a&nbsp;parte chata, e&nbsp;a&nbsp;semana continuou do&nbsp;mesmo tamanho</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>A&nbsp;tarefa que&nbsp;incomoda é a&nbsp;ponta de&nbsp;um&nbsp;processo</h2>
       </div>
     </div>
 
-    <p>Aconteceu com&nbsp;quase todo mundo que&nbsp;chegou até&nbsp;aqui. Você achou uma&nbsp;tarefa
-    repetitiva, montou um&nbsp;pedido que&nbsp;funciona, e&nbsp;o&nbsp;que&nbsp;levava quarenta minutos passou a&nbsp;levar cinco. Foi real, e&nbsp;você mostrou para&nbsp;o&nbsp;time.</p>
-
-    <p>Três semanas depois, a&nbsp;sensação sumiu. <strong>A&nbsp;tarefa continua rápida e&nbsp;a&nbsp;semana
-    continua cheia</strong>, porque&nbsp;o&nbsp;tempo que&nbsp;sobrou foi ocupado por&nbsp;outra coisa que&nbsp;estava esperando, e&nbsp;porque&nbsp;a&nbsp;etapa seguinte àquela tarefa não&nbsp;mudou nada: ela continua
-    esperando o&nbsp;mesmo material, no&nbsp;mesmo formato, do&nbsp;mesmo jeito.</p>
-
-    <p>Repare no&nbsp;que&nbsp;aconteceu. Você não&nbsp;errou: <strong>ganhou uma&nbsp;tarefa e&nbsp;não&nbsp;ganhou um&nbsp;processo.</strong> O&nbsp;trabalho que&nbsp;a&nbsp;sua&nbsp;área entrega passa por&nbsp;várias mãos e&nbsp;várias
-    etapas, e&nbsp;melhorar uma&nbsp;delas isoladamente move o&nbsp;gargalo de&nbsp;lugar em&nbsp;vez de&nbsp;resolvê-lo.</p>
-
-    <p>E&nbsp;há um&nbsp;detalhe que&nbsp;só&nbsp;aparece depois: quando&nbsp;você tira férias, aquele ganho vai
-    junto. Ele mora num&nbsp;pedido que&nbsp;está no&nbsp;seu&nbsp;histórico, num&nbsp;jeito de&nbsp;fazer que&nbsp;você
-    aprendeu, e&nbsp;ninguém mais sabe. <strong>Ganho que&nbsp;depende de&nbsp;uma&nbsp;pessoa não&nbsp;é melhoria
-    de&nbsp;processo, é habilidade pessoal</strong>, e&nbsp;as&nbsp;duas coisas valem, mas&nbsp;só&nbsp;uma&nbsp;escala.</p>
-
-    <div class="cartao">
-      <span class="rot">O que este bloco faz de diferente</span>
-      <p>Nos&nbsp;dois blocos anteriores você trabalhou <strong>uma&nbsp;tarefa por&nbsp;vez</strong>: um&nbsp;trabalho refeito, uma&nbsp;pergunta respondida. Aqui você escolhe um&nbsp;<strong>processo</strong>,
-      abre ele em&nbsp;passos, mede cada um&nbsp;e&nbsp;descobre onde&nbsp;o&nbsp;tempo vaza. É a&nbsp;diferença entre&nbsp;usar melhor a&nbsp;IA e&nbsp;mudar como o&nbsp;trabalho acontece.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;a&nbsp;tarefa que&nbsp;te incomoda <strong>quase nunca é o&nbsp;problema inteiro</strong>. Ela é parte de&nbsp;um&nbsp;processo, e&nbsp;é o&nbsp;processo que&nbsp;você escolhe abrir.</p>
     </div>
+
+    <p>Você achou uma&nbsp;tarefa repetitiva, montou um&nbsp;pedido que&nbsp;funciona, e&nbsp;o&nbsp;que&nbsp;levava quarenta minutos passou a&nbsp;levar cinco. Três semanas depois a&nbsp;semana continua cheia, porque&nbsp;a&nbsp;etapa seguinte não&nbsp;mudou nada. E&nbsp;quando&nbsp;você tira férias, o&nbsp;ganho vai junto.</p>
   </section>
 
   <section class="secao" id="conceito">

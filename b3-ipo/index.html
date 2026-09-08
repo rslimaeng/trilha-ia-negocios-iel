@@ -1528,6 +1528,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3224,29 +3240,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>Se&nbsp;você saísse de&nbsp;férias amanhã, o&nbsp;que&nbsp;teria que&nbsp;escrever para&nbsp;outra pessoa fazer isso no&nbsp;seu&nbsp;lugar?</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>O&nbsp;seu&nbsp;processo cabe em&nbsp;sete passos</h2>
       </div>
     </div>
 
-    <p>Não&nbsp;é pergunta retórica. Pense no&nbsp;processo que&nbsp;você escolheu na&nbsp;aula 1 e&nbsp;tente
-    responder de&nbsp;verdade, em&nbsp;voz alta, como se&nbsp;a&nbsp;pessoa estivesse na&nbsp;sua&nbsp;frente e&nbsp;começasse
-    na&nbsp;segunda.</p>
-
-    <p>Quase todo mundo trava no&nbsp;mesmo lugar. Você diz os&nbsp;três ou&nbsp;quatro passos óbvios, e&nbsp;aí
-    aparece um&nbsp;<em>"ah, mas&nbsp;quando&nbsp;o&nbsp;cliente é de&nbsp;fora do&nbsp;estado, é diferente"</em>. Depois
-    um&nbsp;<em>"e&nbsp;se&nbsp;o&nbsp;valor passar de&nbsp;tanto, precisa de&nbsp;aprovação"</em>. <strong>O&nbsp;que&nbsp;está na&nbsp;sua&nbsp;cabeça não&nbsp;é uma&nbsp;lista: é uma&nbsp;lista mais um&nbsp;monte de&nbsp;exceções que&nbsp;você aplica sem&nbsp;perceber.</strong></p>
-
-    <p>Isso não&nbsp;é desorganização sua.&nbsp;É o&nbsp;normal de&nbsp;qualquer trabalho que&nbsp;uma&nbsp;pessoa faz há
-    tempo o&nbsp;bastante para&nbsp;não&nbsp;pensar mais nele. <strong>O&nbsp;custo aparece em&nbsp;três lugares:</strong>
-    quando&nbsp;alguém precisa te substituir, quando&nbsp;você tenta melhorar o&nbsp;processo e&nbsp;não&nbsp;sabe
-    qual parte mexer, e&nbsp;quando&nbsp;você tenta dizer quanto tempo aquilo leva.</p>
-
-    <div class="cartao">
-      <span class="rot">O que esta aula pede, e o que ela não pede</span>
-      <p>Ela não&nbsp;pede um&nbsp;manual, nem um&nbsp;fluxograma, nem que&nbsp;você aprenda uma&nbsp;metodologia de&nbsp;gestão. <strong>Pede uma&nbsp;tabela de&nbsp;uma&nbsp;linha</strong>, com&nbsp;o&nbsp;que&nbsp;entra, os&nbsp;passos, o&nbsp;que&nbsp;sai, as&nbsp;exceções, o&nbsp;que&nbsp;você precisa em&nbsp;mãos, e&nbsp;quanto tempo cada passo leva. Leva
-      vinte minutos, e&nbsp;é a&nbsp;peça que&nbsp;as&nbsp;duas próximas aulas usam.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;dá para&nbsp;escrever o&nbsp;seu&nbsp;processo em&nbsp;4 a&nbsp;7 passos que&nbsp;<strong>outra pessoa conseguiria executar</strong>, e&nbsp;é isso que&nbsp;torna possível medir e&nbsp;delegar.</p>
     </div>
+
+    <p>Tente dizer em&nbsp;voz alta o&nbsp;que&nbsp;alguém precisaria fazer no&nbsp;seu&nbsp;lugar amanhã. Quase todo mundo trava no&nbsp;mesmo ponto: sai a&nbsp;lista óbvia, e&nbsp;aí aparece um&nbsp;"ah, mas&nbsp;quando&nbsp;o&nbsp;cliente é de&nbsp;fora, é diferente".</p>
   </section>
 
   <section class="secao" id="conceito">

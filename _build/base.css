@@ -1434,6 +1434,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo

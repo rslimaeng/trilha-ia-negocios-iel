@@ -1528,6 +1528,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33C · O DESENHO SOLTO ------------------------------------------
+   Envelope de <svg> escrito a mao. Ate 08/09 nenhuma pagina tinha um: os dois
+   desenhos do site (.cem e .radar) sao montados pelo gerador a partir de dados,
+   e nao ha SVG literal em lugar nenhum.
+
+   🔴 O min-width existe por LEGIBILIDADE, e nao por gosto. A figura da triade
+   tem viewBox de 1160 de largura; deixada em width:100% ela cabe em 343px no
+   celular e os rotulos de 14px viram 4px, que ninguem le. Abaixo de 720 ela
+   ROLA DENTRO DO PROPRIO ENVELOPE, que e a regra do padrao para desenho que nao
+   cabe: rolar, nunca espremer.                                                 */
+.desenho{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);padding:18px;margin:22px 0;
+}
+.desenho svg{display:block;width:100%;min-width:720px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3224,25 +3240,17 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>A&nbsp;proposta ficou pronta em&nbsp;dez minutos, e&nbsp;o&nbsp;cliente recebeu no&nbsp;mesmo prazo de&nbsp;antes</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Acelerar uma&nbsp;etapa não&nbsp;move o&nbsp;gargalo</h2>
       </div>
     </div>
 
-    <p>Você resolveu a&nbsp;parte que&nbsp;mais incomodava no&nbsp;pedido de&nbsp;orçamento. Escrever a&nbsp;proposta, que&nbsp;levava quarenta minutos de&nbsp;copiar, colar e&nbsp;trocar valor, agora leva dez.
-    A&nbsp;diferença é real e&nbsp;você sentiu.</p>
-
-    <p>Só&nbsp;que&nbsp;o&nbsp;cliente continua recebendo no&nbsp;terceiro dia. <strong>O&nbsp;tempo não&nbsp;estava na&nbsp;escrita.</strong> Estava entre&nbsp;o&nbsp;momento em&nbsp;que&nbsp;você mandou a&nbsp;pergunta para&nbsp;o&nbsp;técnico e&nbsp;o&nbsp;momento em&nbsp;que&nbsp;ele respondeu, e&nbsp;essa espera não&nbsp;encolheu um&nbsp;minuto.</p>
-
-    <p>Repare no&nbsp;que&nbsp;isso significa. Você melhorou o&nbsp;passo que&nbsp;estava na&nbsp;sua&nbsp;mão, e&nbsp;ele não&nbsp;era o&nbsp;passo que&nbsp;segurava o&nbsp;processo. <strong>A&nbsp;conta que&nbsp;interessa ao&nbsp;cliente é a&nbsp;do&nbsp;começo ao&nbsp;fim</strong>, e&nbsp;nela você economizou trinta minutos de&nbsp;um&nbsp;total de&nbsp;três dias.</p>
-
-    <div class="cartao">
-      <span class="rot">E há um segundo problema, que só aparece depois</span>
-      <p>Esses dez minutos moram num&nbsp;pedido que&nbsp;está no&nbsp;seu&nbsp;histórico e&nbsp;num&nbsp;jeito de&nbsp;fazer
-      que&nbsp;você aprendeu. <strong>Quando&nbsp;você tira férias, eles vão junto.</strong> A&nbsp;pessoa
-      que&nbsp;assume volta a&nbsp;levar quarenta minutos, e&nbsp;ninguém no&nbsp;relatório do&nbsp;mês vai conseguir
-      dizer o&nbsp;que&nbsp;aconteceu.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;<strong>acelerar uma&nbsp;tarefa nem sempre melhora o&nbsp;resultado</strong>, porque&nbsp;o&nbsp;gargalo pode estar em&nbsp;outro passo. Aí é gargalo de&nbsp;processo, não&nbsp;de&nbsp;tarefa.</p>
     </div>
+
+    <p>Escrever a&nbsp;proposta do&nbsp;orçamento passou de&nbsp;quarenta minutos para&nbsp;dez, e&nbsp;você sentiu a&nbsp;diferença. O&nbsp;cliente continua recebendo no&nbsp;terceiro dia, porque&nbsp;o&nbsp;tempo estava na&nbsp;espera pela&nbsp;resposta do&nbsp;técnico, e&nbsp;ela não&nbsp;encolheu.</p>
   </section>
 
   <section class="secao" id="conceito">
@@ -3314,42 +3322,79 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <div class="grade-3">
-      <div class="cartao">
-        <span class="rot">Dirigir</span>
-        <h4>quem decide é você</h4>
-        <ul class="lista">
-          <li>o&nbsp;que&nbsp;pedir, e&nbsp;para&nbsp;quê</li>
-          <li>com&nbsp;que&nbsp;critério</li>
-          <li>o&nbsp;que&nbsp;vale a&nbsp;pena fazer</li>
-          <li>o&nbsp;que&nbsp;fica de&nbsp;fora</li>
-        </ul>
-      </div>
-      <div class="cartao cartao-cor">
-        <span class="rot">Produzir</span>
-        <h4>é esta parte que&nbsp;muda</h4>
-        <ul class="lista">
-          <li>procurar a&nbsp;informação</li>
-          <li>rascunhar</li>
-          <li>montar e&nbsp;formatar</li>
-          <li>refazer para&nbsp;outro público</li>
-        </ul>
-      </div>
-      <div class="cartao">
-        <span class="rot">Conferir</span>
-        <h4>quem responde é você</h4>
-        <ul class="lista">
-          <li>isto está bom o&nbsp;bastante?</li>
-          <li>faz sentido para&nbsp;quem lê?</li>
-          <li>o&nbsp;que&nbsp;precisa mudar?</li>
-          <li>isto pode sair assim?</li>
-        </ul>
-      </div>
+    <div class="desenho solta">
+        <svg font-family="var(--font-body)" viewBox="0 0 1160 720" xmlns="http://www.w3.org/2000/svg" role="img"
+                  aria-label="Três grupos de tarefa: dirigir, produzir e conferir. Em dois gráficos de barras, o tempo antes se concentra em produzir; com a IA no desenho, produzir encolhe e o tempo passa para dirigir e conferir.">
+                  <rect width="1160" height="720" fill="var(--bg)"/>
+                  <!-- os tres grupos -->
+                  <g>
+                  <rect x="40" y="30" width="340" height="176" rx="8" fill="var(--bg-elev)" stroke="var(--border-strong)"/>
+                  <text x="64" y="62" font-family="var(--font-mono)" font-size="12.5" font-weight="600" letter-spacing="1.6" fill="var(--text)">DIRIGIR</text>
+                  <text x="64" y="80" font-family="var(--font-mono)" font-size="10.5" fill="var(--text-dim)">quem decide é você</text>
+                  <text x="64" y="112" font-size="14.5" fill="var(--text-muted)">o que pedir, e para quê</text>
+                  <text x="64" y="136" font-size="14.5" fill="var(--text-muted)">com que critério</text>
+                  <text x="64" y="160" font-size="14.5" fill="var(--text-muted)">o que vale a pena fazer</text>
+                  <text x="64" y="184" font-size="14.5" fill="var(--text-muted)">o que fica de fora</text>
+                  </g>
+                  <g>
+                  <rect x="410" y="30" width="340" height="176" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+                  <text x="434" y="62" font-family="var(--font-mono)" font-size="12.5" font-weight="600" letter-spacing="1.6" fill="var(--accent)">PRODUZIR</text>
+                  <text x="434" y="80" font-family="var(--font-mono)" font-size="10.5" fill="var(--text-muted)">é esta parte que muda</text>
+                  <text x="434" y="112" font-size="14.5" fill="var(--text-muted)">procurar a informação</text>
+                  <text x="434" y="136" font-size="14.5" fill="var(--text-muted)">rascunhar</text>
+                  <text x="434" y="160" font-size="14.5" fill="var(--text-muted)">montar e formatar</text>
+                  <text x="434" y="184" font-size="14.5" fill="var(--text-muted)">refazer para outro público</text>
+                  </g>
+                  <g>
+                  <rect x="780" y="30" width="340" height="176" rx="8" fill="var(--bg-elev)" stroke="var(--border-strong)"/>
+                  <text x="804" y="62" font-family="var(--font-mono)" font-size="12.5" font-weight="600" letter-spacing="1.6" fill="var(--text)">CONFERIR</text>
+                  <text x="804" y="80" font-family="var(--font-mono)" font-size="10.5" fill="var(--text-dim)">quem responde é você</text>
+                  <text x="804" y="112" font-size="14.5" fill="var(--text-muted)">isto está bom o bastante?</text>
+                  <text x="804" y="136" font-size="14.5" fill="var(--text-muted)">faz sentido para quem lê?</text>
+                  <text x="804" y="160" font-size="14.5" fill="var(--text-muted)">o que precisa mudar?</text>
+                  <text x="804" y="184" font-size="14.5" fill="var(--text-muted)">isto pode sair assim?</text>
+                  </g>
+                  <!-- eixo comum -->
+                  <text x="46" y="470" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)" transform="rotate(-90 46 470)" text-anchor="middle">TEMPO NO DIA</text>
+                  <!-- grafico ANTES -->
+                  <text x="70" y="272" font-size="16" font-weight="600" fill="var(--text)">Como era</text>
+                  <text x="70" y="292" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">o dia inteiro produzindo</text>
+                  <line x1="66" y1="620" x2="560" y2="620" stroke="var(--border-strong)" stroke-width="1.5"/>
+                  <line x1="66" y1="320" x2="66" y2="620" stroke="var(--border-strong)" stroke-width="1.5"/>
+                  <g fill="var(--text-muted)">
+                  <rect x="86"  y="592" width="34" height="28"/><rect x="134" y="598" width="34" height="22"/><rect x="182" y="590" width="34" height="30"/>
+                  <rect x="410" y="596" width="34" height="24"/><rect x="458" y="600" width="34" height="20"/><rect x="506" y="594" width="34" height="26"/>
+                  </g>
+                  <g fill="var(--accent)">
+                  <rect x="248" y="392" width="34" height="228"/><rect x="296" y="360" width="34" height="260"/><rect x="344" y="412" width="34" height="208"/>
+                  </g>
+                  <g font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)" text-anchor="middle">
+                  <text x="151" y="642">DIRIGIR</text><text x="313" y="642" fill="var(--accent)" font-weight="600">PRODUZIR</text><text x="475" y="642">CONFERIR</text>
+                  </g>
+                  <!-- grafico DEPOIS -->
+                  <text x="640" y="272" font-size="16" font-weight="600" fill="var(--text)">Como fica com a IA no desenho</text>
+                  <text x="640" y="292" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">o mesmo dia, dirigindo e conferindo</text>
+                  <line x1="636" y1="620" x2="1130" y2="620" stroke="var(--border-strong)" stroke-width="1.5"/>
+                  <line x1="636" y1="320" x2="636" y2="620" stroke="var(--border-strong)" stroke-width="1.5"/>
+                  <g fill="var(--text-muted)">
+                  <rect x="656" y="430" width="34" height="190"/><rect x="704" y="400" width="34" height="220"/><rect x="752" y="452" width="34" height="168"/>
+                  <rect x="980" y="418" width="34" height="202"/><rect x="1028" y="448" width="34" height="172"/><rect x="1076" y="428" width="34" height="192"/>
+                  </g>
+                  <g fill="var(--accent)">
+                  <rect x="818" y="592" width="34" height="28"/><rect x="866" y="598" width="34" height="22"/><rect x="914" y="596" width="34" height="24"/>
+                  </g>
+                  <g font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)" text-anchor="middle">
+                  <text x="721" y="642">DIRIGIR</text><text x="883" y="642" fill="var(--accent)" font-weight="600">PRODUZIR</text><text x="1045" y="642">CONFERIR</text>
+                  </g>
+                  <text x="883" y="686" font-size="15" font-style="italic" fill="var(--text-muted)" text-anchor="middle">Todo mundo vira gestor de alguma coisa.</text>
+                  </svg>
     </div>
 
-    <p class="fig-leg"><strong>O&nbsp;que&nbsp;muda no&nbsp;seu&nbsp;dia não&nbsp;é o&nbsp;total de&nbsp;horas: é qual das&nbsp;três
-    come o&nbsp;dia.</strong> A&nbsp;do&nbsp;meio encolhe, e&nbsp;as&nbsp;duas pontas continuam sendo suas.&nbsp;Repare que&nbsp;o&nbsp;cartão destacado é o&nbsp;único em&nbsp;que&nbsp;a&nbsp;IA trabalha, e&nbsp;que&nbsp;ele está entre&nbsp;dois em&nbsp;que&nbsp;ela
-    não&nbsp;decide nada.</p>
+    <p class="fig-leg"><strong>Todo trabalho tem três partes. O que muda com a IA no desenho
+    não é o total de horas: é qual das três come o dia.</strong> A do meio encolhe, e as duas
+    pontas continuam sendo suas. <strong>Compare a altura das barras nos dois painéis:</strong>
+    a barra inteira tem o mesmo tamanho, e o que muda é quem ocupa o meio. As alturas mostram
+    a forma, não a medida, e a sua você faz na aula 3, com o tempo do seu processo.</p>
 
     <h3>Os&nbsp;dois jeitos de&nbsp;pedir, um&nbsp;para&nbsp;cada ponta</h3>
 
