@@ -323,6 +323,27 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
                 falhas.append("{}: prompt .pesquisa fora da aula de pesquisa profunda "
                               "-- a dispensa dos seis campos vale so la".format(rel))
             continue
+        # A QUARTA DISPENSA, e ela e irma da terceira: mesmo defeito, outro
+        # material do autor.
+        #
+        # 08/09/2026: a aula 1 do B3 foi escrita SEM prompt nenhum, e a suite
+        # passou verde por isso -- este gate so mede prompt copiavel, e onde
+        # nao ha prompt ele nao dispara. Gate que nao tem o que medir nao e
+        # gate que aprova. A fonte da aula (o "Padrao Ouro" do Rafael, da aula
+        # de PPBR com ROI) tem o pedido pronto, e ele NAO usa os seis rotulos:
+        # usa estrutura de tags -- <regras>, <exemplo_de_saida>, <meu_cenario>,
+        # <raciocinio>, <solucoes>. Exigir os seis campos dele e reescrever
+        # material do autor, que e exatamente o defeito que a dispensa
+        # .pesquisa nasceu para impedir em 02/09.
+        #
+        # 🔴 COM LIMITE CONTAVEL, na forma do .degrau: no maximo UM .autoral
+        # por pagina. Sem limite ela vira a porta dos fundos para fugir do
+        # PCTFL, e o gate morre por dentro sem ninguem perceber.
+        if "autoral" in classes.split():
+            if html.count('prompt-txt autoral') + html.count('autoral prompt-txt') > 1:
+                falhas.append("{}: mais de um prompt .autoral na pagina -- a dispensa "
+                              "vale para UM, que e o material pronto do autor".format(rel))
+            continue
         texto = corpo.replace("&nbsp;", " ")
         if ident in PENDENTES_DO_FORMATO_ROTULADO:
             # Divida declarada, nao dispensa: o gate abaixo confere que ela
