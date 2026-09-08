@@ -416,12 +416,26 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:22px;box-shadow:var(--sombra-p);
 }
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
-/* Dois cartoes seguidos encostavam: o .cartao nunca teve margem propria, e o
-   espacamento vinha so do bloco anterior. Onde ha dois em sequencia -- as
-   paginas de desafio chegam a cinco -- as bordas se tocavam. Mesmo valor e
-   mesma forma do .cr-campo + .cr-campo que ja existia aqui. Rafael, 02/09:
-   "me incomodou que nao tem espacamento". */
-.cartao + .cartao{margin-top:18px}
+/* 🔴 A MARGEM E DO COMPONENTE, E NAO DO PAR. Em 02/09 o conserto foi
+   `.cartao + .cartao{margin-top:18px}`, que resolvia dois cartoes seguidos e
+   deixava o defeito de pe: o .cartao nunca teve margem propria, entao ele
+   encostava em QUALQUER vizinho que nao fosse outro cartao. Medido em 08/09,
+   antes deste conserto: 13 cartoes com 0 a 2px ate o vizinho seguinte, em 40
+   paginas e 155 cartoes. Rafael, 02/09: "me incomodou que nao tem
+   espacamento"; e em 08/09: "o defeito e do componente".
+
+   Margem de irmaos adjacentes COLAPSA, entao onde ja havia 22px vindo do bloco
+   anterior o valor nao soma: continua 22. */
+.cartao{margin:22px 0}
+
+/* 🔴 EM GRADE, MARGEM NAO COLAPSA E AINDA SOMA COM O gap. Estes tres sao os
+   unicos containers do site que sao grid E carregam .cartao dentro, medido nas
+   43 paginas: .grade (gap 16px, em oito paginas), .duo (gap 18px, em tres) e um
+   style="display:grid" inline que existe so na pagina de componentes. Sem esta
+   linha, os cartoes la ficariam com 16+22 em vez dos 16 do gap. */
+.grade > .cartao,
+.duo > .cartao,
+[style*="display:grid"] > .cartao{margin:0}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
 .grade{display:grid;gap:16px;margin:22px 0}
@@ -3422,7 +3436,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p class="fig-leg"><strong>Compare as&nbsp;duas últimas linhas do&nbsp;rodapé.</strong> O&nbsp;trabalho
     de&nbsp;pessoa soma uma&nbsp;hora e&nbsp;vinte e&nbsp;cinco; o&nbsp;que&nbsp;o&nbsp;cliente espera são dois dias.
-    <strong>O&nbsp;passo 3 é 94% do&nbsp;prazo e&nbsp;0% do&nbsp;esforço</strong>, e&nbsp;ele é o&nbsp;único marcado (EX).
+    <strong>O&nbsp;passo 3 é 97,1% do&nbsp;prazo e&nbsp;0% do&nbsp;esforço</strong>, e&nbsp;ele é o&nbsp;único marcado (EX).
     Nenhuma das&nbsp;duas coisas aparece quando&nbsp;o&nbsp;processo está só&nbsp;na&nbsp;cabeça, e&nbsp;as&nbsp;duas vêm da&nbsp;coluna que&nbsp;o&nbsp;modelo original não&nbsp;tem.</p>
 
     <div class="arquivo">
