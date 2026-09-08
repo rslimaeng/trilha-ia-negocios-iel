@@ -515,17 +515,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    a aula b2-fontes, para nao virar porta dos fundos. */
 .prompt-txt.pesquisa{border-left:3px solid var(--accent)}
 
-/* O PEDIDO PRONTO DO AUTOR, quarta irma das tres de cima. Ele vem do material
-   do proprio Rafael e usa estrutura de TAGS (<regras>, <exemplo_de_saida>,
-   <meu_cenario>) em vez dos seis rotulos do PCTFL+CS.
-
-   A borda a esquerda diz na pagina que este pedido tem outra forma, e o G5 usa
-   a mesma classe para nao cobrar dele os seis campos. A dispensa la tem limite
-   de UM por pagina, para nao virar porta dos fundos. Decisao do Rafael em
-   08/09/2026, depois que a aula 1 do B3 passou verde por nao ter prompt
-   nenhum: gate que nao tem o que medir nao e gate que aprova. */
-.prompt-txt.autoral{border-left:3px solid var(--accent-dark)}
-
 /* ---------- 12 · TABELA --------------------------------------------------- */
 .tabela{
   overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);

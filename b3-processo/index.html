@@ -609,17 +609,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    a aula b2-fontes, para nao virar porta dos fundos. */
 .prompt-txt.pesquisa{border-left:3px solid var(--accent)}
 
-/* O PEDIDO PRONTO DO AUTOR, quarta irma das tres de cima. Ele vem do material
-   do proprio Rafael e usa estrutura de TAGS (<regras>, <exemplo_de_saida>,
-   <meu_cenario>) em vez dos seis rotulos do PCTFL+CS.
-
-   A borda a esquerda diz na pagina que este pedido tem outra forma, e o G5 usa
-   a mesma classe para nao cobrar dele os seis campos. A dispensa la tem limite
-   de UM por pagina, para nao virar porta dos fundos. Decisao do Rafael em
-   08/09/2026, depois que a aula 1 do B3 passou verde por nao ter prompt
-   nenhum: gate que nao tem o que medir nao e gate que aprova. */
-.prompt-txt.autoral{border-left:3px solid var(--accent-dark)}
-
 /* ---------- 12 · TABELA --------------------------------------------------- */
 .tabela{
   overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
@@ -3619,59 +3608,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     </div>
 
 
-    <h3>Agora leve a&nbsp;ficha para&nbsp;o&nbsp;chat</h3>
-
-    <p>Com&nbsp;os&nbsp;campos 2 e&nbsp;3 preenchidos você já&nbsp;tem o&nbsp;que&nbsp;este pedido precisa: ele pergunta
-    exatamente <em>o&nbsp;seu&nbsp;processo atual</em> e&nbsp;<em>o&nbsp;seu&nbsp;maior problema</em>, que&nbsp;são as&nbsp;duas
-    linhas que&nbsp;você acabou de&nbsp;escrever. <strong>Copie, cole no&nbsp;chat e&nbsp;substitua o&nbsp;que&nbsp;está
-    entre&nbsp;colchetes.</strong></p>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">O pedido de diagnóstico, pronto para copiar</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b3proc-diagnostico">Copiar</button>
-      </div>
-      <pre class="prompt-txt autoral" id="pr-b3proc-diagnostico">Atue como um especialista em eficiência operacional e automação de processos. 
-Seu objetivo é analisar o cenário de um profissional e sugerir 3 formas práticas e diretas de usar IA generativa (apenas via chat) para resolver o gargalo dele.
-
-Mantenha um tom profissional, pragmático e direto ao ponto.
-
-&lt;regras&gt;
-- Seja extremamente específico e aplicável.
-- NÃO mencione ferramentas pagas de terceiros.
-- NÃO sugira integrações complexas via API.
-- Evite jargões técnicos desnecessários. Quero soluções que possam ser aplicadas hoje, usando apenas o chat.
-- Se o problema descrito for impossível de resolver apenas com IA em formato de chat, seja honesto e avise.
-&lt;/regras&gt;
-
-&lt;exemplo_de_saida&gt;
-1. Geração de Dinâmicas Contextualizadas
-- O que a IA faria: Você alimenta a IA com o humor atual do time e os objetivos da Sprint, e ela gera 3 opções de dinâmicas de Retrospectiva sob medida, com roteiro e tempo estimado para cada atividade.
-- Tempo economizado: 1 a 2 horas de pesquisa por Sprint.
-- Risco: A IA sugerir dinâmicas infantis ou fora da cultura da empresa. 
-- Mitigação: Inserir um Comando Negativo no prompt proibindo abordagens lúdicas excessivas e exigindo foco em métricas de fluxo.
-&lt;/exemplo_de_saida&gt;
-
-Aqui estão os dados do meu cenário atual:
-
-&lt;meu_cenario&gt;
-Cargo: [SEU CARGO, EX: Scrum Master]
-Setor: [SUA ÁREA/SETOR]
-Meu processo atual é: [DESCREVA A TAREFA REGULAR EM 1 FRASE]
-O meu maior problema é: [DESCREVA O GARGALO OU A INEFICIÊNCIA]
-&lt;/meu_cenario&gt;
-
-Antes de dar a sua resposta final, use a tag &lt;raciocinio&gt; para pensar passo a passo sobre o meu problema, quebrando-o em partes menores e avaliando quais recursos nativos de um LLM (como sumarização, ideação, extração de dados) melhor se aplicam aqui.
-Após o seu raciocínio, apresente as 3 formas concretas dentro de uma tag &lt;solucoes&gt;, seguindo exatamente a estrutura mostrada no exemplo.</pre>
-    </div>
-
-    <p class="fig-leg"><strong>Repare que este pedido não usa os seis rótulos</strong> que
-    você viu no bloco anterior, e mesmo assim funciona: ele separa a instrução, as regras, um
-    exemplo do que se espera e os seus dados, cada coisa no seu lugar. <strong>O que faz um
-    pedido bom é a separação, e não o nome das etiquetas.</strong> A cláusula que mais poupa
-    trabalho é a última das regras: ela manda o modelo avisar quando o problema não se
-    resolve só com chat.</p>
-
     <div class="checagem">
       <span class="rot">Confira você mesmo antes de fechar</span>
       <ul>
@@ -3695,6 +3631,12 @@ Após o seu raciocínio, apresente as 3 formas concretas dentro de uma tag &lt;s
       comunicação da área" ou "organizar as informações". Não têm começo, não têm fim, e
       ninguém consegue dizer quando terminaram. Processo tem um gatilho que o inicia e uma
       entrega que o encerra, e você precisa saber nomear as duas pontas.</div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Por que esta aula não tem um pedido pronto</span>
+      <p>A&nbsp;ficha que&nbsp;você acabou de&nbsp;preencher é o&nbsp;insumo das&nbsp;próximas aulas. <strong>O&nbsp;pedido à&nbsp;IA entra na&nbsp;aula 3</strong>, quando&nbsp;houver um&nbsp;processo aberto para&nbsp;pedir
+      sobre.</p>
     </div>
   </section>
 
