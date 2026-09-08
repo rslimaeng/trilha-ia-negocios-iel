@@ -74,11 +74,17 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3-mesa",
              "a4-inventa", "a5-cerca",
-             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano", "b2-visual", "b2-marca", "b2-biblioteca",
+             "b2-analise", "b2-pergunta", "b2-fontes", "b2-base", "b2-planilha", "b2-causa", "b2-decisao", "b2-plano", "b2-visual", "b2-marca",
+             # 🔴 A aula 10 e o desafio do bloco, e ele mora DENTRO da sequencia
+             # do B2 por decisao do Rafael (07/09), depois de abrir as paginas
+             # no ar: "muito confuso de achar. Terminou as aulas, tem o desafio
+             # do bloco". Antes disso as sete moravam entre o Desafio 4 e o
+             # Modulo 2, e quem terminava a aula 9 nunca passava por elas.
+             "b2-desafio", "b2-caso-producao", "b2-caso-comercial", "b2-caso-marketing",
+             "b2-caso-operacoes", "b2-caso-financeiro", "b2-caso-rh",
+             "b2-biblioteca",
              "b3-redesenho", "b3-processo",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
-             "analise-por-area", "caso-producao", "caso-comercial", "caso-marketing",
-             "caso-operacoes", "caso-financeiro", "caso-rh",
              "modulo-2", "modulo-3", "componentes"]
 
 TRILHA = [
@@ -105,6 +111,15 @@ TRILHA = [
         ("b2-plano",    "Amarre a decisão num plano com dono e prazo"),
         ("b2-visual",   "Transforme a análise no material da chefia"),
         ("b2-marca",    "Ponha a cara da sua empresa no que a IA gerou"),
+        ("b2-desafio",  "10 · O desafio que fecha o bloco"),
+    ]),
+    ("Os seis casos do desafio", [
+        ("b2-caso-producao",   "1 · Produção · onde a perda mora"),
+        ("b2-caso-comercial",  "2 · Comercial · o denominador da taxa"),
+        ("b2-caso-marketing",  "3 · Marketing · a média que esconde"),
+        ("b2-caso-operacoes",  "4 · Operações · o que não dá para concluir"),
+        ("b2-caso-financeiro", "5 · Financeiro · volume ou preço"),
+        ("b2-caso-rh",         "6 · RH · quando a resposta é recusar"),
     ]),
     ("As aulas do B3", [
         ("b3-processo", "Escolha o processo que vale a pena mudar"),
@@ -118,18 +133,6 @@ TRILHA = [
         ("desafio-avaliacoes", "2 · Avaliações viram painel"),
         ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
         ("desafio-satisfacao", "4 · Pesquisa de satisfação vira diagnóstico"),
-    ]),
-    # 🔴 O desafio de analise NAO e o Banco de Desafios, e a diferenca nao e de
-    # nome. No banco o pedido vem pronto para copiar. Aqui o criador nasce VAZIO
-    # e a pessoa escreve o dela antes de ver qualquer sugestao.
-    ("Desafio de análise por área", [
-        ("analise-por-area", "Os seis casos, e por onde começar"),
-        ("caso-producao",    "1 · Produção · onde a perda mora"),
-        ("caso-comercial",   "2 · Comercial · o denominador da taxa"),
-        ("caso-marketing",   "3 · Marketing · a média que esconde"),
-        ("caso-operacoes",   "4 · Operações · o que não dá para concluir"),
-        ("caso-financeiro",  "5 · Financeiro · volume ou preço"),
-        ("caso-rh",          "6 · RH · quando a resposta é recusar"),
     ]),
     ("Os outros dois módulos", [
         ("modulo-2",    "Automação com n8n"),
@@ -304,7 +307,7 @@ PAGINAS = {
         h1="Use IA para melhorar a análise e a tomada de decisão",
         sub="Uma pergunta de verdade da sua área, o material que responde a ela, e a "
             "decisão que sai disso com o plano amarrado.",
-        selos=["Nove aulas", "Traga uma pergunta em aberto"],
+        selos=["Dez aulas", "Traga uma pergunta em aberto"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  (None, "Análise e decisão")],
@@ -529,80 +532,98 @@ PAGINAS = {
     # A pagina hub e as outras cinco areas vem depois. Esta e a primeira, e ela
     # estreia o vocabulario do desafio inteiro.
     # -----------------------------------------------------------------------
-    "analise-por-area": dict(
-        titulo="Desafio de análise por área",
-        kicker="Vale para o curso inteiro",
+    # 🔴 SEM tipo=, pela mesma razao da biblioteca e das quatro paginas do Banco
+    # de Desafios: nao e aula, e o contrato de tipo do G43 cobraria pecas que
+    # aqui nao fazem sentido. Ela e a aula 10 na CONTAGEM do bloco, porque e
+    # assim que o bloco termina, e nao no contrato do gerador.
+    "b2-desafio": dict(
+        titulo="Aula 10 · O desafio que fecha o bloco",
+        kicker="Módulo 1 · B2 · Análise e decisão",
         h1="Seis casos de análise, um por área",
         sub="Você escolhe o que se parece com o seu trabalho, escreve o pedido sozinho, "
             "e só depois abre a sugestão para comparar.",
         selos=["Seis casos", "O pedido nasce vazio"],
         migalha=[("../", "IA para Negócios"),
-                 (None, "Desafio de análise por área")],
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 (None, None)],
     ),
-    "caso-producao": dict(
+    "b2-caso-producao": dict(
         titulo="Análise por área · Produção",
-        kicker="Desafio de análise · 1 de 6",
+        kicker="Aula 10 · caso 1 de 6",
         h1="Um ano de chão de fábrica → o parecer que diz onde a perda mora",
         sub="5.490 apontamentos de produção, três turnos e cinco etapas. A leitura de "
             "uma dimensão de cada vez produz uma conclusão confiante e errada.",
         selos=["5.490 linhas", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
-    "caso-comercial": dict(
+    "b2-caso-comercial": dict(
         titulo="Análise por área · Comercial",
-        kicker="Desafio de análise · 2 de 6",
+        kicker="Aula 10 · caso 2 de 6",
         h1="O funil inteiro → quem converte e qual canal merece verba",
         sub="800 oportunidades, e 500 delas ainda em aberto. Quem entra no denominador "
             "de uma taxa é decisão de negócio disfarçada de conta.",
         selos=["800 oportunidades", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
-    "caso-marketing": dict(
+    "b2-caso-marketing": dict(
         titulo="Análise por área · Marketing",
-        kicker="Desafio de análise · 3 de 6",
+        kicker="Aula 10 · caso 3 de 6",
         h1="Pesquisa de uma feira → onde investir no ano que vem",
         sub="400 respostas e nota geral 8,37. Os dois itens pior avaliados são "
             "exatamente os dois que decidem quem volta.",
         selos=["400 respostas", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
-    "caso-operacoes": dict(
+    "b2-caso-operacoes": dict(
         titulo="Análise por área · Operações",
-        kicker="Desafio de análise · 4 de 6",
+        kicker="Aula 10 · caso 4 de 6",
         h1="Satisfação por lote entregue → o que o dado não permite concluir",
         sub="500 respostas, cinco notas e duas colunas que parecem independentes. "
             "Às vezes a análise mais valiosa é a que devolve a pergunta.",
         selos=["500 respostas", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
-    "caso-financeiro": dict(
+    "b2-caso-financeiro": dict(
         titulo="Análise por área · Financeiro",
-        kicker="Desafio de análise · 5 de 6",
+        kicker="Aula 10 · caso 5 de 6",
         h1="Orçado contra realizado → o rombo foi de volume ou de preço",
         sub="72 linhas e um desvio de 4,6% no ano. Receita é quantidade vezes preço, "
             "e o desvio se abre nas duas parcelas.",
         selos=["72 linhas", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
-    "caso-rh": dict(
+    "b2-caso-rh": dict(
         titulo="Análise por área · RH",
-        kicker="Desafio de análise · 6 de 6",
+        kicker="Aula 10 · caso 6 de 6",
         h1="Seis vagas abertas → onde o processo seletivo trava",
         sub="94 candidatos e dois aprovados. É o único caso em que a resposta certa "
             "é recusar a pergunta que foi feita.",
         selos=["94 candidatos", "Você escreve o pedido"],
         migalha=[("../", "IA para Negócios"),
-                 ("../analise-por-area/", "Análise por área"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b2-analise/", "B2 · Análise e decisão"),
+                 ("../b2-desafio/", "Aula 10 · o desafio"),
                  (None, None)],
     ),
     "b3-redesenho": dict(

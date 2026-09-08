@@ -622,7 +622,13 @@ def g18_criador_completo(rel, html):
     ordem, os tres botoes, o label de cada campo e o lugar onde o prompt monta.
     A dispensa e do CONTEUDO inicial, nao da peca.
     """
-    e_caso = rel.startswith("caso-")
+    # 🔴 O PREFIXO E FLEXIVEL desde 07/09, e a razao e um defeito real: a
+    # dispensa nasceu presa a `rel.startswith("caso-")`, e quando as sete
+    # paginas migraram para dentro do B2 e viraram `b2-caso-*`, ela deixou de
+    # valer em silencio. O gate voltou a acusar 36 campos vazios que sao o
+    # exercicio. Casa o caso com ou sem prefixo de bloco, e nao casa a pagina
+    # modelo `caso/`, que nao tem o hifen.
+    e_caso = re.match(r"(?:[a-z0-9]+-)?caso-", rel) is not None
     falhas = []
     for i, (_, bloco) in enumerate(blocos_por_classe(html, "criador"), 1):
         rot = "criador {} de {}".format(i, rel)
@@ -1871,19 +1877,33 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
     """
     if not _tipo_da_aula(_sem_css_nem_script(html)):
         return []
-    ordem = [r for r in _ordem_das_aulas() if r in [d for d, _ in paginas()]]
-    if rel not in ordem:
+    # 🔴 A JANELA CONTA AULA, E NAO PAGINA, e ate 07/09 contava pagina. O
+    # defeito era latente: a TRILHA tem paginas que nao sao aula, sem tipo=, e
+    # elas entravam na janela de tres ocupando o lugar de uma aula. Enquanto
+    # todas moravam DEPOIS da ultima aula, ninguem via. No dia em que sete
+    # delas entraram ANTES do b3-processo, a janela dele virou tres paginas sem
+    # tipo nenhum e o gate acusou "tres aulas seguidas em que a sala so
+    # escuta" numa sequencia que nao tem tres aulas.
+    #
+    # Pagina sem tipo nao e aula em que a sala escuta: ela nem e aula. Ela sai
+    # da contagem em vez de contar contra.
+    ordem = []
+    for r in _ordem_das_aulas():
+        if r not in [d for d, _ in paginas()]:
+            continue
+        caminho = os.path.join(RAIZ, r)
+        if not os.path.exists(caminho):
+            continue
+        h = html if r == rel else io.open(caminho, encoding="utf-8").read()
+        t = _tipo_da_aula(_sem_css_nem_script(h))
+        if t:
+            ordem.append((r, t))
+    slugs = [r for r, _ in ordem]
+    if rel not in slugs:
         return []
-    i = ordem.index(rel)
-    janela = ordem[max(0, i - 2):i + 1]
-    for r in janela:
-        h = html if r == rel else None
-        if h is None:
-            caminho = os.path.join(RAIZ, r)
-            if not os.path.exists(caminho):
-                continue
-            h = io.open(caminho, encoding="utf-8").read()
-        if _tipo_da_aula(_sem_css_nem_script(h)) in ("pratica", "organizacao"):
+    i = slugs.index(rel)
+    for _, t in ordem[max(0, i - 2):i + 1]:
+        if t in ("pratica", "organizacao"):
             return []
     return ["{}: tres aulas seguidas em que a sala so escuta. Um conjunto de "
             "fundamentos fecha com uma pratica, ou com uma aula de organizacao "
