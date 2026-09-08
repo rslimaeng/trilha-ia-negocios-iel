@@ -1481,6 +1481,53 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .cv-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33B · A CALCULADORA DE ROI -------------------------------------
+   Porte do artefato do Rafael para dentro da aula 5 do B3. Ele nasceu como
+   pagina solta de um treinamento in-company; aqui vira peca de aula, com os
+   tokens desta trilha e sem nada do cliente de origem.
+
+   Por que nao reusa o .canvas: o canvas guarda TEXTO e o script dele so
+   enxerga <textarea>. Esta peca tem <input> e <select>, faz conta e mantem uma
+   LISTA ordenada. Enfiar as duas no mesmo nome faria o script de um mexer no
+   outro, que e defeito caro de achar.
+
+   A fila de numeros reusa .previa-nums de proposito: e a mesma leitura (numero
+   grande, rotulo pequeno) e desenhar de novo seria dois desenhos para a mesma
+   coisa.                                                                       */
+.calc{
+  background:var(--bg-elev);border:1px solid var(--border);
+  border-radius:var(--raio-g);padding:24px;margin:26px 0;
+}
+.calc-topo{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;margin-bottom:22px;
+}
+.calc-t{margin:3px 0 0;font-size:22px}
+.calc-estado{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--text-dim);border:1px solid var(--border);
+  border-radius:999px;padding:6px 13px;
+}
+.calc-estado.salvo{color:var(--ok-texto);border-color:var(--ok);background:var(--ok-soft)}
+.calc-grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.calc-campo{display:flex;flex-direction:column;gap:6px}
+.calc-rot{font-size:15px;font-weight:600;color:var(--text)}
+.calc-erro{
+  margin-top:14px;font-size:14px;color:var(--erro-texto);min-height:1px;
+}
+.calc-erro:not(:empty){
+  background:var(--erro-soft);border:1px solid var(--erro);
+  border-radius:var(--raio-p);padding:10px 13px;
+}
+.calc-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-saida{margin-top:22px}
+.calc-ranking{margin-top:20px}
+.calc-rodape{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--border);
+}
+.calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3068,6 +3115,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .matriz-lin,.decide-p{max-width:none}
   .arquivo{grid-template-columns:1fr}
   .canvas-grade{grid-template-columns:1fr}
+  .calc-grade{grid-template-columns:1fr}
   .cem-grade{grid-template-columns:repeat(10,minmax(0,1fr))}
   /* a árvore vira lista: em 375px quatro filhos ficam com 80px cada, e o fio
      deixa de significar alguma coisa porque não sobra caixa para ele ligar */
@@ -3485,6 +3533,123 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         if(b.dataset.acao === 'linha'){ copia(b, linha()); return; }
         if(b.dataset.acao === 'apagar'){
           campos.forEach(function(t){ t.value = ''; });
+          try{ localStorage.removeItem(chave); }catch(e){}
+          diz('O rascunho fica salvo neste aparelho', false);
+        }
+      });
+    });
+    carrega();
+  });
+
+  /* ---- a calculadora de ROI ----
+     Porte do artefato do Rafael (aula 5 do B3). A conta e a dele, sem mudanca:
+       horas/mes = (tempo atual - tempo depois) x frequencia
+       R$/mes    = horas/mes x custo/hora
+     A classificacao tambem e a dele: Alto a partir de R$ 1.000 ou 20h, Medio a
+     partir de R$ 300 ou 5h.
+
+     🔴 Nao reusa o script do canvas de proposito: aquele so enxerga <textarea>
+     e guarda texto. Este guarda uma LISTA de objetos e refaz conta. */
+  document.querySelectorAll('.calc[data-chave]').forEach(function(c){
+    var chave = 'trn_' + c.dataset.chave;
+    var itens = [];
+    var atual = null;
+    function q(id){ return c.querySelector('#' + id); }
+    var estado = c.querySelector('.calc-estado');
+    var erro   = c.querySelector('.calc-erro');
+
+    function diz(txt, ok){
+      if(!estado) return;
+      estado.textContent = txt;
+      estado.classList.toggle('salvo', !!ok);
+    }
+    function reais(n){ return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); }
+    function horas(n){
+      return n.toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1}) + ' h';
+    }
+    function classifica(mes, hs){
+      if(mes >= 1000 || hs >= 20) return 'Alto';
+      if(mes >= 300  || hs >= 5)  return 'Médio';
+      return 'Baixo';
+    }
+    function le(){
+      var nome  = (q('rc-nome').value || '').trim();
+      var at    = parseFloat(q('rc-atual').value);
+      var dep   = parseFloat(q('rc-ia').value);
+      var freq  = parseFloat(q('rc-freq').value);
+      var custo = parseFloat(q('rc-custo').value);
+      if(!nome)                    return {erro:'Dê um nome à oportunidade, no campo 1.'};
+      if(isNaN(at) || at <= 0)     return {erro:'Preencha o tempo atual em horas, no campo 3.'};
+      if(isNaN(dep) || dep < 0)    return {erro:'Preencha o tempo estimado depois, no campo 4.'};
+      if(dep >= at)                return {erro:'O tempo depois precisa ser menor que o de hoje, senão não há ganho.'};
+      if(isNaN(custo) || custo<=0) return {erro:'Preencha o custo por hora em R$, no campo 6.'};
+      var hs  = (at - dep) * freq;
+      var mes = hs * custo;
+      return {nome:nome, gatilho:q('rc-gatilho').value, horasMes:hs,
+              roiMes:mes, roiAno:mes*12, classe:classifica(mes, hs)};
+    }
+    function mostra(op){
+      q('rc-horas').textContent  = horas(op.horasMes);
+      q('rc-mes').textContent    = reais(op.roiMes);
+      q('rc-ano').textContent    = reais(op.roiAno);
+      q('rc-classe').textContent = op.classe;
+      q('rc-saida').hidden = false;
+    }
+    function ordena(){
+      return itens.slice().sort(function(a,b){ return b.roiMes - a.roiMes; });
+    }
+    function pinta(){
+      var corpo = q('rc-corpo');
+      corpo.innerHTML = '';
+      ordena().forEach(function(op, i){
+        var tr = document.createElement('tr');
+        [String(i+1), op.nome, op.gatilho, horas(op.horasMes), reais(op.roiMes), op.classe]
+          .forEach(function(v){
+            var td = document.createElement('td');
+            td.textContent = v;
+            tr.appendChild(td);
+          });
+        corpo.appendChild(tr);
+      });
+      q('rc-ranking').hidden = !itens.length;
+    }
+    function salva(){
+      try{
+        localStorage.setItem(chave, JSON.stringify(itens));
+        diz('Rascunho salvo neste aparelho', true);
+      }catch(e){ diz('Este navegador nao deixa salvar rascunho', false); }
+    }
+    function carrega(){
+      try{
+        var d = JSON.parse(localStorage.getItem(chave) || '[]');
+        if(d && d.length){ itens = d; pinta(); diz('Rascunho salvo neste aparelho', true); }
+      }catch(e){}
+    }
+    function texto(){
+      return ordena().map(function(op, i){
+        return (i+1) + '. ' + op.nome + ' · ' + op.gatilho + ' · ' + horas(op.horasMes) +
+               '/mes · ' + reais(op.roiMes) + '/mes · ' + op.classe;
+      }).join('\n');
+    }
+
+    c.querySelectorAll('[data-acao]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var acao = b.dataset.acao;
+        if(acao === 'calcular' || acao === 'adicionar'){
+          var r = le();
+          if(r.erro){ erro.textContent = r.erro; q('rc-saida').hidden = true; atual = null; return; }
+          erro.textContent = '';
+          atual = r;
+          mostra(r);
+          if(acao === 'adicionar'){ itens.push(r); pinta(); salva(); }
+          return;
+        }
+        if(acao === 'copiar'){ copia(b, texto()); return; }
+        if(acao === 'zerar'){
+          itens = []; atual = null;
+          pinta();
+          q('rc-saida').hidden = true;
+          erro.textContent = '';
           try{ localStorage.removeItem(chave); }catch(e){}
           diz('O rascunho fica salvo neste aparelho', false);
         }

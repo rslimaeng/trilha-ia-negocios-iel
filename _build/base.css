@@ -1387,6 +1387,53 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .cv-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
 
+/* ---------- 33B · A CALCULADORA DE ROI -------------------------------------
+   Porte do artefato do Rafael para dentro da aula 5 do B3. Ele nasceu como
+   pagina solta de um treinamento in-company; aqui vira peca de aula, com os
+   tokens desta trilha e sem nada do cliente de origem.
+
+   Por que nao reusa o .canvas: o canvas guarda TEXTO e o script dele so
+   enxerga <textarea>. Esta peca tem <input> e <select>, faz conta e mantem uma
+   LISTA ordenada. Enfiar as duas no mesmo nome faria o script de um mexer no
+   outro, que e defeito caro de achar.
+
+   A fila de numeros reusa .previa-nums de proposito: e a mesma leitura (numero
+   grande, rotulo pequeno) e desenhar de novo seria dois desenhos para a mesma
+   coisa.                                                                       */
+.calc{
+  background:var(--bg-elev);border:1px solid var(--border);
+  border-radius:var(--raio-g);padding:24px;margin:26px 0;
+}
+.calc-topo{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;margin-bottom:22px;
+}
+.calc-t{margin:3px 0 0;font-size:22px}
+.calc-estado{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--text-dim);border:1px solid var(--border);
+  border-radius:999px;padding:6px 13px;
+}
+.calc-estado.salvo{color:var(--ok-texto);border-color:var(--ok);background:var(--ok-soft)}
+.calc-grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.calc-campo{display:flex;flex-direction:column;gap:6px}
+.calc-rot{font-size:15px;font-weight:600;color:var(--text)}
+.calc-erro{
+  margin-top:14px;font-size:14px;color:var(--erro-texto);min-height:1px;
+}
+.calc-erro:not(:empty){
+  background:var(--erro-soft);border:1px solid var(--erro);
+  border-radius:var(--raio-p);padding:10px 13px;
+}
+.calc-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.calc-saida{margin-top:22px}
+.calc-ranking{margin-top:20px}
+.calc-rodape{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--border);
+}
+.calc-nota{flex:1 1 240px;margin:0;font-size:13px;color:var(--text-dim)}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -2974,6 +3021,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   .matriz-lin,.decide-p{max-width:none}
   .arquivo{grid-template-columns:1fr}
   .canvas-grade{grid-template-columns:1fr}
+  .calc-grade{grid-template-columns:1fr}
   .cem-grade{grid-template-columns:repeat(10,minmax(0,1fr))}
   /* a árvore vira lista: em 375px quatro filhos ficam com 80px cada, e o fio
      deixa de significar alguma coisa porque não sobra caixa para ele ligar */

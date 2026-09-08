@@ -83,7 +83,8 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b2-desafio", "b2-caso-producao", "b2-caso-comercial", "b2-caso-marketing",
              "b2-caso-operacoes", "b2-caso-financeiro", "b2-caso-rh",
              "b2-biblioteca",
-             "b3-redesenho", "b3-processo",
+             "b3-redesenho", "b3-processo", "b3-ilha", "b3-ipo",
+             "b3-vazamento", "b3-valor",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
              "modulo-2", "modulo-3", "componentes"]
 
@@ -122,7 +123,11 @@ TRILHA = [
         ("b2-caso-rh",         "6 · RH · quando a resposta é recusar"),
     ]),
     ("As aulas do B3", [
-        ("b3-processo", "Escolha o processo que vale a pena mudar"),
+        ("b3-processo",  "1 · Escolha o processo que vale a pena mudar"),
+        ("b3-ilha",      "2 · A IA no fim ou no desenho do processo"),
+        ("b3-ipo",       "3 · Abra o processo em passos conferíveis"),
+        ("b3-vazamento", "4 · Ache onde o tempo está vazando"),
+        ("b3-valor",     "5 · Defenda com um número que você mediu"),
     ]),
     # 🔴 O banco NAO mora dentro de bloco nenhum, e e decisao do Rafael (01/09).
     # Ele atravessa o curso: o desafio 7 espera o modulo 2 e o 8 espera o B4. Se
@@ -637,6 +642,84 @@ PAGINAS = {
                  ("../modulo-1/", "Módulo 1"),
                  (None, "Redesenho e ganho real")],
     ),
+    "b3-ilha": dict(
+        # 🔴 fundamento, e e a PONTE do bloco. Ela nao entrega artefato porque
+        # nao produz nada: o que ela entrega e o argumento de por que abrir o
+        # processo inteiro. Sem ela a tabela da aula 3 aparece do nada.
+        #
+        # Um conceito so, e as duas ideias cabem porque estao em ESCALAS
+        # diferentes: ilha x trilho decide onde a IA encosta no processo;
+        # delegacao x estruturacao decide o que se pede a ela quando encosta.
+        tipo="fundamento",
+        titulo="Aula 2 · Decida se a IA entra no fim ou no desenho do seu processo",
+        kicker="Módulo 1 · B3 · Redesenho e ganho real",
+        h1="Decida se a IA entra no fim ou no desenho do seu processo",
+        sub="Por que o ganho que mora numa pessoa some quando ela sai de férias, e os "
+            "dois jeitos de pedir que operam partes diferentes do seu dia.",
+        selos=["Use o processo da aula 1", "Ponte para a aula 3"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
+                 (None, None)],
+    ),
+
+    "b3-ipo": dict(
+        # 🔴 pratica com ARQUIVO, e a resposta veio do exercicio, nao do habito:
+        # a tabela e o objeto que a pessoa carrega por TRES aulas (preenche na
+        # 3, mede na 4, precifica na 5) e que o B4 le de novo. Canvas morreria
+        # no perfil do navegador; a planilha vai junto com ela.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 3 · Abra o processo escolhido em passos que dá para conferir",
+        kicker="Módulo 1 · B3 · Redesenho e ganho real",
+        h1="Abra o processo escolhido em passos que dá para conferir",
+        sub="Sete colunas, de quatro a sete passos, e a coluna de tempo que o modelo "
+            "original não tem e sem a qual não dá para achar o vazamento.",
+        selos=["Planilha para baixar", "Use o processo da aula 1"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
+                 (None, None)],
+    ),
+
+    "b3-vazamento": dict(
+        # 🔴 pratica SEM arquivo, e aqui a resposta e o contrario da aula 3: o
+        # exercicio se faz EM CIMA da planilha que a 3 entregou. Um arquivo novo
+        # aqui seria o defeito de 02/09 de novo -- anexo inventado para cumprir
+        # contrato de gate.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Aula 4 · Ache onde o tempo do seu processo está vazando",
+        kicker="Módulo 1 · B3 · Redesenho e ganho real",
+        h1="Ache onde o tempo do seu processo está vazando",
+        sub="A mesma tabela responde duas perguntas diferentes e aponta dois passos "
+            "culpados, e nenhum dos dois é o que mais incomoda.",
+        selos=["Use a planilha da aula 3", "Dois desperdícios nomeados"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
+                 (None, None)],
+    ),
+
+    "b3-valor": dict(
+        # 🔴 pratica SEM arquivo: o instrumento desta aula e a calculadora
+        # PORTADA do artefato do Rafael, e ela mora dentro da pagina. A planilha
+        # que a pessoa usa continua sendo a da aula 3, e repetir o download aqui
+        # daria a impressao de que sao duas.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Aula 5 · Defenda a mudança com um número que você mediu",
+        kicker="Módulo 1 · B3 · Redesenho e ganho real",
+        h1="Defenda a mudança com um número que você mediu",
+        sub="A ficha da aula 1 volta com o campo que ficou em branco, e o chute daquele "
+            "dia fica ao lado da medida de agora.",
+        selos=["Fecha o bloco", "Calculadora na página"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
+                 (None, None)],
+    ),
+
     "b3-processo": dict(
         # 🔴 fundamento, como o recorte fechado do Rafael manda (01/09). Ela
         # estreia TRES coisas que a trilha nunca disse -- os 6 Gatilhos, o PPBR
@@ -1502,6 +1585,123 @@ TEMPLATE = r"""<!DOCTYPE html>
         if(b.dataset.acao === 'linha'){ copia(b, linha()); return; }
         if(b.dataset.acao === 'apagar'){
           campos.forEach(function(t){ t.value = ''; });
+          try{ localStorage.removeItem(chave); }catch(e){}
+          diz('O rascunho fica salvo neste aparelho', false);
+        }
+      });
+    });
+    carrega();
+  });
+
+  /* ---- a calculadora de ROI ----
+     Porte do artefato do Rafael (aula 5 do B3). A conta e a dele, sem mudanca:
+       horas/mes = (tempo atual - tempo depois) x frequencia
+       R$/mes    = horas/mes x custo/hora
+     A classificacao tambem e a dele: Alto a partir de R$ 1.000 ou 20h, Medio a
+     partir de R$ 300 ou 5h.
+
+     🔴 Nao reusa o script do canvas de proposito: aquele so enxerga <textarea>
+     e guarda texto. Este guarda uma LISTA de objetos e refaz conta. */
+  document.querySelectorAll('.calc[data-chave]').forEach(function(c){
+    var chave = 'trn_' + c.dataset.chave;
+    var itens = [];
+    var atual = null;
+    function q(id){ return c.querySelector('#' + id); }
+    var estado = c.querySelector('.calc-estado');
+    var erro   = c.querySelector('.calc-erro');
+
+    function diz(txt, ok){
+      if(!estado) return;
+      estado.textContent = txt;
+      estado.classList.toggle('salvo', !!ok);
+    }
+    function reais(n){ return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); }
+    function horas(n){
+      return n.toLocaleString('pt-BR', {minimumFractionDigits:1, maximumFractionDigits:1}) + ' h';
+    }
+    function classifica(mes, hs){
+      if(mes >= 1000 || hs >= 20) return 'Alto';
+      if(mes >= 300  || hs >= 5)  return 'Médio';
+      return 'Baixo';
+    }
+    function le(){
+      var nome  = (q('rc-nome').value || '').trim();
+      var at    = parseFloat(q('rc-atual').value);
+      var dep   = parseFloat(q('rc-ia').value);
+      var freq  = parseFloat(q('rc-freq').value);
+      var custo = parseFloat(q('rc-custo').value);
+      if(!nome)                    return {erro:'Dê um nome à oportunidade, no campo 1.'};
+      if(isNaN(at) || at <= 0)     return {erro:'Preencha o tempo atual em horas, no campo 3.'};
+      if(isNaN(dep) || dep < 0)    return {erro:'Preencha o tempo estimado depois, no campo 4.'};
+      if(dep >= at)                return {erro:'O tempo depois precisa ser menor que o de hoje, senão não há ganho.'};
+      if(isNaN(custo) || custo<=0) return {erro:'Preencha o custo por hora em R$, no campo 6.'};
+      var hs  = (at - dep) * freq;
+      var mes = hs * custo;
+      return {nome:nome, gatilho:q('rc-gatilho').value, horasMes:hs,
+              roiMes:mes, roiAno:mes*12, classe:classifica(mes, hs)};
+    }
+    function mostra(op){
+      q('rc-horas').textContent  = horas(op.horasMes);
+      q('rc-mes').textContent    = reais(op.roiMes);
+      q('rc-ano').textContent    = reais(op.roiAno);
+      q('rc-classe').textContent = op.classe;
+      q('rc-saida').hidden = false;
+    }
+    function ordena(){
+      return itens.slice().sort(function(a,b){ return b.roiMes - a.roiMes; });
+    }
+    function pinta(){
+      var corpo = q('rc-corpo');
+      corpo.innerHTML = '';
+      ordena().forEach(function(op, i){
+        var tr = document.createElement('tr');
+        [String(i+1), op.nome, op.gatilho, horas(op.horasMes), reais(op.roiMes), op.classe]
+          .forEach(function(v){
+            var td = document.createElement('td');
+            td.textContent = v;
+            tr.appendChild(td);
+          });
+        corpo.appendChild(tr);
+      });
+      q('rc-ranking').hidden = !itens.length;
+    }
+    function salva(){
+      try{
+        localStorage.setItem(chave, JSON.stringify(itens));
+        diz('Rascunho salvo neste aparelho', true);
+      }catch(e){ diz('Este navegador nao deixa salvar rascunho', false); }
+    }
+    function carrega(){
+      try{
+        var d = JSON.parse(localStorage.getItem(chave) || '[]');
+        if(d && d.length){ itens = d; pinta(); diz('Rascunho salvo neste aparelho', true); }
+      }catch(e){}
+    }
+    function texto(){
+      return ordena().map(function(op, i){
+        return (i+1) + '. ' + op.nome + ' · ' + op.gatilho + ' · ' + horas(op.horasMes) +
+               '/mes · ' + reais(op.roiMes) + '/mes · ' + op.classe;
+      }).join('\n');
+    }
+
+    c.querySelectorAll('[data-acao]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var acao = b.dataset.acao;
+        if(acao === 'calcular' || acao === 'adicionar'){
+          var r = le();
+          if(r.erro){ erro.textContent = r.erro; q('rc-saida').hidden = true; atual = null; return; }
+          erro.textContent = '';
+          atual = r;
+          mostra(r);
+          if(acao === 'adicionar'){ itens.push(r); pinta(); salva(); }
+          return;
+        }
+        if(acao === 'copiar'){ copia(b, texto()); return; }
+        if(acao === 'zerar'){
+          itens = []; atual = null;
+          pinta();
+          q('rc-saida').hidden = true;
+          erro.textContent = '';
           try{ localStorage.removeItem(chave); }catch(e){}
           diz('O rascunho fica salvo neste aparelho', false);
         }
