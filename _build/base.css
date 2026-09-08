@@ -681,7 +681,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{

@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3259,7 +3275,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-<div class="criador">
+<div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3374,9 +3390,7 @@ planilha a partir do que o parecer descreve.</pre>
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo.</strong></p>
-
-        <p><strong>A&nbsp;nota geral é 8,37 e&nbsp;ela não&nbsp;é falsa: ela é inútil sozinha.</strong> Das&nbsp;400 pessoas, <strong>358 pretendem voltar</strong>, 30 responderam Talvez e&nbsp;<strong>12 responderam Não</strong>. É comparando esses grupos que&nbsp;a&nbsp;pesquisa começa
+        <p><strong>A&nbsp;nota geral é 8,37 e&nbsp;ela não&nbsp;é falsa: é inútil sozinha.</strong> Das&nbsp;400 pessoas, <strong>358 pretendem voltar</strong>, 30 responderam Talvez e&nbsp;<strong>12 responderam Não</strong>. É comparando esses grupos que&nbsp;a&nbsp;pesquisa começa
         a&nbsp;dizer alguma coisa.</p>
 
         <div class="tabela">
@@ -3392,53 +3406,33 @@ planilha a partir do que o parecer descreve.</pre>
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">A&nbsp;coluna que&nbsp;decide é a&nbsp;última, e&nbsp;ela está quase invertida em&nbsp;relação à&nbsp;segunda. <strong>Os&nbsp;dois itens com&nbsp;a&nbsp;maior diferença são exatamente os&nbsp;dois
-        com&nbsp;a&nbsp;menor média</strong>, e&nbsp;os&nbsp;dois com&nbsp;a&nbsp;melhor média são os&nbsp;que&nbsp;menos separam.</p>
+        <p class="fig-leg">A&nbsp;coluna que&nbsp;decide é a&nbsp;última, quase invertida em&nbsp;relação à&nbsp;segunda:
+        <strong>a&nbsp;maior diferença está nos&nbsp;dois de&nbsp;menor média</strong>.</p>
 
         <ul class="lista">
           <li><strong>O&nbsp;que&nbsp;perde visitante é operação, não&nbsp;conteúdo.</strong>
-          <strong>Credenciamento</strong> e&nbsp;<strong>app do&nbsp;evento</strong> abrem
-          <strong>4,26</strong> e&nbsp;<strong>4,19</strong> pontos entre&nbsp;quem volta e&nbsp;quem não&nbsp;volta. Palestrantes e&nbsp;conteúdo técnico abrem <strong>2,71</strong> e&nbsp;<strong>2,65</strong>, quase metade.</li>
-          <li><strong>Investir em&nbsp;palestrante melhor não&nbsp;compra retorno.</strong> Palestrantes
-          já&nbsp;é a&nbsp;nota mais alta da&nbsp;pesquisa, com&nbsp;<strong>8,44</strong>, e&nbsp;é a&nbsp;segunda que&nbsp;menos separa os&nbsp;dois grupos. É onde&nbsp;o&nbsp;dinheiro rende menos.</li>
-          <li><strong>O&nbsp;app é o&nbsp;item mais barato de&nbsp;arrumar e&nbsp;o&nbsp;pior avaliado.</strong> Com&nbsp;<strong>7,01</strong> ele é o&nbsp;único abaixo de&nbsp;7,3, e&nbsp;quem não&nbsp;volta deu a&nbsp;ele
-          <strong>3,17</strong>. Entre&nbsp;os&nbsp;quatro itens de&nbsp;operação, é o&nbsp;que&nbsp;não&nbsp;depende de&nbsp;negociar com&nbsp;o&nbsp;espaço nem com&nbsp;fornecedor.</li>
-          <li><strong>Quem visita pela&nbsp;primeira vez é quem menos gosta.</strong> A&nbsp;nota geral
-          desse grupo é <strong>8,10</strong>, a&nbsp;mais baixa dos&nbsp;seis perfis, contra&nbsp;<strong>8,65</strong> de&nbsp;quem palestrou e&nbsp;<strong>8,49</strong> da&nbsp;equipe interna.
-          <strong>A&nbsp;equipe que&nbsp;organizou avaliou o&nbsp;próprio evento acima da&nbsp;média</strong>, o&nbsp;que&nbsp;é esperado e&nbsp;é justamente por&nbsp;isso que&nbsp;incluí-la na&nbsp;média geral empurra o&nbsp;número para&nbsp;cima.</li>
+          Credenciamento e&nbsp;app abrem <strong>4,26</strong> e&nbsp;<strong>4,19</strong> pontos
+          entre&nbsp;quem volta e&nbsp;quem não&nbsp;volta; palestrantes e&nbsp;conteúdo abrem 2,71 e&nbsp;2,65,
+          quase metade.</li>
+          <li><strong>Investir em&nbsp;palestrante melhor não&nbsp;compra retorno.</strong> É a&nbsp;nota
+          mais alta da&nbsp;pesquisa, com&nbsp;<strong>8,44</strong>, e&nbsp;a&nbsp;segunda que&nbsp;menos separa os&nbsp;dois grupos.</li>
+          <li><strong>O&nbsp;app é o&nbsp;pior avaliado e&nbsp;o&nbsp;mais barato de&nbsp;arrumar.</strong> Com&nbsp;<strong>7,01</strong> é o&nbsp;único abaixo de&nbsp;7,3, e&nbsp;quem não&nbsp;volta deu a&nbsp;ele
+          <strong>3,17</strong>. Entre&nbsp;os&nbsp;itens de&nbsp;operação, é o&nbsp;que&nbsp;não&nbsp;depende de&nbsp;negociar
+          com&nbsp;espaço nem fornecedor.</li>
+          <li><strong>Quem visita pela&nbsp;primeira vez é quem menos gosta:</strong>
+          <strong>8,10</strong>, a&nbsp;mais baixa dos&nbsp;seis perfis, contra&nbsp;8,65 de&nbsp;quem palestrou.</li>
         </ul>
 
         <div class="cartao">
-          <span class="rot">Os números da pesquisa, para conferir os seus</span>
-          <p><strong>400</strong> respostas · nota geral <strong>8,37</strong> ·
-          <strong>358</strong> voltam, <strong>30</strong> talvez, <strong>12</strong> não&nbsp;·
-          <strong>313</strong> indicariam · <strong>6</strong> perfis · <strong>7</strong>
-          notas. Se&nbsp;o&nbsp;seu&nbsp;parecer divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro,
-          não&nbsp;a&nbsp;conta.</p>
-        </div>
-
-        <div class="cartao">
           <span class="rot">O achado dos doze é o mais frágil, e isso tem de estar no texto</span>
-          <p>O&nbsp;grupo que&nbsp;não&nbsp;volta tem <strong>doze pessoas</strong>. Doze é o&nbsp;bastante para&nbsp;apontar uma&nbsp;direção e&nbsp;pouco para&nbsp;fechar uma&nbsp;conta: uma&nbsp;resposta a&nbsp;mais ou&nbsp;a&nbsp;menos
-          mexe visivelmente nas&nbsp;médias da&nbsp;terceira coluna. <strong>Um&nbsp;parecer que&nbsp;apresenta
-          esses números sem&nbsp;dizer que&nbsp;são doze está mais errado que&nbsp;um&nbsp;que&nbsp;os&nbsp;apresenta com&nbsp;a&nbsp;ressalva</strong>, mesmo que&nbsp;os&nbsp;dois cheguem à&nbsp;mesma recomendação.</p>
+          <p>O&nbsp;grupo que&nbsp;não&nbsp;volta tem <strong>doze pessoas</strong>: o&nbsp;bastante para&nbsp;apontar
+          direção, pouco para&nbsp;fechar conta. <strong>Um&nbsp;parecer que&nbsp;dá esses números sem&nbsp;dizer
+          que&nbsp;são doze está mais errado que&nbsp;um&nbsp;que&nbsp;os&nbsp;dá com&nbsp;a&nbsp;ressalva</strong>, ainda que&nbsp;os&nbsp;dois recomendem a&nbsp;mesma coisa.</p>
         </div>
 
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Não&nbsp;quero o&nbsp;ranking das&nbsp;médias: quero a&nbsp;média de&nbsp;cada nota separada entre&nbsp;quem volta e&nbsp;quem não&nbsp;volta."</em> ·
-          <em>"Diga quantas pessoas há em&nbsp;cada grupo antes de&nbsp;me dar qualquer média
-          deles."</em> · <em>"Separe as&nbsp;notas em&nbsp;conteúdo e&nbsp;operação e&nbsp;me diga qual dos&nbsp;dois
-          grupos explica o&nbsp;retorno."</em></p>
-        </div>
-
-        <p>O que este caso ensina não é sobre feira. <strong>É que média descreve o passado e
-        comparação de grupos explica o comportamento</strong>, e que a pergunta
-        <em>"o que agradou menos"</em> quase nunca é a pergunta que decide orçamento. A sua
-        base tem a mesma estrutura sempre que existe uma coluna de resultado: cliente que
-        renovou, candidato que aceitou, pedido que voltou.
-        <a href="../b2-decisao/">A aula 6 do bloco 2</a> é onde a comparação vira
-        recomendação.</p>
+        <p>A&nbsp;lição não&nbsp;é sobre&nbsp;feira: <strong>média descreve o&nbsp;passado e&nbsp;comparação de&nbsp;grupos
+        explica comportamento</strong>. <a href="../b2-decisao/">A&nbsp;aula 6</a> transforma isso
+        em&nbsp;recomendação.</p>
       </div>
     </details>
   </section>

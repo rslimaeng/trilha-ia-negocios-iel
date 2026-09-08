@@ -19,7 +19,7 @@ com candidato aprovado, que era 2 e a pagina dizia 1.
 Rodar:  python3 _build/confere-casos.py
 """
 from openpyxl import load_workbook
-import collections, os, statistics as st, sys
+import collections, html, io, os, re, statistics as st, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ARQUIVOS = os.path.join(os.path.dirname(AQUI), "_arquivos")
@@ -30,9 +30,55 @@ def base(slug):
     cab = [c.value for c in ws[1]]
     return [dict(zip(cab, [c.value for c in row])) for row in ws.iter_rows(min_row=2)]
 
-ok, ruim = [], []
+# ---------------------------------------------------------------------------
+# 🔴 A CHECAGEM DE PRESENCA, de 08/09.
+#
+# Ate aqui o conferidor comparava a conta com um valor escrito no proprio
+# arquivo, e nao olhava a pagina. Tinha um buraco: um numero APAGADO da pagina
+# continuava "conferindo", porque a conta continuava batendo com a constante
+# daqui. O placar diria 174 de 174 numa pagina que afirmasse 120.
+#
+# Agora cada valor e procurado no texto visivel da pagina. O que nao esta la
+# sai do placar como REMOVIDO, resultado esperado de um corte de prosa. O que
+# esta la e conferido como antes.
+# ---------------------------------------------------------------------------
+CONTEUDO = os.path.join(AQUI, "conteudo")
+PAGINAS_VIS = {}
+
+
+def _visivel(slug):
+    t = io.open(os.path.join(CONTEUDO, "b2-caso-%s.html" % slug),
+                encoding="utf-8").read()
+    t = re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", t)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t)))
+
+
+def _formatos(v, casas):
+    """As grafias em que o numero pode aparecer na tela, em portugues."""
+    v = abs(v)
+    saida = set()
+    if casas == 0:
+        i = int(round(v))
+        saida.add(str(i))
+        saida.add("{:,}".format(i).replace(",", "."))
+    else:
+        for c in (casas, 1, 2):
+            t = ("{:.%df}" % c).format(v)
+            saida.add(t.replace(".", ","))
+            saida.add(t)
+    return saida
+
+
+ok, ruim, removidos = [], [], []
+
+
 def bate(pag, rotulo, calculado, afirmado, casas=2):
     a, b = round(float(calculado), casas), round(float(afirmado), casas)
+    if pag not in PAGINAS_VIS:
+        PAGINAS_VIS[pag] = _visivel(pag)
+    if not any(f in PAGINAS_VIS[pag] for f in _formatos(b, casas)):
+        removidos.append((pag, rotulo, b))
+        return
     (ok if a == b else ruim).append((pag, rotulo, a, b))
 
 # ---------------- PRODUCAO ----------------
@@ -194,11 +240,18 @@ for e,(anda,rep,taxa,dias) in et.items():
 bate("rh","aprovados no teste",st.mean([r['Nota_Teste_Tecnico'] for r in R if r['Resultado']=='Aprovado']),4.50)
 bate("rh","reprovados no teste",st.mean([r['Nota_Teste_Tecnico'] for r in R if r['Resultado']=='Reprovado' and r['Nota_Teste_Tecnico']]),5.99)
 
-por = collections.Counter(p for p,_,_,_ in ok+ruim)
-print("NUMEROS CONFERIDOS CONTRA O XLSX, por pagina:")
-for p in ["producao","comercial","marketing","operacoes","financeiro","rh"]:
-    b=sum(1 for x,_,_,_ in ok if x==p); m=sum(1 for x,_,_,_ in ruim if x==p)
-    print(f"   {p:12s} afirma {por[p]:3d} · confere {b:3d} · DIVERGE {m}")
-print(f"\n   TOTAL: {len(ok)+len(ruim)} afirmados · {len(ok)} conferem · {len(ruim)} divergem")
-for p,r,a,b in ruim: print(f"   🔴 {p} · {r}: calculado {a} × afirmado {b}")
+por = collections.Counter(p for p, _, _, _ in ok + ruim)
+rem = collections.Counter(p for p, _, _ in removidos)
+print("NUMEROS QUE A PAGINA AFIRMA, CONFERIDOS CONTRA O XLSX:")
+for p in ["producao", "comercial", "marketing", "operacoes", "financeiro", "rh"]:
+    b = sum(1 for x, _, _, _ in ok if x == p)
+    m = sum(1 for x, _, _, _ in ruim if x == p)
+    print("   {:12s} afirma {:3d} · confere {:3d} · DIVERGE {}   (saiu do texto: {})"
+          .format(p, por[p], b, m, rem[p]))
+print("\n   TOTAL: {} afirmados · {} conferem · {} divergem"
+      .format(len(ok) + len(ruim), len(ok), len(ruim)))
+print("   {} valores nao estao mais na tela, e isso e o corte de prosa"
+      .format(len(removidos)))
+for p, r, a, b in ruim:
+    print("   🔴 {} · {}: calculado {} × afirmado {}".format(p, r, a, b))
 sys.exit(1 if ruim else 0)

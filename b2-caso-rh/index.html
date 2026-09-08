@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3269,7 +3285,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-<div class="criador">
+<div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3384,11 +3400,10 @@ o perfil do aprovado ficou sem resposta e por quê.</pre>
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo.</strong></p>
-
-        <p><strong>A&nbsp;contagem de&nbsp;desfechos é o&nbsp;primeiro parágrafo do&nbsp;parecer, e&nbsp;ela reescreve
-        a&nbsp;pergunta.</strong> Dos&nbsp;94 candidatos: <strong>55 continuam em&nbsp;andamento</strong>,
-        <strong>36 foram reprovados</strong>, <strong>1 está em&nbsp;negociação</strong> e&nbsp;<strong>2 foram aprovados</strong>. Dois, e&nbsp;em&nbsp;vagas diferentes. E&nbsp;<strong>quatro das&nbsp;seis vagas não&nbsp;têm ninguém aprovado</strong>.</p>
+        <p><strong>A&nbsp;contagem de&nbsp;desfechos reescreve a&nbsp;pergunta.</strong> Dos&nbsp;94 candidatos:
+        <strong>55 em&nbsp;andamento</strong>, <strong>36 reprovados</strong>,
+        <strong>1 em&nbsp;negociação</strong> e&nbsp;<strong>2 aprovados</strong>. Dois, em&nbsp;vagas
+        diferentes, e&nbsp;<strong>quatro das&nbsp;seis vagas não&nbsp;têm ninguém aprovado</strong>.</p>
 
         <div class="tabela">
           <table>
@@ -3402,55 +3417,37 @@ o perfil do aprovado ficou sem resposta e por quê.</pre>
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">As&nbsp;duas colunas do&nbsp;meio contam histórias diferentes. A&nbsp;entrevista
-        de&nbsp;RH <strong>reprova mais gente em&nbsp;número</strong>, com&nbsp;13; o&nbsp;teste técnico
-        <strong>reprova mais em&nbsp;proporção</strong>, com&nbsp;71,4% de&nbsp;quem chega nele.</p>
+        <p class="fig-leg">A&nbsp;entrevista de&nbsp;RH reprova mais <strong>em&nbsp;número</strong>; o&nbsp;teste
+        técnico, mais <strong>em&nbsp;proporção</strong>.</p>
 
         <ul class="lista">
-          <li><strong>O&nbsp;funil trava na&nbsp;entrevista de&nbsp;RH, e&nbsp;trava duas vezes.</strong> É a&nbsp;etapa com&nbsp;mais reprovações, <strong>13 das&nbsp;36</strong>, e&nbsp;a&nbsp;que&nbsp;mais consome tempo,
-          com&nbsp;<strong>26,0 dias</strong> em&nbsp;média. Ela é o&nbsp;gargalo pela&nbsp;quantidade e&nbsp;pela&nbsp;demora ao&nbsp;mesmo tempo.</li>
-          <li><strong>O&nbsp;teste técnico é o&nbsp;filtro mais duro do&nbsp;processo.</strong> Reprova
-          <strong>10 de&nbsp;14</strong>, ou&nbsp;71,4% de&nbsp;quem chega nele. Se&nbsp;o&nbsp;objetivo é preencher
-          vaga, ele é o&nbsp;lugar onde&nbsp;ou&nbsp;se&nbsp;revê o&nbsp;critério, ou&nbsp;se&nbsp;revê o&nbsp;que&nbsp;se&nbsp;prometeu ao&nbsp;candidato antes de&nbsp;mandá-lo fazer o&nbsp;teste.</li>
-          <li><strong>Há 15 pessoas paradas em&nbsp;Proposta.</strong> É a&nbsp;etapa mais próxima do&nbsp;fim e&nbsp;a&nbsp;segunda com&nbsp;mais gente parada. <strong>Quinze propostas em&nbsp;aberto com&nbsp;dois
-          aprovados</strong> é o&nbsp;dado mais acionável da&nbsp;base: o&nbsp;problema pode não&nbsp;estar em&nbsp;achar candidato, e&nbsp;sim em&nbsp;fechar com&nbsp;quem já&nbsp;foi escolhido.</li>
-          <li>🔴 <strong>A pergunta do perfil fica sem resposta, e a armadilha é
-          verificável.</strong> Os dois aprovados têm média <strong>4,50</strong> no teste
-          técnico, e os reprovados que fizeram o teste têm <strong>5,99</strong>. Lido sem
-          cuidado, isso diz que <em>ir mal no teste ajuda a ser aprovado</em>, o que é
-          absurdo. <strong>São duas pessoas.</strong> Um parecer que apresenta essa
-          comparação, mesmo com ressalva, já está ajudando a decidir errado.</li>
+          <li><strong>O&nbsp;funil trava na&nbsp;entrevista de&nbsp;RH, e&nbsp;trava duas vezes:</strong> mais
+          reprovações, <strong>13 das&nbsp;36</strong>, e&nbsp;mais tempo, <strong>26,0 dias</strong>.</li>
+          <li><strong>O&nbsp;teste técnico é o&nbsp;filtro mais duro:</strong> reprova
+          <strong>10 de&nbsp;14</strong>. É ali que&nbsp;se&nbsp;revê o&nbsp;critério, ou&nbsp;o&nbsp;que&nbsp;se&nbsp;prometeu ao&nbsp;candidato antes de&nbsp;mandá-lo fazer o&nbsp;teste.</li>
+          <li><strong>Há 15 pessoas paradas em&nbsp;Proposta</strong>, com&nbsp;dois aprovados. É o&nbsp;dado
+          mais acionável da&nbsp;base: <strong>o&nbsp;problema pode não&nbsp;ser achar candidato, e&nbsp;sim
+          fechar com&nbsp;quem já&nbsp;foi escolhido</strong>.</li>
+          <li>🔴 <strong>A&nbsp;pergunta do&nbsp;perfil fica sem&nbsp;resposta.</strong> Os&nbsp;dois aprovados
+          têm <strong>4,50</strong> no&nbsp;teste técnico e&nbsp;os&nbsp;reprovados que&nbsp;o&nbsp;fizeram têm
+          <strong>5,99</strong>: lido sem&nbsp;cuidado, ir mal no&nbsp;teste ajudaria a&nbsp;ser aprovado.
+          <strong>São duas pessoas</strong>, e&nbsp;apresentar isso já&nbsp;ajuda a&nbsp;decidir errado.</li>
         </ul>
 
         <div class="cartao">
-          <span class="rot">Os números do processo, para conferir os seus</span>
+          <span class="rot">O teste desta página é se o seu parecer recusou uma pergunta</span>
+          <p>Os&nbsp;outros cinco pedem que&nbsp;a&nbsp;análise <em>encontre</em> alguma coisa.
+          <strong>Este pede que&nbsp;ela recuse.</strong> Se&nbsp;o&nbsp;seu&nbsp;parecer descreveu o&nbsp;perfil do&nbsp;aprovado, faltou uma&nbsp;frase no&nbsp;seu&nbsp;campo de&nbsp;limitações: <strong>a&nbsp;ferramenta
+          responde tudo que&nbsp;você perguntar, inclusive o&nbsp;que&nbsp;o&nbsp;dado não&nbsp;sabe.</strong></p>
+        </div>
+
+        <div class="cartao">
+          <span class="rot">Os números, para conferir os seus</span>
           <p><strong>94</strong> candidatos · <strong>6</strong> vagas ·
           <strong>55</strong> em&nbsp;andamento, <strong>36</strong> reprovados,
           <strong>2</strong> aprovados, <strong>1</strong> em&nbsp;negociação ·
-          <strong>5</strong> etapas · <strong>2</strong> vagas com&nbsp;aprovado. Se&nbsp;o&nbsp;seu&nbsp;parecer
-          divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro, não&nbsp;a&nbsp;conta.</p>
+          <strong>5</strong> etapas · <strong>2</strong> vagas com&nbsp;aprovado.</p>
         </div>
-
-        <div class="cartao">
-          <span class="rot">O teste desta página é se o seu parecer recusou uma pergunta</span>
-          <p>Todos os&nbsp;outros cinco casos deste desafio pedem que&nbsp;a&nbsp;análise <em>encontre</em>
-          alguma coisa. <strong>Este pede que&nbsp;ela recuse.</strong> Se&nbsp;o&nbsp;seu&nbsp;parecer descreveu
-          o&nbsp;perfil do&nbsp;aprovado, ele fez o&nbsp;que&nbsp;foi pedido e&nbsp;entregou uma&nbsp;conclusão que&nbsp;não&nbsp;se&nbsp;sustenta, e&nbsp;a&nbsp;culpa não&nbsp;é da&nbsp;ferramenta: o&nbsp;campo de&nbsp;limitações do&nbsp;seu&nbsp;pedido não&nbsp;fechou essa porta.</p>
-          <p>Vale reabrir o&nbsp;seu&nbsp;pedido e&nbsp;procurar a&nbsp;frase que&nbsp;deveria estar lá. Ela é curta:
-          <em>não&nbsp;descreva o&nbsp;perfil do&nbsp;aprovado, porque&nbsp;são poucos.</em></p>
-        </div>
-
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Antes de&nbsp;qualquer análise, me diga
-          quantos candidatos há em&nbsp;cada resultado."</em> · <em>"Ao&nbsp;lado de&nbsp;cada média,
-          escreva quantos casos entraram nela."</em> · <em>"Liste as&nbsp;perguntas que&nbsp;esta base
-          é pequena demais para&nbsp;responder."</em></p>
-        </div>
-
-        <p>O&nbsp;que&nbsp;este caso ensina não&nbsp;é sobre&nbsp;recrutamento. <strong>É que&nbsp;a&nbsp;ferramenta
-        responde tudo que&nbsp;você perguntar, inclusive o&nbsp;que&nbsp;o&nbsp;dado não&nbsp;sabe</strong>, e&nbsp;que&nbsp;o&nbsp;único lugar onde&nbsp;esse limite entra é o&nbsp;pedido. A&nbsp;sua&nbsp;base tem isso sempre que&nbsp;o&nbsp;desfecho é raro: acidente, perda de&nbsp;cliente grande, recall.
-        <a href="../a4-inventa/">A&nbsp;aula 4 do&nbsp;bloco 1</a> é onde&nbsp;a&nbsp;conferência vira hábito.</p>
       </div>
     </details>
   </section>

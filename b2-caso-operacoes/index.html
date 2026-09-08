@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3267,7 +3283,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-<div class="criador">
+<div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3382,8 +3398,6 @@ que existe hoje.</pre>
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo.</strong></p>
-
         <p><strong>A&nbsp;primeira tabela é uma&nbsp;contagem, e&nbsp;ela derruba a&nbsp;pergunta original.</strong>
         Cruzando linha de&nbsp;produto com&nbsp;canal, as&nbsp;500 respostas se&nbsp;distribuem assim:</p>
 
@@ -3399,59 +3413,36 @@ que existe hoje.</pre>
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">🔴 <strong>Cada linha de&nbsp;produto usa um&nbsp;canal só,&nbsp;e&nbsp;o&nbsp;varejo vende
-        um&nbsp;produto só.</strong>&nbsp;Dizer <em>"o&nbsp;varejo tem NPS 48,2"</em> e&nbsp;dizer
-        <em>"a&nbsp;LP-500 tem NPS 48,2"</em> é a&nbsp;mesma frase, escrita de&nbsp;dois jeitos. A&nbsp;base não&nbsp;tem como separar as&nbsp;duas coisas.</p>
+        <p class="fig-leg">🔴 <strong>Cada linha usa um&nbsp;canal só,&nbsp;e&nbsp;o&nbsp;varejo vende um&nbsp;produto
+        só.</strong>&nbsp;Dizer <em>"o&nbsp;varejo tem NPS 48,2"</em> e&nbsp;<em>"a&nbsp;LP-500 tem NPS
+        48,2"</em> é a&nbsp;mesma frase escrita de&nbsp;dois jeitos.</p>
 
         <ul class="lista">
-          <li><strong>A&nbsp;comparação entre&nbsp;canais não&nbsp;pode embasar decisão.</strong> O&nbsp;varejo
-          marca <strong>48,2</strong> e&nbsp;o&nbsp;distribuidor <strong>42,9</strong>, e&nbsp;a&nbsp;diferença é
-          real. O&nbsp;que&nbsp;não&nbsp;existe é como saber se&nbsp;ela vem do&nbsp;canal ou&nbsp;do&nbsp;produto que&nbsp;só&nbsp;ele
-          vende. <strong>Para&nbsp;responder isso seria preciso ter a&nbsp;mesma linha vendida nos&nbsp;dois
-          canais</strong>, e&nbsp;nenhuma está.</li>
-          <li><strong>A&nbsp;entrega é o&nbsp;problema, e&nbsp;ela é a&nbsp;única fora do&nbsp;padrão.</strong>
-          <strong>Nota_Entrega fica em&nbsp;6,98</strong>, quase um&nbsp;ponto abaixo da&nbsp;segunda pior.
-          Suporte marca 7,84, logística 7,85, produto 8,34 e&nbsp;atendimento 8,43.
-          <strong>O&nbsp;produto agrada e&nbsp;o&nbsp;processo de&nbsp;entregá-lo não</strong>, e&nbsp;essa conclusão
-          não&nbsp;depende de&nbsp;canal nenhum.</li>
-          <li><strong>Quem decide a&nbsp;compra é quem está mais insatisfeito.</strong> O&nbsp;<strong>coordenador de&nbsp;compras</strong> marca NPS <strong>30,0</strong> em&nbsp;110
-          respostas, contra&nbsp;<strong>53,4</strong> do&nbsp;comprador em&nbsp;88. São
-          <strong>23 pontos</strong> de&nbsp;diferença dentro da&nbsp;mesma base, e&nbsp;é o&nbsp;recorte com&nbsp;o&nbsp;maior peso na&nbsp;renovação.</li>
-          <li><strong>A&nbsp;operação melhorou ao&nbsp;longo do&nbsp;ano, e&nbsp;isso muda o&nbsp;tom do&nbsp;parecer.</strong>
-          O&nbsp;lote <strong>L1/26</strong> fecha em&nbsp;<strong>30,1</strong> e&nbsp;o&nbsp;<strong>L4/26</strong> em&nbsp;<strong>50,0</strong>. Uma&nbsp;parte do&nbsp;NPS geral de&nbsp;43,8 é
-          herança do&nbsp;começo do&nbsp;ano, não&nbsp;retrato de&nbsp;hoje.</li>
+          <li><strong>A&nbsp;comparação entre&nbsp;canais não&nbsp;pode embasar decisão.</strong> Varejo
+          marca <strong>48,2</strong> e&nbsp;distribuidor <strong>42,9</strong>, e&nbsp;a&nbsp;diferença é
+          real. Não&nbsp;há como saber se&nbsp;vem do&nbsp;canal ou&nbsp;do&nbsp;produto que&nbsp;só&nbsp;ele vende.</li>
+          <li><strong>A&nbsp;entrega é o&nbsp;problema, e&nbsp;é a&nbsp;única fora do&nbsp;padrão.</strong>
+          <strong>Nota_Entrega em&nbsp;6,98</strong>, quase um&nbsp;ponto abaixo da&nbsp;segunda pior:
+          suporte 7,84, logística 7,85, produto 8,34, atendimento 8,43. <strong>O&nbsp;produto
+          agrada e&nbsp;o&nbsp;processo de&nbsp;entregá-lo não</strong>, e&nbsp;isso não&nbsp;depende de&nbsp;canal.</li>
+          <li><strong>Quem decide a&nbsp;compra é quem está mais insatisfeito.</strong> O&nbsp;coordenador de&nbsp;compras marca <strong>30,0</strong> em&nbsp;110 respostas, contra&nbsp;<strong>53,4</strong> do&nbsp;comprador em&nbsp;88: <strong>23 pontos</strong> dentro da&nbsp;mesma base.</li>
+          <li><strong>A&nbsp;operação melhorou ao&nbsp;longo do&nbsp;ano.</strong> O&nbsp;lote
+          <strong>L1/26</strong> fecha em&nbsp;<strong>30,1</strong> e&nbsp;o&nbsp;<strong>L4/26</strong> em&nbsp;<strong>50,0</strong>. Parte do&nbsp;NPS geral de&nbsp;43,8 é herança do&nbsp;começo do&nbsp;ano.</li>
         </ul>
 
         <div class="cartao">
-          <span class="rot">Os números da pesquisa, para conferir os seus</span>
+          <span class="rot">Declarar o limite é entrega, não desculpa</span>
+          <p>Um&nbsp;parecer que&nbsp;ordena os&nbsp;canais e&nbsp;recomenda o&nbsp;varejo está <strong>errado com&nbsp;aparência de&nbsp;certo</strong>, e&nbsp;é o&nbsp;resultado mais provável de&nbsp;um&nbsp;pedido que&nbsp;não&nbsp;avisa nada. Um&nbsp;que&nbsp;diz <em>"a&nbsp;base não&nbsp;separa canal de&nbsp;produto"</em> vale mais,
+          porque&nbsp;impede uma&nbsp;decisão cara, e&nbsp;já&nbsp;traz o&nbsp;próximo passo: vender uma&nbsp;linha nos&nbsp;dois canais e&nbsp;medir de&nbsp;novo.</p>
+        </div>
+
+        <div class="cartao">
+          <span class="rot">Os números, para conferir os seus</span>
           <p><strong>500</strong> respostas · NPS geral <strong>43,8</strong> · nota média
           <strong>8,24</strong> · <strong>417</strong> por&nbsp;distribuidor e&nbsp;<strong>83</strong>
           por&nbsp;varejo · <strong>5</strong> linhas, <strong>5</strong> lotes,
-          <strong>5</strong> perfis, <strong>2</strong> cidades. Se&nbsp;o&nbsp;seu&nbsp;parecer divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro, não&nbsp;a&nbsp;conta.</p>
+          <strong>5</strong> perfis.</p>
         </div>
-
-        <div class="cartao">
-          <span class="rot">O parecer certo diz o que não dá para responder</span>
-          <p>Um&nbsp;parecer que&nbsp;ordena os&nbsp;canais e&nbsp;recomenda o&nbsp;varejo está <strong>errado com&nbsp;aparência de&nbsp;certo</strong>, e&nbsp;é o&nbsp;resultado mais provável de&nbsp;um&nbsp;pedido que&nbsp;não&nbsp;avisa nada. Um&nbsp;parecer que&nbsp;diz <em>"a&nbsp;base não&nbsp;separa canal de&nbsp;produto, e&nbsp;por&nbsp;isso
-          esta comparação fica sem&nbsp;resposta"</em> entrega menos linhas e&nbsp;vale mais, porque&nbsp;impede uma&nbsp;decisão cara.</p>
-          <p><strong>Declarar o&nbsp;limite é entrega, não&nbsp;desculpa.</strong> E&nbsp;ele vem com&nbsp;o&nbsp;próximo passo: para&nbsp;responder de&nbsp;verdade, seria preciso vender ao&nbsp;menos uma&nbsp;linha
-          nos&nbsp;dois canais e&nbsp;medir de&nbsp;novo.</p>
-        </div>
-
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Antes de&nbsp;qualquer média, me dá a&nbsp;tabela
-          de&nbsp;contagem cruzando linha de&nbsp;produto com&nbsp;canal."</em> · <em>"Ao&nbsp;lado de&nbsp;cada NPS,
-          me diga quantas respostas tem o&nbsp;grupo."</em> · <em>"Diga quais comparações esta base
-          não&nbsp;permite fazer e&nbsp;por&nbsp;quê."</em></p>
-        </div>
-
-        <p>O que este caso ensina não é sobre NPS. <strong>É que a análise mais valiosa às
-        vezes é a que devolve uma pergunta sem resposta</strong>, e que duas colunas lado a
-        lado não são prova de duas variáveis. A sua base tem isso sempre que uma escolha
-        antiga amarrou duas coisas: a filial que só atende um segmento, o vendedor que só
-        cobre uma região. <a href="../b2-decisao/">A aula 6 do bloco 2</a> é onde comparar
-        vira recomendar.</p>
       </div>
     </details>
   </section>

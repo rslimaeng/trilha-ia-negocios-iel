@@ -137,7 +137,7 @@
     na ferramenta com a planilha anexada, e <strong>só então</strong> abra as duas caixas do
     fim da página.</p>
 
-    <div class="criador">
+    <div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -263,15 +263,11 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os achados que a base sustenta, com o número de cada um.
-        <strong>Serve para conferir o seu, não para substituí-lo:</strong> se o seu parecer
-        achou algo que não está aqui, confira na planilha antes de descartar.</p>
-
         <p><strong>A leitura fácil, e por que ela está errada.</strong> Olhando só a coluna
         de turno, o turno C tem <strong>1,92%</strong> de defeito contra 1,45% do A e 1,46%
-        do B, e a conclusão salta sozinha: o turno da noite é pior. <strong>Tire a
-        etapa de processamento da conta e o turno C cai para 1,43%</strong>, que é menos que os turnos A e
-        B juntos, em 1,45%. O turno da noite não é pior. Ele carrega um problema que não é
+        do B, e a conclusão salta sozinha: o turno da noite é pior. <strong>Tire o
+        processamento da conta e o turno C cai para 1,43%</strong>, abaixo dos turnos A e B
+        juntos, em 1,45%. O turno da noite não é pior: ele carrega um problema que não é
         dele.</p>
 
         <div class="tabela">
@@ -286,53 +282,34 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">As quinze combinações. Quatorze delas ficam entre 1,39% e 1,50%.
-        <strong>Uma fica em 3,95%</strong>, e ela não aparece em nenhuma das duas leituras de
-        uma dimensão só.</p>
+        <p class="fig-leg">Quatorze combinações entre 1,39% e 1,50%, e <strong>uma em 3,95%</strong>.</p>
 
         <ul class="lista">
           <li><strong>O processamento no turno C é o problema, e ele é um só.</strong>
-          <strong>3,95%</strong> contra 1,45% das outras quatorze combinações. São
-          <strong>13.343 peças defeituosas</strong>, ou 15,9% de tudo que a fábrica refugou
-          no ano, produzidas por uma combinação que responde por 6,5% do volume.</li>
-          <li><strong>O excesso custa cerca de USD 12.957 por ano.</strong> Se o processamento do
-          turno C tivesse a taxa das outras, teriam saído 4.888 peças defeituosas em vez de
-          13.343: <strong>8.455 peças a mais</strong>, a um custo médio de sucata de USD 1,53
-          por peça. É <strong>10,1% de toda a sucata do ano</strong>, que soma USD 128.405.</li>
-          <li><strong>É crônico, não é um incidente.</strong> Mês a mês a taxa fica entre
-          3,68% e 4,16%, sem tendência e sem mês fora da curva. <strong>Nada quebrou em
-          alguma data</strong>: a condição está lá desde janeiro, o que aponta para
-          equipamento, parâmetro ou treinamento, e não para uma falha pontual.</li>
-          <li><strong>A parada de linha é outro problema, em outro lugar.</strong> Montagem no
-          turno B soma <strong>32.396 minutos parados</strong>, ou 540 horas, contra uma média
-          de 8.149 minutos nas outras quatorze combinações. Sozinha, ela é <strong>22,1% de
-          toda a parada do ano</strong>. E a taxa de defeito da montagem é normal, em 1,47%:
-          <strong>quem mais para não é quem mais refuga</strong>, e tratar as duas coisas como
-          um problema só faz o time ir para o lugar errado.</li>
+          <strong>13.343 peças</strong> defeituosas, 15,9% do refugo do ano com 6,5% do
+          volume.</li>
+          <li><strong>O excesso custa cerca de USD 12.957 por ano.</strong> <strong>8.455 peças</strong> a mais
+          do que sairiam na taxa das outras, a USD 1,53 cada: <strong>10,1% da sucata do
+          ano</strong>.</li>
+          <li><strong>É crônico, não é incidente.</strong> Mês a mês a taxa fica entre
+          <strong>3,68% e 4,16%</strong>, sem tendência. Aponta para equipamento, parâmetro
+          ou treinamento, não para uma falha pontual.</li>
+          <li><strong>A parada de linha é outro problema, em outro lugar.</strong> Montagem
+          no turno B soma <strong>32.396 minutos</strong>, 22,1% da parada do ano, contra
+          8.149 de média nas outras quatorze. E a taxa de defeito da montagem é normal, em
+          1,47%: <strong>quem mais para não é quem mais refuga</strong>.</li>
         </ul>
 
         <div class="cartao">
           <span class="rot">Os números do ano, para conferir os seus</span>
           <p><strong>5.209.485</strong> unidades processadas · <strong>83.791</strong>
           defeituosas · taxa geral de <strong>1,61%</strong> · <strong>146.486</strong>
-          minutos de parada · <strong>USD 128.405</strong> de sucata. Se o seu parecer
-          divergir de algum destes, o lugar de procurar é o filtro, não a conta.</p>
+          minutos de parada · <strong>USD 128.405</strong> de sucata.</p>
         </div>
 
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Refaça a leitura cruzando turno e etapa,
-          e me mostre a tabela das quinze combinações."</em> · <em>"Para cada achado, diga
-          quanto ele custa em peças e em sucata, e como você chegou lá."</em> ·
-          <em>"O maior número absoluto não é achado: me diga qual combinação foge da própria
-          régua dela."</em></p>
-        </div>
-
-        <p>O que este caso ensina não é sobre fábrica. <strong>É que a leitura de uma
-        dimensão de cada vez produz uma conclusão confiante e errada</strong>, e que ela some
-        no instante em que você cruza duas. A sua base tem duas dimensões também: vendedor e
-        produto, filial e mês, cliente e canal. <a href="../b2-causa/">A aula 5 do bloco
-        2</a> é onde esse movimento vira método.</p>
+        <p>A lição não é sobre fábrica: <strong>ler uma dimensão de cada vez produz conclusão
+        confiante e errada</strong>, e ela some quando você cruza duas.
+        <a href="../b2-causa/">A aula 5</a> transforma isso em método.</p>
       </div>
     </details>
   </section>

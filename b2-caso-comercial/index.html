@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3262,7 +3278,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-<div class="criador">
+<div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3374,9 +3390,7 @@ refazer as duas contas na planilha a partir do que o parecer descreve.</pre>
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo.</strong></p>
-
-        <p><strong>O&nbsp;primeiro número é o&nbsp;que&nbsp;muda todo o&nbsp;resto.</strong> São 800 linhas, mas&nbsp;<strong>só&nbsp;300 terminaram</strong>: 219 ganhas e&nbsp;81 perdidas. As&nbsp;outras
+        <p><strong>O&nbsp;primeiro número muda todo o&nbsp;resto.</strong> São 800 linhas, mas&nbsp;<strong>só&nbsp;300 terminaram</strong>: 219 ganhas e&nbsp;81 perdidas. As&nbsp;outras
         <strong>500 continuam em&nbsp;andamento</strong>, e&nbsp;elas não&nbsp;são derrota. Somá-las ao&nbsp;denominador é o&nbsp;erro que&nbsp;produz os&nbsp;dois rankings errados da&nbsp;praxe.</p>
 
         <div class="tabela">
@@ -3388,43 +3402,30 @@ refazer as duas contas na planilha a partir do que o parecer descreve.</pre>
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">As&nbsp;duas contas são verdadeiras e&nbsp;medem coisas diferentes. A&nbsp;primeira mistura quem perdeu com&nbsp;quem ainda não&nbsp;respondeu; a&nbsp;segunda responde à&nbsp;pergunta que&nbsp;a&nbsp;diretoria fez.</p>
+        <p class="fig-leg">As&nbsp;duas são verdadeiras: a&nbsp;primeira mistura quem perdeu com&nbsp;quem ainda
+        não&nbsp;respondeu.</p>
 
         <ul class="lista">
-          <li><strong>O&nbsp;ranking de&nbsp;vendedores inverte, e&nbsp;o&nbsp;último vira o&nbsp;primeiro.</strong>
-          Pela&nbsp;conta sobre&nbsp;as&nbsp;800, o&nbsp;<strong>Vendedor 6</strong> aparece em&nbsp;<strong>penúltimo</strong>, com&nbsp;23,3%. Pela&nbsp;conta sobre&nbsp;as&nbsp;decididas ele é o&nbsp;<strong>primeiro</strong>, com&nbsp;<strong>81,8%</strong>. Ele não&nbsp;vende mal: ele tem
-          muita coisa ainda aberta, e&nbsp;a&nbsp;primeira conta o&nbsp;pune por&nbsp;isso.</li>
-          <li><strong>O&nbsp;primeiro colocado também não&nbsp;era o&nbsp;primeiro.</strong> O&nbsp;<strong>Vendedor 5</strong> lidera a&nbsp;conta sobre&nbsp;as&nbsp;800, com&nbsp;35,0%, e&nbsp;cai para&nbsp;<strong>terceiro</strong> na&nbsp;conta certa, com&nbsp;77,8%. O&nbsp;<strong>Vendedor 4</strong> é o&nbsp;único que&nbsp;fica de&nbsp;fato em&nbsp;último nas&nbsp;duas leituras,
-          com&nbsp;<strong>60,9%</strong> sobre&nbsp;as&nbsp;decididas.</li>
-          <li><strong>O&nbsp;canal com&nbsp;a&nbsp;pior taxa não&nbsp;é o&nbsp;canal ruim.</strong> O&nbsp;<strong>Webinar</strong> fecha <strong>22,4%</strong>, a&nbsp;pior taxa das&nbsp;dez origens,
-          e&nbsp;tem o&nbsp;<strong>segundo maior ticket médio</strong>, de&nbsp;<strong>R$ 14.916</strong>.
-          Cortar verba dele por&nbsp;causa da&nbsp;taxa cortaria o&nbsp;segundo negócio mais valioso da&nbsp;casa.</li>
-          <li><strong>A&nbsp;métrica que&nbsp;decide é receita por&nbsp;lead captado.</strong> Por&nbsp;ela o&nbsp;<strong>WhatsApp</strong> lidera com&nbsp;folga, com&nbsp;<strong>R$ 5.003</strong> por&nbsp;lead,
-          e&nbsp;a&nbsp;<strong>Indicação</strong> fica em&nbsp;último, com&nbsp;<strong>R$ 2.423</strong>, mesmo
-          sendo o&nbsp;canal em&nbsp;que&nbsp;todo mundo confia. A&nbsp;diferença entre&nbsp;os&nbsp;dois é de&nbsp;<strong>mais do&nbsp;que&nbsp;o&nbsp;dobro</strong>.</li>
+          <li><strong>O&nbsp;ranking de&nbsp;vendedores inverte, e&nbsp;o&nbsp;penúltimo vira o&nbsp;primeiro.</strong>
+          Pela&nbsp;conta sobre&nbsp;as&nbsp;800, o&nbsp;<strong>Vendedor 6</strong> marca 23,3%. Pela&nbsp;conta sobre&nbsp;as&nbsp;decididas ele é o&nbsp;primeiro, com&nbsp;<strong>81,8%</strong>. Ele não&nbsp;vende mal: tem
+          muita coisa em&nbsp;aberto, e&nbsp;a&nbsp;primeira conta o&nbsp;pune por&nbsp;isso.</li>
+          <li><strong>O&nbsp;primeiro colocado também não&nbsp;era o&nbsp;primeiro.</strong> O&nbsp;<strong>Vendedor 5</strong> lidera a&nbsp;conta sobre&nbsp;as&nbsp;800, com&nbsp;35,0%, e&nbsp;cai para&nbsp;terceiro na&nbsp;conta certa, com&nbsp;<strong>77,8%</strong>. O&nbsp;<strong>Vendedor 4</strong>
+          é o&nbsp;único em&nbsp;último nas&nbsp;duas, com&nbsp;60,9%.</li>
+          <li><strong>O&nbsp;canal com&nbsp;a&nbsp;pior taxa não&nbsp;é o&nbsp;canal ruim.</strong> O&nbsp;<strong>Webinar</strong> fecha <strong>22,4%</strong>, a&nbsp;pior das&nbsp;dez origens, e&nbsp;tem
+          o&nbsp;segundo maior ticket médio, de&nbsp;<strong>R$ 14.916</strong>. Cortar verba dele pela&nbsp;taxa cortaria o&nbsp;segundo negócio mais valioso da&nbsp;casa.</li>
+          <li><strong>A&nbsp;métrica que&nbsp;decide é receita por&nbsp;lead captado.</strong> O&nbsp;<strong>WhatsApp</strong> lidera com&nbsp;<strong>R$ 5.003</strong>, e&nbsp;a&nbsp;<strong>Indicação</strong> fica em&nbsp;último, com&nbsp;<strong>R$ 2.423</strong>, mesmo
+          sendo o&nbsp;canal em&nbsp;que&nbsp;todo mundo confia.</li>
         </ul>
 
         <div class="cartao">
           <span class="rot">Os números do funil, para conferir os seus</span>
           <p><strong>800</strong> oportunidades · <strong>219</strong> ganhas ·
           <strong>81</strong> perdidas · <strong>500</strong> em&nbsp;andamento ·
-          <strong>7</strong> vendedores · <strong>10</strong> origens. Se&nbsp;o&nbsp;seu&nbsp;parecer
-          divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro, não&nbsp;a&nbsp;conta.</p>
+          <strong>7</strong> vendedores · <strong>10</strong> origens.</p>
         </div>
 
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Refaça a&nbsp;taxa de&nbsp;conversão usando só&nbsp;as&nbsp;oportunidades já&nbsp;decididas, e&nbsp;me mostre as&nbsp;duas contas lado a&nbsp;lado."</em> ·
-          <em>"Para&nbsp;cada vendedor, me diga a&nbsp;posição dele nos&nbsp;dois rankings e&nbsp;quem mudou de&nbsp;lugar."</em> · <em>"Ranquear canal por&nbsp;taxa esconde o&nbsp;valor: me dá a&nbsp;receita gerada
-          por&nbsp;lead captado de&nbsp;cada origem."</em></p>
-        </div>
-
-        <p>O que este caso ensina não é sobre vendas. <strong>É que toda taxa tem um
-        denominador, e que escolher o denominador é uma decisão de negócio disfarçada de
-        conta.</strong> A sua base tem a mesma armadilha em qualquer lugar onde exista um
-        estado <em>em aberto</em>: chamado sem resposta, pedido em separação, processo em
-        andamento. <a href="../b2-causa/">A aula 5 do bloco 2</a> é onde essa desconfiança
-        vira método.</p>
+        <p>A&nbsp;lição não&nbsp;é sobre&nbsp;vendas: <strong>toda taxa tem um&nbsp;denominador, e&nbsp;escolhê-lo é
+        decisão de&nbsp;negócio disfarçada de&nbsp;conta</strong>. Reaparece onde&nbsp;houver estado em&nbsp;aberto. <a href="../b2-causa/">A&nbsp;aula 5</a> transforma isso em&nbsp;método.</p>
       </div>
     </details>
   </section>

@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3271,7 +3287,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-    <div class="criador">
+    <div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3390,14 +3406,10 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo:</strong> se&nbsp;o&nbsp;seu&nbsp;parecer
-        achou algo que&nbsp;não&nbsp;está aqui, confira na&nbsp;planilha antes de&nbsp;descartar.</p>
-
-        <p><strong>A leitura fácil, e por que ela está errada.</strong> Olhando só a coluna
-        de turno, o turno C tem <strong>1,92%</strong> de defeito contra 1,45% do A e 1,46%
-        do B, e a conclusão salta sozinha: o turno da noite é pior. <strong>Tire a
-        etapa de processamento da conta e o turno C cai para 1,43%</strong>, que é menos que os turnos A e
-        B juntos, em 1,45%. O turno da noite não é pior. Ele carrega um problema que não é
+        <p><strong>A&nbsp;leitura fácil, e&nbsp;por&nbsp;que&nbsp;ela está errada.</strong> Olhando só&nbsp;a&nbsp;coluna
+        de&nbsp;turno, o&nbsp;turno C tem <strong>1,92%</strong> de&nbsp;defeito contra&nbsp;1,45% do&nbsp;A&nbsp;e&nbsp;1,46%
+        do&nbsp;B, e&nbsp;a&nbsp;conclusão salta sozinha: o&nbsp;turno da&nbsp;noite é pior. <strong>Tire o&nbsp;processamento da&nbsp;conta e&nbsp;o&nbsp;turno C cai para&nbsp;1,43%</strong>, abaixo dos&nbsp;turnos A&nbsp;e&nbsp;B
+        juntos, em&nbsp;1,45%. O&nbsp;turno da&nbsp;noite não&nbsp;é pior: ele carrega um&nbsp;problema que&nbsp;não&nbsp;é
         dele.</p>
 
         <div class="tabela">
@@ -3412,44 +3424,28 @@ planilha a conta de qualquer um dos achados a partir do que o parecer descreve.<
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">As&nbsp;quinze combinações. Quatorze delas ficam entre&nbsp;1,39% e&nbsp;1,50%.
-        <strong>Uma&nbsp;fica em&nbsp;3,95%</strong>, e&nbsp;ela não&nbsp;aparece em&nbsp;nenhuma das&nbsp;duas leituras de&nbsp;uma&nbsp;dimensão só.</p>
+        <p class="fig-leg">Quatorze combinações entre&nbsp;1,39% e&nbsp;1,50%, e&nbsp;<strong>uma&nbsp;em&nbsp;3,95%</strong>.</p>
 
         <ul class="lista">
-          <li><strong>O&nbsp;processamento no&nbsp;turno C é o&nbsp;problema, e&nbsp;ele é um&nbsp;só.</strong>&nbsp;<strong>3,95%</strong> contra&nbsp;1,45% das&nbsp;outras quatorze combinações. São
-          <strong>13.343 peças defeituosas</strong>, ou&nbsp;15,9% de&nbsp;tudo que&nbsp;a&nbsp;fábrica refugou
-          no&nbsp;ano, produzidas por&nbsp;uma&nbsp;combinação que&nbsp;responde por&nbsp;6,5% do&nbsp;volume.</li>
-          <li><strong>O&nbsp;excesso custa cerca de&nbsp;USD 12.957 por&nbsp;ano.</strong> Se&nbsp;o&nbsp;processamento do&nbsp;turno C tivesse a&nbsp;taxa das&nbsp;outras, teriam saído 4.888 peças defeituosas em&nbsp;vez de&nbsp;13.343: <strong>8.455 peças a&nbsp;mais</strong>, a&nbsp;um&nbsp;custo médio de&nbsp;sucata de&nbsp;USD 1,53
-          por&nbsp;peça. É <strong>10,1% de&nbsp;toda a&nbsp;sucata do&nbsp;ano</strong>, que&nbsp;soma USD 128.405.</li>
-          <li><strong>É crônico, não&nbsp;é um&nbsp;incidente.</strong> Mês a&nbsp;mês a&nbsp;taxa fica entre&nbsp;3,68% e&nbsp;4,16%, sem&nbsp;tendência e&nbsp;sem&nbsp;mês fora da&nbsp;curva. <strong>Nada quebrou em&nbsp;alguma data</strong>: a&nbsp;condição está lá desde&nbsp;janeiro, o&nbsp;que&nbsp;aponta para&nbsp;equipamento, parâmetro ou&nbsp;treinamento, e&nbsp;não&nbsp;para&nbsp;uma&nbsp;falha pontual.</li>
-          <li><strong>A parada de linha é outro problema, em outro lugar.</strong> Montagem no
-          turno B soma <strong>32.396 minutos parados</strong>, ou 540 horas, contra uma média
-          de 8.149 minutos nas outras quatorze combinações. Sozinha, ela é <strong>22,1% de
-          toda a parada do ano</strong>. E a taxa de defeito da montagem é normal, em 1,47%:
-          <strong>quem mais para não é quem mais refuga</strong>, e tratar as duas coisas como
-          um problema só faz o time ir para o lugar errado.</li>
+          <li><strong>O&nbsp;processamento no&nbsp;turno C é o&nbsp;problema, e&nbsp;ele é um&nbsp;só.</strong>&nbsp;<strong>13.343 peças</strong> defeituosas, 15,9% do&nbsp;refugo do&nbsp;ano com&nbsp;6,5% do&nbsp;volume.</li>
+          <li><strong>O&nbsp;excesso custa cerca de&nbsp;USD 12.957 por&nbsp;ano.</strong> <strong>8.455 peças</strong> a&nbsp;mais
+          do&nbsp;que&nbsp;sairiam na&nbsp;taxa das&nbsp;outras, a&nbsp;USD 1,53 cada: <strong>10,1% da&nbsp;sucata do&nbsp;ano</strong>.</li>
+          <li><strong>É crônico, não&nbsp;é incidente.</strong> Mês a&nbsp;mês a&nbsp;taxa fica entre&nbsp;<strong>3,68% e&nbsp;4,16%</strong>, sem&nbsp;tendência. Aponta para&nbsp;equipamento, parâmetro
+          ou&nbsp;treinamento, não&nbsp;para&nbsp;uma&nbsp;falha pontual.</li>
+          <li><strong>A&nbsp;parada de&nbsp;linha é outro problema, em&nbsp;outro lugar.</strong> Montagem
+          no&nbsp;turno B soma <strong>32.396 minutos</strong>, 22,1% da&nbsp;parada do&nbsp;ano, contra&nbsp;8.149 de&nbsp;média nas&nbsp;outras quatorze. E&nbsp;a&nbsp;taxa de&nbsp;defeito da&nbsp;montagem é normal, em&nbsp;1,47%: <strong>quem mais para&nbsp;não&nbsp;é quem mais refuga</strong>.</li>
         </ul>
 
         <div class="cartao">
           <span class="rot">Os números do ano, para conferir os seus</span>
           <p><strong>5.209.485</strong> unidades processadas · <strong>83.791</strong>
           defeituosas · taxa geral de&nbsp;<strong>1,61%</strong> · <strong>146.486</strong>
-          minutos de&nbsp;parada · <strong>USD 128.405</strong> de&nbsp;sucata. Se&nbsp;o&nbsp;seu&nbsp;parecer
-          divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro, não&nbsp;a&nbsp;conta.</p>
+          minutos de&nbsp;parada · <strong>USD 128.405</strong> de&nbsp;sucata.</p>
         </div>
 
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Refaça a&nbsp;leitura cruzando turno e&nbsp;etapa,
-          e&nbsp;me mostre a&nbsp;tabela das&nbsp;quinze combinações."</em> · <em>"Para&nbsp;cada achado, diga
-          quanto ele custa em&nbsp;peças e&nbsp;em&nbsp;sucata, e&nbsp;como você chegou lá."</em> ·
-          <em>"O&nbsp;maior número absoluto não&nbsp;é achado: me diga qual combinação foge da&nbsp;própria
-          régua dela."</em></p>
-        </div>
-
-        <p>O&nbsp;que&nbsp;este caso ensina não&nbsp;é sobre&nbsp;fábrica. <strong>É que&nbsp;a&nbsp;leitura de&nbsp;uma&nbsp;dimensão de&nbsp;cada vez produz uma&nbsp;conclusão confiante e&nbsp;errada</strong>, e&nbsp;que&nbsp;ela some
-        no&nbsp;instante em&nbsp;que&nbsp;você cruza duas. A&nbsp;sua&nbsp;base tem duas dimensões também: vendedor e&nbsp;produto, filial e&nbsp;mês, cliente e&nbsp;canal. <a href="../b2-causa/">A&nbsp;aula 5 do&nbsp;bloco
-        2</a> é onde&nbsp;esse movimento vira método.</p>
+        <p>A&nbsp;lição não&nbsp;é sobre&nbsp;fábrica: <strong>ler uma&nbsp;dimensão de&nbsp;cada vez produz conclusão
+        confiante e&nbsp;errada</strong>, e&nbsp;ela some quando&nbsp;você cruza duas.
+        <a href="../b2-causa/">A&nbsp;aula 5</a> transforma isso em&nbsp;método.</p>
       </div>
     </details>
   </section>

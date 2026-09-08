@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3147,7 +3163,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div><span class="selo">Seis casos</span><span class="selo">O pedido nasce vazio</span></div>
   </div>
 
-  <section class="secao" id="como-funciona">
+    <section class="secao" id="como-funciona">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
@@ -3156,32 +3172,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>São <strong>seis casos de&nbsp;análise, um&nbsp;por&nbsp;área</strong>. Cada um&nbsp;traz uma&nbsp;situação
-    real de&nbsp;trabalho, uma&nbsp;planilha para&nbsp;baixar e&nbsp;uma&nbsp;pergunta que&nbsp;precisa virar parecer.
-    Você escolhe o&nbsp;que&nbsp;mais se&nbsp;parece com&nbsp;o&nbsp;seu&nbsp;dia e&nbsp;roda.</p>
+    <p>São <strong>seis casos de&nbsp;análise, um&nbsp;por&nbsp;área</strong>: uma&nbsp;situação de&nbsp;trabalho, uma&nbsp;planilha para&nbsp;baixar e&nbsp;uma&nbsp;pergunta que&nbsp;precisa virar parecer.</p>
 
-    <p><strong>A&nbsp;diferença para&nbsp;o&nbsp;Banco de&nbsp;Desafios é uma&nbsp;só,&nbsp;e&nbsp;ela é grande.</strong> Lá o&nbsp;pedido já&nbsp;está escrito e&nbsp;você copia. <strong>Aqui os&nbsp;seis campos abrem vazios e&nbsp;quem
-    escreve é você.</strong> Só&nbsp;depois de&nbsp;tentar é que&nbsp;a&nbsp;página abre uma&nbsp;sugestão, e&nbsp;ela
-    abre para&nbsp;comparar, não&nbsp;para&nbsp;copiar.</p>
+    <p><strong>A&nbsp;diferença para&nbsp;o&nbsp;Banco de&nbsp;Desafios é uma&nbsp;só,&nbsp;e&nbsp;é grande.</strong> Lá o&nbsp;pedido já&nbsp;está escrito e&nbsp;você copia. <strong>Aqui os&nbsp;seis campos abrem vazios e&nbsp;quem
+    escreve é você.</strong> Só&nbsp;depois de&nbsp;tentar a&nbsp;página abre uma&nbsp;sugestão, para&nbsp;comparar e&nbsp;não&nbsp;para&nbsp;copiar.</p>
 
     <div class="cartao">
       <span class="rot">Por que vazio</span>
-      <p>Porque&nbsp;a&nbsp;coisa mais útil que&nbsp;acontece nesta aula é você <strong>sentir onde&nbsp;a&nbsp;sua&nbsp;mão trava</strong>. Todo mundo já&nbsp;pediu alguma coisa a&nbsp;uma&nbsp;IA e&nbsp;recebeu uma&nbsp;resposta
-      genérica de&nbsp;volta, e&nbsp;quase ninguém sabe dizer qual pedaço do&nbsp;pedido faltava. Com&nbsp;o&nbsp;pedido pronto na&nbsp;tela, você lê e&nbsp;concorda. Com&nbsp;a&nbsp;tela vazia, você descobre.</p>
-      <p><strong>O&nbsp;pedido ruim que&nbsp;você escreveu ensina mais que&nbsp;o&nbsp;pedido bom que&nbsp;você
-      leu</strong>, e&nbsp;é por&nbsp;isso que&nbsp;a&nbsp;sugestão fica atrás de&nbsp;uma&nbsp;caixa fechada.</p>
+      <p>Porque&nbsp;o&nbsp;que&nbsp;vale aqui é você <strong>sentir onde&nbsp;a&nbsp;sua&nbsp;mão trava</strong>. Com&nbsp;o&nbsp;pedido pronto na&nbsp;tela, você lê e&nbsp;concorda; com&nbsp;a&nbsp;tela vazia, você descobre.</p>
     </div>
 
     <div class="cartao">
-      <span class="rot">Os seis casos ensinam seis erros diferentes</span>
-      <p>Eles não&nbsp;são o&nbsp;mesmo exercício com&nbsp;dados trocados. <strong>Cada base esconde um&nbsp;jeito específico de&nbsp;a&nbsp;análise sair confiante e&nbsp;errada</strong>, e&nbsp;o&nbsp;parecer só&nbsp;fica de&nbsp;pé quando&nbsp;o&nbsp;pedido fecha aquela porta. Fazer dois casos de&nbsp;áreas diferentes vale mais
-      que&nbsp;fazer o&nbsp;mesmo duas vezes.</p>
-    </div>
-
-    <div class="cartao">
-      <span class="rot">Todos os dados são inventados</span>
-      <p>Empresa, pessoas, produtos e&nbsp;valores não&nbsp;existem. As&nbsp;planilhas foram montadas para&nbsp;parecer com&nbsp;o&nbsp;que&nbsp;sai de&nbsp;um&nbsp;sistema de&nbsp;verdade, <strong>inclusive nos&nbsp;defeitos</strong>,
-      e&nbsp;nenhuma delas contém informação de&nbsp;cliente nenhum.</p>
+      <span class="rot">Nada aqui é real</span>
+      <p>Empresa, pessoas, produtos e&nbsp;valores foram inventados. As&nbsp;planilhas imitam o&nbsp;que&nbsp;sai
+      de&nbsp;um&nbsp;sistema de&nbsp;verdade, <strong>inclusive nos&nbsp;defeitos</strong>.</p>
     </div>
   </section>
 
@@ -3194,30 +3198,29 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>A&nbsp;tentação é abrir o&nbsp;caso da&nbsp;sua&nbsp;área e&nbsp;parar por&nbsp;aí. Funciona, e&nbsp;é o&nbsp;caminho mais
-    curto para&nbsp;o&nbsp;primeiro resultado. <strong>Mas&nbsp;quem dirige a&nbsp;empresa não&nbsp;tem uma&nbsp;área:
-    tem todas</strong>, e&nbsp;para&nbsp;essa pessoa o&nbsp;critério útil é outro, que&nbsp;é
-    <strong>qual pergunta você mais precisa saber responder</strong>.</p>
+    <p>Abrir o&nbsp;caso da&nbsp;sua&nbsp;área funciona, e&nbsp;é o&nbsp;caminho mais curto para&nbsp;o&nbsp;primeiro resultado.
+    <strong>Mas&nbsp;quem dirige a&nbsp;empresa não&nbsp;tem uma&nbsp;área: tem todas</strong>, e&nbsp;para&nbsp;essa
+    pessoa o&nbsp;critério é outro, que&nbsp;é qual pergunta você mais precisa saber responder.</p>
 
     <ul class="lista">
-      <li><strong>Se&nbsp;você é de&nbsp;produção, operações ou&nbsp;qualidade:</strong> comece por&nbsp;<a href="../b2-caso-producao/">Produção</a>. É a&nbsp;maior base das&nbsp;seis e&nbsp;a&nbsp;que&nbsp;mais se&nbsp;parece com&nbsp;um&nbsp;apontamento de&nbsp;chão de&nbsp;fábrica.</li>
-      <li><strong>Se&nbsp;você é de&nbsp;vendas, comercial ou&nbsp;loja:</strong> comece por&nbsp;<a href="../b2-caso-comercial/">Comercial</a>, e&nbsp;faça <a href="../b2-caso-marketing/">Marketing</a>
-      em&nbsp;seguida. Os&nbsp;dois juntos cobrem o&nbsp;caminho do&nbsp;lead até&nbsp;a&nbsp;decisão de&nbsp;verba.</li>
-      <li><strong>Se&nbsp;você é de&nbsp;financeiro ou&nbsp;controladoria:</strong> comece por&nbsp;<a href="../b2-caso-financeiro/">Financeiro</a>. É a&nbsp;menor base das&nbsp;seis, com&nbsp;72 linhas, e&nbsp;a&nbsp;que&nbsp;tem a&nbsp;conta mais transferível para&nbsp;o&nbsp;seu&nbsp;fechamento.</li>
-      <li><strong>Se&nbsp;você é de&nbsp;RH ou&nbsp;gestão de&nbsp;pessoas:</strong> comece por&nbsp;<a href="../b2-caso-rh/">RH</a>. É o&nbsp;único caso em&nbsp;que&nbsp;a&nbsp;resposta certa é recusar uma&nbsp;pergunta.</li>
-      <li><strong>Se&nbsp;você é sócio ou&nbsp;diretor</strong>, e&nbsp;nenhuma das&nbsp;linhas acima é você:
-      comece por&nbsp;<a href="../b2-caso-financeiro/">Financeiro</a> e&nbsp;depois vá para&nbsp;<a href="../b2-caso-operacoes/">Operações</a>. O&nbsp;primeiro é a&nbsp;conta que&nbsp;você recebe pronta
-      todo mês e&nbsp;quase nunca abre; o&nbsp;segundo é o&nbsp;que&nbsp;impede uma&nbsp;decisão cara ser tomada com&nbsp;um&nbsp;número certo.</li>
+      <li><strong>Produção, operações ou&nbsp;qualidade:</strong>
+      <a href="../b2-caso-producao/">Produção</a>. É a&nbsp;maior base das&nbsp;seis.</li>
+      <li><strong>Vendas, comercial ou&nbsp;loja:</strong>
+      <a href="../b2-caso-comercial/">Comercial</a>, e&nbsp;depois
+      <a href="../b2-caso-marketing/">Marketing</a>. Juntos, cobrem do&nbsp;lead à&nbsp;verba.</li>
+      <li><strong>Financeiro ou&nbsp;controladoria:</strong>
+      <a href="../b2-caso-financeiro/">Financeiro</a>. É a&nbsp;menor base, e&nbsp;a&nbsp;conta dele vai
+      direto para&nbsp;o&nbsp;seu&nbsp;fechamento.</li>
+      <li><strong>RH ou&nbsp;gestão de&nbsp;pessoas:</strong> <a href="../b2-caso-rh/">RH</a>. É o&nbsp;único caso em&nbsp;que&nbsp;a&nbsp;resposta certa é recusar a&nbsp;pergunta.</li>
+      <li><strong>Sócio ou&nbsp;diretor</strong>, se&nbsp;nenhuma linha acima é você:
+      <a href="../b2-caso-financeiro/">Financeiro</a> e&nbsp;depois
+      <a href="../b2-caso-operacoes/">Operações</a>. O&nbsp;primeiro é a&nbsp;conta que&nbsp;você recebe
+      pronta e&nbsp;quase nunca abre; o&nbsp;segundo impede uma&nbsp;decisão cara nascer de&nbsp;um&nbsp;número
+      certo.</li>
     </ul>
-
-    <div class="cartao">
-      <span class="rot">Se sobrar tempo, faça o segundo de outra área</span>
-      <p>O&nbsp;primeiro caso ensina a&nbsp;montar o&nbsp;pedido. <strong>O&nbsp;segundo é onde&nbsp;se&nbsp;descobre que&nbsp;o&nbsp;método é o&nbsp;mesmo e&nbsp;o&nbsp;cuidado é outro</strong>, porque&nbsp;cada base tem a&nbsp;sua&nbsp;armadilha. É
-      no&nbsp;segundo que&nbsp;a&nbsp;coisa vira habilidade em&nbsp;vez de&nbsp;receita.</p>
-    </div>
   </section>
 
-  <section class="secao" id="os-seis">
+<section class="secao" id="os-seis">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>

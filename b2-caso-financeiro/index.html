@@ -775,7 +775,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .gabarito summary::-webkit-details-marker{display:none}
 .gabarito summary::before{content:"▸";color:var(--accent);transition:transform .15s}
 .gabarito[open] summary::before{transform:rotate(90deg)}
-.gabarito-corpo{padding:0 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 O padding do topo era ZERO, e o texto encostava na divisoria do summary:
+   1px medido no ar. Rafael, 08/09: "o texto maior do que o tamanho normal da
+   fonte e meio apertado".
+
+   A segunda metade da queixa nao era tamanho de fonte -- o <p> daqui media os
+   mesmos 18,5px do corpo da pagina. O que faltava era o DEGRAU: um bloco
+   aninhado escrito no mesmo tamanho do texto que o contem pesa igual, e dentro
+   dele ainda convive uma .fig-leg de 14px. Agora o corpo do gabarito le como
+   texto secundario, que e o que ele e.
+
+   O .prompt daqui NAO muda: "sobre o prompt, ok". */
+.gabarito-corpo{padding:18px 20px 20px;border-top:1px solid var(--border)}
+/* 🔴 :not(.fig-leg) e obrigatorio. Sem ele esta regra vence a .fig-leg por
+   especificidade e INFLA a legenda de 14 para 16,5px -- o oposto do pedido,
+   que era criar degrau e nao achatar o que ja tinha um. */
+.gabarito-corpo > p:not(.fig-leg),
+.gabarito-corpo > ul.lista > li{font-size:16.5px;line-height:1.62}
 
 /* ---------- 15 · FIM DE AULA ---------------------------------------------- */
 .checagem{
@@ -3267,7 +3283,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>O&nbsp;prompt monta sozinho à&nbsp;direita conforme&nbsp;você escreve. Quando&nbsp;terminar, copie, rode
     na&nbsp;ferramenta com&nbsp;a&nbsp;planilha anexada, e&nbsp;<strong>só&nbsp;então</strong> abra as&nbsp;duas caixas do&nbsp;fim da&nbsp;página.</p>
 
-<div class="criador">
+<div class="criador solta">
       <div class="cr-lado">
         <div class="cr-campo">
           <label class="cr-rot" for="cp-papel"><span class="cr-sig">P</span> · Papel</label>
@@ -3384,9 +3400,8 @@ refazer a decomposição na planilha a partir do que o parecer descreve.</pre>
     <details class="gabarito">
       <summary>Só depois de rodar · o que o parecer deveria encontrar</summary>
       <div class="gabarito-corpo">
-        <p>Abaixo estão os&nbsp;achados que&nbsp;a&nbsp;base sustenta, com&nbsp;o&nbsp;número de&nbsp;cada um.&nbsp;<strong>Serve para&nbsp;conferir o&nbsp;seu,&nbsp;não&nbsp;para substituí-lo.</strong></p>
-
-        <p><strong>O&nbsp;ano fechou em&nbsp;R$ 54.131.383 contra&nbsp;R$ 56.745.120 orçados</strong>, o&nbsp;que&nbsp;dá <strong>R$ 2.613.737 a&nbsp;menos</strong>, ou&nbsp;4,6%. A&nbsp;frase da&nbsp;reunião diz que&nbsp;vendeu
+        <p><strong>O&nbsp;ano fechou em&nbsp;R$ 54.131.383 contra&nbsp;R$ 56.745.120 orçados</strong>:
+        <strong>R$ 2.613.737 a&nbsp;menos</strong>, ou&nbsp;4,6%. A&nbsp;frase da&nbsp;reunião diz que&nbsp;vendeu
         menos. A&nbsp;conta diz outra coisa.</p>
 
         <div class="tabela">
@@ -3399,46 +3414,30 @@ refazer a decomposição na planilha a partir do que o parecer descreve.</pre>
             </tbody>
           </table>
         </div>
-        <p class="fig-leg">A&nbsp;soma difere do&nbsp;desvio real em&nbsp;<strong>R$ 51</strong>, que&nbsp;é
-        arredondamento de&nbsp;centavos ao&nbsp;longo de&nbsp;72 linhas. <strong>Um&nbsp;parecer que&nbsp;mostra essa
-        diferença de&nbsp;R$ 51 é melhor que&nbsp;um&nbsp;que&nbsp;a&nbsp;esconde</strong>: é ela que&nbsp;prova que&nbsp;a&nbsp;decomposição foi feita e&nbsp;não&nbsp;estimada.</p>
+        <p class="fig-leg">A&nbsp;soma difere do&nbsp;desvio real em&nbsp;<strong>R$ 51</strong>, arredondamento
+        ao&nbsp;longo de&nbsp;72 linhas. <strong>Mostrar isso prova que&nbsp;a&nbsp;decomposição foi feita, e&nbsp;não&nbsp;estimada.</strong></p>
 
         <ul class="lista">
           <li><strong>O&nbsp;problema do&nbsp;ano foi de&nbsp;preço, não&nbsp;de&nbsp;volume.</strong>
-          <strong>86,1%</strong> do&nbsp;rombo é desconto dado sobre&nbsp;o&nbsp;ticket orçado. A&nbsp;empresa
-          entregou quase o&nbsp;volume que&nbsp;planejou e&nbsp;recebeu menos por&nbsp;ele.
-          <strong>Meta maior de&nbsp;volume no&nbsp;ano seguinte não&nbsp;resolve isso</strong>, e&nbsp;ainda
-          aumenta a&nbsp;pressão que&nbsp;gera o&nbsp;desconto.</li>
-          <li><strong>A&nbsp;pior linha em&nbsp;percentual não&nbsp;é a&nbsp;que&nbsp;perde mais dinheiro.</strong> A&nbsp;<strong>LP-400</strong> cai <strong>8,7%</strong>, a&nbsp;maior queda percentual, e&nbsp;perde
-          <strong>R$ 988.000</strong>. A&nbsp;<strong>LP-300</strong> cai só&nbsp;<strong>4,9%</strong> e&nbsp;perde <strong>R$ 1.260.107</strong>, porque&nbsp;é muito maior.
-          Quem ordenar por&nbsp;percentual ataca a&nbsp;segunda maior perda achando que&nbsp;ataca a&nbsp;primeira.</li>
-          <li><strong>Uma&nbsp;linha fechou acima do&nbsp;orçado, e&nbsp;ninguém comenta.</strong> A&nbsp;<strong>LP-600</strong> fecha <strong>2,8% acima</strong>, com&nbsp;<strong>R$ 181.440</strong> a&nbsp;mais. Num&nbsp;ano de&nbsp;queda, é o&nbsp;único lugar onde&nbsp;há algo
-          que&nbsp;deu certo para&nbsp;copiar.</li>
-          <li><strong>A&nbsp;perda está concentrada em&nbsp;quatro meses.</strong>
-          <strong>Dezembro</strong> cai <strong>23,9%</strong>, <strong>junho</strong>
-          <strong>20,2%</strong>, <strong>novembro</strong> 15,3% e&nbsp;<strong>janeiro</strong>
-          14,8%. E&nbsp;o&nbsp;ano não&nbsp;foi ruim inteiro: <strong>setembro fechou 11,3% acima</strong> e&nbsp;fevereiro 10,8% acima. Uma&nbsp;média anual de&nbsp;4,6% descreve mal um&nbsp;ano assim.</li>
+          <strong>86,1%</strong> do&nbsp;rombo é desconto sobre&nbsp;o&nbsp;ticket orçado: entregou quase o&nbsp;volume planejado e&nbsp;recebeu menos por&nbsp;ele. <strong>Meta maior de&nbsp;volume não&nbsp;resolve,
+          e&nbsp;ainda aumenta a&nbsp;pressão que&nbsp;gera o&nbsp;desconto.</strong></li>
+          <li><strong>A&nbsp;pior linha em&nbsp;percentual não&nbsp;é a&nbsp;que&nbsp;perde mais dinheiro.</strong> A&nbsp;<strong>LP-400</strong> cai <strong>8,7%</strong> e&nbsp;perde
+          <strong>R$ 988.000</strong>; a&nbsp;<strong>LP-300</strong> cai só&nbsp;<strong>4,9%</strong> e&nbsp;perde <strong>R$ 1.260.107</strong>, porque&nbsp;é muito
+          maior.</li>
+          <li><strong>Uma&nbsp;linha fechou acima do&nbsp;orçado, e&nbsp;ninguém comenta.</strong> A&nbsp;<strong>LP-600</strong> fecha <strong>2,8% acima</strong>, com&nbsp;<strong>R$ 181.440</strong> a&nbsp;mais. Num&nbsp;ano de&nbsp;queda, é o&nbsp;único lugar com&nbsp;algo que&nbsp;deu certo para&nbsp;copiar.</li>
+          <li><strong>A&nbsp;perda está concentrada em&nbsp;quatro meses.</strong> Dezembro cai
+          <strong>23,9%</strong>, junho <strong>20,2%</strong>, novembro 15,3% e&nbsp;janeiro
+          14,8%. E&nbsp;o&nbsp;ano não&nbsp;foi ruim inteiro: <strong>setembro fechou 11,3% acima</strong> e&nbsp;fevereiro 10,8%. Uma&nbsp;média anual de&nbsp;4,6% descreve mal um&nbsp;ano assim.</li>
         </ul>
 
         <div class="cartao">
           <span class="rot">Os números do ano, para conferir os seus</span>
           <p>Receita orçada <strong>R$ 56.745.120</strong> · realizada
-          <strong>R$ 54.131.383</strong> · desvio <strong>R$ 2.613.737</strong> ou&nbsp;<strong>4,6%</strong> · <strong>72</strong> linhas · <strong>6</strong> linhas de&nbsp;produto × <strong>12</strong> meses. Se&nbsp;o&nbsp;seu&nbsp;parecer divergir de&nbsp;algum destes, o&nbsp;lugar de&nbsp;procurar é o&nbsp;filtro, não&nbsp;a&nbsp;conta.</p>
+          <strong>R$ 54.131.383</strong> · desvio <strong>R$ 2.613.737</strong> ou&nbsp;<strong>4,6%</strong> · <strong>72</strong> linhas, de&nbsp;<strong>6</strong> linhas de&nbsp;produto × <strong>12</strong> meses.</p>
         </div>
 
-        <div class="cartao">
-          <span class="rot">Se o seu resultado veio raso</span>
-          <p>Três frases resolvem quase sempre. <em>"Não&nbsp;quero o&nbsp;ranking dos&nbsp;piores meses:
-          quero o&nbsp;desvio separado em&nbsp;quanto foi volume e&nbsp;quanto foi preço."</em> ·
-          <em>"Mostre a&nbsp;soma das&nbsp;duas parcelas e&nbsp;prove que&nbsp;ela fecha com&nbsp;o&nbsp;desvio
-          total."</em> · <em>"Ao&nbsp;lado de&nbsp;cada percentual, me dê o&nbsp;valor em&nbsp;reais, porque&nbsp;as&nbsp;linhas têm tamanhos diferentes."</em></p>
-        </div>
-
-        <p>O&nbsp;que&nbsp;este caso ensina não&nbsp;é sobre&nbsp;orçamento. <strong>É que&nbsp;todo total é o&nbsp;produto
-        de&nbsp;duas coisas, e&nbsp;que&nbsp;o&nbsp;desvio do&nbsp;total se&nbsp;abre nas&nbsp;duas</strong>. Vale para&nbsp;receita,
-        que&nbsp;é pedido vezes ticket, e&nbsp;vale para&nbsp;custo, que&nbsp;é consumo vezes preço, e&nbsp;para&nbsp;hora
-        trabalhada, que&nbsp;é gente vezes tempo. <a href="../b2-causa/">A&nbsp;aula 5 do&nbsp;bloco 2</a> é
-        onde&nbsp;ir do&nbsp;número para&nbsp;a&nbsp;causa vira método.</p>
+        <p>A&nbsp;lição não&nbsp;é sobre&nbsp;orçamento: <strong>todo total é produto de&nbsp;duas coisas, e&nbsp;o&nbsp;desvio
+        se&nbsp;abre nas&nbsp;duas</strong>. <a href="../b2-causa/">A&nbsp;aula 5</a> transforma isso em&nbsp;método.</p>
       </div>
     </details>
   </section>
