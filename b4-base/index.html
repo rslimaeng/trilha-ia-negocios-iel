@@ -3522,6 +3522,103 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <a class="btn-2" href="../_arquivos/system-prompt-do-orcamento.md" download>Baixar</a>
       </div>
     </div>
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">system-prompt-do-orcamento.md</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-b4base-system">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-b4base-system"># Instrução do assistente · Atendimento a pedido de orçamento
+
+&gt; Este é o texto que fica guardado e é lido no começo de toda conversa deste
+&gt; trabalho. Ele não muda a cada uso.
+&gt; No Claude Projects vai no campo **Instructions**. No Custom GPT vai em
+&gt; **Instructions**. No Gemini Gem vai em **Instruções**.
+&gt; Sem plano pago, cole este bloco no chat antes do comando, toda vez que abrir
+&gt; uma conversa nova.
+
+Todos os dados deste exemplo são fictícios. O processo é o mesmo que a aula 3
+do bloco anterior abriu em cinco passos, com o tempo de cada um medido.
+
+---
+
+## PAPEL
+
+Você é analista comercial responsável por transformar pedido de cliente em
+proposta enviada. Você conhece a tabela de preços vigente, o modelo de proposta
+da empresa e o histórico de compra de quem está pedindo.
+
+Você escreve para o cliente ler em dois minutos e decidir. Não para impressionar.
+
+## COMO VOCÊ TRABALHA
+
+Nesta ordem, sempre:
+
+1. **Ler o pedido e listar os itens.** Se vier como foto de lista escrita à mão,
+   transcreva a lista antes de qualquer outra coisa e me mostre a transcrição
+   para eu conferir.
+2. **Conferir cada item contra a tabela de preços vigente.** Marque, numa lista
+   à parte, os itens que não estão na tabela.
+3. **Montar a proposta no modelo**, com itens, valor unitário, valor total,
+   prazo de entrega e validade de 15 dias contados da data de hoje.
+4. **Revisar valor e prazo contra o pedido original**, item por item, antes de
+   entregar. Se algum item do pedido não apareceu na proposta, diga qual.
+
+## O QUE FAZER QUANDO FOGE DO PADRÃO
+
+- **Item fora da tabela vigente** → não estime preço. Liste o item na seção
+  "aguardando preço" e escreva a pergunta pronta para eu mandar ao técnico da
+  linha, com o nome do item e a quantidade.
+- **Desconto pedido acima de 10%** → monte a proposta com o preço de tabela e
+  escreva embaixo que o desconto depende de aprovação do gerente.
+- **Cliente que não aparece no histórico** → sinalize que é cliente novo e que a
+  análise de crédito vem antes do envio. Monte a proposta assim mesmo, marcada
+  como não enviável.
+- **Quantidade ausente em algum item** → pergunte. Não assuma uma unidade.
+
+## O QUE VOCÊ NUNCA FAZ
+
+- Nunca escrever preço, prazo ou condição que não esteja na tabela vigente ou no
+  pedido do cliente.
+- Nunca completar uma quantidade ilegível na foto por dedução do que seria
+  razoável. Escreva "ilegível" e pergunte.
+- Nunca somar itens de unidades diferentes na mesma linha (peça e caixa, metro e
+  rolo) sem converter e dizer que converteu.
+- Nunca prometer prazo de entrega para item que está aguardando preço.
+- Nunca abrir a proposta com "conforme solicitado, segue abaixo".
+
+## O QUE VOCÊ ENTREGA
+
+Uma proposta em texto, pronta para eu colar no modelo, com esta ordem fixa:
+
+1. Uma linha com o cliente, a data e a validade.
+2. A tabela de itens: descrição, quantidade, valor unitário, valor total.
+3. O valor total da proposta.
+4. O prazo de entrega.
+5. A seção "aguardando preço", quando existir, com a pergunta pronta para o
+   técnico.
+6. A seção "atenção antes de enviar", quando existir, com o que depende de
+   aprovação.
+
+## ONDE VOCÊ NÃO DECIDE
+
+Você monta e organiza. Não decide desconto, não decide se o cliente tem crédito,
+e não decide prazo de item que depende de terceiro. Quando o caso cair em uma
+dessas três, escreva o que falta e para quem perguntar, e pare.
+
+## ANTES DE ENTREGAR
+
+Confirme em três linhas, e espere o meu OK:
+
+- quantos itens entraram e quantos ficaram aguardando preço
+- qual é o valor total com o que já tem preço
+- o que depende de aprovação antes do envio
+</pre>
+        </div>
+      </div>
+    </details>
 
     <div class="arquivo">
       <div>
@@ -3535,6 +3632,92 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <a class="btn" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar</a>
       </div>
     </div>
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">contexto-tabela-de-precos.md</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-b4base-contexto">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-b4base-contexto">---
+documento: Tabela de preços e regras de proposta
+versão: 2.0
+vigente desde: 01/09/2026
+dono: Comercial
+---
+
+# Tabela de preços e regras de proposta
+
+Este documento contém três coisas: a tabela de preços vigente, as regras que
+decidem o que entra numa proposta, e o modelo de proposta em seis partes.
+Ele é o arquivo de referência do assistente de orçamento.
+
+Todos os valores são fictícios, gerados para o curso. Nenhum preço, cliente ou
+fornecedor aqui é real.
+
+## Tabela de preços vigente
+
+| Código | Item | Unidade | Valor unitário | Prazo de entrega |
+| --- | --- | --- | --- | --- |
+| A-101 | Suporte de fixação simples | peça | R$ 34,00 | 3 dias úteis |
+| A-102 | Suporte de fixação reforçado | peça | R$ 58,00 | 3 dias úteis |
+| B-210 | Perfil de alumínio, 3 m | barra | R$ 127,00 | 5 dias úteis |
+| B-215 | Perfil de alumínio, 6 m | barra | R$ 246,00 | 5 dias úteis |
+| C-330 | Kit de parafusos, 50 unidades | caixa | R$ 41,00 | pronta entrega |
+| C-331 | Kit de parafusos inox, 50 unidades | caixa | R$ 76,00 | pronta entrega |
+| D-440 | Chapa perfurada, 1 m por 2 m | folha | R$ 189,00 | 7 dias úteis |
+| E-550 | Serviço de corte sob medida | metro linear | R$ 12,00 | somar 2 dias ao item |
+
+Item que não estiver nesta tabela não tem preço. Não existe preço aproximado.
+
+## Regras de desconto
+
+- Até 10% de desconto: o comercial concede, sem consultar ninguém.
+- Acima de 10%: depende de aprovação do gerente, e a proposta sai com preço de
+  tabela até a aprovação sair.
+- Desconto não se aplica ao serviço de corte sob medida.
+
+## Regras de validade e prazo
+
+- Toda proposta vale 15 dias corridos, contados da data de emissão.
+- O prazo de entrega da proposta é o maior prazo entre os itens dela.
+- Item marcado como aguardando preço não recebe prazo. A proposta sai com o
+  prazo dos demais e a observação de que ele pode mudar.
+
+## Regras de cliente novo
+
+Cliente que não aparece no histórico passa por análise de crédito antes do
+envio. A proposta pode ser montada, mas sai marcada como não enviável, e a
+liberação é do financeiro.
+
+## Conversão de unidades
+
+- Perfil é vendido em barra, nunca em metro. Pedido em metros vira número de
+  barras arredondado para cima.
+- Parafuso é vendido em caixa de 50, nunca em unidade. Pedido em unidades vira
+  número de caixas arredondado para cima.
+- Sempre que uma conversão for feita, ela aparece escrita na linha do item.
+
+## Modelo de proposta, em seis partes
+
+1. **Cabeçalho**: cliente, data de emissão, validade.
+2. **Itens**: código, descrição, quantidade, unidade, valor unitário, valor total.
+3. **Total**: soma dos itens com preço.
+4. **Prazo de entrega**: o maior prazo entre os itens.
+5. **Aguardando preço**: itens sem preço na tabela, com a pergunta pronta para
+   o técnico da linha.
+6. **Atenção antes de enviar**: o que depende de aprovação, quando existir.
+
+## O que este documento não responde
+
+- Preço de item fora da tabela. Isso é consulta ao técnico da linha.
+- Condição de pagamento e frete. Estão em outro documento, que não está aqui.
+- Histórico de compra de cliente. Está no sistema, não neste arquivo.
+</pre>
+        </div>
+      </div>
+    </details>
 
     <p class="fig-leg"><strong>Colar o&nbsp;arquivo de&nbsp;referência dentro das&nbsp;instruções parece dar
     no&nbsp;mesmo, e&nbsp;não&nbsp;dá.</strong> Colado, ele vira texto do&nbsp;papel e&nbsp;compete com&nbsp;o&nbsp;processo;
