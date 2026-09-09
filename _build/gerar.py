@@ -1152,6 +1152,54 @@ def desenha_radar(html):
 
 
 # ---------------------------------------------------------------------------
+# INCLUIR · o conteúdo de um arquivo de _arquivos/ entra dentro de um <pre>
+#
+# 🔴 O DEFEITO QUE ISTO CONSERTA É DUPLICAÇÃO DE FONTE. O card de arquivo da
+# b4-instrucao dizia "é o mesmo texto do bloco acima" e não era: o corpo batia
+# palavra por palavra (536 e 536), mas o .md tinha 14 linhas de cabeçalho a
+# mais e 22 marcas de **negrito** que o bloco não tinha. Os dois foram escritos
+# à mão, e um andou. Com o accordion aberto as duas versões ficam na mesma tela,
+# e a única forma de a página não voltar a mentir é o <pre> LER o arquivo em vez
+# de repetir o texto dele.
+#
+# O fragmento escreve a diretiva, e o caminho é relativo à raiz do site/:
+#
+#     <pre class="prompt-txt" id="..."><!-- incluir: _arquivos/x.md --></pre>
+#
+# 🔴 ESTE PASSO RODA POR ÚLTIMO, depois de uma_frase_por_linha e de
+# cola_quebra_de_linha. As duas hoje poupam <pre>, mas por listas que alguém
+# pode editar sem ver isto aqui: a tupla SEM_COLA e o "pre" do regex de bloco
+# protegido. Rodando por último, a garantia deixa de depender delas -- nada
+# corre depois, então o que entra no <pre> é byte a byte o que está no arquivo,
+# e isso é conferível por script.
+#
+# Não converte markdown. O texto entra cru, porque é o que a pessoa vai colar no
+# campo da ferramenta, e é lá que ele é interpretado.
+#
+# Idempotente: a diretiva some ao ser trocada, e rodar de novo não acha mais.
+#
+# 🔴 Arquivo que não existe PARA a geração, nomeando o caminho. Silêncio aqui
+# seria o mesmo defeito de novo, com outra roupa.
+# ---------------------------------------------------------------------------
+DIRETIVA_INCLUIR = re.compile(r"<!--\s*incluir:\s*([^\s>]+)\s*-->")
+
+
+def inclui_arquivo(html):
+    def troca(m):
+        relativo = m.group(1)
+        caminho = os.path.join(RAIZ, relativo)
+        if not os.path.exists(caminho):
+            raise SystemExit(
+                "  ERRO: <!-- incluir: %s --> aponta para arquivo que não "
+                "existe: %s" % (relativo, caminho))
+        texto = io.open(caminho, encoding="utf-8").read()
+        return (texto.replace("&", "&amp;")
+                     .replace("<", "&lt;")
+                     .replace(">", "&gt;"))
+    return DIRETIVA_INCLUIR.sub(troca, html)
+
+
+# ---------------------------------------------------------------------------
 # UMA FRASE POR LINHA · a quarta reclamação da quebra de linha
 #
 # Dentro de um bloco marcado .fr-host, cada frase vira <span class="fr">. O CSS
@@ -1831,6 +1879,7 @@ def main():
         html = monta(slug, cfg, fragmento)
         html = desenha_radar(expande_o_cem(html))
         html = cola_quebra_de_linha(uma_frase_por_linha(html))
+        html = inclui_arquivo(html)   # por último: ver o bloco INCLUIR
         destino = (os.path.join(RAIZ, "index.html") if slug == "index"
                    else os.path.join(RAIZ, slug, "index.html"))
         os.makedirs(os.path.dirname(destino), exist_ok=True)
