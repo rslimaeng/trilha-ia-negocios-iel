@@ -1649,8 +1649,33 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .pergunta h4{font-size:19px;margin-bottom:8px}
 .pergunta > div > p{margin:0 0 14px;color:var(--text-muted)}
+/* 🔴 A MARGEM E DO COMPONENTE, e este e o irmao do caso do .cartao de 08/09:
+   o .destrave so tinha fundo, raio e padding, entao encostava em qualquer
+   vizinho que nao empurrasse por conta propria. Rafael, 09/09, com print da
+   b4-time: "em todas as aulas do bloco 4, na parte 5 do 'a sua vez', na parte 3
+   tem um bloco encostando no outro".
+
+   Medido nas 19 ocorrencias do site: o vizinho de cima e .passo-ok em SETE
+   delas, e e so ali que o gap era zero -- .passo-ok tem margin-top:14px e
+   nenhuma margem embaixo. Nas outras doze o vizinho ja empurrava (26px do
+   .canvas, 22 da .checagem, 18 do .prompt e do <p>, 14 na vitrine), e como
+   margem adjacente colapsa, nenhuma delas muda.
+
+   14px porque e a propria margem do .passo-ok, que e o vizinho dos sete casos:
+   o par fica com o mesmo respiro e nada novo entra no vocabulario.
+
+   🔴 SO NO TOPO, E ISSO FOI MEDIDO E NAO DEDUZIDO. Com `margin:14px 0` os sete
+   ficariam iguais, mas o espaco de BAIXO mudaria em treze das dezenove -- em
+   oito delas o .destrave e o ultimo filho de um .passo, e o box cresceria de 30
+   para 44px no pe sem que ninguem tenha pedido. Com margin-top so, o lado de
+   baixo fica identico nas dezenove, medido uma a uma.
+
+   Fica um caso conhecido e NAO consertado aqui: na b2-marca o .destrave encosta
+   no <p> de baixo, gap 0, e na vitrine dois encostam no fim do proprio bloco.
+   Sao o mesmo defeito virado para o outro lado, e cabem numa decisao propria.  */
 .destrave{
   background:var(--bg-warm);border-radius:var(--raio);padding:18px 20px;
+  margin-top:14px;
 }
 .destrave-rot{
   font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
