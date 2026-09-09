@@ -103,7 +103,7 @@
     departamentais, e ele se aplica a cada arquivo, um por vez.
     <strong>Só sobe o que responder sim às três.</strong></p>
 
-    <div class="grade">
+    <div class="grade grade-3">
       <div class="cartao">
         <span class="rot">P &middot; Preciso?</span>
         <h4>Ele trata de uma etapa do seu processo?</h4>
@@ -270,19 +270,38 @@
       e a chance de inventar volta.</p>
     </div>
 
+    <p>São <strong>dois arquivos e dois campos</strong>, e trocar um pelo outro é o erro mais
+    comum da montagem. Cada card abaixo diz onde o arquivo dele vai.</p>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">MD</div>
+        <div>
+          <div class="arq-nome">system-prompt-do-orcamento.md</div>
+          <div class="arq-fn"><strong>Vai no campo de instruções do projeto</strong>, colado como texto. É a instrução da aula 1: quem ele é, como trabalha, o que nunca faz.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn-2" href="../_arquivos/system-prompt-do-orcamento.md" download>Baixar</a>
+      </div>
+    </div>
+
     <div class="arquivo">
       <div>
         <div class="arq-tipo">MD</div>
         <div>
           <div class="arq-nome">contexto-tabela-de-precos.md</div>
-          <div class="arq-fn">O arquivo de referência do caso, com a tabela, as regras, o modelo em seis partes e a seção do que ele não responde. Vai no campo de arquivos do projeto.</div>
+          <div class="arq-fn"><strong>Vai no campo de arquivos do projeto</strong>, subido como arquivo. É a tabela, as regras, o modelo em seis partes e a seção do que ele não responde.</div>
         </div>
       </div>
       <div class="arq-acoes">
-        <a class="btn-2" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar o exemplo</a>
-        <a class="btn" href="../_arquivos/system-prompt-do-orcamento.md" download>E a instrução da aula 1</a>
+        <a class="btn" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar</a>
       </div>
     </div>
+
+    <p class="fig-leg"><strong>Colar o arquivo de referência dentro das instruções parece dar
+    no mesmo, e não dá.</strong> Colado, ele vira texto do papel e compete com o processo;
+    subido no campo de arquivos, ele é consulta, e é de lá que ele cita a fonte no teste 4.</p>
   </section>
 
   <section class="secao" id="sua-vez">
@@ -413,6 +432,23 @@ E toda linha do arquivo eu consigo apontar em qual resposta minha ela nasceu.</p
     não responde.</strong> É o mesmo movimento do destrave de todas as aulas deste curso:
     declarar o buraco custa uma linha e evita a resposta inventada, que custa uma proposta
     errada enviada a um cliente.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de rodar, como refinar</div>
+      <p>A primeira saída quase nunca sai do jeito que você quer, e o conserto costuma ser uma
+      frase. <strong>Três que resolvem a maioria dos casos:</strong></p>
+      <ul class="lista">
+        <li>Se ele citou um número sem dizer de onde veio: <em>"de qual arquivo e de qual seção
+        veio esse valor? Se não estiver na base, diga que não localizou."</em></li>
+        <li>Se a resposta veio longa demais: <em>"reescreva só com as seis partes do modelo, sem
+        introdução e sem fechamento."</em></li>
+        <li>Se ele inventou em vez de perguntar: <em>"o que faltou para você concluir isso? Me
+        pergunte em vez de completar."</em></li>
+      </ul>
+      <p><strong>Todo refino que você faz uma vez, se virar padrão, sobe pro system prompt e
+      nunca mais precisa pedir.</strong> É a frase que abre a próxima aula, e lá esse movimento
+      ganha nome e método.</p>
+    </div>
   </section>
 
   <div class="ate-aqui">
@@ -457,22 +493,39 @@ E toda linha do arquivo eu consigo apontar em qual resposta minha ela nasceu.</p
     </div>
 
     <div class="cartao">
+      <span class="rot">O que este assistente ainda não faz</span>
+      <p>Três coisas existem só no Claude, e por isso não viram exercício aqui: parte da sala
+      trabalha em outra ferramenta. Vale conhecer o nome de cada uma.</p>
+      <p>O <strong>conector</strong> liga o assistente ao lugar onde o seu trabalho já mora: a
+      caixa do Gmail, uma pasta no Google Drive, uma planilha no Google Sheets. É ele que
+      alcança os passos que você marcou (EX) na sua tabela, e ele nunca enxerga mais do que a
+      sua própria conta já enxerga.</p>
+      <p>A <strong>tarefa agendada</strong> é o assistente fazendo o combinado num horário, sem
+      você abrir nada: o resumo de sexta, a triagem da caixa de entrada. A regra que vale para
+      ela é uma só: ela prepara, e quem envia é você.</p>
+      <p>A <strong>skill</strong> é um procedimento seu empacotado num arquivo chamado
+      skill.md, que vale em qualquer conversa em vez de morar dentro de um projeto. Serve
+      quando você percebe que copiaria o mesmo pedaço de instrução para vários assistentes.</p>
+      <p>Nenhuma das três substitui o que você montou aqui. As três estendem.</p>
+    </div>
+
+    <div class="cartao">
       <span class="rot">A fronteira desta aula</span>
       <div class="tabela">
         <table>
           <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
-          <tbody><tr><td>o assistente montado, com base escolhida, limpa e provada em quatro perguntas</td><td>tudo isso vale dentro daquele projeto, e só dele: outro processo seu recomeça do zero</td><td>na próxima aula, que tira o procedimento de dentro do projeto e o faz valer em qualquer conversa</td></tr></tbody>
+          <tbody><tr><td>o assistente montado, com base escolhida, limpa e provada em quatro perguntas</td><td>ele vai errar assim mesmo, e o reflexo é reescrever a instrução inteira</td><td>na próxima aula, que corrige um ponto sem mexer no que já funcionava</td></tr></tbody>
         </table>
       </div>
-      <p class="fig-leg">É a diferença entre configurar um lugar e ter uma habilidade: o
-      primeiro você repete por processo, o segundo você escreve uma vez.</p>
+      <p class="fig-leg">Assistente montado não é assistente pronto. O que separa os dois é a
+      primeira semana de uso, e é sobre ela que a próxima aula trata.</p>
     </div>
   </section>
 
   <div class="gancho">
     <p>Você tem um assistente que trabalha no seu processo e consulta o que é seu.
-    <strong>Agora imagine o segundo.</strong> Um processo novo, outro projeto, e você
-    percebendo que vai copiar para lá o mesmo pedaço de procedimento que escreveu aqui. Na
-    quinta vez, existem cinco cópias e nenhuma igual. A próxima aula tira esse pedaço de dentro
-    do projeto e o transforma em uma habilidade que vale em qualquer conversa.</p>
+    <strong>Ele vai errar assim mesmo.</strong> Vai vir formal demais, ou longo demais, ou vai
+    citar um arquivo que não existe. O reflexo é abrir a instrução e reescrever, e uma semana
+    depois ela está com o dobro do tamanho e ninguém sabe mais qual linha faz o quê. A próxima
+    aula corrige um ponto por vez, com uma linha que dá para apagar amanhã.</p>
   </div>

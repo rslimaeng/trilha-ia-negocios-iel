@@ -85,7 +85,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b2-biblioteca",
              "b3-redesenho", "b3-processo", "b3-ilha", "b3-ipo",
              "b3-vazamento", "b3-valor",
-             "b4-assistentes", "b4-instrucao", "b4-base", "b4-skill", "b4-alcance",
+             "b4-assistentes", "b4-instrucao", "b4-base", "b4-refino", "b4-time",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
              "modulo-2", "modulo-3", "componentes"]
 
@@ -134,8 +134,8 @@ TRILHA = [
     ("As aulas do B4", [
         ("b4-instrucao", "1 · Escreva a instrução do seu assistente"),
         ("b4-base",      "2 · Dê a ele o que só você sabe"),
-        ("b4-skill",     "3 · A habilidade que você não reescreve"),
-        ("b4-alcance",   "4 · O assistente alcança onde o trabalho mora"),
+        ("b4-refino",    "3 · Corrija o desvio sem reescrever tudo"),
+        ("b4-time",      "4 · Quando um assistente não basta"),
     ]),
     # 🔴 O banco NAO mora dentro de bloco nenhum, e e decisao do Rafael (01/09).
     # Ele atravessa o curso: o desafio 7 espera o modulo 2 e o 8 espera o B4. Se
@@ -782,40 +782,43 @@ PAGINAS = {
                  (None, None)],
     ),
 
-    "b4-skill": dict(
-        # 🔴 pratica com ARQUIVO, e aqui o arquivo e literalmente o entregavel 2
-        # da ementa ("1 Skill criada para tarefa recorrente"). Ele sai em .zip
-        # porque e assim que a ferramenta o recebe: pasta na raiz do pacote. O
-        # zip nao se monta a mao -- sai do _build/insumo-skill.py, que confere
-        # os dois tetos declarados na fonte antes de fechar o arquivo.
+    "b4-refino": dict(
+        # 🔴 pratica SEM arquivo, e a razao e a mesma da b3-vazamento: o exercicio
+        # roda EM CIMA da instrucao que a aula 1 entregou em .md. O artefato desta
+        # aula e UMA LINHA acrescentada no fim daquele arquivo -- um .md novo aqui
+        # daria a impressao de que sao duas instrucoes, que e exatamente o defeito
+        # que a aula ensina a evitar.
         tipo="pratica",
-        arquivo=True,
-        titulo="Aula 3 · A habilidade que você não reescreve toda semana",
+        arquivo=False,
+        titulo="Aula 3 · O assistente errou, e você ajusta sem reescrever",
         kicker="Módulo 1 · B4 · Assistentes especializados",
-        h1="A habilidade que você não reescreve toda semana",
-        sub="O que é procedimento sai de dentro do projeto e vira um arquivo que entra "
-            "sozinho em qualquer conversa, corrigido num lugar só.",
-        selos=["Habilidade para baixar", "Funciona no plano gratuito"],
+        h1="O assistente errou, e você ajusta sem reescrever",
+        sub="Seis desvios com nome, e uma linha reversível no fim da instrução que "
+            "corrige um deles sem tocar no que já estava funcionando.",
+        selos=["Use a instrução da aula 1", "Vale nas três ferramentas"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b4-assistentes/", "B4 · Assistentes especializados"),
                  (None, None)],
     ),
 
-    "b4-alcance": dict(
-        # 🔴 pratica SEM arquivo, e a razao e a mesma da b3-vazamento: o
-        # exercicio roda EM CIMA da tabela que a aula 3 do B3 entregou (a coluna
-        # EX) e da conta da propria pessoa. O entregavel da ementa aqui e uma
-        # CONFIGURACAO -- 1 connector ativo, 1 tarefa agendada --, e configuracao
-        # nao baixa. Inventar um .md aqui seria o anexo postico de 02/09.
+    "b4-time": dict(
+        # 🔴 pratica com ARQUIVO, e os dois arquivos SAO a arquitetura que a aula
+        # ensina: o orquestrador vai no campo de instrucoes, a base de
+        # especialistas vai no campo de arquivos. Separa-los em dois downloads e
+        # o que ensina a separacao -- um arquivo so devolveria a confusao que a
+        # aula existe para desfazer.
+        #
+        # O entregavel e o DESENHO no papel, e montar e opcional: por isso os
+        # arquivos sao modelo para trocar o conteudo, e nao tarefa de sala.
         tipo="pratica",
-        arquivo=False,
-        titulo="Aula 4 · O assistente que alcança onde o seu trabalho mora",
+        arquivo=True,
+        titulo="Aula 4 · Quando um assistente não basta: o time",
         kicker="Módulo 1 · B4 · Assistentes especializados",
-        h1="O assistente que alcança onde o seu trabalho mora",
-        sub="Os passos que você marcou (EX) viram uma ficha de alcance, e a decisão que "
-            "importa é o que ele faz sozinho e o que ele só rascunha.",
-        selos=["Use a coluna (EX)", "Fecha o módulo 1"],
+        h1="Quando um assistente não basta: o time",
+        sub="Um orquestrador que empresta a voz de quem tem escopo, e a parte honesta "
+            "que diz quando isso não vale a pena montar.",
+        selos=["Fecha o módulo 1", "Dois arquivos de modelo"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b4-assistentes/", "B4 · Assistentes especializados"),

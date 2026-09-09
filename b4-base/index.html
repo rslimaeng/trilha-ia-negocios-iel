@@ -3339,7 +3339,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     departamentais, e&nbsp;ele se&nbsp;aplica a&nbsp;cada arquivo, um&nbsp;por&nbsp;vez.
     <strong>Só&nbsp;sobe o&nbsp;que&nbsp;responder sim às&nbsp;três.</strong></p>
 
-    <div class="grade">
+    <div class="grade grade-3">
       <div class="cartao">
         <span class="rot">P &middot; Preciso?</span>
         <h4>Ele trata de&nbsp;uma&nbsp;etapa do&nbsp;seu&nbsp;processo?</h4>
@@ -3492,19 +3492,38 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       e&nbsp;a&nbsp;chance de&nbsp;inventar volta.</p>
     </div>
 
+    <p>São <strong>dois arquivos e&nbsp;dois campos</strong>, e&nbsp;trocar um&nbsp;pelo&nbsp;outro é o&nbsp;erro mais
+    comum da&nbsp;montagem. Cada card abaixo diz onde&nbsp;o&nbsp;arquivo dele vai.</p>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">MD</div>
+        <div>
+          <div class="arq-nome">system-prompt-do-orcamento.md</div>
+          <div class="arq-fn"><strong>Vai no campo de instruções do projeto</strong>, colado como texto. É a instrução da aula 1: quem ele é, como trabalha, o que nunca faz.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn-2" href="../_arquivos/system-prompt-do-orcamento.md" download>Baixar</a>
+      </div>
+    </div>
+
     <div class="arquivo">
       <div>
         <div class="arq-tipo">MD</div>
         <div>
           <div class="arq-nome">contexto-tabela-de-precos.md</div>
-          <div class="arq-fn">O arquivo de referência do caso, com a tabela, as regras, o modelo em seis partes e a seção do que ele não responde. Vai no campo de arquivos do projeto.</div>
+          <div class="arq-fn"><strong>Vai no campo de arquivos do projeto</strong>, subido como arquivo. É a tabela, as regras, o modelo em seis partes e a seção do que ele não responde.</div>
         </div>
       </div>
       <div class="arq-acoes">
-        <a class="btn-2" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar o exemplo</a>
-        <a class="btn" href="../_arquivos/system-prompt-do-orcamento.md" download>E a instrução da aula 1</a>
+        <a class="btn" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar</a>
       </div>
     </div>
+
+    <p class="fig-leg"><strong>Colar o&nbsp;arquivo de&nbsp;referência dentro das&nbsp;instruções parece dar
+    no&nbsp;mesmo, e&nbsp;não&nbsp;dá.</strong> Colado, ele vira texto do&nbsp;papel e&nbsp;compete com&nbsp;o&nbsp;processo;
+    subido no&nbsp;campo de&nbsp;arquivos, ele é consulta, e&nbsp;é de&nbsp;lá que&nbsp;ele cita a&nbsp;fonte no&nbsp;teste 4.</p>
   </section>
 
   <section class="secao" id="sua-vez">
@@ -3626,6 +3645,20 @@ E toda linha do arquivo eu consigo apontar em qual resposta minha ela nasceu.</p
     não&nbsp;responde.</strong> É o&nbsp;mesmo movimento do&nbsp;destrave de&nbsp;todas as&nbsp;aulas deste curso:
     declarar o&nbsp;buraco custa uma&nbsp;linha e&nbsp;evita a&nbsp;resposta inventada, que&nbsp;custa uma&nbsp;proposta
     errada enviada a&nbsp;um&nbsp;cliente.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de rodar, como refinar</div>
+      <p>A&nbsp;primeira saída quase nunca sai do&nbsp;jeito que&nbsp;você quer, e&nbsp;o&nbsp;conserto costuma ser uma&nbsp;frase. <strong>Três que&nbsp;resolvem a&nbsp;maioria dos&nbsp;casos:</strong></p>
+      <ul class="lista">
+        <li>Se&nbsp;ele citou um&nbsp;número sem&nbsp;dizer de&nbsp;onde&nbsp;veio: <em>"de&nbsp;qual arquivo e&nbsp;de&nbsp;qual seção
+        veio esse valor? Se&nbsp;não&nbsp;estiver na&nbsp;base, diga que&nbsp;não&nbsp;localizou."</em></li>
+        <li>Se&nbsp;a&nbsp;resposta veio longa demais: <em>"reescreva só&nbsp;com&nbsp;as&nbsp;seis partes do&nbsp;modelo, sem&nbsp;introdução e&nbsp;sem&nbsp;fechamento."</em></li>
+        <li>Se&nbsp;ele inventou em&nbsp;vez de&nbsp;perguntar: <em>"o&nbsp;que&nbsp;faltou para&nbsp;você concluir isso? Me
+        pergunte em&nbsp;vez de&nbsp;completar."</em></li>
+      </ul>
+      <p><strong>Todo refino que&nbsp;você faz uma&nbsp;vez, se&nbsp;virar padrão, sobe pro system prompt e&nbsp;nunca mais precisa pedir.</strong> É a&nbsp;frase que&nbsp;abre a&nbsp;próxima aula, e&nbsp;lá esse movimento
+      ganha nome e&nbsp;método.</p>
+    </div>
   </section>
 
   <div class="ate-aqui">
@@ -3666,26 +3699,38 @@ E toda linha do arquivo eu consigo apontar em qual resposta minha ela nasceu.</p
     </div>
 
     <div class="cartao">
+      <span class="rot">O que este assistente ainda não faz</span>
+      <p>Três coisas existem só&nbsp;no&nbsp;Claude, e&nbsp;por&nbsp;isso não&nbsp;viram exercício aqui: parte da&nbsp;sala
+      trabalha em&nbsp;outra ferramenta. Vale conhecer o&nbsp;nome de&nbsp;cada uma.</p>
+      <p>O&nbsp;<strong>conector</strong> liga o&nbsp;assistente ao&nbsp;lugar onde&nbsp;o&nbsp;seu&nbsp;trabalho já&nbsp;mora: a&nbsp;caixa do&nbsp;Gmail, uma&nbsp;pasta no&nbsp;Google Drive, uma&nbsp;planilha no&nbsp;Google Sheets. É ele que&nbsp;alcança os&nbsp;passos que&nbsp;você marcou (EX) na&nbsp;sua&nbsp;tabela, e&nbsp;ele nunca enxerga mais do&nbsp;que&nbsp;a&nbsp;sua&nbsp;própria conta já&nbsp;enxerga.</p>
+      <p>A&nbsp;<strong>tarefa agendada</strong> é o&nbsp;assistente fazendo o&nbsp;combinado num&nbsp;horário, sem&nbsp;você abrir nada: o&nbsp;resumo de&nbsp;sexta, a&nbsp;triagem da&nbsp;caixa de&nbsp;entrada. A&nbsp;regra que&nbsp;vale para&nbsp;ela é uma&nbsp;só:&nbsp;ela prepara, e&nbsp;quem envia é você.</p>
+      <p>A&nbsp;<strong>skill</strong> é um&nbsp;procedimento seu&nbsp;empacotado num&nbsp;arquivo chamado
+      skill.md, que&nbsp;vale em&nbsp;qualquer conversa em&nbsp;vez de&nbsp;morar dentro de&nbsp;um&nbsp;projeto. Serve
+      quando&nbsp;você percebe que&nbsp;copiaria o&nbsp;mesmo pedaço de&nbsp;instrução para&nbsp;vários assistentes.</p>
+      <p>Nenhuma das&nbsp;três substitui o&nbsp;que&nbsp;você montou aqui. As&nbsp;três estendem.</p>
+    </div>
+
+    <div class="cartao">
       <span class="rot">A fronteira desta aula</span>
       <div class="tabela">
         <table>
           <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
-          <tbody><tr><td>o assistente montado, com base escolhida, limpa e provada em quatro perguntas</td><td>tudo isso vale dentro daquele projeto, e só dele: outro processo seu recomeça do zero</td><td>na próxima aula, que tira o procedimento de dentro do projeto e o faz valer em qualquer conversa</td></tr></tbody>
+          <tbody><tr><td>o assistente montado, com base escolhida, limpa e provada em quatro perguntas</td><td>ele vai errar assim mesmo, e o reflexo é reescrever a instrução inteira</td><td>na próxima aula, que corrige um ponto sem mexer no que já funcionava</td></tr></tbody>
         </table>
       </div>
-      <p class="fig-leg">É a&nbsp;diferença entre&nbsp;configurar um&nbsp;lugar e&nbsp;ter uma&nbsp;habilidade: o&nbsp;primeiro você repete por&nbsp;processo, o&nbsp;segundo você escreve uma&nbsp;vez.</p>
+      <p class="fig-leg">Assistente montado não&nbsp;é assistente pronto. O&nbsp;que&nbsp;separa os&nbsp;dois é a&nbsp;primeira semana de&nbsp;uso, e&nbsp;é sobre&nbsp;ela que&nbsp;a&nbsp;próxima aula trata.</p>
     </div>
   </section>
 
   <div class="gancho">
     <p>Você tem um assistente que trabalha no seu processo e consulta o que é seu.
-    <strong>Agora imagine o segundo.</strong> Um processo novo, outro projeto, e você
-    percebendo que vai copiar para lá o mesmo pedaço de procedimento que escreveu aqui. Na
-    quinta vez, existem cinco cópias e nenhuma igual. A próxima aula tira esse pedaço de dentro
-    do projeto e o transforma em uma habilidade que vale em qualquer conversa.</p>
+    <strong>Ele vai errar assim mesmo.</strong> Vai vir formal demais, ou longo demais, ou vai
+    citar um arquivo que não existe. O reflexo é abrir a instrução e reescrever, e uma semana
+    depois ela está com o dobro do tamanho e ninguém sabe mais qual linha faz o quê. A próxima
+    aula corrige um ponto por vez, com uma linha que dá para apagar amanhã.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b4-instrucao/">&larr; Aula 1 · Escreva a instrução que faz o assistente executar o seu processo</a><a href="../b4-skill/">Aula 3 · A habilidade que você não reescreve toda semana &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b4-instrucao/">&larr; Aula 1 · Escreva a instrução que faz o assistente executar o seu processo</a><a href="../b4-refino/">Aula 3 · O assistente errou, e você ajusta sem reescrever &rarr;</a></nav>
 </main>
 
 
