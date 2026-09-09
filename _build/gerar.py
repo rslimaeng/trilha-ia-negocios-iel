@@ -86,6 +86,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b3-redesenho", "b3-processo", "b3-ilha", "b3-ipo",
              "b3-vazamento", "b3-valor",
              "b4-assistentes", "b4-instrucao", "b4-base", "b4-refino", "b4-time",
+             "b4-time-marca",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
              "modulo-2", "modulo-3", "componentes"]
 
@@ -823,6 +824,35 @@ PAGINAS = {
                  ("../modulo-1/", "Módulo 1"),
                  ("../b4-assistentes/", "B4 · Assistentes especializados"),
                  (None, None)],
+    ),
+
+    "b4-time-marca": dict(
+        # 🔴 SEM tipo=, e pela mesma razao da b2-biblioteca: NAO E AULA. Nao tem
+        # situacao, nao tem "a sua vez", nao tem arquivo. E leitura de exemplo,
+        # e o contrato de tipo do G43 cobraria peca que aqui nao existe -- o que
+        # obrigaria a inventar exercicio postico para satisfazer a regua.
+        #
+        # 🔴 FICA FORA DA TRILHA, e isto e medido, nao preferencia. A funcao
+        # trilha() numera por POSICAO: escreve "Aula %d de %d" no cabecalho e
+        # "%02d" em cada item. Rotulo nenhum impede o numero -- entrar na lista
+        # faria dela a aula 5 do B4 e somaria 1 ao total em todas as paginas.
+        # A b2-biblioteca resolveu o mesmo caso do mesmo jeito, em 06/09.
+        # Ela e alcancada pelo card do meio na secao 04 da b4-time.
+        #
+        # A migalha tem o ultimo item ESCRITO: nome_curto() le da TRILHA, e
+        # pagina fora dela precisa dizer o proprio nome.
+        titulo="Exemplo · Time de Marca, quinze papéis que discordam de propósito",
+        kicker="Exemplo do B4 · não é aula do bloco",
+        h1="Time de Marca: quinze papéis que discordam de propósito",
+        sub="Dez autores de branding com escolas incompatíveis, quatro papéis funcionais "
+            "e um diretor que roteia. Um exemplo de outra área, para ver o critério de "
+            "montagem num time maior que o do curso.",
+        selos=["Exemplo de outra área", "Seis tensões declaradas"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b4-assistentes/", "B4 · Assistentes especializados"),
+                 ("../b4-time/", "Aula 4 · O time"),
+                 (None, "Exemplo · Time de Marca")],
     ),
 
     "b3-processo": dict(
