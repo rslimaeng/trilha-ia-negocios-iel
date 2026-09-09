@@ -3378,18 +3378,34 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>Um&nbsp;assistente não&nbsp;é um&nbsp;texto só.&nbsp;São três, e&nbsp;a&nbsp;confusão mais cara do&nbsp;bloco é misturar
     o&nbsp;segundo com&nbsp;o&nbsp;terceiro.</p>
 
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>A parte</th><th>O que ela carrega</th><th>Onde ela mora</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>1 · Papel</strong></td><td>quem ele é, como trabalha, o que nunca faz</td><td>o campo de instruções do projeto</td></tr>
-          <tr><td><strong>2 · Contexto de referência</strong></td><td>modelo, tabela, glossário, regra escrita</td><td>o campo de arquivos do projeto</td></tr>
-          <tr><td><strong>3 · Comando de uso</strong></td><td>a frase curta com o dado da vez</td><td>o chat, toda semana</td></tr>
-        </tbody>
-      </table>
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">01 &middot; Papel</span>
+        <h4>Quem ele é, como trabalha, o&nbsp;que&nbsp;nunca faz</h4>
+        <p>Não&nbsp;muda de&nbsp;uma&nbsp;conversa para&nbsp;a&nbsp;outra.</p>
+        <p><em>"Você é analista comercial responsável por&nbsp;transformar pedido de&nbsp;cliente em&nbsp;proposta enviada."</em></p>
+        <span class="rot">vai no campo de instruções</span>
+      </div>
+      <div class="cartao">
+        <span class="rot">02 &middot; Contexto de referência</span>
+        <h4>O&nbsp;material que&nbsp;ele consulta antes de&nbsp;responder</h4>
+        <p>Modelo, tabela, glossário, regra escrita. Ele abre quando&nbsp;a&nbsp;pergunta pede.</p>
+        <p><em>"B-215 &middot; Perfil de&nbsp;alumínio, 6 m &middot; barra &middot; R$ 246,00
+        &middot; 5 dias úteis"</em></p>
+        <span class="rot">vai no campo de arquivos</span>
+      </div>
+      <div class="cartao">
+        <span class="rot">03 &middot; Comando de uso</span>
+        <h4>A&nbsp;frase curta com&nbsp;o&nbsp;dado da&nbsp;vez</h4>
+        <p>Muda toda semana, e&nbsp;é a&nbsp;única coisa que&nbsp;você continua digitando.</p>
+        <p><em>"Segue o&nbsp;pedido do&nbsp;cliente. Monte a&nbsp;proposta."</em></p>
+        <span class="rot">vai no chat, com o pedido anexado</span>
+      </div>
     </div>
+
+    <p class="fig-leg"><strong>Repare no&nbsp;que&nbsp;muda de&nbsp;card para&nbsp;card: a&nbsp;frequência.</strong> O&nbsp;primeiro você escreve uma&nbsp;vez, o&nbsp;segundo você atualiza quando&nbsp;a&nbsp;tabela mudar, e&nbsp;o&nbsp;terceiro
+    você digita toda semana. <strong>É essa diferença que&nbsp;decide em&nbsp;qual dos&nbsp;três cada coisa
+    entra</strong>, e&nbsp;não&nbsp;a&nbsp;importância dela.</p>
 
     <div class="cartao cartao-cor">
       <span class="rot">A regra que decide, e ela cabe em uma frase</span>
@@ -3450,6 +3466,40 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p class="fig-leg"><strong>As&nbsp;três empatam aqui, e&nbsp;é por&nbsp;isso que&nbsp;este bloco fala de&nbsp;assistente e&nbsp;não&nbsp;de&nbsp;uma&nbsp;marca.</strong> Assistente não&nbsp;é funcionalidade de&nbsp;um&nbsp;produto: é uma&nbsp;forma de&nbsp;guardar contexto, e&nbsp;as&nbsp;três guardam do&nbsp;mesmo jeito. <strong>O&nbsp;que&nbsp;você escrever
     hoje serve nas&nbsp;três</strong>, e&nbsp;continua servindo se&nbsp;a&nbsp;sua&nbsp;empresa trocar de&nbsp;ferramenta no&nbsp;ano que&nbsp;vem.</p>
+
+    <div class="tela solta">
+      <div class="tela-barra">
+        <div class="tela-pontos"><i></i><i></i><i></i></div>
+        <div class="tela-onde">claude &middot; projects</div>
+      </div>
+
+      <div class="tela-nome">
+        <div class="tela-nome-rot">Nome do projeto</div>
+        <span class="tela-nome-v">Orçamento comercial</span>
+      </div>
+
+      <div class="grade grade-2" style="margin:0">
+        <div class="tela-campo">
+          <span class="rot">Campo &middot; instruções</span>
+          <h4>Cole aqui o&nbsp;texto de system-prompt-do-orcamento.md</h4>
+          <p>É o&nbsp;papel: quem ele é, a&nbsp;ordem dos&nbsp;passos, o&nbsp;que&nbsp;fazer quando&nbsp;foge do&nbsp;padrão e&nbsp;onde&nbsp;ele não&nbsp;decide. Não&nbsp;muda de&nbsp;uma&nbsp;semana para&nbsp;a&nbsp;outra.</p>
+        </div>
+        <div class="tela-campo">
+          <span class="rot">Campo &middot; conhecimento</span>
+          <h4>Suba aqui o&nbsp;arquivo contexto-tabela-de-precos.md</h4>
+          <p>É o&nbsp;contexto: a&nbsp;tabela vigente, as&nbsp;regras de&nbsp;desconto e&nbsp;o&nbsp;modelo de&nbsp;proposta. Ele
+          abre quando&nbsp;a&nbsp;pergunta pede, e&nbsp;ignora quando&nbsp;não&nbsp;pede.</p>
+        </div>
+      </div>
+
+      <div class="tela-uso">
+        <div class="tela-uso-rot">quando chegar um pedido &middot; anexa o e-mail e digita:</div>
+        <div class="tela-uso-txt">Segue o pedido do cliente. Monte a proposta.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;desenho é de&nbsp;uma&nbsp;das&nbsp;três, e&nbsp;é o&nbsp;Claude Projects.</strong> No&nbsp;Custom GPT e&nbsp;no&nbsp;Gemini Gem os&nbsp;dois campos existem com&nbsp;outro nome, e&nbsp;a&nbsp;tabela acima diz
+    qual. <strong>O&nbsp;que&nbsp;está desenhado aqui é a&nbsp;forma, não&nbsp;o&nbsp;produto</strong>: dois campos que&nbsp;guardam, e&nbsp;uma&nbsp;frase curta que&nbsp;você digita.</p>
 
     <div class="aviso">
       <div class="aviso-t">E na versão gratuita?</div>

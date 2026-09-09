@@ -143,18 +143,36 @@
     <p>Um assistente não é um texto só. São três, e a confusão mais cara do bloco é misturar
     o segundo com o terceiro.</p>
 
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>A parte</th><th>O que ela carrega</th><th>Onde ela mora</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>1 · Papel</strong></td><td>quem ele é, como trabalha, o que nunca faz</td><td>o campo de instruções do projeto</td></tr>
-          <tr><td><strong>2 · Contexto de referência</strong></td><td>modelo, tabela, glossário, regra escrita</td><td>o campo de arquivos do projeto</td></tr>
-          <tr><td><strong>3 · Comando de uso</strong></td><td>a frase curta com o dado da vez</td><td>o chat, toda semana</td></tr>
-        </tbody>
-      </table>
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">01 &middot; Papel</span>
+        <h4>Quem ele é, como trabalha, o que nunca faz</h4>
+        <p>Não muda de uma conversa para a outra.</p>
+        <p><em>"Você é analista comercial responsável por transformar pedido de cliente em
+        proposta enviada."</em></p>
+        <span class="rot">vai no campo de instruções</span>
+      </div>
+      <div class="cartao">
+        <span class="rot">02 &middot; Contexto de referência</span>
+        <h4>O material que ele consulta antes de responder</h4>
+        <p>Modelo, tabela, glossário, regra escrita. Ele abre quando a pergunta pede.</p>
+        <p><em>"B-215 &middot; Perfil de alumínio, 6 m &middot; barra &middot; R$ 246,00
+        &middot; 5 dias úteis"</em></p>
+        <span class="rot">vai no campo de arquivos</span>
+      </div>
+      <div class="cartao">
+        <span class="rot">03 &middot; Comando de uso</span>
+        <h4>A frase curta com o dado da vez</h4>
+        <p>Muda toda semana, e é a única coisa que você continua digitando.</p>
+        <p><em>"Segue o pedido do cliente. Monte a proposta."</em></p>
+        <span class="rot">vai no chat, com o pedido anexado</span>
+      </div>
     </div>
+
+    <p class="fig-leg"><strong>Repare no que muda de card para card: a frequência.</strong> O
+    primeiro você escreve uma vez, o segundo você atualiza quando a tabela mudar, e o terceiro
+    você digita toda semana. <strong>É essa diferença que decide em qual dos três cada coisa
+    entra</strong>, e não a importância dela.</p>
 
     <div class="cartao cartao-cor">
       <span class="rot">A regra que decide, e ela cabe em uma frase</span>
@@ -225,6 +243,43 @@
     forma de guardar contexto, e as três guardam do mesmo jeito. <strong>O que você escrever
     hoje serve nas três</strong>, e continua servindo se a sua empresa trocar de ferramenta no
     ano que vem.</p>
+
+    <div class="tela solta">
+      <div class="tela-barra">
+        <div class="tela-pontos"><i></i><i></i><i></i></div>
+        <div class="tela-onde">claude &middot; projects</div>
+      </div>
+
+      <div class="tela-nome">
+        <div class="tela-nome-rot">Nome do projeto</div>
+        <span class="tela-nome-v">Orçamento comercial</span>
+      </div>
+
+      <div class="grade grade-2" style="margin:0">
+        <div class="tela-campo">
+          <span class="rot">Campo &middot; instruções</span>
+          <h4>Cole aqui o texto de system-prompt-do-orcamento.md</h4>
+          <p>É o papel: quem ele é, a ordem dos passos, o que fazer quando foge do padrão e
+          onde ele não decide. Não muda de uma semana para a outra.</p>
+        </div>
+        <div class="tela-campo">
+          <span class="rot">Campo &middot; conhecimento</span>
+          <h4>Suba aqui o arquivo contexto-tabela-de-precos.md</h4>
+          <p>É o contexto: a tabela vigente, as regras de desconto e o modelo de proposta. Ele
+          abre quando a pergunta pede, e ignora quando não pede.</p>
+        </div>
+      </div>
+
+      <div class="tela-uso">
+        <div class="tela-uso-rot">quando chegar um pedido &middot; anexa o e-mail e digita:</div>
+        <div class="tela-uso-txt">Segue o pedido do cliente. Monte a proposta.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O desenho é de uma das três, e é o Claude Projects.</strong> No
+    Custom GPT e no Gemini Gem os dois campos existem com outro nome, e a tabela acima diz
+    qual. <strong>O que está desenhado aqui é a forma, não o produto</strong>: dois campos que
+    guardam, e uma frase curta que você digita.</p>
 
     <div class="aviso">
       <div class="aviso-t">E na versão gratuita?</div>
