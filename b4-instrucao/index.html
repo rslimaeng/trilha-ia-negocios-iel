@@ -437,6 +437,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .duo > .cartao,
 [style*="display:grid"] > .cartao{margin:0}
 .cartao h4{font-size:17px;margin-bottom:8px}
+
+/* O numero grande do card, na forma do .secao-n. Nasceu em 09/09 para a
+   b4-instrucao: o rotulo .rot de 11px nao dava a hierarquia que a anatomia
+   das tres partes precisa, porque o numero E a leitura. */
+.cartao-n{
+  font-family:var(--font-mono);font-size:30px;font-weight:500;
+  color:var(--accent);line-height:1;margin-bottom:12px;
+}
+/* O pe do card, separado por fio. Mesma medida do .rot, mais a divisoria. */
+.cartao-pe{
+  display:block;font-family:var(--font-mono);font-size:11px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);
+  margin-top:12px;padding-top:12px;border-top:1px solid var(--border);
+}
 .cartao p:last-child{margin-bottom:0}
 .grade{display:grid;gap:16px;margin:22px 0}
 .grade-2{grid-template-columns:repeat(2,1fr)}
@@ -3378,28 +3392,31 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>Um&nbsp;assistente não&nbsp;é um&nbsp;texto só.&nbsp;São três, e&nbsp;a&nbsp;confusão mais cara do&nbsp;bloco é misturar
     o&nbsp;segundo com&nbsp;o&nbsp;terceiro.</p>
 
-    <div class="grade grade-3">
+    <div class="grade grade-3 solta">
       <div class="cartao">
-        <span class="rot">01 &middot; Papel</span>
-        <h4>Quem ele é, como trabalha, o&nbsp;que&nbsp;nunca faz</h4>
+        <div class="cartao-n">01</div>
+        <h4>Papel</h4>
+        <p>Quem ele é, como trabalha, o&nbsp;que&nbsp;nunca faz.</p>
         <p>Não&nbsp;muda de&nbsp;uma&nbsp;conversa para&nbsp;a&nbsp;outra.</p>
-        <p><em>"Você é analista comercial responsável por&nbsp;transformar pedido de&nbsp;cliente em&nbsp;proposta enviada."</em></p>
-        <span class="rot">vai no campo de instruções</span>
+        <p><em>Exemplo:</em> "Você é analista comercial responsável por&nbsp;transformar pedido de&nbsp;cliente em&nbsp;proposta enviada."</p>
+        <span class="cartao-pe">vai no campo de instruções</span>
       </div>
       <div class="cartao">
-        <span class="rot">02 &middot; Contexto de referência</span>
-        <h4>O&nbsp;material que&nbsp;ele consulta antes de&nbsp;responder</h4>
+        <div class="cartao-n">02</div>
+        <h4>Contexto de&nbsp;referência</h4>
+        <p>O&nbsp;material que&nbsp;ele consulta antes de&nbsp;responder.</p>
         <p>Modelo, tabela, glossário, regra escrita. Ele abre quando&nbsp;a&nbsp;pergunta pede.</p>
-        <p><em>"B-215 &middot; Perfil de&nbsp;alumínio, 6 m &middot; barra &middot; R$ 246,00
-        &middot; 5 dias úteis"</em></p>
-        <span class="rot">vai no campo de arquivos</span>
+        <p><em>Exemplo:</em> "B-215 &middot; Perfil de&nbsp;alumínio, 6 m &middot; barra &middot;
+        R$ 246,00 &middot; 5 dias úteis"</p>
+        <span class="cartao-pe">vai no campo de arquivos</span>
       </div>
       <div class="cartao">
-        <span class="rot">03 &middot; Comando de uso</span>
-        <h4>A&nbsp;frase curta com&nbsp;o&nbsp;dado da&nbsp;vez</h4>
+        <div class="cartao-n">03</div>
+        <h4>Comando de&nbsp;uso</h4>
+        <p>A&nbsp;frase curta com&nbsp;o&nbsp;dado da&nbsp;vez.</p>
         <p>Muda toda semana, e&nbsp;é a&nbsp;única coisa que&nbsp;você continua digitando.</p>
-        <p><em>"Segue o&nbsp;pedido do&nbsp;cliente. Monte a&nbsp;proposta."</em></p>
-        <span class="rot">vai no chat, com o pedido anexado</span>
+        <p><em>Exemplo:</em> "Segue o&nbsp;pedido do&nbsp;cliente. Monte a&nbsp;proposta."</p>
+        <span class="cartao-pe">vai no chat, com o pedido anexado</span>
       </div>
     </div>
 
