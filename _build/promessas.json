@@ -35,5 +35,69 @@
       "index.html"
     ],
     "fonte": "calibracao do G51, nao e promessa de ementa"
-  }
+  },
+  "IPO no B4": {
+    "termo": "IPO",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: IPO -> Instrucao de Sistema"
+  },
+  "system prompt no B4": {
+    "termo": "system prompt",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — entregavel 1: IPO + system prompt + base de conhecimento"
+  },
+  "Claude Projects no B4": {
+    "termo": "Claude Projects",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: Claude Projects"
+  },
+  "skill.md no B4": {
+    "termo": "skill.md",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — entregavel 2: 1 Skill criada para tarefa recorrente"
+  },
+  "conector no B4": {
+    "termo": "conector",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — entregavel 3: 1 Connector ativo"
+  },
+  "tarefa agendada no B4": {
+    "termo": "tarefa agendada",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: Tarefas agendadas"
+  },
+  "Gmail no B4": {
+    "termo": "Gmail",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: Cowork . Gmail"
+  },
+  "Google Drive no B4": {
+    "termo": "Google Drive",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: Cowork . Drive/Docs"
+  },
+  "Google Sheets no B4": {
+    "termo": "Google Sheets",
+    "blocos": [
+      "b4-"
+    ],
+    "fonte": "ementa M6 — componente declarado: Cowork . Sheets"
+  },
+  "_pendente-B4-niveis": "Os 5 Niveis do Claude (Enthusiast -> Architect) sao o unico componente do M6 que o bloco NAO entrega, e a decisao e do Rafael. Tres medidas sustentam a ausencia: o termo nao existe em fonte nenhuma do acervo (as paginas n1 a n5 do curso de Claude congelado tratam de outra coisa), a trilha ja tem uma escala de posicionamento em a1-degrau (os SETE niveis), e escrever cheat code sem fonte seria inventar. Quando ele decidir, a promessa entra aqui em uma linha."
 }

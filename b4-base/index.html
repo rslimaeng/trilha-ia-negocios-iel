@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Banco de Desafios · material pronto para praticar</title>
+<title>Aula 2 · Dê ao assistente o que só você sabe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3230,285 +3230,462 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Banco de Desafios</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b4-assistentes/">B4 · Assistentes especializados</a> &rsaquo; 2 · Dê a ele o que só você sabe</nav>
 
 
-<main class="folha ">
+<main class="folha aula-pratica" data-arquivo="sim">
   <div class="heroi">
-    <div class="heroi-kicker">Vale para o curso inteiro</div>
-    <h1>Banco de&nbsp;Desafios</h1>
-    <p class="heroi-sub">Se&nbsp;você não&nbsp;trouxe uma&nbsp;rotina sua&nbsp;para&nbsp;a&nbsp;aula de&nbsp;hoje, escolha um&nbsp;destes e&nbsp;rode agora: o&nbsp;arquivo e&nbsp;o&nbsp;pedido já&nbsp;vêm prontos.</p>
-    <div><span class="selo">Oito desafios</span><span class="selo">Insumo e pedido prontos</span></div>
+    <div class="heroi-kicker">Módulo 1 · B4 · Assistentes especializados</div>
+    <h1>Dê ao&nbsp;assistente o&nbsp;que&nbsp;só&nbsp;você sabe</h1>
+    <p class="heroi-sub">Três perguntas escolhem os&nbsp;arquivos que&nbsp;ele consulta, e&nbsp;quatro provam se&nbsp;ele passou a&nbsp;consultar em&nbsp;vez de&nbsp;completar com&nbsp;o&nbsp;que&nbsp;é plausível.</p>
+    <div><span class="selo">Use a coluna Recursos</span><span class="selo">Arquivo de exemplo</span></div>
   </div>
 
-  <section class="secao" id="para-que-serve">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Escolher os&nbsp;arquivos que&nbsp;o&nbsp;assistente consulta, com&nbsp;um&nbsp;filtro de&nbsp;três perguntas</li>
+      <li>Provar, com&nbsp;quatro perguntas, se&nbsp;ele passou a&nbsp;consultar em&nbsp;vez de&nbsp;inventar</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">Para que este banco existe</div>
-        <h2>Se&nbsp;você não&nbsp;trouxe um&nbsp;trabalho seu,&nbsp;escolhe um&nbsp;daqui e&nbsp;roda agora</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>O&nbsp;que&nbsp;falta na&nbsp;base ele completa sozinho</h2>
       </div>
     </div>
 
-    <p>As&nbsp;aulas pedem que&nbsp;você traga uma&nbsp;rotina sua,&nbsp;e&nbsp;é assim que&nbsp;elas rendem mais: o&nbsp;exercício vale quando&nbsp;o&nbsp;resultado serve para&nbsp;alguma coisa na&nbsp;segunda-feira. Só&nbsp;que&nbsp;nem sempre dá tempo de&nbsp;separar o&nbsp;material antes da&nbsp;aula, e&nbsp;a&nbsp;turma online quase
-    sempre tem alguém nessa situação.</p>
-
-    <p><strong>Este banco é a&nbsp;saída para&nbsp;essa hora.</strong> Cada desafio traz o&nbsp;insumo
-    pronto para&nbsp;baixar e&nbsp;o&nbsp;pedido pronto para&nbsp;colar. Você abre, roda, e&nbsp;sai da&nbsp;aula com&nbsp;um&nbsp;resultado na&nbsp;mão: o&nbsp;mesmo tipo de&nbsp;resultado que&nbsp;você produziria com&nbsp;material
-    seu,&nbsp;só&nbsp;que&nbsp;sem&nbsp;depender de&nbsp;tê-lo separado antes.</p>
-
-    <div class="cartao">
-      <span class="rot">Não há nível, e é decisão de projeto</span>
-      <p>Nenhum desafio aqui é marcado como básico, médio ou&nbsp;avançado. <strong>O&nbsp;que&nbsp;é
-      simples para&nbsp;quem mexe com&nbsp;planilha todo dia é difícil para&nbsp;quem nunca abriu uma&nbsp;aba de&nbsp;dinâmica</strong>, e&nbsp;o&nbsp;contrário também vale. Escolha pelo&nbsp;que&nbsp;se&nbsp;parece com&nbsp;o&nbsp;seu&nbsp;trabalho, não&nbsp;pela&nbsp;ordem em&nbsp;que&nbsp;estão.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;<strong>o&nbsp;assistente preenche com&nbsp;o&nbsp;que&nbsp;é plausível tudo o&nbsp;que&nbsp;você não&nbsp;deu a&nbsp;ele</strong>, e&nbsp;que&nbsp;essa resposta chega com&nbsp;a&nbsp;mesma cara da&nbsp;certa.</p>
     </div>
 
-    <div class="cartao">
-      <span class="rot">Antes de escolher: nem toda IA devolve o artefato</span>
-      <p>Três desses desafios pedem uma&nbsp;<strong>página pronta</strong> como resultado (um&nbsp;parecer, um&nbsp;painel, um&nbsp;plano). <strong>Claude e&nbsp;Gemini montam essa página; o&nbsp;DeepSeek
-      responde em&nbsp;texto.</strong> Se&nbsp;você está sem&nbsp;plano pago, escolha ler o&nbsp;resultado em&nbsp;texto: o&nbsp;raciocínio é o&nbsp;mesmo, e&nbsp;o&nbsp;que&nbsp;muda é só&nbsp;a&nbsp;embalagem. O&nbsp;que&nbsp;<em>não</em>&nbsp;muda é a&nbsp;conferência: o&nbsp;número que&nbsp;sair de&nbsp;lá continua sendo seu&nbsp;para&nbsp;checar.</p>
-    </div>
+    <p>Cole a&nbsp;instrução da&nbsp;aula 1 num&nbsp;chat e&nbsp;peça a&nbsp;proposta. Volta um&nbsp;texto na&nbsp;ordem certa, com&nbsp;os&nbsp;seus&nbsp;blocos no&nbsp;lugar, e&nbsp;com&nbsp;preços que&nbsp;não&nbsp;existem em&nbsp;lugar nenhum.</p>
   </section>
 
-  <section class="secao" id="os-desafios">
+  <section class="secao" id="conceito">
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O que tem aqui</div>
-        <h2>Oito desafios, e&nbsp;cada um&nbsp;começa com&nbsp;um&nbsp;arquivo e&nbsp;termina com&nbsp;uma&nbsp;entrega</h2>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Base de&nbsp;conhecimento é o&nbsp;que&nbsp;ele consulta, não&nbsp;o&nbsp;que&nbsp;ele guarda</h2>
       </div>
     </div>
 
-    <p>O&nbsp;título de&nbsp;cada um&nbsp;diz o&nbsp;caminho inteiro: <strong>o&nbsp;que&nbsp;entra</strong> de&nbsp;um&nbsp;lado,
-    <strong>o&nbsp;que&nbsp;sai</strong> do&nbsp;outro. Os&nbsp;três primeiros já&nbsp;abrem. Os&nbsp;outros entram
-    conforme&nbsp;o&nbsp;curso avança, e&nbsp;dois deles só&nbsp;fazem sentido depois dos&nbsp;módulos que&nbsp;ainda
-    vêm.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Ele procura um&nbsp;pedaço, não&nbsp;lê o&nbsp;arquivo inteiro, e&nbsp;o&nbsp;que&nbsp;não&nbsp;está lá ele completa</h3>
 
-    <div class="aulas-lista solta">
+      <div class="contraste">
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Tudo o&nbsp;que&nbsp;a&nbsp;sua&nbsp;área tem em&nbsp;pasta</h4>
+          <p>Quanto mais arquivo, maior a&nbsp;chance de&nbsp;ele achar o&nbsp;pedaço errado e&nbsp;responder com&nbsp;convicção.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Um&nbsp;arquivo subido por&nbsp;garantia</h4>
+          <p>Se&nbsp;você não&nbsp;consegue dizer em&nbsp;uma&nbsp;frase por&nbsp;que&nbsp;ele está lá, ele está atrapalhando.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>A&nbsp;sua&nbsp;coluna Recursos, virada arquivo</h4>
+          <p>É o&nbsp;que&nbsp;precisa estar em&nbsp;mãos antes de&nbsp;o&nbsp;processo começar, e&nbsp;você já&nbsp;listou na&nbsp;aula 3.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>O&nbsp;lugar onde&nbsp;ele vai olhar antes de&nbsp;responder</h4>
+          <p>E&nbsp;de&nbsp;onde&nbsp;ele cita, para&nbsp;você conferir sem&nbsp;reler o&nbsp;documento inteiro.</p></div>
+      </div>
+      <p class="fig-leg"><strong>As&nbsp;duas colunas medem coisas opostas: quantidade e&nbsp;utilidade.</strong> Base grande parece cuidado e&nbsp;produz o&nbsp;defeito mais caro do&nbsp;bloco, que&nbsp;é a&nbsp;resposta certa vinda do&nbsp;arquivo errado. Ninguém percebe, porque&nbsp;ela também tem a&nbsp;cara certa.</p>
 
-      <a class="aula-card ready" href="../desafio-parecer/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 1</span>
-          <span class="chip chip-ementa">Planilha</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">600 linhas de planilha → parecer executivo para o comitê</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Baixa a&nbsp;base de&nbsp;20 lojas em&nbsp;30 dias e&nbsp;cola o&nbsp;pedido pronto</li>
-              <li>Confere na&nbsp;planilha os&nbsp;números que&nbsp;voltarem antes de&nbsp;acreditar neles</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Um&nbsp;parecer com&nbsp;os&nbsp;achados que&nbsp;decidem, o&nbsp;ranking das&nbsp;lojas e&nbsp;uma&nbsp;recomendação.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É o desafio mais perto do B2: análise que vira decisão.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
+      <div class="analogia">
+        <div class="analogia-rot">É como a mochila de quem vai fazer uma prova com consulta</div>
+        <p>Você pode levar material, e&nbsp;a&nbsp;prova continua sendo sua.&nbsp;Quem leva a&nbsp;matéria inteira
+        em&nbsp;fotocópia perde metade do&nbsp;tempo procurando; quem leva duas folhas com&nbsp;o&nbsp;que&nbsp;cai,
+        acha em&nbsp;segundos. <strong>E&nbsp;a&nbsp;questão que&nbsp;não&nbsp;estava na&nbsp;mochila você responde de&nbsp;cabeça, achando que&nbsp;lembrou.</strong> É exatamente aí que&nbsp;se&nbsp;chuta.</p>
+        <ul class="analogia-mapa">
+          <li><strong>As&nbsp;duas folhas de&nbsp;resumo</strong> são os&nbsp;arquivos da&nbsp;sua&nbsp;coluna Recursos,
+          escolhidos e&nbsp;limpos</li>
+          <li><strong>A&nbsp;matéria inteira em&nbsp;fotocópia</strong> é a&nbsp;pasta do&nbsp;setor subida
+          inteira, em&nbsp;que&nbsp;ele acha o&nbsp;pedaço errado</li>
+          <li><strong>Os&nbsp;títulos do&nbsp;seu&nbsp;resumo</strong> são as&nbsp;seções do&nbsp;arquivo, e&nbsp;são elas
+          que&nbsp;fazem ele achar rápido</li>
+          <li><strong>A&nbsp;questão que&nbsp;não&nbsp;estava na&nbsp;mochila</strong> é a&nbsp;pergunta sem&nbsp;resposta na&nbsp;base, e&nbsp;é a&nbsp;única que&nbsp;interessa testar</li>
+        </ul>
+        <p class="analogia-mais">O&nbsp;mesmo arranjo existe no&nbsp;manual que&nbsp;fica no&nbsp;porta-luvas, na&nbsp;ficha que&nbsp;acompanha o&nbsp;paciente, e&nbsp;no&nbsp;caderno que&nbsp;o&nbsp;técnico leva para&nbsp;a&nbsp;visita.
+        <strong>Sempre que&nbsp;alguém precisa acertar sem&nbsp;decorar, existe um&nbsp;resumo escolhido</strong>,
+        e&nbsp;o&nbsp;trabalho é escolher.</p>
+      </div>
 
-      <a class="aula-card ready" href="../desafio-avaliacoes/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 2</span>
-          <span class="chip chip-ementa">Texto solto</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">150 avaliações de clientes → painel para a reunião de segunda</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Entrega 150 textos soltos e&nbsp;pede o&nbsp;padrão que&nbsp;se&nbsp;repete entre&nbsp;eles</li>
-              <li>Separa o&nbsp;que&nbsp;é problema da&nbsp;rede inteira do&nbsp;que&nbsp;é problema de&nbsp;uma&nbsp;loja</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Os&nbsp;temas com&nbsp;a&nbsp;frequência de&nbsp;cada um,&nbsp;o&nbsp;cruzamento loja por&nbsp;tema e&nbsp;três ações.</p>
-          </div>
-        </div>
-        <div class="aula-hook">Análise de texto, que nenhuma aula do B2 cobre.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <a class="aula-card ready" href="../desafio-plano/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 3</span>
-          <span class="chip chip-ementa">Documento</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">1 transcrição de reunião → plano de 30 dias com dono e prazo</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Passa uma&nbsp;conversa de&nbsp;time sem&nbsp;pauta e&nbsp;pede prioridade, não&nbsp;resumo</li>
-              <li>Separa o&nbsp;que&nbsp;se&nbsp;resolve esta semana do&nbsp;que&nbsp;precisa de&nbsp;decisão de&nbsp;cima</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>As&nbsp;dores catalogadas por&nbsp;urgência, o&nbsp;plano de&nbsp;quatro semanas e&nbsp;o&nbsp;que&nbsp;subir.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É o mesmo destino da aula 7 do B2, por outro caminho.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <a class="aula-card ready" href="../desafio-satisfacao/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 4</span>
-          <span class="rec">Pesquisa com 1.000 respostas</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">1.000 respostas de pesquisa → diagnóstico com dono</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você recebe</div>
-            <p>Uma&nbsp;pesquisa de&nbsp;satisfação com&nbsp;1.000 respostas e&nbsp;22 colunas: quinze
-            dimensões avaliadas, seis campos de&nbsp;perfil e&nbsp;um&nbsp;campo de&nbsp;comentário livre.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você entrega</div>
-            <p>O&nbsp;diagnóstico que&nbsp;diz qual grupo concentra o&nbsp;problema e&nbsp;qual dimensão
-            atacar primeiro, com&nbsp;cada número conferível na&nbsp;base.</p>
-          </div>
-        </div>
-        <div class="aula-hook">A média é 5,90, e nenhum grupo relevante vive perto dela.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 5</span>
-          <span class="chip chip-ementa">Documento</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Um briefing de uma página → o mesmo aviso em três canais</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Pede a&nbsp;mesma mensagem em&nbsp;três formatos, sem&nbsp;reescrever três vezes</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;comunicado formal, a&nbsp;versão curta de&nbsp;aplicativo e&nbsp;o&nbsp;texto do&nbsp;quadro.</p>
-          </div>
-        </div>
-        <div class="aula-hook">O mesmo conteúdo muda de forma conforme quem lê.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 6</span>
-          <span class="chip chip-ementa">Planilha</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Oito números de uma unidade → diagnóstico com plano</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Vê como poucos números bem escolhidos rendem mais que&nbsp;uma&nbsp;base enorme</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;parecer de&nbsp;uma&nbsp;unidade, com&nbsp;as&nbsp;três alavancas e&nbsp;o&nbsp;prazo de&nbsp;cada uma.</p>
-          </div>
-        </div>
-        <div class="aula-hook">O contrário do desafio 1: pouco dado, mesma exigência.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 7</span>
-          <span class="chip chip-ementa">Módulo 2</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Uma rotina sua → a automação desenhada para montar</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Sai do&nbsp;desenho no&nbsp;papel para&nbsp;o&nbsp;fluxo que&nbsp;roda sozinho</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;passo a&nbsp;passo do&nbsp;fluxo, pronto para&nbsp;montar na&nbsp;ferramenta.</p>
-          </div>
-        </div>
-        <div class="aula-hook">Este espera o módulo 2 começar.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 8</span>
-          <span class="chip chip-ementa">B4</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Um processo seu → o assistente que responde por ele</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Usa o&nbsp;processo aberto no&nbsp;B3 como a&nbsp;instrução de&nbsp;um&nbsp;assistente</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Um&nbsp;assistente que&nbsp;já&nbsp;sabe o&nbsp;seu&nbsp;processo antes da&nbsp;primeira pergunta.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É onde o bloco 3 e o bloco 4 se encontram.</div>
-        </div>
-
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">O teste que vale mais que os outros três</div>
+        <p><strong>Pergunte a&nbsp;ele alguma coisa que&nbsp;você sabe que&nbsp;não&nbsp;está em&nbsp;nenhum
+        arquivo.</strong> Se&nbsp;ele responder com&nbsp;segurança, a&nbsp;base está montada errada, e&nbsp;o&nbsp;problema não&nbsp;é o&nbsp;que&nbsp;falta: é ele não&nbsp;saber que&nbsp;falta.</p>
+      </div>
     </div>
+
+    <p>Faltam as&nbsp;duas ferramentas: o&nbsp;filtro que&nbsp;decide o&nbsp;que&nbsp;sobe, e&nbsp;a&nbsp;bateria de&nbsp;quatro
+    perguntas que&nbsp;prova se&nbsp;funcionou.</p>
   </section>
 
   <section class="secao" id="como-funciona">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
-        <div class="secao-fn">O mesmo caminho em todos</div>
-        <h2>Cinco passos, e&nbsp;o&nbsp;terceiro é o&nbsp;que&nbsp;a&nbsp;maioria pula</h2>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Três perguntas para&nbsp;escolher, quatro para&nbsp;provar</h2>
       </div>
     </div>
 
-    <p>Todo desafio abre com&nbsp;a&nbsp;mesma sequência, e&nbsp;ela é curta de&nbsp;propósito. O&nbsp;que&nbsp;separa
-    um&nbsp;resultado que&nbsp;serve de&nbsp;um&nbsp;que&nbsp;impressiona e&nbsp;não&nbsp;decide nada está no&nbsp;passo 3.</p>
+    <p>O&nbsp;filtro abaixo é de&nbsp;<strong>Adriano Couto</strong>, no&nbsp;material de&nbsp;agentes
+    departamentais, e&nbsp;ele se&nbsp;aplica a&nbsp;cada arquivo, um&nbsp;por&nbsp;vez.
+    <strong>Só&nbsp;sobe o&nbsp;que&nbsp;responder sim às&nbsp;três.</strong></p>
 
-    <ul class="lista">
-      <li><strong>Entenda a&nbsp;tarefa.</strong> Quem faz isso na&nbsp;vida real, e&nbsp;o&nbsp;que&nbsp;custa
-      hoje fazer na&nbsp;mão.</li>
-      <li><strong>Veja o&nbsp;contexto que&nbsp;a&nbsp;IA precisa.</strong> A&nbsp;mesma pergunta sem&nbsp;contexto
-      volta genérica; a&nbsp;página mostra o&nbsp;que&nbsp;foi dito e&nbsp;por&nbsp;quê.</li>
-      <li><strong>Baixe o&nbsp;insumo e&nbsp;abra antes de&nbsp;colar.</strong> Trinta segundos olhando o&nbsp;arquivo é o&nbsp;que&nbsp;permite desconfiar do&nbsp;resultado depois. Quem pula esse passo aceita
-      qualquer número que&nbsp;voltar.</li>
-      <li><strong>Cole o&nbsp;pedido.</strong> Ele já&nbsp;vem escrito no&nbsp;formato que&nbsp;o&nbsp;bloco 1
-      ensinou, com&nbsp;o&nbsp;parágrafo de&nbsp;restrição e&nbsp;o&nbsp;de&nbsp;dúvida.</li>
-      <li><strong>Confira o&nbsp;que&nbsp;voltou.</strong> Cada desafio termina dizendo o&nbsp;que&nbsp;conferir na&nbsp;fonte, e&nbsp;é essa conferência que&nbsp;transforma saída bonita em&nbsp;decisão.</li>
-    </ul>
+    <div class="grade">
+      <div class="cartao">
+        <span class="rot">P &middot; Preciso?</span>
+        <h4>Ele trata de&nbsp;uma&nbsp;etapa do&nbsp;seu&nbsp;processo?</h4>
+        <p>Se&nbsp;você não&nbsp;consegue apontar em&nbsp;qual passo da&nbsp;sua&nbsp;tabela esse arquivo é consultado,
+        ele não&nbsp;é preciso: é adjacente.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">S &middot; Suficiente?</span>
+        <h4>Sozinho, ele entrega a&nbsp;informação completa?</h4>
+        <p>Arquivo que&nbsp;só&nbsp;faz sentido junto com&nbsp;outro que&nbsp;você não&nbsp;vai subir devolve meia
+        resposta, e&nbsp;meia resposta parece inteira.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">N &middot; Necessário?</span>
+        <h4>Sem&nbsp;ele, a&nbsp;resposta sai errada?</h4>
+        <p>Se&nbsp;sem&nbsp;o&nbsp;arquivo a&nbsp;resposta continua certa, ele não&nbsp;está ajudando: está ocupando
+        lugar e&nbsp;criando chance de&nbsp;confusão.</p>
+      </div>
+    </div>
 
-    <div class="cartao">
-      <span class="rot">Os dados são inventados, e isso é a favor</span>
-      <p>Empresa, praças, pessoas e&nbsp;valores foram criados para&nbsp;o&nbsp;treinamento. <strong>Nada
-      aqui veio de&nbsp;cliente nenhum</strong>, e&nbsp;nenhum arquivo seu&nbsp;precisa subir para&nbsp;você
-      treinar. Quando&nbsp;levar isso para&nbsp;a&nbsp;sua&nbsp;rotina, a&nbsp;regra que&nbsp;o&nbsp;bloco 1 deu continua
-      valendo: <strong>o&nbsp;que&nbsp;você não&nbsp;publicaria, você não&nbsp;cola.</strong></p>
+    <p class="fig-leg"><strong>A&nbsp;terceira pergunta é a&nbsp;que&nbsp;corta.</strong> As&nbsp;duas primeiras
+    quase todo arquivo passa, porque&nbsp;a&nbsp;gente sobe justamente o&nbsp;que&nbsp;é do&nbsp;assunto. A&nbsp;terceira
+    obriga você a&nbsp;imaginar a&nbsp;resposta sem&nbsp;aquele arquivo, e&nbsp;é aí que&nbsp;metade da&nbsp;pasta cai.</p>
+
+    <h3>O&nbsp;que&nbsp;nunca entra, e&nbsp;a&nbsp;razão de&nbsp;cada um</h3>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Não entra</th><th>Por quê</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>E-mail antigo</strong></td><td>carrega decisão que já foi revista, e ele não tem como saber que ela caducou</td></tr>
+          <tr><td><strong>Apresentação longa</strong></td><td>é feita para alguém falar por cima; sozinha, ela é título sem conteúdo</td></tr>
+          <tr><td><strong>Documento genérico</strong></td><td>modelo de mercado, guia baixado, norma geral: ele já sabe isso, e você não ganha nada</td></tr>
+          <tr><td><strong>Arquivo por garantia</strong></td><td>é o que você não consegue explicar por que subiu, e é sempre o que ele cita na hora errada</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Antes de&nbsp;subir, o&nbsp;arquivo passa por&nbsp;uma&nbsp;limpeza</h3>
+
+    <p>Ele não&nbsp;lê o&nbsp;documento inteiro para&nbsp;responder: <strong>ele procura o&nbsp;trecho.</strong> Um&nbsp;arquivo com&nbsp;um&nbsp;assunto por&nbsp;seção e&nbsp;um&nbsp;título em&nbsp;cada seção entrega o&nbsp;trecho certo; um&nbsp;arquivo com&nbsp;tudo misturado num&nbsp;bloco entrega um&nbsp;pedaço que&nbsp;fala de&nbsp;três coisas.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Tire</th><th>Ponha no lugar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>capa, logotipo, página em branco</td><td>nada. Elas não carregam informação e ocupam espaço</td></tr>
+          <tr><td>índice com número de página</td><td>uma lista do que o documento contém, dizendo o assunto de cada parte</td></tr>
+          <tr><td>rodapé repetido em toda página</td><td>nada. Repetição atrapalha a busca pelo trecho</td></tr>
+          <tr><td>seção longa com vários assuntos</td><td>uma seção por assunto, com título, entre 80 e 250 palavras</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;última linha é a&nbsp;que&nbsp;mais muda o&nbsp;resultado</strong>, e&nbsp;é a&nbsp;mais fácil de&nbsp;conferir: leia cada seção do&nbsp;seu&nbsp;arquivo e&nbsp;tente dizer o&nbsp;assunto dela em&nbsp;cinco palavras. Se&nbsp;não&nbsp;der, ela tem mais de&nbsp;um&nbsp;assunto dentro.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Quantos arquivos cabem, e por que este curso não escreve o número</div>
+      <p>Adriano Couto recomenda de&nbsp;<strong>5 a&nbsp;15 arquivos</strong>, e&nbsp;mediu isso no&nbsp;construtor de&nbsp;GPT da&nbsp;OpenAI. <strong>O&nbsp;limite do&nbsp;Claude não&nbsp;foi conferido na&nbsp;fonte dele
+      para&nbsp;este material, e&nbsp;por&nbsp;isso não&nbsp;está escrito aqui.</strong> O&nbsp;número que&nbsp;decide a&nbsp;sua&nbsp;base não&nbsp;é o&nbsp;teto da&nbsp;ferramenta: é você conseguir dizer, em&nbsp;uma&nbsp;frase, por&nbsp;que&nbsp;cada
+      arquivo está lá.</p>
+    </div>
+
+    <h3>E&nbsp;os&nbsp;quatro testes que&nbsp;provam que&nbsp;ela funciona</h3>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O teste</th><th>O que você pergunta</th><th>Se falhar, o que está errado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1 · Consulta direta</strong></td><td>um dado que está no arquivo, com todas as letras</td><td>o arquivo não subiu, ou subiu num formato que ele não abre</td></tr>
+          <tr><td><strong>2 · Informação específica</strong></td><td>uma regra que exige juntar duas partes do arquivo</td><td>o documento está mal estruturado, e o trecho certo não se acha</td></tr>
+          <tr><td><strong>3 · Situação não prevista</strong></td><td>algo que você sabe que não está lá</td><td><strong>ele está inventando</strong>, e este é o único teste que importa</td></tr>
+          <tr><td><strong>4 · Citação de fonte</strong></td><td>de onde veio a informação que ele acabou de dar</td><td>ele está respondendo de memória geral, não do seu arquivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Os&nbsp;três primeiros quase sempre passam, e&nbsp;é por&nbsp;isso que&nbsp;eles
+    enganam.</strong> A&nbsp;bateria inteira existe por&nbsp;causa do&nbsp;terceiro: um&nbsp;assistente que&nbsp;responde "não&nbsp;localizado" quando&nbsp;não&nbsp;sabe é utilizável; um&nbsp;que&nbsp;responde bonito sobre&nbsp;o&nbsp;que&nbsp;não&nbsp;tem é pior que&nbsp;nenhum, porque&nbsp;você para&nbsp;de&nbsp;conferir.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Isto não é a mesma coisa da aula 3 do bloco 2</div>
+      <p>Lá, em&nbsp;<a href="../b2-base/">responder pelos seus&nbsp;documentos</a>, a&nbsp;base servia para&nbsp;você <strong>ler</strong>: uma&nbsp;pergunta, uma&nbsp;resposta com&nbsp;a&nbsp;citação para&nbsp;conferir.
+      <strong>Aqui ela serve para&nbsp;ele executar</strong>, toda semana, dentro de&nbsp;um&nbsp;processo
+      que&nbsp;já&nbsp;está escrito. A&nbsp;ferramenta se&nbsp;parece; a&nbsp;pergunta é outra.</p>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../b4-alcance/">&larr; Aula 4 · O assistente que alcança onde o seu trabalho mora</a><a href="../desafio-parecer/">Desafio 1 · 600 linhas de planilha viram um parecer executivo &rarr;</a></nav>
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>A&nbsp;mesma pergunta, com&nbsp;e&nbsp;sem&nbsp;o&nbsp;arquivo anexado</h2>
+      </div>
+    </div>
+
+    <p>O&nbsp;assistente é o&nbsp;da&nbsp;aula 1, com&nbsp;a&nbsp;instrução idêntica nas&nbsp;duas colunas.
+    <strong>A&nbsp;única diferença é um&nbsp;arquivo</strong>, e&nbsp;ele é a&nbsp;coluna Recursos da&nbsp;tabela do&nbsp;orçamento: a&nbsp;tabela de&nbsp;preços vigente, com&nbsp;as&nbsp;regras de&nbsp;desconto, validade e&nbsp;conversão.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">A bateria de quatro perguntas, rodada nos dois</div>
+      <div class="demo-corpo">
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr><th>A pergunta</th><th>Sem o arquivo</th><th>Com o arquivo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1</strong> Qual o valor do perfil de alumínio de 6 metros?</td>
+                <td>"Em torno de R$ 180 a R$ 220 a barra, dependendo da espessura."</td>
+                <td>"R$ 246,00 por barra, código B-215, prazo de 5 dias úteis. Fonte: tabela de preços vigente."</td>
+              </tr>
+              <tr>
+                <td><strong>2</strong> O que eu confiro antes de enviar para cliente novo?</td>
+                <td>"Verifique dados cadastrais, limite de crédito e condições comerciais."</td>
+                <td>"Análise de crédito antes do envio. A proposta pode ser montada, sai marcada como não enviável, e a liberação é do financeiro."</td>
+              </tr>
+              <tr>
+                <td><strong>3</strong> Qual é o prazo de pagamento?</td>
+                <td>"O padrão do mercado é 30 dias, podendo chegar a 30/60/90 conforme o porte do cliente."</td>
+                <td><strong>"Não localizado no documento de referência.</strong> A seção final diz que condição de pagamento está em outro documento, que não foi anexado."</td>
+              </tr>
+              <tr>
+                <td><strong>4</strong> De onde veio a regra dos 10%?</td>
+                <td>"É uma prática comum de alçada comercial."</td>
+                <td>"Do arquivo de tabela de preços e regras de proposta, seção Regras de desconto."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="demo-pe">Mesma instrução &middot; 1 arquivo de diferença &middot; 4 de 4 respostas mudaram</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Compare só&nbsp;as&nbsp;duas linhas do&nbsp;teste 3.</strong> À&nbsp;esquerda, a&nbsp;resposta é plausível, útil e&nbsp;completamente inventada, e&nbsp;ninguém tem como saber olhando. À&nbsp;direita ele diz que&nbsp;não&nbsp;sabe e&nbsp;diz por&nbsp;quê. <strong>As&nbsp;outras três linhas melhoraram; esta
+    mudou de&nbsp;natureza</strong>, e&nbsp;é a&nbsp;única que&nbsp;separa um&nbsp;assistente que&nbsp;se&nbsp;pode usar sozinho
+    de&nbsp;um&nbsp;que&nbsp;precisa de&nbsp;conferência em&nbsp;toda resposta.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O teste 3 só funciona porque o arquivo declara o que ele não tem</div>
+      <p>A&nbsp;última seção do&nbsp;arquivo do&nbsp;caso se&nbsp;chama <strong>"O&nbsp;que&nbsp;este documento não&nbsp;responde"</strong>, e&nbsp;lista três coisas. <strong>É ela que&nbsp;dá ao&nbsp;assistente onde&nbsp;se&nbsp;apoiar para&nbsp;dizer não</strong>. Sem&nbsp;essa seção, o&nbsp;buraco fica invisível também para&nbsp;ele,
+      e&nbsp;a&nbsp;chance de&nbsp;inventar volta.</p>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">MD</div>
+        <div>
+          <div class="arq-nome">contexto-tabela-de-precos.md</div>
+          <div class="arq-fn">O arquivo de referência do caso, com a tabela, as regras, o modelo em seis partes e a seção do que ele não responde. Vai no campo de arquivos do projeto.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn-2" href="../_arquivos/contexto-tabela-de-precos.md" download>Baixar o exemplo</a>
+        <a class="btn" href="../_arquivos/system-prompt-do-orcamento.md" download>E a instrução da aula 1</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Monte a&nbsp;base do&nbsp;seu&nbsp;assistente e&nbsp;prove que&nbsp;ele consulta</h2>
+      </div>
+    </div>
+
+    <p>Abra a&nbsp;sua&nbsp;tabela da&nbsp;aula 3 na&nbsp;coluna <strong>Recursos</strong>. É de&nbsp;lá que&nbsp;sai a&nbsp;lista
+    de&nbsp;candidatos, e&nbsp;não&nbsp;da&nbsp;sua&nbsp;pasta de&nbsp;rede. Três passos.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Passe cada recurso pelas três perguntas</div>
+      </div>
+      <p>Liste os&nbsp;arquivos que&nbsp;a&nbsp;coluna Recursos nomeia e&nbsp;responda P, S e&nbsp;N para&nbsp;cada um,&nbsp;escrevendo a&nbsp;resposta. <strong>Escrever é o&nbsp;que&nbsp;separa o&nbsp;filtro de&nbsp;uma&nbsp;impressão.</strong></p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Uma&nbsp;lista curta, quase sempre entre&nbsp;dois e&nbsp;cinco arquivos.
+        <strong>Se&nbsp;nenhum caiu, você não&nbsp;aplicou o&nbsp;filtro</strong>: volte e&nbsp;responda a&nbsp;terceira
+        pergunta imaginando a&nbsp;resposta sem&nbsp;aquele arquivo. Se&nbsp;todos caíram, o&nbsp;seu&nbsp;processo
+        talvez não&nbsp;precise de&nbsp;base, e&nbsp;isso também é resposta.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Limpe, quebre em seções e declare o que falta</div>
+      </div>
+      <p>Tire capa, rodapé e&nbsp;índice numerado. Quebre em&nbsp;seções de&nbsp;um&nbsp;assunto, com&nbsp;título.
+      E&nbsp;acrescente no&nbsp;fim uma&nbsp;seção chamada <strong>o&nbsp;que&nbsp;este documento não&nbsp;responde</strong>,
+      com&nbsp;o&nbsp;que&nbsp;ficou de&nbsp;fora de&nbsp;propósito.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Um&nbsp;arquivo em&nbsp;que&nbsp;você consegue dizer o&nbsp;assunto de&nbsp;cada seção em&nbsp;cinco palavras, e&nbsp;uma&nbsp;lista final do&nbsp;que&nbsp;ele não&nbsp;cobre. <strong>Essa lista final é o&nbsp;que&nbsp;vai fazer o&nbsp;teste 3 passar</strong>, e&nbsp;é a&nbsp;parte que&nbsp;quase todo mundo pula.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Suba, e rode as quatro perguntas antes de usar</div>
+      </div>
+      <p>Cole a&nbsp;instrução da&nbsp;aula 1 no&nbsp;campo de&nbsp;instruções, suba os&nbsp;arquivos no&nbsp;campo de&nbsp;arquivos, e&nbsp;faça as&nbsp;quatro perguntas na&nbsp;ordem. Anote a&nbsp;resposta de&nbsp;cada uma.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Quatro respostas anotadas. <strong>Se&nbsp;a&nbsp;terceira veio com&nbsp;conteúdo em&nbsp;vez de&nbsp;"não&nbsp;localizado", pare aqui</strong> e&nbsp;acrescente ao&nbsp;arquivo a&nbsp;seção do&nbsp;que&nbsp;ele não&nbsp;responde, ou&nbsp;acrescente à&nbsp;instrução a&nbsp;linha de&nbsp;nunca responder o&nbsp;que&nbsp;não&nbsp;estiver nos&nbsp;arquivos. Depois rode as&nbsp;quatro de&nbsp;novo.</p>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, use estas três saídas</div>
+        <ul>
+          <li><strong>O&nbsp;recurso não&nbsp;existe como arquivo?</strong> É o&nbsp;caso mais comum, e&nbsp;não&nbsp;é
+          impedimento: a&nbsp;regra está na&nbsp;sua&nbsp;cabeça ou&nbsp;espalhada em&nbsp;conversas. Use o&nbsp;pedido
+          abaixo, que&nbsp;entrevista você e&nbsp;escreve o&nbsp;arquivo.</li>
+          <li><strong>Não&nbsp;pode subir o&nbsp;arquivo real?</strong> Faça a&nbsp;versão de&nbsp;curso: mesmas
+          regras, mesma estrutura, números trocados. Você testa o&nbsp;assistente hoje e&nbsp;troca o&nbsp;arquivo quando&nbsp;tiver autorização. O&nbsp;que&nbsp;<a href="../a5-cerca/">pode e&nbsp;não&nbsp;pode
+          subir</a> foi decidido na&nbsp;última aula do&nbsp;bloco 1.</li>
+          <li><strong>Ele continua inventando mesmo com&nbsp;o&nbsp;arquivo?</strong> Confira se&nbsp;o&nbsp;arquivo subiu no&nbsp;campo de&nbsp;arquivos e&nbsp;não&nbsp;foi colado dentro da&nbsp;instrução. Colado, ele
+          vira texto do&nbsp;papel e&nbsp;compete com&nbsp;o&nbsp;processo; anexado, ele é consulta.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não vale:</strong> subir a pasta inteira do setor e
+        dizer que a base está pronta. Base não testada não é base: é um monte de arquivo que
+        você acredita que está sendo lido. As quatro perguntas custam cinco minutos e são a
+        única prova que existe.</div>
+      </div>
+    </div>
+
+    <h3>Se&nbsp;o&nbsp;recurso ainda não&nbsp;existe escrito, mande o&nbsp;chat entrevistar você</h3>
+
+    <p>Este pedido não&nbsp;inventa a&nbsp;sua&nbsp;regra: ele pergunta, e&nbsp;depois organiza o&nbsp;que&nbsp;você
+    responder no&nbsp;formato que&nbsp;o&nbsp;assistente consegue consultar.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Da sua cabeça para o arquivo de referência, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b4base-escrever">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b4base-escrever">[P] Papel / Persona:
+Um documentalista que entrevista antes de escrever, e que trata regra sem
+critério como regra não escrita.
+
+[C] Contexto:
+Eu vou montar um assistente para um processo meu, e ele precisa consultar uma
+regra que hoje só existe na minha cabeça e em conversas soltas. Vou te
+descrever a regra em texto corrido, do jeito que sai, com as exceções
+misturadas no meio. Este arquivo vai ser anexado ao assistente e consultado
+toda semana.
+
+[T] Tarefa:
+Primeiro me faça no máximo cinco perguntas, uma de cada vez, para achar o que
+eu deixei implícito: quais são os valores ou faixas, quem decide o que foge da
+faixa, o que muda quando o caso é novo, e o que essa regra deliberadamente não
+cobre. Só depois de eu responder, escreva o arquivo.
+
+[F] Formato:
+Markdown, com um título por assunto e uma seção por assunto, cada seção entre
+80 e 250 palavras. Comece por um parágrafo dizendo o que o documento contém.
+Termine com uma seção chamada "O que este documento não responde", listando o
+que ficou de fora e onde aquilo mora.
+
+[L] Limitações:
+Não invente valor, prazo, faixa nem exceção que eu não tenha dito. Não misture
+dois assuntos na mesma seção, mesmo que eles sejam parecidos. Se eu responder
+de forma vaga, pergunte de novo em vez de escolher por mim. Se eu não souber
+um número, escreva "sem medida" naquela linha em vez de estimar.
+
+[Critério de Sucesso]:
+Eu faço ao arquivo as quatro perguntas de teste e as quatro passam, inclusive
+a de situação não prevista, que precisa cair na seção do que ele não responde.
+E toda linha do arquivo eu consigo apontar em qual resposta minha ela nasceu.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;pedido termina exigindo a&nbsp;seção do&nbsp;que&nbsp;o&nbsp;documento
+    não&nbsp;responde.</strong> É o&nbsp;mesmo movimento do&nbsp;destrave de&nbsp;todas as&nbsp;aulas deste curso:
+    declarar o&nbsp;buraco custa uma&nbsp;linha e&nbsp;evita a&nbsp;resposta inventada, que&nbsp;custa uma&nbsp;proposta
+    errada enviada a&nbsp;um&nbsp;cliente.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com&nbsp;a&nbsp;instrução escrita e&nbsp;a&nbsp;base testada, você tem o&nbsp;assistente da&nbsp;ementa montado e&nbsp;provado. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte no&nbsp;dia em&nbsp;que&nbsp;ele começar a&nbsp;errar sem&nbsp;motivo aparente.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O&nbsp;que&nbsp;a&nbsp;base não&nbsp;resolve</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Base envelhece, e ela não avisa</div>
+      <p>A&nbsp;tabela muda de&nbsp;versão, a&nbsp;regra é revista, o&nbsp;modelo ganha um&nbsp;campo, e&nbsp;o&nbsp;arquivo
+      anexado continua o&nbsp;mesmo respondendo com&nbsp;segurança. <strong>Ponha a&nbsp;data de&nbsp;vigência
+      dentro do&nbsp;arquivo</strong>, como a&nbsp;primeira linha dele, e&nbsp;combine com&nbsp;você mesmo quando&nbsp;revisar. Arquivo sem&nbsp;data é arquivo que&nbsp;ninguém sabe se&nbsp;ainda vale.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Base cheia não conserta instrução ruim</div>
+      <p>Se&nbsp;o&nbsp;processo da&nbsp;aula 1 estiver vago, subir mais arquivos não&nbsp;melhora nada: ele passa
+      a&nbsp;ter mais material para&nbsp;escolher errado. <strong>Quando&nbsp;a&nbsp;resposta vier estranha,
+      confira primeiro a&nbsp;instrução</strong>, e&nbsp;só&nbsp;depois a&nbsp;base. A&nbsp;ordem inversa é o&nbsp;jeito mais
+      caro de&nbsp;descobrir a&nbsp;mesma coisa.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Nem todo arquivo que ajuda pode subir</div>
+      <p>Dado pessoal, contrato, base de&nbsp;cliente e&nbsp;informação sob&nbsp;sigilo continuam sob&nbsp;a&nbsp;mesma
+      régua que&nbsp;<a href="../a5-cerca/">a&nbsp;última aula do&nbsp;bloco 1</a> montou, e&nbsp;ela não&nbsp;afrouxa
+      porque&nbsp;agora existe um&nbsp;assistente. <strong>Assistente que&nbsp;precisa de&nbsp;arquivo proibido não&nbsp;é um&nbsp;assistente melhor: é um&nbsp;processo que&nbsp;ainda não&nbsp;pode ser delegado</strong>, e&nbsp;dizer
+      isso a&nbsp;tempo é parte do&nbsp;trabalho.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
+          <tbody><tr><td>o assistente montado, com base escolhida, limpa e provada em quatro perguntas</td><td>tudo isso vale dentro daquele projeto, e só dele: outro processo seu recomeça do zero</td><td>na próxima aula, que tira o procedimento de dentro do projeto e o faz valer em qualquer conversa</td></tr></tbody>
+        </table>
+      </div>
+      <p class="fig-leg">É a&nbsp;diferença entre&nbsp;configurar um&nbsp;lugar e&nbsp;ter uma&nbsp;habilidade: o&nbsp;primeiro você repete por&nbsp;processo, o&nbsp;segundo você escreve uma&nbsp;vez.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Você tem um assistente que trabalha no seu processo e consulta o que é seu.
+    <strong>Agora imagine o segundo.</strong> Um processo novo, outro projeto, e você
+    percebendo que vai copiar para lá o mesmo pedaço de procedimento que escreveu aqui. Na
+    quinta vez, existem cinco cópias e nenhuma igual. A próxima aula tira esse pedaço de dentro
+    do projeto e o transforma em uma habilidade que vale em qualquer conversa.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b4-instrucao/">&larr; Aula 1 · Escreva a instrução que faz o assistente executar o seu processo</a><a href="../b4-skill/">Aula 3 · A habilidade que você não reescreve toda semana &rarr;</a></nav>
 </main>
 
 

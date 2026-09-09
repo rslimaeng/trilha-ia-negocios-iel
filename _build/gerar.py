@@ -85,6 +85,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b2-biblioteca",
              "b3-redesenho", "b3-processo", "b3-ilha", "b3-ipo",
              "b3-vazamento", "b3-valor",
+             "b4-assistentes", "b4-instrucao", "b4-base", "b4-skill", "b4-alcance",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
              "modulo-2", "modulo-3", "componentes"]
 
@@ -94,6 +95,7 @@ TRILHA = [
         ("b1-fundamentos", "B1 · Primeiros resultados consistentes"),
         ("b2-analise",     "B2 · Análise e tomada de decisão"),
         ("b3-redesenho",   "B3 · Redesenho e ganho real"),
+        ("b4-assistentes", "B4 · Assistentes especializados"),
     ]),
     ("As aulas do B1", [
         ("a1-degrau",   "Entenda os níveis de uso da IA"),
@@ -128,6 +130,12 @@ TRILHA = [
         ("b3-ipo",       "3 · Abra o processo em passos conferíveis"),
         ("b3-vazamento", "4 · Ache onde o tempo está vazando"),
         ("b3-valor",     "5 · Defenda com um número que você mediu"),
+    ]),
+    ("As aulas do B4", [
+        ("b4-instrucao", "1 · Escreva a instrução do seu assistente"),
+        ("b4-base",      "2 · Dê a ele o que só você sabe"),
+        ("b4-skill",     "3 · A habilidade que você não reescreve"),
+        ("b4-alcance",   "4 · O assistente alcança onde o trabalho mora"),
     ]),
     # 🔴 O banco NAO mora dentro de bloco nenhum, e e decisao do Rafael (01/09).
     # Ele atravessa o curso: o desafio 7 espera o modulo 2 e o 8 espera o B4. Se
@@ -717,6 +725,100 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-1/", "Módulo 1"),
                  ("../b3-redesenho/", "B3 · Redesenho e ganho real"),
+                 (None, None)],
+    ),
+
+    # ------------------------------------------------------------------
+    # B4 · Assistentes especializados
+    # ------------------------------------------------------------------
+    "b4-assistentes": dict(
+        titulo="B4 · Assistentes especializados",
+        kicker="Módulo 1 · Bloco 4 de 4",
+        h1="Entregue o seu processo a um assistente que trabalha nele",
+        sub="A tabela que você preencheu no bloco anterior vira instrução, ganha o "
+            "que só você sabe, e passa a alcançar onde o trabalho mora.",
+        selos=["Quatro aulas", "Use a tabela do B3"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 (None, "Assistentes especializados")],
+    ),
+
+    "b4-instrucao": dict(
+        # 🔴 pratica com ARQUIVO, e os arquivos sao o entregavel da ementa: o
+        # entregavel 1 do M6 e "1 Assistente Especializado -- IPO + system
+        # prompt + base de conhecimento". A instrucao escrita E o artefato, e
+        # ela sai da pagina em .md para ir para o campo do projeto. Sem arquivo
+        # a aula devolveria um texto que mora no navegador.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 1 · Escreva a instrução que faz o assistente executar o seu processo",
+        kicker="Módulo 1 · B4 · Assistentes especializados",
+        h1="Escreva a instrução que faz o assistente executar o seu processo",
+        sub="Cada coluna da tabela que você preencheu tem um endereço dentro da "
+            "instrução, e os passos que você marcou como internos são o processo dela.",
+        selos=["Use a tabela do B3", "Esqueleto para baixar"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b4-assistentes/", "B4 · Assistentes especializados"),
+                 (None, None)],
+    ),
+
+    "b4-base": dict(
+        # 🔴 pratica com ARQUIVO, e por motivo diferente da aula 1: aqui o
+        # arquivo E o objeto da aula. A base de conhecimento e o segundo item
+        # do entregavel 1 da ementa, e ela so existe como arquivo anexado --
+        # nao ha versao dela que more no navegador.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 2 · Dê ao assistente o que só você sabe",
+        kicker="Módulo 1 · B4 · Assistentes especializados",
+        h1="Dê ao assistente o que só você sabe",
+        sub="Três perguntas escolhem os arquivos que ele consulta, e quatro provam se "
+            "ele passou a consultar em vez de completar com o que é plausível.",
+        selos=["Use a coluna Recursos", "Arquivo de exemplo"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b4-assistentes/", "B4 · Assistentes especializados"),
+                 (None, None)],
+    ),
+
+    "b4-skill": dict(
+        # 🔴 pratica com ARQUIVO, e aqui o arquivo e literalmente o entregavel 2
+        # da ementa ("1 Skill criada para tarefa recorrente"). Ele sai em .zip
+        # porque e assim que a ferramenta o recebe: pasta na raiz do pacote. O
+        # zip nao se monta a mao -- sai do _build/insumo-skill.py, que confere
+        # os dois tetos declarados na fonte antes de fechar o arquivo.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 3 · A habilidade que você não reescreve toda semana",
+        kicker="Módulo 1 · B4 · Assistentes especializados",
+        h1="A habilidade que você não reescreve toda semana",
+        sub="O que é procedimento sai de dentro do projeto e vira um arquivo que entra "
+            "sozinho em qualquer conversa, corrigido num lugar só.",
+        selos=["Habilidade para baixar", "Funciona no plano gratuito"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b4-assistentes/", "B4 · Assistentes especializados"),
+                 (None, None)],
+    ),
+
+    "b4-alcance": dict(
+        # 🔴 pratica SEM arquivo, e a razao e a mesma da b3-vazamento: o
+        # exercicio roda EM CIMA da tabela que a aula 3 do B3 entregou (a coluna
+        # EX) e da conta da propria pessoa. O entregavel da ementa aqui e uma
+        # CONFIGURACAO -- 1 connector ativo, 1 tarefa agendada --, e configuracao
+        # nao baixa. Inventar um .md aqui seria o anexo postico de 02/09.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Aula 4 · O assistente que alcança onde o seu trabalho mora",
+        kicker="Módulo 1 · B4 · Assistentes especializados",
+        h1="O assistente que alcança onde o seu trabalho mora",
+        sub="Os passos que você marcou (EX) viram uma ficha de alcance, e a decisão que "
+            "importa é o que ele faz sozinho e o que ele só rascunha.",
+        selos=["Use a coluna (EX)", "Fecha o módulo 1"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-1/", "Módulo 1"),
+                 ("../b4-assistentes/", "B4 · Assistentes especializados"),
                  (None, None)],
     ),
 

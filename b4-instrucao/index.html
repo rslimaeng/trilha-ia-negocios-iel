@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Banco de Desafios · material pronto para praticar</title>
+<title>Aula 1 · Escreva a instrução que faz o assistente executar o seu processo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3230,285 +3230,587 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Banco de Desafios</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b4-assistentes/">B4 · Assistentes especializados</a> &rsaquo; 1 · Escreva a instrução do seu assistente</nav>
 
 
-<main class="folha ">
+<main class="folha aula-pratica" data-arquivo="sim">
   <div class="heroi">
-    <div class="heroi-kicker">Vale para o curso inteiro</div>
-    <h1>Banco de&nbsp;Desafios</h1>
-    <p class="heroi-sub">Se&nbsp;você não&nbsp;trouxe uma&nbsp;rotina sua&nbsp;para&nbsp;a&nbsp;aula de&nbsp;hoje, escolha um&nbsp;destes e&nbsp;rode agora: o&nbsp;arquivo e&nbsp;o&nbsp;pedido já&nbsp;vêm prontos.</p>
-    <div><span class="selo">Oito desafios</span><span class="selo">Insumo e pedido prontos</span></div>
+    <div class="heroi-kicker">Módulo 1 · B4 · Assistentes especializados</div>
+    <h1>Escreva a&nbsp;instrução que&nbsp;faz o&nbsp;assistente executar o&nbsp;seu&nbsp;processo</h1>
+    <p class="heroi-sub">Cada coluna da&nbsp;tabela que&nbsp;você preencheu tem um&nbsp;endereço dentro da&nbsp;instrução, e&nbsp;os&nbsp;passos que&nbsp;você marcou como internos são o&nbsp;processo dela.</p>
+    <div><span class="selo">Use a tabela do B3</span><span class="selo">Esqueleto para baixar</span></div>
   </div>
 
-  <section class="secao" id="para-que-serve">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Levar cada coluna da&nbsp;sua&nbsp;tabela de&nbsp;processo para&nbsp;o&nbsp;lugar dela dentro da&nbsp;instrução do&nbsp;assistente</li>
+      <li>Escrever a&nbsp;instrução de&nbsp;um&nbsp;assistente que&nbsp;executa os&nbsp;passos que&nbsp;você marcou como internos</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">Para que este banco existe</div>
-        <h2>Se&nbsp;você não&nbsp;trouxe um&nbsp;trabalho seu,&nbsp;escolhe um&nbsp;daqui e&nbsp;roda agora</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>A&nbsp;sua&nbsp;tabela já&nbsp;é a&nbsp;instrução</h2>
       </div>
     </div>
 
-    <p>As&nbsp;aulas pedem que&nbsp;você traga uma&nbsp;rotina sua,&nbsp;e&nbsp;é assim que&nbsp;elas rendem mais: o&nbsp;exercício vale quando&nbsp;o&nbsp;resultado serve para&nbsp;alguma coisa na&nbsp;segunda-feira. Só&nbsp;que&nbsp;nem sempre dá tempo de&nbsp;separar o&nbsp;material antes da&nbsp;aula, e&nbsp;a&nbsp;turma online quase
-    sempre tem alguém nessa situação.</p>
-
-    <p><strong>Este banco é a&nbsp;saída para&nbsp;essa hora.</strong> Cada desafio traz o&nbsp;insumo
-    pronto para&nbsp;baixar e&nbsp;o&nbsp;pedido pronto para&nbsp;colar. Você abre, roda, e&nbsp;sai da&nbsp;aula com&nbsp;um&nbsp;resultado na&nbsp;mão: o&nbsp;mesmo tipo de&nbsp;resultado que&nbsp;você produziria com&nbsp;material
-    seu,&nbsp;só&nbsp;que&nbsp;sem&nbsp;depender de&nbsp;tê-lo separado antes.</p>
-
-    <div class="cartao">
-      <span class="rot">Não há nível, e é decisão de projeto</span>
-      <p>Nenhum desafio aqui é marcado como básico, médio ou&nbsp;avançado. <strong>O&nbsp;que&nbsp;é
-      simples para&nbsp;quem mexe com&nbsp;planilha todo dia é difícil para&nbsp;quem nunca abriu uma&nbsp;aba de&nbsp;dinâmica</strong>, e&nbsp;o&nbsp;contrário também vale. Escolha pelo&nbsp;que&nbsp;se&nbsp;parece com&nbsp;o&nbsp;seu&nbsp;trabalho, não&nbsp;pela&nbsp;ordem em&nbsp;que&nbsp;estão.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Que&nbsp;<strong>a&nbsp;instrução do&nbsp;seu&nbsp;assistente é a&nbsp;tabela que&nbsp;você preencheu na&nbsp;aula 3</strong>, escrita para&nbsp;quem vai executar em&nbsp;vez de&nbsp;para&nbsp;quem vai conferir.</p>
     </div>
 
-    <div class="cartao">
-      <span class="rot">Antes de escolher: nem toda IA devolve o artefato</span>
-      <p>Três desses desafios pedem uma&nbsp;<strong>página pronta</strong> como resultado (um&nbsp;parecer, um&nbsp;painel, um&nbsp;plano). <strong>Claude e&nbsp;Gemini montam essa página; o&nbsp;DeepSeek
-      responde em&nbsp;texto.</strong> Se&nbsp;você está sem&nbsp;plano pago, escolha ler o&nbsp;resultado em&nbsp;texto: o&nbsp;raciocínio é o&nbsp;mesmo, e&nbsp;o&nbsp;que&nbsp;muda é só&nbsp;a&nbsp;embalagem. O&nbsp;que&nbsp;<em>não</em>&nbsp;muda é a&nbsp;conferência: o&nbsp;número que&nbsp;sair de&nbsp;lá continua sendo seu&nbsp;para&nbsp;checar.</p>
-    </div>
+    <p>Você fecha o&nbsp;bloco anterior com&nbsp;o&nbsp;processo aberto em&nbsp;passos e&nbsp;medido. A&nbsp;tentação agora é abrir o&nbsp;chat e&nbsp;escrever um&nbsp;pedido comprido. Quem faz isso reescreve o&nbsp;mesmo pedido toda semana, e&nbsp;ele sai um&nbsp;pouco diferente toda vez.</p>
   </section>
 
-  <section class="secao" id="os-desafios">
+  <section class="secao" id="conceito">
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O que tem aqui</div>
-        <h2>Oito desafios, e&nbsp;cada um&nbsp;começa com&nbsp;um&nbsp;arquivo e&nbsp;termina com&nbsp;uma&nbsp;entrega</h2>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>O&nbsp;que&nbsp;se&nbsp;repete vira instrução; o&nbsp;que&nbsp;muda a&nbsp;cada vez vira comando</h2>
       </div>
     </div>
 
-    <p>O&nbsp;título de&nbsp;cada um&nbsp;diz o&nbsp;caminho inteiro: <strong>o&nbsp;que&nbsp;entra</strong> de&nbsp;um&nbsp;lado,
-    <strong>o&nbsp;que&nbsp;sai</strong> do&nbsp;outro. Os&nbsp;três primeiros já&nbsp;abrem. Os&nbsp;outros entram
-    conforme&nbsp;o&nbsp;curso avança, e&nbsp;dois deles só&nbsp;fazem sentido depois dos&nbsp;módulos que&nbsp;ainda
-    vêm.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Instrução é o&nbsp;texto que&nbsp;fica guardado e&nbsp;é lido sozinho no&nbsp;começo de&nbsp;toda conversa daquele trabalho</h3>
 
-    <div class="aulas-lista solta">
+      <div class="contraste">
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Um&nbsp;pedido maior</h4>
+          <p>Pedido comprido continua sendo colado toda vez, e&nbsp;continua saindo diferente quando&nbsp;você esquece um&nbsp;pedaço.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Uma&nbsp;lista do&nbsp;que&nbsp;ele não&nbsp;pode fazer</h4>
+          <p>Proibição sem&nbsp;processo devolve resposta educada e&nbsp;vazia: ele sabe o&nbsp;que&nbsp;evitar e&nbsp;não&nbsp;sabe o&nbsp;que&nbsp;fazer.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Os&nbsp;seus&nbsp;passos, na&nbsp;ordem em&nbsp;que&nbsp;ele executa</h4>
+          <p>As&nbsp;mesmas frases com&nbsp;verbo e&nbsp;critério que&nbsp;você já&nbsp;escreveu, agora endereçadas a&nbsp;quem vai fazer.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Um&nbsp;texto escrito uma&nbsp;vez e&nbsp;lido muitas</h4>
+          <p>Você não&nbsp;cola mais nada: toda conversa daquele trabalho já&nbsp;começa com&nbsp;ele dentro.</p></div>
+      </div>
+      <p class="fig-leg"><strong>A&nbsp;régua que&nbsp;separa as&nbsp;duas colunas é a&nbsp;repetição, não&nbsp;o&nbsp;tamanho.</strong> A&nbsp;frase da&nbsp;direita e&nbsp;a&nbsp;da&nbsp;esquerda podem ter o&nbsp;mesmo número de&nbsp;palavras. O&nbsp;que&nbsp;muda é quantas vezes você digita cada uma.</p>
 
-      <a class="aula-card ready" href="../desafio-parecer/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 1</span>
-          <span class="chip chip-ementa">Planilha</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">600 linhas de planilha → parecer executivo para o comitê</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Baixa a&nbsp;base de&nbsp;20 lojas em&nbsp;30 dias e&nbsp;cola o&nbsp;pedido pronto</li>
-              <li>Confere na&nbsp;planilha os&nbsp;números que&nbsp;voltarem antes de&nbsp;acreditar neles</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Um&nbsp;parecer com&nbsp;os&nbsp;achados que&nbsp;decidem, o&nbsp;ranking das&nbsp;lojas e&nbsp;uma&nbsp;recomendação.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É o desafio mais perto do B2: análise que vira decisão.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
+      <div class="analogia">
+        <div class="analogia-rot">É como o bilhete que você deixa para quem vai cuidar da sua casa</div>
+        <p>Você viaja e&nbsp;alguém fica com&nbsp;a&nbsp;chave. Você sabe tudo o&nbsp;que&nbsp;precisa ser feito, e&nbsp;<strong>o&nbsp;trabalho não&nbsp;é descobrir: é escrever</strong>. Um&nbsp;bilhete bom é aquele em&nbsp;que&nbsp;a&nbsp;pessoa passa a&nbsp;semana inteira sem&nbsp;te ligar. Um&nbsp;bilhete ruim não&nbsp;é curto demais,
+        é o&nbsp;que&nbsp;deixou de&nbsp;fora justamente o&nbsp;caso que&nbsp;aconteceu.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Quem é a&nbsp;pessoa e&nbsp;o&nbsp;que&nbsp;ela decide sozinha</strong> é o&nbsp;Papel, e&nbsp;ele
+          nasce da&nbsp;coluna Área da&nbsp;sua&nbsp;tabela</li>
+          <li><strong>A&nbsp;ordem das&nbsp;coisas, cada uma&nbsp;com&nbsp;o&nbsp;seu&nbsp;jeito de&nbsp;saber que&nbsp;terminou</strong>
+          é o&nbsp;Processo, e&nbsp;ele nasce dos&nbsp;seus&nbsp;passos marcados (IN)</li>
+          <li><strong>"Se&nbsp;acontecer isso, faça aquilo; se&nbsp;for grave, me ligue"</strong> é a&nbsp;coluna Exceção, que&nbsp;vira o&nbsp;bloco de&nbsp;fora do&nbsp;padrão</li>
+          <li><strong>"O&nbsp;telefone do&nbsp;veterinário está na&nbsp;geladeira"</strong> é a&nbsp;coluna
+          Recursos, e&nbsp;é ela que&nbsp;a&nbsp;próxima aula transforma em&nbsp;base de&nbsp;conhecimento</li>
+        </ul>
+        <p class="analogia-mais">O&nbsp;mesmo bilhete existe na&nbsp;passagem de&nbsp;plantão de&nbsp;um&nbsp;hospital,
+        na&nbsp;ficha que&nbsp;a&nbsp;recepção segue quando&nbsp;chega alguém sem&nbsp;hora marcada, e&nbsp;no&nbsp;combinado que&nbsp;você deixa antes de&nbsp;sair de&nbsp;férias. <strong>Sempre que&nbsp;alguém precisa agir no&nbsp;seu&nbsp;lugar
+        sem&nbsp;te perguntar, existe um&nbsp;bilhete</strong>, escrito ou&nbsp;não.</p>
+      </div>
 
-      <a class="aula-card ready" href="../desafio-avaliacoes/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 2</span>
-          <span class="chip chip-ementa">Texto solto</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">150 avaliações de clientes → painel para a reunião de segunda</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Entrega 150 textos soltos e&nbsp;pede o&nbsp;padrão que&nbsp;se&nbsp;repete entre&nbsp;eles</li>
-              <li>Separa o&nbsp;que&nbsp;é problema da&nbsp;rede inteira do&nbsp;que&nbsp;é problema de&nbsp;uma&nbsp;loja</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Os&nbsp;temas com&nbsp;a&nbsp;frequência de&nbsp;cada um,&nbsp;o&nbsp;cruzamento loja por&nbsp;tema e&nbsp;três ações.</p>
-          </div>
-        </div>
-        <div class="aula-hook">Análise de texto, que nenhuma aula do B2 cobre.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <a class="aula-card ready" href="../desafio-plano/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 3</span>
-          <span class="chip chip-ementa">Documento</span>
-          <span class="rec">Insumo pronto</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">1 transcrição de reunião → plano de 30 dias com dono e prazo</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Passa uma&nbsp;conversa de&nbsp;time sem&nbsp;pauta e&nbsp;pede prioridade, não&nbsp;resumo</li>
-              <li>Separa o&nbsp;que&nbsp;se&nbsp;resolve esta semana do&nbsp;que&nbsp;precisa de&nbsp;decisão de&nbsp;cima</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>As&nbsp;dores catalogadas por&nbsp;urgência, o&nbsp;plano de&nbsp;quatro semanas e&nbsp;o&nbsp;que&nbsp;subir.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É o mesmo destino da aula 7 do B2, por outro caminho.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <a class="aula-card ready" href="../desafio-satisfacao/">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 4</span>
-          <span class="rec">Pesquisa com 1.000 respostas</span>
-          <span class="aula-status ok">Aberto</span>
-        </div>
-        <div class="aula-title">1.000 respostas de pesquisa → diagnóstico com dono</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você recebe</div>
-            <p>Uma&nbsp;pesquisa de&nbsp;satisfação com&nbsp;1.000 respostas e&nbsp;22 colunas: quinze
-            dimensões avaliadas, seis campos de&nbsp;perfil e&nbsp;um&nbsp;campo de&nbsp;comentário livre.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você entrega</div>
-            <p>O&nbsp;diagnóstico que&nbsp;diz qual grupo concentra o&nbsp;problema e&nbsp;qual dimensão
-            atacar primeiro, com&nbsp;cada número conferível na&nbsp;base.</p>
-          </div>
-        </div>
-        <div class="aula-hook">A média é 5,90, e nenhum grupo relevante vive perto dela.</div>
-        <div class="aula-cta">Abrir o desafio</div>
-      </a>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 5</span>
-          <span class="chip chip-ementa">Documento</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Um briefing de uma página → o mesmo aviso em três canais</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Pede a&nbsp;mesma mensagem em&nbsp;três formatos, sem&nbsp;reescrever três vezes</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;comunicado formal, a&nbsp;versão curta de&nbsp;aplicativo e&nbsp;o&nbsp;texto do&nbsp;quadro.</p>
-          </div>
-        </div>
-        <div class="aula-hook">O mesmo conteúdo muda de forma conforme quem lê.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 6</span>
-          <span class="chip chip-ementa">Planilha</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Oito números de uma unidade → diagnóstico com plano</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Vê como poucos números bem escolhidos rendem mais que&nbsp;uma&nbsp;base enorme</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;parecer de&nbsp;uma&nbsp;unidade, com&nbsp;as&nbsp;três alavancas e&nbsp;o&nbsp;prazo de&nbsp;cada uma.</p>
-          </div>
-        </div>
-        <div class="aula-hook">O contrário do desafio 1: pouco dado, mesma exigência.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 7</span>
-          <span class="chip chip-ementa">Módulo 2</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Uma rotina sua → a automação desenhada para montar</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Sai do&nbsp;desenho no&nbsp;papel para&nbsp;o&nbsp;fluxo que&nbsp;roda sozinho</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>O&nbsp;passo a&nbsp;passo do&nbsp;fluxo, pronto para&nbsp;montar na&nbsp;ferramenta.</p>
-          </div>
-        </div>
-        <div class="aula-hook">Este espera o módulo 2 começar.</div>
-        </div>
-
-      <div class="aula-card soon">
-        <div class="aula-top">
-          <span class="aula-num">Desafio 8</span>
-          <span class="chip chip-ementa">B4</span>
-          <span class="aula-status">Em breve</span>
-        </div>
-        <div class="aula-title">Um processo seu → o assistente que responde por ele</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você faz</div>
-            <ul>
-              <li>Usa o&nbsp;processo aberto no&nbsp;B3 como a&nbsp;instrução de&nbsp;um&nbsp;assistente</li>
-            </ul>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">O que você leva</div>
-            <p>Um&nbsp;assistente que&nbsp;já&nbsp;sabe o&nbsp;seu&nbsp;processo antes da&nbsp;primeira pergunta.</p>
-          </div>
-        </div>
-        <div class="aula-hook">É onde o bloco 3 e o bloco 4 se encontram.</div>
-        </div>
-
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">O teste que separa os dois</div>
+        <p>Abra a&nbsp;última conversa em&nbsp;que&nbsp;você pediu esse trabalho à&nbsp;IA.
+        <strong>O&nbsp;que&nbsp;ali você teria colado igual da&nbsp;vez anterior é instrução. O&nbsp;que&nbsp;mudou é
+        comando.</strong> Se&nbsp;quase tudo teria sido colado igual, você está digitando toda
+        semana um&nbsp;texto que&nbsp;poderia estar guardado.</p>
+      </div>
     </div>
+
+    <p>Falta ver onde&nbsp;cada pedaço da&nbsp;sua&nbsp;tabela vai parar, e&nbsp;em&nbsp;que&nbsp;campo esse texto mora nas&nbsp;ferramentas que&nbsp;a&nbsp;sala usa.</p>
   </section>
 
   <section class="secao" id="como-funciona">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
-        <div class="secao-fn">O mesmo caminho em todos</div>
-        <h2>Cinco passos, e&nbsp;o&nbsp;terceiro é o&nbsp;que&nbsp;a&nbsp;maioria pula</h2>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Sete colunas, e&nbsp;cada uma&nbsp;tem endereço</h2>
       </div>
     </div>
 
-    <p>Todo desafio abre com&nbsp;a&nbsp;mesma sequência, e&nbsp;ela é curta de&nbsp;propósito. O&nbsp;que&nbsp;separa
-    um&nbsp;resultado que&nbsp;serve de&nbsp;um&nbsp;que&nbsp;impressiona e&nbsp;não&nbsp;decide nada está no&nbsp;passo 3.</p>
+    <p>A&nbsp;tabela da&nbsp;<a href="../b3-ipo/">aula 3 do&nbsp;bloco anterior</a> tem sete colunas e&nbsp;uma&nbsp;marca ao&nbsp;lado de&nbsp;cada passo. <strong>Nenhuma delas foi preenchida à&nbsp;toa</strong>, e&nbsp;é isto
+    que&nbsp;faz esta aula ser transformação de&nbsp;formato em&nbsp;vez de&nbsp;trabalho novo.</p>
 
-    <ul class="lista">
-      <li><strong>Entenda a&nbsp;tarefa.</strong> Quem faz isso na&nbsp;vida real, e&nbsp;o&nbsp;que&nbsp;custa
-      hoje fazer na&nbsp;mão.</li>
-      <li><strong>Veja o&nbsp;contexto que&nbsp;a&nbsp;IA precisa.</strong> A&nbsp;mesma pergunta sem&nbsp;contexto
-      volta genérica; a&nbsp;página mostra o&nbsp;que&nbsp;foi dito e&nbsp;por&nbsp;quê.</li>
-      <li><strong>Baixe o&nbsp;insumo e&nbsp;abra antes de&nbsp;colar.</strong> Trinta segundos olhando o&nbsp;arquivo é o&nbsp;que&nbsp;permite desconfiar do&nbsp;resultado depois. Quem pula esse passo aceita
-      qualquer número que&nbsp;voltar.</li>
-      <li><strong>Cole o&nbsp;pedido.</strong> Ele já&nbsp;vem escrito no&nbsp;formato que&nbsp;o&nbsp;bloco 1
-      ensinou, com&nbsp;o&nbsp;parágrafo de&nbsp;restrição e&nbsp;o&nbsp;de&nbsp;dúvida.</li>
-      <li><strong>Confira o&nbsp;que&nbsp;voltou.</strong> Cada desafio termina dizendo o&nbsp;que&nbsp;conferir na&nbsp;fonte, e&nbsp;é essa conferência que&nbsp;transforma saída bonita em&nbsp;decisão.</li>
-    </ul>
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Na sua tabela</th><th>Vira, na instrução</th><th>O que muda na escrita</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Área</strong></td><td>o bloco <strong>Papel</strong></td><td>"Comercial" vira "Você é analista comercial responsável por"</td></tr>
+          <tr><td><strong>Entrada</strong></td><td>o <strong>comando de uso</strong>, não a instrução</td><td>é o dado da vez, e por isso muda toda semana</td></tr>
+          <tr><td><strong>Processo</strong>, passos <strong>(IN)</strong></td><td>o bloco <strong>Como você trabalha</strong></td><td>a mesma frase, com o verbo virado para ele</td></tr>
+          <tr><td><strong>Processo</strong>, passos <strong>(EX)</strong></td><td>ficam de fora, por enquanto</td><td>dependem de outro sistema, e voltam na aula 4</td></tr>
+          <tr><td><strong>Saída</strong></td><td>o bloco <strong>O que você entrega</strong></td><td>vira lista de partes, na ordem em que aparecem</td></tr>
+          <tr><td><strong>Exceção</strong></td><td>o bloco <strong>Quando foge do padrão</strong></td><td>cada linha no formato condição, seta, ação</td></tr>
+          <tr><td><strong>Recursos</strong></td><td>a <strong>base de conhecimento</strong></td><td>vira arquivo anexado, e é a próxima aula</td></tr>
+          <tr><td><strong>Tempo</strong></td><td>não entra na instrução</td><td>ela mediu o ganho, e ganho não é ordem para ninguém</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;marca (IN) e&nbsp;(EX) é a&nbsp;que&nbsp;faz mais trabalho nesta tabela.</strong>
+    Tudo o&nbsp;que&nbsp;você marcou como interno, aquilo que&nbsp;se&nbsp;resolve com&nbsp;o&nbsp;que&nbsp;já&nbsp;está na&nbsp;sua&nbsp;mesa,
+    é o&nbsp;que&nbsp;o&nbsp;assistente executa a&nbsp;partir de&nbsp;hoje. Tudo o&nbsp;que&nbsp;você marcou como externo fica
+    esperando, e&nbsp;é exatamente o&nbsp;mapa da&nbsp;aula 4. <strong>Você separou as&nbsp;duas metades há duas
+    aulas, sem&nbsp;saber que&nbsp;estava separando isto.</strong></p>
 
     <div class="cartao">
-      <span class="rot">Os dados são inventados, e isso é a favor</span>
-      <p>Empresa, praças, pessoas e&nbsp;valores foram criados para&nbsp;o&nbsp;treinamento. <strong>Nada
-      aqui veio de&nbsp;cliente nenhum</strong>, e&nbsp;nenhum arquivo seu&nbsp;precisa subir para&nbsp;você
-      treinar. Quando&nbsp;levar isso para&nbsp;a&nbsp;sua&nbsp;rotina, a&nbsp;regra que&nbsp;o&nbsp;bloco 1 deu continua
-      valendo: <strong>o&nbsp;que&nbsp;você não&nbsp;publicaria, você não&nbsp;cola.</strong></p>
+      <span class="rot">Os dois nomes, para você reconhecer nos menus e na ementa</span>
+      <p>A tabela de sete colunas é o que o mapeamento clássico de processos chama de
+      <strong>IPO</strong>, de entrada, processo e saída. E o texto que você escreve a partir
+      dela é o que as ferramentas e a ementa deste curso chamam de <strong>system prompt</strong>,
+      ou instrução de sistema. <strong>São dois nomes para o par que você já tem em mãos</strong>,
+      e servem para achar o campo certo e reconhecer o assunto quando ele aparecer com outro
+      rótulo.</p>
+    </div>
+
+    <h3>As&nbsp;três partes, e&nbsp;cada uma&nbsp;mora num&nbsp;lugar diferente</h3>
+
+    <p>Um&nbsp;assistente não&nbsp;é um&nbsp;texto só.&nbsp;São três, e&nbsp;a&nbsp;confusão mais cara do&nbsp;bloco é misturar
+    o&nbsp;segundo com&nbsp;o&nbsp;terceiro.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>A parte</th><th>O que ela carrega</th><th>Onde ela mora</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1 · Papel</strong></td><td>quem ele é, como trabalha, o que nunca faz</td><td>o campo de instruções do projeto</td></tr>
+          <tr><td><strong>2 · Contexto de referência</strong></td><td>modelo, tabela, glossário, regra escrita</td><td>o campo de arquivos do projeto</td></tr>
+          <tr><td><strong>3 · Comando de uso</strong></td><td>a frase curta com o dado da vez</td><td>o chat, toda semana</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">A regra que decide, e ela cabe em uma frase</span>
+      <p>Se&nbsp;não&nbsp;muda a&nbsp;cada uso, vai no&nbsp;papel ou&nbsp;no&nbsp;contexto. Se&nbsp;muda a&nbsp;cada uso, vai no&nbsp;comando. <strong>Se&nbsp;você está se&nbsp;pegando repetindo a&nbsp;mesma explicação toda vez que&nbsp;abre
+      o&nbsp;chat, aquilo deveria estar no&nbsp;papel.</strong></p>
+    </div>
+
+    <h3>Três blocos que&nbsp;o&nbsp;seu&nbsp;texto ganha, e&nbsp;que&nbsp;a&nbsp;tabela não&nbsp;tinha</h3>
+
+    <p>A&nbsp;tabela descreve o&nbsp;processo para&nbsp;um&nbsp;humano conferir. A&nbsp;instrução fala com&nbsp;quem vai
+    executar, e&nbsp;por&nbsp;isso ela precisa de&nbsp;três coisas a&nbsp;mais. <strong>As&nbsp;duas primeiras vêm do&nbsp;material de&nbsp;Adriano Couto</strong>, que&nbsp;trata instrução de&nbsp;assistente como três blocos de&nbsp;comportamento.</p>
+
+    <div class="grade">
+      <div class="cartao">
+        <span class="rot">SEMPRE</span>
+        <h4>O&nbsp;que&nbsp;ele faz em&nbsp;toda entrega</h4>
+        <p>Na&nbsp;sua&nbsp;tabela isso já&nbsp;existe: são os&nbsp;critérios que&nbsp;você escreveu ao&nbsp;lado de&nbsp;cada
+        passo. Aqui eles saem do&nbsp;meio do&nbsp;passo e&nbsp;viram regra.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">NUNCA</span>
+        <h4>Comportamento específico, jamais proibição genérica</h4>
+        <p>"Não&nbsp;seja vago" não&nbsp;ensina nada. <strong>"Nunca escreva preço que&nbsp;não&nbsp;esteja na&nbsp;tabela vigente"</strong> ensina, porque&nbsp;descreve uma&nbsp;ação que&nbsp;dá para&nbsp;reconhecer.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">QUANDO</span>
+        <h4>Condição, seta, ação</h4>
+        <p>É a&nbsp;sua&nbsp;coluna Exceção, na&nbsp;forma que&nbsp;ele consegue seguir. Cada linha começa pelo&nbsp;caso que&nbsp;dispara e&nbsp;termina no&nbsp;que&nbsp;fazer.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;NUNCA é onde&nbsp;quase toda instrução se&nbsp;perde.</strong> Escrito
+    como adjetivo, ele vira decoração: o&nbsp;assistente concorda e&nbsp;continua igual. Escrito como
+    comportamento, ele vira uma&nbsp;coisa que&nbsp;dá para&nbsp;conferir na&nbsp;resposta, e&nbsp;você consegue dizer
+    se&nbsp;foi cumprido ou&nbsp;não&nbsp;sem&nbsp;discutir.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O terceiro bloco é decisão deste curso, e não vem do material de referência</div>
+      <p>É o&nbsp;<strong>onde&nbsp;você não&nbsp;decide</strong>. Nenhum dos&nbsp;dez assistentes prontos do&nbsp;material consultado tem uma&nbsp;linha assim, e&nbsp;o&nbsp;efeito aparece rápido: um&nbsp;assistente
+      montado para&nbsp;organizar passa a&nbsp;emitir recomendação com&nbsp;consequência para&nbsp;alguém.
+      <strong>Um&nbsp;assistente que&nbsp;monta a&nbsp;proposta não&nbsp;decide o&nbsp;desconto</strong>, e&nbsp;é você que&nbsp;escreve essa fronteira, porque&nbsp;ela não&nbsp;nasce sozinha.</p>
+    </div>
+
+    <h3>Onde&nbsp;esse texto mora, nas&nbsp;três ferramentas</h3>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>A ferramenta</th><th>O campo do papel</th><th>O campo do contexto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude Projects</td><td>Instructions</td><td>Project knowledge</td></tr>
+          <tr><td>ChatGPT, Custom GPT</td><td>Instructions</td><td>Knowledge</td></tr>
+          <tr><td>Gemini Gem</td><td>Instruções</td><td>Conhecimento</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>As&nbsp;três empatam aqui, e&nbsp;param de&nbsp;empatar na&nbsp;aula 3.</strong>
+    Não&nbsp;é questão de&nbsp;preferência nem de&nbsp;plano: assistente não&nbsp;é funcionalidade de&nbsp;uma&nbsp;marca, é
+    uma&nbsp;forma de&nbsp;guardar contexto, e&nbsp;as&nbsp;três guardam do&nbsp;mesmo jeito. <strong>As&nbsp;duas últimas
+    aulas deste bloco ensinam recurso de&nbsp;produto, e&nbsp;aí só&nbsp;existe uma</strong>. Você fica
+    sabendo agora, e&nbsp;não&nbsp;no&nbsp;meio da&nbsp;aula 3.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>A&nbsp;tabela do&nbsp;orçamento, virada instrução, linha por&nbsp;linha</h2>
+      </div>
+    </div>
+
+    <p>É o&nbsp;mesmo pedido de&nbsp;orçamento das&nbsp;três aulas anteriores.
+    <strong>Repare que&nbsp;nenhuma frase nova foi inventada</strong>: cada bloco abaixo aponta para&nbsp;a&nbsp;célula da&nbsp;tabela de&nbsp;onde&nbsp;ele saiu.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Do que estava na tabela para o que ficou na instrução</div>
+      <div class="demo-corpo">
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr><th>A célula da tabela</th><th>A linha que ela virou</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Área: <em>Comercial</em></td><td>"Você é analista comercial responsável por transformar pedido de cliente em proposta enviada."</td></tr>
+              <tr><td>Passo 1 (IN): <em>ler o pedido e listar os itens; se vier como foto, transcrever antes</em></td><td>"Ler o pedido e listar os itens. Se vier como foto de lista escrita à mão, transcreva antes e me mostre a transcrição."</td></tr>
+              <tr><td>Passo 3 (EX): <em>consultar preço com o técnico</em></td><td>ficou de fora. Virou a linha "escreva a pergunta pronta para eu mandar ao técnico"</td></tr>
+              <tr><td>Exceção: <em>desconto acima de 10% precisa do gerente</em></td><td>"Desconto pedido acima de 10% → monte com o preço de tabela e escreva que depende de aprovação."</td></tr>
+              <tr><td>Saída: <em>proposta com itens, valor, prazo e validade</em></td><td>as seis partes fixas do bloco "O que você entrega"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="demo-pe">5 células viraram 5 linhas &middot; 0 frase inventada</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;passo 3 é a&nbsp;única linha que&nbsp;muda de&nbsp;natureza.</strong> Ele
+    estava marcado (EX), o&nbsp;assistente não&nbsp;alcança o&nbsp;técnico, e&nbsp;mesmo assim ele não&nbsp;some: vira a&nbsp;pergunta pronta que&nbsp;você mesmo manda. <strong>Passo externo não&nbsp;se&nbsp;ignora, ele se&nbsp;prepara</strong>,
+    e&nbsp;é a&nbsp;aula 4 que&nbsp;fecha esse buraco de&nbsp;vez.</p>
+
+    <h3>A&nbsp;instrução inteira, pronta para&nbsp;copiar</h3>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">A instrução do assistente do orçamento &middot; vai no campo de instruções do projeto</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b4ins-system">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b4ins-system">## PAPEL
+
+Você é analista comercial responsável por transformar pedido de cliente em
+proposta enviada. Você conhece a tabela de preços vigente, o modelo de proposta
+da empresa e o histórico de compra de quem está pedindo.
+
+Você escreve para o cliente ler em dois minutos e decidir. Não para impressionar.
+
+## COMO VOCÊ TRABALHA
+
+Nesta ordem, sempre:
+
+1. Ler o pedido e listar os itens. Se vier como foto de lista escrita à mão,
+   transcreva a lista antes de qualquer outra coisa e me mostre a transcrição
+   para eu conferir.
+2. Conferir cada item contra a tabela de preços vigente. Marque, numa lista à
+   parte, os itens que não estão na tabela.
+3. Montar a proposta no modelo, com itens, valor unitário, valor total, prazo de
+   entrega e validade de 15 dias contados da data de hoje.
+4. Revisar valor e prazo contra o pedido original, item por item, antes de
+   entregar. Se algum item do pedido não apareceu na proposta, diga qual.
+
+## O QUE FAZER QUANDO FOGE DO PADRÃO
+
+- Item fora da tabela vigente &rarr; não estime preço. Liste o item na seção
+  "aguardando preço" e escreva a pergunta pronta para eu mandar ao técnico da
+  linha, com o nome do item e a quantidade.
+- Desconto pedido acima de 10% &rarr; monte a proposta com o preço de tabela e escreva
+  embaixo que o desconto depende de aprovação do gerente.
+- Cliente que não aparece no histórico &rarr; sinalize que é cliente novo e que a
+  análise de crédito vem antes do envio. Monte a proposta assim mesmo, marcada
+  como não enviável.
+- Quantidade ausente em algum item &rarr; pergunte. Não assuma uma unidade.
+
+## O QUE VOCÊ NUNCA FAZ
+
+- Nunca escrever preço, prazo ou condição que não esteja na tabela vigente ou no
+  pedido do cliente.
+- Nunca completar uma quantidade ilegível na foto por dedução do que seria
+  razoável. Escreva "ilegível" e pergunte.
+- Nunca somar itens de unidades diferentes na mesma linha (peça e caixa, metro e
+  rolo) sem converter e dizer que converteu.
+- Nunca prometer prazo de entrega para item que está aguardando preço.
+- Nunca abrir a proposta com "conforme solicitado, segue abaixo".
+
+## O QUE VOCÊ ENTREGA
+
+Uma proposta em texto, pronta para eu colar no modelo, com esta ordem fixa:
+
+1. Uma linha com o cliente, a data e a validade.
+2. A tabela de itens: descrição, quantidade, valor unitário, valor total.
+3. O valor total da proposta.
+4. O prazo de entrega.
+5. A seção "aguardando preço", quando existir, com a pergunta pronta para o
+   técnico.
+6. A seção "atenção antes de enviar", quando existir, com o que depende de
+   aprovação.
+
+## ONDE VOCÊ NÃO DECIDE
+
+Você monta e organiza. Não decide desconto, não decide se o cliente tem crédito,
+e não decide prazo de item que depende de terceiro. Quando o caso cair em uma
+dessas três, escreva o que falta e para quem perguntar, e pare.
+
+## ANTES DE ENTREGAR
+
+Confirme em três linhas, e espere o meu OK:
+
+- quantos itens entraram e quantos ficaram aguardando preço
+- qual é o valor total com o que já tem preço
+- o que depende de aprovação antes do envio</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Cerca de&nbsp;550 palavras, e&nbsp;o&nbsp;tamanho é decisão.</strong> Instrução
+    de&nbsp;mil palavras não&nbsp;cabe numa&nbsp;aula e&nbsp;ninguém revisa depois. Esta cabe numa&nbsp;página e&nbsp;meia,
+    e&nbsp;você consegue ler inteira antes de&nbsp;salvar, que&nbsp;é o&nbsp;único jeito de&nbsp;saber o&nbsp;que&nbsp;está lá
+    dentro.</p>
+
+    <h3>E&nbsp;o&nbsp;comando, toda semana, é uma&nbsp;frase</h3>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O comando de uso &middot; vai no chat, com o pedido anexado</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b4ins-comando">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b4ins-comando">Segue o pedido do cliente. Monte a proposta.</pre>
+    </div>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">Sem instrução guardada</div>
+        <ul>
+          <li>Você cola o&nbsp;contexto inteiro toda vez, e&nbsp;ele sai diferente conforme&nbsp;o&nbsp;que&nbsp;você lembrou</li>
+          <li>O&nbsp;formato da&nbsp;proposta muda de&nbsp;semana para&nbsp;semana</li>
+          <li>Item fora de&nbsp;tabela às&nbsp;vezes vem com&nbsp;preço estimado, e&nbsp;você só&nbsp;percebe conferindo</li>
+          <li>Quem substitui você nas&nbsp;férias não&nbsp;tem o&nbsp;texto, porque&nbsp;ele nunca existiu</li>
+        </ul>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">Com a instrução guardada</div>
+        <ul>
+          <li>Você manda uma&nbsp;frase e&nbsp;anexa o&nbsp;pedido</li>
+          <li>A&nbsp;proposta sai nas&nbsp;mesmas seis partes, na&nbsp;mesma ordem</li>
+          <li>Item fora de&nbsp;tabela cai sempre na&nbsp;seção "aguardando preço", porque&nbsp;está escrito</li>
+          <li class="ad-mais">o&nbsp;texto existe em&nbsp;arquivo, e&nbsp;vai junto com&nbsp;quem assumir o&nbsp;processo</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;última linha da&nbsp;direita é a&nbsp;que&nbsp;muda o&nbsp;argumento.</strong> Nas&nbsp;três primeiras o&nbsp;ganho é seu;&nbsp;na&nbsp;quarta ele deixou de&nbsp;morar em&nbsp;você.
+    <strong>É a&nbsp;mesma diferença entre&nbsp;ilha e&nbsp;trilho da&nbsp;aula 2</strong>, agora com&nbsp;o&nbsp;texto na&nbsp;mão em&nbsp;vez do&nbsp;desenho.</p>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">MD</div>
+        <div>
+          <div class="arq-nome">system-prompt-do-orcamento.md</div>
+          <div class="arq-fn">A instrução do caso, inteira, do jeito que vai no campo. É o mesmo texto do bloco acima, em arquivo, para você comparar com o seu.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn-2" href="../_arquivos/system-prompt-do-orcamento.md" download>Baixar o exemplo</a>
+      </div>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../b4-alcance/">&larr; Aula 4 · O assistente que alcança onde o seu trabalho mora</a><a href="../desafio-parecer/">Desafio 1 · 600 linhas de planilha viram um parecer executivo &rarr;</a></nav>
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Escreva a&nbsp;instrução do&nbsp;seu&nbsp;assistente</h2>
+      </div>
+    </div>
+
+    <p>Abra a&nbsp;planilha que&nbsp;você preencheu na&nbsp;aula 3 e&nbsp;baixe o&nbsp;esqueleto abaixo. Cada bloco do&nbsp;esqueleto diz, entre&nbsp;parênteses, de&nbsp;qual coluna ele se&nbsp;alimenta. Três passos.</p>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">MD</div>
+        <div>
+          <div class="arq-nome">esqueleto-do-system-prompt.md</div>
+          <div class="arq-fn">Os sete blocos em branco, cada um marcado com a coluna da sua tabela que o preenche. É o que você leva preenchido para a próxima aula.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/esqueleto-do-system-prompt.md" download>Baixar para preencher</a>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Copie só os passos marcados (IN), e vire o verbo</div>
+      </div>
+      <p>Pegue a&nbsp;sua&nbsp;coluna Processo e&nbsp;leve para&nbsp;o&nbsp;bloco <strong>Como você trabalha</strong>
+      apenas as&nbsp;linhas marcadas (IN). Mantenha o&nbsp;critério que&nbsp;você escreveu ao&nbsp;lado de&nbsp;cada uma.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Entre&nbsp;dois e&nbsp;cinco passos numerados. <strong>Se&nbsp;sobrou um&nbsp;passo sem&nbsp;critério, ele
+        vai voltar como resposta imprevisível</strong>: é a&nbsp;mesma frase que&nbsp;na&nbsp;aula 3 não&nbsp;dava
+        para&nbsp;conferir. Volte e&nbsp;escreva o&nbsp;critério antes de&nbsp;seguir.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Transforme a coluna Exceção em condição, seta e ação</div>
+      </div>
+      <p>Uma&nbsp;linha por&nbsp;exceção. Comece pelo&nbsp;caso que&nbsp;dispara, ponha a&nbsp;seta, e&nbsp;termine no&nbsp;que&nbsp;ele faz. Onde&nbsp;a&nbsp;exceção envolve decisão de&nbsp;outra pessoa, a&nbsp;ação termina em&nbsp;parar e&nbsp;avisar.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Duas a&nbsp;quatro linhas, cada uma&nbsp;com&nbsp;uma&nbsp;seta. <strong>Se&nbsp;a&nbsp;sua&nbsp;coluna Exceção estava
+        vazia na&nbsp;aula 3, este passo trava</strong>, e&nbsp;trava com&nbsp;razão: é ela que&nbsp;carrega o&nbsp;que&nbsp;só&nbsp;existe na&nbsp;sua&nbsp;cabeça. Volte à&nbsp;planilha e&nbsp;escreva pelo&nbsp;menos duas.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Escreva os três NUNCA e a linha de onde ele não decide</div>
+      </div>
+      <p>Lembre de&nbsp;três coisas que&nbsp;já&nbsp;saíram erradas quando&nbsp;outra pessoa fez esse trabalho.
+      Cada uma&nbsp;vira um&nbsp;NUNCA. Depois escreva, em&nbsp;uma&nbsp;frase, o&nbsp;que&nbsp;este assistente organiza mas&nbsp;não&nbsp;escolhe.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você deveria ter agora</div>
+        <p>Três linhas de&nbsp;NUNCA e&nbsp;uma&nbsp;de&nbsp;fronteira. <strong>Leia os&nbsp;três NUNCA e&nbsp;pergunte de&nbsp;cada um:&nbsp;dá para&nbsp;olhar uma&nbsp;resposta e&nbsp;dizer se&nbsp;ele cumpriu?</strong> Se&nbsp;não&nbsp;dá, aquele
+        NUNCA é um&nbsp;adjetivo, e&nbsp;adjetivo não&nbsp;é regra.</p>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, use estas três saídas</div>
+        <ul>
+          <li><strong>Não&nbsp;sabe escrever o&nbsp;Papel?</strong> Copie a&nbsp;frase que&nbsp;você usaria para&nbsp;apresentar essa função a&nbsp;alguém de&nbsp;fora da&nbsp;empresa, e&nbsp;acrescente o&nbsp;que&nbsp;essa pessoa
+          precisaria saber para&nbsp;não&nbsp;errar na&nbsp;primeira semana.</li>
+          <li><strong>Todos os&nbsp;seus&nbsp;passos ficaram (EX)?</strong> Então este processo ainda não&nbsp;tem assistente, e&nbsp;isso é resposta, não&nbsp;fracasso. Escolha outro processo da&nbsp;sua&nbsp;varredura da&nbsp;aula 1, ou&nbsp;espere a&nbsp;aula 4, que&nbsp;trata exatamente disso.</li>
+          <li><strong>Não&nbsp;lembra de&nbsp;nenhum erro para&nbsp;virar NUNCA?</strong> Rode o&nbsp;processo uma&nbsp;vez no&nbsp;chat sem&nbsp;instrução nenhuma e&nbsp;leia a&nbsp;resposta. O&nbsp;primeiro incômodo que&nbsp;você
+          sentir é o&nbsp;seu&nbsp;primeiro NUNCA, escrito com&nbsp;as&nbsp;palavras do&nbsp;que&nbsp;ele fez.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não vale:</strong> escrever a instrução de um processo
+        que você não mapeou. Sem a tabela, o texto sai plausível e genérico, e você não tem como
+        saber se ele descreve o seu trabalho ou o trabalho médio de alguém com o seu cargo.</div>
+      </div>
+    </div>
+
+    <h3>Se&nbsp;o&nbsp;texto não&nbsp;sair, peça ao&nbsp;chat que&nbsp;ele leia a&nbsp;sua&nbsp;tabela</h3>
+
+    <p>Este pedido não&nbsp;escreve a&nbsp;instrução no&nbsp;seu&nbsp;lugar: ele lê a&nbsp;tabela que&nbsp;você já&nbsp;preencheu
+    e&nbsp;devolve um&nbsp;rascunho colado nela, com&nbsp;o&nbsp;que&nbsp;faltou marcado.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Da tabela para o rascunho da instrução, pronto para copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b4ins-rascunho">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b4ins-rascunho">[P] Papel / Persona:
+Um redator de procedimento operacional que transforma tabela de processo em
+instrução executável, e que trata frase sem critério como frase não escrita.
+
+[C] Contexto:
+Eu mapeei um processo meu numa tabela com sete colunas: Área, Entrada,
+Processo, Saída, Exceção, Recursos e Tempo. Cada passo do Processo está
+marcado (IN), quando eu resolvo com o que já tenho em mãos, ou (EX), quando
+depende de outro sistema ou setor. Vou colar a tabela abaixo. Quero escrever
+a instrução de um assistente que executa a parte (IN) desse processo.
+
+[T] Tarefa:
+Leia a minha tabela e devolva um rascunho da instrução em sete blocos: Papel,
+Como você trabalha, O que fazer quando foge do padrão, O que você nunca faz,
+O que você entrega, Onde você não decide, e Antes de entregar. Use apenas o
+que está escrito na tabela. Ao final, liste em separado o que você precisou
+deixar em branco e de qual coluna aquilo viria.
+
+[F] Formato:
+Texto em markdown, com um título de nível 2 por bloco, na ordem acima. O bloco
+Como você trabalha em lista numerada, um passo por linha. O bloco de fora do
+padrão com uma linha por exceção, no formato condição, seta, ação. No máximo
+600 palavras no total.
+
+[L] Limitações:
+Use somente os passos marcados (IN); os (EX) ficam de fora e você os lista no
+final como pendências. Não invente exceção, critério nem regra que não esteja
+na tabela. Escreva cada NUNCA como comportamento específico e observável, e não
+como adjetivo: "nunca escreva preço fora da tabela vigente", nunca "não seja
+impreciso". Na dúvida sobre o que uma célula quer dizer, escreva "sem medida"
+ou pergunte, em vez de completar por conta própria.
+
+[Critério de Sucesso]:
+Eu leio o rascunho e reconheço o meu processo sem precisar corrigir nenhum
+passo de lugar. E toda linha que você escreveu eu consigo apontar de qual
+célula da minha tabela ela veio.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;cláusula que&nbsp;faz o&nbsp;trabalho é a&nbsp;última das&nbsp;limitações.</strong>
+    Sem&nbsp;ela o&nbsp;modelo preenche a&nbsp;coluna Exceção vazia com&nbsp;exceções plausíveis do&nbsp;seu&nbsp;setor, e&nbsp;elas chegam escritas com&nbsp;a&nbsp;mesma segurança das&nbsp;suas.&nbsp;<strong>Instrução com&nbsp;regra inventada
+    é pior que&nbsp;instrução curta</strong>, porque&nbsp;ela vai ser obedecida.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com&nbsp;a&nbsp;instrução escrita você tem a&nbsp;primeira das&nbsp;três partes do&nbsp;seu&nbsp;assistente, e&nbsp;é a&nbsp;que&nbsp;mais trabalho dá. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>:
+  leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;o&nbsp;seu&nbsp;assistente responder alguma coisa
+  que&nbsp;você não&nbsp;esperava.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O&nbsp;que&nbsp;a&nbsp;instrução não&nbsp;faz</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ela não sabe nada que você não escreveu, e o silêncio dela parece conhecimento</div>
+      <p>O&nbsp;assistente vai responder com&nbsp;naturalidade sobre&nbsp;a&nbsp;sua&nbsp;tabela de&nbsp;preços mesmo sem&nbsp;ter visto nenhuma. <strong>A&nbsp;instrução diz como ele trabalha; ela não&nbsp;carrega o&nbsp;que&nbsp;ele
+      precisa consultar.</strong> É a&nbsp;próxima aula que&nbsp;fecha esse buraco, e&nbsp;até&nbsp;lá vale
+      desconfiar de&nbsp;toda resposta que&nbsp;cite um&nbsp;número da&nbsp;sua&nbsp;empresa.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Instrução não é lugar de dado que muda</div>
+      <p>Preço, prazo, meta e&nbsp;nome de&nbsp;cliente envelhecem, e&nbsp;quando&nbsp;eles moram na&nbsp;instrução
+      ninguém lembra de&nbsp;atualizar. <strong>Se&nbsp;você precisa mexer no&nbsp;texto toda semana, o&nbsp;que&nbsp;você escreveu ali era comando</strong>, e&nbsp;ele deveria estar na&nbsp;frase que&nbsp;você manda no&nbsp;chat ou&nbsp;no&nbsp;arquivo que&nbsp;a&nbsp;próxima aula anexa.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Assistente configurado continua sendo assistente, e não decisor</div>
+      <p>Quanto melhor a&nbsp;instrução, mais a&nbsp;resposta parece um&nbsp;parecer. <strong>O&nbsp;bloco
+      "onde&nbsp;você não&nbsp;decide" existe para&nbsp;essa hora</strong>, e&nbsp;ele protege duas coisas: quem
+      recebe a&nbsp;proposta, e&nbsp;você, que&nbsp;assina o&nbsp;que&nbsp;sai. Aprovação, valor, crédito e&nbsp;diagnóstico
+      continuam sendo de&nbsp;gente.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">A fronteira desta aula</span>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
+          <tbody><tr><td>a instrução escrita, com processo, exceção, limite e fronteira</td><td>o assistente não conhece a sua tabela de preços, o seu modelo nem as suas regras internas</td><td>na próxima aula, que anexa esses arquivos e testa se ele passou a consultar em vez de inventar</td></tr></tbody>
+        </table>
+      </div>
+      <p class="fig-leg">Instrução boa com&nbsp;base vazia devolve resposta bem formatada e&nbsp;sem&nbsp;lastro, que&nbsp;é o&nbsp;erro mais difícil de&nbsp;pegar: ele tem a&nbsp;cara certa.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p>Você escreveu como ele trabalha. <strong>Falta o&nbsp;que&nbsp;só&nbsp;você sabe.</strong> Cole a&nbsp;sua&nbsp;instrução num&nbsp;chat qualquer e&nbsp;peça a&nbsp;proposta: vai voltar um&nbsp;texto na&nbsp;ordem certa, com&nbsp;preços que&nbsp;não&nbsp;existem. A&nbsp;próxima aula anexa os&nbsp;arquivos da&nbsp;coluna Recursos, e&nbsp;mostra a&nbsp;bateria de&nbsp;quatro perguntas que&nbsp;separa o&nbsp;assistente que&nbsp;consulta do&nbsp;que&nbsp;inventa.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b4-assistentes/">&larr; B4 · Assistentes especializados</a><a href="../b4-base/">Aula 2 · Dê ao assistente o que só você sabe &rarr;</a></nav>
 </main>
 
 
