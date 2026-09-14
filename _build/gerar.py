@@ -44,7 +44,11 @@ CURSO = {
     #
     # Os nomes abaixo estao na ementa v3 que o IEL aprovou e na pagina de
     # vendas: sao o assunto do curso, nao bastidor.
-    "ensina": ["Claude", "n8n", "NotebookLM", "Claude Projects", "Cowork",
+    # 14/09: "Claude Code" entra porque a capa do Modulo 2 cita o bloco de
+    # recursos profissionais do curso de n8n ("construcao avancada com Claude
+    # Code"), e o Modulo 3 da ementa e sobre ele. Ate aqui nenhuma pagina
+    # precisava do nome composto; so "Claude".
+    "ensina": ["Claude", "Claude Code", "n8n", "NotebookLM", "Claude Projects", "Cowork",
                "Gmail", "Google Sheets", "Google Drive", "ChatGPT", "Gemini"],
 }
 
@@ -223,9 +227,12 @@ PAGINAS = {
         titulo="Módulo 2 · Automação com n8n",
         kicker="Módulo 2 de 3",
         h1="Automação com n8n",
-        sub="Do primeiro fluxo funcional ao agente que executa a rotina sozinho. Começa "
-            "pela conta, pela interface e pelo primeiro fluxo que roda de verdade.",
-        selos=["Três blocos", "Você sai com um fluxo rodando"],
+        # 🔴 14/09: o Modulo 2 e o curso de n8n do Rafael inteiro, sete blocos
+        # (B5 a B11) mais um curto de recursos (B12). Comeca ANTES da ferramenta.
+        sub="Do mapa do seu processo ao agente que executa a rotina sozinho. Começa "
+            "antes da ferramenta; depois a conta, a interface e o primeiro fluxo que "
+            "roda de verdade.",
+        selos=["Sete blocos", "Você sai com um fluxo rodando"],
         migalha=[("../", "IA para Negócios"),
                  (None, "Automação com n8n")],
     ),
