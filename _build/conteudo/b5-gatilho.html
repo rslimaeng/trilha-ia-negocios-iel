@@ -1,0 +1,223 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O esqueleto mental que vale pra <strong>qualquer</strong> automação no n8n, e que vai voltar em todos os blocos seguintes</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Você vai ver o n8n com pastas, dezenas de nós, ícones, painéis. Pode parecer caos.
+      <strong>Não é.</strong></p>
+    </div>
+
+    <p>Todo workflow se resume em 3 partes. Aprende essas três partes uma vez e o resto fica
+    simples de organizar: pra <strong>qualquer</strong> caso, em qualquer área, com qualquer
+    ferramenta integrada. Esse esqueleto é o que separa quem vê o n8n como "monte de
+    quadradinhos coloridos" de quem vê como "ferramenta de mapear processos".</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Todo workflow é uma frase em 3 partes</h3>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">01 &middot; gatilho</div>
+          <h4>QUANDO</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">02 &middot; execução</div>
+          <h4>FAZ</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">03 &middot; entrega</div>
+          <h4>PARA</h4>
+        </div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">A frase, inteira</div>
+        <p><strong>QUANDO</strong> algo acontece (gatilho), <strong>EU FAÇO</strong> essas coisas
+        (execução), <strong>PRA ENTREGAR</strong> isso (entrega).</p>
+        <ul class="analogia-mapa">
+          <li><strong>Gatilho, o "quando":</strong> o que dispara o fluxo.</li>
+          <li><strong>Execução, o "faz":</strong> o que acontece no meio. É onde mora o trabalho.</li>
+          <li><strong>Entrega, o "para":</strong> o que sai no final. Onde o resultado para.</li>
+        </ul>
+      </div>
+
+      <div class="grade grade-3 solta">
+        <div class="cartao">
+          <div class="cartao-n">01</div>
+          <h4>Gatilho</h4>
+          <p>Pode ser:</p>
+          <ul class="lista">
+            <li>Um clique seu (manual)</li>
+            <li>Um horário (toda segunda 9h)</li>
+            <li>Um evento (chegou e-mail novo, alguém preencheu form)</li>
+            <li>Uma chamada externa (webhook)</li>
+          </ul>
+          <p><strong>Sinal de bom mapeamento:</strong> o gatilho é uma frase concreta com
+          sujeito e momento ("toda segunda às 9h", "quando chega e-mail com assunto X"). Se não
+          consegue ser específico, ainda não está pronto.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">02</div>
+          <h4>Execução</h4>
+          <ul class="lista">
+            <li>Buscar dado em algum lugar</li>
+            <li>Decidir caminho (se A, faz X; se B, faz Y)</li>
+            <li>Transformar (formatar, calcular, juntar, separar)</li>
+            <li>Enriquecer com IA, com API, com cálculo</li>
+          </ul>
+          <p><strong>Sinal de bom mapeamento:</strong> cada passo da execução é um verbo
+          concreto ("abrir", "filtrar", "calcular", "formatar"). Se aparece "fazer várias
+          coisas" ou "tratar os dados", você ainda não detalhou o suficiente.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">03</div>
+          <h4>Entrega</h4>
+          <ul class="lista">
+            <li>Um e-mail enviado</li>
+            <li>Uma linha numa planilha</li>
+            <li>Uma mensagem no Telegram</li>
+            <li>Um dado num CRM</li>
+            <li>Uma resposta numa conversa</li>
+          </ul>
+          <p><strong>Sinal de bom mapeamento:</strong> a entrega tem um destino específico
+          ("manda e-mail pro chefe com resumo X") em vez de genérico ("avisa alguém").</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <p>Vamos aplicar o esqueleto nas 3 tarefas que vimos na aula 1:</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th></th><th>Gatilho</th><th>Execução</th><th>Entrega</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Vânia</strong><br>Relatório semanal de vendas</td><td>toda segunda 9h</td><td>abrir Sheets de leads &rarr; filtrar últimos 7 dias &rarr; contar por origem &rarr; escrever resumo formatado</td><td>enviar e-mail pro chefe com o resumo</td></tr>
+          <tr><td><strong>Marina</strong><br>Repostagem Instagram &rarr; LinkedIn</td><td>quando publico um post no Instagram</td><td>baixar imagem e caption &rarr; reescrever tom pro LinkedIn &rarr; ajustar hashtags do nicho</td><td>publicar como artigo no LinkedIn</td></tr>
+          <tr><td><strong>Triagem de currículos</strong><br>projeto-âncora do módulo</td><td>candidato envia formulário com PDF anexo</td><td>extrair texto do PDF &rarr; identificar nome/área/anos de experiência &rarr; comparar com requisitos da vaga &rarr; classificar (entrevistar / banco de talentos / recusar)</td><td>registrar no Sheets de candidatos + enviar e-mail de retorno padrão</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Repare: nenhum dos 3 mapas acima exige conhecer n8n.</strong> São
+    processos descritos em português puro. <strong>Esse é o ponto.</strong> O n8n entra depois pra
+    executar, mas o mapeamento existe antes e independe da ferramenta.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Narre seu próprio processo</h2>
+      </div>
+    </div>
+
+    <p>Pega 1 tarefa sua e narra em voz alta como se estivesse explicando pra um amigo. Use o
+    template:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; narre seu próprio processo</div>
+      <div class="demo-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O template &middot; pra copiar e preencher</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b5gat-template">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b5gat-template">"Quando [evento] (gatilho), eu pego [origem dos dados], faço [passos de execução em verbos concretos], e mando [destino] (entrega)."</pre>
+        </div>
+        <p><strong>Exemplo:</strong></p>
+        <p><em>"Toda quarta de manhã (gatilho), eu pego os pedidos que entraram na semana, separo
+        por categoria, calculo o total por cliente (execução), e mando um relatório PDF pro time
+        financeiro (entrega)."</em></p>
+      </div>
+    </div>
+
+    <p>Se você consegue narrar nessa estrutura, você já mapeou. Se trava ("ah, tem várias
+    coisas, não sei explicar"), volta na <a href="../b5-pensar/">aula 1</a>: talvez o processo
+    ainda esteja confuso pra ser automatizado.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já tem a frase em 3 partes e narrou uma tarefa sua com ela. O
+  que vem abaixo é <strong>aprofundamento</strong>: leia agora, ou volte quando um mapa seu
+  não couber nas três partes.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pular o gatilho</div>
+      <p>Sem definir o gatilho, você fica preso ao "executar manual" pra sempre, e isso não é
+      automação.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar execução com entrega</div>
+      <p>"Transformar dado" e "enviar e-mail" são coisas diferentes. Quando você mistura, perde
+      a chance de reutilizar o mesmo workflow com uma entrega diferente (ex.: trocar e-mail por
+      Telegram).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Querer entregar em 5 lugares ao mesmo tempo</div>
+      <p>Sinal de que o processo precisa ser quebrado em 2-3 workflows menores, cada um com sua
+      entrega.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir "execução" com "tudo que acontece"</div>
+      <p>Execução é a parte processada: não a parte de receber dado (gatilho) nem a parte de
+      mandar pra fora (entrega). Manter os 3 separados ajuda a debugar quando algo quebra.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> <a href="../b5-mapear/">aula 3, Exercício: mapear uma tarefa sua</a>.</p>
+  </div>

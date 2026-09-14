@@ -1361,6 +1361,13 @@ DISPENSA_NOTION_LITERAL = {
         "G41": "o Topico 1 do M0 nao tem analogia; a do modulo e o Topico 2",
         "G42": "as duas paginas anteriores na TRILHA sao capas e o Topico 1 nao tem arquivo",
     },
+    # 14/09, aula 2 do B5: a janela e capa + Topico 1 + Topico 2, e nenhum tem
+    # arquivo. O M0 inteiro e "sem n8n aberto" e entrega o mapa da pessoa em
+    # papel (o Topico 3 e arquivo=False por decisao do prompt, P1). Mesmo caso
+    # estrutural da linha acima, mesma decisao do Rafael.
+    "b5-gatilho/index.html": {
+        "G42": "a janela e capa + Topico 1 + Topico 2; o M0 entrega mapa em papel, sem arquivo",
+    },
 }
 
 

@@ -92,7 +92,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # modulo do Notion = bloco do site, topico = aula (decisao de 14/09,
              # PROMPT-marco2-n8n.md v2, D1). O B5 e o M0. Os blocos entram aqui
              # um a um, na ordem do Notion, atras da capa do modulo.
-             "modulo-2", "b5-antes", "b5-pensar",
+             "modulo-2", "b5-antes", "b5-pensar", "b5-gatilho", "b5-mapear",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -159,6 +159,8 @@ TRILHA = [
     ]),
     ("As aulas do B5", [
         ("b5-pensar",   "1 · Pensar como automação"),
+        ("b5-gatilho",  "2 · Gatilho → Execução → Entrega"),
+        ("b5-mapear",   "3 · Exercício: mapear uma tarefa sua"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -253,6 +255,36 @@ PAGINAS = {
         h1="Pensar como automação",
         sub="O que é um processo automatizável e como reconhecer um na sua rotina.",
         selos=["Sem n8n aberto", "Conceito + 3 exemplos reais"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b5-antes/", "B5 · Antes do n8n"),
+                 (None, None)],
+    ),
+    "b5-gatilho": dict(
+        # fundamento: "Conceito + analogia + casos guiados" no Notion. A aula-
+        # ancora do bloco: a frase em 3 partes que volta em todos os blocos.
+        tipo="fundamento",
+        titulo="Aula 2 · Gatilho → Execução → Entrega",
+        kicker="Módulo 2 · B5 · Antes do n8n",
+        h1="Gatilho → Execução → Entrega",
+        sub="O esqueleto mental que vale pra qualquer workflow no n8n. Aula-âncora do bloco.",
+        selos=["Sem n8n aberto", "Aula-âncora do bloco"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b5-antes/", "B5 · Antes do n8n"),
+                 (None, None)],
+    ),
+    "b5-mapear": dict(
+        # pratica SEM arquivo (P1 do PROMPT v2): o mapa e da pessoa, em papel,
+        # e o insumo e a tabela IPO que ela preencheu no B3 (D2). O pedido
+        # copiavel e o molde da tabela em 3 partes.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Aula 3 · Exercício: mapear uma tarefa sua",
+        kicker="Módulo 2 · B5 · Antes do n8n",
+        h1="Exercício: mapear uma tarefa sua",
+        sub="Aplicar o esqueleto numa tarefa do seu dia. O exercício que destrava o módulo.",
+        selos=["Sem n8n aberto", "Use a tabela do B3"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b5-antes/", "B5 · Antes do n8n"),
