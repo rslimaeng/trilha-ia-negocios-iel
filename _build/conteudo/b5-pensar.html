@@ -1,0 +1,235 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O que é um processo automatizável</li>
+      <li>Como reconhecer um na sua rotina</li>
+      <li>Por que tentar automatizar antes de mapear sempre dá errado</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Quem aprende n8n direto pelo botão "criar workflow" trava no primeiro problema real.</p>
+    </div>
+
+    <p>Por quê? Porque <strong>automatizar não é desenhar fluxo bonito</strong>: é traduzir um
+    processo que existe na sua cabeça (ou na sua rotina) pra um conjunto de passos explícitos.</p>
+
+    <p>Sem essa tradução, o workflow vira gambiarra: você passa horas configurando nodes pra
+    resolver um problema mal-definido.</p>
+
+    <p>Pior: quando algo quebra (e vai quebrar), você não sabe nem onde olhar, porque nunca
+    explicitou o que o fluxo deveria fazer.</p>
+
+    <p>A boa notícia: <strong>o trabalho de mapeamento vale 80% do resultado.</strong> Quem
+    mapeia bem constrói rápido. Quem pula o mapeamento constrói devagar e refaz tudo na
+    primeira mudança.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Os 3 sinais de um processo automatizável</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Um processo só vale ser automatizado se tem os 3 sinais ao mesmo tempo</h3>
+
+      <div class="grade grade-3 solta">
+        <div class="cartao">
+          <div class="cartao-n">01</div>
+          <h4>Repete</h4>
+          <p>Você faz mais de uma vez por semana.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">02</div>
+          <h4>É previsível</h4>
+          <p>Se acontece X, você faz Y. As regras são claras (ou podem ser claras com pouco
+          esforço).</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">03</div>
+          <h4>Custa tempo</h4>
+          <p>Cada repetição come minutos que poderiam ir pra outra coisa.</p>
+        </div>
+      </div>
+
+      <p>Se falta 1 dos 3, pensa duas vezes:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Falta</th><th>Sinal de alerta</th><th>Por quê</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Repetição</td><td>Você fez 1 ou 2 vezes só</td><td>Tempo de construir &gt; tempo economizado</td></tr>
+            <tr><td>Previsibilidade</td><td>Você fala "depende" toda vez que tenta explicar</td><td>Vai precisar de muita decisão humana, melhor manter manual</td></tr>
+            <tr><td>Custo de tempo</td><td>A tarefa leva 30 segundos</td><td>Automatizar pra economizar 30s/mês não compensa</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Cuidado especial com a exceção</div>
+        <p>Algumas tarefas parecem repetitivas mas têm 30% de exceção que exige decisão humana
+        ("esse cliente é especial", "esse caso é diferente"). Se você sempre fala
+        <em>"depende"</em> pra explicar como faz, ainda não está pronto pra automatizar:
+        primeiro estabilize as regras, depois automatiza.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <p>Vamos pegar um exemplo comum: você recebe leads pelo formulário do seu site.</p>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">Sem mapeamento</div>
+        <p>Você abre o n8n, clica em "novo workflow", arrasta um nó de Form trigger, vê 30
+        opções de configuração, fica perdido entre Form vs Webhook vs Manual, fecha o n8n
+        frustrado.</p>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">Com mapeamento</div>
+        <p>Antes de abrir o n8n, você descreve em texto:</p>
+        <ul>
+          <li>Quando alguém preencher o formulário do site...</li>
+          <li>...adicionar uma linha na planilha de leads...</li>
+          <li>...mandar pro lead um e-mail de boas-vindas...</li>
+          <li>...e me notificar no Telegram pra eu responder na hora.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Agora você sabe exatamente o que precisa: 1 trigger (form) + 3 ações (Sheets append,
+    Gmail send, Telegram send). 4 nodes. ~30 min de construção. Sem dúvida sobre o que cada nó
+    faz.</p>
+
+    <p class="fig-leg"><strong>A diferença não é conhecimento técnico: é clareza prévia.</strong></p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>3 tarefas reais</h2>
+      </div>
+    </div>
+
+    <p>Vamos olhar 3 tarefas do dia de profissionais diferentes e classificar cada uma:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; 3 tarefas reais</div>
+      <div class="demo-corpo">
+        <div class="grade grade-3" style="margin:0">
+          <div class="cartao">
+            <h4>Vânia, gerente de vendas</h4>
+            <p><em>"Toda segunda 9h eu preciso compilar os leads que chegaram na semana e
+            mandar um relatório resumido pro meu chefe."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, semanal</li>
+              <li>✅ <strong>Previsível:</strong> sim, mesmo formato sempre</li>
+              <li>✅ <strong>Custa tempo:</strong> ~45 min por semana</li>
+            </ul>
+            <p><strong>&rarr; Automatizável.</strong> Caso clássico de "schedule + leitura +
+            transformação + envio".</p>
+          </div>
+          <div class="cartao">
+            <h4>João, advogado</h4>
+            <p><em>"Quando recebo um e-mail de cliente novo, eu leio, decido se é caso meu, e
+            respondo de forma personalizada baseado no histórico que tenho com aquele
+            perfil."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, todo dia</li>
+              <li>❌ <strong>Previsível:</strong> depende muito do conteúdo do e-mail</li>
+              <li>✅ <strong>Custa tempo:</strong> muito (15-30 min por e-mail)</li>
+            </ul>
+            <p><strong>&rarr; Parcialmente automatizável.</strong> Pode automatizar a triagem
+            (categorizar o e-mail, anexar contexto, sugerir resposta), mas a decisão final fica
+            humana.</p>
+          </div>
+          <div class="cartao">
+            <h4>Marina, criadora de conteúdo</h4>
+            <p><em>"Quando publico um carrossel novo no Instagram, queria que ele fosse
+            automaticamente postado no LinkedIn como artigo."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, semanal</li>
+              <li>✅ <strong>Previsível:</strong> sim, mesmo formato</li>
+              <li>✅ <strong>Custa tempo:</strong> ~20 min cada repostagem manual</li>
+            </ul>
+            <p><strong>&rarr; Automatizável.</strong> Caso clássico de "evento em uma plataforma
+            &rarr; adaptação &rarr; publicação em outra".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já tem os três sinais e três tarefas classificadas com eles. O
+  que vem abaixo é <strong>aprofundamento</strong>: leia agora, ou volte quando estiver em
+  dúvida se uma tarefa sua vale automatizar.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">"Tudo é automatizável"</div>
+      <p>Não é. Decisão complexa exige humano. Casos com mais de 30% de exceção raramente
+      compensam.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">"Vou automatizar quando souber n8n"</div>
+      <p>É o contrário: aprenda mapeando. O mapeamento é a parte que vale 80% do resultado. n8n
+      só é a ferramenta de execução.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tentar automatizar processo que você nunca fez no manual</div>
+      <p>Se nunca repetiu a tarefa, você não conhece os edge cases. Faça 5-10 vezes na mão,
+      anote os "quase-erros", DEPOIS automatiza.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir "complexo" com "automatizável"</div>
+      <p>Uma tarefa complexa pode ser pouco automatizável (precisa de julgamento). Uma tarefa
+      boba e repetitiva pode ser super automatizável. Olhe a regularidade, não o glamour.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> aula 2, Gatilho &rarr; Execução &rarr; Entrega.</p>
+  </div>

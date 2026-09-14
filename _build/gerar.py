@@ -88,7 +88,12 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b4-assistentes", "b4-instrucao", "b4-base", "b4-refino", "b4-time",
              "b4-time-marca",
              "desafios", "desafio-parecer", "desafio-avaliacoes", "desafio-plano", "desafio-satisfacao",
-             "modulo-2", "modulo-3", "componentes"]
+             # 🔴 O MODULO 2 E O CURSO DE n8n DO RAFAEL INTEIRO, como esta no Notion:
+             # modulo do Notion = bloco do site, topico = aula (decisao de 14/09,
+             # PROMPT-marco2-n8n.md v2, D1). O B5 e o M0. Os blocos entram aqui
+             # um a um, na ordem do Notion, atras da capa do modulo.
+             "modulo-2", "b5-antes", "b5-pensar",
+             "modulo-3", "componentes"]
 
 TRILHA = [
     ("Módulo 1 · IA Conversacional e Estratégica", [
@@ -148,8 +153,14 @@ TRILHA = [
         ("desafio-plano",      "3 · Transcrição vira plano de 30 dias"),
         ("desafio-satisfacao", "4 · Pesquisa de satisfação vira diagnóstico"),
     ]),
-    ("Os outros dois módulos", [
+    ("Módulo 2 · Automação com n8n", [
         ("modulo-2",    "Automação com n8n"),
+        ("b5-antes",    "B5 · Antes do n8n: pensar como automação"),
+    ]),
+    ("As aulas do B5", [
+        ("b5-pensar",   "1 · Pensar como automação"),
+    ]),
+    ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
     ]),
     ("Referência interna", [
@@ -215,6 +226,37 @@ PAGINAS = {
         selos=["Três blocos", "Você sai com um fluxo rodando"],
         migalha=[("../", "IA para Negócios"),
                  (None, "Automação com n8n")],
+    ),
+    # 🔴 O B5 E O M0 DO CURSO DE n8n DO RAFAEL, literal (14/09). Titulo do
+    # bloco = titulo do modulo no Notion; titulo da aula = titulo do topico,
+    # sem os simbolos. O texto das paginas e o do Notion; o que o site
+    # acrescenta e so a casca (D1, D17 do PROMPT-marco2-n8n.md v2).
+    "b5-antes": dict(
+        titulo="B5 · Antes do n8n: pensar como automação",
+        kicker="Módulo 2 · B5 · Bloco 1 de 7",
+        h1="Antes do n8n: pensar como automação",
+        sub="Transformar uma tarefa repetitiva real em um mapa textual claro "
+            "(Gatilho → Execução → Entrega), pronto pra virar workflow no B6. "
+            "Sem n8n aberto.",
+        selos=["Três aulas", "Sem n8n aberto"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Antes do n8n")],
+    ),
+    "b5-pensar": dict(
+        # fundamento: o Notion declara "Conceito + 3 exemplos reais", e o G43
+        # mapeia Conceito para fundamento (secao 5 do PROMPT v2). Nao ha
+        # exercicio nem arquivo; a demonstracao sao as tres tarefas reais.
+        tipo="fundamento",
+        titulo="Aula 1 · Pensar como automação",
+        kicker="Módulo 2 · B5 · Antes do n8n",
+        h1="Pensar como automação",
+        sub="O que é um processo automatizável e como reconhecer um na sua rotina.",
+        selos=["Sem n8n aberto", "Conceito + 3 exemplos reais"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b5-antes/", "B5 · Antes do n8n"),
+                 (None, None)],
     ),
     "modulo-3": dict(
         titulo="Módulo 3 · Minha Jornada com IA",

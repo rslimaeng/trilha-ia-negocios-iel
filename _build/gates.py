@@ -1322,6 +1322,53 @@ TURMA_COMO_PLATEIA = re.compile(
     r"|mostro a vocês|pergunto a vocês)(?![\wÀ-ÿ])", re.I)
 
 
+# ---------------------------------------------------------------------------
+# 🔴 O MODULO 2 E O CURSO DE n8n DO RAFAEL, LITERAL -- E TRES GATES MEDEM A
+# FORMA DO PADRAO, NAO A DO MATERIAL DELE.
+#
+# 14/09/2026, decisao do Rafael: o Modulo 2 do site recebe o "Curso de n8n --
+# Criando Agentes" inteiro, como esta no Notion, topico por topico, sem
+# reescrever (PROMPT-marco2-n8n.md v2, secao 0: "nenhum verbo de transformacao
+# vale sobre o texto do Notion"). A primeira aula (b5-pensar, o Topico 1 do M0)
+# subiu com 0 palavras de prosa alteradas e tres achados, e nenhum dos tres e
+# defeito da pagina:
+#
+#   G33  le "eu leio, decido se e caso meu" como voz do instrutor. E a fala da
+#        persona do exemplo (Joao, advogado), entre aspas, e o gate so dispensa
+#        prompt-txt, cr-txt, sistema-txt e .cv-rot.
+#   G41  exige .analogia dentro do .conceito. O Topico 1 nao tem analogia; a
+#        do modulo mora no Topico 2, por decisao do autor.
+#   G42  exige artefato em tres paginas seguidas da TRILHA. Antes da primeira
+#        aula de um bloco do Modulo 2 vem DUAS CAPAS (modulo-2, b5-antes), e o
+#        Topico 1 nao tem arquivo: a janela falha por estrutura, nao por aula.
+#
+# A regra do prompt: "gate que reprova material dele e gate errado. Reporte e
+# pare." Reportado em 14/09; a decisao do Rafael, literal: "Mantem a troca do
+# travessao, dispensa os tres gates, faz o push."
+#
+# 🔴 COM LIMITE CONTAVEL, igual as dispensas do G5: a dispensa e POR PAGINA E
+# POR GATE, e a lista cresce uma aula por vez, com a razao escrita ao lado.
+# Pagina fora da lista continua cobrada pelos tres. Nao e desligar gate: e
+# divida declarada, no formato do PENDENTES_DO_FORMATO_ROTULADO.
+#
+# O conserto de verdade e do consultor-educacional (gate e metodo sao do
+# padrao): classe de citacao para o G33, tolerar topico sem analogia no G41, e
+# a janela do G42 ignorar capa. Registrado no 00-achados-trilha-ia-negocios-
+# iel-40h.md, bloco B.
+DISPENSA_NOTION_LITERAL = {
+    "b5-pensar/index.html": {
+        "G33": "a 1a pessoa e da persona do exemplo (Joao: 'eu leio, decido'), nao do instrutor",
+        "G41": "o Topico 1 do M0 nao tem analogia; a do modulo e o Topico 2",
+        "G42": "as duas paginas anteriores na TRILHA sao capas e o Topico 1 nao tem arquivo",
+    },
+}
+
+
+def _dispensado(rel, gate):
+    """Verdadeiro so para o par (pagina, gate) escrito na lista acima."""
+    return gate in DISPENSA_NOTION_LITERAL.get(rel, {})
+
+
 def g33_narrativa_sem_instrutor(rel, html):
     """Na página do aluno, o instrutor não aparece na primeira pessoa.
 
@@ -1332,6 +1379,8 @@ def g33_narrativa_sem_instrutor(rel, html):
     Ele não reprova "vocês": tratar a turma como profissional é bom. Reprova a
     turma como plateia.
     """
+    if _dispensado(rel, "G33"):
+        return []
     falhas = []
     vis = texto_visivel(VOZ_DO_ALUNO.sub(" ", html))
     for n, linha in enumerate(vis.split("\n"), 1):
@@ -1856,6 +1905,8 @@ def g42_a_trilha_entrega_a_cada_tres_aulas(rel, html):
     A janela e de tres e nao de um DE PROPOSITO: aula de fundamento existe e
     nao precisa entregar arquivo. O que nao pode e a terceira seguida.
     """
+    if _dispensado(rel, "G42"):
+        return []
     if not _e_aula(html):
         return []
     ordem = [r for r in _ordem_das_aulas() if r in [d for d, _ in paginas()]]
@@ -1976,6 +2027,8 @@ def g41_o_conceito_vem_com_imagem(rel, html):
     o detalhamento (.analogia-mapa, o de-para) e a extensao (.analogia-mais).
     O abstrato mora no .conceito e a negacao no .contraste, que ja existiam.
     """
+    if _dispensado(rel, "G41"):
+        return []
     if not _e_aula(html):
         return []
     falhas = []

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 3 · Minha Jornada com IA</title>
+<title>Aula 1 · Pensar como automação</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3269,55 +3269,247 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Minha Jornada com IA</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b5-antes/">B5 · Antes do n8n</a> &rsaquo; 1 · Pensar como automação</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 3 de 3</div>
-    <h1>Minha&nbsp;Jornada com&nbsp;IA</h1>
-    <p class="heroi-sub">Como apresentar o&nbsp;que&nbsp;você construiu, conduzir a&nbsp;adoção no&nbsp;time, e&nbsp;medir o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-    <div><span class="selo">Dois blocos</span><span class="selo">Você sai com o retorno medido</span></div>
+    <div class="heroi-kicker">Módulo 2 · B5 · Antes do n8n</div>
+    <h1>Pensar como automação</h1>
+    <p class="heroi-sub">O&nbsp;que&nbsp;é um&nbsp;processo automatizável e&nbsp;como reconhecer um&nbsp;na&nbsp;sua&nbsp;rotina.</p>
+    <div><span class="selo">Sem n8n aberto</span><span class="selo">Conceito + 3 exemplos reais</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O&nbsp;que&nbsp;é um&nbsp;processo automatizável</li>
+      <li>Como reconhecer um&nbsp;na&nbsp;sua&nbsp;rotina</li>
+      <li>Por&nbsp;que&nbsp;tentar automatizar antes de&nbsp;mapear sempre dá errado</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;dois blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>Os&nbsp;dois módulos anteriores constroem. Este é onde&nbsp;o&nbsp;que&nbsp;foi construído vira
-    resultado defensável: você mostra para&nbsp;a&nbsp;liderança, conduz a&nbsp;adoção no&nbsp;time, e&nbsp;mede
-    o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Posicionamento, liderança e&nbsp;adoção</h4>
-        <p>Como comunicar resultado sem&nbsp;gerar resistência, apresentar para&nbsp;a&nbsp;liderança
-        na&nbsp;linguagem de&nbsp;retorno, e&nbsp;pilotar em&nbsp;baixo risco.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Stack pessoal, retorno e&nbsp;projeto integrador</h4>
-        <p>Consolidar tudo em&nbsp;documento único, calcular o&nbsp;retorno real em&nbsp;horas e&nbsp;em&nbsp;reais, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;90 dias.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Quem aprende n8n direto pelo&nbsp;botão "criar workflow" trava no&nbsp;primeiro problema real.</p>
     </div>
 
-    <p class="fig-leg"><strong>Aqui não&nbsp;entra capacidade nova.</strong> É onde&nbsp;você prova
-    as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
+    <p>Por&nbsp;quê? Porque&nbsp;<strong>automatizar não&nbsp;é desenhar fluxo bonito</strong>: é traduzir um&nbsp;processo que&nbsp;existe na&nbsp;sua&nbsp;cabeça (ou&nbsp;na&nbsp;sua&nbsp;rotina) pra&nbsp;um&nbsp;conjunto de&nbsp;passos explícitos.</p>
+
+    <p>Sem&nbsp;essa tradução, o&nbsp;workflow vira gambiarra: você passa horas configurando nodes pra&nbsp;resolver um&nbsp;problema mal-definido.</p>
+
+    <p>Pior: quando&nbsp;algo quebra (e&nbsp;vai quebrar), você não&nbsp;sabe nem onde&nbsp;olhar, porque&nbsp;nunca
+    explicitou o&nbsp;que&nbsp;o&nbsp;fluxo deveria fazer.</p>
+
+    <p>A&nbsp;boa notícia: <strong>o&nbsp;trabalho de&nbsp;mapeamento vale 80% do&nbsp;resultado.</strong> Quem
+    mapeia bem constrói rápido. Quem pula o&nbsp;mapeamento constrói devagar e&nbsp;refaz tudo na&nbsp;primeira mudança.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b5-pensar/">&larr; Aula 1 · Pensar como automação</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Os&nbsp;3 sinais de&nbsp;um&nbsp;processo automatizável</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Um&nbsp;processo só&nbsp;vale ser automatizado se&nbsp;tem os&nbsp;3 sinais ao&nbsp;mesmo tempo</h3>
+
+      <div class="grade grade-3 solta">
+        <div class="cartao">
+          <div class="cartao-n">01</div>
+          <h4>Repete</h4>
+          <p>Você faz mais de&nbsp;uma&nbsp;vez por&nbsp;semana.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">02</div>
+          <h4>É previsível</h4>
+          <p>Se&nbsp;acontece X, você faz Y. As&nbsp;regras são claras (ou&nbsp;podem ser claras com&nbsp;pouco
+          esforço).</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">03</div>
+          <h4>Custa tempo</h4>
+          <p>Cada repetição come minutos que&nbsp;poderiam ir pra&nbsp;outra coisa.</p>
+        </div>
+      </div>
+
+      <p>Se&nbsp;falta 1 dos&nbsp;3, pensa duas vezes:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Falta</th><th>Sinal de alerta</th><th>Por quê</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Repetição</td><td>Você fez 1 ou 2 vezes só</td><td>Tempo de construir &gt; tempo economizado</td></tr>
+            <tr><td>Previsibilidade</td><td>Você fala "depende" toda vez que tenta explicar</td><td>Vai precisar de muita decisão humana, melhor manter manual</td></tr>
+            <tr><td>Custo de tempo</td><td>A tarefa leva 30 segundos</td><td>Automatizar pra economizar 30s/mês não compensa</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Cuidado especial com a exceção</div>
+        <p>Algumas tarefas parecem repetitivas mas&nbsp;têm 30% de&nbsp;exceção que&nbsp;exige decisão humana
+        ("esse cliente é especial", "esse caso é diferente"). Se&nbsp;você sempre fala
+        <em>"depende"</em> pra&nbsp;explicar como faz, ainda não&nbsp;está pronto pra&nbsp;automatizar:
+        primeiro estabilize as&nbsp;regras, depois automatiza.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática</h2>
+      </div>
+    </div>
+
+    <p>Vamos pegar um&nbsp;exemplo comum: você recebe leads pelo&nbsp;formulário do&nbsp;seu&nbsp;site.</p>
+
+    <div class="antes-depois solta">
+      <div class="ad antes">
+        <div class="ad-rot">Sem mapeamento</div>
+        <p>Você abre o&nbsp;n8n, clica em&nbsp;"novo workflow", arrasta um&nbsp;nó de&nbsp;Form trigger, vê 30
+        opções de&nbsp;configuração, fica perdido entre&nbsp;Form vs Webhook vs Manual, fecha o&nbsp;n8n
+        frustrado.</p>
+      </div>
+      <div class="ad-seta" aria-hidden="true">&rarr;</div>
+      <div class="ad depois">
+        <div class="ad-rot">Com mapeamento</div>
+        <p>Antes de&nbsp;abrir o&nbsp;n8n, você descreve em&nbsp;texto:</p>
+        <ul>
+          <li>Quando&nbsp;alguém preencher o&nbsp;formulário do&nbsp;site...</li>
+          <li>...adicionar uma&nbsp;linha na&nbsp;planilha de&nbsp;leads...</li>
+          <li>...mandar pro lead um&nbsp;e-mail de&nbsp;boas-vindas...</li>
+          <li>...e&nbsp;me notificar no&nbsp;Telegram pra&nbsp;eu responder na&nbsp;hora.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Agora você sabe exatamente o&nbsp;que&nbsp;precisa: 1 trigger (form) + 3 ações (Sheets append,
+    Gmail send, Telegram send). 4 nodes. ~30 min de&nbsp;construção. Sem&nbsp;dúvida sobre&nbsp;o&nbsp;que&nbsp;cada nó
+    faz.</p>
+
+    <p class="fig-leg"><strong>A&nbsp;diferença não&nbsp;é conhecimento técnico: é clareza prévia.</strong></p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>3 tarefas reais</h2>
+      </div>
+    </div>
+
+    <p>Vamos olhar 3 tarefas do&nbsp;dia de&nbsp;profissionais diferentes e&nbsp;classificar cada uma:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; 3 tarefas reais</div>
+      <div class="demo-corpo">
+        <div class="grade grade-3" style="margin:0">
+          <div class="cartao">
+            <h4>Vânia, gerente de&nbsp;vendas</h4>
+            <p><em>"Toda segunda 9h eu preciso compilar os&nbsp;leads que&nbsp;chegaram na&nbsp;semana e&nbsp;mandar um&nbsp;relatório resumido pro meu&nbsp;chefe."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, semanal</li>
+              <li>✅ <strong>Previsível:</strong> sim, mesmo formato sempre</li>
+              <li>✅ <strong>Custa tempo:</strong> ~45 min por&nbsp;semana</li>
+            </ul>
+            <p><strong>&rarr; Automatizável.</strong> Caso clássico de&nbsp;"schedule + leitura +
+            transformação + envio".</p>
+          </div>
+          <div class="cartao">
+            <h4>João, advogado</h4>
+            <p><em>"Quando&nbsp;recebo um&nbsp;e-mail de&nbsp;cliente novo, eu leio, decido se&nbsp;é caso meu,&nbsp;e&nbsp;respondo de&nbsp;forma personalizada baseado no&nbsp;histórico que&nbsp;tenho com&nbsp;aquele
+            perfil."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, todo dia</li>
+              <li>❌ <strong>Previsível:</strong> depende muito do&nbsp;conteúdo do&nbsp;e-mail</li>
+              <li>✅ <strong>Custa tempo:</strong> muito (15-30 min por&nbsp;e-mail)</li>
+            </ul>
+            <p><strong>&rarr; Parcialmente automatizável.</strong> Pode automatizar a&nbsp;triagem
+            (categorizar o&nbsp;e-mail, anexar contexto, sugerir resposta), mas&nbsp;a&nbsp;decisão final fica
+            humana.</p>
+          </div>
+          <div class="cartao">
+            <h4>Marina, criadora de&nbsp;conteúdo</h4>
+            <p><em>"Quando&nbsp;publico um&nbsp;carrossel novo no&nbsp;Instagram, queria que&nbsp;ele fosse
+            automaticamente postado no&nbsp;LinkedIn como artigo."</em></p>
+            <ul style="list-style:none;margin:0 0 14px;padding:0">
+              <li>✅ <strong>Repete:</strong> sim, semanal</li>
+              <li>✅ <strong>Previsível:</strong> sim, mesmo formato</li>
+              <li>✅ <strong>Custa tempo:</strong> ~20 min cada repostagem manual</li>
+            </ul>
+            <p><strong>&rarr; Automatizável.</strong> Caso clássico de&nbsp;"evento em&nbsp;uma&nbsp;plataforma
+            &rarr; adaptação &rarr; publicação em&nbsp;outra".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já&nbsp;tem os&nbsp;três sinais e&nbsp;três tarefas classificadas com&nbsp;eles. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>: leia agora, ou&nbsp;volte quando&nbsp;estiver em&nbsp;dúvida se&nbsp;uma&nbsp;tarefa sua&nbsp;vale automatizar.</p>
+
+  <section class="secao" id="a-cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">"Tudo é automatizável"</div>
+      <p>Não&nbsp;é. Decisão complexa exige humano. Casos com&nbsp;mais de&nbsp;30% de&nbsp;exceção raramente
+      compensam.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">"Vou automatizar quando souber n8n"</div>
+      <p>É o&nbsp;contrário: aprenda mapeando. O&nbsp;mapeamento é a&nbsp;parte que&nbsp;vale 80% do&nbsp;resultado. n8n
+      só&nbsp;é a&nbsp;ferramenta de&nbsp;execução.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tentar automatizar processo que você nunca fez no manual</div>
+      <p>Se&nbsp;nunca repetiu a&nbsp;tarefa, você não&nbsp;conhece os&nbsp;edge cases. Faça 5-10 vezes na&nbsp;mão,
+      anote os&nbsp;"quase-erros", DEPOIS automatiza.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir "complexo" com "automatizável"</div>
+      <p>Uma&nbsp;tarefa complexa pode ser pouco automatizável (precisa de&nbsp;julgamento). Uma&nbsp;tarefa
+      boba e&nbsp;repetitiva pode ser super automatizável. Olhe a&nbsp;regularidade, não&nbsp;o&nbsp;glamour.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> aula 2, Gatilho &rarr; Execução &rarr; Entrega.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b5-antes/">&larr; B5 · Antes do n8n: pensar como automação</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
 </main>
 
 
