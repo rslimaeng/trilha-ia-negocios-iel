@@ -161,6 +161,16 @@ PRATICAS = {
         ],
         setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="s2", rotulo="1 item")],
     ),
+    # B7 aula 6 · P4 · execucao 403 em 16/09/2026 12:45 (BRT), workflow OWd0Hs8O4c8iCQwm
+    "p4-lembrete": dict(
+        titulo="Lembrete Diário Foco: Schedule, Set e Gmail, os três verdes, e o e-mail enviado",
+        nos=[
+            dict(id="t", nome="📅 Toda Manhã 8h", icone="schedule", x=0, y=0, trigger=True),
+            dict(id="s", nome="📦 Compor Mensagem", icone="set", x=240, y=0, sub="manual"),
+            dict(id="g", nome="📧 Enviar Lembrete", icone="gmail", x=480, y=0, sub="send: message", cor="#c5221f"),
+        ],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="g", rotulo="1 item")],
+    ),
 }
 
 

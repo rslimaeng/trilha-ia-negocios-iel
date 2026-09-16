@@ -1375,6 +1375,12 @@ DISPENSA_NOTION_LITERAL = {
     "b6-fundamentos/index.html": {
         "G33": "o Mapa de Capacidades do M1 e o aluno na 1a pessoa ('Leio', 'termino'), nao o instrutor",
     },
+    "b7-gatilhos/index.html": {
+        "G33": "o Mapa de Capacidades do M2 e o aluno na 1a pessoa ('Recebo... e leio'), nao o instrutor",
+    },
+    "b7-lembrete/index.html": {
+        "G41": "o Topico 6 do M2 e hands-on: o conceito e o mapa em tres nos, sem analogia no Notion",
+    },
     "b6-primeiro/index.html": {
         "G41": "o Topico 4 do M1 e pratica guiada, sem analogia no Notion",
         "G42": "P2 e arquivo=False por decisao do PROMPT v2 ('nada para importar'); a janela e Topico 3 do M0 + capa do B6",

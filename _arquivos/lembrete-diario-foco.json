@@ -1,0 +1,100 @@
+{
+  "name": "Lembrete Diário Foco",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "9f79d427-360e-4329-844e-1e1cb748933d",
+      "name": "📅 Toda Manhã 8h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "m1",
+              "name": "mensagem",
+              "value": "=☀️ Bom dia! Hoje é {{ $now.toFormat('cccc, dd LLL') }}. Foco do dia: ___",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cd308508-0255-4342-9f06-cd03f242cf86",
+      "name": "📦 Compor Mensagem",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "seu-proprio-email@exemplo.com",
+        "subject": "Foco do dia",
+        "emailType": "text",
+        "message": "={{ $json.mensagem }}",
+        "options": {}
+      },
+      "id": "ec07cfe6-1250-48e8-b0fd-364e0e204f1f",
+      "name": "📧 Enviar Lembrete",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        0
+      ],
+      "webhookId": "08a35eef-044d-4c31-8eb5-d4c582e20761"
+    }
+  ],
+  "connections": {
+    "📅 Toda Manhã 8h": {
+      "main": [
+        [
+          {
+            "node": "📦 Compor Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📦 Compor Mensagem": {
+      "main": [
+        [
+          {
+            "node": "📧 Enviar Lembrete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "trilhaIEL": "B7 aula 6 · P4 · exportado do teste de 16/09/2026 (execucao 403); troque o To pelo seu e-mail e conecte a sua credencial Gmail"
+  }
+}

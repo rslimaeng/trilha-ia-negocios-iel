@@ -101,6 +101,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # Rafael em 16/09 (PROMPT v2.1, secao 10, item 2), porque a turma
              # ja tinha passado pelo n8n em sala. As outras entram na ordem.
              "b6-fundamentos", "b6-primeiro",
+             "b7-gatilhos", "b7-lembrete",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -173,6 +174,10 @@ TRILHA = [
     ("B6 · Fundamentos do n8n", [
         ("b6-fundamentos", "B6 · Fundamentos do n8n"),
         ("b6-primeiro",    "4 · Meu primeiro fluxo"),
+    ]),
+    ("B7 · Gatilhos", [
+        ("b7-gatilhos",    "B7 · Gatilhos"),
+        ("b7-lembrete",    "6 · Fluxo prático: Lembrete diário"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -331,6 +336,36 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
+                 (None, None)],
+    ),
+    "b7-gatilhos": dict(
+        titulo="B7 · Gatilhos",
+        kicker="Módulo 2 · B7 · Bloco 3 de 7",
+        h1="Gatilhos",
+        sub="Escolher o trigger certo pra cada caso (manual / schedule / webhook / form / app "
+            "event), configurar e testar cada um do zero, e construir 1 fluxo prático completo "
+            "(Lembrete diário automático).",
+        selos=["Seis aulas", "A prática abre primeiro"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Gatilhos")],
+    ),
+    "b7-lembrete": dict(
+        # pratica COM arquivo (P4 do PROMPT v2): Schedule -> Set -> Gmail, com
+        # OAuth. Rodou no servidor do Rafael por MCP em 16/09 (workflow
+        # OWd0Hs8O4c8iCQwm, execucoes 403 e 406, e-mail enviado para a propria
+        # caixa dele); o .json exportado esta em _arquivos/, com o To trocado
+        # por um placeholder.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 6 · Fluxo prático: Lembrete diário",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="Fluxo prático: Lembrete diário",
+        sub="Construir, ativar, ver chegar amanhã 8h. Schedule + Set + Gmail.",
+        selos=["Pede credencial Gmail", "Hands-on"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
                  (None, None)],
     ),
     "modulo-3": dict(

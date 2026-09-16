@@ -1,0 +1,405 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Workflow que, <strong>todo dia útil em horário fixo</strong>, manda um e-mail (ou
+      Telegram) com o seu "foco do dia"</li>
+      <li>Primeiro fluxo prático com Schedule + entrega real</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Juntar 1 trigger (Schedule) com uma entrega real (Gmail ou Telegram) e ter um fluxo
+      <strong>rodando sozinho amanhã de manhã</strong>: sem precisar você clicar.</p>
+    </div>
+
+    <p>Você acabou de ver os 5 tipos de trigger. Agora vamos juntar 1 deles com uma entrega
+    real e ver o fluxo disparar sem você.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento (Gatilho &rarr; Execução &rarr; Entrega)</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O fluxo é a frase do B5 em três nós</h3>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>📅 Schedule (8h, seg-sex)</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução</div>
+          <h4>📦 Set (compor mensagem)</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>📧 Gmail / Telegram (enviar)</h4>
+        </div>
+      </div>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Schedule Trigger (todo dia útil, 8h)</li>
+        <li><strong>Execução:</strong> Set node (monta a mensagem com data dinâmica)</li>
+        <li><strong>Entrega:</strong> Gmail Send (ou Telegram, se preferir)</li>
+      </ul>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-13.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Vamos à Prática: O Lembrete Diário de Foco': agora que conhecemos a teoria, vamos construir uma automação real; ela enviará um e-mail com o seu foco do dia toda manhã de segunda a sexta. Três círculos ligados por setas: Passo 1 (o gatilho), Gatilho Schedule, o despertador toca às 8h nos dias úteis; Passo 2 (o meio de campo), nó Set, monta a mensagem Bom dia! Seu foco hoje é; Passo 3 (a entrega), nó Gmail, envia a mensagem montada para a sua própria caixa de entrada.">
+    </div>
+    <p class="fig-leg"><strong>O mesmo mapa, como foi mostrado em sala.</strong> Despertador,
+    caixa e envelope: é a primeira vez que os três papéis do B5 viram três nós de verdade.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li>B6 e aulas 1-5 do B7 concluídos.</li>
+        <li><strong>Credencial do Gmail</strong> OAuth configurada no n8n (ou bot do Telegram).</li>
+        <li>1 dia pra ver chegar pela primeira vez.</li>
+      </ul>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-14.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Mão na Massa: Configurando o seu Lembrete', três colunas. 1. Programe o despertador: adicione o nó Schedule Trigger; vá nas configurações e escolha Dias Úteis (seg-sex); defina a hora para 8:00. 2. Escreva a mensagem: adicione o nó Edit Fields (Set); crie um campo com o nome mensagem; digite seu texto, o sistema até permite puxar a data de hoje automaticamente. 3. Envie o e-mail: adicione o nó Gmail (ou Telegram); conecte sua conta com um clique; mande ele enviar para você mesmo o conteúdo exato do campo mensagem.">
+    </div>
+    <p class="fig-leg"><strong>As três colunas do slide são os passos 2, 3 e 4 abaixo.</strong> O
+    que o slide resume em "escolha Dias Úteis", o passo 2 escreve por extenso: é o cron.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Crie o workflow</div>
+      </div>
+      <ol>
+        <li>Workflows &rarr; <strong>+ Add workflow</strong>.</li>
+        <li>Renomeie pra <code>Lembrete Diário Foco</code>.</li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Schedule Trigger (todo dia útil 8h)</div>
+      </div>
+      <ol>
+        <li>Adicione <strong>Schedule Trigger</strong> &rarr; renomeie pra <code>📅 Toda Manhã
+        8h</code>.</li>
+        <li>Configure (modo Cron, mais flexível):</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Trigger Interval: Custom (Cron) &middot; Expression</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b7lem-cron">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b7lem-cron">0 8 * * 1-5</pre>
+      </div>
+      <p>(8h, segunda a sexta)</p>
+      <ol start="3">
+        <li>Alternativa (modo simples sem cron):
+          <ul>
+            <li><strong>Trigger Interval</strong>: <code>days</code></li>
+            <li><strong>Days Interval</strong>: <code>1</code></li>
+            <li><strong>Trigger At Hour</strong>: <code>8</code></li>
+            <li>(Vai disparar todo dia, inclusive sábado/domingo. Pra excluir fim de semana, use
+            cron mesmo.)</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Set node (compor mensagem)</div>
+      </div>
+      <ol>
+        <li>Adicione <strong>Edit Fields (Set)</strong> &rarr; renomeie pra <code>📦 Compor
+        Mensagem</code>.</li>
+        <li>Configure: Mode <code>Manual Mapping</code>; Add Field: Name <code>mensagem</code>
+        (String); Value:</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo mensagem</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b7lem-msg">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b7lem-msg">☀️ Bom dia! Hoje é {{ $now.toFormat('cccc, dd LLL') }}. Foco do dia: ___</pre>
+      </div>
+      <ol start="3">
+        <li><strong>Pinne o output</strong> (<code>P</code>) pra reutilizar em testes sem disparar
+        Schedule.</li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Gmail Send (entregar)</div>
+      </div>
+      <ol>
+        <li>Adicione <strong>Gmail</strong> &rarr; operation: <code>Send Message</code> &rarr;
+        renomeie pra <code>📧 Enviar Lembrete</code>.</li>
+        <li>Conecte sua credencial Gmail (se ainda não tem, configure agora).</li>
+        <li>Configure:
+          <ul>
+            <li><strong>To</strong>: seu próprio e-mail</li>
+            <li><strong>Subject</strong>: <code>Foco do dia</code></li>
+            <li><strong>Message</strong>: arraste o campo <code>mensagem</code> do painel esquerdo
+            (vai virar <code>{{ $json.mensagem }}</code>)</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Salvar, ativar, testar</div>
+      </div>
+      <ol>
+        <li><strong>Salve</strong> (Ctrl + S ou auto).</li>
+        <li><strong>Ative</strong> o workflow (toggle "Active" no canto superior direito).</li>
+        <li>Pra testar <strong>agora</strong> sem esperar 8h:
+          <ul>
+            <li>Clique em <strong>Execute Workflow</strong> (canto superior direito).</li>
+            <li>Roda 1 vez ignorando o schedule.</li>
+            <li>Confira que o e-mail chegou.</li>
+          </ul>
+        </li>
+        <li>Amanhã às 8h, o e-mail real deve chegar automaticamente.</li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <ul>
+          <li>✅ E-mail chegando às 8h (horário do servidor, geralmente UTC) com a mensagem
+          montada.</li>
+          <li>✅ A data muda automaticamente a cada dia (<code>{{ $now }}</code>).</li>
+        </ul>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">❌ Se não chegou</div>
+        <p><strong>Workflow não foi ativado.</strong> Volta no n8n e confere o toggle.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> chutar o cron. Cron mal escrito
+        &rarr; roda 23h em vez de 8h. Use <a href="https://crontab.guru" target="_blank"
+        rel="noopener">crontab.guru</a>. <strong>Não chuta cron.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O fluxo rodando, e o e-mail que chegou</h2>
+      </div>
+    </div>
+
+    <p>Este é o fluxo dos cinco passos depois do Execute Workflow numa conta de teste, em
+    16/09/2026. Os três nós verdes, e o Gmail devolvendo o <code>id</code> da mensagem enviada.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas depois do Execute Workflow</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p4-lembrete.svg" width="672" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: três nós em linha, Toda Manhã 8h (gatilho, com o relógio), Compor Mensagem (Set) e Enviar Lembrete (Gmail), ligados por setas verdes escritas 1 item; os três com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 403, 16/09/2026, 12:45, fuso America/Sao_Paulo). Os nomes, a ordem e a
+        contagem de itens são os que saíram lá.</p>
+        <p>O que o Set montou, e o que o Gmail respondeu:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📦 Compor Mensagem &middot; e do 📧 Enviar Lembrete</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b7lem-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b7lem-out">{ "mensagem": "☀️ Bom dia! Hoje é Wednesday, 16 Sep. Foco do dia: ___" }
+
+{ "id": "1a0aae4b572f99b0", "threadId": "1a0aae4b572f99b0", "labelIds": ["UNREAD", "SENT", "INBOX"] }</pre>
+        </div>
+        <p class="fig-leg"><strong>Repare no dia em inglês:</strong> "Wednesday, 16 Sep". O
+        <code>toFormat</code> escreve no idioma padrão do n8n, o inglês. Conferido no mesmo teste: com
+        <code>{{ $now.setLocale('pt-BR').toFormat('cccc, dd LLL') }}</code> sai "quarta-feira,
+        16 set.". E o <code>labelIds</code> com <code>SENT</code> e <code>INBOX</code> é a prova
+        de que o e-mail saiu e chegou na mesma caixa.</p>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">JSON</div>
+        <div>
+          <div class="arq-nome">lembrete-diario-foco.json</div>
+          <div class="arq-fn">O fluxo dos cinco passos, exportado do teste, pra importar na sua
+          conta se quiser comparar com o seu. Troque o <strong>To</strong> pelo seu e-mail e
+          conecte a sua credencial Gmail.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/lembrete-diario-foco.json" download>Baixar para importar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Variação 1: trocar Gmail por Telegram</div>
+      </div>
+      <ol>
+        <li>Crie um bot Telegram (BotFather no Telegram).</li>
+        <li>Adicione <strong>Telegram</strong> &rarr; operation: <code>Send Message</code>.</li>
+        <li>Conecte credencial do bot.</li>
+        <li><strong>Chat ID</strong>: seu próprio chat (descubra abrindo @userinfobot no
+        Telegram).</li>
+        <li><strong>Text</strong>: <code>{{ $json.mensagem }}</code></li>
+        <li>Substitua o nó Gmail pelo Telegram. Pronto.</li>
+      </ol>
+      <p class="fig-leg"><strong>Não rodada no teste de 16/09:</strong> a conta de teste não tem
+      bot do Telegram. O caminho é o do Notion, como está.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Variação 2: mensagem com dia da semana customizado</div>
+      </div>
+      <p>Mude o Set pra:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo mensagem &middot; variação 2</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b7lem-var2">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b7lem-var2">{{ ['😴 Segunda', '💪 Terça', '🚀 Quarta', '⚡ Quinta', '🍻 Sexta'][$now.weekday - 1] }}! Foco do dia: ___</pre>
+      </div>
+      <p>Cada dia ganha emoji + tom diferente.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Rodada no teste de 16/09, uma quarta</div>
+        <p>Saiu <code>🚀 Quarta! Foco do dia: ___</code> (execução 406). A lista tem cinco
+        posições, de segunda a sexta, e o cron do passo 2 só dispara nesses dias.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Variação 3: foco do dia vindo de uma planilha</div>
+      </div>
+      <ol>
+        <li>Tenha uma planilha "Focos da Semana" com colunas <code>dia_semana</code> e
+        <code>foco</code>.</li>
+        <li>Antes do Set, adicione <strong>Google Sheets &rarr; Get Rows</strong>.</li>
+        <li>Filtre pra dia atual.</li>
+        <li>No Set, use <code>{{ $('Google Sheets').item.json.foco }}</code> no campo mensagem.</li>
+        <li>Agora você atualiza só a planilha: o e-mail puxa sozinho.</li>
+      </ol>
+      <p class="fig-leg"><strong>Não rodada no teste de 16/09:</strong> depende de uma planilha
+      sua. É a ponte pro B9, onde o Sheets entra de verdade.</p>
+    </div>
+
+    <div class="checagem">
+      <span class="rot">Mapa de Capacidades · checkpoint B7</span>
+      <p>Marque o que conseguiu:</p>
+      <ul>
+        <li>Configurei Schedule Trigger pra rodar em horário fixo.</li>
+        <li>Criei e configurei credencial Gmail (ou Telegram).</li>
+        <li>Construí o fluxo completo (Schedule &rarr; Set &rarr; Gmail).</li>
+        <li>Ativei o workflow e vi o e-mail chegar.</li>
+        <li>Testei pelo menos 1 das 3 variações.</li>
+      </ul>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-15.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Checklist de Sucesso': automação montada! Antes de fechar o computador, faça as três perguntas de ouro. Success Board com três caixas marcadas: eu testei pelo menos uma vez? (usando o botão Execute Workflow); o botão Active está ligado? (lembre-se da pegadinha clássica!); o fuso horário está correto? (para garantir que o e-mail não chegue de madrugada). Embaixo: parabéns, você acabou de criar um funcionário digital que trabalha de graça para você, todos os dias. Próximo passo: aprender como o nó Set funciona e começar a transformar dados no meio do caminho.">
+    </div>
+    <p class="fig-leg"><strong>As três perguntas do fim da aula presencial.</strong> A segunda e
+    a terceira são as duas primeiras pegadinhas da cerca abaixo.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o workflow ativado e o primeiro e-mail na caixa, a aula 6 está
+  feita: amanhã às 8h ele chega sem você. O que vem abaixo é a <strong>cerca</strong>: por que o
+  e-mail não chega, e a que horas ele chega de verdade.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Workflow não ativado &rarr; não dispara em produção</div>
+      <p>Pegadinha #1. Ative o toggle.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Fuso horário UTC vs local</div>
+      <p>O n8n por padrão usa UTC (Brasília = UTC-3). Se você quer 8h Brasília, configura
+      <code>11 UTC</code> ou ative <code>Use workflow timezone</code> nas Settings.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de pinar dados</div>
+      <p>Cada teste roda o Schedule + Set + Gmail. Pinar o Set economiza testes desnecessários.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Credencial Gmail expirando</div>
+      <p>Se o e-mail parou de chegar depois de semanas, vá em Credentials e refaça o OAuth.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você concluiu o B7!</strong> Hora de aprender o que acontece <strong>dentro</strong>
+    do fluxo: dados, decisões, transformações. <strong>Próximo bloco:</strong> B8, Execução
+    (dados, lógica, controle). As aulas 1 a 5 deste bloco, uma por gatilho, estão na
+    <a href="../b7-gatilhos/">capa do B7</a> conforme abrem.</p>
+  </div>

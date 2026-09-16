@@ -40,12 +40,17 @@ USADOS = {
     "m1-09": ["b6-primeiro"],
     "m1-10": ["b6-primeiro"],
     "m1-11": ["b6-primeiro"],
+    "m2-12": ["b7-gatilhos"],
+    "m2-13": ["b7-lembrete"],
+    "m2-14": ["b7-lembrete"],
+    "m2-15": ["b7-lembrete"],
 }
 
 # slide -> altura final (px). Ausente = 851, inteiro.
 CORTE = {
     "m0-04": 836, "m0-05": 836, "m0-06": 836, "m0-07": 836,
     "m0-15": 828,
+    "m2-12": 836,
 }
 
 # slide -> retangulos (x0, y0, x1, y1) pintados com a cor do fundo, amostrada
