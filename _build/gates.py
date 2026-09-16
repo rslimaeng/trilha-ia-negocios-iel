@@ -1368,6 +1368,17 @@ DISPENSA_NOTION_LITERAL = {
     "b5-gatilho/index.html": {
         "G42": "a janela e capa + Topico 1 + Topico 2; o M0 entrega mapa em papel, sem arquivo",
     },
+    # 16/09, B6. A capa do M1 traz o Mapa de Capacidades na 1a pessoa DO ALUNO
+    # ("Pino... e despino quando termino", "Leio o output"): e o aluno se
+    # avaliando, nao o instrutor narrando. O Topico 4 (Meu primeiro fluxo) e
+    # pratica guiada e nao tem analogia no Notion. Mesma decisao de 14/09.
+    "b6-fundamentos/index.html": {
+        "G33": "o Mapa de Capacidades do M1 e o aluno na 1a pessoa ('Leio', 'termino'), nao o instrutor",
+    },
+    "b6-primeiro/index.html": {
+        "G41": "o Topico 4 do M1 e pratica guiada, sem analogia no Notion",
+        "G42": "P2 e arquivo=False por decisao do PROMPT v2 ('nada para importar'); a janela e Topico 3 do M0 + capa do B6",
+    },
 }
 
 

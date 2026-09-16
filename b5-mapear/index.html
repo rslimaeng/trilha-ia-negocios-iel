@@ -1595,6 +1595,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   background:var(--bg-elev);margin:22px 0 0;
 }
 .figura img{display:block;width:100%;min-width:900px;height:auto}
+/* o canvas do n8n redesenhado (_build/canvas.py) e vetor e pequeno: entra no
+   tamanho natural, 1:1 com a tela do n8n, e rola se nao couber. */
+.figura.n8n img{width:auto;max-width:none;min-width:0;margin:0 auto}
 
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
@@ -3513,7 +3516,7 @@ Entrega:  Onde o resultado para? (e-mail pra X, linha em Y, mensagem em Z)</pre>
     <p><strong>Você concluiu o&nbsp;B5!</strong> Hora de&nbsp;abrir o&nbsp;n8n pela&nbsp;primeira vez. Antes de&nbsp;seguir, lembra de&nbsp;marcar o&nbsp;seu&nbsp;<strong>Mapa de&nbsp;Capacidades</strong> lá na&nbsp;<a href="../b5-antes/">capa do&nbsp;B5</a>.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b5-gatilho/">&larr; Aula 2 · Gatilho → Execução → Entrega</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b5-gatilho/">&larr; Aula 2 · Gatilho → Execução → Entrega</a><a href="../b6-fundamentos/">B6 · Fundamentos do n8n &rarr;</a></nav>
 </main>
 
 

@@ -97,6 +97,10 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # PROMPT-marco2-n8n.md v2, D1). O B5 e o M0. Os blocos entram aqui
              # um a um, na ordem do Notion, atras da capa do modulo.
              "modulo-2", "b5-antes", "b5-pensar", "b5-gatilho", "b5-mapear",
+             # B6 = M1. A aula 4 (P2) abriu antes das de conceito: decisao do
+             # Rafael em 16/09 (PROMPT v2.1, secao 10, item 2), porque a turma
+             # ja tinha passado pelo n8n em sala. As outras entram na ordem.
+             "b6-fundamentos", "b6-primeiro",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -165,6 +169,10 @@ TRILHA = [
         ("b5-pensar",   "1 · Pensar como automação"),
         ("b5-gatilho",  "2 · Gatilho → Execução → Entrega"),
         ("b5-mapear",   "3 · Exercício: mapear uma tarefa sua"),
+    ]),
+    ("B6 · Fundamentos do n8n", [
+        ("b6-fundamentos", "B6 · Fundamentos do n8n"),
+        ("b6-primeiro",    "4 · Meu primeiro fluxo"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -295,6 +303,34 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b5-antes/", "B5 · Antes do n8n"),
+                 (None, None)],
+    ),
+    "b6-fundamentos": dict(
+        titulo="B6 · Fundamentos do n8n",
+        kicker="Módulo 2 · B6 · Bloco 2 de 7",
+        h1="Fundamentos do n8n",
+        sub="Navegar o n8n com fluência, entender a anatomia de um workflow, executar o "
+            "primeiro fluxo do zero e ver um AI Agent funcionando como teaser do B10.",
+        selos=["Cinco aulas", "A prática abre primeiro"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Fundamentos do n8n")],
+    ),
+    "b6-primeiro": dict(
+        # pratica SEM arquivo (P2 do PROMPT v2: "nada para importar"). Rodou no
+        # servidor de teste do Rafael por MCP em 16/09 (workflow F01yHGZJOaroUcXS,
+        # execucoes 400 e 401); a figura da secao 04 e o canvas redesenhado por
+        # _build/canvas.py a partir dessa execucao.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Aula 4 · Meu primeiro fluxo",
+        kicker="Módulo 2 · B6 · Fundamentos do n8n",
+        h1="Meu primeiro fluxo",
+        sub="Manual Trigger + Set + ler output em 3 visões (Schema/Table/JSON). Construir do zero.",
+        selos=["Sem credencial", "Prática guiada"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
                  (None, None)],
     ),
     "modulo-3": dict(

@@ -37,6 +37,9 @@ USADOS = {
     "m0-13": ["b5-gatilho"],
     "m0-14": ["b5-mapear"],
     "m0-15": ["b5-mapear"],
+    "m1-09": ["b6-primeiro"],
+    "m1-10": ["b6-primeiro"],
+    "m1-11": ["b6-primeiro"],
 }
 
 # slide -> altura final (px). Ausente = 851, inteiro.
@@ -44,6 +47,17 @@ CORTE = {
     "m0-04": 836, "m0-05": 836, "m0-06": 836, "m0-07": 836,
     "m0-15": 828,
 }
+
+# slide -> retangulos (x0, y0, x1, y1) pintados com a cor do fundo, amostrada
+# em AMOSTRA. E para o carimbo "por @iacomrafael" que no deck do M1 ficou na
+# MESMA linha de um texto de conteudo (x 85-288, y 828-850): cortar a linha
+# levaria o texto junto. Nao e retoque de conteudo: e o carimbo que a
+# exportacao devia ter tirado e nao tirou.
+TAPA = {
+    "m1-09": [(70, 820, 300, 851)],
+    "m1-10": [(70, 820, 300, 851)],
+}
+AMOSTRA = (40, 840)
 
 QUALIDADE = 82
 
@@ -56,6 +70,10 @@ def copiar(nome):
     alt = CORTE.get(nome, h)
     if alt < h:
         im = im.crop((0, 0, w, alt))
+    if nome in TAPA:
+        cor = im.getpixel(AMOSTRA)
+        for x0, y0, x1, y1 in TAPA[nome]:
+            im.paste(cor, (x0, y0, min(x1, w), min(y1, alt)))
     im.save(destino, "JPEG", quality=QUALIDADE, optimize=True)
     return im.size, destino.stat().st_size
 

@@ -1595,6 +1595,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   background:var(--bg-elev);margin:22px 0 0;
 }
 .figura img{display:block;width:100%;min-width:900px;height:auto}
+/* o canvas do n8n redesenhado (_build/canvas.py) e vetor e pequeno: entra no
+   tamanho natural, 1:1 com a tela do n8n, e rola se nao couber. */
+.figura.n8n img{width:auto;max-width:none;min-width:0;margin:0 auto}
 
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
@@ -3341,7 +3344,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b5-mapear/">&larr; Aula 3 · Exercício: mapear uma tarefa sua</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b6-primeiro/">&larr; Aula 4 · Meu primeiro fluxo</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
 </main>
 
 

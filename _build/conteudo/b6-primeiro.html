@@ -1,0 +1,379 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Seu primeiro workflow do zero: Manual Trigger &rarr; Set &rarr; ver o resultado em 3
+      visões diferentes (Schema, Table, JSON)</li>
+      <li>Sem credencial, sem API, sem stress</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>A meta desta aula não é fazer algo útil ainda: é provar pra você mesmo que <strong>dá
+      pra construir, executar e ler o resultado</strong>.</p>
+    </div>
+
+    <p>Você já viu a interface (aula 3) e a anatomia (aula 2). Agora vem o passo que separa
+    quem <strong>leu sobre n8n</strong> de quem <strong>usa n8n</strong>: executar o primeiro
+    fluxo na própria conta.</p>
+
+    <p>A partir daí, todo o resto fica concreto.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Primeiro fluxo possível: Manual Trigger &rarr; Set &rarr; vê o resultado</h3>
+
+      <p>Sem credencial, sem API, sem nada externo. Só pra entender o ciclo:</p>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">01 &middot; trigger</div>
+          <h4>Trigger dispara</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">02 &middot; Set</div>
+          <h4>Set cria dado</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">03 &middot; output</div>
+          <h4>Você lê o output em 3 visões diferentes</h4>
+        </div>
+      </div>
+
+      <h4>As 3 visões do output (Schema / Table / JSON)</h4>
+
+      <p>Quando você executa um nó e olha o painel da direita (Output), pode trocar entre 3
+      formatos de visualização:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Visão</th><th>O que mostra</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Schema</strong></td><td>Estrutura: nomes dos campos + tipo de cada (String, Number, Array...). Compacto.</td><td>Pra entender o <strong>formato</strong> dos dados rapidamente.</td></tr>
+            <tr><td><strong>Table</strong></td><td>Linhas e colunas, como uma planilha.</td><td>Quando os dados são uma lista de objetos parecidos (ex.: leads, contatos).</td></tr>
+            <tr><td><strong>JSON</strong></td><td>O dado cru, como código.</td><td>Pra ver detalhes ou copiar valor exato.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-10.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Como ler o resultado? (As 3 Visões)': o n8n terminou o trabalho; no painel direito (Output), você escolhe 3 lentes para ver os dados gerados. Três cartões: Schema (Esquema), mostra a estrutura, nome do campo e o tipo (Texto, Número), ideal para entender o formato rapidamente; Table (Tabela), visão de planilha, perfeita quando você tem listas, como vários contatos ou leads parecidos; JSON (O Código), o dado cru, como os computadores conversam, ótimo para inspecionar detalhes ou copiar um valor exato. Embaixo, dica de mentor: comece sempre pela visão Schema para não se assustar.">
+    </div>
+    <p class="fig-leg"><strong>As três lentes, como foram mostradas em sala.</strong> A dica
+    de baixo é o hábito do aviso a seguir: Schema primeiro, JSON só quando precisar do valor.</p>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Hábito útil</div>
+        <p>Comece pela Schema view (visão geral), confirme o formato. Pula pra JSON só quando
+        precisar copiar/inspecionar valor específico.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <p>Conta n8n Cloud criada (sem precisar de credencial nenhuma nesta aula).</p>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-09.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Criando seu 1º Fluxo (Mão na Massa)': o objetivo agora não é criar algo complexo, mas provar a você mesmo que é simples construir e testar. Passo 1: adicione um Gatilho Manual (Disparo Manual), ele será nosso botão de iniciar. Passo 2: conecte um bloco Edit Fields / Set (Meus Dados), ele serve para criar dados do zero. Passo 3: configure o bloco, adicione campos com seu nome e uma mensagem amigável. Passo 4: aperte Execute Workflow no topo (ou use o atalho Ctrl + Enter). Pronto! A informação fluiu do gatilho para o bloco de dados: você executou seu 1º workflow.">
+    </div>
+    <p class="fig-leg"><strong>Os quatro passos em um slide, como foram mostrados em sala.</strong>
+    Abaixo, o mesmo caminho em sete passos, com os nomes exatos de cada campo.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Crie um workflow novo</div>
+      </div>
+      <p>Workflows &rarr; <strong>+ Add workflow</strong>. Renomeie pra <code>Meu Primeiro
+      Fluxo</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Adicione um Manual Trigger</div>
+      </div>
+      <p>Clique duplo no canvas &rarr; busque "Manual Trigger" &rarr; adicione. Renomeie pra
+      <code>▶️ Disparo Manual</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Adicione um Set (Edit Fields)</div>
+      </div>
+      <p>Clique no <code>+</code> à direita do Manual Trigger &rarr; busque "Edit Fields" &rarr;
+      adicione. Renomeie pra <code>📦 Meus Dados</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Configure o Set com 3 campos</div>
+      </div>
+      <p>No painel do nó:</p>
+      <ul class="lista">
+        <li>Em <strong>Mode</strong>, deixe <code>Manual Mapping</code>.</li>
+        <li>Clique em <strong>+ Add Field</strong>:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Os 3 campos &middot; nome, tipo e valor</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6pri-campos">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6pri-campos">Name: mensagem  · Type: String · Value: Meu primeiro fluxo no n8n!
+Name: data      · Type: String · Value: {{ $now }}
+Name: meu_nome  · Type: String · Value: (seu nome)</pre>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Execute o workflow</div>
+      </div>
+      <p>Clique em <strong>Execute Workflow</strong> (canto superior direito) ou aperte
+      <code>Ctrl + Enter</code>.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Não clicar em "Execute Workflow" e ficar esperando</div>
+        <p>O n8n não roda automaticamente em modo manual. Você precisa clicar pra disparar.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> achar que precisa de credencial pra
+        começar. Manual Trigger + Set = zero credencial. Você só precisa de credencial quando
+        vai conectar com app externo (Gmail, Sheets, OpenAI). Esses entram no B7/B9.</div>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Veja o resultado</div>
+      </div>
+      <p>Clique no nó <code>📦 Meus Dados</code> &rarr; painel da direita &rarr;
+      <strong>Output</strong>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você vê em cada visão:</div>
+        <ul>
+          <li>Em <strong>Schema</strong>: você vê <code>mensagem (String)</code>, <code>data
+          (String)</code>, <code>meu_nome (String)</code>.</li>
+          <li>Em <strong>Table</strong>: vê uma linha com os 3 campos.</li>
+          <li>Em <strong>JSON</strong>: vê o objeto completo (o da demonstração abaixo, com a
+          sua data e o seu nome).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Pinne o output</div>
+      </div>
+      <p>Com o Set selecionado, aperte <code>P</code>. Aparece um pino: o output fica fixado, e
+      os próximos testes não precisam re-executar.</p>
+      <p><strong>Pronto. Você executou seu primeiro workflow.</strong></p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O fluxo rodando, e o que saiu</h2>
+      </div>
+    </div>
+
+    <p>Este é o fluxo dos sete passos depois de executado numa conta de teste, em 16/09/2026.
+    Os dois nós ficam com a marca verde, e a seta diz quantos itens passaram: <strong>1
+    item</strong>.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas depois do Execute Workflow</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p2-base.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: o nó Disparo Manual, com o lado esquerdo arredondado, ligado por uma seta verde escrita 1 item ao nó Meus Dados. Os dois têm uma marca verde de concluído no canto.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 401, 16/09/2026, 12:17). Os nomes, a ordem e a contagem de itens são os que
+        saíram lá.</p>
+        <p>E o objeto completo, na visão JSON do nó <code>📦 Meus Dados</code>:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output &middot; visão JSON</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b6pri-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b6pri-json">{
+  "mensagem": "Meu primeiro fluxo no n8n!",
+  "data": "2026-09-16T12:17:19.106-03:00",
+  "meu_nome": "(seu nome)"
+}</pre>
+        </div>
+        <p class="fig-leg"><strong>Repare na data:</strong> o <code>{{ $now }}</code> virou a
+        hora exata da execução, com o fuso da conta. No seu, vai ser a hora em que você clicou.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Variação 1: adicione mais campos com tipos diferentes</div>
+      </div>
+      <p>Volte no Set, adicione:</p>
+      <ul class="lista">
+        <li><code>cargo</code> (String) com seu cargo atual</li>
+        <li><code>idade</code> (<strong>Number</strong>, atenção, é Number não String) com sua
+        idade</li>
+        <li><code>gosta_de_n8n</code> (<strong>Boolean</strong>) com <code>true</code></li>
+      </ul>
+      <p>Re-execute. Olhe a Schema view: repare que agora tem 6 campos com 3 tipos diferentes
+      (String, Number, Boolean). <strong>Os tipos vão importar muito no B8</strong>: JSON é
+      estrito sobre isso.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">9</div>
+        <div class="passo-fn">Variação 2: encadeie um segundo Set com expression</div>
+      </div>
+      <ol>
+        <li>Adicione mais um Edit Fields depois do primeiro. Renomeie pra <code>🧹 Adiciona
+        Saudação</code>.</li>
+        <li>No campo <code>mensagem</code>, em vez de digitar texto fixo, <strong>arraste</strong>
+        o campo <code>meu_nome</code> do painel esquerdo (lista de dados de entrada). Vai
+        aparecer algo como <code>{{ $('📦 Meus Dados').item.json.meu_nome }}</code>: esse é o
+        seu primeiro contato com <strong>expression</strong>.</li>
+        <li>Antes do <code>{{ ... }}</code>, digite: <code>Olá,</code> e depois do
+        <code>}}</code>, <code>!</code>. O valor final fica algo tipo:</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo mensagem &middot; com a expression</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6pri-expr">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6pri-expr">Olá, {{ $('📦 Meus Dados').item.json.meu_nome }}!</pre>
+      </div>
+      <ol start="4">
+        <li>Execute.</li>
+        <li>Olhe o output do segundo Set: o campo <code>mensagem</code> agora tem o seu nome
+        dentro.</li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Você acabou de usar uma expression</div>
+        <p>O <code>{{ ... }}</code> é o jeito do n8n falar "pega esse dado dinâmico aqui". Você
+        não precisou digitar a sintaxe: o n8n formou ela sozinho quando você arrastou o campo.
+        Isso vai virar pão-com-manteiga lá pelo B8. <strong>Por enquanto, basta ver que funciona
+        e que a expression se monta sozinha via drag-and-drop.</strong></p>
+      </div>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-11.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Magia das Expressões (Dados Dinâmicos)': se você vai enviar um e-mail, não vai digitar o nome do cliente na mão; o n8n precisa puxar isso sozinho. À esquerda, dados que chegaram: meu_nome com um nome de exemplo; uma seta pontilhada com o cursor arrastando o campo; à direita, sua mensagem: Olá, {{$json.meu_nome}}! Tudo bem? Embaixo: expressões são como variáveis mágicas, o {{ ... }} é o jeito do computador dizer pegue aquele dado e coloque aqui; você não precisa digitar código, é só arrastar o campo da esquerda para a direita, e o n8n monta isso para você.">
+    </div>
+    <p class="fig-leg"><strong>O arrasto, em slide.</strong> O nome dentro do campo é o do
+    instrutor, que fez o exemplo em sala; na sua conta, o campo tem o seu. E a expression do
+    slide é a forma curta (<code>$json</code>); a que o arrasto monta na variação 2 nomeia o nó
+    de origem, e as duas funcionam.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas com as duas variações</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p2-variacoes.svg" width="672" height="200" loading="lazy"
+               alt="O canvas com três nós verdes em linha: Disparo Manual, Meus Dados e Adiciona Saudação, com 1 item em cada seta.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas depois das duas variações</strong>
+        (execução 401, 16/09/2026). O output do segundo Set saiu com
+        <code>"mensagem": "Olá, (seu nome)!"</code> e os seis campos do primeiro, com
+        <code>idade</code> como número e <code>gosta_de_n8n</code> como <code>true</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o output pinado e a saudação montada, a aula 4 está feita. O
+  que vem abaixo é a <strong>cerca</strong>: os erros que mais aparecem nesse primeiro fluxo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir o painel de Output com o de Input</div>
+      <p>Toda janela de nó tem 2 abas (Input à esquerda, Output à direita). Input mostra o que
+      <strong>chegou</strong> pro nó; Output mostra o que <strong>saiu</strong>. Se você acabou
+      de configurar e quer ver o resultado, vá no Output.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de salvar</div>
+      <p>O n8n auto-salva, mas se você fechar a aba antes do <code>Saved</code> aparecer (ícone
+      "Saving..." some), pode perder mudanças. Aguarde o <code>Saved</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar tipos no Set (digitar número como String)</div>
+      <p>Se você marcar o campo como <code>Number</code> e digitar <code>"10"</code> (com aspas),
+      o n8n vai entender como String. Faz toda diferença depois: IF, Filter, comparações de
+      número quebram silenciosamente quando o tipo está errado. B8 destrincha isso.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 5, Um gostinho de AI Agent. Enquanto ela não abre, o
+    resto do bloco está na <a href="../b6-fundamentos/">capa do B6</a>.</p>
+  </div>

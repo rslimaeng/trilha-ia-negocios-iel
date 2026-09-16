@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aula 3 · Abra o processo escolhido em passos que dá para conferir</title>
+<title>Aula 4 · Meu primeiro fluxo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3296,23 +3296,24 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-1/">Módulo 1</a> &rsaquo; <a href="../b3-redesenho/">B3 · Redesenho e ganho real</a> &rsaquo; 3 · Abra o processo em passos conferíveis</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b6-fundamentos/">B6 · Fundamentos do n8n</a> &rsaquo; 4 · Meu primeiro fluxo</nav>
 
 
-<main class="folha aula-pratica" data-arquivo="sim">
+<main class="folha aula-pratica" data-arquivo="nao">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 1 · B3 · Redesenho e ganho real</div>
-    <h1>Abra o&nbsp;processo escolhido em&nbsp;passos que&nbsp;dá para&nbsp;conferir</h1>
-    <p class="heroi-sub">Sete colunas, de&nbsp;quatro a&nbsp;sete passos, e&nbsp;a&nbsp;coluna de&nbsp;tempo que&nbsp;o&nbsp;modelo original não&nbsp;tem e&nbsp;sem&nbsp;a&nbsp;qual não&nbsp;dá para&nbsp;achar o&nbsp;vazamento.</p>
-    <div><span class="selo">Planilha para baixar</span><span class="selo">Use o processo da aula 1</span></div>
+    <div class="heroi-kicker">Módulo 2 · B6 · Fundamentos do n8n</div>
+    <h1>Meu&nbsp;primeiro fluxo</h1>
+    <p class="heroi-sub">Manual Trigger + Set + ler output em&nbsp;3 visões (Schema/Table/JSON). Construir do&nbsp;zero.</p>
+    <div><span class="selo">Sem credencial</span><span class="selo">Prática guiada</span></div>
   </div>
 
   <div class="nesta-aula">
     <div class="nesta-aula-rot">Nesta aula</div>
-    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
     <ul>
-      <li>Escrever o&nbsp;seu&nbsp;processo em&nbsp;quatro a&nbsp;sete passos que&nbsp;outra pessoa consegue executar</li>
-      <li>Marcar quais passos você resolve sozinho e&nbsp;quais dependem de&nbsp;outro sistema ou&nbsp;setor</li>
+      <li>Seu&nbsp;primeiro workflow do&nbsp;zero: Manual Trigger &rarr; Set &rarr; ver o&nbsp;resultado em&nbsp;3
+      visões diferentes (Schema, Table, JSON)</li>
+      <li>Sem&nbsp;credencial, sem&nbsp;API, sem&nbsp;stress</li>
     </ul>
   </div>
 
@@ -3321,16 +3322,21 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">01</div>
       <div>
         <div class="secao-fn">O que você vai aprender</div>
-        <h2>O&nbsp;seu&nbsp;processo cabe em&nbsp;sete passos</h2>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
     <div class="cartao cartao-cor">
       <span class="rot">Em uma frase</span>
-      <p>Que&nbsp;dá para&nbsp;escrever o&nbsp;seu&nbsp;processo em&nbsp;4 a&nbsp;7 passos que&nbsp;<strong>outra pessoa conseguiria executar</strong>, e&nbsp;é isso que&nbsp;torna possível medir e&nbsp;delegar.</p>
+      <p>A&nbsp;meta desta aula não&nbsp;é fazer algo útil ainda: é provar pra&nbsp;você mesmo que&nbsp;<strong>dá
+      pra&nbsp;construir, executar e&nbsp;ler o&nbsp;resultado</strong>.</p>
     </div>
 
-    <p>Tente dizer em&nbsp;voz alta o&nbsp;que&nbsp;alguém precisaria fazer no&nbsp;seu&nbsp;lugar amanhã. Quase todo mundo trava no&nbsp;mesmo ponto: sai a&nbsp;lista óbvia, e&nbsp;aí aparece um&nbsp;"ah, mas&nbsp;quando&nbsp;o&nbsp;cliente é de&nbsp;fora, é diferente".</p>
+    <p>Você já&nbsp;viu a&nbsp;interface (aula 3) e&nbsp;a&nbsp;anatomia (aula 2). Agora vem o&nbsp;passo que&nbsp;separa
+    quem <strong>leu sobre&nbsp;n8n</strong> de&nbsp;quem <strong>usa n8n</strong>: executar o&nbsp;primeiro
+    fluxo na&nbsp;própria conta.</p>
+
+    <p>A&nbsp;partir daí, todo o&nbsp;resto fica concreto.</p>
   </section>
 
   <section class="secao" id="conceito">
@@ -3338,58 +3344,63 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">02</div>
       <div>
         <div class="secao-fn">O conceito, e é um só</div>
-        <h2>Passo que&nbsp;dá para&nbsp;conferir é passo com&nbsp;verbo e&nbsp;com&nbsp;critério</h2>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
     <div class="conceito">
       <div class="conceito-rot">O conceito desta aula</div>
-      <h3>A&nbsp;tabela do&nbsp;processo é a&nbsp;resposta da&nbsp;pergunta das&nbsp;férias, escrita numa&nbsp;linha só</h3>
+      <h3>Primeiro fluxo possível: Manual Trigger &rarr; Set &rarr; vê o&nbsp;resultado</h3>
 
-      <div class="contraste">
-        <div class="ctr nao"><span class="ctr-selo">Não confere</span>
-          <h4>"Analisar a&nbsp;planilha"</h4>
-          <p>Duas pessoas leem isso e&nbsp;fazem coisas diferentes, e&nbsp;nenhuma das&nbsp;duas está errada.</p></div>
-        <div class="ctr nao"><span class="ctr-selo">Não confere</span>
-          <h4>"Organizar as&nbsp;informações do&nbsp;pedido"</h4>
-          <p>Não&nbsp;dá para&nbsp;dizer quando&nbsp;terminou, então não&nbsp;dá para&nbsp;cronometrar nem para&nbsp;delegar.</p></div>
-        <div class="ctr e"><span class="ctr-selo">Confere</span>
-          <h4>"Verificar a&nbsp;coluna região; se&nbsp;estiver ausente, gerar alerta"</h4>
-          <p>Tem verbo, tem objeto e&nbsp;tem o&nbsp;que&nbsp;fazer quando&nbsp;dá errado.</p></div>
-        <div class="ctr e"><span class="ctr-selo">Confere</span>
-          <h4>"Consultar preço e&nbsp;prazo com&nbsp;o&nbsp;técnico responsável pela&nbsp;linha do&nbsp;item"</h4>
-          <p>Diz quem, diz o&nbsp;quê, e&nbsp;qualquer pessoa sabe se&nbsp;aquilo aconteceu ou&nbsp;não.</p></div>
-      </div>
-      <p class="fig-leg"><strong>A&nbsp;diferença entre&nbsp;as&nbsp;duas colunas é uma&nbsp;só:&nbsp;dá para&nbsp;dizer
-      se&nbsp;o&nbsp;passo aconteceu?</strong> Se&nbsp;a&nbsp;resposta depende de&nbsp;interpretação, o&nbsp;passo ainda é
-      um&nbsp;assunto. Repare que&nbsp;os&nbsp;dois da&nbsp;direita não&nbsp;são mais longos, são mais específicos.</p>
+      <p>Sem&nbsp;credencial, sem&nbsp;API, sem&nbsp;nada externo. Só&nbsp;pra&nbsp;entender o&nbsp;ciclo:</p>
 
-      <div class="analogia">
-        <div class="analogia-rot">É como a receita que a sua avó nunca escreveu</div>
-        <p>Ela faz o&nbsp;bolo há quarenta anos e&nbsp;ele sai igual toda vez. Quando&nbsp;alguém pede a&nbsp;receita, sai <em>"um&nbsp;pouco de&nbsp;farinha, até&nbsp;dar o&nbsp;ponto"</em>. <strong>Não&nbsp;é
-        má vontade: é que&nbsp;a&nbsp;mão dela sabe uma&nbsp;coisa que&nbsp;a&nbsp;boca não&nbsp;consegue dizer.</strong>
-        Quem tenta reproduzir erra, e&nbsp;a&nbsp;avó não&nbsp;entende por&nbsp;quê.</p>
-        <ul class="analogia-mapa">
-          <li><strong>"Até&nbsp;dar o&nbsp;ponto"</strong> é o&nbsp;passo sem&nbsp;critério, que&nbsp;só&nbsp;funciona com&nbsp;quem já&nbsp;sabe</li>
-          <li><strong>"Bater até&nbsp;a&nbsp;massa soltar da&nbsp;lateral da&nbsp;tigela"</strong> é o&nbsp;mesmo passo
-          com&nbsp;critério, e&nbsp;agora qualquer um&nbsp;executa</li>
-          <li><strong>As&nbsp;exceções que&nbsp;ela nem menciona</strong> são o&nbsp;"se&nbsp;o&nbsp;dia estiver úmido,
-          usa menos leite", que&nbsp;na&nbsp;sua&nbsp;tabela é a&nbsp;coluna Exceção</li>
-          <li><strong>O&nbsp;que&nbsp;precisa estar na&nbsp;bancada antes de&nbsp;começar</strong> é a&nbsp;coluna
-          Recursos, e&nbsp;é o&nbsp;que&nbsp;trava o&nbsp;processo quando&nbsp;falta</li>
-        </ul>
-        <p class="analogia-mais">O&nbsp;objetivo não&nbsp;é transformar o&nbsp;seu&nbsp;trabalho em&nbsp;receita de&nbsp;bolo. É que&nbsp;enquanto&nbsp;ele estiver só&nbsp;na&nbsp;sua&nbsp;mão, ninguém consegue medir, ninguém
-        consegue melhorar, e&nbsp;você não&nbsp;consegue sair de&nbsp;férias sem&nbsp;o&nbsp;telefone tocando.</p>
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">01 &middot; trigger</div>
+          <h4>Trigger dispara</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">02 &middot; Set</div>
+          <h4>Set cria dado</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">03 &middot; output</div>
+          <h4>Você lê o&nbsp;output em&nbsp;3 visões diferentes</h4>
+        </div>
       </div>
 
-      <div class="teste-rapido">
-        <div class="teste-rapido-rot">O teste que fecha esta aula</div>
-        <p><strong>"Você consegue explicar o&nbsp;seu&nbsp;passo a&nbsp;passo em&nbsp;menos de&nbsp;dois minutos para&nbsp;um&nbsp;colega?"</strong> Se&nbsp;não&nbsp;consegue, o&nbsp;problema quase nunca é a&nbsp;IA: é que&nbsp;o&nbsp;processo
-        não&nbsp;existe escrito em&nbsp;lugar nenhum, e&nbsp;você está tentando melhorar uma&nbsp;coisa que&nbsp;ninguém consegue enxergar inteira.</p>
+      <h4>As&nbsp;3 visões do&nbsp;output (Schema / Table / JSON)</h4>
+
+      <p>Quando&nbsp;você executa um&nbsp;nó e&nbsp;olha o&nbsp;painel da&nbsp;direita (Output), pode trocar entre&nbsp;3
+      formatos de&nbsp;visualização:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Visão</th><th>O que mostra</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Schema</strong></td><td>Estrutura: nomes dos campos + tipo de cada (String, Number, Array...). Compacto.</td><td>Pra entender o <strong>formato</strong> dos dados rapidamente.</td></tr>
+            <tr><td><strong>Table</strong></td><td>Linhas e colunas, como uma planilha.</td><td>Quando os dados são uma lista de objetos parecidos (ex.: leads, contatos).</td></tr>
+            <tr><td><strong>JSON</strong></td><td>O dado cru, como código.</td><td>Pra ver detalhes ou copiar valor exato.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-10.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Como ler o resultado? (As 3 Visões)': o n8n terminou o trabalho; no painel direito (Output), você escolhe 3 lentes para ver os dados gerados. Três cartões: Schema (Esquema), mostra a estrutura, nome do campo e o tipo (Texto, Número), ideal para entender o formato rapidamente; Table (Tabela), visão de planilha, perfeita quando você tem listas, como vários contatos ou leads parecidos; JSON (O Código), o dado cru, como os computadores conversam, ótimo para inspecionar detalhes ou copiar um valor exato. Embaixo, dica de mentor: comece sempre pela visão Schema para não se assustar.">
+    </div>
+    <p class="fig-leg"><strong>As&nbsp;três lentes, como foram mostradas em&nbsp;sala.</strong> A&nbsp;dica
+    de&nbsp;baixo é o&nbsp;hábito do&nbsp;aviso a&nbsp;seguir: Schema primeiro, JSON só&nbsp;quando&nbsp;precisar do&nbsp;valor.</p>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Hábito útil</div>
+        <p>Comece pela&nbsp;Schema view (visão geral), confirme o&nbsp;formato. Pula pra&nbsp;JSON só&nbsp;quando&nbsp;precisar copiar/inspecionar valor específico.</p>
       </div>
     </div>
-
-    <p>Falta a&nbsp;forma da&nbsp;tabela, e&nbsp;ela tem sete colunas. Seis vêm do&nbsp;modelo clássico de&nbsp;mapeamento, e&nbsp;a&nbsp;sétima é acréscimo deste curso, pela&nbsp;razão que&nbsp;a&nbsp;próxima seção explica.</p>
   </section>
 
   <section class="secao" id="como-funciona">
@@ -3397,59 +3408,111 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>Sete colunas, e&nbsp;a&nbsp;última é a&nbsp;que&nbsp;faz o&nbsp;resto valer</h2>
+        <h2>Como funciona na&nbsp;prática</h2>
       </div>
     </div>
 
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>Coluna</th><th>A pergunta que ela responde</th><th>O erro que ela evita</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Área</strong></td><td>de que time é esse processo?</td><td>Mapear algo que não é seu e não dá para mudar</td></tr>
-          <tr><td><strong>Entrada</strong></td><td>o que chega, e em que formato?</td><td>Começar do meio. Se você não sabe o que dispara, não achou o começo</td></tr>
-          <tr><td><strong>Processo</strong></td><td>quais são os 4 a 7 passos, em ordem?</td><td>Passo sem verbo e sem critério, que ninguém consegue conferir</td></tr>
-          <tr><td><strong>Saída</strong></td><td>o que sai pronto, e para quem?</td><td>Processo sem fim escrito, que nunca se sabe quando terminou</td></tr>
-          <tr><td><strong>Exceção</strong></td><td>o que você faz quando foge do padrão?</td><td><strong>Deixar em branco.</strong> É a coluna que carrega o que só existe na sua cabeça</td></tr>
-          <tr><td><strong>Recursos</strong></td><td>o que precisa estar em mãos antes?</td><td>Descobrir no meio que falta um acesso, um arquivo ou uma tabela</td></tr>
-          <tr><td><strong>Tempo</strong></td><td>quanto leva cada passo?</td><td>Achar que sabe. Quase sempre o passo mais lento não é o mais chato</td></tr>
-        </tbody>
-      </table>
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <p>Conta n8n Cloud criada (sem&nbsp;precisar de&nbsp;credencial nenhuma nesta aula).</p>
     </div>
 
-    <p class="fig-leg"><strong>A&nbsp;coluna Tempo é acréscimo deste curso, e&nbsp;ela não&nbsp;é enfeite.</strong>
-    O&nbsp;modelo original serve para&nbsp;instruir alguém a&nbsp;executar, e&nbsp;instruir não&nbsp;exige medir. Aqui
-    o&nbsp;processo é o&nbsp;objeto: sem&nbsp;tempo por&nbsp;passo, a&nbsp;aula 4 não&nbsp;tem onde&nbsp;procurar o&nbsp;vazamento e&nbsp;a&nbsp;aula 5 não&nbsp;tem de&nbsp;onde&nbsp;tirar o&nbsp;preço. <strong>É a&nbsp;coluna que&nbsp;separa mapear de&nbsp;melhorar.</strong></p>
+    <div class="figura solta">
+      <img src="../_img/slides/m1-09.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Criando seu 1º Fluxo (Mão na Massa)': o objetivo agora não é criar algo complexo, mas provar a você mesmo que é simples construir e testar. Passo 1: adicione um Gatilho Manual (Disparo Manual), ele será nosso botão de iniciar. Passo 2: conecte um bloco Edit Fields / Set (Meus Dados), ele serve para criar dados do zero. Passo 3: configure o bloco, adicione campos com seu nome e uma mensagem amigável. Passo 4: aperte Execute Workflow no topo (ou use o atalho Ctrl + Enter). Pronto! A informação fluiu do gatilho para o bloco de dados: você executou seu 1º workflow.">
+    </div>
+    <p class="fig-leg"><strong>Os&nbsp;quatro passos em&nbsp;um&nbsp;slide, como foram mostrados em&nbsp;sala.</strong>
+    Abaixo, o&nbsp;mesmo caminho em&nbsp;sete passos, com&nbsp;os&nbsp;nomes exatos de&nbsp;cada campo.</p>
 
-    <h3>A&nbsp;regra dos&nbsp;quatro a&nbsp;sete passos</h3>
-
-    <p><strong>Se&nbsp;passar de&nbsp;sete, divida em&nbsp;subprocessos.</strong> Não&nbsp;é limite estético: é
-    que&nbsp;acima disso ninguém segura o&nbsp;processo inteiro na&nbsp;cabeça, e&nbsp;você perde exatamente a&nbsp;capacidade que&nbsp;a&nbsp;tabela existe para&nbsp;dar. Se&nbsp;o&nbsp;seu&nbsp;tem doze passos, provavelmente são dois
-    processos que&nbsp;alguém juntou porque&nbsp;acontecem na&nbsp;mesma mesa.</p>
-
-    <h3>O&nbsp;que&nbsp;você resolve sentado, e&nbsp;o&nbsp;que&nbsp;exige levantar da&nbsp;cadeira</h3>
-
-    <p>Ao&nbsp;lado de&nbsp;cada passo, marque <strong>(IN)</strong> ou&nbsp;<strong>(EX)</strong>. A&nbsp;distinção é a&nbsp;mesma de&nbsp;um&nbsp;estagiário no&nbsp;primeiro dia:</p>
-
-    <div class="duo">
-      <div class="cartao">
-        <span class="rot">(IN) &middot; interno</span>
-        <h4>O&nbsp;estagiário resolve sentado à&nbsp;mesa</h4>
-        <p>Com&nbsp;o&nbsp;que&nbsp;você entregou em&nbsp;mãos: o&nbsp;pedido, a&nbsp;planilha, o&nbsp;documento. Ler, calcular,
-        comparar, resumir, escrever, formatar.</p>
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Crie um workflow novo</div>
       </div>
-      <div class="cartao">
-        <span class="rot">(EX) &middot; externo</span>
-        <h4>Ele precisa levantar e&nbsp;acessar outro sistema</h4>
-        <p>Mandar e-mail, consultar outro setor, atualizar um&nbsp;cadastro, esperar aprovação.
-        Depende de&nbsp;acesso, de&nbsp;login ou&nbsp;de&nbsp;outra pessoa.</p>
+      <p>Workflows &rarr; <strong>+ Add workflow</strong>. Renomeie pra&nbsp;<code>Meu Primeiro
+      Fluxo</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Adicione um Manual Trigger</div>
+      </div>
+      <p>Clique duplo no&nbsp;canvas &rarr; busque "Manual Trigger" &rarr; adicione. Renomeie pra&nbsp;<code>▶️ Disparo Manual</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Adicione um Set (Edit Fields)</div>
+      </div>
+      <p>Clique no&nbsp;<code>+</code> à&nbsp;direita do&nbsp;Manual Trigger &rarr; busque "Edit Fields" &rarr;
+      adicione. Renomeie pra&nbsp;<code>📦 Meus Dados</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Configure o Set com 3 campos</div>
+      </div>
+      <p>No&nbsp;painel do&nbsp;nó:</p>
+      <ul class="lista">
+        <li>Em&nbsp;<strong>Mode</strong>, deixe <code>Manual Mapping</code>.</li>
+        <li>Clique em&nbsp;<strong>+ Add Field</strong>:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Os 3 campos &middot; nome, tipo e valor</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6pri-campos">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6pri-campos">Name: mensagem  · Type: String · Value: Meu primeiro fluxo no n8n!
+Name: data      · Type: String · Value: {{ $now }}
+Name: meu_nome  · Type: String · Value: (seu nome)</pre>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>Essa marca decide o&nbsp;resto do&nbsp;curso para&nbsp;você.</strong> Tudo o&nbsp;que&nbsp;ficar <strong>(IN)</strong> é onde&nbsp;a&nbsp;IA em&nbsp;chat já&nbsp;ajuda hoje, e&nbsp;é o&nbsp;que&nbsp;o&nbsp;próximo
-    bloco transforma em&nbsp;assistente. Tudo o&nbsp;que&nbsp;ficar <strong>(EX)</strong> é o&nbsp;que&nbsp;espera a&nbsp;automação do&nbsp;Módulo 2. <strong>Marcar não&nbsp;é burocracia: é o&nbsp;corte que&nbsp;diz o&nbsp;que&nbsp;você
-    consegue mudar sozinho.</strong></p>
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Execute o workflow</div>
+      </div>
+      <p>Clique em&nbsp;<strong>Execute Workflow</strong> (canto superior direito) ou&nbsp;aperte
+      <code>Ctrl + Enter</code>.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Não clicar em "Execute Workflow" e ficar esperando</div>
+        <p>O&nbsp;n8n não&nbsp;roda automaticamente em&nbsp;modo manual. Você precisa clicar pra&nbsp;disparar.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> achar que precisa de credencial pra
+        começar. Manual Trigger + Set = zero credencial. Você só precisa de credencial quando
+        vai conectar com app externo (Gmail, Sheets, OpenAI). Esses entram no B7/B9.</div>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Veja o resultado</div>
+      </div>
+      <p>Clique no&nbsp;nó <code>📦 Meus Dados</code> &rarr; painel da&nbsp;direita &rarr;
+      <strong>Output</strong>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que você vê em cada visão:</div>
+        <ul>
+          <li>Em&nbsp;<strong>Schema</strong>: você vê <code>mensagem (String)</code>, <code>data
+          (String)</code>, <code>meu_nome (String)</code>.</li>
+          <li>Em&nbsp;<strong>Table</strong>: vê uma&nbsp;linha com&nbsp;os&nbsp;3 campos.</li>
+          <li>Em&nbsp;<strong>JSON</strong>: vê o&nbsp;objeto completo (o&nbsp;da&nbsp;demonstração abaixo, com&nbsp;a&nbsp;sua&nbsp;data e&nbsp;o&nbsp;seu&nbsp;nome).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Pinne o output</div>
+      </div>
+      <p>Com&nbsp;o&nbsp;Set selecionado, aperte <code>P</code>. Aparece um&nbsp;pino: o&nbsp;output fica fixado, e&nbsp;os&nbsp;próximos testes não&nbsp;precisam re-executar.</p>
+      <p><strong>Pronto. Você executou seu&nbsp;primeiro workflow.</strong></p>
+    </div>
   </section>
 
   <section class="secao" id="demonstracao">
@@ -3457,65 +3520,36 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">A demonstração</div>
-        <h2>O&nbsp;orçamento aberto em&nbsp;cinco passos, com&nbsp;o&nbsp;tempo de&nbsp;cada um</h2>
+        <h2>O&nbsp;fluxo rodando, e&nbsp;o&nbsp;que&nbsp;saiu</h2>
       </div>
     </div>
 
-    <p>É o&nbsp;mesmo processo das&nbsp;duas aulas anteriores, agora escrito na&nbsp;tabela.
-    <strong>Repare que&nbsp;os&nbsp;cinco passos são os&nbsp;que&nbsp;qualquer um&nbsp;descreveria</strong>, e&nbsp;que&nbsp;a&nbsp;coluna da&nbsp;direita é a&nbsp;que&nbsp;ninguém tinha olhado.</p>
+    <p>Este é o&nbsp;fluxo dos&nbsp;sete passos depois de&nbsp;executado numa&nbsp;conta de&nbsp;teste, em&nbsp;16/09/2026.
+    Os&nbsp;dois nós ficam com&nbsp;a&nbsp;marca verde, e&nbsp;a&nbsp;seta diz quantos itens passaram: <strong>1
+    item</strong>.</p>
 
     <div class="demo solta">
-      <div class="demo-faixa">Atendimento a pedido de orçamento &middot; do e-mail do cliente até a proposta enviada</div>
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas depois do Execute Workflow</div>
       <div class="demo-corpo">
-        <div class="tabela">
-          <table>
-            <thead>
-              <tr><th>Campo</th><th>O que foi escrito</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>Área</strong></td><td>Comercial</td></tr>
-              <tr><td><strong>Entrada</strong></td><td>Pedido de orçamento do cliente, por e-mail ou WhatsApp, às vezes com foto de uma lista escrita à mão</td></tr>
-              <tr><td><strong>Saída</strong></td><td>Proposta em PDF, com itens, valor total, prazo de entrega e validade, enviada ao cliente</td></tr>
-              <tr><td><strong>Exceção</strong></td><td>Item fora da tabela vigente vira consulta ao técnico. Desconto acima de 10% precisa do gerente. Cliente novo exige análise de crédito antes de enviar</td></tr>
-              <tr><td><strong>Recursos</strong></td><td>Tabela de preços vigente, modelo de proposta, acesso ao histórico do cliente</td></tr>
-            </tbody>
-          </table>
+        <div class="figura n8n">
+          <img src="../_img/canvas/p2-base.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: o nó Disparo Manual, com o lado esquerdo arredondado, ligado por uma seta verde escrita 1 item ao nó Meus Dados. Os dois têm uma marca verde de concluído no canto.">
         </div>
-
-        <div class="tabela">
-          <table>
-            <thead>
-              <tr><th>#</th><th>O passo, com verbo e critério</th><th>IN/EX</th><th>Tempo</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>1</strong></td><td>Ler o pedido e listar os itens; se vier como foto, transcrever a lista antes</td><td>IN</td><td>15 min</td></tr>
-              <tr><td><strong>2</strong></td><td>Conferir cada item contra a tabela vigente; marcar os que não estão nela</td><td>IN</td><td>20 min</td></tr>
-              <tr><td><strong>3</strong></td><td>Consultar preço e prazo com o técnico da linha, para os itens marcados</td><td><strong>EX</strong></td><td><strong>2 dias</strong></td></tr>
-              <tr><td><strong>4</strong></td><td>Montar a proposta no modelo, com validade de 15 dias</td><td>IN</td><td>40 min</td></tr>
-              <tr><td><strong>5</strong></td><td>Revisar valor e prazo contra o pedido original, e enviar</td><td>IN</td><td>10 min</td></tr>
-            </tbody>
-          </table>
+        <p class="fig-leg"><strong>Redesenho do&nbsp;canvas, a&nbsp;partir da&nbsp;execução de&nbsp;teste</strong>
+        (execução 401, 16/09/2026, 12:17). Os&nbsp;nomes, a&nbsp;ordem e&nbsp;a&nbsp;contagem de&nbsp;itens são os&nbsp;que&nbsp;saíram lá.</p>
+        <p>E&nbsp;o&nbsp;objeto completo, na&nbsp;visão JSON do&nbsp;nó <code>📦 Meus Dados</code>:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output &middot; visão JSON</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b6pri-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b6pri-json">{
+  "mensagem": "Meu primeiro fluxo no n8n!",
+  "data": "2026-09-16T12:17:19.106-03:00",
+  "meu_nome": "(seu nome)"
+}</pre>
         </div>
-        <div class="demo-pe">Trabalho de pessoa: 1h25 &middot; Tempo até o cliente receber: 2 dias e 1h25</div>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Compare as&nbsp;duas últimas linhas do&nbsp;rodapé.</strong> O&nbsp;trabalho
-    de&nbsp;pessoa soma uma&nbsp;hora e&nbsp;vinte e&nbsp;cinco; o&nbsp;que&nbsp;o&nbsp;cliente espera são dois dias.
-    <strong>O&nbsp;passo 3 é 97,1% do&nbsp;prazo e&nbsp;0% do&nbsp;esforço</strong>, e&nbsp;ele é o&nbsp;único marcado (EX).
-    Nenhuma das&nbsp;duas coisas aparece quando&nbsp;o&nbsp;processo está só&nbsp;na&nbsp;cabeça, e&nbsp;as&nbsp;duas vêm da&nbsp;coluna que&nbsp;o&nbsp;modelo original não&nbsp;tem.</p>
-
-    <div class="arquivo">
-      <div>
-        <div class="arq-tipo">XLSX</div>
-        <div>
-          <div class="arq-nome">ipo-do-meu-processo.xlsx</div>
-          <div class="arq-fn">A tabela em branco, com a linha do orçamento preenchida como exemplo. É o mesmo arquivo que as aulas 4 e 5 usam.</div>
-        </div>
-      </div>
-      <div class="arq-acoes">
-        <a class="btn-2" href="../_arquivos/ipo-do-orcamento.html">Abrir para ver</a>
-        <a class="btn" href="../_arquivos/ipo-do-meu-processo.xlsx" download>Baixar para levar</a>
+        <p class="fig-leg"><strong>Repare na&nbsp;data:</strong> o&nbsp;<code>{{ $now }}</code> virou a&nbsp;hora exata da&nbsp;execução, com&nbsp;o&nbsp;fuso da&nbsp;conta. No&nbsp;seu,&nbsp;vai ser a&nbsp;hora em&nbsp;que&nbsp;você clicou.</p>
       </div>
     </div>
   </section>
@@ -3525,180 +3559,118 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">05</div>
       <div>
         <div class="secao-fn">A sua vez</div>
-        <h2>Abra o&nbsp;seu&nbsp;processo, com&nbsp;o&nbsp;tempo de&nbsp;cada passo</h2>
-      </div>
-    </div>
-
-    <p>Baixe a&nbsp;planilha e&nbsp;preencha a&nbsp;linha do&nbsp;<strong>seu</strong>&nbsp;processo, o&nbsp;que&nbsp;a&nbsp;aula 1
-    escolheu. Três passos, vinte minutos.</p>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">1</div>
-        <div class="passo-fn">Escreva as duas pontas antes dos passos</div>
-      </div>
-      <p>Preencha <strong>Entrada</strong> e&nbsp;<strong>Saída</strong> primeiro, e&nbsp;só&nbsp;depois os&nbsp;passos do&nbsp;meio. Quem começa pelos passos costuma escrever sete e&nbsp;descobrir no&nbsp;fim que&nbsp;dois deles são de&nbsp;outro processo.</p>
-      <div class="passo-ok">
-        <div class="passo-ok-rot">O que você deveria ter agora</div>
-        <p>Duas frases curtas, cada uma&nbsp;com&nbsp;um&nbsp;substantivo concreto. Se&nbsp;a&nbsp;Saída for
-        <em>"o&nbsp;cliente atendido"</em>, volte: isso é resultado, não&nbsp;entrega. A&nbsp;entrega é o&nbsp;documento, o&nbsp;número ou&nbsp;a&nbsp;decisão que&nbsp;sai da&nbsp;sua&nbsp;mão.</p>
+        <h2>Variações pra&nbsp;exercitar</h2>
       </div>
     </div>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">2</div>
-        <div class="passo-fn">Escreva de quatro a sete passos, cada um com verbo e critério</div>
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Variação 1: adicione mais campos com tipos diferentes</div>
       </div>
-      <p>Marque <strong>(IN)</strong> ou&nbsp;<strong>(EX)</strong> em&nbsp;cada um.&nbsp;Não&nbsp;pare para&nbsp;pensar em&nbsp;melhoria: agora você está descrevendo o&nbsp;que&nbsp;acontece hoje, com&nbsp;defeito e&nbsp;tudo.</p>
-      <div class="passo-ok">
-        <div class="passo-ok-rot">O que você deveria ter agora</div>
-        <p>Entre&nbsp;quatro e&nbsp;sete linhas. <strong>Se&nbsp;passou de&nbsp;sete, você juntou dois
-        processos:</strong> corte no&nbsp;ponto em&nbsp;que&nbsp;a&nbsp;entrega muda de&nbsp;mão e&nbsp;trate a&nbsp;segunda
-        metade como outro processo. Pelo&nbsp;menos um&nbsp;passo costuma sair (EX), e&nbsp;se&nbsp;nenhum saiu,
-        confira se&nbsp;você não&nbsp;esqueceu de&nbsp;uma&nbsp;espera.</p>
-      </div>
+      <p>Volte no&nbsp;Set, adicione:</p>
+      <ul class="lista">
+        <li><code>cargo</code> (String) com&nbsp;seu&nbsp;cargo atual</li>
+        <li><code>idade</code> (<strong>Number</strong>, atenção, é Number não&nbsp;String) com&nbsp;sua&nbsp;idade</li>
+        <li><code>gosta_de_n8n</code> (<strong>Boolean</strong>) com&nbsp;<code>true</code></li>
+      </ul>
+      <p>Re-execute. Olhe a&nbsp;Schema view: repare que&nbsp;agora tem 6 campos com&nbsp;3 tipos diferentes
+      (String, Number, Boolean). <strong>Os&nbsp;tipos vão importar muito no&nbsp;B8</strong>: JSON é
+      estrito sobre&nbsp;isso.</p>
     </div>
 
     <div class="passo">
       <div class="passo-topo">
-        <div class="passo-n">3</div>
-        <div class="passo-fn">Preencha o tempo, e faça o teste dos dois minutos</div>
+        <div class="passo-n">9</div>
+        <div class="passo-fn">Variação 2: encadeie um segundo Set com expression</div>
       </div>
-      <p>Escreva o&nbsp;tempo de&nbsp;cada passo. <strong>Estimativa serve</strong>, e&nbsp;vale marcar as&nbsp;que&nbsp;você chutou. Depois leia a&nbsp;sua&nbsp;tabela em&nbsp;voz alta para&nbsp;alguém, cronometrando.</p>
+      <ol>
+        <li>Adicione mais um&nbsp;Edit Fields depois do&nbsp;primeiro. Renomeie pra&nbsp;<code>🧹 Adiciona
+        Saudação</code>.</li>
+        <li>No&nbsp;campo <code>mensagem</code>, em&nbsp;vez de&nbsp;digitar texto fixo, <strong>arraste</strong>
+        o&nbsp;campo <code>meu_nome</code> do&nbsp;painel esquerdo (lista de&nbsp;dados de&nbsp;entrada). Vai
+        aparecer algo como <code>{{ $('📦 Meus Dados').item.json.meu_nome }}</code>: esse é o&nbsp;seu&nbsp;primeiro contato com&nbsp;<strong>expression</strong>.</li>
+        <li>Antes do&nbsp;<code>{{ ... }}</code>, digite: <code>Olá,</code> e&nbsp;depois do&nbsp;<code>}}</code>, <code>!</code>. O&nbsp;valor final fica algo tipo:</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo mensagem &middot; com a expression</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6pri-expr">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6pri-expr">Olá, {{ $('📦 Meus Dados').item.json.meu_nome }}!</pre>
+      </div>
+      <ol start="4">
+        <li>Execute.</li>
+        <li>Olhe o&nbsp;output do&nbsp;segundo Set: o&nbsp;campo <code>mensagem</code> agora tem o&nbsp;seu&nbsp;nome
+        dentro.</li>
+      </ol>
       <div class="passo-ok">
-        <div class="passo-ok-rot">O que você deveria ter agora</div>
-        <p>Se&nbsp;levou menos de&nbsp;dois minutos e&nbsp;a&nbsp;pessoa não&nbsp;perguntou nada, a&nbsp;tabela está pronta.
-        <strong>Se&nbsp;ela perguntou "mas&nbsp;e&nbsp;quando&nbsp;acontece X?", esse X é uma&nbsp;Exceção</strong> que&nbsp;faltou, e&nbsp;você acabou de&nbsp;achar uma&nbsp;de&nbsp;graça.</p>
-      </div>
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, use estas três saídas</div>
-        <ul>
-          <li><strong>Não&nbsp;sabe o&nbsp;tempo de&nbsp;um&nbsp;passo?</strong> Escreva o&nbsp;seu&nbsp;chute e&nbsp;marque com&nbsp;um&nbsp;ponto de&nbsp;interrogação. A&nbsp;aula 5 mostra o&nbsp;que&nbsp;fazer com&nbsp;os&nbsp;chutes, e&nbsp;um&nbsp;número
-          marcado como chute vale muito mais que&nbsp;uma&nbsp;célula vazia.</li>
-          <li><strong>O&nbsp;processo muda muito de&nbsp;caso para&nbsp;caso?</strong> Escreva o&nbsp;caminho mais
-          comum, aquele que&nbsp;acontece em&nbsp;sete de&nbsp;cada dez vezes, e&nbsp;jogue o&nbsp;resto na&nbsp;coluna
-          Exceção. Tabela que&nbsp;cobre todos os&nbsp;casos não&nbsp;cobre nenhum.</li>
-          <li><strong>Não&nbsp;sabe o&nbsp;que&nbsp;acontece antes de&nbsp;chegar em&nbsp;você?</strong> Escreva
-          "chega de"&nbsp;e&nbsp;o&nbsp;nome de&nbsp;quem manda. A&nbsp;Entrada é o&nbsp;que&nbsp;<em>você</em> recebe, e&nbsp;não&nbsp;a&nbsp;origem do&nbsp;mundo.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não vale:</strong> escrever passos do processo que
-        você <em>gostaria</em> de ter. A tabela é do processo de hoje, com a espera de dois
-        dias e o retrabalho incluídos. A versão melhorada é a aula 4, e ela só funciona se
-        existir a de hoje para comparar.</div>
+        <div class="passo-ok-rot">Você acabou de usar uma expression</div>
+        <p>O&nbsp;<code>{{ ... }}</code> é o&nbsp;jeito do&nbsp;n8n falar "pega esse dado dinâmico aqui". Você
+        não&nbsp;precisou digitar a&nbsp;sintaxe: o&nbsp;n8n formou ela sozinho quando&nbsp;você arrastou o&nbsp;campo.
+        Isso vai virar pão-com-manteiga lá pelo&nbsp;B8. <strong>Por&nbsp;enquanto,&nbsp;basta ver que&nbsp;funciona
+        e&nbsp;que&nbsp;a&nbsp;expression se&nbsp;monta sozinha via drag-and-drop.</strong></p>
       </div>
     </div>
 
-
-    <h3>Se&nbsp;a&nbsp;lista de&nbsp;passos não&nbsp;sair, peça ajuda ao&nbsp;chat</h3>
-
-    <p>Este pedido não&nbsp;escreve a&nbsp;tabela por&nbsp;você: ele <strong>entrevista</strong> você e&nbsp;organiza o&nbsp;que&nbsp;você responder. Cole no&nbsp;chat e&nbsp;responda as&nbsp;perguntas com&nbsp;o&nbsp;seu&nbsp;processo.</p>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">Para abrir o seu processo em passos, pronto para copiar</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b3ipo-mapear">Copiar</button>
-      </div>
-      <pre class="prompt-txt" id="pr-b3ipo-mapear">[P] Papel / Persona:
-Um analista de processos que entrevista antes de escrever, e que trata
-passo sem critério como passo não escrito.
-
-[C] Contexto:
-Eu executo um processo do meu trabalho há tempo suficiente para fazer no
-automático, e nunca o escrevi. Vou te descrever em texto corrido, do jeito
-que sai da minha cabeça, com as exceções misturadas no meio.
-
-[T] Tarefa:
-Primeiro me faça no máximo cinco perguntas, uma de cada vez, para achar o
-que eu deixei implícito: o que dispara o processo, o que sai pronto no fim,
-onde eu espero por outra pessoa, e o que muda quando o caso foge do padrão.
-Só depois de eu responder, monte a tabela.
-
-[F] Formato:
-Uma tabela com Entrada, Saída, Exceção e Recursos, e uma segunda tabela com
-os passos: número, o passo com verbo de ação e critério, a marca (IN) para
-o que eu resolvo sozinho ou (EX) para o que depende de outro sistema ou
-setor, e o tempo. Entre 4 e 7 passos.
-
-[L] Limitações:
-Não invente passo que eu não disse, e não melhore o processo: eu quero o de
-hoje, com a espera e o retrabalho dentro. Se eu não informar o tempo de um
-passo, escreva "sem medida" naquela célula em vez de estimar. Se a minha
-descrição render mais de sete passos, me diga onde cortar em dois processos
-em vez de encolher a lista.
-
-[Critério de Sucesso]:
-Um colega que não conhece o meu trabalho consegue ler a tabela e dizer o que
-fazer em cada passo, sem me perguntar nada. E toda exceção que eu mencionei
-no texto aparece na coluna Exceção, nenhuma perdida no meio dos passos.</pre>
+    <div class="figura solta">
+      <img src="../_img/slides/m1-11.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Magia das Expressões (Dados Dinâmicos)': se você vai enviar um e-mail, não vai digitar o nome do cliente na mão; o n8n precisa puxar isso sozinho. À esquerda, dados que chegaram: meu_nome com um nome de exemplo; uma seta pontilhada com o cursor arrastando o campo; à direita, sua mensagem: Olá, {{$json.meu_nome}}! Tudo bem? Embaixo: expressões são como variáveis mágicas, o {{ ... }} é o jeito do computador dizer pegue aquele dado e coloque aqui; você não precisa digitar código, é só arrastar o campo da esquerda para a direita, e o n8n monta isso para você.">
     </div>
+    <p class="fig-leg"><strong>O&nbsp;arrasto, em&nbsp;slide.</strong> O&nbsp;nome dentro do&nbsp;campo é o&nbsp;do&nbsp;instrutor, que&nbsp;fez o&nbsp;exemplo em&nbsp;sala; na&nbsp;sua&nbsp;conta, o&nbsp;campo tem o&nbsp;seu.&nbsp;E&nbsp;a&nbsp;expression do&nbsp;slide é a&nbsp;forma curta (<code>$json</code>); a&nbsp;que&nbsp;o&nbsp;arrasto monta na&nbsp;variação 2 nomeia o&nbsp;nó
+    de&nbsp;origem, e&nbsp;as&nbsp;duas funcionam.</p>
 
-    <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;pedido começa mandando a&nbsp;IA perguntar.</strong>
-    Esse é o&nbsp;jeito de&nbsp;pedir que&nbsp;a&nbsp;aula 2 chamou de&nbsp;estruturação: você não&nbsp;sabe ainda qual é a&nbsp;lista certa, e&nbsp;o&nbsp;que&nbsp;falta é enxergar o&nbsp;que&nbsp;você deixou implícito. Se&nbsp;ele começasse
-    escrevendo a&nbsp;tabela, voltaria uma&nbsp;tabela plausível e&nbsp;sua,&nbsp;o&nbsp;que&nbsp;é o&nbsp;pior resultado
-    possível aqui.</p>
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas com as duas variações</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p2-variacoes.svg" width="672" height="200" loading="lazy"
+               alt="O canvas com três nós verdes em linha: Disparo Manual, Meus Dados e Adiciona Saudação, com 1 item em cada seta.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do&nbsp;canvas depois das&nbsp;duas variações</strong>
+        (execução 401, 16/09/2026). O&nbsp;output do&nbsp;segundo Set saiu com&nbsp;<code>"mensagem": "Olá, (seu nome)!"</code> e&nbsp;os&nbsp;seis campos do&nbsp;primeiro, com&nbsp;<code>idade</code> como número e&nbsp;<code>gosta_de_n8n</code> como <code>true</code>.</p>
+      </div>
+    </div>
   </section>
 
   <div class="ate-aqui">
     <div class="ate-aqui-rot">A aula acaba aqui</div>
   </div>
-  <p class="ate-aqui-nota">Com&nbsp;a&nbsp;tabela preenchida você tem o&nbsp;insumo das&nbsp;duas últimas aulas, e&nbsp;a&nbsp;peça que&nbsp;o&nbsp;último bloco do&nbsp;curso transforma em&nbsp;assistente. O&nbsp;que&nbsp;vem abaixo é
-  <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte quando&nbsp;a&nbsp;sua&nbsp;tabela não&nbsp;fechar.</p>
+  <p class="ate-aqui-nota">Com&nbsp;o&nbsp;output pinado e&nbsp;a&nbsp;saudação montada, a&nbsp;aula 4 está feita. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: os&nbsp;erros que&nbsp;mais aparecem nesse primeiro fluxo.</p>
 
-  <section class="secao" id="a-cerca">
+  <section class="secao" id="cerca">
     <div class="secao-topo">
       <div class="secao-n">06</div>
       <div>
         <div class="secao-fn">A cerca</div>
-        <h2>O&nbsp;que&nbsp;a&nbsp;tabela não&nbsp;faz</h2>
+        <h2>Pegadinhas</h2>
       </div>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Ela descreve o processo de hoje, e isso é de propósito</div>
-      <p>A&nbsp;tentação de&nbsp;já&nbsp;escrever a&nbsp;versão melhorada é grande, e&nbsp;ela custa caro:
-      <strong>sem&nbsp;o&nbsp;de&nbsp;hoje, não&nbsp;existe antes para&nbsp;comparar</strong>, e&nbsp;você perde o&nbsp;único
-      número que&nbsp;sustenta a&nbsp;conversa com&nbsp;quem aprova. A&nbsp;versão nova nasce na&nbsp;aula 4, em&nbsp;cima
-      desta.</p>
+      <div class="aviso-t">Confundir o painel de Output com o de Input</div>
+      <p>Toda janela de&nbsp;nó tem 2 abas (Input à&nbsp;esquerda, Output à&nbsp;direita). Input mostra o&nbsp;que&nbsp;<strong>chegou</strong> pro nó; Output mostra o&nbsp;que&nbsp;<strong>saiu</strong>. Se&nbsp;você acabou
+      de&nbsp;configurar e&nbsp;quer ver o&nbsp;resultado, vá no&nbsp;Output.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Tempo estimado não é tempo medido, e as duas coisas entram</div>
-      <p>Ninguém para&nbsp;uma&nbsp;semana para&nbsp;cronometrar, e&nbsp;não&nbsp;é isso que&nbsp;se&nbsp;pede.
-      <strong>Marque o&nbsp;que&nbsp;é chute</strong>, porque&nbsp;na&nbsp;aula 5 a&nbsp;diferença entre&nbsp;o&nbsp;chute e&nbsp;a&nbsp;medida é parte do&nbsp;que&nbsp;você mostra. Chute declarado é dado; chute disfarçado de&nbsp;medida é
-      problema.</p>
+      <div class="aviso-t">Esquecer de salvar</div>
+      <p>O&nbsp;n8n auto-salva, mas&nbsp;se&nbsp;você fechar a&nbsp;aba antes do&nbsp;<code>Saved</code> aparecer (ícone
+      "Saving..." some), pode perder mudanças. Aguarde o&nbsp;<code>Saved</code>.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Processo que passa por outra área você mapeia, mas não muda sozinho</div>
-      <p>Os&nbsp;passos marcados <strong>(EX)</strong> costumam ser os&nbsp;mais lentos, e&nbsp;quase sempre
-      são de&nbsp;outro time. <strong>Isso não&nbsp;é motivo para&nbsp;tirar da&nbsp;tabela</strong>: é o&nbsp;que&nbsp;faz
-      o&nbsp;resultado deste bloco virar uma&nbsp;proposta em&nbsp;vez de&nbsp;uma&nbsp;tarefa sua.&nbsp;A&nbsp;última aula trata
-      de&nbsp;como levá-la.</p>
-    </div>
-
-    <div class="cartao">
-      <span class="rot">A fronteira desta aula</span>
-      <div class="tabela">
-        <table>
-          <thead><tr><th>Esta aula entrega</th><th>Ela não resolve</th><th>Onde isso se resolve</th></tr></thead>
-          <tbody><tr><td>o seu processo escrito em passos conferíveis, com tempo e com a marca IN ou EX</td><td>qual dos passos está consumindo tempo que não precisava ser consumido</td><td>na próxima aula, que põe os tempos lado a lado e nomeia o que vaza</td></tr></tbody>
-        </table>
-      </div>
-      <p class="fig-leg">Ter os&nbsp;tempos escritos é o&nbsp;que&nbsp;permite parar de&nbsp;discutir por&nbsp;opinião:
-      o&nbsp;passo mais lento passa a&nbsp;ser um&nbsp;fato na&nbsp;tabela, e&nbsp;não&nbsp;a&nbsp;impressão de&nbsp;quem fala mais alto.</p>
+      <div class="aviso-t">Misturar tipos no Set (digitar número como String)</div>
+      <p>Se&nbsp;você marcar o&nbsp;campo como <code>Number</code> e&nbsp;digitar <code>"10"</code> (com&nbsp;aspas),
+      o&nbsp;n8n vai entender como String. Faz toda diferença depois: IF, Filter, comparações de&nbsp;número quebram silenciosamente quando&nbsp;o&nbsp;tipo está errado. B8 destrincha isso.</p>
     </div>
   </section>
 
   <div class="gancho">
-    <p>Você tem o&nbsp;processo aberto e&nbsp;o&nbsp;tempo de&nbsp;cada passo. <strong>Falta olhar para&nbsp;esses
-    números juntos.</strong> Quando&nbsp;eles viram barras lado a&nbsp;lado, uma&nbsp;delas costuma ser
-    absurdamente maior que&nbsp;as&nbsp;outras, e&nbsp;quase nunca é a&nbsp;que&nbsp;mais irrita. A&nbsp;próxima aula
-    desenha isso, dá nome ao&nbsp;que&nbsp;está vazando e&nbsp;procura a&nbsp;causa, sem&nbsp;aceitar a&nbsp;primeira
-    explicação.</p>
+    <p><strong>Próxima aula:</strong> 5, Um&nbsp;gostinho de&nbsp;AI Agent. Enquanto&nbsp;ela não&nbsp;abre, o&nbsp;resto do&nbsp;bloco está na&nbsp;<a href="../b6-fundamentos/">capa do&nbsp;B6</a>.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b3-ilha/">&larr; Aula 2 · Decida se a IA entra no fim ou no desenho do seu processo</a><a href="../b3-vazamento/">Aula 4 · Ache onde o tempo do seu processo está vazando &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b6-fundamentos/">&larr; B6 · Fundamentos do n8n</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
 </main>
 
 

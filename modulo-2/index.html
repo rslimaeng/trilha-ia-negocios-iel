@@ -1595,6 +1595,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   background:var(--bg-elev);margin:22px 0 0;
 }
 .figura img{display:block;width:100%;min-width:900px;height:auto}
+/* o canvas do n8n redesenhado (_build/canvas.py) e vetor e pequeno: entra no
+   tamanho natural, 1:1 com a tela do n8n, e rola se nao couber. */
+.figura.n8n img{width:auto;max-width:none;min-width:0;margin:0 auto}
 
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
@@ -3328,15 +3331,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="caso-abrir">abrir &rarr;</span>
         </div>
       </a>
-      <div class="caso">
+      <a class="caso" href="../b6-fundamentos/">
         <div class="caso-n">06</div>
         <h4>Fundamentos do&nbsp;n8n</h4>
         <p>Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro
         fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
         <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
+          <span class="caso-tipo">5 nós dominados + 1 mini-agente no chat</span>
+          <span class="caso-abrir">abrir &rarr;</span>
         </div>
-      </div>
+      </a>
       <div class="caso">
         <div class="caso-n">07</div>
         <h4>Gatilhos</h4>
