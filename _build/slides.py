@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Copia para _img/slides/ os slides da turma 2 que as paginas do Modulo 2 usam.
+
+A fonte e a unica fonte de figura do curso de n8n (PROMPT-marco2 v2, secao 0):
+../curso-agente-n8n/turma-2-abr-26/slides-notebookLM/jpg/mX-NN.jpg, 1600 x 851,
+ja sem a faixa dos carimbos. Em alguns slides sobrou um resto cinza-claro do
+"Estruturado por @iacomrafael" na ultima linha; CORTE diz ate que altura o
+slide vai quando isso acontece, e so quando embaixo nao ha conteudo.
+
+Uso:  python3 _build/slides.py            (copia o que USADOS lista)
+      python3 _build/slides.py --lista    (so imprime a lista)
+
+A lista USADOS e o registro: slide -> pagina. Quem escreve uma aula nova
+acrescenta a linha aqui antes de usar o <img>.
+"""
+import sys
+from pathlib import Path
+from PIL import Image
+
+RAIZ = Path(__file__).resolve().parent.parent
+FONTE = RAIZ.parent.parent / "curso-agente-n8n" / "turma-2-abr-26" / "slides-notebookLM" / "jpg"
+DESTINO = RAIZ / "_img" / "slides"
+
+# slide -> paginas que o usam (uma figura pode servir a mais de uma pagina)
+USADOS = {
+    "m0-02": ["b5-antes"],
+    "m0-03": ["b5-pensar"],
+    "m0-04": ["b5-pensar"],
+    "m0-05": ["b5-pensar"],
+    "m0-06": ["b5-pensar"],
+    "m0-07": ["b5-gatilho"],
+    "m0-08": ["b5-gatilho"],
+    "m0-09": ["b5-gatilho"],
+    "m0-10": ["b5-gatilho"],
+    "m0-11": ["b5-gatilho"],
+    "m0-12": ["b5-gatilho"],
+    "m0-13": ["b5-gatilho"],
+    "m0-14": ["b5-mapear"],
+    "m0-15": ["b5-mapear"],
+}
+
+# slide -> altura final (px). Ausente = 851, inteiro.
+CORTE = {
+    "m0-04": 836, "m0-05": 836, "m0-06": 836, "m0-07": 836,
+    "m0-15": 828,
+}
+
+QUALIDADE = 82
+
+
+def copiar(nome):
+    origem = FONTE / f"{nome}.jpg"
+    destino = DESTINO / f"{nome}.jpg"
+    im = Image.open(origem)
+    w, h = im.size
+    alt = CORTE.get(nome, h)
+    if alt < h:
+        im = im.crop((0, 0, w, alt))
+    im.save(destino, "JPEG", quality=QUALIDADE, optimize=True)
+    return im.size, destino.stat().st_size
+
+
+def main():
+    if "--lista" in sys.argv:
+        for s, pags in USADOS.items():
+            print(f"{s}  ->  {', '.join(pags)}")
+        return
+    DESTINO.mkdir(parents=True, exist_ok=True)
+    total = 0
+    for nome in USADOS:
+        (w, h), kb = copiar(nome)
+        total += kb
+        print(f"{nome}.jpg  {w}x{h}  {kb // 1024} KB")
+    print(f"{len(USADOS)} slides, {total // 1024} KB")
+
+
+if __name__ == "__main__":
+    main()

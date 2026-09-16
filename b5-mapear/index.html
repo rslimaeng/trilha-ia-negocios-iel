@@ -1572,6 +1572,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .desenho svg{display:block;width:100%;min-width:720px;height:auto}
 
+/* 33b · A FIGURA QUE VEM DE FORA: o slide do Rafael
+   Nasceu em 16/09 para o Modulo 2. E a excecao DECLARADA a regra da secao 13
+   ("sem imagem"): o PROMPT-marco2 v2 manda que a figura das aulas do B5 ao
+   B10 seja o slide da turma 2 (abr/26), ja desenhado -- "use o slide que o
+   mapa aponta, inteiro ou recortado; nao redesenhe o que ja existe". A regra
+   da secao 13 existe para a pagina abrir de um pen drive: o arquivo e LOCAL,
+   em _img/slides/, entao ela continua abrindo.
+
+   O que NAO muda: toda figura leva legenda. E a mesma forma do .desenho: o
+   envelope so tem o <img>, e a <p class="fig-leg"> vem como irma, DEPOIS.
+   Medido em 16/09 a 375: com a legenda dentro do envelope, a barra de rolagem
+   horizontal aparecia embaixo da legenda, nao embaixo do slide.
+
+   Mesma regra do .desenho para o celular, com o numero ajustado: o slide e
+   1600 de largura com texto de corpo de 13px; em 343px vira 3px, e em 720
+   (o minimo do .desenho) ainda da 6px. Em 900 da 7px e o titulo 22px: e o
+   ponto em que o texto do slide se le no celular sem zoom. Abaixo disso ele
+   ROLA DENTRO DO ENVELOPE, nunca espreme.                                     */
+.figura{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0 0;
+}
+.figura img{display:block;width:100%;min-width:900px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3338,6 +3362,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </ul>
     </div>
 
+    <div class="figura solta">
+      <img src="../_img/slides/m0-14.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Seu Turno: O Exercício Final. Faça isso agora para destravar seu aprendizado'. Três caixas de marcar: escolha uma tarefa real do seu dia (se não tiver no trabalho, use a planilha pessoal de gastos), descreva-a em 1 frase simples, como se contasse para um amigo; quebre a frase no esqueleto: quando? faz o quê? (verbos) entrega onde?; anote as dúvidas que surgirem (ex: como faço o n8n ler um PDF?), não trave nisso agora, anote apenas para saber o que procurar a seguir.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;exercício em&nbsp;três caixas, como foi passado em&nbsp;sala.</strong> Os&nbsp;quatro passos abaixo são estas três caixas mais o&nbsp;<em>salvar</em>. Se&nbsp;você já&nbsp;fez em&nbsp;sala, o&nbsp;que&nbsp;falta é só&nbsp;guardar o&nbsp;mapa onde&nbsp;você volte nele.</p>
+
     <div class="passo">
       <div class="passo-topo">
         <div class="passo-n">1</div>
@@ -3433,6 +3463,12 @@ Entrega:  Onde o resultado para? (e-mail pra X, linha em Y, mensagem em Z)</pre>
       <p>Se&nbsp;quiser ir além: cole o&nbsp;mapa no&nbsp;canal de&nbsp;comentários da&nbsp;turma ou&nbsp;compartilhe com&nbsp;alguém pra&nbsp;ver se&nbsp;faz sentido pra&nbsp;quem está de&nbsp;fora. <strong>Boa explicação pra&nbsp;outro =
       bom mapeamento.</strong></p>
     </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-15.jpg" width="1600" height="828" loading="lazy"
+           alt="Slide de fechamento: 'A clareza é o seu superpoder. Você não precisa ser um programador para automatizar o seu trabalho. Você só precisa saber explicar claramente o que precisa ser feito.' Embaixo: salve o seu mapa do slide anterior; você acaba de fazer a parte mais difícil, que vale 80% do sucesso; agora você está oficialmente pronto para abrir a ferramenta de automação.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;último slide do&nbsp;bloco.</strong> A&nbsp;frase de&nbsp;baixo é o&nbsp;passo 4 inteiro: salve o&nbsp;mapa. O&nbsp;que&nbsp;você tem na&nbsp;mão agora é o&nbsp;que&nbsp;o&nbsp;B6 vai transformar em&nbsp;fluxo.</p>
   </section>
 
   <div class="ate-aqui">

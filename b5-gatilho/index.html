@@ -1572,6 +1572,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .desenho svg{display:block;width:100%;min-width:720px;height:auto}
 
+/* 33b · A FIGURA QUE VEM DE FORA: o slide do Rafael
+   Nasceu em 16/09 para o Modulo 2. E a excecao DECLARADA a regra da secao 13
+   ("sem imagem"): o PROMPT-marco2 v2 manda que a figura das aulas do B5 ao
+   B10 seja o slide da turma 2 (abr/26), ja desenhado -- "use o slide que o
+   mapa aponta, inteiro ou recortado; nao redesenhe o que ja existe". A regra
+   da secao 13 existe para a pagina abrir de um pen drive: o arquivo e LOCAL,
+   em _img/slides/, entao ela continua abrindo.
+
+   O que NAO muda: toda figura leva legenda. E a mesma forma do .desenho: o
+   envelope so tem o <img>, e a <p class="fig-leg"> vem como irma, DEPOIS.
+   Medido em 16/09 a 375: com a legenda dentro do envelope, a barra de rolagem
+   horizontal aparecia embaixo da legenda, nao embaixo do slide.
+
+   Mesma regra do .desenho para o celular, com o numero ajustado: o slide e
+   1600 de largura com texto de corpo de 13px; em 343px vira 3px, e em 720
+   (o minimo do .desenho) ainda da 6px. Em 900 da 7px e o titulo 22px: e o
+   ponto em que o texto do slide se le no celular sem zoom. Abaixo disso ele
+   ROLA DENTRO DO ENVELOPE, nunca espreme.                                     */
+.figura{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0 0;
+}
+.figura img{display:block;width:100%;min-width:900px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3338,6 +3362,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         </div>
       </div>
 
+    <div class="figura solta">
+      <img src="../_img/slides/m0-07.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'A Anatomia de Qualquer Automação': esqueça a sopa de letrinhas técnica, toda automação no mundo se resume a uma única frase de 3 partes. Três caixas ligadas por setas: QUANDO (o gatilho: algo acontece), EU FAÇO (a execução: essas ações), PARA ENTREGAR (a entrega: este resultado). Embaixo: aprenda essas 3 partes e você organizará qualquer processo na sua rotina.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;frase inteira, como foi mostrada em&nbsp;sala.</strong> As&nbsp;três caixas são as&nbsp;mesmas do&nbsp;desenho acima; o&nbsp;que&nbsp;muda é o&nbsp;verbo no&nbsp;meio: <em>eu faço</em>. Quem faz é você, hoje. O&nbsp;n8n entra depois no&nbsp;lugar desse <em>eu</em>.</p>
+
       <div class="analogia">
         <div class="analogia-rot">A frase, inteira</div>
         <p><strong>QUANDO</strong>&nbsp;algo acontece (gatilho), <strong>EU FAÇO</strong> essas coisas
@@ -3389,6 +3419,18 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           ("manda e-mail pro chefe com&nbsp;resumo X") em&nbsp;vez de&nbsp;genérico ("avisa alguém").</p>
         </div>
       </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Destrinchando a Máquina: O Gatilho'. É o QUANDO, o despertador que avisa a automação para acordar e começar a trabalhar. De um botão de play saem três setas: Temporal, toda segunda-feira às 09h; Evento Externo, quando chega um novo e-mail com o assunto X; Ação do Usuário, quando um cliente preenche o formulário do site. Embaixo, o sinal de ouro: um bom gatilho nunca é vago, ele tem um momento e um sujeito exatos; sem isso, a máquina não liga.">
+    </div>
+    <p class="fig-leg"><strong>Os&nbsp;três tipos de&nbsp;gatilho do&nbsp;cartão 01, desenhados.</strong> Repare na&nbsp;frase de&nbsp;baixo: <em>momento</em> e&nbsp;<em>sujeito</em>. "Quando&nbsp;precisar" não&nbsp;tem nenhum dos&nbsp;dois.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-09.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Trabalho Braçal e o Destino Final', dividido em dois. À esquerda, A EXECUÇÃO (O Faz): onde acontece o trabalho sujo; regra: use sempre verbos concretos e sequenciais, abrir, filtrar, buscar, calcular, separar; alerta: tratar dados é vago demais. À direita, A ENTREGA (O Para): onde o resultado final descansa em paz; exemplos: um e-mail enviado, uma linha nova na planilha, uma mensagem disparada no Telegram. Embaixo: nunca misture a transformação (execução) com o envio (entrega); separar essas etapas evita que seu fluxo quebre no futuro.">
+    </div>
+    <p class="fig-leg"><strong>Os&nbsp;cartões 02 e&nbsp;03, lado a&nbsp;lado.</strong> A&nbsp;linha tracejada no&nbsp;meio é o&nbsp;ponto do&nbsp;slide: transformar é uma&nbsp;coisa, enviar é outra, e&nbsp;a&nbsp;pegadinha da&nbsp;seção 05 nasce de&nbsp;misturar as&nbsp;duas.</p>
     </div>
   </section>
 
@@ -3416,6 +3458,24 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </table>
     </div>
 
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-10.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Processo Perfeito'. À esquerda, um cartão de identificação: Vânia, Gerente de Vendas; a tarefa: toda segunda às 9h preciso compilar leads da semana e mandar pro chefe; checklist de aprovação com três marcas verdes: repete? sim; previsível? sim; custa tempo? sim, 45 min por semana. À direita, o mapa da planta baixa em três post-its: Gatilho, chega segunda-feira às 9h; Execução, abrir planilha, filtrar últimos 7 dias, contar origem, resumir; Entrega, enviar e-mail pro chefe. Embaixo: processo clássico e perfeito para automatizar, zero necessidade de software para desenhar isso.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;primeira linha da&nbsp;tabela, em&nbsp;post-its.</strong> É assim que&nbsp;o&nbsp;mapa fica no&nbsp;papel: três papeizinhos, e&nbsp;nenhum deles precisa do&nbsp;n8n.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-11.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Processo Parcial (A Exceção)'. À esquerda, o cartão de João, Advogado; a tarefa: recebo e-mails de potenciais clientes, leio, decido se pego o caso e escrevo uma resposta personalizada; checklist: repete, sim; custa muito tempo, sim; previsível? NÃO, cada e-mail é único. À direita, a solução (não descarte, divida!): Automatize a Triagem, o gatilho puxa o e-mail, classifica em uma pasta e busca o histórico do cliente; Mantenha Humano a Decisão, o cérebro de João decide a resposta final e escreve.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;caso que&nbsp;não&nbsp;está na&nbsp;tabela, de&nbsp;propósito.</strong> João é a&nbsp;segunda tarefa da&nbsp;aula 1: falta um&nbsp;sinal, e&nbsp;a&nbsp;resposta não&nbsp;é desistir, é cortar a&nbsp;tarefa em&nbsp;duas e&nbsp;mapear só&nbsp;a&nbsp;metade previsível.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-12.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Processo Criativo'. À esquerda, o cartão de Marina, Criadora de Conteúdo; a tarefa: quero pegar posts do Instagram e postar no LinkedIn automaticamente. À direita, o mapa da planta baixa em três caixas empilhadas: Gatilho, novo post publicado no Instagram; Execução, baixar a imagem, reescrever a legenda para um tom corporativo, adicionar novas hashtags do nicho; Entrega, publicar como artigo no LinkedIn. Embaixo: note como a execução é uma cadeia clara de verbos em sequência, como uma receita de bolo literal.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;segunda linha da&nbsp;tabela.</strong> Repare nos&nbsp;verbos em&nbsp;destaque na&nbsp;execução: baixar, reescrever, adicionar. É a&nbsp;regra do&nbsp;cartão 02 aplicada.</p>
     <p class="fig-leg"><strong>Repare: nenhum dos&nbsp;3 mapas acima exige conhecer n8n.</strong> São
     processos descritos em&nbsp;português puro. <strong>Esse é o&nbsp;ponto.</strong> O&nbsp;n8n entra depois pra&nbsp;executar, mas&nbsp;o&nbsp;mapeamento existe antes e&nbsp;independe da&nbsp;ferramenta.</p>
   </section>
@@ -3451,6 +3511,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p>Se&nbsp;você consegue narrar nessa estrutura, você já&nbsp;mapeou. Se&nbsp;trava ("ah, tem várias
     coisas, não&nbsp;sei explicar"), volta na&nbsp;<a href="../b5-pensar/">aula 1</a>: talvez o&nbsp;processo
     ainda esteja confuso pra&nbsp;ser automatizado.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-13.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Caminho Completo': quatro etapas empilhadas, ligadas por setas. O Caos (a tarefa bruta), por exemplo preciso postar relatórios. O Filtro: passou nos 3 sinais? repete, prevê, custa tempo? A Planta Baixa: quebrar em gatilho, execução, entrega. O Destino Final: agora sim, pronto para abrir a ferramenta e construir. Embaixo: nenhuma ideia pula etapas; primeiro qualificamos, depois estruturamos e, só no final, executamos.">
+    </div>
+    <p class="fig-leg"><strong>As&nbsp;duas aulas do&nbsp;bloco numa&nbsp;figura.</strong> O&nbsp;filtro é a&nbsp;aula 1; a&nbsp;planta baixa é esta aula; o&nbsp;destino final é o&nbsp;B6. Se&nbsp;a&nbsp;sua&nbsp;narração travou, você está no&nbsp;filtro ainda, não&nbsp;na&nbsp;planta.</p>
   </section>
 
   <div class="ate-aqui">

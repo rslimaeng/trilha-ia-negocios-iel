@@ -1478,6 +1478,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .desenho svg{display:block;width:100%;min-width:720px;height:auto}
 
+/* 33b · A FIGURA QUE VEM DE FORA: o slide do Rafael
+   Nasceu em 16/09 para o Modulo 2. E a excecao DECLARADA a regra da secao 13
+   ("sem imagem"): o PROMPT-marco2 v2 manda que a figura das aulas do B5 ao
+   B10 seja o slide da turma 2 (abr/26), ja desenhado -- "use o slide que o
+   mapa aponta, inteiro ou recortado; nao redesenhe o que ja existe". A regra
+   da secao 13 existe para a pagina abrir de um pen drive: o arquivo e LOCAL,
+   em _img/slides/, entao ela continua abrindo.
+
+   O que NAO muda: toda figura leva legenda. E a mesma forma do .desenho: o
+   envelope so tem o <img>, e a <p class="fig-leg"> vem como irma, DEPOIS.
+   Medido em 16/09 a 375: com a legenda dentro do envelope, a barra de rolagem
+   horizontal aparecia embaixo da legenda, nao embaixo do slide.
+
+   Mesma regra do .desenho para o celular, com o numero ajustado: o slide e
+   1600 de largura com texto de corpo de 13px; em 343px vira 3px, e em 720
+   (o minimo do .desenho) ainda da 6px. Em 900 da 7px e o titulo 22px: e o
+   ponto em que o texto do slide se le no celular sem zoom. Abaixo disso ele
+   ROLA DENTRO DO ENVELOPE, nunca espreme.                                     */
+.figura{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0 0;
+}
+.figura img{display:block;width:100%;min-width:900px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo

@@ -1572,6 +1572,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .desenho svg{display:block;width:100%;min-width:720px;height:auto}
 
+/* 33b · A FIGURA QUE VEM DE FORA: o slide do Rafael
+   Nasceu em 16/09 para o Modulo 2. E a excecao DECLARADA a regra da secao 13
+   ("sem imagem"): o PROMPT-marco2 v2 manda que a figura das aulas do B5 ao
+   B10 seja o slide da turma 2 (abr/26), ja desenhado -- "use o slide que o
+   mapa aponta, inteiro ou recortado; nao redesenhe o que ja existe". A regra
+   da secao 13 existe para a pagina abrir de um pen drive: o arquivo e LOCAL,
+   em _img/slides/, entao ela continua abrindo.
+
+   O que NAO muda: toda figura leva legenda. E a mesma forma do .desenho: o
+   envelope so tem o <img>, e a <p class="fig-leg"> vem como irma, DEPOIS.
+   Medido em 16/09 a 375: com a legenda dentro do envelope, a barra de rolagem
+   horizontal aparecia embaixo da legenda, nao embaixo do slide.
+
+   Mesma regra do .desenho para o celular, com o numero ajustado: o slide e
+   1600 de largura com texto de corpo de 13px; em 343px vira 3px, e em 720
+   (o minimo do .desenho) ainda da 6px. Em 900 da 7px e o titulo 22px: e o
+   ponto em que o texto do slide se le no celular sem zoom. Abaixo disso ele
+   ROLA DENTRO DO ENVELOPE, nunca espreme.                                     */
+.figura{
+  overflow-x:auto;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0 0;
+}
+.figura img{display:block;width:100%;min-width:900px;height:auto}
+
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
    identidade própria de propósito: a moldura do site fica em cima, e embaixo
@@ -3313,6 +3337,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p>A&nbsp;boa notícia: <strong>o&nbsp;trabalho de&nbsp;mapeamento vale 80% do&nbsp;resultado.</strong> Quem
     mapeia bem constrói rápido. Quem pula o&nbsp;mapeamento constrói devagar e&nbsp;refaz tudo na&nbsp;primeira mudança.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-03.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A regra dos 80/20 da automação': um bloco grande escrito 80%, o mapeamento, o trabalho mental de traduzir sua rotina para passos lógicos, feito no papel; em cima dele, uma janela pequena escrita 20%, a execução, apertar os botões na ferramenta. Embaixo: automatizar não requer conhecimento técnico avançado, o segredo é a clareza prévia.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;slide da&nbsp;aula presencial.</strong> Repare no&nbsp;tamanho dos&nbsp;dois blocos: a&nbsp;ferramenta é a&nbsp;parte pequena, e&nbsp;é a&nbsp;única que&nbsp;a&nbsp;maioria começa aprendendo.</p>
   </section>
 
   <section class="secao" id="conceito">
@@ -3347,6 +3377,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         </div>
       </div>
 
+    <div class="figura solta">
+      <img src="../_img/slides/m0-04.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'Os 3 Sinais de Ouro': três cartões lado a lado. 1. Repete: você realiza essa mesma tarefa mais de uma vez por semana. 2. É previsível: as regras são claras, se acontece X eu sempre faço Y. 3. Custa tempo: cada repetição rouba minutos valiosos que poderiam ser usados em outra coisa.">
+    </div>
+    <p class="fig-leg"><strong>Os&nbsp;três sinais, como foram mostrados em&nbsp;sala.</strong> A&nbsp;condição é a&nbsp;mesma dos&nbsp;cartões acima: os&nbsp;três ao&nbsp;mesmo tempo, não&nbsp;dois de&nbsp;três.</p>
+
       <p>Se&nbsp;falta 1 dos&nbsp;3, pensa duas vezes:</p>
 
       <div class="tabela">
@@ -3362,6 +3398,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         </table>
       </div>
 
+    <div class="figura solta">
+      <img src="../_img/slides/m0-05.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'O Teste da Realidade: e se faltar um dos sinais? Pense duas vezes'. Três linhas com as colunas o que falta, a situação e o preço a pagar. Falta repetição: fez a tarefa só 1 ou 2 vezes na vida; o tempo construindo a automação será maior que o tempo economizado. Falta previsibilidade: não há padrão claro; exigirá um humano para tomar decisões, mantenha manual. Falta custo de tempo: a tarefa inteira leva 30 segundos; automatizar só por vaidade não compensa o esforço de manutenção.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;mesma tabela, em&nbsp;slide.</strong> A&nbsp;terceira coluna é a&nbsp;que&nbsp;vale guardar: cada sinal que&nbsp;falta tem um&nbsp;preço, e&nbsp;o&nbsp;preço é sempre o&nbsp;seu&nbsp;tempo.</p>
+
       <div class="aviso atencao">
         <div class="aviso-t">Cuidado especial com a exceção</div>
         <p>Algumas tarefas parecem repetitivas mas&nbsp;têm 30% de&nbsp;exceção que&nbsp;exige decisão humana
@@ -3369,6 +3411,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <em>"depende"</em> pra&nbsp;explicar como faz, ainda não&nbsp;está pronto pra&nbsp;automatizar:
         primeiro estabilize as&nbsp;regras, depois automatiza.</p>
       </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m0-06.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'A armadilha da palavra Depende': um cartaz laranja diz que se alguém te pergunta como você faz essa tarefa e a sua resposta começa com Depende, esse processo ainda não está pronto para ser automatizado. Embaixo, a regra dos 30%: se a sua tarefa tem mais de 30% de exceções, ela ainda precisa do seu cérebro; primeiro estabilize as regras, só depois automatize.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;teste mais rápido que&nbsp;existe.</strong> Não&nbsp;precisa de&nbsp;planilha: é a&nbsp;primeira palavra da&nbsp;sua&nbsp;resposta.</p>
     </div>
   </section>
 
