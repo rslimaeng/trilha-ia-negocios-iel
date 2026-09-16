@@ -1,0 +1,284 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Os 4 espaços da tela do n8n e os menus principais</li>
+      <li>Os atalhos de teclado essenciais</li>
+      <li>Os dois hábitos profissionais: renomear nó antes de configurar, e pinar dados depois de
+      cada execução boa</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Você já abriu um sistema novo no trabalho e ficou parado olhando pra tela alguns
+      minutos sem saber onde fica o quê?</strong> A interface do n8n parece assim no primeiro
+      minuto, e faz sentido total no décimo.</p>
+    </div>
+
+    <p>Os dois hábitos desta aula (<strong>renomear nó antes de configurar</strong> e
+    <strong>pinar dados depois de cada execução boa</strong>) parecem detalhe, mas mudam a relação
+    com a ferramenta.</p>
+
+    <p>Quem não conhece a interface gasta 30% do tempo procurando botão. Mas o ganho real desta
+    aula não é só atalho de teclado: é entender que <strong>o canvas é seu ambiente de trabalho
+    diário</strong> e que dois hábitos pequenos (nomear e pinar) transformam workflows ilegíveis
+    em workflows que você consegue manter daqui a um mês.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>A tela do n8n tem 4 espaços</h3>
+
+      <div class="grade grade-2 solta">
+        <div class="cartao">
+          <div class="cartao-n">01</div>
+          <h4>Canvas</h4>
+          <p>Onde os nós ficam. Espaço infinito; zoom com <code>Ctrl + roda</code> ou
+          <code>Ctrl + +/-</code>.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">02</div>
+          <h4>Painel lateral de nós</h4>
+          <p>Biblioteca pra arrastar. Atalho: clique duplo no canvas (ou <code>Tab</code>) abre
+          busca rápida.</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">03</div>
+          <h4>Painel de configuração do nó</h4>
+          <p>Abre quando você clica num nó. Tem 3 abas: <strong>Parameters</strong>
+          (configuração), <strong>Settings</strong> (notas, retry, modo), <strong>Docs</strong>
+          (documentação inline).</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">04</div>
+          <h4>Painel de execuções</h4>
+          <p>Histórico do que rodou (sucesso, erro, tempo): menu lateral &rarr; Executions.</p>
+        </div>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-07.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Conhecendo o Terreno (A Interface)': não se assuste com a tela inicial, ela é dividida em 4 áreas fáceis de digerir. Um esquema da tela com quatro marcadores: 1, o Canvas (centro), a tela em branco infinita onde você arrasta e conecta os blocos; 2, Biblioteca de Nós (esquerda ou pop-up), onde você busca as peças, atalho mágico: aperte TAB ou clique duas vezes no canvas; 3, Painel de Configuração (direita), abre quando você clica em um bloco, é onde você dá os comandos; 4, Histórico (menu lateral, Executions), onde você vê tudo que já rodou, os sucessos e os erros.">
+    </div>
+    <p class="fig-leg"><strong>Os quatro espaços no lugar em que ficam.</strong> O 3 só aparece
+    quando você clica num nó; o 4 é um menu, não uma área do canvas.</p>
+
+      <h4>Menus principais (lateral esquerda)</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Menu</th><th>Pra que serve</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Workflows</td><td>Lista de workflows do projeto</td></tr>
+            <tr><td>Credentials</td><td>Acessos a serviços externos (Gmail, Sheets, OpenAI)</td></tr>
+            <tr><td>Executions</td><td>Histórico de cada vez que algum workflow rodou</td></tr>
+            <tr><td>Templates</td><td>Workflows prontos pra adaptar</td></tr>
+            <tr><td>Variables</td><td>Valores reutilizáveis entre workflows (plano pago)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Atalhos de teclado essenciais</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Atalho</th><th>O que faz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Ctrl+Enter</code></td><td>Executar workflow</td></tr>
+          <tr><td><code>Tab</code></td><td>Abrir busca rápida de nó</td></tr>
+          <tr><td><code>P</code></td><td>Pinar dados de saída do nó selecionado</td></tr>
+          <tr><td><code>D</code></td><td>Desativar/ativar nó (útil pra debugar)</td></tr>
+          <tr><td><code>Ctrl+Z</code></td><td>Desfazer</td></tr>
+          <tr><td><code>Ctrl+D</code></td><td>Duplicar nó</td></tr>
+          <tr><td>Clique duplo no canvas</td><td>Adicionar nó</td></tr>
+          <tr><td>Espaço + arraste</td><td>Pan do canvas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Dois hábitos profissionais que mudam tudo</h4>
+
+    <div class="cartao">
+      <span class="rot">1. Renomeie o nó antes de configurar</span>
+      <p>Quando você usa Expression como <code>{{ $('Set').item.json.email }}</code>, daqui a 2
+      semanas você não sabe <strong>qual</strong> Set é esse. Mas se for
+      <code>{{ $('📦 Dados do Lead').item.json.email }}</code>, fica óbvio.</p>
+      <p><strong>Convenção sugerida:</strong> emoji + ação concisa.</p>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Padrão</th><th>Exemplos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Triggers</td><td><code>▶️ Disparo Manual</code> &middot; <code>📅 Cron Diário</code> &middot; <code>📲 Telegram Trigger</code></td></tr>
+          <tr><td>Lógica</td><td><code>❓ Score qualifica?</code> &middot; <code>🔀 Roteia por categoria</code></td></tr>
+          <tr><td>Dados</td><td><code>📦 Dados do Lead</code> &middot; <code>🧹 Normaliza nome</code></td></tr>
+          <tr><td>Saída</td><td><code>📧 Envia confirmação</code> &middot; <code>💾 Registra no Sheets</code></td></tr>
+          <tr><td>IA</td><td><code>🤖 AI Extrai Agenda</code> &middot; <code>🧠 AI Agent Qualificador</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Hábito</div>
+      <p>Renomeie no minuto 1, não no minuto 60. Workflow com 10 nós sem nome é workflow que
+      você vai abandonar em 2 semanas.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">2. Pinne os dados depois de cada execução boa</span>
+      <p>Quando o nó executa com sucesso, pressione <strong><code>P</code></strong> com ele
+      selecionado. Aparece um pino no canto. A partir daí, mesmo que o trigger seja Webhook,
+      Telegram ou qualquer coisa "ao vivo", o n8n usa o <strong>dado pinado</strong> nas próximas
+      execuções de teste: sem precisar reenviar mensagem ou disparar evento real.</p>
+      <p><strong>Por que importa:</strong></p>
+      <ul class="lista">
+        <li>Você economiza tempo de "reenviar dados" a cada teste.</li>
+        <li>Você economiza chamada paga (OpenAI cobra por execução).</li>
+        <li>Você consegue iterar nos nós seguintes mantendo o input estável.</li>
+      </ul>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Lembre de despinar (<code>P</code> de novo)</div>
+      <p>Quando terminar de testar: pinned data antigo em produção é fonte de bug silencioso.</p>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide '2 Hábitos de Profissional (Para começar certo)': adote esses hábitos hoje e você agradecerá a si mesmo daqui a um mês. Dois cartões. 1. Dê nomes aos bois (nomeie os nós): sempre renomeie o bloco antes de configurar; errado, Edit Fields; certo, Dados do Cliente com o emoji da caixa. Por quê? Quando o fluxo crescer, você saberá exatamente o que cada peça faz num piscar de olhos. 2. Fixe os dados com Pino: quando testar um bloco e der certo, selecione-o e aperte a tecla P. Por quê? O n8n salva aquele dado; nos próximos testes, você não gasta tempo rodando tudo do zero ou gastando dinheiro com IA à toa.">
+    </div>
+    <p class="fig-leg"><strong>Os dois hábitos, como foram mostrados em sala.</strong> O exemplo do
+    cartão 1 é a convenção da tabela acima: emoji + ação.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: tour completo</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; onze passos pela tela</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Abra um workflow vazio.</li>
+          <li>Clique duplo no canvas &rarr; busque "Manual Trigger" &rarr; adicione.</li>
+          <li><strong>Renomeie pra <code>▶️ Disparo Manual</code>.</strong></li>
+          <li>Adicione um Set (Edit Fields). Renomeie pra <code>📦 Dados de Teste</code>.</li>
+          <li>Adicione 2 campos: <code>nome = "(seu nome)"</code>, <code>cargo = "(seu
+          cargo)"</code>.</li>
+          <li>Conecte os nós (clique no ponto de saída do trigger e arraste pro Set).</li>
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+          <li>Clique no nó <code>📦 Dados de Teste</code> &rarr; painel da direita &rarr; Output
+          &rarr; JSON view. Confira os 2 campos.</li>
+          <li>Pinne (<code>P</code>): o pino aparece.</li>
+          <li>Vá no menu lateral &rarr; <strong>Executions</strong>. Veja o registro da execução
+          que você acabou de fazer.</li>
+          <li>Volte pro workflow, clique no <code>▶️ Disparo Manual</code>, abra o painel: aba
+          <strong>Settings</strong>. Olhe as opções de Notes, Retry, Continue On Fail. Não mexa,
+          só identifique.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/anatomia-101.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois do passo 7: Disparo Manual ligado a Dados de Teste por uma seta verde com 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>É o mesmo fluxo da aula 2, redesenhado da execução de teste</strong>
+        (execução 407, 16/09/2026). O que muda nesta aula não é o fluxo: é o caminho pela tela
+        até ele, e o pino no fim.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você conhece os quatro espaços, os atalhos e os dois hábitos. O que
+  vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e três delas são sobre pinar e
+  renomear na hora errada.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não saber que <code>Tab</code> abre busca de nós</div>
+      <p>Gasta 30 segundos pra cada nó procurando no painel lateral. Atalho economiza horas.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir "execução de teste" com "ativação"</div>
+      <p>Clicar em <strong>Test workflow</strong> roda uma vez. <strong>Activate</strong> (toggle no
+      canto superior direito) coloca o trigger pra escutar continuamente. Workflow desativado
+      <strong>não</strong> roda em Webhook/Schedule.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não pinar dados</div>
+      <p>Cada teste re-executa tudo desde o trigger, gastando tempo e (se tiver OpenAI no meio)
+      dinheiro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomear depois de criar Expressions</div>
+      <p>Expressions usam o nome do nó. Se você renomeia depois, todas as Expressions que apontam
+      pro nome antigo quebram. <strong>Renomeie antes.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer pinned data despinado em produção</div>
+      <p>Pino ativo em workflow ativado faz ele rodar com dado fixo, ignorando o trigger real.
+      Sintoma: ativou e parece "rodar" mas processa sempre os mesmos dados.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 4, <a href="../b6-primeiro/">Meu primeiro fluxo</a>. É a
+    prática deste bloco, e já está no ar.</p>
+  </div>

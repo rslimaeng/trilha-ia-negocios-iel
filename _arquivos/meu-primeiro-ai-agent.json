@@ -1,0 +1,78 @@
+{
+  "name": "Meu primeiro AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c2875d4a-815f-4b09-b22c-73af06489314",
+      "name": "💬 Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        112
+      ],
+      "webhookId": "2cd14ff3-1e98-4771-8bd3-0acce7be0845"
+    },
+    {
+      "parameters": {
+        "promptType": "auto",
+        "options": {}
+      },
+      "id": "3994a637-8b79-4845-8985-b30ea5aa0023",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.5-flash",
+        "options": {}
+      },
+      "id": "6c3a4e7f-6d65-4c99-bf32-f887c93cb2c7",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        304,
+        336
+      ]
+    }
+  ],
+  "connections": {
+    "💬 Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "trilhaIEL": "B6 aula 5 · P3 · exportado do teste de 16/09/2026 (execucoes 410 a 414); conecte a sua credencial Google Gemini (chave do AI Studio) no sub-no do modelo. O no do agente vai SEM emoji no nome de proposito: com emoji, o AI Agent 3.1 falha (execucao 408)."
+  }
+}

@@ -1381,6 +1381,28 @@ DISPENSA_NOTION_LITERAL = {
     "b7-lembrete/index.html": {
         "G41": "o Topico 6 do M2 e hands-on: o conceito e o mapa em tres nos, sem analogia no Notion",
     },
+    # 16/09, o resto do B6 e o M1 inteiro no ar. O M1 do Notion tem tres topicos
+    # de conceito seguidos (1, 2, 3) antes da pratica (4) e do fluxo pratico (5);
+    # o Topico 3 e "Tour + pratica" e o 2 tem o exemplo guiado Anatomia 101, que
+    # rodou no servidor de teste. A ORDEM E DO NOTION, entao G42 (artefato na
+    # janela de tres) e G44 (tres fundamentos seguidos) reprovam o material do
+    # Rafael. ⚠️ G44 NAO ESTAVA na decisao de 14/09 ("dispensa os tres gates"):
+    # a dispensa dele e do executor, declarada no handoff v21, e a decisao final
+    # e do Rafael. Sem analogia no Notion: Topicos 3 e 5 (G41).
+    "b6-oque/index.html": {
+        "G42": "o M1 abre com tres topicos de conceito; a janela e capa + Topico 3 do M0 + Topico 1, e o Notion nao entrega arquivo neles",
+    },
+    "b6-anatomia/index.html": {
+        "G42": "janela = Topico 1 + Topico 2 + capa do B6; o exemplo guiado (Anatomia 101) rodou, mas o Notion nao entrega arquivo",
+    },
+    "b6-canvas/index.html": {
+        "G41": "o Topico 3 do M1 (Interface e canvas) nao tem analogia no Notion",
+        "G42": "janela = Topicos 1, 2 e 3 do M1, os tres sem arquivo no Notion",
+        "G44": "os Topicos 1, 2 e 3 do M1 sao a ordem do Notion; o 3 e 'Tour + pratica' e o 2 tem exemplo guiado que rodou. DISPENSA DO EXECUTOR, nao esta na decisao de 14/09: Rafael decide",
+    },
+    "b6-agente/index.html": {
+        "G41": "o Topico 5 do M1 e fluxo pratico, sem analogia no Notion",
+    },
     "b6-primeiro/index.html": {
         "G41": "o Topico 4 do M1 e pratica guiada, sem analogia no Notion",
         "G42": "P2 e arquivo=False por decisao do PROMPT v2 ('nada para importar'); a janela e Topico 3 do M0 + capa do B6",
@@ -1962,6 +1984,8 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
     "alguns fundamentos tambem sao praticos". O que a regra proibe e tres aulas
     seguidas em que a sala so ESCUTA, e a de organizacao nao e uma delas.
     """
+    if _dispensado(rel, "G44"):
+        return []
     if not _tipo_da_aula(_sem_css_nem_script(html)):
         return []
     # 🔴 A JANELA CONTA AULA, E NAO PAGINA, e ate 07/09 contava pagina. O

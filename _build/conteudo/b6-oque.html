@@ -1,0 +1,278 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O que é o n8n, e a analogia da receita</li>
+      <li>Por que n8n e não Zapier / Make / Power Automate</li>
+      <li>n8n Cloud vs self-host: a escolha do iniciante</li>
+      <li>As 3 partes obrigatórias de todo fluxo</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Toda segunda às 9h você abre 3 sistemas, copia números, cola numa planilha,
+      formata e manda pro time por e-mail. Toda. Segunda.</strong> Em um ano, são 100 horas,
+      quase 3 semanas de trabalho, gastas em algo que ninguém precisa fazer manualmente. Esse é
+      o problema que o n8n resolve.</p>
+    </div>
+
+    <p>Empresas e profissionais perdem <strong>horas por dia</strong> em tarefas que se repetem:
+    copiar dados de uma planilha pra outra, mandar e-mail toda segunda às 9h, registrar lead que
+    chega pelo formulário. n8n é a ferramenta que <strong>monta esses fluxos visualmente</strong>,
+    sem você precisar escrever código.</p>
+
+    <p>A pergunta certa não é "vale a pena automatizar isso?": é "o que <strong>ainda</strong>
+    estou fazendo na mão que poderia rodar sozinho?".</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-02.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Pense na sua rotina de segunda-feira': à esquerda, a dor do trabalho repetitivo, você abre 3 sistemas diferentes, copia números, cola em uma planilha, formata, manda por e-mail pro time, todo santo dia; à direita, o custo invisível: em um ano, são mais de 100 horas gastas em algo que um computador poderia fazer sozinho em segundos. A pergunta não é vale a pena automatizar?, é o que eu ainda estou fazendo na mão?">
+    </div>
+    <p class="fig-leg"><strong>A cena da aula presencial.</strong> A pergunta do lado direito é a
+    mesma desta seção, e é a que abre cada bloco daqui em diante.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>n8n é uma plataforma de automação de fluxos</h3>
+
+      <p>Você arrasta blocos numa tela, conecta com setas, e o n8n executa um após o outro.</p>
+
+      <p>Cada bloco se chama <strong>node</strong> (em português, "nó"). Cada nó tem uma função:
+      enviar e-mail, ler planilha, chamar uma IA, fazer uma decisão. A sequência de nós
+      conectados é um <strong>workflow</strong> (fluxo de trabalho).</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Pense em uma <strong>receita de bolo</strong>. Os ingredientes são os dados que entram.
+        Cada passo da receita é um nó. O bolo pronto é o resultado. n8n é a cozinha que executa
+        a receita do começo ao fim, sem você precisar mexer em cada panela.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Ingredientes</strong> = os dados que entram</li>
+          <li><strong>Cada passo da receita</strong> = um nó</li>
+          <li><strong>O bolo pronto</strong> = o resultado</li>
+          <li><strong>A cozinha</strong> = o n8n</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-03.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O que é o n8n?': é a plataforma onde você monta fluxos automáticos arrastando blocos na tela, sem escrever código. Uma bandeja com três quadros ligados por setas: Ingredientes, os dados que chegam (ex: um e-mail novo); Passos da Receita, os nós (nodes), as ações que transformam os dados; O Bolo Pronto, o resultado final (ex: a planilha preenchida). Embaixo: o n8n é a cozinha que executa sua receita de ponta a ponta, perfeitamente, toda vez.">
+    </div>
+    <p class="fig-leg"><strong>A receita, desenhada.</strong> Repare que a bandeja é a cozinha: os
+    três quadros acontecem dentro dela, e é isso que o n8n é.</p>
+
+      <h4>Por que n8n e não Zapier / Make / Power Automate</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Característica</th><th>n8n</th><th>Zapier / Make</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Modelo</td><td>Open-source (código aberto)</td><td>Proprietário</td></tr>
+            <tr><td>Custo</td><td>Gratuito (self-host) ou plano cloud</td><td>Pago por execução/tarefa</td></tr>
+            <tr><td>Self-host</td><td>Sim, no seu servidor</td><td>Não</td></tr>
+            <tr><td>Flexibilidade</td><td>Alta (Code node, HTTP Request livre)</td><td>Limitada ao que a ferramenta oferece</td></tr>
+            <tr><td>Curva de aprendizado</td><td>Mais íngreme no começo</td><td>Mais fácil pra "drag and drop" trivial</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">Resumo honesto</span>
+        <p>Se você quer <strong>um Zapier que não trava no preço</strong> e que aceita lógica mais
+        sofisticada, n8n é a escolha. Se você só vai automatizar 3 coisas simples, Zapier é mais
+        rápido de aprender.</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-04.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Por que o n8n (e não outras ferramentas)?': existem opções famosas no mercado, como o Zapier; por que escolhemos o n8n para aprender? Tabela com três linhas: Preço, n8n gratuito ou nuvem acessível, Zapier/Make pago por cada tarefa que roda; Liberdade, aberto e sem limites de lógica contra limitado ao que a ferramenta deixa; Curva de aprendizado, exige mais atenção no início contra mais rápido para coisas muito simples. Embaixo, o resumo honesto: se você quer um Zapier que não trava no preço e permite crescer sem limites, o n8n é o caminho; e vamos usar a versão Nuvem (Cloud) para começar rápido, sem configurar servidores.">
+    </div>
+    <p class="fig-leg"><strong>A mesma comparação, em três linhas.</strong> A última frase do
+    slide já responde a pergunta seguinte: Cloud, pra começar rápido.</p>
+
+      <h4>n8n Cloud vs self-host: a escolha do iniciante</h4>
+
+      <p>n8n pode rodar de dois jeitos:</p>
+
+      <ul class="lista">
+        <li><strong>n8n Cloud:</strong> plataforma gerenciada pela própria n8n. Você só usa, sem
+        instalar nada.</li>
+        <li><strong>Self-host:</strong> você instala n8n no seu computador ou num servidor. Mais
+        controle, mais responsabilidade.</li>
+      </ul>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Critério</th><th>n8n Cloud</th><th>Self-host</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Setup</td><td>Cadastro em 2 min</td><td>Docker / VPS / config</td></tr>
+            <tr><td>Custo</td><td>Trial 14 dias + planos pagos</td><td>Gratuito (custo de servidor)</td></tr>
+            <tr><td>Manutenção</td><td>Zero (n8n cuida)</td><td>Sua (atualizar, backup)</td></tr>
+            <tr><td>HTTPS / domínio</td><td>Pronto</td><td>Você configura</td></tr>
+            <tr><td>Ideal pra</td><td><strong>Iniciante / módulo v1</strong></td><td>Quem já tem familiaridade com terminal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Pra v1 do módulo, sempre n8n Cloud.</strong> Self-host fica como trilha avançada:
+      não é tema deste módulo.</p>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Pegadinha comum</div>
+        <p>Querer self-hostar antes de entender o que é workflow. Resultado: gasta 3 horas
+        configurando Docker e ainda não construiu o primeiro fluxo. <strong>Comece pelo Cloud,
+        escale depois.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <p>Todo fluxo no n8n tem 3 partes obrigatórias:</p>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <div class="cartao-n">01</div>
+        <h4>Um trigger (gatilho)</h4>
+        <p>É o que dispara o fluxo. Pode ser: clique manual, horário marcado, recebimento de
+        e-mail, formulário enviado, ou qualquer outro evento.</p>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">02</div>
+        <h4>Um ou mais nós de ação</h4>
+        <p>Cada um faz uma coisa: ler dado, transformar, enviar pra outro lugar.</p>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">03</div>
+        <h4>Conexões entre os nós</h4>
+        <p>Setas que dizem "depois deste, vai pra aquele".</p>
+      </div>
+    </div>
+
+    <p>Quando o trigger dispara, os dados <strong>fluem</strong> pelos nós, na ordem das conexões.
+    Cada nó recebe o resultado do anterior, processa, e passa adiante.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Modelo mental</div>
+      <p><em>"input vem da esquerda, processo no meio, output sai à direita"</em>. Isso vale pra
+      cada nó, e vale pro workflow inteiro. <strong>É fractal</strong>: a mesma estrutura se
+      repete em escalas diferentes.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado</h2>
+      </div>
+    </div>
+
+    <p>Imagine este fluxo simples:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o resumo de segunda-feira</div>
+      <div class="demo-corpo">
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">01 &middot; trigger</div>
+            <h4>Schedule Trigger: toda segunda 9h</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">02 &middot; ação</div>
+            <h4>Google Sheets: ler aba "leads-da-semana"</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">03 &middot; ação</div>
+            <h4>Gmail: enviar resumo pro chefe</h4>
+          </div>
+        </div>
+
+        <div class="antes-depois">
+          <div class="ad antes">
+            <div class="ad-rot">Sem n8n</div>
+            <p>Toda segunda às 9h você abre a planilha, copia os números, cola no e-mail e manda.
+            5 minutos.</p>
+          </div>
+          <div class="ad-seta" aria-hidden="true">&rarr;</div>
+          <div class="ad depois">
+            <div class="ad-rot">Com n8n</div>
+            <p>Você monta isso uma vez. Roda toda segunda às 9h. Zero minutos.</p>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Em 10 fluxos como esse, você libera horas por semana.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já sabe o que é o n8n, por que ele e não outro, e as três partes
+  de qualquer fluxo. O que vem abaixo é a <strong>cerca</strong>: três ideias erradas sobre a
+  ferramenta que custam caro depois.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">n8n não é só "Zapier mais barato"</div>
+      <p>Tratar como Zapier faz você não usar 70% do que ele oferece.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aprender n8n é aprender a pensar em dados</div>
+      <p>Quem nunca encara JSON trava no B8. Não pula.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Fluxo bonito &ne; fluxo certo</div>
+      <p>O foco é entregar resultado, não fazer arte na tela.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, Anatomia de um workflow. As aulas do bloco estão na
+    <a href="../b6-fundamentos/">capa do B6</a>, na ordem em que abrem.</p>
+  </div>

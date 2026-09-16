@@ -1,0 +1,414 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Um agente conversacional simples: você manda mensagem no chat, ele responde. Sem
+      ferramentas, sem memória sofisticada.</li>
+      <li><strong>Só pra você ver, no fim do B6, que o n8n tem um nó que pensa.</strong> O
+      destrinchar fica pro B10.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Antes de fechar o bloco, vale ver <strong>a coisa mais diferente que o n8n tem</strong>:
+      o AI Agent. É o nó que separa o n8n de Zapier/Make.</p>
+    </div>
+
+    <p>Você acabou de aprender o que é trigger, node, conexão, canvas. A maioria dos cursos
+    esconde isso até a última semana, e o aluno passa quatro blocos sem entender pra onde tudo
+    isso aponta. Aqui você vê o destino logo no começo, ainda no B6,
+    <strong>funcionando</strong>.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esta aula não explica como o agente funciona por dentro</div>
+      <p>Isso é o B10 inteiro. Aqui é só ver, sentir e fechar o B6 com o "uau" calibrado.</p>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-12.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Ingrediente Secreto: Inteligência Artificial': um cérebro entre engrenagens. O que acabamos de fazer (mover o Dado A para o Ponto B), qualquer ferramenta de automação faz. Mas o que separa o n8n das outras é que ele tem um bloco que pensa. Vamos dar um gostinho do futuro e adicionar um Agente de IA ao nosso fluxo.">
+    </div>
+    <p class="fig-leg"><strong>O slide que abriu esta parte em sala.</strong> A frase de baixo é a
+    desta aula: um gostinho, não o curso de agentes.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento (Gatilho &rarr; Execução &rarr; Entrega)</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Dois nós. Sub-nó do modelo conectado ao AI Agent. Pronto.</h3>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>💬 Chat Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução &middot; LLM responde</div>
+          <h4>🧠 AI Agent</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>Resposta no chat</h4>
+        </div>
+      </div>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> mensagem no chat embutido do n8n.</li>
+        <li><strong>Execução:</strong> o AI Agent recebe a mensagem e gera uma resposta.</li>
+        <li><strong>Entrega:</strong> resposta volta pro chat.</li>
+      </ul>
+
+      <p>Mais simples impossível. Esse é o ponto.</p>
+
+      <div class="cartao">
+        <span class="rot">Diagrama do workflow</span>
+        <p><code>💬 Chat Trigger</code> &rarr; <code>🧠 AI Agent</code>, e embaixo do agente o
+        <strong>Chat Model</strong> (o Notion usa OpenAI gpt-4o-mini; a porta gratuita está nos
+        pré-requisitos).</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-13.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Criando seu 1º Agente de IA': como montar um assistente que responde perguntas dentro do próprio n8n em apenas 3 passos. À esquerda, Chat Trigger, o gatilho que espera você digitar algo, com uma seta para AI Agent, o cérebro que vai formular a resposta, conectado a OpenAI (o modelo GPT que faz a mágica). À direita, um celular com a conversa: qual é a capital do Brasil? Brasília. Embaixo, toque mágico: você pode dar uma personalidade ao agente alterando o campo System Message, exemplo: responda a tudo como se fosse um pirata.">
+    </div>
+    <p class="fig-leg"><strong>Os dois nós, como foram mostrados em sala.</strong> O slide diz
+    "conectado a OpenAI", que é o caminho do Notion; a decisão de 14/09 é a porta gratuita (Gemini,
+    do Google AI Studio), e o que muda é só o sub-nó do modelo. O toque mágico do rodapé é a
+    variação 1, na seção 05.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li>Conta n8n Cloud com <strong>OpenAI credential</strong> configurada (o instrutor vai
+        compartilhar como criar).</li>
+        <li>Aulas 1-4 do B6 concluídas.</li>
+        <li>Link de locais para pegar modelos gratuitos:
+        <a href="https://console.groq.com/home" target="_blank" rel="noopener">console.groq.com</a>,
+        <a href="https://openrouter.ai/" target="_blank" rel="noopener">openrouter.ai</a>,
+        <a href="https://aistudio.google.com/" target="_blank" rel="noopener">aistudio.google.com</a>.</li>
+      </ul>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">As duas portas gratuitas, conferidas em 16/09/2026</span>
+      <p>Decisão de 14/09 para esta turma: nada de chave paga. <strong>Google AI Studio</strong>
+      (<code>aistudio.google.com</code>) é a porta principal: a página de preços do Gemini mostra
+      um <em>Free Tier</em> "free of charge" pro Gemini 3.8 Flash. No n8n, o sub-nó é o
+      <strong>Google Gemini Chat Model</strong>, e a credencial é a chave do AI Studio.
+      <strong>OpenRouter</strong> (<code>openrouter.ai</code>) é a alternativa: 20 dos 444 modelos
+      listados hoje são <code>:free</code>. Se usar OpenAI, como o Notion descreve, a chave é paga.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Crie o workflow</div>
+      </div>
+      <ol>
+        <li>Workflows &rarr; <strong>+ Add workflow</strong>.</li>
+        <li>Renomeie pra <code>Meu primeiro AI Agent</code>.</li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Adicione o Chat Trigger</div>
+      </div>
+      <ol>
+        <li>Clique duplo no canvas &rarr; busque "Chat Trigger" (chat embutido do n8n, não
+        confundir com Telegram).</li>
+        <li>Adicione. <strong>Renomeie pra <code>💬 Chat Trigger</code></strong>.</li>
+        <li>Não precisa configurar nada: vem pronto.</li>
+      </ol>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Adicione o AI Agent</div>
+      </div>
+      <ol>
+        <li>Conecte um novo nó depois do Chat Trigger &rarr; busque "AI Agent" &rarr; adicione.</li>
+        <li><strong>Renomeie pra <code>🧠 AI Agent</code></strong>.</li>
+        <li>Abra o nó. Você vê: campo <strong>System Message</strong> (vazio), campo <strong>User
+        Message</strong> (já vem com <code>{{ $json.chatInput }}</code>, ótimo, deixa assim).</li>
+      </ol>
+      <div class="aviso atencao">
+        <div class="aviso-t">Conferido em 16/09/2026: o emoji no nome do AI Agent quebra o nó</div>
+        <p>Na versão atual do n8n, o nó <strong>AI Agent</strong> (3.1) grava a resposta com uma
+        chave feita do próprio nome, e ela só aceita letras, números e <code>_</code>. Com o nome
+        <code>🧠 AI Agent</code> a execução para com o erro <code>Custom date key can only contain
+        characters "A-Za-z0-9_"</code>. <strong>Nomeie esse nó sem emoji: <code>AI Agent</code>.</strong>
+        Os outros nós (Chat Trigger, Set, Gmail) aceitam o emoji normalmente.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Configure o Chat Model</div>
+      </div>
+      <ol>
+        <li>Embaixo do AI Agent, na porta <strong>Chat Model</strong>, clique no <code>+</code>.</li>
+        <li>Selecione <strong>OpenAI Chat Model</strong>.</li>
+        <li>Em <strong>Credential</strong>, conecte sua chave OpenAI.</li>
+        <li>Em <strong>Model</strong>, selecione <code>gpt-4o-mini</code>.</li>
+        <li>Feche o sub-nó.</li>
+      </ol>
+      <div class="cartao">
+        <span class="rot">Pela porta gratuita, o mesmo passo fica assim</span>
+        <p>Selecione <strong>Google Gemini Chat Model</strong>; em <strong>Credential</strong>,
+        conecte a chave do AI Studio; em <strong>Model</strong>, um Flash do free tier. No teste de
+        16/09 foi <code>gemini-3.5-flash</code>: o padrão que o nó sugere,
+        <code>gemini-2.5-flash</code>, ficou "rodando" sem responder.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Teste</div>
+      </div>
+      <ol>
+        <li>Em cima, clique em <strong>Open Chat</strong> (botão que aparece quando o Chat Trigger
+        é o gatilho).</li>
+        <li>Mande qualquer coisa: <code>"oi, tudo bem?"</code>.</li>
+        <li><strong>O agente responde.</strong> Pode demorar 2-3 segundos: o LLM tá pensando.</li>
+        <li>Mande: <code>"qual é a capital do Brasil?"</code>. Responde Brasília.</li>
+        <li>Mande: <code>"e a do Ceará?"</code>. <strong>Provavelmente</strong> ele não lembra que
+        você falou de Brasil, porque a gente <strong>não configurou memória</strong>. É
+        proposital.</li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que deve acontecer nas três mensagens</div>
+        <ul>
+          <li>"oi, tudo bem?": uma resposta qualquer, educada.</li>
+          <li>"qual é a capital do Brasil?": Brasília.</li>
+          <li>"e a do Ceará?": ele não sabe do que você está falando. Sem memória, cada mensagem
+          é independente.</li>
+        </ul>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">Se a execução deu erro 401</div>
+        <p><strong>Esquecer de configurar a credencial</strong> do modelo dá erro 401. Voltar em
+        Credentials, conectar a chave.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> esperar que ele faça ações ("agende
+        uma reunião"). Sem ferramentas, ele só conversa. Promete e não cumpre. Pra agir, precisa
+        de Tools: B10.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O agente rodando, e o que ele respondeu</h2>
+      </div>
+    </div>
+
+    <p>Este é o fluxo dos cinco passos depois de rodar numa conta de teste, em 16/09/2026, pela
+    porta gratuita (Gemini). Dois nós e um sub-nó, os três verdes.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas e a conversa</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p3-agente.svg" width="432" height="344" loading="lazy"
+               alt="O canvas do n8n depois da execução: Chat Trigger ligado ao AI Agent por uma seta verde com 1 item; embaixo do agente, pendurado por uma linha tracejada, o sub-nó Google Gemini Chat Model, gemini-3.5-flash. Os três com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir das execuções de teste</strong>
+        (410 a 414, 16/09/2026). O sub-nó pendurado embaixo é a porta Chat Model do passo 4.</p>
+        <p>As três mensagens do passo 5, com as respostas que vieram:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A conversa &middot; sem memória</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b6age-chat">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b6age-chat">Você:   qual é a capital do Brasil?
+Agente: A capital do Brasil é **Brasília**.
+
+Você:   e a do Ceará?
+Agente: Como você não especificou o assunto (se era sobre a bandeira, a capital,
+        a culinária, a população ou a história), vou te dar um panorama geral
+        sobre o **Ceará** [...]</pre>
+        </div>
+        <p class="fig-leg"><strong>Repare na segunda resposta:</strong> ele não sabe que a pergunta
+        era sobre capital. É exatamente o "provavelmente ele não lembra" do passo 5, visto de perto:
+        sem memória, a mensagem anterior não existe pra ele. E repare no tempo: a primeira levou 8
+        segundos, a segunda 45. Uma vez, no meio dos testes, o modelo gratuito devolveu
+        <code>503 Service Unavailable, high demand</code>; rodar de novo resolveu.</p>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">JSON</div>
+        <div>
+          <div class="arq-nome">meu-primeiro-ai-agent.json</div>
+          <div class="arq-fn">O fluxo dos cinco passos, exportado do teste, pra importar na sua
+          conta. O sub-nó vem como Google Gemini Chat Model: conecte a sua chave do AI Studio.
+          O nó do agente vem sem emoji no nome, de propósito (passo 3).</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/meu-primeiro-ai-agent.json" download>Baixar para importar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Variação 1: adicione personalidade</div>
+      </div>
+      <p>No AI Agent, em <strong>System Message</strong>, escreva:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Message &middot; variação 1</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6age-sm1">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6age-sm1">Você responde sempre em português brasileiro, com tom descontraído e bem-humorado.
+Use no máximo 2 frases.</pre>
+      </div>
+      <p>Teste de novo. A diferença é imediata.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Rodada no teste de 16/09 (execução 412)</div>
+        <p>"oi, tudo bem?" virou: <em>"Opa, tudo ótimo por aqui! Tirando a parte em que eu ainda
+        não ganhei na loteria, o resto tá uma beleza."</em> Duas frases, tom descontraído.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Variação 2: restrinja o escopo</div>
+      </div>
+      <p>Mude o System Message pra:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Message &middot; variação 2</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b6age-sm2">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b6age-sm2">Você é um assistente especializado em automação com n8n.
+Se a pergunta não for sobre n8n, automação ou IA, responda educadamente que esse não é seu tema.
+Sempre responda em português.</pre>
+      </div>
+      <p>Pergunte algo fora do tema (ex.: "qual a receita de bolo de cenoura?"). Ele recusa.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Rodada no teste de 16/09 (execução 414)</div>
+        <p><strong>Você acabou de fazer a primeira instrução real de System Prompt.</strong>
+        Isso é o que o B10 vai aprofundar: como escrever instruções que fazem o agente se
+        comportar do jeito que você precisa. Por enquanto, basta ver que
+        <strong>funcionou</strong>. No teste de 16/09 (execução 414), a receita de bolo voltou
+        assim: <em>"Como sou um assistente especializado em n8n, automação e inteligência
+        artificial, não consigo te ajudar com receitas de cozinha."</em></p>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">O que esta aula NÃO te ensinou (e está tudo bem)</span>
+      <ul class="lista">
+        <li><strong>Como o agente decide</strong> quando usar uma ferramenta. &rarr; B10 / aula 2</li>
+        <li><strong>Como dar memória</strong> ao agente pra ele lembrar do que você disse. &rarr; B10 / aula 5</li>
+        <li><strong>Como conectar Calendar / Gmail / Sheets</strong> pra ele agir no mundo real. &rarr; B10 / aula 4</li>
+        <li><strong>Como escrever System Prompt em produção.</strong> &rarr; B10 / aula 3</li>
+      </ul>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Por que dar esse "gostinho" agora?</div>
+      <p>Porque o resto do módulo vai parecer mais concreto sabendo pra onde aponta. Cada nó que
+      você vai aprender (Set, IF, HTTP Request) vai virar <strong>uma peça</strong> que o agente
+      vai usar lá no B10.</p>
+    </div>
+
+    <div class="checagem">
+      <span class="rot">Mapa de Capacidades · checkpoint B6</span>
+      <p>Marque o que conseguiu:</p>
+      <ul>
+        <li>Adicionei e conectei dois nós (Chat Trigger + AI Agent).</li>
+        <li>Configurei o Chat Model com credencial OpenAI.</li>
+        <li>Vi o agente responder uma mensagem.</li>
+        <li>Mudei o System Message e percebi a diferença na resposta.</li>
+        <li>Entendi que o agente <strong>não lembra</strong> sem memória configurada (e que isso é
+        tema do B10).</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o agente respondendo e o System Message trocado, a aula 5 está
+  feita, e o B6 também. O que vem abaixo é a <strong>cerca</strong>: dois enganos que parecem
+  bug e não são.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que o agente "lembrou" de uma mensagem anterior</div>
+      <p>Sem memória configurada, ele não lembra. Cada mensagem é independente. Não é bug.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Custo da OpenAI</div>
+      <p><code>gpt-4o-mini</code> cobra centavos por execução. Em 10 testes, você gasta menos que
+      R$ 0,10. Mas mantenha o hábito de pinar dados em fluxos com IA pra não rodar o LLM toda
+      vez.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você concluiu o B6!</strong> Próximo passo: aprender os outros jeitos de iniciar um
+    workflow. <strong>Próximo bloco:</strong> <a href="../b7-gatilhos/">B7, Gatilhos</a>.</p>
+  </div>

@@ -39,7 +39,16 @@ USADOS = {
     "m0-15": ["b5-mapear"],
     "m1-09": ["b6-primeiro"],
     "m1-10": ["b6-primeiro"],
+    "m1-02": ["b6-oque"],
+    "m1-03": ["b6-oque"],
+    "m1-04": ["b6-oque"],
+    "m1-05": ["b6-anatomia"],
+    "m1-06": ["b6-anatomia"],
+    "m1-07": ["b6-canvas"],
+    "m1-08": ["b6-canvas"],
     "m1-11": ["b6-primeiro"],
+    "m1-12": ["b6-agente"],
+    "m1-13": ["b6-agente"],
     "m2-12": ["b7-gatilhos"],
     "m2-13": ["b7-lembrete"],
     "m2-14": ["b7-lembrete"],
@@ -59,6 +68,12 @@ CORTE = {
 # levaria o texto junto. Nao e retoque de conteudo: e o carimbo que a
 # exportacao devia ter tirado e nao tirou.
 TAPA = {
+    "m1-03": [(70, 820, 300, 851)],
+    "m1-04": [(70, 820, 300, 851)],
+    "m1-05": [(70, 820, 300, 851)],
+    "m1-06": [(70, 820, 300, 851)],
+    "m1-07": [(70, 820, 300, 851)],
+    "m1-08": [(70, 820, 300, 851)],
     "m1-09": [(70, 820, 300, 851)],
     "m1-10": [(70, 820, 300, 851)],
 }

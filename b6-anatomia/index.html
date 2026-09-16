@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>B6 · Fundamentos do n8n</title>
+<title>Aula 2 · Anatomia de um workflow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3296,203 +3296,313 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; Fundamentos do n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b6-fundamentos/">B6 · Fundamentos do n8n</a> &rsaquo; 2 · Anatomia de um workflow</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 · B6 · Bloco 2 de 7</div>
-    <h1>Fundamentos do&nbsp;n8n</h1>
-    <p class="heroi-sub">Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-    <div><span class="selo">Cinco aulas</span><span class="selo">A prática abre primeiro</span></div>
+    <div class="heroi-kicker">Módulo 2 · B6 · Fundamentos do n8n</div>
+    <h1>Anatomia de&nbsp;um&nbsp;workflow</h1>
+    <p class="heroi-sub">As&nbsp;3 partes que&nbsp;todo fluxo tem: trigger + nós + conexões. Modelo "input → node → output".</p>
+    <div><span class="selo">Conceito + exemplo</span></div>
   </div>
 
-  <section class="secao" id="aulas">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>As&nbsp;3 partes que&nbsp;todo fluxo tem, como elas se&nbsp;conectam e&nbsp;por&nbsp;que&nbsp;essa estrutura é o&nbsp;"esqueleto" de&nbsp;qualquer automação no&nbsp;n8n</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">As aulas deste bloco</div>
-        <h2>As&nbsp;5 aulas deste bloco</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
     <div class="cartao cartao-cor">
-      <span class="rot">Este é o seu primeiro contato com o n8n</span>
-      <p>Você sai do&nbsp;B6 com&nbsp;5 nós dominados, sabendo navegar no&nbsp;canvas com&nbsp;fluência, e,&nbsp;na&nbsp;última aula, <strong>vendo um&nbsp;AI Agent responder no&nbsp;chat</strong>. A&nbsp;maioria dos&nbsp;cursos
-      esconde o&nbsp;AI Agent até&nbsp;a&nbsp;última semana. Aqui ele aparece já&nbsp;agora, ainda no&nbsp;B6, pra&nbsp;você
-      ver pra&nbsp;onde&nbsp;tudo aponta.</p>
+      <span class="rot">Em uma frase</span>
+      <p><strong>3 partes, sempre as&nbsp;mesmas.</strong> Aprende uma&nbsp;vez, vale pra&nbsp;qualquer workflow
+      no&nbsp;n8n, do&nbsp;mais simples ao&nbsp;mais sofisticado.</p>
     </div>
 
-    <div class="cartao">
-      <span class="rot">Pré-requisitos</span>
-      <p>Ideal ter feito o&nbsp;B5 (mapeamento), mas&nbsp;dá pra&nbsp;fazer o&nbsp;B6 antes se&nbsp;preferir.</p>
-    </div>
+    <p>Quem não&nbsp;entende a&nbsp;anatomia copia tutorial e&nbsp;nunca consegue criar do&nbsp;zero. Toda vez que&nbsp;algo muda (chega um&nbsp;campo novo, o&nbsp;fluxo precisa de&nbsp;um&nbsp;caminho extra), trava: porque&nbsp;aprendeu
+    a&nbsp;configurar nós soltos, não&nbsp;a&nbsp;montar fluxos.</p>
 
-    <p>Clique em&nbsp;cada aula abaixo pra&nbsp;abrir o&nbsp;conteúdo:</p>
-
-    <div class="aulas-lista solta">
-
-      <a class="aula-card ready" href="../b6-oque/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 1</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="rec">Aula-âncora</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">O que é n8n</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Plataforma, analogia da&nbsp;receita, comparação com&nbsp;Zapier/Make, n8n Cloud vs
-            self-host. Aula-âncora.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Conceito</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-anatomia/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 2</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Anatomia de um workflow</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>As&nbsp;3 partes que&nbsp;todo fluxo tem: trigger + nós + conexões. Modelo "input &rarr;
-            node &rarr; output".</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Conceito + exemplo</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-canvas/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 3</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="rec">Aula-âncora</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Interface e canvas</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Os&nbsp;4 espaços da&nbsp;tela, atalhos, e&nbsp;os&nbsp;2 hábitos profissionais (renomear ANTES +
-            pinar). Aula-âncora.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Tour + prática</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-primeiro/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 4</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-                    <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Meu primeiro fluxo</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Manual Trigger + Set + ler output em&nbsp;3 visões (Schema/Table/JSON). Construir do&nbsp;zero.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Prática guiada</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-agente/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 5</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Um gostinho de AI Agent</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Chat Trigger + AI Agent simples respondendo. <strong>Teaser motivacional do&nbsp;B10.</strong></p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Fluxo prático</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-    </div>
+    <p>A&nbsp;boa notícia: a&nbsp;anatomia é simples.</p>
   </section>
 
-  <section class="secao" id="entregavel">
+  <section class="secao" id="conceito">
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O que você leva</div>
-        <h2>Entregável do&nbsp;B6</h2>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
-    <p><strong>5 nós dominados</strong> (Manual Trigger, Chat Trigger, Set, AI Agent, Chat
-    Model) + <strong>1 mini-agente conversacional funcionando no&nbsp;chat</strong>. Você sai daqui
-    sabendo navegar o&nbsp;canvas e&nbsp;tendo executado seu&nbsp;primeiro workflow real.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Todo workflow no&nbsp;n8n é composto por&nbsp;trigger, nós de&nbsp;ação e&nbsp;conexões</h3>
 
-    <div class="checagem">
-      <span class="rot">Mapa de Capacidades · B6</span>
-      <p>Marque com&nbsp;honestidade ao&nbsp;final do&nbsp;bloco. Se&nbsp;algum item ainda não&nbsp;estiver ✅, volte e&nbsp;revise antes de&nbsp;seguir pra&nbsp;B7.</p>
-      <ul>
-        <li>Navego no&nbsp;canvas (adicionar nó, conectar, executar) sem&nbsp;hesitar.</li>
-        <li>Renomeio cada nó <strong>antes</strong> de&nbsp;configurar (com&nbsp;emoji + ação concisa).</li>
-        <li>Pino dados de&nbsp;saída de&nbsp;um&nbsp;nó (tecla <code>P</code>) e&nbsp;despino quando&nbsp;termino o&nbsp;teste.</li>
-        <li>Identifico o&nbsp;que&nbsp;é <strong>trigger</strong>, <strong>nó de&nbsp;ação</strong> e&nbsp;<strong>conexão</strong> num&nbsp;workflow.</li>
-        <li>Leio o&nbsp;output em&nbsp;Schema / Table / JSON e&nbsp;sei quando&nbsp;usar cada visão.</li>
-        <li>Vejo uma&nbsp;expression <code>{{ ... }}</code> se&nbsp;formando sozinha quando&nbsp;arrasto um&nbsp;campo
-        (sem&nbsp;precisar entender a&nbsp;sintaxe ainda).</li>
-        <li>Vejo um&nbsp;AI Agent simples respondendo no&nbsp;chat e&nbsp;entendo que&nbsp;vou destrinchar isso no&nbsp;B10.</li>
+      <div class="grade grade-3 solta">
+        <div class="cartao">
+          <div class="cartao-n">01</div>
+          <h4>Trigger</h4>
+          <p>Quem dispara o&nbsp;fluxo (1 só,&nbsp;sempre o&nbsp;primeiro nó).</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">02</div>
+          <h4>Nós de&nbsp;ação</h4>
+          <p>Quem faz o&nbsp;trabalho (1 ou&nbsp;mais, na&nbsp;sequência).</p>
+        </div>
+        <div class="cartao">
+          <div class="cartao-n">03</div>
+          <h4>Conexões</h4>
+          <p>As&nbsp;setas que&nbsp;ditam a&nbsp;ordem (cada nó passa o&nbsp;resultado pro próximo).</p>
+        </div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Pensa em&nbsp;cada nó como uma&nbsp;<strong>peça de&nbsp;Lego</strong>: faz uma&nbsp;coisa específica, e&nbsp;você combina com&nbsp;outras pra&nbsp;montar uma&nbsp;estrutura maior.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A&nbsp;peça</strong> = um&nbsp;nó, que&nbsp;faz uma&nbsp;coisa</li>
+          <li><strong>O&nbsp;encaixe</strong> = a&nbsp;conexão, saída de&nbsp;um&nbsp;na&nbsp;entrada do&nbsp;outro</li>
+          <li><strong>A&nbsp;estrutura montada</strong> = o&nbsp;workflow</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-05.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Anatomia de uma Automação': todo fluxo no n8n (do mais simples ao mais complexo) tem exatamente 3 partes; pense nelas como peças de Lego. Três cartões numa bandeja: 1. Gatilho (Trigger), quem acorda o fluxo, só existe um por automação, ex: um horário marcado, um clique manual, um formulário preenchido; 2. Ações (Nodes), quem faz o trabalho, cada nó faz uma coisa: ler, enviar, decidir, o n8n tem mais de 400 blocos prontos; 3. Conexões (Setas), o caminho, a seta que diz depois de fazer isso, passe o resultado para cá.">
+    </div>
+    <p class="fig-leg"><strong>As&nbsp;três partes, como foram mostradas em&nbsp;sala.</strong> O&nbsp;primeiro
+    cartão tem a&nbsp;regra que&nbsp;mais quebra fluxo de&nbsp;iniciante: <em>só&nbsp;existe um</em>&nbsp;gatilho.</p>
+
+      <h4>1. Trigger: o&nbsp;nó que&nbsp;começa tudo</h4>
+
+      <p>Todo workflow precisa de&nbsp;<strong>exatamente um</strong>&nbsp;trigger. Sem&nbsp;trigger, o&nbsp;workflow
+      não&nbsp;roda: fica parado na&nbsp;tela esperando alguém dizer "começa". O&nbsp;trigger pode ser:</p>
+
+      <ul class="lista">
+        <li><strong>Manual:</strong> você clica em&nbsp;"Execute Workflow"</li>
+        <li><strong>Schedule:</strong> horário marcado (toda segunda 9h)</li>
+        <li><strong>Webhook:</strong> alguém manda um&nbsp;POST na&nbsp;URL do&nbsp;n8n</li>
+        <li><strong>Form:</strong> formulário preenchido</li>
+        <li><strong>App Event:</strong> algo acontece em&nbsp;outro app (chegou e-mail, alguém preencheu
+        Google Form)</li>
+        <li><strong>Chat:</strong> você digita no&nbsp;chat embutido do&nbsp;n8n</li>
       </ul>
+
+      <div class="cartao">
+        <span class="rot">O B7 inteiro destrincha esses tipos</span>
+        <p>Por&nbsp;enquanto&nbsp;basta saber: <strong>todo fluxo tem 1 trigger, e&nbsp;ele é sempre o&nbsp;primeiro
+        nó da&nbsp;esquerda.</strong></p>
+      </div>
+
+      <h4>2. Nós de&nbsp;ação: as&nbsp;peças de&nbsp;Lego do&nbsp;fluxo</h4>
+
+      <p>Cada nó de&nbsp;ação é uma&nbsp;peça que&nbsp;faz <strong>uma&nbsp;coisa</strong>: enviar e-mail, ler
+      planilha, fazer uma&nbsp;decisão, chamar uma&nbsp;IA. O&nbsp;n8n tem mais de&nbsp;400 nós nativos pra&nbsp;integrar
+      com&nbsp;aplicativos (Gmail, Slack, Sheets, Notion, Telegram) e&nbsp;nós genéricos pra&nbsp;lógica e&nbsp;dados
+      (Set, IF, Switch, HTTP Request).</p>
+
+      <div class="cartao">
+        <span class="rot">Onde cada família aparece</span>
+        <p>No&nbsp;B8 você vê os&nbsp;nós essenciais de&nbsp;execução (Set, IF, Switch, Merge); no&nbsp;B9 os&nbsp;de&nbsp;integração (HTTP, Gmail, Sheets); no&nbsp;B10 os&nbsp;de&nbsp;IA (AI Agent).</p>
+      </div>
+
+      <h4>3. Conexões: as&nbsp;setas que&nbsp;mandam o&nbsp;dado pro próximo</h4>
+
+      <p>Cada nó tem dois lados:</p>
+
+      <ul class="lista">
+        <li><strong>Entrada (esquerda):</strong> recebe dado do&nbsp;nó anterior</li>
+        <li><strong>Saída (direita):</strong> manda dado pro próximo nó</li>
+      </ul>
+
+      <p>A&nbsp;seta de&nbsp;<strong>saída &rarr; entrada</strong> conecta um&nbsp;nó ao&nbsp;próximo. Quando&nbsp;o&nbsp;trigger
+      dispara, <strong>o&nbsp;dado flui pelas setas, nó por&nbsp;nó, em&nbsp;ordem</strong>.</p>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">trigger</div>
+          <h4>Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">entrada &middot; saída</div>
+          <h4>Nó A</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">entrada &middot; saída</div>
+          <h4>Nó B</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">entrada &middot; saída</div>
+          <h4>Nó C</h4>
+        </div>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">A regra mental</div>
+        <p><em>"Input vem da&nbsp;esquerda, processo no&nbsp;meio, output sai à&nbsp;direita."</em> Vale pra&nbsp;cada
+        nó. Vale pro workflow inteiro. <strong>É fractal: a&nbsp;mesma estrutura se&nbsp;repete em&nbsp;escalas
+        diferentes.</strong></p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-06.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Regra de Ouro do Fluxo': como a informação viaja dentro do n8n? Existe uma regra mental simples que vale para cada pecinha e para o fluxo inteiro. Um nó no centro, com uma seta entrando pela esquerda e outra saindo pela direita: o que entra, o dado chega pelo lado esquerdo do nó; o que acontece, o bloco faz sua mágica (formata, calcula, envia); o que sai, o resultado sai pelo lado direito, pronto para a próxima pecinha. Embaixo, atenção: é um sistema fractal, a mesma lógica esquerda-direita se repete para tudo, do menor bloco ao maior fluxo.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;regra de&nbsp;ouro, em&nbsp;um&nbsp;nó só.</strong>&nbsp;Os&nbsp;dois pontos laranja são a&nbsp;entrada e&nbsp;a&nbsp;saída: é neles que&nbsp;a&nbsp;seta encaixa, e&nbsp;é por&nbsp;isso que&nbsp;ligar saída em&nbsp;saída não&nbsp;faz o&nbsp;dado andar (pegadinha 2, na&nbsp;cerca).</p>
     </div>
   </section>
 
-  <section class="secao" id="protocolo">
+  <section class="secao" id="como-funciona">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
-        <div class="secao-fn">Confira</div>
-        <h2>Protocolo de&nbsp;Validação: fluxos do&nbsp;B6</h2>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática</h2>
       </div>
     </div>
 
-    <div class="aviso ok">
-      <div class="aviso-t">Antes de declarar que seu fluxo "tá funcionando":</div>
-      <ol>
-        <li><strong>Executou sem&nbsp;erro:</strong> nenhum nó vermelho no&nbsp;painel de&nbsp;execuções.</li>
-        <li><strong>Output no&nbsp;formato esperado:</strong> abra o&nbsp;nó, vá em&nbsp;Output, confirme em&nbsp;Schema/Table/JSON que&nbsp;os&nbsp;campos estão lá.</li>
-        <li><strong>Caso de&nbsp;borda mínimo testado:</strong> se&nbsp;for o&nbsp;agente da&nbsp;aula 5, mude o&nbsp;System Message e&nbsp;veja a&nbsp;resposta mudar. Se&nbsp;for o&nbsp;Set da&nbsp;aula 4, troque um&nbsp;campo de&nbsp;String pra&nbsp;Number e&nbsp;veja o&nbsp;comportamento.</li>
-      </ol>
+    <p>Vamos olhar um&nbsp;workflow concreto:</p>
+
+    <div class="fluxo solta">
+      <div class="fl">
+        <div class="fl-n">trigger</div>
+        <h4>▶️ Disparo Manual</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Set: nome, e-mail</div>
+        <h4>📦 Dados de&nbsp;Teste</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Gmail send</div>
+        <h4>📧 Envia e-mail</h4>
+      </div>
+    </div>
+
+    <p>Quando&nbsp;você clica em&nbsp;"Execute Workflow":</p>
+
+    <ol>
+      <li>O&nbsp;trigger dispara: gera um&nbsp;item vazio (porque&nbsp;é manual).</li>
+      <li>O&nbsp;dado vai pra&nbsp;<code>📦 Dados de Teste</code>. O&nbsp;Set adiciona <code>nome = "(seu
+      nome)"</code> e&nbsp;<code>email = "x@y.com"</code> ao&nbsp;item.</li>
+      <li>O&nbsp;dado (agora com&nbsp;nome e&nbsp;e-mail) vai pra&nbsp;<code>📧 Envia e-mail</code>. O&nbsp;Gmail usa o&nbsp;email pra&nbsp;saber pra&nbsp;quem mandar.</li>
+    </ol>
+
+    <p>3 nós. 2 setas. 1 fluxo. <strong>Toda automação no&nbsp;n8n é uma&nbsp;variação disso</strong>: só&nbsp;com&nbsp;mais ou&nbsp;menos nós no&nbsp;meio.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: anatomia ao&nbsp;vivo</h2>
+      </div>
+    </div>
+
+    <p>Vamos construir esse fluxo agora, sem&nbsp;Gmail (que&nbsp;precisa de&nbsp;credencial: fica pro B9).
+    Manual Trigger + Set, só&nbsp;pra&nbsp;ver o&nbsp;ciclo completo de&nbsp;gatilho &rarr; execução &rarr; saída.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Anatomia 101</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie um&nbsp;workflow novo (Workflows &rarr; <strong>+ Add workflow</strong>). Renomeie pra&nbsp;<code>Anatomia 101</code>.</li>
+          <li>Clique duplo no&nbsp;canvas &rarr; busque "Manual Trigger" &rarr; adicione.
+          <strong>Renomeie pra&nbsp;<code>▶️ Disparo Manual</code>.</strong></li>
+          <li>Clique no&nbsp;<code>+</code> à&nbsp;direita do&nbsp;Manual Trigger &rarr; busque "Edit Fields" (Set)
+          &rarr; adicione. <strong>Renomeie pra&nbsp;<code>📦 Dados de Teste</code>.</strong></li>
+          <li>No&nbsp;painel do&nbsp;Set, adicione 2 campos:
+            <ul>
+              <li><code>nome</code> = (seu&nbsp;nome) (String)</li>
+              <li><code>cargo</code> = (seu&nbsp;cargo) (String)</li>
+            </ul>
+          </li>
+          <li>Clique em&nbsp;<strong>Execute Workflow</strong> (canto superior direito).</li>
+          <li>Clique no&nbsp;nó <code>📦 Dados de Teste</code> &rarr; painel da&nbsp;direita &rarr;
+          <strong>Output</strong>. Você vê:</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/anatomia-101.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo Manual ligado a Dados de Teste por uma seta verde com 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do&nbsp;canvas, a&nbsp;partir da&nbsp;execução de&nbsp;teste</strong>
+        (execução 407, 16/09/2026). Dois nós, uma&nbsp;seta, um&nbsp;item.</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📦 Dados de Teste &middot; visão JSON</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b6ana-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b6ana-json">{ "nome": "(seu nome)", "cargo": "(seu cargo)" }</pre>
+        </div>
+
+        <p>Pronto. <strong>Você acabou de&nbsp;criar um&nbsp;workflow inteiro: trigger, nó de&nbsp;ação,
+        conexão.</strong> A&nbsp;<a href="../b6-primeiro/">aula 4</a> vai aprofundar esse padrão.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Trigger, nós de&nbsp;ação e&nbsp;conexões: você já&nbsp;viu as&nbsp;três partes e&nbsp;montou
+  um&nbsp;fluxo com&nbsp;elas. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: os&nbsp;quatro erros de&nbsp;anatomia que&nbsp;fazem o&nbsp;fluxo "não&nbsp;rodar".</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer o trigger e tentar rodar</div>
+      <p>Sintoma: clica em&nbsp;"Execute Workflow" e&nbsp;nada acontece. Causa: o&nbsp;workflow tá só&nbsp;com&nbsp;nós de&nbsp;ação, sem&nbsp;trigger. Solução: adicione um&nbsp;Manual Trigger no&nbsp;começo.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Conectar setas em direção errada (saída &rarr; saída ou entrada &rarr; entrada)</div>
+      <p>O&nbsp;n8n até&nbsp;deixa, mas&nbsp;o&nbsp;dado não&nbsp;flui. Sintoma: o&nbsp;nó "executa" mas&nbsp;o&nbsp;Output vem vazio.
+      Solução: deletar a&nbsp;seta errada e&nbsp;conectar <strong>saída do&nbsp;anterior &rarr; entrada do&nbsp;próximo</strong>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que o workflow precisa de "fim" explícito</div>
+      <p>Não&nbsp;precisa. O&nbsp;último nó executa, o&nbsp;workflow termina. Não&nbsp;tem nó "End" como no&nbsp;Make.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Rodar o workflow inteiro só pra testar o último nó</div>
+      <p>Quando&nbsp;você muda só&nbsp;o&nbsp;último nó, <strong>clique nele e&nbsp;use "Execute Step"</strong>: roda
+      só&nbsp;ele, reaproveitando o&nbsp;output dos&nbsp;anteriores. Economiza tempo (e&nbsp;dinheiro, quando&nbsp;tiver
+      IA no&nbsp;meio).</p>
     </div>
   </section>
 
   <div class="gancho">
-    <p><strong>Próximo bloco:</strong> B7, Gatilhos. Você vai aprender os&nbsp;outros jeitos de&nbsp;iniciar um&nbsp;workflow (Schedule, Webhook, Form, App Event).</p>
+    <p><strong>Próxima aula:</strong> 3, Interface e&nbsp;canvas. As&nbsp;aulas do&nbsp;bloco estão na&nbsp;<a href="../b6-fundamentos/">capa do&nbsp;B6</a>, na&nbsp;ordem em&nbsp;que&nbsp;abrem.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b5-mapear/">&larr; Aula 3 · Exercício: mapear uma tarefa sua</a><a href="../b6-oque/">Aula 1 · O que é n8n &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b6-oque/">&larr; Aula 1 · O que é n8n</a><a href="../b6-canvas/">Aula 3 · Interface e canvas &rarr;</a></nav>
 </main>
 
 

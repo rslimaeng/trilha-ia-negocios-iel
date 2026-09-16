@@ -100,7 +100,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # B6 = M1. A aula 4 (P2) abriu antes das de conceito: decisao do
              # Rafael em 16/09 (PROMPT v2.1, secao 10, item 2), porque a turma
              # ja tinha passado pelo n8n em sala. As outras entram na ordem.
-             "b6-fundamentos", "b6-primeiro",
+             "b6-fundamentos", "b6-oque", "b6-anatomia", "b6-canvas", "b6-primeiro", "b6-agente",
              "b7-gatilhos", "b7-lembrete",
              "modulo-3", "componentes"]
 
@@ -173,7 +173,11 @@ TRILHA = [
     ]),
     ("B6 · Fundamentos do n8n", [
         ("b6-fundamentos", "B6 · Fundamentos do n8n"),
+        ("b6-oque",        "1 · O que é n8n"),
+        ("b6-anatomia",    "2 · Anatomia de um workflow"),
+        ("b6-canvas",      "3 · Interface e canvas"),
         ("b6-primeiro",    "4 · Meu primeiro fluxo"),
+        ("b6-agente",      "5 · Um gostinho de AI Agent"),
     ]),
     ("B7 · Gatilhos", [
         ("b7-gatilhos",    "B7 · Gatilhos"),
@@ -321,6 +325,48 @@ PAGINAS = {
                  ("../modulo-2/", "Módulo 2"),
                  (None, "Fundamentos do n8n")],
     ),
+    "b6-oque": dict(
+        # fundamento: "Conceito" no Notion, aula-ancora do bloco. Tem a analogia
+        # da receita de bolo (G41 passa sem dispensa).
+        tipo="fundamento",
+        titulo="Aula 1 · O que é n8n",
+        kicker="Módulo 2 · B6 · Fundamentos do n8n",
+        h1="O que é n8n",
+        sub="Plataforma, analogia da receita, comparação com Zapier/Make, n8n Cloud vs self-host. Aula-âncora.",
+        selos=["Aula-âncora", "Conceito"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
+                 (None, None)],
+    ),
+    "b6-anatomia": dict(
+        # fundamento: "Conceito + exemplo". A analogia e a peca de Lego. O exemplo
+        # guiado (Anatomia 101) rodou no servidor de teste, execucao 407.
+        tipo="fundamento",
+        titulo="Aula 2 · Anatomia de um workflow",
+        kicker="Módulo 2 · B6 · Fundamentos do n8n",
+        h1="Anatomia de um workflow",
+        sub="As 3 partes que todo fluxo tem: trigger + nós + conexões. Modelo \"input → node → output\".",
+        selos=["Conceito + exemplo"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
+                 (None, None)],
+    ),
+    "b6-canvas": dict(
+        # fundamento: "Tour + pratica", aula-ancora. O Notion nao tem analogia
+        # (dispensa G41 por pagina).
+        tipo="fundamento",
+        titulo="Aula 3 · Interface e canvas",
+        kicker="Módulo 2 · B6 · Fundamentos do n8n",
+        h1="Interface e canvas",
+        sub="Os 4 espaços da tela, atalhos, e os 2 hábitos profissionais (renomear ANTES + pinar). Aula-âncora.",
+        selos=["Aula-âncora", "Tour + prática"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
+                 (None, None)],
+    ),
     "b6-primeiro": dict(
         # pratica SEM arquivo (P2 do PROMPT v2: "nada para importar"). Rodou no
         # servidor de teste do Rafael por MCP em 16/09 (workflow F01yHGZJOaroUcXS,
@@ -333,6 +379,24 @@ PAGINAS = {
         h1="Meu primeiro fluxo",
         sub="Manual Trigger + Set + ler output em 3 visões (Schema/Table/JSON). Construir do zero.",
         selos=["Sem credencial", "Prática guiada"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),
+                 (None, None)],
+    ),
+    "b6-agente": dict(
+        # pratica COM arquivo (P3 do PROMPT v2): Chat Trigger + AI Agent, pede
+        # chave de LLM (D9: porta gratuita, Gemini do AI Studio). Rodou no
+        # servidor do Rafael por MCP em 16/09 (workflow wA1NKuTJIaKMrLcw,
+        # execucoes 408 a 414). Achado de tela: emoji no nome do AI Agent quebra
+        # o no (execucao 408).
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 5 · Um gostinho de AI Agent",
+        kicker="Módulo 2 · B6 · Fundamentos do n8n",
+        h1="Um gostinho de AI Agent",
+        sub="Chat Trigger + AI Agent simples respondendo. Teaser motivacional do B10.",
+        selos=["Pede chave de LLM", "Fluxo prático"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b6-fundamentos/", "B6 · Fundamentos do n8n"),

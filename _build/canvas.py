@@ -27,7 +27,7 @@ NO = 96          # lado do no
 VERDE = "#29a360"
 CINZA = "#a8a8b0"
 TEXTO = "#2f2f34"
-SUB = "#8a8a94"
+SUB_COR = "#8a8a94"
 FUNDO = "#f6f6f8"
 PONTO = "#d9d9de"
 
@@ -91,8 +91,33 @@ def _no(n, ok):
     nome = escape(n["nome"])
     rot = (f'<text x="{x+NO/2}" y="{y+NO+22}" text-anchor="middle" font-size="14" font-weight="600" fill="{TEXTO}">{nome}</text>')
     if n.get("sub"):
-        rot += f'<text x="{x+NO/2}" y="{y+NO+40}" text-anchor="middle" font-size="12" fill="{SUB}">{escape(n["sub"])}</text>'
+        rot += f'<text x="{x+NO/2}" y="{y+NO+40}" text-anchor="middle" font-size="12" fill="{SUB_COR}">{escape(n["sub"])}</text>'
     return forma + icone + check + alcas + rot
+
+
+SUB = 64         # lado do sub-no (modelo, memoria, tool), pendurado embaixo do pai
+
+
+def _subno(n, pai, ok):
+    """O sub-no do n8n: quadrado menor, ligado por uma linha ao 'diamante' embaixo do pai."""
+    cor = VERDE if ok else CINZA
+    px, py = pai["x"] + NO / 2, pai["y"] + NO          # centro da base do pai
+    x, y = n["x"], n["y"]
+    linha = f'<path d="M{px} {py+6} V{y-4}" fill="none" stroke="{CINZA}" stroke-width="1.5" stroke-dasharray="4 3"/>'
+    porta = f'<path d="M{px} {py} l5 5 -5 5 -5-5z" fill="#fff" stroke="{CINZA}" stroke-width="1.5"/>'
+    forma = f'<rect x="{x}" y="{y}" width="{SUB}" height="{SUB}" rx="8" fill="#fff" stroke="{cor}" stroke-width="2"/>'
+    ic = ICONES.get(n.get("icone", "modelo"), ICONES["modelo"])
+    icone = (f'<g transform="translate({x+SUB/2-16} {y+SUB/2-16}) scale(1.33)" fill="none" stroke="{n.get("cor", "#3d3d3d")}" '
+             f'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ic}</g>')
+    check = ''
+    if ok:
+        cx, cy = x + SUB - 11, y + SUB - 11
+        check = (f'<circle cx="{cx}" cy="{cy}" r="7" fill="#fff"/>'
+                 f'<path d="M{cx-3.5} {cy}l2.5 2.5 4.5-5" fill="none" stroke="{VERDE}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
+    rot = f'<text x="{x+SUB/2}" y="{y+SUB+18}" text-anchor="middle" font-size="12" font-weight="600" fill="{TEXTO}">{escape(n["nome"])}</text>'
+    if n.get("sub"):
+        rot += f'<text x="{x+SUB/2}" y="{y+SUB+34}" text-anchor="middle" font-size="11" fill="{SUB_COR}">{escape(n["sub"])}</text>'
+    return linha + porta + forma + icone + check + rot
 
 
 def _seta(a, b, rotulo, ok):
@@ -110,7 +135,7 @@ def _seta(a, b, rotulo, ok):
     rot = ''
     if rotulo:
         tx, ty = (x1 + x2) / 2, (y1 + y2) / 2 - 10
-        rot = f'<text x="{tx}" y="{ty}" text-anchor="middle" font-size="12" fill="{SUB}">{escape(rotulo)}</text>'
+        rot = f'<text x="{tx}" y="{ty}" text-anchor="middle" font-size="12" fill="{SUB_COR}">{escape(rotulo)}</text>'
     return linha + ponta + rot
 
 
@@ -119,7 +144,8 @@ def desenha(p):
     ok = p.get("ok", True)
     xs = [n["x"] for n in p["nos"]]; ys = [n["y"] for n in p["nos"]]
     x0, y0 = min(xs) - 48, min(ys) - 40
-    x1, y1 = max(xs) + NO + 48, max(ys) + NO + 64
+    x1 = max(n["x"] + (SUB if n.get("sub_de") else NO) for n in p["nos"]) + 48
+    y1 = max(n["y"] + (SUB if n.get("sub_de") else NO) for n in p["nos"]) + 64
     w, h = x1 - x0, y1 - y0
     partes = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x0} {y0} {w} {h}" width="{w}" height="{h}" '
@@ -133,7 +159,10 @@ def desenha(p):
     for s in p.get("setas", []):
         partes.append(_seta(nos[s["de"]], nos[s["para"]], s.get("rotulo", ""), ok))
     for n in p["nos"]:
-        partes.append(_no(n, ok))
+        if n.get("sub_de"):
+            partes.append(_subno(n, nos[n["sub_de"]], ok))
+        else:
+            partes.append(_no(n, ok))
     partes.append("</svg>")
     return "\n".join(partes)
 
@@ -160,6 +189,25 @@ PRATICAS = {
             dict(id="s2", nome="🧹 Adiciona Saudação", icone="set", x=480, y=0, sub="manual"),
         ],
         setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="s2", rotulo="1 item")],
+    ),
+    # B6 aula 2 · exemplo guiado · execucao 407 em 16/09/2026, workflow Gil0ED7CHMqRrQI0
+    "anatomia-101": dict(
+        titulo="Anatomia 101: Disparo Manual e Dados de Teste, os dois verdes",
+        nos=[
+            dict(id="t", nome="▶️ Disparo Manual", icone="manual", x=0, y=0, trigger=True),
+            dict(id="s", nome="📦 Dados de Teste", icone="set", x=240, y=0, sub="manual"),
+        ],
+        setas=[dict(de="t", para="s", rotulo="1 item")],
+    ),
+    # B6 aula 5 · P3 · execucoes 410 a 414 em 16/09/2026, workflow wA1NKuTJIaKMrLcw
+    "p3-agente": dict(
+        titulo="Meu primeiro AI Agent: Chat Trigger, AI Agent e o sub-nó do modelo Gemini",
+        nos=[
+            dict(id="c", nome="💬 Chat Trigger", icone="chat", x=0, y=0, trigger=True),
+            dict(id="a", nome="AI Agent", icone="agent", x=240, y=0, sub="Tools Agent"),
+            dict(id="m", nome="Google Gemini Chat Model", icone="modelo", x=256, y=176, sub="gemini-3.5-flash", sub_de="a", cor="#1a73e8"),
+        ],
+        setas=[dict(de="c", para="a", rotulo="1 item")],
     ),
     # B7 aula 6 · P4 · execucao 403 em 16/09/2026 12:45 (BRT), workflow OWd0Hs8O4c8iCQwm
     "p4-lembrete": dict(

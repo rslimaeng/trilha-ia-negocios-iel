@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>B6 · Fundamentos do n8n</title>
+<title>Aula 1 · O que é n8n</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3296,203 +3296,287 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; Fundamentos do n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b6-fundamentos/">B6 · Fundamentos do n8n</a> &rsaquo; 1 · O que é n8n</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 · B6 · Bloco 2 de 7</div>
-    <h1>Fundamentos do&nbsp;n8n</h1>
-    <p class="heroi-sub">Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-    <div><span class="selo">Cinco aulas</span><span class="selo">A prática abre primeiro</span></div>
+    <div class="heroi-kicker">Módulo 2 · B6 · Fundamentos do n8n</div>
+    <h1>O&nbsp;que&nbsp;é n8n</h1>
+    <p class="heroi-sub">Plataforma, analogia da&nbsp;receita, comparação com&nbsp;Zapier/Make, n8n Cloud vs self-host. Aula-âncora.</p>
+    <div><span class="selo">Aula-âncora</span><span class="selo">Conceito</span></div>
   </div>
 
-  <section class="secao" id="aulas">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O&nbsp;que&nbsp;é o&nbsp;n8n, e&nbsp;a&nbsp;analogia da&nbsp;receita</li>
+      <li>Por&nbsp;que&nbsp;n8n e&nbsp;não&nbsp;Zapier / Make / Power Automate</li>
+      <li>n8n Cloud vs self-host: a&nbsp;escolha do&nbsp;iniciante</li>
+      <li>As&nbsp;3 partes obrigatórias de&nbsp;todo fluxo</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">As aulas deste bloco</div>
-        <h2>As&nbsp;5 aulas deste bloco</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
     <div class="cartao cartao-cor">
-      <span class="rot">Este é o seu primeiro contato com o n8n</span>
-      <p>Você sai do&nbsp;B6 com&nbsp;5 nós dominados, sabendo navegar no&nbsp;canvas com&nbsp;fluência, e,&nbsp;na&nbsp;última aula, <strong>vendo um&nbsp;AI Agent responder no&nbsp;chat</strong>. A&nbsp;maioria dos&nbsp;cursos
-      esconde o&nbsp;AI Agent até&nbsp;a&nbsp;última semana. Aqui ele aparece já&nbsp;agora, ainda no&nbsp;B6, pra&nbsp;você
-      ver pra&nbsp;onde&nbsp;tudo aponta.</p>
+      <span class="rot">Em uma frase</span>
+      <p><strong>Toda segunda às&nbsp;9h você abre 3 sistemas, copia números, cola numa&nbsp;planilha,
+      formata e&nbsp;manda pro time por&nbsp;e-mail. Toda. Segunda.</strong> Em&nbsp;um&nbsp;ano, são 100 horas,
+      quase 3 semanas de&nbsp;trabalho, gastas em&nbsp;algo que&nbsp;ninguém precisa fazer manualmente. Esse é
+      o&nbsp;problema que&nbsp;o&nbsp;n8n resolve.</p>
     </div>
 
-    <div class="cartao">
-      <span class="rot">Pré-requisitos</span>
-      <p>Ideal ter feito o&nbsp;B5 (mapeamento), mas&nbsp;dá pra&nbsp;fazer o&nbsp;B6 antes se&nbsp;preferir.</p>
+    <p>Empresas e&nbsp;profissionais perdem <strong>horas por&nbsp;dia</strong> em&nbsp;tarefas que&nbsp;se&nbsp;repetem:
+    copiar dados de&nbsp;uma&nbsp;planilha pra&nbsp;outra, mandar e-mail toda segunda às&nbsp;9h, registrar lead que&nbsp;chega pelo&nbsp;formulário. n8n é a&nbsp;ferramenta que&nbsp;<strong>monta esses fluxos visualmente</strong>,
+    sem&nbsp;você precisar escrever código.</p>
+
+    <p>A&nbsp;pergunta certa não&nbsp;é "vale a&nbsp;pena automatizar isso?": é "o&nbsp;que&nbsp;<strong>ainda</strong>
+    estou fazendo na&nbsp;mão que&nbsp;poderia rodar sozinho?".</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-02.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Pense na sua rotina de segunda-feira': à esquerda, a dor do trabalho repetitivo, você abre 3 sistemas diferentes, copia números, cola em uma planilha, formata, manda por e-mail pro time, todo santo dia; à direita, o custo invisível: em um ano, são mais de 100 horas gastas em algo que um computador poderia fazer sozinho em segundos. A pergunta não é vale a pena automatizar?, é o que eu ainda estou fazendo na mão?">
     </div>
-
-    <p>Clique em&nbsp;cada aula abaixo pra&nbsp;abrir o&nbsp;conteúdo:</p>
-
-    <div class="aulas-lista solta">
-
-      <a class="aula-card ready" href="../b6-oque/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 1</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="rec">Aula-âncora</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">O que é n8n</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Plataforma, analogia da&nbsp;receita, comparação com&nbsp;Zapier/Make, n8n Cloud vs
-            self-host. Aula-âncora.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Conceito</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-anatomia/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 2</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Anatomia de um workflow</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>As&nbsp;3 partes que&nbsp;todo fluxo tem: trigger + nós + conexões. Modelo "input &rarr;
-            node &rarr; output".</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Conceito + exemplo</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-canvas/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 3</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="rec">Aula-âncora</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Interface e canvas</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Os&nbsp;4 espaços da&nbsp;tela, atalhos, e&nbsp;os&nbsp;2 hábitos profissionais (renomear ANTES +
-            pinar). Aula-âncora.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Tour + prática</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-primeiro/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 4</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-                    <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Meu primeiro fluxo</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Manual Trigger + Set + ler output em&nbsp;3 visões (Schema/Table/JSON). Construir do&nbsp;zero.</p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Prática guiada</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-      <a class="aula-card ready" href="../b6-agente/">
-        <div class="aula-top">
-          <span class="aula-num">Aula 5</span>
-          <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status ok">Pronta</span>
-        </div>
-        <div class="aula-title">Um gostinho de AI Agent</div>
-        <div class="aula-body">
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Foco</div>
-            <p>Chat Trigger + AI Agent simples respondendo. <strong>Teaser motivacional do&nbsp;B10.</strong></p>
-          </div>
-          <div class="aula-bloco">
-            <div class="aula-bloco-label">Tipo</div>
-            <p>Fluxo prático</p>
-          </div>
-        </div>
-        <div class="aula-cta">Abrir a aula</div>
-      </a>
-
-    </div>
+    <p class="fig-leg"><strong>A&nbsp;cena da&nbsp;aula presencial.</strong> A&nbsp;pergunta do&nbsp;lado direito é a&nbsp;mesma desta seção, e&nbsp;é a&nbsp;que&nbsp;abre cada bloco daqui em&nbsp;diante.</p>
   </section>
 
-  <section class="secao" id="entregavel">
+  <section class="secao" id="conceito">
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O que você leva</div>
-        <h2>Entregável do&nbsp;B6</h2>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
-    <p><strong>5 nós dominados</strong> (Manual Trigger, Chat Trigger, Set, AI Agent, Chat
-    Model) + <strong>1 mini-agente conversacional funcionando no&nbsp;chat</strong>. Você sai daqui
-    sabendo navegar o&nbsp;canvas e&nbsp;tendo executado seu&nbsp;primeiro workflow real.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>n8n é uma&nbsp;plataforma de&nbsp;automação de&nbsp;fluxos</h3>
 
-    <div class="checagem">
-      <span class="rot">Mapa de Capacidades · B6</span>
-      <p>Marque com&nbsp;honestidade ao&nbsp;final do&nbsp;bloco. Se&nbsp;algum item ainda não&nbsp;estiver ✅, volte e&nbsp;revise antes de&nbsp;seguir pra&nbsp;B7.</p>
-      <ul>
-        <li>Navego no&nbsp;canvas (adicionar nó, conectar, executar) sem&nbsp;hesitar.</li>
-        <li>Renomeio cada nó <strong>antes</strong> de&nbsp;configurar (com&nbsp;emoji + ação concisa).</li>
-        <li>Pino dados de&nbsp;saída de&nbsp;um&nbsp;nó (tecla <code>P</code>) e&nbsp;despino quando&nbsp;termino o&nbsp;teste.</li>
-        <li>Identifico o&nbsp;que&nbsp;é <strong>trigger</strong>, <strong>nó de&nbsp;ação</strong> e&nbsp;<strong>conexão</strong> num&nbsp;workflow.</li>
-        <li>Leio o&nbsp;output em&nbsp;Schema / Table / JSON e&nbsp;sei quando&nbsp;usar cada visão.</li>
-        <li>Vejo uma&nbsp;expression <code>{{ ... }}</code> se&nbsp;formando sozinha quando&nbsp;arrasto um&nbsp;campo
-        (sem&nbsp;precisar entender a&nbsp;sintaxe ainda).</li>
-        <li>Vejo um&nbsp;AI Agent simples respondendo no&nbsp;chat e&nbsp;entendo que&nbsp;vou destrinchar isso no&nbsp;B10.</li>
+      <p>Você arrasta blocos numa&nbsp;tela, conecta com&nbsp;setas, e&nbsp;o&nbsp;n8n executa um&nbsp;após&nbsp;o&nbsp;outro.</p>
+
+      <p>Cada bloco se&nbsp;chama <strong>node</strong> (em&nbsp;português, "nó"). Cada nó tem uma&nbsp;função:
+      enviar e-mail, ler planilha, chamar uma&nbsp;IA, fazer uma&nbsp;decisão. A&nbsp;sequência de&nbsp;nós
+      conectados é um&nbsp;<strong>workflow</strong> (fluxo de&nbsp;trabalho).</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Pense em&nbsp;uma&nbsp;<strong>receita de&nbsp;bolo</strong>. Os&nbsp;ingredientes são os&nbsp;dados que&nbsp;entram.
+        Cada passo da&nbsp;receita é um&nbsp;nó. O&nbsp;bolo pronto é o&nbsp;resultado. n8n é a&nbsp;cozinha que&nbsp;executa
+        a&nbsp;receita do&nbsp;começo ao&nbsp;fim, sem&nbsp;você precisar mexer em&nbsp;cada panela.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Ingredientes</strong> = os&nbsp;dados que&nbsp;entram</li>
+          <li><strong>Cada passo da&nbsp;receita</strong> = um&nbsp;nó</li>
+          <li><strong>O&nbsp;bolo pronto</strong> = o&nbsp;resultado</li>
+          <li><strong>A&nbsp;cozinha</strong> = o&nbsp;n8n</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-03.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O que é o n8n?': é a plataforma onde você monta fluxos automáticos arrastando blocos na tela, sem escrever código. Uma bandeja com três quadros ligados por setas: Ingredientes, os dados que chegam (ex: um e-mail novo); Passos da Receita, os nós (nodes), as ações que transformam os dados; O Bolo Pronto, o resultado final (ex: a planilha preenchida). Embaixo: o n8n é a cozinha que executa sua receita de ponta a ponta, perfeitamente, toda vez.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;receita, desenhada.</strong> Repare que&nbsp;a&nbsp;bandeja é a&nbsp;cozinha: os&nbsp;três quadros acontecem dentro dela, e&nbsp;é isso que&nbsp;o&nbsp;n8n é.</p>
+
+      <h4>Por&nbsp;que&nbsp;n8n e&nbsp;não&nbsp;Zapier / Make / Power Automate</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Característica</th><th>n8n</th><th>Zapier / Make</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Modelo</td><td>Open-source (código aberto)</td><td>Proprietário</td></tr>
+            <tr><td>Custo</td><td>Gratuito (self-host) ou plano cloud</td><td>Pago por execução/tarefa</td></tr>
+            <tr><td>Self-host</td><td>Sim, no seu servidor</td><td>Não</td></tr>
+            <tr><td>Flexibilidade</td><td>Alta (Code node, HTTP Request livre)</td><td>Limitada ao que a ferramenta oferece</td></tr>
+            <tr><td>Curva de aprendizado</td><td>Mais íngreme no começo</td><td>Mais fácil pra "drag and drop" trivial</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">Resumo honesto</span>
+        <p>Se&nbsp;você quer <strong>um&nbsp;Zapier que&nbsp;não&nbsp;trava no&nbsp;preço</strong> e&nbsp;que&nbsp;aceita lógica mais
+        sofisticada, n8n é a&nbsp;escolha. Se&nbsp;você só&nbsp;vai automatizar 3 coisas simples, Zapier é mais
+        rápido de&nbsp;aprender.</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m1-04.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Por que o n8n (e não outras ferramentas)?': existem opções famosas no mercado, como o Zapier; por que escolhemos o n8n para aprender? Tabela com três linhas: Preço, n8n gratuito ou nuvem acessível, Zapier/Make pago por cada tarefa que roda; Liberdade, aberto e sem limites de lógica contra limitado ao que a ferramenta deixa; Curva de aprendizado, exige mais atenção no início contra mais rápido para coisas muito simples. Embaixo, o resumo honesto: se você quer um Zapier que não trava no preço e permite crescer sem limites, o n8n é o caminho; e vamos usar a versão Nuvem (Cloud) para começar rápido, sem configurar servidores.">
+    </div>
+    <p class="fig-leg"><strong>A&nbsp;mesma comparação, em&nbsp;três linhas.</strong> A&nbsp;última frase do&nbsp;slide já&nbsp;responde a&nbsp;pergunta seguinte: Cloud, pra&nbsp;começar rápido.</p>
+
+      <h4>n8n Cloud vs self-host: a&nbsp;escolha do&nbsp;iniciante</h4>
+
+      <p>n8n pode rodar de&nbsp;dois jeitos:</p>
+
+      <ul class="lista">
+        <li><strong>n8n Cloud:</strong> plataforma gerenciada pela&nbsp;própria n8n. Você só&nbsp;usa, sem&nbsp;instalar nada.</li>
+        <li><strong>Self-host:</strong> você instala n8n no&nbsp;seu&nbsp;computador ou&nbsp;num&nbsp;servidor. Mais
+        controle, mais responsabilidade.</li>
       </ul>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Critério</th><th>n8n Cloud</th><th>Self-host</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Setup</td><td>Cadastro em 2 min</td><td>Docker / VPS / config</td></tr>
+            <tr><td>Custo</td><td>Trial 14 dias + planos pagos</td><td>Gratuito (custo de servidor)</td></tr>
+            <tr><td>Manutenção</td><td>Zero (n8n cuida)</td><td>Sua (atualizar, backup)</td></tr>
+            <tr><td>HTTPS / domínio</td><td>Pronto</td><td>Você configura</td></tr>
+            <tr><td>Ideal pra</td><td><strong>Iniciante / módulo v1</strong></td><td>Quem já tem familiaridade com terminal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Pra&nbsp;v1 do&nbsp;módulo, sempre n8n Cloud.</strong> Self-host fica como trilha avançada:
+      não&nbsp;é tema deste módulo.</p>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Pegadinha comum</div>
+        <p>Querer self-hostar antes de&nbsp;entender o&nbsp;que&nbsp;é workflow. Resultado: gasta 3 horas
+        configurando Docker e&nbsp;ainda não&nbsp;construiu o&nbsp;primeiro fluxo. <strong>Comece pelo&nbsp;Cloud,
+        escale depois.</strong></p>
+      </div>
     </div>
   </section>
 
-  <section class="secao" id="protocolo">
+  <section class="secao" id="como-funciona">
     <div class="secao-topo">
       <div class="secao-n">03</div>
       <div>
-        <div class="secao-fn">Confira</div>
-        <h2>Protocolo de&nbsp;Validação: fluxos do&nbsp;B6</h2>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática</h2>
       </div>
     </div>
 
+    <p>Todo fluxo no&nbsp;n8n tem 3 partes obrigatórias:</p>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <div class="cartao-n">01</div>
+        <h4>Um&nbsp;trigger (gatilho)</h4>
+        <p>É o&nbsp;que&nbsp;dispara o&nbsp;fluxo. Pode ser: clique manual, horário marcado, recebimento de&nbsp;e-mail, formulário enviado, ou&nbsp;qualquer outro evento.</p>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">02</div>
+        <h4>Um&nbsp;ou&nbsp;mais nós de&nbsp;ação</h4>
+        <p>Cada um&nbsp;faz uma&nbsp;coisa: ler dado, transformar, enviar pra&nbsp;outro lugar.</p>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">03</div>
+        <h4>Conexões entre&nbsp;os&nbsp;nós</h4>
+        <p>Setas que&nbsp;dizem "depois deste, vai pra&nbsp;aquele".</p>
+      </div>
+    </div>
+
+    <p>Quando&nbsp;o&nbsp;trigger dispara, os&nbsp;dados <strong>fluem</strong> pelos nós, na&nbsp;ordem das&nbsp;conexões.
+    Cada nó recebe o&nbsp;resultado do&nbsp;anterior, processa, e&nbsp;passa adiante.</p>
+
     <div class="aviso ok">
-      <div class="aviso-t">Antes de declarar que seu fluxo "tá funcionando":</div>
-      <ol>
-        <li><strong>Executou sem&nbsp;erro:</strong> nenhum nó vermelho no&nbsp;painel de&nbsp;execuções.</li>
-        <li><strong>Output no&nbsp;formato esperado:</strong> abra o&nbsp;nó, vá em&nbsp;Output, confirme em&nbsp;Schema/Table/JSON que&nbsp;os&nbsp;campos estão lá.</li>
-        <li><strong>Caso de&nbsp;borda mínimo testado:</strong> se&nbsp;for o&nbsp;agente da&nbsp;aula 5, mude o&nbsp;System Message e&nbsp;veja a&nbsp;resposta mudar. Se&nbsp;for o&nbsp;Set da&nbsp;aula 4, troque um&nbsp;campo de&nbsp;String pra&nbsp;Number e&nbsp;veja o&nbsp;comportamento.</li>
-      </ol>
+      <div class="aviso-t">Modelo mental</div>
+      <p><em>"input vem da&nbsp;esquerda, processo no&nbsp;meio, output sai à&nbsp;direita"</em>. Isso vale pra&nbsp;cada nó, e&nbsp;vale pro workflow inteiro. <strong>É fractal</strong>: a&nbsp;mesma estrutura se&nbsp;repete em&nbsp;escalas diferentes.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado</h2>
+      </div>
+    </div>
+
+    <p>Imagine este fluxo simples:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o resumo de segunda-feira</div>
+      <div class="demo-corpo">
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">01 &middot; trigger</div>
+            <h4>Schedule Trigger: toda segunda 9h</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">02 &middot; ação</div>
+            <h4>Google Sheets: ler aba "leads-da-semana"</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">03 &middot; ação</div>
+            <h4>Gmail: enviar resumo pro chefe</h4>
+          </div>
+        </div>
+
+        <div class="antes-depois">
+          <div class="ad antes">
+            <div class="ad-rot">Sem n8n</div>
+            <p>Toda segunda às&nbsp;9h você abre a&nbsp;planilha, copia os&nbsp;números, cola no&nbsp;e-mail e&nbsp;manda.
+            5 minutos.</p>
+          </div>
+          <div class="ad-seta" aria-hidden="true">&rarr;</div>
+          <div class="ad depois">
+            <div class="ad-rot">Com n8n</div>
+            <p>Você monta isso uma&nbsp;vez. Roda toda segunda às&nbsp;9h. Zero minutos.</p>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Em&nbsp;10 fluxos como esse, você libera horas por&nbsp;semana.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já&nbsp;sabe o&nbsp;que&nbsp;é o&nbsp;n8n, por&nbsp;que&nbsp;ele e&nbsp;não&nbsp;outro, e&nbsp;as&nbsp;três partes
+  de&nbsp;qualquer fluxo. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: três ideias erradas sobre&nbsp;a&nbsp;ferramenta que&nbsp;custam caro depois.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">n8n não é só "Zapier mais barato"</div>
+      <p>Tratar como Zapier faz você não&nbsp;usar 70% do&nbsp;que&nbsp;ele oferece.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aprender n8n é aprender a pensar em dados</div>
+      <p>Quem nunca encara JSON trava no&nbsp;B8. Não&nbsp;pula.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Fluxo bonito &ne; fluxo certo</div>
+      <p>O&nbsp;foco é entregar resultado, não&nbsp;fazer arte na&nbsp;tela.</p>
     </div>
   </section>
 
   <div class="gancho">
-    <p><strong>Próximo bloco:</strong> B7, Gatilhos. Você vai aprender os&nbsp;outros jeitos de&nbsp;iniciar um&nbsp;workflow (Schedule, Webhook, Form, App Event).</p>
+    <p><strong>Próxima aula:</strong> 2, Anatomia de&nbsp;um&nbsp;workflow. As&nbsp;aulas do&nbsp;bloco estão na&nbsp;<a href="../b6-fundamentos/">capa do&nbsp;B6</a>, na&nbsp;ordem em&nbsp;que&nbsp;abrem.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b5-mapear/">&larr; Aula 3 · Exercício: mapear uma tarefa sua</a><a href="../b6-oque/">Aula 1 · O que é n8n &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b6-fundamentos/">&larr; B6 · Fundamentos do n8n</a><a href="../b6-anatomia/">Aula 2 · Anatomia de um workflow &rarr;</a></nav>
 </main>
 
 
