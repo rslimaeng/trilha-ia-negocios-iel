@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 4 · Expressions e mapping</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3304,126 +3304,292 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b8-execucao/">B8 · Execução</a> &rsaquo; 4 · Expressions e mapping</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;mapa do&nbsp;seu&nbsp;processo ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa antes da&nbsp;ferramenta; depois a&nbsp;conta, a&nbsp;interface e&nbsp;o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Sete blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 2 · B8 · Execução</div>
+    <h1>Expressions e&nbsp;mapping</h1>
+    <p class="heroi-sub">{{ $json.campo }}: sintaxe que&nbsp;se&nbsp;forma sozinha quando&nbsp;você arrasta. Drag-and-drop primeiro.</p>
+    <div><span class="selo">Conceito + prática</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Como referenciar dados de&nbsp;outros nós <strong>dinamicamente</strong>: sair do&nbsp;"campo
+      fixo" e&nbsp;entrar no&nbsp;"campo dinâmico", que&nbsp;é onde&nbsp;mora o&nbsp;poder do&nbsp;n8n</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n. <strong>Os&nbsp;blocos entram um&nbsp;a&nbsp;um,&nbsp;na&nbsp;ordem abaixo</strong>:
-    o&nbsp;que&nbsp;já&nbsp;está aberto tem o&nbsp;link; o&nbsp;resto está em&nbsp;produção.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Expression é sempre a&nbsp;escolha certa quando&nbsp;o&nbsp;valor depende do&nbsp;que&nbsp;entrou no&nbsp;fluxo</strong>: Fixed só&nbsp;pra&nbsp;valor que&nbsp;nunca muda.</p>
+    </div>
 
-    <div class="casos solta">
-      <a class="caso" href="../b5-antes/">
-        <div class="caso-n">05</div>
-        <h4>Antes do&nbsp;n8n: pensar como automação</h4>
-        <p>Transformar uma&nbsp;tarefa repetitiva real em&nbsp;um&nbsp;mapa textual claro (Gatilho &rarr;
-        Execução &rarr; Entrega), pronto pra&nbsp;virar workflow no&nbsp;B6. Sem&nbsp;n8n aberto.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 processo seu mapeado em texto</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b6-fundamentos/">
-        <div class="caso-n">06</div>
-        <h4>Fundamentos do&nbsp;n8n</h4>
-        <p>Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro
-        fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 nós dominados + 1 mini-agente no chat</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b7-gatilhos/">
-        <div class="caso-n">07</div>
-        <h4>Gatilhos</h4>
-        <p>Escolher o&nbsp;trigger certo pra&nbsp;cada caso (manual / schedule / webhook / form / app
-        event), configurar e&nbsp;testar cada um&nbsp;do&nbsp;zero, e&nbsp;construir 1 fluxo prático completo
-        (Lembrete diário automático).</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo rodando sozinho amanhã 8h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b8-execucao/">
-        <div class="caso-n">08</div>
-        <h4>Execução (dados, lógica, controle)</h4>
-        <p>Ler JSON com&nbsp;fluência, transformar campos com&nbsp;Set, escrever expressions, tomar
-        decisões com&nbsp;IF/Switch, juntar caminhos com&nbsp;Merge e&nbsp;manipular listas com&nbsp;Split Out /
-        Aggregate, culminando num&nbsp;fluxo prático de&nbsp;análise de&nbsp;dados.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo de análise de dados rodando</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <div class="caso">
-        <div class="caso-n">09</div>
-        <h4>APIs e&nbsp;webhooks</h4>
-        <p>Explicar API sem&nbsp;jargão, dominar HTTP Request (4 verbos + Import cURL), configurar
-        OAuth/API Key/Header Auth, usar os&nbsp;3 nós Google na&nbsp;mesma credencial, e&nbsp;construir
-        mini-API com&nbsp;Respond to Webhook.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">10</div>
-        <h4>AI Agents (single-agent)</h4>
-        <p>Dominar AI Agent (Brain + System Prompt + Memory + Tools) com&nbsp;Reactive Prompting e&nbsp;Session ID dinâmico, <strong>mais</strong> os&nbsp;4 nós de&nbsp;IA "leve" (Information Extractor,
-        Text Classifier, Summarization Chain, Sentiment Analysis) que&nbsp;cobrem 60% dos&nbsp;casos
-        práticos com&nbsp;1/3 do&nbsp;custo de&nbsp;um&nbsp;Agent.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">11</div>
-        <h4>Projetos integradores e&nbsp;IA co-criando fluxos</h4>
-        <p>Ter pelo&nbsp;menos 1 workflow real rodando com&nbsp;tratamento de&nbsp;erro e&nbsp;ativação adequada,
-        escolhido por&nbsp;você entre&nbsp;os&nbsp;4 projetos guiados, <strong>mais</strong> sair com&nbsp;a&nbsp;habilidade de&nbsp;descrever processo em&nbsp;linguagem natural &rarr; IA gera o&nbsp;JSON &rarr; você
-        ajusta.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">12</div>
-        <h4>Recursos Profissionais</h4>
-        <p>Dominar 3 práticas que&nbsp;separam o&nbsp;usuário casual do&nbsp;profissional de&nbsp;automação:
-        organização com&nbsp;sub-workflows, prototipação rápida com&nbsp;IA gerando JSON, e&nbsp;construção
-        avançada com&nbsp;Claude Code.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
+    <p>Sem&nbsp;expressions, todo workflow que&nbsp;você construir é estático: copia tutorial, troca um&nbsp;valor, roda uma&nbsp;vez. Com&nbsp;expressions, você lê dados que&nbsp;<strong>vieram do&nbsp;trigger ou&nbsp;de&nbsp;outro
+    nó</strong> e&nbsp;monta saídas dinâmicas. Essa é a&nbsp;diferença entre&nbsp;quem segue receita e&nbsp;quem cria
+    automação.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Todo campo de&nbsp;configuração no&nbsp;n8n tem dois modos: Fixed e&nbsp;Expression</h3>
 
-    <div class="cartao">
-      <span class="rot">Fora da fila dos blocos</span>
-      <p>Duas páginas de&nbsp;apoio, para&nbsp;consultar a&nbsp;qualquer altura do&nbsp;módulo: os&nbsp;<strong>Recursos
-      do&nbsp;aluno</strong> (checklist do&nbsp;iniciante, mapa de&nbsp;capacidades, pegadinhas comuns, protocolo
-      de&nbsp;validação, referências por&nbsp;tema) e&nbsp;o&nbsp;<strong>Glossário</strong>. Em&nbsp;produção.</p>
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Modo</th><th>O que é</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Expression</strong></td><td>Valor dinâmico lido dos dados</td><td>Tudo que muda por execução (nome, e-mail, valor, status)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">A&nbsp;linha do&nbsp;modo <strong>Fixed</strong> não&nbsp;veio no&nbsp;export do&nbsp;Notion; a&nbsp;tabela está como chegou. Pelo&nbsp;texto da&nbsp;seção 01: Fixed é o&nbsp;valor que&nbsp;nunca muda.</p>
+
+      <p>Como ativar Expression: clique no&nbsp;ícone de&nbsp;<strong>raio</strong> ao&nbsp;lado do&nbsp;campo. O&nbsp;fundo do&nbsp;campo fica roxo.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>A&nbsp;Expression é um&nbsp;<strong>crachá dinâmico</strong>: em&nbsp;vez de&nbsp;escrever um&nbsp;nome fixo,
+        você diz ao&nbsp;robô "vá no&nbsp;pacote anterior, leia a&nbsp;etiqueta 'Nome' e&nbsp;cole a&nbsp;resposta aqui".
+        Foi assim que&nbsp;ela apareceu em&nbsp;sala.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;crachá escrito à&nbsp;mão</strong> = campo Fixed</li>
+          <li><strong>O&nbsp;crachá que&nbsp;se&nbsp;preenche sozinho</strong> = campo Expression</li>
+          <li><strong>A&nbsp;etiqueta lida</strong> = <code>$json.nome</code></li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Poder do Crachá Dinâmico (Expressions)': à esquerda, um crachá escrito à mão com um nome; à direita, um crachá com um raio. Se você digita um nome fixo no campo de e-mail, todos os seus clientes receberão o mesmo Olá; isso é fixo. Para a mágica acontecer, usamos expressões: quando você clica no ícone de raio, você está dizendo ao robô: não escreva isso literalmente, vá no pacote anterior, leia a etiqueta Nome e cole a resposta aqui. A fórmula mágica: {{ $json.nome }}. As chaves duplas avisam o robô: atenção, instrução dinâmica a seguir.">
+    </div>
+    <p class="fig-leg"><strong>O&nbsp;crachá, em&nbsp;slide.</strong> O&nbsp;nome escrito no&nbsp;crachá é o&nbsp;do&nbsp;instrutor, que&nbsp;fez o&nbsp;exemplo em&nbsp;sala; no&nbsp;seu&nbsp;fluxo, a&nbsp;expression cola o&nbsp;seu.</p>
+
+      <h4>Sintaxe: os&nbsp;2 padrões que&nbsp;você vai usar 90% das&nbsp;vezes</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Padrão</th><th>Quando usar</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>{{ $('NomeDoNó').item.json.campo }}</code></td><td>Ler de um nó <strong>específico</strong> mais atrás</td><td><code>{{ $('📦 Dados').item.json.email }}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">A&nbsp;linha do&nbsp;primeiro padrão, <code>{{ $json.campo }}</code>, não&nbsp;veio no&nbsp;export do&nbsp;Notion; ele está traduzido logo abaixo.</p>
+
+      <p>Traduzindo:</p>
+
+      <ul class="lista">
+        <li><code>$json</code> = "o&nbsp;JSON que&nbsp;veio do&nbsp;nó anterior"</li>
+        <li><code>.nome</code> = "a&nbsp;chave chamada <code>nome</code> dentro desse JSON"</li>
+        <li><code>$('NomeDoNó')</code> = "vai lá no&nbsp;nó com&nbsp;esse nome específico"</li>
+      </ul>
+
+      <h4>Expressões úteis além de&nbsp;campos simples</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Expression</th><th>Pra que serve</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>{{ $now.toFormat('yyyy-MM-dd') }}</code></td><td>Data formatada</td></tr>
+            <tr><td><code>{{ $json.lista.length }}</code></td><td>Tamanho de um array</td></tr>
+            <tr><td><code>{{ $json.preco * 1.1 }}</code></td><td>Aritmética simples</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Boa notícia</div>
+        <p>Você <strong>não&nbsp;precisa decorar</strong>. Arrastar dado do&nbsp;painel de&nbsp;input pra&nbsp;um&nbsp;campo
+        gera a&nbsp;Expression automaticamente. Você só&nbsp;precisa <strong>ler</strong> depois pra&nbsp;entender
+        o&nbsp;que&nbsp;foi gerado.</p>
+      </div>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../desafio-satisfacao/">&larr; Desafio 4 · uma pesquisa de satisfação vira diagnóstico</a><a href="../b5-antes/">B5 · Antes do n8n: pensar como automação &rarr;</a></nav>
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Hábito profissional: renomeie nós ANTES de configurar</span>
+      <p>Se&nbsp;você usa <code>{{ $('Set').item.json.email }}</code>, daqui a&nbsp;duas semanas você não&nbsp;sabe
+      qual Set é esse. Mas&nbsp;se&nbsp;for <code>{{ $('📦 Dados do Lead').item.json.email }}</code>, fica
+      óbvio. Renomear é hábito de&nbsp;minuto 1, não&nbsp;polimento de&nbsp;minuto 60.</p>
+    </div>
+
+    <h4>Ciclo de&nbsp;uso</h4>
+
+    <ol>
+      <li><strong>Adicione o&nbsp;nó</strong> que&nbsp;precisa ler dado dinâmico.</li>
+      <li><strong>Clique no&nbsp;raio</strong> do&nbsp;campo pra&nbsp;ativar Expression mode.</li>
+      <li><strong>Arraste</strong> o&nbsp;campo do&nbsp;painel de&nbsp;input (à&nbsp;esquerda) pro campo da&nbsp;configuração: n8n gera a&nbsp;Expression sozinho.</li>
+      <li><strong>Execute</strong> o&nbsp;nó anterior antes (com&nbsp;<code>Ctrl+Enter</code>) pra&nbsp;ter dado
+      real disponível.</li>
+      <li><strong>Pinne</strong> o&nbsp;output do&nbsp;nó anterior (<code>P</code>): assim você não&nbsp;precisa
+      rodar tudo de&nbsp;novo a&nbsp;cada teste.</li>
+    </ol>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: micro-prática</h2>
+      </div>
+    </div>
+
+    <p>Vamos construir 2 nós. O&nbsp;primeiro cria campos. O&nbsp;segundo lê esses campos com&nbsp;Expression.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Dados de Teste e Leitura com Expression</div>
+      <div class="demo-corpo">
+        <p><strong>Passo 1, preparar:</strong></p>
+        <ol>
+          <li>Abra um&nbsp;workflow novo.</li>
+          <li>Renomeie o&nbsp;Manual Trigger pra&nbsp;<code>▶️ Disparo Manual</code>.</li>
+        </ol>
+        <p><strong>Passo 2, criar dado:</strong></p>
+        <ol>
+          <li>Adicione um&nbsp;Edit Fields (Set). Renomeie pra&nbsp;<code>📦 Dados de Teste</code>.</li>
+          <li>Adicione 3 campos (Fixed): <code>nome</code> &rarr; (seu&nbsp;nome); <code>cargo</code>
+          &rarr; (seu&nbsp;cargo); <code>cidade</code> &rarr; (sua&nbsp;cidade).</li>
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+          <li>Abra o&nbsp;JSON view do&nbsp;nó <code>📦 Dados de Teste</code>. Confira que&nbsp;tem os&nbsp;3 pares
+          chave:valor.</li>
+          <li>Pinne os&nbsp;dados (<code>P</code>): aparece um&nbsp;pino.</li>
+        </ol>
+        <p><strong>Passo 3, ler com&nbsp;Expression:</strong></p>
+        <ol>
+          <li>Adicione um&nbsp;segundo Edit Fields. Renomeie pra&nbsp;<code>📤 Leitura com Expression</code>.</li>
+          <li>Adicione 1 campo: <code>saudacao</code>.</li>
+          <li>Ative <strong>Expression</strong> (clique no&nbsp;raio). Fundo fica roxo.</li>
+          <li>Digite:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O valor do campo saudacao</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8exp-saud">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8exp-saud">Olá, {{ $json.nome }}! Você é {{ $json.cargo }} de {{ $json.cidade }}.</pre>
+        </div>
+        <ol start="5">
+          <li>Execute.</li>
+          <li>Abra o&nbsp;JSON view deste nó. Você verá:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📤 Leitura com Expression (execução 435)</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8exp-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8exp-out">{ "saudacao": "Olá, (seu nome)! Você é (seu cargo) de (sua cidade)." }</pre>
+        </div>
+
+        <p><strong>O&nbsp;momento em&nbsp;que&nbsp;<code>{{ $json.nome }}</code> vira o&nbsp;seu&nbsp;nome na&nbsp;tela é o&nbsp;instante de&nbsp;compreensão.</strong> A&nbsp;Expression não&nbsp;é uma&nbsp;string mágica: é uma&nbsp;instrução
+        que&nbsp;diz: "abra o&nbsp;JSON do&nbsp;nó anterior, pegue a&nbsp;chave <code>nome</code>, cole aqui."</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/expressions.svg" width="912" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo Manual, Dados de Teste, Leitura com Expression e Direto do primeiro Set, os quatro verdes, com 1 item em cada seta.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do&nbsp;canvas, a&nbsp;partir da&nbsp;execução de&nbsp;teste</strong>
+        (execução 435, 16/09/2026). O&nbsp;quarto nó é a&nbsp;variação abaixo.</p>
+
+        <div class="cartao">
+          <span class="rot">Variação rápida</span>
+          <p>Adicione um&nbsp;terceiro nó depois do&nbsp;<code>📤 Leitura com Expression</code>. Use
+          <code>{{ $('📦 Dados de Teste').item.json.cargo }}</code> pra&nbsp;ler <strong>direto</strong>
+          do&nbsp;primeiro Set, pulando o&nbsp;intermediário. Confirma que&nbsp;dá pra&nbsp;alcançar qualquer nó pelo&nbsp;nome. No&nbsp;teste saiu <code>"cargo_direto": "(seu cargo)"</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Fixed contra&nbsp;Expression, os&nbsp;dois padrões e&nbsp;o&nbsp;crachá se&nbsp;preenchendo
+  sozinho na&nbsp;sua&nbsp;conta. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco pegadinhas de&nbsp;sintaxe e&nbsp;de&nbsp;tipo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer das <code>{{ }}</code></div>
+      <p>O&nbsp;n8n trata como texto literal. Se&nbsp;você digita <code>$json.nome</code> num&nbsp;campo
+      Expression, ele bota a&nbsp;string <code>$json.nome</code> no&nbsp;output. Sempre <code>{{ }}</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar Fixed e Expression</div>
+      <p>Se&nbsp;o&nbsp;campo está em&nbsp;Fixed mode, a&nbsp;Expression não&nbsp;é interpretada. Ative o&nbsp;raio primeiro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tipo de dado errado</div>
+      <p><code>{{ $json.idade }}</code> retorna <strong>string</strong> se&nbsp;a&nbsp;origem mandou
+      <code>"30"</code> entre&nbsp;aspas. Comparações (<code>&gt; 18</code>) podem falhar. Use
+      <code>{{ Number($json.idade) }}</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomeou o nó depois de criar a Expression</div>
+      <p>Se&nbsp;você tem <code>$('Set').item.json.nome</code> e&nbsp;renomeia o&nbsp;Set pra&nbsp;"Dados", a&nbsp;Expression quebra. Renomeie ANTES de&nbsp;configurar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tentar acessar campo inexistente</div>
+      <p>Retorna <code>undefined</code>. No&nbsp;JSON view, aparece como nada. Sempre confira o&nbsp;nome
+      exato da&nbsp;chave no&nbsp;input.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 5, IF node. As&nbsp;nove aulas do&nbsp;bloco estão na&nbsp;<a href="../b8-execucao/">capa do&nbsp;B8</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b8-set/">&larr; Aula 3 · Set / Edit Fields + Pinning</a><a href="../b8-if/">Aula 5 · IF node &rarr;</a></nav>
 </main>
 
 

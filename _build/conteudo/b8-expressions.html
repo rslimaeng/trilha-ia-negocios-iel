@@ -1,0 +1,285 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Como referenciar dados de outros nós <strong>dinamicamente</strong>: sair do "campo
+      fixo" e entrar no "campo dinâmico", que é onde mora o poder do n8n</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Expression é sempre a escolha certa quando o valor depende do que entrou no
+      fluxo</strong>: Fixed só pra valor que nunca muda.</p>
+    </div>
+
+    <p>Sem expressions, todo workflow que você construir é estático: copia tutorial, troca um
+    valor, roda uma vez. Com expressions, você lê dados que <strong>vieram do trigger ou de outro
+    nó</strong> e monta saídas dinâmicas. Essa é a diferença entre quem segue receita e quem cria
+    automação.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Todo campo de configuração no n8n tem dois modos: Fixed e Expression</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Modo</th><th>O que é</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Expression</strong></td><td>Valor dinâmico lido dos dados</td><td>Tudo que muda por execução (nome, e-mail, valor, status)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">A linha do modo <strong>Fixed</strong> não veio no export do Notion; a
+      tabela está como chegou. Pelo texto da seção 01: Fixed é o valor que nunca muda.</p>
+
+      <p>Como ativar Expression: clique no ícone de <strong>raio</strong> ao lado do campo. O
+      fundo do campo fica roxo.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>A Expression é um <strong>crachá dinâmico</strong>: em vez de escrever um nome fixo,
+        você diz ao robô "vá no pacote anterior, leia a etiqueta 'Nome' e cole a resposta aqui".
+        Foi assim que ela apareceu em sala.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O crachá escrito à mão</strong> = campo Fixed</li>
+          <li><strong>O crachá que se preenche sozinho</strong> = campo Expression</li>
+          <li><strong>A etiqueta lida</strong> = <code>$json.nome</code></li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Poder do Crachá Dinâmico (Expressions)': à esquerda, um crachá escrito à mão com um nome; à direita, um crachá com um raio. Se você digita um nome fixo no campo de e-mail, todos os seus clientes receberão o mesmo Olá; isso é fixo. Para a mágica acontecer, usamos expressões: quando você clica no ícone de raio, você está dizendo ao robô: não escreva isso literalmente, vá no pacote anterior, leia a etiqueta Nome e cole a resposta aqui. A fórmula mágica: {{ $json.nome }}. As chaves duplas avisam o robô: atenção, instrução dinâmica a seguir.">
+    </div>
+    <p class="fig-leg"><strong>O crachá, em slide.</strong> O nome escrito no crachá é o do
+    instrutor, que fez o exemplo em sala; no seu fluxo, a expression cola o seu.</p>
+
+      <h4>Sintaxe: os 2 padrões que você vai usar 90% das vezes</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Padrão</th><th>Quando usar</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>{{ $('NomeDoNó').item.json.campo }}</code></td><td>Ler de um nó <strong>específico</strong> mais atrás</td><td><code>{{ $('📦 Dados').item.json.email }}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">A linha do primeiro padrão, <code>{{ $json.campo }}</code>, não veio no
+      export do Notion; ele está traduzido logo abaixo.</p>
+
+      <p>Traduzindo:</p>
+
+      <ul class="lista">
+        <li><code>$json</code> = "o JSON que veio do nó anterior"</li>
+        <li><code>.nome</code> = "a chave chamada <code>nome</code> dentro desse JSON"</li>
+        <li><code>$('NomeDoNó')</code> = "vai lá no nó com esse nome específico"</li>
+      </ul>
+
+      <h4>Expressões úteis além de campos simples</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Expression</th><th>Pra que serve</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>{{ $now.toFormat('yyyy-MM-dd') }}</code></td><td>Data formatada</td></tr>
+            <tr><td><code>{{ $json.lista.length }}</code></td><td>Tamanho de um array</td></tr>
+            <tr><td><code>{{ $json.preco * 1.1 }}</code></td><td>Aritmética simples</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Boa notícia</div>
+        <p>Você <strong>não precisa decorar</strong>. Arrastar dado do painel de input pra um campo
+        gera a Expression automaticamente. Você só precisa <strong>ler</strong> depois pra entender
+        o que foi gerado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Hábito profissional: renomeie nós ANTES de configurar</span>
+      <p>Se você usa <code>{{ $('Set').item.json.email }}</code>, daqui a duas semanas você não sabe
+      qual Set é esse. Mas se for <code>{{ $('📦 Dados do Lead').item.json.email }}</code>, fica
+      óbvio. Renomear é hábito de minuto 1, não polimento de minuto 60.</p>
+    </div>
+
+    <h4>Ciclo de uso</h4>
+
+    <ol>
+      <li><strong>Adicione o nó</strong> que precisa ler dado dinâmico.</li>
+      <li><strong>Clique no raio</strong> do campo pra ativar Expression mode.</li>
+      <li><strong>Arraste</strong> o campo do painel de input (à esquerda) pro campo da
+      configuração: n8n gera a Expression sozinho.</li>
+      <li><strong>Execute</strong> o nó anterior antes (com <code>Ctrl+Enter</code>) pra ter dado
+      real disponível.</li>
+      <li><strong>Pinne</strong> o output do nó anterior (<code>P</code>): assim você não precisa
+      rodar tudo de novo a cada teste.</li>
+    </ol>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: micro-prática</h2>
+      </div>
+    </div>
+
+    <p>Vamos construir 2 nós. O primeiro cria campos. O segundo lê esses campos com Expression.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Dados de Teste e Leitura com Expression</div>
+      <div class="demo-corpo">
+        <p><strong>Passo 1, preparar:</strong></p>
+        <ol>
+          <li>Abra um workflow novo.</li>
+          <li>Renomeie o Manual Trigger pra <code>▶️ Disparo Manual</code>.</li>
+        </ol>
+        <p><strong>Passo 2, criar dado:</strong></p>
+        <ol>
+          <li>Adicione um Edit Fields (Set). Renomeie pra <code>📦 Dados de Teste</code>.</li>
+          <li>Adicione 3 campos (Fixed): <code>nome</code> &rarr; (seu nome); <code>cargo</code>
+          &rarr; (seu cargo); <code>cidade</code> &rarr; (sua cidade).</li>
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+          <li>Abra o JSON view do nó <code>📦 Dados de Teste</code>. Confira que tem os 3 pares
+          chave:valor.</li>
+          <li>Pinne os dados (<code>P</code>): aparece um pino.</li>
+        </ol>
+        <p><strong>Passo 3, ler com Expression:</strong></p>
+        <ol>
+          <li>Adicione um segundo Edit Fields. Renomeie pra <code>📤 Leitura com Expression</code>.</li>
+          <li>Adicione 1 campo: <code>saudacao</code>.</li>
+          <li>Ative <strong>Expression</strong> (clique no raio). Fundo fica roxo.</li>
+          <li>Digite:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O valor do campo saudacao</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8exp-saud">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8exp-saud">Olá, {{ $json.nome }}! Você é {{ $json.cargo }} de {{ $json.cidade }}.</pre>
+        </div>
+        <ol start="5">
+          <li>Execute.</li>
+          <li>Abra o JSON view deste nó. Você verá:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📤 Leitura com Expression (execução 435)</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8exp-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8exp-out">{ "saudacao": "Olá, (seu nome)! Você é (seu cargo) de (sua cidade)." }</pre>
+        </div>
+
+        <p><strong>O momento em que <code>{{ $json.nome }}</code> vira o seu nome na tela é o
+        instante de compreensão.</strong> A Expression não é uma string mágica: é uma instrução
+        que diz: "abra o JSON do nó anterior, pegue a chave <code>nome</code>, cole aqui."</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/expressions.svg" width="912" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo Manual, Dados de Teste, Leitura com Expression e Direto do primeiro Set, os quatro verdes, com 1 item em cada seta.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 435, 16/09/2026). O quarto nó é a variação abaixo.</p>
+
+        <div class="cartao">
+          <span class="rot">Variação rápida</span>
+          <p>Adicione um terceiro nó depois do <code>📤 Leitura com Expression</code>. Use
+          <code>{{ $('📦 Dados de Teste').item.json.cargo }}</code> pra ler <strong>direto</strong>
+          do primeiro Set, pulando o intermediário. Confirma que dá pra alcançar qualquer nó pelo
+          nome. No teste saiu <code>"cargo_direto": "(seu cargo)"</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Fixed contra Expression, os dois padrões e o crachá se preenchendo
+  sozinho na sua conta. O que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas de
+  sintaxe e de tipo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer das <code>{{ }}</code></div>
+      <p>O n8n trata como texto literal. Se você digita <code>$json.nome</code> num campo
+      Expression, ele bota a string <code>$json.nome</code> no output. Sempre <code>{{ }}</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar Fixed e Expression</div>
+      <p>Se o campo está em Fixed mode, a Expression não é interpretada. Ative o raio primeiro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tipo de dado errado</div>
+      <p><code>{{ $json.idade }}</code> retorna <strong>string</strong> se a origem mandou
+      <code>"30"</code> entre aspas. Comparações (<code>&gt; 18</code>) podem falhar. Use
+      <code>{{ Number($json.idade) }}</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomeou o nó depois de criar a Expression</div>
+      <p>Se você tem <code>$('Set').item.json.nome</code> e renomeia o Set pra "Dados", a
+      Expression quebra. Renomeie ANTES de configurar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tentar acessar campo inexistente</div>
+      <p>Retorna <code>undefined</code>. No JSON view, aparece como nada. Sempre confira o nome
+      exato da chave no input.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 5, IF node. As nove aulas do bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

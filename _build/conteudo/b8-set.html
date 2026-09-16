@@ -1,0 +1,297 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O nó <strong>Set</strong> (a.k.a. Edit Fields): usado em 80% dos workflows pra criar,
+      renomear e transformar campos</li>
+      <li>E o hábito de <strong>pinning de dados</strong> que economiza horas durante o
+      desenvolvimento</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Esses dois conceitos juntos definem <strong>o ciclo de iteração rápida</strong> que separa
+      quem demora 2h pra montar fluxo de quem demora 20min.</p>
+    </div>
+
+    <p>Set node aparece em quase todo workflow real. Sem dominar, você fica refém de copiar
+    tutoriais. E pinning não é "feature avançada": é hábito de desenvolvimento que economiza
+    dezenas de execuções pagas (OpenAI cobra cada chamada) e dezenas de minutos esperando o
+    trigger disparar de novo.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central: Set node</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Set é o nó que cria ou modifica campos no item que está fluindo</h3>
+
+      <p>Tem dois modos:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Modo</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>JSON</strong></td><td>Você cola um JSON inteiro de uma vez. Útil pra dado de teste estruturado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">A linha do modo <strong>Manual</strong> (campo a campo, o que a aula 4 do B6
+      usou) não veio no export do Notion; a tabela está como chegou.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>O Set é o <strong>organizador da mochila</strong>: o que vai no bolso da frente, o que vai
+        no principal, o que sai fora. É a sticky do nó no <code>exemplo-nodes-v2</code>.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Arrumar os bolsos</strong> = renomear e converter campos</li>
+          <li><strong>Jogar fora o que não serve</strong> = Keep Only Set ligado</li>
+          <li><strong>A mochila</strong> = o item que segue pro próximo nó</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-07.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Organizador e o Botão de Pausa'. 1. O Organizador (nó Set), com uma mochila arrumada: limpa a bagunça; antes de continuar o fluxo, você usa este passo para renomear etiquetas estranhas, converter textos falsos em números reais e jogar fora o que não serve. 2. O Botão de Pausa (Pinning), com um alfinete: toda vez que você testa, o robô gasta recursos buscando dados reais; para economizar, você alfineta (pina) um resultado bom; o sistema salva aquele pacote localmente; você pode testar o fluxo 50 vezes em segundos, sem acionar a fonte de novo. Atenção: tire o pino antes de ligar a automação na vida real, senão o robô enviará para sempre o mesmo dado de teste.">
+    </div>
+    <p class="fig-leg"><strong>Os dois hábitos desta aula, em slide.</strong> O slide escreve
+    "renorear", com erro de digitação; é renomear. A frase de baixo é a pegadinha 3 da cerca.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Padrão de uso 1: combinar campos numa frase</span>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8set-p1">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8set-p1">Input:  { "nome": "Ana", "cidade": "Fortaleza" }
+Set:    saudacao = `Olá, {{ $json.nome }} de {{ $json.cidade }}!`
+Output: { "nome": "Ana", "cidade": "Fortaleza", "saudacao": "Olá, Ana de Fortaleza!" }</pre>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Padrão de uso 2: limpar dado pra próxima etapa</span>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8set-p2">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8set-p2">Input:  { "lead_full_name": "Ana Silva", "lead_email_address": "ana@x.com", "internal_id": 42 }
+Set (Keep Only Set ligado):
+  - nome:  {{ $json.lead_full_name }}
+  - email: {{ $json.lead_email_address }}
+Output: { "nome": "Ana Silva", "email": "ana@x.com" }</pre>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Padrão de uso 3: converter tipo</span>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8set-p3">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8set-p3">Input:  { "score": "85" }   ← string (cuidado!)
+Set:    score = {{ Number($json.score) }} → Type: Number
+Output: { "score": 85 }     ← number (IF agora funciona)</pre>
+      </div>
+    </div>
+
+    <h4>Pinning de dados: o hábito que economiza horas</h4>
+
+    <p><strong>Pinning</strong> trava o output de um nó como se fosse o resultado real. Os nós
+    seguintes acreditam que o dado pinado é o output verdadeiro e rodam a partir dele:
+    <strong>sem precisar disparar o trigger de novo</strong>.</p>
+
+    <p><strong>Por que importa.</strong> Imagine um workflow <code>Webhook Trigger &rarr; AI Agent
+    &rarr; Sheets</code>:</p>
+
+    <ul class="lista">
+      <li>Sem pinning: cada teste do Sheets você manda nova requisição no Webhook.</li>
+      <li>Sem pinning: cada teste re-roda o AI Agent (paga OpenAI de novo).</li>
+      <li><strong>Com pinning no Webhook</strong>: você dispara 1 vez, pinna, e itera no resto do
+      fluxo sem reenviar.</li>
+    </ul>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Em uma frase</div>
+      <p>"Sem pinning, você re-roda o webhook 50 vezes pra testar uma mudança no Gmail. Com
+      pinning, dispara 1 vez."</p>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Como pinar e despinar</span>
+        <ol>
+          <li><strong>Pinar:</strong> com o nó selecionado, pressione <strong><code>P</code></strong>
+          depois de uma execução boa. Aparece um pino no canto.</li>
+          <li><strong>Despinar:</strong> pressione <strong><code>P</code></strong> de novo no nó
+          pinado. Pino some.</li>
+        </ol>
+      </div>
+      <div class="aviso atencao">
+        <div class="aviso-t">Quando despinar: obrigatório antes de ativar produção</div>
+        <p><strong>Pinned data ativo num workflow ativado faz ele rodar com dado fixo, ignorando o
+        trigger real.</strong> Sintoma: workflow ativado parece "rodar" mas processa sempre os
+        mesmos dados. Sempre <strong>despine</strong> antes de ativar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Set + Pinning juntos</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Lead Bruto, Lead Limpo</div>
+      <div class="demo-corpo">
+        <ol>
+          <li><strong>Manual Trigger</strong> &rarr; renomeie <code>▶️ Disparo</code>.</li>
+          <li><strong>Set node</strong> (modo JSON) &rarr; renomeie <code>📦 Lead Bruto</code>.
+          Cole:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O JSON do Lead Bruto</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8set-bruto">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8set-bruto">{
+  "lead_full_name": "Ana Silva",
+  "lead_email_address": "ana@empresa.com",
+  "lead_score_str": "85",
+  "internal_id_legacy": "abc-123"
+}</pre>
+        </div>
+        <ol start="3">
+          <li>Execute. <strong>Pinne (<code>P</code>)</strong>: o pino aparece.</li>
+          <li><strong>Set node</strong> (modo Manual, <strong>Keep Only Set ligado</strong>) &rarr;
+          renomeie <code>🧹 Lead Limpo</code>. Configure:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Os 3 campos do Lead Limpo &middot; nome, tipo, expression</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8set-limpo">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8set-limpo">nome  (String, Expression): {{ $('📦 Lead Bruto').item.json.lead_full_name }}
+email (String, Expression): {{ $('📦 Lead Bruto').item.json.lead_email_address.toLowerCase() }}
+score (Number, Expression): {{ Number($('📦 Lead Bruto').item.json.lead_score_str) }}</pre>
+        </div>
+        <ol start="5">
+          <li>Execute. Output limpo:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 🧹 Lead Limpo (execução 434)</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8set-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8set-out">{ "nome": "Ana Silva", "email": "ana@empresa.com", "score": 85 }</pre>
+        </div>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/lead-limpo.svg" width="672" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo, Lead Bruto e Lead Limpo, os três verdes, com 1 item em cada seta.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 434, 16/09/2026). O <code>score</code> saiu <code>85</code> sem aspas: o
+        <code>Number()</code> do padrão 3 funcionou, e o <code>internal_id_legacy</code> ficou de
+        fora, que é o Keep Only Set. Na versão atual do n8n a opção se chama <strong>Include Other
+        Input Fields</strong>: desligada, é o mesmo que Keep Only Set ligado.</p>
+
+        <p>Agora itere no <code>🧹 Lead Limpo</code> mudando configurações, <strong>sem reexecutar o
+        <code>📦 Lead Bruto</code></strong>, porque ele tá pinado.</p>
+
+        <div class="cartao">
+          <span class="rot">Pratique no exemplo-nodes-v2</span>
+          <p>No workflow de exemplo do módulo (o arquivo está na <a href="../b7-gatilhos/">capa do
+          B7</a>), o Set tem sticky note dedicada com a analogia <strong>"organizador da
+          mochila"</strong> (o que vai no bolso da frente, o que vai no principal, o que sai fora).
+          Abra, leia a sticky e brinque com a configuração: Parte 1, sticky do Set.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os três padrões do Set e o pino que poupa execuções. O que vem abaixo é
+  a <strong>cerca</strong>: cinco pegadinhas, três delas sobre o pino na hora errada.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Keep Only Set desligado quando você queria limpar</div>
+      <p>O output sai com <strong>todos</strong> os campos antigos + os novos. Verifique sempre.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tipo errado</div>
+      <p><code>Number</code> virando <code>String</code> (<code>"85"</code> em vez de
+      <code>85</code>) quebra IF/Switch silenciosamente. Sempre confira no JSON view do output.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer pinned data despinado em produção</div>
+      <p>O workflow ativado roda com dado fake. Pino antes de ativar = bug em produção.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pinar dado sensível</div>
+      <p>Se você pina um Webhook que recebeu token/senha de teste, esse dado fica gravado no
+      workflow exportado. Limpe antes de compartilhar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomear o nó depois de pinar</div>
+      <p>O pinned data fica órfão. Renomeie antes.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 4, Expressions e mapping. As nove aulas do bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

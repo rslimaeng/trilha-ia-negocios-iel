@@ -1,0 +1,251 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Os 3 nós que dão controle sobre listas no n8n: <strong>Split Out</strong> (separar
+      pedaços), <strong>Loop Over Items</strong> (processar com freio) e <strong>Aggregate</strong>
+      (juntar resultados num item só)</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Saber <strong>separar uma lista</strong>, <strong>iterar com freio</strong> e <strong>juntar
+      os resultados num item só</strong> é a diferença entre um fluxo que roda 5 itens de teste e um
+      que aguenta 5.000 em produção.</p>
+    </div>
+
+    <p>Workflows reais lidam com listas. 50 leads numa planilha. 200 mensagens não lidas.</p>
+
+    <p>A boa notícia: o n8n <strong>já itera sozinho</strong>: todo nó roda 1 vez por item,
+    automaticamente (revisar aula 2). Os 3 nós desta aula entram quando essa iteração padrão
+    <strong>não basta</strong>.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Três nós para a lista: separar, processar com freio, juntar</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Nó</th><th>O que faz</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Loop Over Items</strong></td><td>Processa N itens em lotes, com pausa entre eles</td><td>Rate limit de API; controle granular</td></tr>
+            <tr><td><strong>Split Out</strong></td><td>Pega array dentro de 1 item e transforma em N itens</td><td>Você tem 1 item com <code>tags: ["vip","novo"]</code> e quer cada tag como item</td></tr>
+            <tr><td><strong>Aggregate</strong></td><td>Junta N itens em <strong>1 item só</strong>, com campos virando arrays</td><td>50 leads viram 1 resumo com <code>nomes: ["Ana","Bruno"...]</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Split Out é a <strong>peneira</strong>: "1 saco com 3 maçãs" vira "3 maçãs separadas".
+        Aggregate é a <strong>sacola</strong>: faz o oposto, empacota N itens num único item. Loop
+        Over Items é o <strong>freio de mão</strong>: só puxa pra controlar velocidade.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A peneira</strong> = Split Out</li>
+          <li><strong>A sacola</strong> = Aggregate</li>
+          <li><strong>O freio de mão</strong> = Loop Over Items</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-12.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'Controlando a Esteira: Quebrar e Ensacar': às vezes, a esteira automática precisa de ajuda manual para lidar com agrupamentos de dados. Uma faca abre uma caixa e solta três bolinhas numa esteira, que passam por uma engrenagem e caem numa sacola. A Peneira (Split Out): você recebe 1 e-mail contendo 3 faturas anexadas; a peneira abre o e-mail (1 pacote) e joga as 3 faturas separadas na esteira para o robô ler uma por uma. A Sacola (Aggregate): o trabalho oposto; a esteira processou o nome de 50 clientes individualmente; antes de mandar um alerta para o seu celular, você usa a sacola para juntar os 50 nomes isolados em 1 único relatório consolidado. Embaixo: o combo dos deuses da automação: peneirar, processar um a um, ensacar o resultado.">
+    </div>
+    <p class="fig-leg"><strong>Peneira e sacola, em slide.</strong> A frase de baixo é o ciclo do
+    aviso abaixo, e é o que a demonstração faz com três tags.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Split Out: a peneira</h4>
+
+    <p>Explode array dentro de 1 item em N itens. "1 saco com 3 maçãs" vira "3 maçãs
+    separadas".</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pra copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b8lis-split">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b8lis-split">Antes: [{ "lead": "Ana", "tags": ["vip","novo","BR"] }]
+Depois: [
+  { "lead": "Ana", "tags": "vip" },
+  { "lead": "Ana", "tags": "novo" },
+  { "lead": "Ana", "tags": "BR" }
+]</pre>
+    </div>
+
+    <p>Configuração: nome do campo a separar (<code>tags</code>).</p>
+
+    <h4>Aggregate: a sacola</h4>
+
+    <p>Faz o <strong>oposto</strong> do Split Out. Pega N itens e empacota num <strong>único
+    item</strong>.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pra copiar</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b8lis-agg">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b8lis-agg">Antes (3 itens):
+[ { "nome": "Ana" }, { "nome": "Bruno" }, { "nome": "Carla" } ]
+Depois (Aggregate em "nome"):
+[ { "nome": ["Ana","Bruno","Carla"] } ]</pre>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">O ciclo</div>
+      <p>Split Out + Aggregate juntos formam o ciclo "explodir &rarr; processar item a item &rarr;
+      reagrupar pra entregar". Base de relatórios automáticos sem Code node.</p>
+    </div>
+
+    <h4>Loop Over Items: o freio</h4>
+
+    <p>O n8n já processa item por item. Use Loop Over Items só quando:</p>
+
+    <ol>
+      <li><strong>Rate limit de API:</strong> você tem 100 itens, mas a API aceita 10/min. Loop em
+      lotes de 10 + Wait entre eles.</li>
+      <li><strong>Controle granular</strong> entre iterações (raro pra iniciante).</li>
+    </ol>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Para 90% dos casos, você não precisa de Loop Over Items</div>
+      <p>O n8n já itera. Use só com rate limit ou controle granular.</p>
+    </div>
+
+    <p>Analogia: freio de mão. Só puxa pra controlar velocidade.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Split Out &rarr; Aggregate</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; explode e junta de volta</div>
+      <div class="demo-corpo">
+        <ol>
+          <li><strong>Manual Trigger</strong> &rarr; renomeie <code>▶️ Disparo</code>.</li>
+          <li><strong>Edit Fields (Set, modo JSON)</strong> &rarr; <code>📦 1 Item com Tags</code>.
+          Cole:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O JSON do item com tags</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8lis-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8lis-json">{ "lead": "Ana", "tags": ["vip", "novo", "BR"] }</pre>
+        </div>
+        <ol start="3">
+          <li><strong>Split Out</strong> &rarr; <code>🔪 Explode Tags</code>. <strong>Fields To Split
+          Out:</strong> <code>tags</code>. Execute &rarr; vira 3 itens.</li>
+          <li><strong>Aggregate</strong> &rarr; <code>🛍️ Junta de Volta</code>.
+          <strong>Aggregate:</strong> Individual Fields. <strong>Fields To Aggregate:</strong>
+          <code>tags</code>. Execute &rarr; volta a ser 1 item com array.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/split-aggregate.svg" width="912" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo, 1 Item com Tags, Explode Tags e Junta de Volta, os quatro verdes; as setas dizem 1 item, 1 item, 3 items e o último nó devolve 1 item.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 445, 16/09/2026). O Split Out entregou 3 itens (<code>vip</code>, <code>novo</code>,
+        <code>BR</code>, cada um com o <code>lead</code> junto) e o Aggregate devolveu
+        <code>{ "tags": ["vip", "novo", "BR"] }</code>: 1 item.</p>
+
+        <p><strong>Você acabou de fazer o ciclo Split Out &rarr; Aggregate.</strong></p>
+
+        <div class="cartao">
+          <span class="rot">Pratique no exemplo-nodes-v2</span>
+          <p>No workflow de exemplo do módulo (o arquivo está na <a href="../b7-gatilhos/">capa do
+          B7</a>), <strong>Split Out</strong> = "separar em pedaços", <strong>Aggregate</strong> =
+          "junta tudo numa sacola", <strong>Loop Over Items</strong> = "um por um com freio". O
+          <strong>Fluxo 3, Loop em lote</strong> mostra os 3 juntos: Parte 1 (sticky notes) e Parte
+          2 (Fluxo 3).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Peneira, sacola e freio, e o ciclo rodado com três tags. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a primeira é usar o freio sem precisar.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que precisa de Loop Over Items pra "iterar"</div>
+      <p>O n8n já itera. Use só com rate limit.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir Split Out com Loop Over Items</div>
+      <p>Split Out <strong>explode</strong> array em itens. Loop Over Items <strong>agrupa</strong>
+      itens em lotes. Funções opostas.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aggregate sem definir o campo</div>
+      <p>Sem <code>Fields To Aggregate</code>, ele empacota em estrutura genérica. Confira no JSON
+      view.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Wait de menos = rate limit estoura</div>
+      <p>Confira o limite real da API.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Wait de mais = workflow lento</div>
+      <p>5s &times; 500 itens = 40min.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 9, Fluxo prático: Resumo semanal de vendas. É a prática do
+    bloco; as nove aulas estão na <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

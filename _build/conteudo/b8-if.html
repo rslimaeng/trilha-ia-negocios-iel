@@ -1,0 +1,252 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O nó que toma decisão <strong>binária</strong> (sim/não, qualifica/não-qualifica)</li>
+      <li>Por que tipo de dado errado quebra IF <strong>silenciosamente</strong>: sem nada
+      vermelho, só indo pro lado errado</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Com IF, o fluxo <strong>se adapta</strong>: lead qualificado vai por um caminho, lead frio
+      por outro.</p>
+    </div>
+
+    <p>IF é o nó mais usado pra controle de fluxo. Sem ele, todo workflow trata todo input igual:
+    manda o mesmo e-mail pra todo lead, registra todo erro do mesmo jeito.</p>
+
+    <p>A pegadinha que vai te custar tempo: comparar uma string <code>"42"</code> com o número
+    <code>42</code> retorna <code>false</code>. Sintoma: a condição parece certa mas o fluxo vai pro
+    ramo errado. <strong>Quando isso acontece, sempre suspeite primeiro do tipo de dado.</strong></p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O IF tem 1 entrada e 2 saídas: True e False</h3>
+
+      <p>Cada item da entrada é avaliado individualmente: se atender a condição, sai pelo True; se
+      não, pelo False.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>O IF é o <strong>porteiro de 2 portas</strong>: entrou no critério &rarr; porta verde;
+        não entrou &rarr; porta vermelha. É a sticky do nó no <code>exemplo-nodes-v2</code>.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O pacote que chega</strong> = cada item</li>
+          <li><strong>A pergunta do porteiro</strong> = a condição</li>
+          <li><strong>Porta verde / porta vermelha</strong> = saída True / saída False</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-09.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Porteiro de Duas Portas (Nó IF)': um porteiro recebe um pacote numa esteira e aponta para uma porta verde (Verdadeiro, True) ou uma porta vermelha (Falso, False). Chegou um pacote, o que fazer com ele? O nó IF é o porteiro do prédio; ele toma decisões binárias avaliando o pacote, e só tem duas portas. Ele faz uma pergunta: a pontuação é maior que 70? Sim? Porta verde (lead qualificado). Não? Porta vermelha (lead frio). A armadilha invisível: lembra da diferença entre texto e número? Se o cliente enviou 80 como texto e a regra do porteiro exige um número maior que 70, o porteiro confunde os idiomas e chuta o pacote para a porta falsa; o fluxo não quebra, mas a decisão falha em silêncio.">
+    </div>
+    <p class="fig-leg"><strong>O porteiro, em slide.</strong> A armadilha do rodapé é a seção 03
+    inteira, e o teste de 16/09 mostrou que hoje ela nem chega a ser silenciosa.</p>
+
+      <h4>Tipos de comparação disponíveis</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Operadores comuns</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>String</strong></td><td>equals, contains, starts with, is empty</td><td><code>email</code> contains <code>"@"</code></td></tr>
+            <tr><td><strong>Number</strong></td><td>larger than, smaller than, equals</td><td><code>score</code> &gt; <code>70</code></td></tr>
+            <tr><td><strong>Boolean</strong></td><td>is true, is false</td><td><code>qualificado</code> = true</td></tr>
+            <tr><td><strong>DateTime</strong></td><td>is after, is before</td><td><code>data_inicio</code> is after <code>{{ $now }}</code></td></tr>
+            <tr><td><strong>Array</strong></td><td>is empty, length equals</td><td><code>items.length</code> &gt; <code>0</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Por que tipo de dado quebra o IF</h4>
+
+    <p>Os 5 tipos do n8n estão detalhados na aula 1. O ponto crítico pro IF: <strong>comparar
+    tipos diferentes não dá erro vermelho: entrega resultado errado em silêncio.</strong> A tabela
+    abaixo é o que mais aparece no dia a dia.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Conferido em 16/09/2026: na versão atual, o IF grita</div>
+      <p>Na conta de teste, o IF (versão 2.3) vem com a validação de tipo estrita ligada: comparar
+      <code>"32"</code> (string) com um operador de número parou a execução com o erro vermelho
+      <code>Wrong type: '32' is a string but was expecting a number</code> (execução 420, na aula
+      1). O silêncio que esta aula descreve acontece quando a opção "Convert types where
+      required" está ligada, ou em versões anteriores. Nos dois casos a correção é a mesma da
+      tabela: converter o tipo antes de comparar.</p>
+    </div>
+
+    <h4>Armadilhas frequentes que quebram o IF</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Situação</th><th>Sintoma</th><th>Correção</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Formulário envia número como texto: <code>"42"</code></td><td><code>score &gt; 40</code> sempre falsa</td><td><code>Number($json.score) &gt; 40</code> ou usar campo Number no Form</td></tr>
+          <tr><td>API retorna <code>"true"</code> entre aspas</td><td>Lógica booleana quebra</td><td>Compare como string ou converta com <code>Boolean()</code></td></tr>
+          <tr><td>Comparar <code>"10" == 10</code></td><td>Retorna <code>false</code></td><td>Converter ambos pro mesmo tipo antes de comparar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Regra de ouro</div>
+      <p>Quando o IF parece certo mas vai pro ramo errado, abra o JSON view do nó anterior e veja
+      se o valor está <strong>entre aspas</strong> (string) ou <strong>sem aspas</strong>
+      (number/boolean).</p>
+    </div>
+
+    <h4>Configurando o IF</h4>
+
+    <ol>
+      <li>Adicione o nó IF depois do nó que produz o dado a avaliar.</li>
+      <li><strong>Renomeie descrevendo a decisão:</strong> <code>❓ Score qualifica?</code>, não
+      <code>IF</code>.</li>
+      <li>Em <strong>Conditions</strong>, adicione a condição: Campo (em Expression)
+      <code>{{ $json.score }}</code>; Operação <code>larger than</code>; Valor <code>70</code>.</li>
+      <li>Conecte os ramos True e False a nós diferentes.</li>
+    </ol>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: qualificação de leads</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Score &gt;= 70?</div>
+      <div class="demo-corpo">
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">01 &middot; entrada</div>
+            <h4>Sheets: ler leads</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">02 &middot; decisão</div>
+            <h4>❓ Score &gt;= 70?</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">True &middot; False</div>
+            <h4>Gmail: enviar SDR &middot; Sheets: nutrir depois</h4>
+          </div>
+        </div>
+
+        <p>Configuração do IF: Campo <code>{{ $json.score }}</code>; Operação <code>larger than or
+        equal</code>; Valor <code>70</code>.</p>
+
+        <p>Teste com 2 leads: um com score 85, outro com 50. Confira no JSON view que cada um foi
+        pro ramo correto.</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/if-leads.svg" width="1192" height="440" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo, 2 Leads, Separar e o IF Score maior ou igual a 70, todos verdes; do IF saem dois ramos, true para Enviar SDR e false para Nutrir depois, os dois verdes com 1 item cada.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 437, 16/09/2026). Pra rodar sem planilha nem Gmail, os 2 leads entraram por um
+        Set (85 e 50) e os destinos são dois Sets: o Lead A saiu pelo True com
+        <code>"destino": "SDR"</code>, o Lead B pelo False com <code>"destino": "nutrir"</code>.
+        Um item em cada porta, que é o que o teste pede.</p>
+
+        <div class="cartao">
+          <span class="rot">Pratique no exemplo-nodes-v2</span>
+          <p>No workflow de exemplo do módulo (o arquivo está na <a href="../b7-gatilhos/">capa do
+          B7</a>), o IF tem sticky note dedicada com a analogia <strong>"porteiro de 2
+          portas"</strong> (entrou no critério &rarr; porta verde; não entrou &rarr; porta
+          vermelha). E o <strong>Fluxo 2, Decisão simples IF</strong> mostra o nó configurado num
+          mini-pipeline: Parte 1 (sticky do IF) e Parte 2 (Fluxo 2).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O porteiro, os cinco tipos de comparação e dois leads em duas portas.
+  O que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a última é a que mais passa
+  batida: testar só o True.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Comparar string com number sem converter</div>
+      <p>Resultado errado silencioso. Sempre use <code>Number($json.campo)</code> ou
+      <code>String($json.campo)</code> quando os tipos podem divergir.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer do caso "valor vazio"</div>
+      <p>Se o campo pode vir <code>null</code> ou <code>""</code>, adicione uma condição extra:
+      <code>is not empty</code>. Senão item vazio vai parar no ramo False sem você ter previsto.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomear como "IF"</div>
+      <p>Daqui a 2 semanas, com 3 IFs no canvas, você não sabe qual é qual. Sempre nome descritivo
+      da decisão.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar AND e OR sem agrupar</div>
+      <p>IF tem combinação de condições. Cuidado com prioridade lógica; teste cada caminho.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não testar o ramo False</div>
+      <p>Fácil testar só com input que vai pro True. Sempre envie um input que dispare o False
+      também.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 6, Switch node. As nove aulas do bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

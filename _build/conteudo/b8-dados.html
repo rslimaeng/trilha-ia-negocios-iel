@@ -1,0 +1,324 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Por que <strong>tudo no n8n é array de objetos</strong> (mesmo quando parece "1 item
+      só"), e como ler isso de 3 formas: Table, JSON, Schema</li>
+      <li>Esse é o conceito que mais separa quem trava no básico de quem destrava pro
+      intermediário</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Quem lê JSON resolve; quem fica só na Table fica perdido.</p>
+    </div>
+
+    <p>Você vai bater de frente com perguntas como: "por que meu nó rodou 3 vezes em vez de 1?",
+    "por que o e-mail saiu vazio?", "por que <code>{{ $json.nome }}</code> retorna <code>[object
+    Object]</code>?". 9 em cada 10 dessas dúvidas têm a mesma raiz: <strong>não entender que o n8n
+    trabalha com array de objetos</strong> e que a Table do output esconde isso.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Todo dado que sai de um nó é um array de objetos. Mesmo quando tem 1 item só.</h3>
+
+      <h4>Array vs objeto: o casamento que move tudo</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th></th><th>Array</th><th>Objeto</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sintaxe</td><td><code>[ ]</code></td><td><code>{ }</code></td></tr>
+            <tr><td>Acesso</td><td>Por posição: <code>array[0]</code></td><td>Por chave: <code>objeto.nome</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>A regra-mãe do n8n, a frase acima, significa que cada nó produz uma estrutura tipo:</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Um array de três objetos</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8dad-arr">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8dad-arr">[
+  { "nome": "Ana",   "cargo": "Gerente"  },
+  { "nome": "Bruno", "cargo": "Analista" },
+  { "nome": "Carla", "cargo": "Diretora" }
+]</pre>
+      </div>
+
+      <p><strong>O array é a lista. Cada objeto dentro é um item.</strong> O nó seguinte processa um
+      item por vez, em ordem: igual você pega maçãs antes de bananas no mercado.</p>
+
+      <h4>Por que isso importa na prática</h4>
+
+      <ul class="lista">
+        <li>Sua planilha do Google Sheets tem 50 linhas &rarr; o nó de Sheets entrega 50 itens.</li>
+        <li>O próximo nó executa <strong>50 vezes</strong>: uma pra cada linha. Automaticamente.</li>
+        <li>Você configura a lógica uma vez; ela roda N vezes sozinha.</li>
+      </ul>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia da lista de compras</div>
+        <p>O n8n trata um array como sua lista do mercado. Vai passando item por item, na ordem em
+        que estão. Você configura uma vez "o que fazer com cada item"; ele faz pra todos.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A lista do mercado</strong> = o array</li>
+          <li><strong>Cada item da lista</strong> = um objeto</li>
+          <li><strong>"O que fazer com cada item"</strong> = o nó, configurado uma vez</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-06.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Esteira Invisível (Listas e Iteração)': uma lista de compras (arrays) entra numa máquina (node) e saem caixas numa esteira, uma atrás da outra. Você puxou uma planilha com 50 contatos; você não precisa criar 50 envios de e-mail manuais. O sistema trabalha lendo uma lista de compras (arrays). Se entram 50 pacotes num passo da automação, ele automaticamente liga a esteira e processa o passo 50 vezes, um por um, em ordem. Você ensina a tarefa uma única vez (ex: envie o e-mail). A esteira invisível faz o resto. Embaixo: não se assuste se o sistema rodar várias vezes na tela; não é um erro, é a esteira fazendo o trabalho braçal por você.">
+    </div>
+    <p class="fig-leg"><strong>A lista de compras virou esteira em sala.</strong> As 50 linhas da
+    planilha são os 50 pacotes; a frase de baixo é a primeira pegadinha da cerca.</p>
+
+      <h4>Quando isso vira pegadinha</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Situação</th><th>O que está acontecendo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Esperava 1 execução, rodou 3</td><td>Entrou um array de 3 itens: comportamento esperado, não bug</td></tr>
+            <tr><td>Tentou acessar <code>{{ $json.nome }}</code> num nó que recebeu array de 3</td><td>Cada item é processado separadamente; <code>$json.nome</code> é o nome <strong>do item atual</strong></td></tr>
+            <tr><td>Output mostra <code>[object Object]</code></td><td>Você jogou o objeto inteiro num campo que esperava texto. Use <code>$json.campo</code> específico, não <code>$json</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Os 3 modos de visualização do output</h2>
+      </div>
+    </div>
+
+    <p>Quando você clica num nó executado, vê 3 abas no painel da direita. Cada uma serve pra
+    coisa diferente.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Aba</th><th>O que mostra</th><th>Quando usar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>JSON</strong></td><td>O dado cru, do jeito que tá</td><td><strong>Esta é a verdade.</strong> Sempre que algo dá errado, é aqui que aparece.</td></tr>
+          <tr><td><strong>Table</strong></td><td>Visão de planilha: colunas e linhas</td><td>Ver vários itens rápido, conferir contagem</td></tr>
+          <tr><td><strong>Schema</strong></td><td>A estrutura sem os valores</td><td>Mapear "o que existe" sem distração</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>O que cada uma esconde</h4>
+
+    <ul class="lista">
+      <li><strong>Table</strong> esconde objetos aninhados. Se você tem <code>{ "endereco": {
+      "cidade": "Fortaleza" } }</code>, a Table mostra <code>[object Object]</code> na coluna
+      <code>endereco</code>. <strong>Não dá pra confiar pra debugar.</strong></li>
+      <li><strong>JSON</strong> mostra tudo, inclusive aninhamentos. É a fonte de verdade.</li>
+      <li><strong>Schema</strong> ignora valores e mostra só os nomes das chaves e tipos. Útil pra
+      entender estrutura de uma API nova.</li>
+    </ul>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Hábito profissional</div>
+      <p>Quando o nó parece que não fez o esperado, abra primeiro o JSON view. A Table mente por
+      simplificação; o JSON conta a verdade.</p>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-05.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Use a sua Lente de Raio-X': ao construir fluxos, o sistema te dá diferentes visões do mesmo pacote; a regra de ouro: a tabela simplifica e mente para você. Aba Table (a ilusão): mostra os dados igual ao Excel, esconde detalhes vitais e não te conta se 32 é um texto disfarçado de número. Aba JSON (o raio-X): a verdade nua e crua, mostra as etiquetas exatamente como o robô enxerga (com aspas para texto, sem aspas para número). Embaixo: quando uma automação tomar o caminho errado, vá direto para a aba JSON; é lá que o erro se revela.">
+    </div>
+    <p class="fig-leg"><strong>Table contra JSON, em slide.</strong> O 32 entre aspas do lado do
+    raio-X é o experimento da aula 1 de novo.</p>
+
+    <h4>Visualizando o array de itens</h4>
+
+    <p>No JSON view, os itens aparecem numerados:</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Os três itens, numerados</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b8dad-itens">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b8dad-itens">Item 0: { "nome": "Ana",    "cargo": "Gerente"  }
+Item 1: { "nome": "Bruno",  "cargo": "Analista" }
+Item 2: { "nome": "Carla",  "cargo": "Diretora" }</pre>
+    </div>
+
+    <p>O nó seguinte vai processar Ana, depois Bruno, depois Carla: automaticamente.</p>
+
+    <h4>Acessando campos com Expression</h4>
+
+    <ul class="lista">
+      <li><code>{{ $json.nome }}</code> &rarr; pega o campo <code>nome</code> <strong>do item
+      atual</strong> (varia a cada execução do array).</li>
+      <li><code>{{ $json.endereco.cidade }}</code> &rarr; navega objeto aninhado.</li>
+      <li><code>{{ $json.tags[0] }}</code> &rarr; primeiro item de um array dentro do objeto.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: observando o array em ação</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; 3 Pessoas</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Abra um workflow novo.</li>
+          <li><strong>Manual Trigger</strong> &rarr; renomeie pra <code>▶️ Disparo</code>.</li>
+          <li><strong>Edit Fields (Set)</strong> &rarr; renomeie pra <code>📦 3 Pessoas</code>.
+          Configure modo <code>JSON</code>:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O JSON do passo 3, como está no Notion</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8dad-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8dad-json">[
+  { "nome": "Ana",   "cargo": "Gerente"  },
+  { "nome": "Bruno", "cargo": "Analista" },
+  { "nome": "Carla", "cargo": "Diretora" }
+]</pre>
+        </div>
+        <div class="aviso atencao">
+          <div class="aviso-t">Conferido em 16/09/2026: o modo JSON do Set não aceita uma lista na raiz</div>
+          <p>Na versão atual do n8n, colar o array acima no modo JSON dá <code>The 'JSON Output'
+          in item 0 does not contain a valid JSON object</code> (execução 430): o Set espera um
+          objeto <code>{ }</code>. O caminho que rodou foi embrulhar a lista num objeto,
+          <code>{ "pessoas": [ ... ] }</code>, e colocar um <strong>Split Out</strong> (campo
+          <code>pessoas</code>) logo depois do Set, antes da Saudação. O Split Out é o nó da
+          aula 8; aqui ele só abre a lista em 3 itens.</p>
+        </div>
+        <ol start="4">
+          <li><strong>Edit Fields (Set)</strong> &rarr; renomeie pra <code>📤 Saudação</code>.
+          Adicione 1 campo: <code>mensagem</code> (Expression):</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O valor do campo mensagem</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8dad-msg">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8dad-msg">Olá, {{ $json.nome }}! Seu cargo é {{ $json.cargo }}.</pre>
+        </div>
+        <ol start="5">
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/tres-pessoas.svg" width="912" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo, 3 Pessoas, Separar em 3 Itens e Saudação, todos verdes; a seta entre os dois primeiros diz 1 item, as duas seguintes dizem 3 items.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 433, 16/09/2026). Repare nas setas: 1 item até o Set, 3 itens depois do Split
+        Out, e a Saudação rodou 3 vezes.</p>
+
+        <p><strong>Observe na Table do <code>📤 Saudação</code>:</strong> 3 linhas, uma pra cada
+        pessoa. Cada uma com a mensagem montada.</p>
+
+        <p><strong>Observe na JSON:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📤 Saudação &middot; visão JSON</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8dad-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8dad-out">[
+  { "mensagem": "Olá, Ana! Seu cargo é Gerente." },
+  { "mensagem": "Olá, Bruno! Seu cargo é Analista." },
+  { "mensagem": "Olá, Carla! Seu cargo é Diretora." }
+]</pre>
+        </div>
+
+        <p><strong>Você não escreveu <code>for</code> nenhum.</strong> O n8n executou o Set 3
+        vezes, uma pra cada item, automaticamente.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">A regra-mãe, as três abas e a esteira rodando três vezes sem
+  <code>for</code>. O que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a primeira
+  não é bug.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">"Por que rodou 3 vezes?"</div>
+      <p>Porque entrou um array de 3 itens. <strong>Não é bug.</strong> É comportamento padrão.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t"><code>$json</code> &ne; <code>$json.campo</code></div>
+      <p>O primeiro é o objeto inteiro do item atual; o segundo é um campo específico. Jogar
+      <code>$json</code> num campo que espera texto produz <code>[object Object]</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Object aninhado quebra a Table</div>
+      <p>Vá pro JSON view.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir array com objeto</div>
+      <p><code>[ ]</code> é lista; <code>{ }</code> é par chave:valor. Misturar quebra Expressions.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer que cada item processa separadamente</div>
+      <p>Se você usa expressões esperando agregação, vai pegar só o último ou o primeiro item, não
+      a soma.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 3, Set / Edit Fields + Pinning. As nove aulas do bloco estão
+    na <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

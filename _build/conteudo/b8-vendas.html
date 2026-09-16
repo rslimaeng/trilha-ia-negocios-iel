@@ -1,0 +1,460 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Workflow que lê uma planilha de pedidos do Drive, agrupa as vendas por categoria, soma os
+      valores e entrega um resumo formatado por e-mail</li>
+      <li><strong>O caso "Sheets vira insight" sem escrever uma linha de código</strong></li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>O que você aprende</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Summarize</strong> como atalho pra análise de dados sem Code node, e <strong>Sort
+      + Aggregate + Set</strong> como cadeia clássica de "dados &rarr; texto formatado".</p>
+    </div>
+
+    <ul class="lista">
+      <li>Ler dados de Google Sheets na prática.</li>
+      <li>Por que <strong>converter tipo</strong> importa antes de somar (string vs number).</li>
+      <li><strong>Summarize</strong> como atalho pra análise de dados sem Code node.</li>
+      <li><strong>Sort + Aggregate + Set</strong> como cadeia clássica de "dados &rarr; texto
+      formatado".</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento (Gatilho &rarr; Execução &rarr; Entrega)</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Oito nós, de uma planilha a um e-mail: Manual &rarr; Sheets &rarr; Set &rarr; Summarize
+      &rarr; Sort &rarr; Aggregate &rarr; Set &rarr; Gmail</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Manual (depois Schedule pra rodar toda segunda 8h).</li>
+        <li><strong>Execução:</strong> Sheets &rarr; Set (limpar tipos) &rarr; Summarize (agrupar e
+        somar) &rarr; Sort &rarr; Aggregate &rarr; Set (formatar texto).</li>
+        <li><strong>Entrega:</strong> Gmail com resumo: "Casa: R$ 12.450 (8 pedidos)" linha por
+        linha, ordenado do maior pro menor.</li>
+      </ul>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-13.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Juntando Tudo: A Fábrica Real (Resumo de Vendas)': como a teoria vira um fluxo prático de ponta a ponta. Seis máquinas numa esteira: 1, Lê Planilha, puxa 100 linhas de vendas (a esteira invisível entra em ação); 2, Organizador (Set), limpa os dados e garante que a coluna de preço seja transformada de texto para número; 3, Análise (Summarize), agrupa os 100 pacotes por categoria e faz a soma matemática; 4, Organiza (Sort), ordena do maior valor para o menor; 5, A Sacola (Aggregate), junta as categorias já somadas em um pacote único; 6, Entrega (Gmail), usa uma expressão dinâmica {{$json.linhas}} para te enviar 1 único e-mail perfeito com o relatório.">
+    </div>
+    <p class="fig-leg"><strong>A fábrica, como foi mostrada em sala.</strong> O slide tem seis
+    máquinas; o passo a passo abaixo tem oito nós, porque o gatilho e o Set que monta o texto
+    aparecem separados.</p>
+
+      <div class="cartao">
+        <span class="rot">Pré-requisitos</span>
+        <ul class="lista">
+          <li><strong>Planilha "Pedidos 2026"</strong> no Google Drive com colunas: <code>data |
+          categoria | produto | valor | vendedor</code> e ao menos 30 linhas variadas.</li>
+          <li><strong>Credencial Google Sheets</strong> configurada no n8n.</li>
+          <li><strong>Credencial Gmail</strong> configurada no n8n.</li>
+          <li>Aulas anteriores do B8 (especialmente Set, Expressions e Listas).</li>
+        </ul>
+      </div>
+
+      <div class="arquivo">
+        <div>
+          <div class="arq-tipo">CSV</div>
+          <div>
+            <div class="arq-nome">pedidos-2026.csv</div>
+            <div class="arq-fn">A planilha "Pedidos 2026" pronta: 40 pedidos de abril de 2026, 8 por
+            categoria, gerada com o prompt abaixo. Suba no Google Drive, abra como Google Sheets,
+            nomeie a planilha <strong>"Pedidos 2026"</strong> e a aba <strong>"Pedidos"</strong>.</div>
+          </div>
+        </div>
+        <div class="arq-acoes">
+          <a class="btn" href="../_arquivos/pedidos-2026.csv" download>Baixar a planilha</a>
+        </div>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Se preferir gerar a sua &middot; cole no Claude.ai (ou ChatGPT) e baixe o CSV resultante</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8ven-gera">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8ven-gera">Gere um arquivo CSV chamado "pedidos-2026.csv" com 40 linhas representando pedidos
+fictícios de um e-commerce brasileiro pequeno. Use ponto e vírgula (;) como
+separador, ou vírgula se preferir.
+
+Colunas (nesta ordem):
+1. data — formato YYYY-MM-DD, distribuído ao longo de Abril 2026
+2. categoria — uma de: Eletrônicos, Vestuário, Casa, Beleza, Esporte
+3. produto — nome plausível dentro da categoria (ex.: "Fone Bluetooth", "Camiseta Algodão")
+4. valor — número decimal entre 30.00 e 2500.00, com 2 casas decimais e ponto como separador
+5. vendedor — um de: Ana, Bruno, Carla, Diego, Erika
+
+Distribuição: ao menos 6 linhas por categoria, valores variados (alguns altos,
+alguns baixos), datas espalhadas pelos 30 dias do mês. Não inclua linhas em
+branco. A primeira linha deve ser o cabeçalho com os nomes das colunas exatos
+acima (em minúsculas).
+
+Entregue só o conteúdo do CSV, sem explicação extra.</pre>
+      </div>
+      <p class="fig-leg">O prompt é o do vault do curso (M3/09). O <code>pedidos-2026.csv</code> acima
+      é o resultado dele, rodado uma vez em 16/09/2026.</p>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Atalho</div>
+        <p>O workflow já está pronto no n8n hospedado do instrutor. Abra, execute (Ctrl+Enter), o
+        e-mail chega: <code>M3, Resumo Semanal de Vendas</code>. O passo a passo abaixo descreve o
+        fluxo de cabo a rabo, caso queira reconstruir do zero ou entender cada nó. <em>Nesta
+        turma, o servidor do instrutor não é aberto ao aluno: o mesmo fluxo está no arquivo da
+        seção 04, pra importar na sua conta.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Manual Trigger</div>
+      </div>
+      <p>Adicione, renomeie pra <code>▶️ Disparo</code>. Depois você troca por Schedule.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Google Sheets: Get Rows</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Resource:</strong> Sheet Within Document</li>
+        <li><strong>Operation:</strong> Get Row(s) in Sheet</li>
+        <li><strong>Document:</strong> selecione <code>Pedidos 2026</code></li>
+        <li><strong>Sheet:</strong> <code>Pedidos</code></li>
+        <li><strong>Renomeie:</strong> <code>📋 Lê Pedidos</code></li>
+      </ul>
+      <p>Execute. Cada linha vira 1 item. <strong>Pinne</strong> este nó (<code>P</code>) pra não
+      reler a planilha a cada teste.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Set: limpar tipos</div>
+      </div>
+      <p>A planilha entrega <code>valor</code> como <strong>string</strong>. Pra somar, precisa virar
+      <strong>number</strong> (revisar aula 1).</p>
+      <ul class="lista">
+        <li>Adicione <strong>Edit Fields (Set)</strong>, renomeie <code>🧹 Limpa Tipos</code>.</li>
+        <li><strong>Mode:</strong> Manual Mapping</li>
+        <li><strong>Include Other Fields:</strong> ligado</li>
+        <li>Adicione 1 campo: <strong>Name</strong> <code>valor</code>; <strong>Type</strong> Number;
+        <strong>Value (Expression)</strong> <code>{{ Number($json.valor) }}</code></li>
+      </ul>
+      <p>Execute. No JSON: <code>valor</code> aparece <strong>sem aspas</strong>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Summarize: agrupar e somar</div>
+      </div>
+      <p>O nó-coração da análise. Agrupa por uma chave e calcula soma/média/contagem.</p>
+      <ul class="lista">
+        <li>Adicione <strong>Summarize</strong>, renomeie <code>📊 Resumo por Categoria</code>.</li>
+        <li><strong>Fields to Summarize:</strong> Field <code>valor</code>, Aggregation
+        <code>Sum</code>; Field <code>produto</code>, Aggregation <code>Count</code></li>
+        <li><strong>Fields to Split By:</strong> <code>categoria</code></li>
+      </ul>
+      <p>Execute. Saída: <strong>N itens</strong> (1 por categoria) com <code>categoria</code>,
+      <code>sum_valor</code>, <code>count_produto</code>.</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8ven-sum">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8ven-sum">[
+  { "categoria": "Casa",        "sum_valor": 12450, "count_produto": 8 },
+  { "categoria": "Eletrônicos", "sum_valor": 23890, "count_produto": 5 }
+]</pre>
+      </div>
+      <div class="aviso ok">
+        <div class="aviso-t">Por que Summarize e não Aggregate?</div>
+        <p>Aggregate empacota tudo em arrays sem fazer matemática. Summarize faz agrupamento +
+        cálculo num passo só. Você usa <strong>os dois juntos</strong> logo abaixo.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Sort: decrescente</div>
+      </div>
+      <ul class="lista">
+        <li>Adicione <strong>Sort</strong>, renomeie <code>⬇️ Ordena Maior pro Menor</code>.</li>
+        <li><strong>Type:</strong> Simple</li>
+        <li><strong>Fields To Sort By:</strong> <code>sum_valor</code>, Order: Descending</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Aggregate: juntar tudo num item só</div>
+      </div>
+      <p>Pra mandar <strong>1 e-mail</strong> com tudo, empacote as N linhas num item único.</p>
+      <ul class="lista">
+        <li><strong>Aggregate</strong> &rarr; <code>🛍️ Empacota</code>.</li>
+        <li><strong>Aggregate:</strong> All Item Data (Into a Single List)</li>
+        <li><strong>Put Output in Field:</strong> <code>linhas</code></li>
+      </ul>
+      <p>Execute. Saída: <strong>1 item</strong> com <code>linhas: [...todas as
+      categorias...]</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Set: montar texto do e-mail</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Edit Fields (Set)</strong> &rarr; <code>📝 Monta Texto</code>.</li>
+        <li><strong>Include Other Fields:</strong> desligado</li>
+        <li>1 campo: <strong>Name</strong> <code>corpo</code>; <strong>Type</strong> String;
+        <strong>Value (Expression)</strong>:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo corpo &middot; cole como está</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8ven-corpo">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8ven-corpo">Resumo de vendas — semana de {{ $now.toFormat('dd/MM/yyyy') }}
+
+{{ $json.linhas.map(l => `${l.categoria}: R$ ${l.sum_valor.toFixed(2)} (${l.count_produto} pedidos)`).join('\n') }}
+
+Total geral: R$ {{ $json.linhas.reduce((acc, l) => acc + l.sum_valor, 0).toFixed(2) }}</pre>
+      </div>
+      <div class="aviso ok">
+        <div class="aviso-t">Calma com a Expression aqui</div>
+        <p>3 truques: <code>.map()</code> percorre o array montando cada linha;
+        <code>.join('\n')</code> cola as linhas com quebras; <code>.reduce()</code> soma o total
+        geral. Você não precisa decorar: cole, execute, leia o output e identifique cada parte. Se
+        der erro, abra o JSON view do nó anterior pra conferir os nomes dos campos
+        (<code>sum_valor</code>, <code>count_produto</code>).</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Gmail: enviar</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Gmail</strong> &rarr; <code>📧 Envia Resumo</code>.</li>
+        <li><strong>Resource:</strong> Message, <strong>Operation:</strong> Send</li>
+        <li><strong>To:</strong> seu e-mail</li>
+        <li><strong>Subject:</strong> <code>Resumo de vendas — {{ $now.toFormat('dd/MM/yyyy') }}</code></li>
+        <li><strong>Email Type:</strong> Text</li>
+        <li><strong>Message:</strong> <code>{{ $json.corpo }}</code></li>
+      </ul>
+      <p>Execute. Confira a caixa de entrada.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Protocolo de Validação</div>
+        <p>Antes de considerar o fluxo "pronto":</p>
+        <ol>
+          <li><strong>Sem nó vermelho:</strong> todos executaram em verde.</li>
+          <li><strong>Output esperado:</strong> e-mail chegou com categorias <strong>ordenadas do
+          maior pro menor</strong>, valores <strong>com 2 casas decimais</strong>, total geral
+          conferindo com a soma manual.</li>
+          <li><strong>Caso de borda:</strong> duplique uma linha da planilha (mesmo produto, mesma
+          categoria) e rode de novo. <code>count_produto</code> deve aumentar em 1,
+          <code>sum_valor</code> deve refletir.</li>
+        </ol>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">Se o total saiu absurdo, tipo "125200" em vez de 325</div>
+        <p><strong><code>valor</code> como string.</strong> Sem o Set convertendo, o Summarize
+        <strong>soma como texto</strong> (<code>"125" + "200" = "125200"</code>). Confira o JSON view
+        do <code>🧹 Limpa Tipos</code>.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> pular o passo 3 e "arredondar" o
+        resultado na mão no e-mail. O erro está antes do Summarize, e a correção também.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O fluxo rodando, e o e-mail que chegou</h2>
+      </div>
+    </div>
+
+    <p>Este é o workflow do instrutor rodando na conta de teste, em 16/09/2026, com a planilha
+    "Pedidos 2026" dele: 800 linhas, cinco categorias, um e-mail.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas depois do Execute Workflow</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p5-vendas.svg" width="1872" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: oito nós em linha, Disparo, Lê Pedidos, Limpa Tipos, Resumo por Categoria, Ordena Maior pro Menor, Empacota, Monta Texto e Envia Resumo, todos verdes; as setas dizem 1 item, 800 items, 800 items, 5 items, 5 items, 1 item e 1 item.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 446, 16/09/2026, 16h07). Repare na contagem das setas: 800 linhas entram, o
+        Summarize devolve 5, o Aggregate devolve 1, e é esse 1 que vira o e-mail.</p>
+
+        <p>O que o <code>📝 Monta Texto</code> montou, e o Gmail mandou:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O corpo do e-mail &middot; como chegou</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8ven-email">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8ven-email">Resumo de vendas — semana de 16/09/2026
+
+Vestuário: R$ 219.958,02 (161 pedidos)
+Esporte: R$ 211.403,16 (165 pedidos)
+Beleza: R$ 200.951,59 (164 pedidos)
+Eletrônicos: R$ 195.074,98 (154 pedidos)
+Casa: R$ 193.628,44 (156 pedidos)
+
+Total geral: R$ 1.021.016,19</pre>
+        </div>
+        <p class="fig-leg"><strong>Duas coisas conferidas no teste:</strong> a ordem do maior pro
+        menor bate com o Sort, e o total geral (1.021.016,19) é a soma das cinco linhas. Os valores
+        saíram no formato brasileiro (ponto de milhar, vírgula decimal) porque o <code>📝 Monta
+        Texto</code> do instrutor usa <code>.toLocaleString("pt-BR")</code> onde o passo 7 acima usa
+        <code>.toFixed(2)</code>; com o <code>.toFixed(2)</code> sai <code>219958.02</code>. Os dois
+        cumprem o protocolo. O Gmail devolveu <code>labelIds: SENT, INBOX</code>: enviado e recebido.</p>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">JSON</div>
+        <div>
+          <div class="arq-nome">resumo-semanal-de-vendas.json</div>
+          <div class="arq-fn">Os oito nós do passo a passo, exportados do teste, pra importar na sua
+          conta. Selecione a sua planilha "Pedidos 2026" no <code>📋 Lê Pedidos</code>, troque o
+          <strong>To</strong> pelo seu e-mail e conecte as credenciais Sheets e Gmail.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/resumo-semanal-de-vendas.json" download>Baixar para importar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Variações pra praticar</h2>
+      </div>
+    </div>
+
+    <ul class="lista">
+      <li><strong>Trocar <code>categoria</code> por <code>vendedor</code></strong> no Summarize &rarr;
+      ranking de vendedores da semana.</li>
+      <li><strong>Filtrar últimos 7 dias:</strong> Filter antes do Summarize, com a condição:
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8ven-7dias">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8ven-7dias">{{ new Date($json.data) >= $now.minus({days: 7}).toJSDate() }}</pre>
+      </div></li>
+      <li><strong>Trocar Manual por Schedule:</strong> toda segunda 8h. Vira relatório automático.</li>
+      <li><strong>Trocar Gmail por Telegram:</strong> mesma lógica, outra entrega.</li>
+    </ul>
+
+    <p class="fig-leg"><strong>Nenhuma das quatro rodou no teste de 16/09:</strong> são a sua
+    parte.</p>
+
+    <div class="checagem">
+      <span class="rot">Mapa de Capacidades · checkpoint B8</span>
+      <ul>
+        <li>Configurei Sheets Get Rows pra ler uma planilha.</li>
+        <li>Converti <code>valor</code> de string pra number com Set + <code>Number()</code>.</li>
+        <li>Configurei Summarize agrupando por categoria, somando valor e contando pedidos.</li>
+        <li>Ordenei com Sort decrescente e empacotei com Aggregate.</li>
+        <li>Montei o texto do e-mail com <code>.map().join()</code> e <code>.reduce()</code>.</li>
+        <li>Enviei o resumo no Gmail e validei nos 3 pontos do protocolo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o e-mail do resumo na caixa, a aula 9 está feita, e o B8 também. O
+  que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a primeira é a que mais
+  aparece: somar texto.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Linhas vazias na planilha</div>
+      <p>Sheets entrega como itens com campos <code>null</code>. Adicione um <strong>Filter</strong>
+      depois do Get Rows: <code>categoria</code> is not empty.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t"><code>{{ $now }}</code> em fuso errado</div>
+      <p>Default é UTC. Pra Fortaleza:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Pra copiar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8ven-fuso">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8ven-fuso">{{ $now.setZone('America/Fortaleza').toFormat('dd/MM/yyyy') }}</pre>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aggregate antes de Sort</div>
+      <p>Inverte a ordem? Perde a ordenação. Sort <strong>antes</strong> de Aggregate.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pinou e ativou</div>
+      <p>Despine o <code>📋 Lê Pedidos</code> antes de ativar produção.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você concluiu o B8!</strong> Hora de aprender a conversar com <strong>qualquer
+    ferramenta do mundo</strong>: APIs, webhooks, integrações customizadas. <strong>Próximo
+    bloco:</strong> B9, APIs e webhooks. As nove aulas deste bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

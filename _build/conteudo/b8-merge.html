@@ -1,0 +1,336 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O nó que <strong>junta caminhos</strong>, e a pegadinha mais frustrante do n8n iniciante:
+      "meu Merge não entrega nada e não dá erro"</li>
+      <li>Resolve aqui escolhendo o <strong>modo certo</strong> entre Choose Branch e Combine, e
+      com o resultado do teste de 16/09: depois de um IF, o modo que passa o item é Append</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>O Merge é o nó que reúne os caminhos, e ele tem dois modos com objetivos opostos.
+      Confundir os dois é a causa de execução com output vazio que parece sem motivo.</p>
+    </div>
+
+    <p>À medida que seus workflows crescem, <strong>bifurcações</strong> aparecem naturalmente. Um
+    IF cria 2 caminhos. Você dispara 2 buscas em paralelo pra ganhar tempo. Em todos esses casos,
+    vai precisar <strong>reunir</strong> os caminhos antes de continuar pro próximo passo.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O Merge tem 2 entradas e 1 saída. A pergunta que decide o modo é uma só: em uma
+      execução, quantos caminhos vão ter dados?</h3>
+
+      <p>Ele recebe dados de duas origens diferentes e os entrega num único fluxo seguinte.</p>
+
+      <ul class="lista">
+        <li><strong>Apenas um caminho</strong> &rarr; modo <strong>Choose Branch</strong>.</li>
+        <li><strong>Os dois caminhos</strong> &rarr; modo <strong>Combine by Position</strong> (ou
+        Combine by Key).</li>
+      </ul>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Conferido em 16/09/2026: depois de um IF, quem passa o item é o Append</div>
+        <p>Antes de escrever esta aula, o caso "apenas um caminho" foi montado numa conta de teste:
+        um IF de 2 ramos, cada ramo num Set, os dois no Merge, e um nó depois. Os três modos foram
+        rodados com o mesmo item.</p>
+        <ul class="lista">
+          <li><strong>Append</strong> (execução 441): o Merge passou o item do ramo que chegou, 1
+          item, e o nó seguinte rodou. ✅</li>
+          <li><strong>Choose Branch</strong> (execução 442): o Merge <strong>nunca rodou</strong>.
+          Ficou esperando a entrada 2, que o IF não alimentou, e o nó seguinte não executou. Sem
+          erro vermelho.</li>
+          <li><strong>Combine by Position</strong> (execução 443): o Merge rodou e saiu
+          <strong>vazio</strong>, com a dica "Consider enabling Include Any Unpaired Items". O nó
+          seguinte não executou.</li>
+        </ul>
+        <p>Na versão atual do n8n, o Choose Branch é descrito como "espera todas as entradas" e
+        serve pra escolher os dados de <em>uma</em> entrada quando <em>todas</em> chegaram: não pra
+        reunir os ramos de um IF. Onde esta aula diz Choose Branch para o caso do IF, <strong>faça
+        Append</strong>. O curso oficial do n8n e sete relatos do acervo dizem o mesmo. As frases
+        do Notion ficaram como estão; o teste está na seção 04.</p>
+      </div>
+
+      <h4>Modo 1: Choose Branch (caminhos alternativos)</h4>
+
+      <p>Use quando os dois caminhos vêm de um <strong>IF</strong> (ou Switch) e só um deles vai
+      receber o item naquela execução. O Merge espera o que chegar e passa adiante.</p>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">IF: lead qualificado?</div>
+          <h4>True &middot; False</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">um ramo de cada vez</div>
+          <h4>Ação A &middot; Ação B</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">reúne</div>
+          <h4>MERGE: Choose Branch &rarr; Próximo passo único</h4>
+        </div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Dois funcionários em turnos alternados: um de manhã, outro à tarde. Em qualquer momento,
+        só um está trabalhando. O Merge sabe que só vai chegar um e espera por ele.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Os dois turnos</strong> = os dois ramos do IF</li>
+          <li><strong>Só um trabalhando</strong> = só um ramo tem item por execução</li>
+          <li><strong>Esperar por ele</strong> = o Merge (no teste, o Append) passa o que chegou</li>
+        </ul>
+      </div>
+
+      <h4>Modo 2: Combine by Position (processamento paralelo)</h4>
+
+      <p>Use quando você divide o fluxo em dois caminhos que rodam <strong>ao mesmo tempo</strong> e
+      você precisa <strong>somar os campos</strong> dos dois resultados num item só.</p>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">em paralelo</div>
+          <h4>Buscar dados no Sheets &middot; Buscar dados na API</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">reúne</div>
+          <h4>MERGE: Combine</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">saída</div>
+          <h4>Item enriquecido</h4>
+        </div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Dois funcionários processando o mesmo pedido em paralelo: um cuida da parte financeira,
+        outro da parte logística. No final, você junta os dois pra ter o pedido completo.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Os dois funcionários</strong> = os dois caminhos paralelos</li>
+          <li><strong>O mesmo pedido</strong> = o mesmo item, com campos diferentes em cada um</li>
+          <li><strong>Juntar os dois</strong> = Combine by Position</li>
+        </ul>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Existe também Combine by Key</div>
+        <p>Pareia itens pelo valor de um campo (ex.: <code>cliente_id</code>). Lógica igual à do
+        Combine by Position, mas em vez de parear pela posição, pareia pelo valor da chave. Use
+        quando os dois caminhos podem trazer itens em ordens diferentes.</p>
+      </div>
+
+      <p class="fig-leg">O slide desta aula (o cruzamento, m3-11) diz "Choose Branch deixa o
+      pacote passar" para o caso do IF; como o teste não confirmou, ele ficou de fora, por decisão
+      do prompt de 14/09.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Configurando Choose Branch</span>
+        <ol>
+          <li>Adicione um nó Merge depois dos dois ramos do IF.</li>
+          <li>Conecte o ramo <strong>True</strong> na entrada 1.</li>
+          <li>Conecte o ramo <strong>False</strong> na entrada 2.</li>
+          <li>No nó Merge, em <strong>Mode</strong>, selecione <strong>Choose Branch</strong>.</li>
+          <li>Configure qual entrada tem prioridade (geralmente Input 1).</li>
+        </ol>
+        <p class="fig-leg">No teste de 16/09, o passo 4 com <strong>Append</strong> foi o que fez o
+        item passar; com Choose Branch o Merge não rodou.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Configurando Combine by Position</span>
+        <ol>
+          <li>Os dois caminhos paralelos chegam ao nó Merge.</li>
+          <li>Conecte cada um numa entrada (qualquer ordem).</li>
+          <li>Em <strong>Mode</strong>, selecione <strong>Combine by Position</strong>.</li>
+          <li>Garanta que <strong>os dois caminhos produzem a mesma quantidade de itens</strong>: se
+          um tem 3 e o outro 2, o Merge descarta o item sem par.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h4>Guia de decisão rápido</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Origem do split</th><th>Quantos caminhos têm dados?</th><th>Modo correto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nó IF / Switch</td><td>Apenas 1</td><td><strong>Choose Branch</strong> (no Notion) &middot; <strong>Append</strong> (no teste de 16/09)</td></tr>
+          <tr><td>Bifurcação paralela (mesmo trigger, 2 caminhos)</td><td>Os 2</td><td><strong>Combine by Position</strong></td></tr>
+          <tr><td>Bifurcação paralela com itens em ordens diferentes</td><td>Os 2, mas ordens variam</td><td><strong>Combine by Key</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Antes de configurar o Merge, pergunte sempre</div>
+      <p><strong>"Em uma execução, quantos caminhos vão ter dados?"</strong> A resposta dá o modo na
+      hora.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Choose Branch após IF, testado nos três modos</h2>
+      </div>
+    </div>
+
+    <p>No qualificador de leads, o IF avalia se <code>score &gt;= 8</code>. Se sim, manda mensagem
+    "lead quente". Se não, manda "lead frio". Os dois caminhos depois precisam <strong>registrar no
+    Sheets</strong>, mas o registro é o mesmo nó.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o mesmo IF, o Merge em cada modo</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/merge-teste.svg" width="1472" height="440" loading="lazy"
+               alt="O canvas do n8n depois da execução com o Merge em Append: Disparo, Lead, o IF Score maior ou igual a 8, Mensagem Quente (ramo true, verde, 1 item), Mensagem Fria (ramo false, cinza, sem item), o Merge (Append) verde com 1 item saindo e Registrar no Sheets verde.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução 441</strong> (16/09/2026),
+        com o Merge em <strong>Append</strong>: o lead de score 9 saiu pelo True, chegou na entrada
+        1, e o Registrar recebeu <code>{ "nome": "Lead A", "score": 9, "mensagem": "lead quente",
+        "registrado": true }</code>. Pra rodar sem AI Agent nem Sheets, o lead entrou por um Set e
+        o registro é um Set.</p>
+
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr><th>Modo do Merge</th><th>Execução</th><th>O que aconteceu</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Append</strong></td><td>441</td><td>Passou 1 item; o nó seguinte rodou ✅</td></tr>
+              <tr><td><strong>Choose Branch</strong> (espera todas as entradas, saída = Input 1)</td><td>442</td><td>O Merge não executou: ficou esperando a entrada 2. Nada depois dele rodou. Sem erro.</td></tr>
+              <tr><td><strong>Combine by Position</strong></td><td>443</td><td>O Merge executou com saída vazia e a dica "Include Any Unpaired Items". Nada depois dele rodou.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Por que Choose Branch aqui?</strong> Porque o IF garante que apenas
+        <strong>um</strong> caminho recebeu o item. Nunca os dois ao mesmo tempo. Só um chega ao
+        Merge: ele passa esse item adiante. <em>É o raciocínio do Notion; na versão atual, quem faz
+        exatamente isso é o Append.</em></p>
+
+        <h4>Exemplo guiado: Combine by Position pra enriquecer dados</h4>
+
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">trigger</div>
+            <h4>Novo lead</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">em paralelo</div>
+            <h4>Buscar histórico no Sheets &middot; Buscar score na API</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">MERGE Combine</div>
+            <h4>Enviar relatório</h4>
+          </div>
+        </div>
+
+        <p><strong>Por que Combine by Position aqui?</strong> Porque os <strong>dois</strong>
+        caminhos produzem dados na mesma execução, e o item final precisa dos campos dos dois.
+        <strong>Não rodado no teste de 16/09:</strong> depende de Sheets e de uma API.</p>
+
+        <div class="cartao">
+          <span class="rot">Pratique no exemplo-nodes-v2</span>
+          <p>No workflow de exemplo do módulo (o arquivo está na <a href="../b7-gatilhos/">capa do
+          B7</a>), o Merge tem sticky note dedicada com a analogia <strong>"junta filas"</strong>
+          (duas filas viram uma só). O <strong>Fluxo 1, Triagem de Leads</strong> mostra Merge
+          depois de um Switch: exatamente o caso <code>Choose Branch</code>. Repare que lá o nó
+          está em <strong>Append</strong> com 3 entradas, que foi como o instrutor o montou.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os dois modos, a pergunta que decide e o teste que mostrou o Append
+  depois do IF. O que vem abaixo é a <strong>cerca</strong>: quatro pegadinhas, e as duas
+  primeiras aconteceram nas execuções 443 e 442.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar Combine by Position depois de um IF</div>
+      <p>Resultado: array vazio, sem erro vermelho. O Merge fica esperando os dois caminhos
+      chegarem, mas só um chegou. Nada vai pra frente. <strong>Sintoma:</strong> "meu fluxo
+      continua mas o nó depois do Merge não recebe nada." &rarr; Trocar pra Choose Branch. <em>No
+      teste de 16/09, trocar pra Append.</em></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar Choose Branch em fluxo paralelo</div>
+      <p>Resultado: o Merge passa só o primeiro item que chegar e descarta o outro.
+      <strong>Sintoma:</strong> "perdi os campos da segunda fonte." &rarr; Trocar pra Combine by
+      Position.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Combine by Position com quantidades diferentes</div>
+      <p>Se um caminho tem 3 itens e o outro tem 2, o Merge descarta o terceiro item
+      silenciosamente. Use Combine by Key.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esperar o Merge "decidir" sozinho</div>
+      <p>O Merge não infere o modo. Você define no campo Mode.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 8, Listas: separar, processar e juntar. As nove aulas do bloco
+    estão na <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

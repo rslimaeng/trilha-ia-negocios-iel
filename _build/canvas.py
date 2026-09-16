@@ -61,6 +61,7 @@ ICONES = {
     "calendar": '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3.5v3M16 3.5v3"/>',
     "summarize": '<path d="M5 6h14M5 10h10M5 14h14M5 18h7"/>',
     "rss": '<circle cx="6" cy="18" r="1.5"/><path d="M4.5 10.5a9 9 0 0 1 9 9M4.5 4.5a15 15 0 0 1 15 15"/>',
+    "sort": '<path d="M6 4v16M6 20l-3-3M6 20l3-3"/><path d="M12 6h9M12 11h7M12 16h5"/>',
     "sticky": '<path d="M5 4h14v10l-4 4H5z"/><path d="M15 18v-4h4"/>',
 }
 
@@ -83,11 +84,17 @@ def _no(n, ok):
         cx, cy = x + NO - 14, y + NO - 14
         check = (f'<circle cx="{cx}" cy="{cy}" r="8" fill="#fff"/>'
                  f'<path d="M{cx-4} {cy}l3 3 5-6" fill="none" stroke="{VERDE}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
-    # alcas de entrada e saida
+    # alcas de entrada e saida; um no com varias saidas (IF, Switch) tem uma
+    # alca por saida, com o rotulo dela ("true"/"false", as rotas do Switch)
     alcas = ''
     if not trig:
         alcas += f'<circle cx="{x}" cy="{y+NO/2}" r="4.5" fill="#fff" stroke="{CINZA}" stroke-width="1.5"/>'
-    alcas += f'<circle cx="{x+NO}" cy="{y+NO/2}" r="4.5" fill="#fff" stroke="{CINZA}" stroke-width="1.5"/>'
+    saidas = n.get("saidas") or [""]
+    for i, nome_s in enumerate(saidas):
+        sy = y + NO * (i + 1) / (len(saidas) + 1)
+        alcas += f'<circle cx="{x+NO}" cy="{sy}" r="4.5" fill="#fff" stroke="{CINZA}" stroke-width="1.5"/>'
+        if nome_s:
+            alcas += f'<text x="{x+NO+9}" y="{sy+4}" font-size="11" fill="{SUB_COR}">{escape(nome_s)}</text>'
     nome = escape(n["nome"])
     rot = (f'<text x="{x+NO/2}" y="{y+NO+22}" text-anchor="middle" font-size="14" font-weight="600" fill="{TEXTO}">{nome}</text>')
     if n.get("sub"):
@@ -120,10 +127,11 @@ def _subno(n, pai, ok):
     return linha + porta + forma + icone + check + rot
 
 
-def _seta(a, b, rotulo, ok):
-    """de a (saida direita) para b (entrada esquerda); curva se estiver em outra linha."""
+def _seta(a, b, rotulo, ok, porta=0):
+    """de a (saida direita, porta i) para b (entrada esquerda); curva se estiver em outra linha."""
     cor = VERDE if ok else CINZA
-    x1, y1 = a["x"] + NO + 5, a["y"] + NO / 2
+    saidas = a.get("saidas") or [""]
+    x1, y1 = a["x"] + NO + 5, a["y"] + NO * (porta + 1) / (len(saidas) + 1)
     x2, y2 = b["x"] - 5, b["y"] + NO / 2
     if abs(y1 - y2) < 1:
         d = f"M{x1} {y1} H{x2 - 6}"
@@ -157,12 +165,12 @@ def desenha(p):
         f'<rect x="{x0}" y="{y0}" width="{w}" height="{h}" fill="url(#pts)"/>',
     ]
     for s in p.get("setas", []):
-        partes.append(_seta(nos[s["de"]], nos[s["para"]], s.get("rotulo", ""), ok))
+        partes.append(_seta(nos[s["de"]], nos[s["para"]], s.get("rotulo", ""), s.get("ok", ok), s.get("porta", 0)))
     for n in p["nos"]:
         if n.get("sub_de"):
-            partes.append(_subno(n, nos[n["sub_de"]], ok))
+            partes.append(_subno(n, nos[n["sub_de"]], n.get("ok", ok)))
         else:
-            partes.append(_no(n, ok))
+            partes.append(_no(n, n.get("ok", ok)))
     partes.append("</svg>")
     return "\n".join(partes)
 
@@ -231,6 +239,104 @@ PRATICAS = {
         titulo="Form de Contato: o nó Form Contato, verde, depois do envio de teste",
         nos=[dict(id="f", nome="📝 Form Contato", icone="form", x=0, y=0, trigger=True, sub="3 campos")],
         setas=[],
+    ),
+    # B8 aula 1 · exemplo guiado · execucoes 419 (true) e 420 (erro de tipo), workflow 0AJ3fd84SoLto1xy
+    "tipos-de-teste": dict(
+        titulo="Tipos de Teste: o IF com idade_correta manda o item pro ramo true; o ramo false fica vazio",
+        nos=[
+            dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=120, trigger=True),
+            dict(id="s", nome="📦 Tipos de Teste", icone="set", x=240, y=120, sub="manual"),
+            dict(id="i", nome="IF idade_correta > 18", icone="if", x=480, y=120, saidas=["true", "false"]),
+            dict(id="v", nome="Ramo true", icone="set", x=768, y=0, sub="manual"),
+            dict(id="f", nome="Ramo false", icone="set", x=768, y=240, sub="manual", ok=False),
+        ],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="i", rotulo="1 item"),
+               dict(de="i", para="v", rotulo="1 item", porta=0), dict(de="i", para="f", rotulo="", porta=1, ok=False)],
+    ),
+    # B8 aulas 2 a 8 · exemplos guiados · execucoes 433 a 445 em 16/09/2026
+    "tres-pessoas": dict(
+        titulo="3 Pessoas: o Set em modo JSON, o Split Out abrindo a lista e a Saudação rodando 3 vezes",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="s", nome="📦 3 Pessoas", icone="set", x=240, y=0, sub="JSON"),
+             dict(id="o", nome="🍕 Separar em 3 Itens", icone="splitout", x=480, y=0, sub="pessoas"),
+             dict(id="u", nome="📤 Saudação", icone="set", x=720, y=0, sub="manual")],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="o", rotulo="1 item"), dict(de="o", para="u", rotulo="3 items")],
+    ),
+    "lead-limpo": dict(
+        titulo="Set + Pinning: Lead Bruto e Lead Limpo",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="b", nome="📦 Lead Bruto", icone="set", x=240, y=0, sub="JSON"),
+             dict(id="l", nome="🧹 Lead Limpo", icone="set", x=480, y=0, sub="manual")],
+        setas=[dict(de="t", para="b", rotulo="1 item"), dict(de="b", para="l", rotulo="1 item")],
+    ),
+    "expressions": dict(
+        titulo="Expressions: Dados de Teste, Leitura com Expression e a leitura direta do primeiro Set",
+        nos=[dict(id="t", nome="▶️ Disparo Manual", icone="manual", x=0, y=0, trigger=True),
+             dict(id="d", nome="📦 Dados de Teste", icone="set", x=240, y=0, sub="manual"),
+             dict(id="l", nome="📤 Leitura com Expression", icone="set", x=480, y=0, sub="manual"),
+             dict(id="x", nome="📤 Direto do primeiro Set", icone="set", x=720, y=0, sub="manual")],
+        setas=[dict(de="t", para="d", rotulo="1 item"), dict(de="d", para="l", rotulo="1 item"), dict(de="l", para="x", rotulo="1 item")],
+    ),
+    "if-leads": dict(
+        titulo="Qualificação de leads: dois leads, o IF Score maior ou igual a 70 e as duas portas com 1 item cada",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=120, trigger=True),
+             dict(id="s", nome="📦 2 Leads", icone="set", x=240, y=120, sub="JSON"),
+             dict(id="o", nome="🍕 Separar", icone="splitout", x=480, y=120, sub="leads"),
+             dict(id="i", nome="❓ Score >= 70?", icone="if", x=720, y=120, saidas=["true", "false"]),
+             dict(id="a", nome="📧 Enviar SDR", icone="set", x=1000, y=0, sub="manual"),
+             dict(id="b", nome="📋 Nutrir depois", icone="set", x=1000, y=240, sub="manual")],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="o", rotulo="1 item"), dict(de="o", para="i", rotulo="2 items"),
+               dict(de="i", para="a", rotulo="1 item", porta=0), dict(de="i", para="b", rotulo="1 item", porta=1)],
+    ),
+    "switch-tickets": dict(
+        titulo="Roteamento de tickets: cinco tickets, o Switch com quatro regras e o Fallback, cinco destinos",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=240, trigger=True),
+             dict(id="s", nome="📦 5 Tickets", icone="set", x=240, y=240, sub="JSON"),
+             dict(id="o", nome="🍕 Separar", icone="splitout", x=480, y=240, sub="tickets"),
+             dict(id="w", nome="🔀 Roteia por categoria", icone="switch", x=720, y=240, saidas=["tecnico", "financeiro", "duvida", "outro", "Fallback"]),
+             dict(id="d1", nome="💬 Slack #suporte", icone="set", x=1048, y=0, sub="manual"),
+             dict(id="d2", nome="📧 Email pra contas", icone="set", x=1048, y=130, sub="manual"),
+             dict(id="d3", nome="📄 Auto-resposta FAQ", icone="set", x=1048, y=260, sub="manual"),
+             dict(id="d4", nome="📋 Sheets registro manual", icone="set", x=1048, y=390, sub="manual"),
+             dict(id="d5", nome="⚠️ Sheets erros não tratados", icone="set", x=1048, y=520, sub="manual")],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="o", rotulo="1 item"), dict(de="o", para="w", rotulo="5 items"),
+               dict(de="w", para="d1", rotulo="1 item", porta=0), dict(de="w", para="d2", rotulo="1 item", porta=1), dict(de="w", para="d3", rotulo="1 item", porta=2),
+               dict(de="w", para="d4", rotulo="1 item", porta=3), dict(de="w", para="d5", rotulo="1 item", porta=4)],
+    ),
+    "merge-teste": dict(
+        titulo="Merge depois do IF, em Append: o item do ramo true passa e o Registrar roda",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=120, trigger=True),
+             dict(id="l", nome="📦 Lead", icone="set", x=240, y=120, sub="manual"),
+             dict(id="i", nome="❓ Score >= 8?", icone="if", x=480, y=120, saidas=["true", "false"]),
+             dict(id="q", nome="🔥 Mensagem Quente", icone="set", x=760, y=0, sub="manual"),
+             dict(id="f", nome="❄️ Mensagem Fria", icone="set", x=760, y=240, sub="manual", ok=False),
+             dict(id="m", nome="🧩 Merge (Append)", icone="merge", x=1040, y=120, sub="append"),
+             dict(id="r", nome="📋 Registrar no Sheets", icone="set", x=1280, y=120, sub="manual")],
+        setas=[dict(de="t", para="l", rotulo="1 item"), dict(de="l", para="i", rotulo="1 item"),
+               dict(de="i", para="q", rotulo="1 item", porta=0), dict(de="i", para="f", rotulo="", porta=1, ok=False),
+               dict(de="q", para="m", rotulo="1 item"), dict(de="f", para="m", rotulo="", ok=False), dict(de="m", para="r", rotulo="1 item")],
+    ),
+    "split-aggregate": dict(
+        titulo="Split Out e Aggregate: 1 item vira 3 e volta a ser 1",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="s", nome="📦 1 Item com Tags", icone="set", x=240, y=0, sub="JSON"),
+             dict(id="o", nome="🔪 Explode Tags", icone="splitout", x=480, y=0, sub="tags"),
+             dict(id="a", nome="🛍️ Junta de Volta", icone="aggregate", x=720, y=0, sub="tags")],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="o", rotulo="1 item"), dict(de="o", para="a", rotulo="3 items")],
+    ),
+    # B8 aula 9 · P5 · execucao 446 em 16/09/2026, workflow rOqLkp37HNncxOQr (a V1 do Rafael), 800 linhas
+    "p5-vendas": dict(
+        titulo="Resumo Semanal de Vendas: os oito nós da V1, todos verdes, de 800 linhas a 1 e-mail",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="s", nome="📋 Lê Pedidos", icone="sheets", x=240, y=0, sub="get rows", cor="#188038"),
+             dict(id="l", nome="🧹 Limpa Tipos", icone="set", x=480, y=0, sub="manual"),
+             dict(id="r", nome="📊 Resumo por Categoria", icone="summarize", x=720, y=0, sub="sum · count"),
+             dict(id="o", nome="⬇️ Ordena Maior pro Menor", icone="sort", x=960, y=0, sub="descending"),
+             dict(id="e", nome="🛍️ Empacota", icone="aggregate", x=1200, y=0, sub="linhas"),
+             dict(id="m", nome="📝 Monta Texto", icone="set", x=1440, y=0, sub="manual"),
+             dict(id="g", nome="📧 Envia Resumo", icone="gmail", x=1680, y=0, sub="send: message", cor="#c5221f")],
+        setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="l", rotulo="800 items"), dict(de="l", para="r", rotulo="800 items"),
+               dict(de="r", para="o", rotulo="5 items"), dict(de="o", para="e", rotulo="5 items"), dict(de="e", para="m", rotulo="1 item"), dict(de="m", para="g", rotulo="1 item")],
     ),
     # B7 aula 6 · P4 · execucao 403 em 16/09/2026 12:45 (BRT), workflow OWd0Hs8O4c8iCQwm
     "p4-lembrete": dict(

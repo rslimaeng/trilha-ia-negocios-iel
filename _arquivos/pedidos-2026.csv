@@ -1,0 +1,41 @@
+data,categoria,produto,valor,vendedor
+2026-04-01,Beleza,Kit Skincare,65.04,Ana
+2026-04-01,Beleza,Kit Skincare,1954.83,Erika
+2026-04-02,Casa,Ventilador de Torre,303.58,Erika
+2026-04-04,Eletrônicos,Smartwatch,802.01,Bruno
+2026-04-07,Casa,Jogo de Panelas,1390.27,Ana
+2026-04-07,Eletrônicos,Teclado Mecânico,1526.97,Diego
+2026-04-08,Beleza,Protetor Solar,1964.31,Ana
+2026-04-08,Vestuário,Calça Jeans,349.08,Erika
+2026-04-09,Beleza,Máscara Capilar,523.81,Erika
+2026-04-10,Eletrônicos,Teclado Mecânico,106.30,Carla
+2026-04-10,Eletrônicos,Tablet 10'',70.47,Carla
+2026-04-11,Esporte,Luvas de Boxe,74.78,Erika
+2026-04-13,Vestuário,Moletom Capuz,838.52,Diego
+2026-04-14,Vestuário,Vestido Midi,1385.14,Ana
+2026-04-14,Beleza,Perfume 100ml,2250.39,Diego
+2026-04-14,Vestuário,Tênis Casual,202.42,Ana
+2026-04-14,Beleza,Protetor Solar,381.82,Erika
+2026-04-14,Vestuário,Tênis Casual,1717.59,Diego
+2026-04-15,Eletrônicos,Smartwatch,120.71,Ana
+2026-04-15,Vestuário,Moletom Capuz,1317.89,Ana
+2026-04-17,Esporte,Garrafa Térmica,1626.09,Diego
+2026-04-18,Casa,Tapete Sala,104.83,Diego
+2026-04-18,Eletrônicos,Caixa de Som,630.08,Erika
+2026-04-18,Esporte,Kit Halteres,1244.40,Ana
+2026-04-19,Beleza,Secador de Cabelo,2096.68,Erika
+2026-04-19,Vestuário,Camiseta Algodão,1866.83,Erika
+2026-04-20,Esporte,Tapete Yoga,163.09,Diego
+2026-04-20,Esporte,Tapete Yoga,767.05,Ana
+2026-04-21,Casa,Tapete Sala,1122.61,Ana
+2026-04-21,Esporte,Tapete Yoga,70.66,Diego
+2026-04-21,Vestuário,Tênis Casual,2076.59,Erika
+2026-04-23,Casa,Ventilador de Torre,1806.65,Diego
+2026-04-23,Esporte,Tapete Yoga,41.62,Erika
+2026-04-24,Eletrônicos,Smartwatch,95.08,Erika
+2026-04-26,Beleza,Sérum Facial,189.39,Erika
+2026-04-27,Esporte,Tênis Corrida,917.02,Ana
+2026-04-29,Eletrônicos,Tablet 10'',2218.39,Erika
+2026-04-30,Casa,Cafeteira Elétrica,69.46,Diego
+2026-04-30,Casa,Ventilador de Torre,390.83,Ana
+2026-04-30,Casa,Aspirador Portátil,1667.92,Carla

@@ -143,7 +143,16 @@ MARCA = io.open(os.path.join(AQUI, "marca.css"), encoding="utf-8").read()
 # =========================================================================
 
 def g1_travessao(rel, html):
-    """Travessão é proibido em todo material do Rafael."""
+    """Travessão é proibido em todo material do Rafael.
+
+    16/09: a dispensa por pagina (DISPENSA_NOTION_LITERAL) vale aqui tambem,
+    para UMA coisa so: conteudo COPIAVEL que entra caractere por caractere
+    (prompt gerador do vault, expression do Notion que o aluno cola). Trocar o
+    travessao nesses blocos muda o dado que o fluxo produz. A prosa da pagina
+    continua sem travessao.
+    """
+    if _dispensado(rel, "G1"):
+        return []
     return ["linha com travessão: " + l
             for _, l in linhas_com(texto_visivel(html), r"—")]
 
@@ -1391,6 +1400,26 @@ DISPENSA_NOTION_LITERAL = {
     "b7-appevent/index.html": {
         "G42": "janela = Topicos 3, 4 e 5 do M2, sem arquivo no Notion; o 6 (P4) tem",
         "G44": "Topicos 3, 4 e 5 do M2 sao conceito na ordem do Notion; o 6 e a pratica. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    # 16/09, B8 inteiro. O M3 do Notion tem OITO topicos de conceito seguidos
+    # (1 a 8) antes do fluxo pratico (9); os exemplos guiados de 1 a 8 rodaram
+    # no servidor de teste. G42 e G44 reprovam a ordem do Notion, como no B6 e
+    # no B7 (G44 = dispensa do executor, Rafael decide). A aula 9 (P5) e
+    # hands-on sem analogia (G41) e carrega, copiaveis, o prompt gerador do
+    # vault e a expression do Notion com travessao (G1).
+    "b8-execucao/index.html": {
+        "G33": "o Mapa de Capacidades do M3 e o aluno na 1a pessoa ('Leio', 'Escrevo'), nao o instrutor",
+    },
+    "b8-dados/index.html": {"G42": "janela = capa do B8 + Topicos 1 e 2 do M3, sem arquivo no Notion"},
+    "b8-set/index.html": {"G42": "janela = Topicos 1, 2 e 3 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-expressions/index.html": {"G42": "janela = Topicos 2, 3 e 4 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-if/index.html": {"G42": "janela = Topicos 3, 4 e 5 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-switch/index.html": {"G42": "janela = Topicos 4, 5 e 6 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-merge/index.html": {"G42": "janela = Topicos 5, 6 e 7 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-listas/index.html": {"G42": "janela = Topicos 6, 7 e 8 do M3; o 9 (P5) tem arquivo", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-vendas/index.html": {
+        "G41": "o Topico 9 do M3 e hands-on, sem analogia no Notion",
+        "G1": "o prompt gerador do vault (M3/09) e a expression do e-mail do Notion entram caractere por caractere, com o travessao deles; a prosa da pagina nao tem travessao",
     },
     "b7-gatilhos/index.html": {
         "G33": "o Mapa de Capacidades do M2 e o aluno na 1a pessoa ('Recebo... e leio'), nao o instrutor",

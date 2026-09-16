@@ -102,6 +102,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # ja tinha passado pelo n8n em sala. As outras entram na ordem.
              "b6-fundamentos", "b6-oque", "b6-anatomia", "b6-canvas", "b6-primeiro", "b6-agente",
              "b7-gatilhos", "b7-manual", "b7-schedule", "b7-webhook", "b7-form", "b7-appevent", "b7-lembrete",
+             "b8-execucao", "b8-json", "b8-dados", "b8-set", "b8-expressions", "b8-if", "b8-switch", "b8-merge", "b8-listas", "b8-vendas",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -187,6 +188,18 @@ TRILHA = [
         ("b7-form",        "4 · Form Trigger"),
         ("b7-appevent",    "5 · App Event Triggers"),
         ("b7-lembrete",    "6 · Fluxo prático: Lembrete diário"),
+    ]),
+    ("B8 · Execução (dados, lógica, controle)", [
+        ("b8-execucao",    "B8 · Execução"),
+        ("b8-json",        "1 · JSON e tipos de dados"),
+        ("b8-dados",       "2 · Como dados se movem"),
+        ("b8-set",         "3 · Set / Edit Fields + Pinning"),
+        ("b8-expressions", "4 · Expressions e mapping"),
+        ("b8-if",          "5 · IF node"),
+        ("b8-switch",      "6 · Switch node"),
+        ("b8-merge",       "7 · Merge node"),
+        ("b8-listas",      "8 · Listas: separar, processar e juntar"),
+        ("b8-vendas",      "9 · Fluxo prático: Resumo semanal de vendas"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -500,6 +513,140 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
+    ),
+    "b8-execucao": dict(
+        titulo="B8 · Execução (dados, lógica, controle)",
+        kicker="Módulo 2 · B8 · Bloco 4 de 7",
+        h1="Execução (dados, lógica, controle)",
+        sub="Ler JSON com fluência, transformar campos com Set, escrever expressions, tomar decisões "
+            "com IF/Switch, juntar caminhos com Merge e manipular listas com Split Out / Aggregate, "
+            "culminando num fluxo prático de análise de dados.",
+        selos=["Nove aulas", "O bloco mais denso"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Execução")],
+    ),
+    "b8-json": dict(
+        # conceito-ancora. Analogia das etiquetas. Experimento rodou (execucoes 419 e 420: o IF 2.3 estrito da erro de tipo).
+        tipo="fundamento",
+        titulo="Aula 1 · JSON e tipos de dados",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="JSON e tipos de dados",
+        sub="Os 5 tipos + a regra-mãe (string vs number). O experimento mais barato e valioso do bloco.",
+        selos=['Aula-âncora', 'Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-dados": dict(
+        # conceito-ancora. Analogia da lista de compras. Exemplo rodou (433) com Split Out: o Set em modo JSON nao aceita array na raiz (430).
+        tipo="fundamento",
+        titulo="Aula 2 · Como dados se movem",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Como dados se movem",
+        sub="Por que tudo no n8n é array de objetos, e os 3 modos de visualização (Table / JSON / Schema).",
+        selos=['Aula-âncora', 'Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-set": dict(
+        # conceito + habito. Analogia do organizador da mochila (sticky do exemplo-nodes-v2). Exemplo rodou (434).
+        tipo="fundamento",
+        titulo="Aula 3 · Set / Edit Fields + Pinning",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Set / Edit Fields + Pinning",
+        sub="O nó mais usado em workflows reais + o hábito que economiza horas de desenvolvimento.",
+        selos=['Conceito + hábito'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-expressions": dict(
+        # conceito + pratica. Analogia do cracha dinamico (slide m3-08). Exemplo rodou (435).
+        tipo="fundamento",
+        titulo="Aula 4 · Expressions e mapping",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Expressions e mapping",
+        sub="{{ $json.campo }}: sintaxe que se forma sozinha quando você arrasta. Drag-and-drop primeiro.",
+        selos=['Conceito + prática'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-if": dict(
+        # conceito-ancora. Analogia do porteiro de 2 portas. Exemplo rodou (437).
+        tipo="fundamento",
+        titulo="Aula 5 · IF node",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="IF node",
+        sub="Decisão binária. Por que tipo de dado errado quebra IF silenciosamente.",
+        selos=['Aula-âncora', 'Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-switch": dict(
+        # conceito-ancora. Analogia da central de rotas. Exemplo rodou (439), o NaoSei caiu no Fallback.
+        tipo="fundamento",
+        titulo="Aula 6 · Switch node",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Switch node",
+        sub="3+ caminhos. Por que Fallback não é opcional.",
+        selos=['Aula-âncora', 'Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-merge": dict(
+        # conceito-ancora. D7 TESTADA em 16/09 (441 Append passa, 442 Choose Branch nao roda, 443 Combine sai vazio): a pagina ensina o que o teste mostrou. m3-11 ficou de fora.
+        tipo="fundamento",
+        titulo="Aula 7 · Merge node",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Merge node",
+        sub="Choose Branch vs Combine by Position. A pegadinha mais frustrante do n8n iniciante.",
+        selos=['Aula-âncora', 'D7 testada'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-listas": dict(
+        # conceito + no. Analogia peneira/sacola/freio. Exemplo rodou (445).
+        tipo="fundamento",
+        titulo="Aula 8 · Listas: separar, processar e juntar",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Listas: separar, processar e juntar",
+        sub="Split Out (peneira), Loop Over Items (freio), Aggregate (sacola). Base de relatórios automáticos.",
+        selos=['Conceito + nó'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b8-vendas": dict(
+        # pratica COM arquivo (P5 do PROMPT v2): Sheets -> Summarize -> Sort ->
+        # Aggregate -> Gmail. Rodou no servidor do Rafael por MCP em 16/09
+        # (execucao 446 do workflow dele, rOqLkp37HNncxOQr, 800 linhas, 2
+        # e-mails: V1 e V2). O .json e a V1; o CSV veio do prompt gerador do
+        # vault (D13).
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 9 · Fluxo prático: Resumo semanal de vendas",
+        kicker="Módulo 2 · B8 · Execução",
+        h1="Fluxo prático: Resumo semanal de vendas",
+        sub="Sheets → Summarize → Sort → Aggregate → Gmail. Análise de dados real, sem código.",
+        selos=["Pede Sheets + Gmail", "Hands-on"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b8-execucao/", "B8 · Execução"),
                  (None, None)],
     ),
     "modulo-3": dict(

@@ -1,0 +1,227 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Quando IF não basta: direcionar pra 3, 4, 5 caminhos diferentes com base no valor de um
+      campo</li>
+      <li>E por que a saída <strong>Fallback</strong> não é opcional</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Esquecer o Fallback é a fonte mais comum de "perdi um dado e não sei onde foi parar".</p>
+    </div>
+
+    <p>Quando você precisa rotear o fluxo por <strong>3 ou mais valores possíveis</strong>
+    (departamento, categoria, nível, idioma), aninhar IFs vira um nó indistinguível do anterior
+    depois de 2 caminhos. Switch resolve isso com <strong>uma saída por valor</strong>, e, crítico,
+    uma saída <strong>Fallback</strong> pra valores que não casam com nenhum caso.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O Switch tem 1 entrada e múltiplas saídas. Cada saída tem uma regra.</h3>
+
+      <p>O item vai pela saída cuja regra ele atender.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>O Switch é a <strong>central de várias rotas</strong>: 1 entrada &rarr; várias saídas,
+        escolhe pela regra. É a sticky do nó no <code>exemplo-nodes-v2</code>; em sala virou a
+        central de triagem, com o Fallback como o cesto do "não sei".</p>
+        <ul class="analogia-mapa">
+          <li><strong>A etiqueta do pacote</strong> = o valor do campo (categoria, departamento)</li>
+          <li><strong>Cada trilho</strong> = um output com regra</li>
+          <li><strong>O cesto do não sei</strong> = a saída Fallback</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-10.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Central de Triagem (Nó Switch)': um pacote entra numa máquina de triagem (roteador) e sai por três trilhos, 1 Vendas, 2 Suporte, 3 Financeiro, e por um quarto trilho laranja, Fallback, que termina num cesto. O porteiro (IF) resolve sim ou não; mas e se o ticket do cliente for para Vendas, Suporte ou Financeiro? Para 3 ou mais caminhos, usamos o Switch; ele lê a etiqueta (ex: departamento) e despacha o pacote para o trilho correto. A regra de ouro: o cesto do não sei; sempre ative a saída Fallback; se o cliente digitar uma palavra que não existe nas suas regras, o pacote não pode sumir; o Fallback é a rede de segurança que recolhe os pacotes não identificados e avisa você de que algo inesperado chegou.">
+    </div>
+    <p class="fig-leg"><strong>A central de triagem, em slide.</strong> O trilho laranja é o que
+    esta aula insiste: sem o cesto, o pacote não identificado some.</p>
+
+      <h4>IF vs Switch: quando usar cada um</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Situação</th><th>Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3+ caminhos por valor de campo (vendas / marketing / suporte)</td><td><strong>Switch</strong></td></tr>
+            <tr><td>Lógica composta (AND/OR de várias condições por ramo)</td><td>IFs encadeados ou Switch em modo Expression</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Regra prática</div>
+        <p><strong>3 ou mais ramos = Switch</strong>. Aninhar 3 IFs vira código ilegível.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Modos do Switch</h4>
+
+    <ul class="lista">
+      <li><strong>Rules mode:</strong> você define cada regra explicitamente (igual ao IF, mas com
+      várias). Use quando os critérios são variados.</li>
+      <li><strong>Expression mode:</strong> uma única Expression que retorna o nome do output
+      (<code>return $json.departamento</code>). Use quando o roteamento é direto pelo valor de um
+      campo.</li>
+    </ul>
+
+    <h4>Configurando Switch (Rules mode)</h4>
+
+    <ol>
+      <li>Adicione o Switch depois do nó que produz o dado de roteamento.</li>
+      <li><strong>Renomeie descrevendo o roteamento:</strong> <code>🔀 Roteia por
+      departamento</code>.</li>
+      <li>Em <strong>Mode</strong>, selecione <code>Rules</code>.</li>
+      <li>Pra cada caminho, adicione uma rota: <strong>Output Name</strong> (ex.:
+      <code>vendas</code>); <strong>Conditions</strong> (ex.: <code>{{ $json.departamento }}</code>
+      equals <code>Vendas</code>).</li>
+      <li><strong>Sempre</strong> ative a saída <strong>Fallback</strong>: pra casos que não casam
+      com nenhuma regra.</li>
+      <li>Conecte cada output a um nó diferente.</li>
+    </ol>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: roteamento de tickets</h2>
+      </div>
+    </div>
+
+    <p>Form Trigger recebe ticket com campo <code>categoria</code>. Roteia pra time correto.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Roteia por categoria</div>
+      <div class="demo-corpo">
+        <p><strong>Regras do Switch:</strong></p>
+        <div class="tabela">
+          <table>
+            <thead>
+              <tr><th>Output</th><th>Condição</th><th>Destino</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>tecnico</code></td><td><code>categoria</code> = <code>Técnico</code></td><td>Slack canal #suporte</td></tr>
+              <tr><td><code>financeiro</code></td><td><code>categoria</code> = <code>Financeiro</code></td><td>Email pra contas</td></tr>
+              <tr><td><code>duvida</code></td><td><code>categoria</code> = <code>Dúvida</code></td><td>Auto-resposta com link FAQ</td></tr>
+              <tr><td><code>outro</code></td><td><code>categoria</code> = <code>Outro</code></td><td>Sheets (registro manual)</td></tr>
+              <tr><td><code>Fallback</code></td><td>(qualquer outro valor)</td><td>Sheets de <strong>erros não tratados</strong> ⚠️</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Por que Fallback registra erro?</div>
+          <p>Porque se chegou um valor que você não previu (ex.: <code>"NaoSei"</code>), você quer
+          <strong>saber</strong>. Sem Fallback, o item somem do fluxo silenciosamente.</p>
+        </div>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/switch-tickets.svg" width="1240" height="720" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo, 5 Tickets, Separar e o Switch Roteia por categoria, todos verdes; do Switch saem cinco portas, tecnico, financeiro, duvida, outro e Fallback, cada uma ligada a um destino verde com 1 item: Slack #suporte, Email pra contas, Auto-resposta FAQ, Sheets registro manual e Sheets erros não tratados.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 439, 16/09/2026). Pra rodar sem Form, Slack, Email nem Sheets, os 5 tickets
+        entraram por um Set e os destinos são Sets com o nome do destino. O ticket 5, categoria
+        <code>"NaoSei"</code>, saiu pela porta Fallback: é o cesto funcionando.</p>
+
+        <div class="cartao">
+          <span class="rot">Pratique no exemplo-nodes-v2</span>
+          <p>No workflow de exemplo do módulo (o arquivo está na <a href="../b7-gatilhos/">capa do
+          B7</a>), o Switch tem sticky note dedicada com a analogia <strong>"central de várias
+          rotas"</strong> (1 entrada &rarr; várias saídas, escolhe pela regra). E o <strong>Fluxo
+          1, Triagem de Leads</strong> usa Switch direcionando 3 categorias diferentes: Parte 1
+          (sticky do Switch) e Parte 2 (Fluxo 1).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">A central, os dois modos e cinco tickets em cinco portas. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a primeira é o cesto de novo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer da saída Fallback</div>
+      <p>Item com valor inesperado some sem aviso. <strong>Sempre</strong> ative o Fallback e
+      conecte a um nó que registre/notifique. Item ignorado é dado perdido.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Switch com regras sobrepostas</div>
+      <p>Se duas regras casam ao mesmo tempo, o n8n entrega ao <strong>primeiro</strong> match.
+      Cuidado com regras tipo "contém X" + "contém Y" quando o valor pode ter ambos.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tipo de dado errado nas regras</div>
+      <p>Mesmo problema do IF. <code>"42"</code> (string) &ne; <code>42</code> (number). Confira no
+      JSON view antes de configurar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Renomear como "Switch"</div>
+      <p>Daqui a 1 semana você não sabe o que ele decide. Nome descritivo: <code>🔀 Roteia por
+      categoria</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Output sem nome</div>
+      <p>Fica <code>Output 1</code>, <code>Output 2</code>. Pior pra debugar. Sempre nomeie cada
+      output com a regra que ele representa.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 7, Merge node. As nove aulas do bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>

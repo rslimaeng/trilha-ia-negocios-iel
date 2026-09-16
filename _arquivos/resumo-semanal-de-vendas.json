@@ -1,0 +1,257 @@
+{
+  "name": "Resumo Semanal de Vendas",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "81cebc6a-8289-4510-aa8f-2a3d10fcde3d",
+      "name": "▶️ Disparo",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Pedidos 2026"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gid=0",
+          "cachedResultName": "Pedidos"
+        },
+        "options": {}
+      },
+      "id": "f190be82-e765-43e1-a76a-212c2b6a183b",
+      "name": "📋 Lê Pedidos",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "91d01e7c-3e97-4ae9-a273-3d024b806228",
+              "name": "valor",
+              "value": "={{ Number($json.valor) }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "cb8ad95f-3444-4132-9324-b4524ca3d479",
+      "name": "🧹 Limpa Tipos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        544,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "sum",
+              "field": "valor"
+            },
+            {
+              "field": "produto"
+            }
+          ]
+        },
+        "fieldsToSplitBy": "categoria",
+        "options": {
+          "outputFormat": "separateItems"
+        }
+      },
+      "id": "3e8cf781-f597-46b5-aaa6-851407f2fe65",
+      "name": "📊 Resumo por Categoria",
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        816,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "sum_valor",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "36e498fd-3f14-4d26-8053-fc046e174711",
+      "name": "⬇️ Ordena Maior pro Menor",
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "linhas",
+        "options": {}
+      },
+      "id": "4730cf25-218f-4a7a-89d8-17e6b2777fcf",
+      "name": "🛍️ Empacota",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "corpo-1",
+              "name": "corpo",
+              "type": "string",
+              "value": "=Resumo de vendas — semana de {{ $now.toFormat(\"dd/MM/yyyy\") }}\n\n{{ $json.linhas.map(l => l.categoria + \": R$ \" + l.sum_valor.toLocaleString(\"pt-BR\", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + \" (\" + l.count_produto + \" pedidos)\").join(\"\\n\") }}\n\nTotal geral: R$ {{ $json.linhas.reduce((acc, l) => acc + l.sum_valor, 0).toLocaleString(\"pt-BR\", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "00f520d7-1fbf-46f2-be57-371125f60edf",
+      "name": "📝 Monta Texto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1696,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "seu-proprio-email@exemplo.com",
+        "subject": "=Resumo de vendas — {{ $now.toFormat(\"dd/MM/yyyy\") }}",
+        "emailType": "text",
+        "message": "={{ $json.corpo }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "9c992111-1ae1-4b63-834a-8704d27e84d5",
+      "name": "📧 Envia Resumo",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2016,
+        -192
+      ],
+      "webhookId": "04c77104-f21b-4ed4-83d7-525607aaea00"
+    }
+  ],
+  "connections": {
+    "▶️ Disparo": {
+      "main": [
+        [
+          {
+            "node": "📋 Lê Pedidos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📋 Lê Pedidos": {
+      "main": [
+        [
+          {
+            "node": "🧹 Limpa Tipos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🧹 Limpa Tipos": {
+      "main": [
+        [
+          {
+            "node": "📊 Resumo por Categoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📊 Resumo por Categoria": {
+      "main": [
+        [
+          {
+            "node": "⬇️ Ordena Maior pro Menor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "⬇️ Ordena Maior pro Menor": {
+      "main": [
+        [
+          {
+            "node": "🛍️ Empacota",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🛍️ Empacota": {
+      "main": [
+        [
+          {
+            "node": "📝 Monta Texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Monta Texto": {
+      "main": [
+        [
+          {
+            "node": "📧 Envia Resumo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "trilhaIEL": "B8 aula 9 · P5 · a V1 do workflow do Rafael, exportada do teste de 16/09/2026 (execucao 446, 800 linhas). Selecione a sua planilha Pedidos 2026 no no Le Pedidos, troque o To pelo seu e-mail e conecte as credenciais Sheets e Gmail. O Monta Texto usa toLocaleString pt-BR no lugar do toFixed(2) do Notion: e como o instrutor montou."
+  }
+}

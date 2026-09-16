@@ -1,0 +1,314 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O que é JSON, os 5 tipos de dado que importam, e por que <strong>tipo de dado
+      errado</strong> é a causa mais comum de "meu IF parece certo mas vai pro ramo errado"</li>
+      <li>Entender isso é o que separa quem usa n8n de quem <strong>aproveita</strong> n8n</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Boa notícia: você não precisa virar dev. Precisa entender 5 coisas.</p>
+    </div>
+
+    <p>Você pode passar o módulo inteiro sem mergulhar em JSON. Mas, no primeiro fluxo real, vai
+    bater na parede: "por que esse campo aparece como <code>[object Object]</code>?", "por que o
+    n8n diz que tem 3 itens se eu vejo 1?", "por que o e-mail saiu vazio?", "por que
+    <code>score &gt; 70</code> parece certo mas o lead foi pro ramo errado?". 9 em cada 10 dessas
+    dúvidas vêm de <strong>não saber ler o JSON que tá rolando entre os nós</strong>, ou de
+    <strong>comparar tipos diferentes</strong> sem perceber.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>JSON é um jeito de organizar dados em texto: cada dado tem um nome (chave) e um
+      valor</h3>
+
+      <p><strong>JSON</strong> (JavaScript Object Notation) é como o n8n, e quase toda API
+      moderna, passa informação de um lado pro outro.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Pensa em JSON como <strong>um sistema de etiquetas</strong>: cada dado tem um nome
+        (chave) e um valor.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A etiqueta</strong> = o par chave:valor</li>
+          <li><strong>O nome na etiqueta</strong> = a chave (<code>"nome"</code>)</li>
+          <li><strong>O que está escrito</strong> = o valor (<code>"Maria"</code>)</li>
+        </ul>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Um JSON com os 5 tipos</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b8json-ex">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b8json-ex">{
+  "nome": "Maria",
+  "idade": 32,
+  "ativa": true,
+  "interesses": ["IA", "n8n", "automação"],
+  "endereco": {
+    "cidade": "Fortaleza",
+    "estado": "CE"
+  }
+}</pre>
+      </div>
+
+      <p>Cada linha é um par <strong>chave:valor</strong>: o nome do dado de um lado, o valor do
+      outro.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-03.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Idioma dos Robôs (JSON)': pense na informação viajando entre sistemas como um pacote de correio; o assustador JSON é apenas a etiqueta impressa colada nessa caixa. Ele tem duas regras simples: 1, nome da chave, o que é essa informação? (a pergunta); 2, valor, qual a resposta? (o dado real). Uma etiqueta de caixa com três linhas: cidade, Fortaleza; idade, 32; cargo, Instrutor. Embaixo: você não precisa ser programador, só precisa saber ler a etiqueta da caixa.">
+    </div>
+    <p class="fig-leg"><strong>A etiqueta, em slide.</strong> Os dados da etiqueta são os do
+    instrutor, que fez o exemplo em sala; no seu JSON, o valor é o seu.</p>
+
+      <h4>Os 5 tipos de dados</h4>
+
+      <p>Olhe o exemplo acima. Já tem <strong>os 5 tipos</strong> que você precisa conhecer:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Como reconhecer</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>string</strong> (texto)</td><td>Entre aspas duplas</td><td><code>"Maria"</code>, <code>"IA"</code>, <code>"42"</code> (cuidado!)</td></tr>
+            <tr><td><strong>number</strong> (número)</td><td>Sem aspas</td><td><code>32</code>, <code>3.14</code></td></tr>
+            <tr><td><strong>boolean</strong> (verdadeiro/falso)</td><td><code>true</code> ou <code>false</code>, sem aspas</td><td><code>true</code></td></tr>
+            <tr><td><strong>array</strong> (lista)</td><td>Entre colchetes <code>[ ]</code></td><td><code>["IA", "n8n", "automação"]</code></td></tr>
+            <tr><td><strong>object</strong> (objeto)</td><td>Entre chaves <code>{ }</code>, com pares chave:valor</td><td><code>{ "cidade": "Fortaleza" }</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>A regra-mãe: string vs number</h4>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">string e number são confundidos o tempo todo</div>
+        <p><code>"32"</code> (string com aspas) <strong>não é</strong> o mesmo que <code>32</code>
+        (número). O n8n trata diferente.</p>
+      </div>
+
+      <ul class="lista">
+        <li><code>"32" + 1</code> &rarr; <code>"321"</code> (concatena texto)</li>
+        <li><code>32 + 1</code> &rarr; <code>33</code> (soma)</li>
+        <li><code>"10" == 10</code> &rarr; <code>false</code> (tipos diferentes)</li>
+        <li><code>"10" &gt; 5</code> &rarr; comportamento imprevisível</li>
+      </ul>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m3-04.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'A Maior Ilusão da Automação: Texto vs. Número': os robôs são literais; para eles, o número 32 é totalmente diferente da palavra 32; misturar os dois causa 90% dos erros misteriosos. Texto (String): tem aspas, o robô lê como letras do alfabeto, se você somar 32 entre aspas mais 1, o robô junta tudo e responde 321. Número (Number): sem aspas, o robô entende que é matemática, se você somar 32 mais 1, o robô calcula e responde 33.">
+    </div>
+    <p class="fig-leg"><strong>A regra-mãe, em slide.</strong> As duas primeiras linhas da lista
+    acima são as duas colunas: "321" de um lado, 33 do outro.</p>
+
+      <h4>Armadilhas frequentes que quebram seus fluxos</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Situação</th><th>Problema</th><th>Sintoma</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>API retorna <code>"true"</code> entre aspas</td><td><code>"true"</code> (string) &ne; <code>true</code> (boolean)</td><td>Lógica booleana quebra</td></tr>
+            <tr><td>Campo numérico vem como <code>null</code></td><td><code>null &gt; 0</code> retorna <code>false</code></td><td>Itens somem do filtro</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Quando uma condição parece certa mas o fluxo vai pro ramo errado, suspeite primeiro do tipo de dado</div>
+        <p>Abra o JSON view e veja se o valor está <strong>entre aspas</strong> (string) ou
+        <strong>sem aspas</strong> (number/boolean).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Onde olhar o JSON</span>
+      <p>Cada nó executado oferece 3 modos de visualização do output (Table, JSON, Schema). O
+      detalhamento está na aula 2: por enquanto basta saber que <strong>a aba JSON é a fonte de
+      verdade</strong>, e é nela que se confere se um valor é string (com aspas) ou number
+      (sem).</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">JSON aninhado: objeto dentro de objeto</span>
+      <p>Quando o valor é outro JSON, você navega de fora pra dentro. No exemplo da Maria, pra
+      ler a cidade você usa <code>{{ $json.endereco.cidade }}</code>. Vai navegando como pasta
+      dentro de pasta.</p>
+    </div>
+
+    <h4>Convertendo tipos quando precisar</h4>
+
+    <p>Quando você não consegue evitar o tipo errado na origem, converte no Set node ou na
+    Expression:</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Conversão</th><th>Expression</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Number &rarr; String</td><td><code>{{ String($json.idade) }}</code></td></tr>
+          <tr><td>Texto pra minúsculas</td><td><code>{{ $json.email.toLowerCase() }}</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: o experimento mais barato e valioso</h2>
+      </div>
+    </div>
+
+    <p>Crie um workflow simples:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Tipos de Teste</div>
+      <div class="demo-corpo">
+        <ol>
+          <li><strong>Manual Trigger</strong> &rarr; renomeie pra <code>▶️ Disparo</code>.</li>
+          <li><strong>Set node</strong> &rarr; renomeie pra <code>📦 Tipos de Teste</code>. Adicione
+          3 campos:
+            <ul>
+              <li><code>idade_correta</code> = <code>32</code> &rarr; <strong>Type: Number</strong></li>
+              <li><code>idade_string</code> = <code>32</code> &rarr; <strong>Type: String</strong>
+              (mesmo valor visual!)</li>
+              <li><code>ativa</code> = <code>true</code> &rarr; <strong>Type: Boolean</strong></li>
+            </ul>
+          </li>
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+          <li>Clique no nó. Vá pra aba <strong>JSON</strong>:</li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📦 Tipos de Teste &middot; visão JSON (execução 419)</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b8json-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b8json-out">{
+  "idade_correta": 32,
+  "idade_string": "32",
+  "ativa": true
+}</pre>
+        </div>
+
+        <p>Compare. Na Table parecem iguais (<code>32</code> e <code>32</code>). <strong>No JSON,
+        um tem aspas, o outro não.</strong></p>
+
+        <ol start="5">
+          <li><strong>Adicione um IF</strong> com condição <code>{{ $json.idade_correta }} &gt;
+          18</code>. &rarr; True. ✅</li>
+          <li><strong>Mude a condição</strong> pra <code>{{ $json.idade_string }} &gt; 18</code>.
+          &rarr; Resultado <strong>imprevisível</strong>, depende do operador. Pode ir pro False
+          mesmo sendo "32".</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/tipos-de-teste.svg" width="960" height="440" loading="lazy"
+               alt="O canvas do n8n depois do passo 5: Disparo, Tipos de Teste e o IF idade_correta maior que 18 verdes; do IF saem dois ramos, true em cima, com o nó Ramo true verde, e false embaixo, com o nó Ramo false cinza, sem item.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir das execuções de teste</strong>
+        (419 e 420, 16/09/2026). No passo 5 o item saiu pelo ramo true. <strong>No passo 6, na
+        versão atual do n8n, não foi "imprevisível": o IF parou com erro</strong>, <code>Wrong
+        type: '32' is a string but was expecting a number</code>, e sugeriu ligar "Convert types
+        where required" ou converter com <code>.toNumber()</code>. É o mesmo aviso desta aula
+        dito pela ferramenta: tipo errado não passa despercebido, ele quebra.</p>
+
+        <div class="aviso ok">
+          <div class="aviso-t">Esse é o momento de "ah-ha"</div>
+          <p>Salve o workflow. Volta nele toda vez que aparecer "comportamento estranho do
+          IF".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os cinco tipos, a regra-mãe e o experimento das aspas na sua conta. O
+  que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e todas são o tipo de dado de novo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tudo no n8n é array</div>
+      <p>Mesmo que você veja "1 item", aquele item está dentro de um array. Detalhamento na
+      aula 2.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aspas matam</div>
+      <p><code>"32"</code> &ne; <code>32</code>. Sempre confira o tipo no JSON view antes de criar
+      IF/Switch.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Object aninhado vira fonte de confusão</div>
+      <p><code>{{ $json.pessoa.endereco.cidade }}</code>: e se <code>endereco</code> for null?
+      Quebra.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Set node respeita o Type que você escolhe</div>
+      <p>Se você define um campo como String e bota <code>32</code>, vai sair <code>"32"</code>.
+      Cuidado.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">API que retorna <code>null</code> em campo numérico</div>
+      <p>A Expression retorna <code>null</code>. Comparações com null geralmente retornam
+      <code>false</code>. Trate antes do IF.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, Como dados se movem. As nove aulas do bloco estão na
+    <a href="../b8-execucao/">capa do B8</a>.</p>
+  </div>
