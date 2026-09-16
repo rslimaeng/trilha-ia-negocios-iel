@@ -1421,6 +1421,37 @@ DISPENSA_NOTION_LITERAL = {
         "G41": "o Topico 9 do M3 e hands-on, sem analogia no Notion",
         "G1": "o prompt gerador do vault (M3/09) e a expression do e-mail do Notion entram caractere por caractere, com o travessao deles; a prosa da pagina nao tem travessao",
     },
+    # 16/09 (noite), B9 inteiro. O M4 do Notion tem CINCO topicos de conceito
+    # seguidos (1 a 5) antes do fluxo pratico (6); os exemplos guiados de 1, 2 e
+    # 5 rodaram no servidor do Rafael (447 a 450), o 3 e cadastro de credencial
+    # (nao se roda na conta dele) e o 4 e um cenario com Drive dele. Mesma
+    # situacao do B7 e do B8: G42 e G44 reprovam a ordem do Notion (G44 =
+    # dispensa do executor, Rafael decide). Sem analogia no Notion: Topicos 2,
+    # 4, 5 e 6 (G41). Travessao dentro de copiavel literal do Notion: o nome do
+    # workflow, o Subject com $now e a expression do Gmail (G1, como no B8/9).
+    "b9-http/index.html": {
+        "G41": "o Topico 2 do M4 (HTTP Request) nao tem analogia no Notion",
+        "G42": "janela = capa do B9 + Topicos 1 e 2 do M4, sem arquivo no Notion",
+    },
+    "b9-credenciais/index.html": {
+        "G42": "janela = Topicos 1, 2 e 3 do M4, sem arquivo no Notion",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b9-google/index.html": {
+        "G1": "a expression do Subject do Gmail ('Ola {{ $json.nome }} — relatorio semanal') e do Notion, caractere por caractere; a prosa da pagina nao tem travessao",
+        "G41": "o Topico 4 do M4 (Google Workspace) nao tem analogia no Notion",
+        "G42": "janela = Topicos 2, 3 e 4 do M4, sem arquivo no Notion",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b9-respond/index.html": {
+        "G41": "o Topico 5 do M4 (Respond to Webhook) nao tem analogia no Notion",
+        "G42": "janela = Topicos 3, 4 e 5 do M4; o 6 (P6) tem arquivo",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b9-tempo/index.html": {
+        "G1": "o nome do workflow ('M4 — Previsao do Tempo', aqui B9) e o Subject do Gmail com $now sao do Notion, copiaveis, com o travessao deles; a legenda cita o assunto que chegou na caixa; a prosa nao tem travessao",
+        "G41": "o Topico 6 do M4 e hands-on: o conceito e o mapa em quatro nos, sem analogia no Notion",
+    },
     "b7-gatilhos/index.html": {
         "G33": "o Mapa de Capacidades do M2 e o aluno na 1a pessoa ('Recebo... e leio'), nao o instrutor",
     },

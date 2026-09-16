@@ -1606,6 +1606,11 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 /* o canvas do n8n redesenhado (_build/canvas.py) e vetor e pequeno: entra no
    tamanho natural, 1:1 com a tela do n8n, e rola se nao couber. */
 .figura.n8n img{width:auto;max-width:none;min-width:0;margin:0 auto}
+/* 33c · URL longa em <code> inline (16/09, B9). Nenhuma regra estilizava o
+   <code> corrido; a 375 uma URL de 50 caracteres passava da borda em cinco
+   lugares do B9 (dog.ceo, jsonplaceholder, openweathermap). anywhere so quebra
+   quando a palavra nao cabe: a 1280 nada muda, e o <pre> nao e afetado. */
+code{overflow-wrap:anywhere}
 
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem
@@ -3763,7 +3768,7 @@ Total geral: R$ 1.021.016,19</pre>
     bloco:</strong> B9, APIs e&nbsp;webhooks. As&nbsp;nove aulas deste bloco estão na&nbsp;<a href="../b8-execucao/">capa do&nbsp;B8</a>.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b8-listas/">&larr; Aula 8 · Listas: separar, processar e juntar</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b8-listas/">&larr; Aula 8 · Listas: separar, processar e juntar</a><a href="../b9-apis/">B9 · APIs e webhooks &rarr;</a></nav>
 </main>
 
 

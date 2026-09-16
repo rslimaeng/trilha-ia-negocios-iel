@@ -1,0 +1,495 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Workflow que pega a previsão do tempo da sua cidade numa API pública e manda no seu Gmail
+      toda manhã. <strong>Zero credencial pra API</strong>, drag-and-drop puro. Em 15 minutos você
+      fecha o B9 com um fluxo real, ativável e útil pra você mesmo</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Esse é o <strong>primeiro fluxo do módulo que conversa com um sistema do mundo real fora
+      do Google</strong>. Você sai de "Sheets + Gmail" e entra em "qualquer API HTTP".</p>
+    </div>
+
+    <p>O padrão <code>Schedule &rarr; HTTP Request &rarr; Set &rarr; Gmail</code> é o esqueleto de
+    centenas de automações úteis: cotação do dólar, status de servidor, contagem de inscritos,
+    painel de KPIs. Domina esse padrão e abre 90% dos casos de "puxar dado de fora".</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-12.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Desafio Prático: O Problema do Clima': um celular com a notificação de e-mail Previsão do tempo 25/10, Bom dia! Hoje teremos 25°C. Três quadros: A Missão, vamos conectar tudo o que aprendemos?; O Plano, puxar os dados de clima da sua cidade de uma API pública (Open-Meteo) e enviar para o seu próprio Gmail toda manhã às 7h; Por que Open-Meteo?, gratuita e sem chave de autenticação, zero atrito para o seu primeiro projeto real.">
+    </div>
+    <p class="fig-leg"><strong>A missão, em slide.</strong> A notificação do celular é o e-mail
+    que a seção 04 mostra chegando; o "25/10" é a data do exemplo desenhado.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento (Gatilho &rarr; Execução &rarr; Entrega)</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O esqueleto de quatro nós: relógio, nuvem, texto, envelope</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Schedule (todo dia 7h)</li>
+        <li><strong>Execução:</strong> HTTP Request &rarr; Open-Meteo API &rarr; Edit Fields (monta
+        texto)</li>
+        <li><strong>Entrega:</strong> Gmail (manda pra você mesmo)</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>⏰ Toda Manha 7h</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução</div>
+          <h4>🌤 Busca Clima</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução</div>
+          <h4>📝 Monta Texto</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>📧 Envia Pra Voce</h4>
+        </div>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-13.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Esqueleto da Automação', três cartões: 1. Gatilho (Quando?), um relógio, Schedule Trigger configurado para disparar todo dia às 7h; 2. Execução (O quê?), uma nuvem com engrenagem, HTTP Request (busca o clima via GET) e Edit Fields (monta o texto arrastando e soltando o JSON); 3. Entrega (Para onde?), um envelope, Gmail, dispara a mensagem para a sua caixa de entrada.">
+    </div>
+    <p class="fig-leg"><strong>O mesmo mapa, como foi mostrado em sala.</strong> O cartão do meio
+    são dois nós, a nuvem e a engrenagem: é o que faz este fluxo ter quatro e não três.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li>B8 concluído (sabe usar Edit Fields e expressions básicas).</li>
+        <li>Credencial Gmail configurada (ver aula 3).</li>
+        <li>Coordenadas da sua cidade (latitude e longitude). Fortaleza: <code>-3.7172</code> /
+        <code>-38.5433</code>. Pra outra cidade, abre <a href="https://maps.google.com"
+        target="_blank" rel="noopener">Google Maps</a>, clica com o botão direito sobre a cidade,
+        copia as coordenadas.</li>
+      </ul>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Por que Open-Meteo e não OpenWeather?</div>
+      <p>Open-Meteo é <strong>gratuita e sem chave</strong> (até 10.000 chamadas/dia). Zero atrito
+      de credencial: você abre o n8n e usa. OpenWeather é o "padrão da indústria", mas exige
+      cadastro + API key. Pra primeira aula prática, Open-Meteo ganha.</p>
+      <p class="fig-leg">Conferido em 16/09/2026 nos termos da Open-Meteo: "less than 10,000 API
+      calls per day" pra uso não comercial, com 5.000 por hora e 600 por minuto.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Cria o workflow</div>
+      </div>
+      <p>Novo workflow &rarr; renomeia: <code>B9 — Previsão do Tempo</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Schedule Trigger</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Schedule Trigger</strong>. Renomeia: <code>⏰ Toda Manhã 7h</code>.</li>
+        <li>Trigger Interval: <code>Days</code></li>
+        <li>Days Between Triggers: <code>1</code></li>
+        <li>Trigger at Hour: <code>7</code></li>
+        <li>Trigger at Minute: <code>0</code></li>
+      </ul>
+      <div class="aviso ok">
+        <div class="aviso-t">Pra testar no momento</div>
+        <p>Deixa configurado mas não ativa o workflow ainda. Vai usar <code>Execute
+        Workflow</code> (botão play) pra rodar manualmente nos testes.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">HTTP Request: busca o clima</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>HTTP Request</strong>. Renomeia: <code>🌤 Busca Clima</code>.</li>
+        <li>Method: <code>GET</code></li>
+        <li>URL:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">A URL do 🌤 Busca Clima</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b9tempo-url">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b9tempo-url">https://api.open-meteo.com/v1/forecast?latitude=-3.7172&amp;longitude=-38.5433&amp;current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&amp;timezone=America/Fortaleza</pre>
+      </div>
+      <ul class="lista">
+        <li>Authentication: <code>None</code> (não precisa).</li>
+        <li>Clica <strong>Execute step</strong> (botão play do nó).</li>
+      </ul>
+      <p><strong>Confere:</strong> abre o tab JSON. Você vê algo assim:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O JSON que volta da Open-Meteo</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b9tempo-json">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b9tempo-json">{
+  "latitude": -3.71,
+  "longitude": -38.54,
+  "timezone": "America/Fortaleza",
+  "current": {
+    "time": "2026-04-29T07:00",
+    "temperature_2m": 28.5,
+    "relative_humidity_2m": 65,
+    "wind_speed_10m": 12.3,
+    "weather_code": 3
+  },
+  "current_units": {
+    "temperature_2m": "°C",
+    "relative_humidity_2m": "%",
+    "wind_speed_10m": "km/h"
+  }
+}</pre>
+      </div>
+      <p><strong>Pino o nó</strong> (atalho <code>P</code>) pra não chamar a API toda vez nos
+      próximos passos.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Edit Fields: monta o texto do e-mail</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Edit Fields (Set)</strong>. Renomeia: <code>📝 Monta Texto</code>.</li>
+        <li>Mode: <code>Manual Mapping</code>.</li>
+        <li>Adiciona campo:
+          <ul>
+            <li>Nome: <code>mensagem</code></li>
+            <li>Tipo: <code>String</code></li>
+            <li>Valor: arrasta os campos do painel esquerdo, <strong>um por um</strong>, montando o
+            texto:</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O valor do campo mensagem</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b9tempo-msg">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b9tempo-msg">🌤 Bom dia! Previsao pra Fortaleza:
+
+Temperatura: {{ $json.current.temperature_2m }}°C
+Umidade: {{ $json.current.relative_humidity_2m }}%
+Vento: {{ $json.current.wind_speed_10m }} km/h
+
+Tenha um bom dia.</pre>
+      </div>
+      <div class="aviso ok">
+        <div class="aviso-t">Drag-and-drop puro</div>
+        <p>Você não digita <code>{{ $json... }}</code>: você arrasta o campo do painel esquerdo (em
+        <strong>JSON view</strong>, dentro de <code>current</code>) e o n8n monta a expression
+        sozinho. É o hábito que o módulo inteiro reforça.</p>
+      </div>
+      <ul class="lista">
+        <li>Liga <strong>Keep Only Set</strong> (true) pra limpar os outros campos. Output fica só
+        com <code>mensagem</code>.</li>
+        <li>Execute step. Confere o output.</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido na tela em 16/09/2026:</strong> na versão atual do nó
+      Set, "Keep Only Set" virou a opção <strong>Include Other Input Fields</strong>, que fica
+      desligada por padrão. Desligada, o output já sai só com <code>mensagem</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Gmail: envia pra você</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Gmail</strong>. Renomeia: <code>📧 Envia Pra Você</code>.</li>
+        <li>Resource: <code>Message</code>. Operation: <code>Send</code>.</li>
+        <li>Credential: a sua credencial Gmail.</li>
+        <li>To: seu próprio e-mail.</li>
+        <li>Subject:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O Subject</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b9tempo-subj">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b9tempo-subj">🌤 Previsão do tempo — {{ $now.format('dd/MM') }}</pre>
+      </div>
+      <ul class="lista">
+        <li>Email Type: <code>Text</code></li>
+        <li>Message: arrasta <code>mensagem</code> do painel esquerdo. Vira
+        <code>{{ $json.mensagem }}</code>.</li>
+        <li>Execute step.</li>
+      </ul>
+      <p><strong>Confere a caixa de entrada.</strong> O e-mail chegou? Padrão completo, ciclo
+      gatilho/execução/entrega validado.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Ativação</div>
+      </div>
+      <p>Quando o teste passou:</p>
+      <ul class="lista">
+        <li>Clica em <strong>Activate</strong> (toggle no canto superior direito).</li>
+        <li>Workflow agora dispara sozinho amanhã 7h.</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido na tela em 16/09/2026:</strong> na versão atual o botão
+      do canto superior direito se chama <strong>Publish</strong>; é ele que ativa. O toggle
+      "Active" aparece na lista de workflows.</p>
+      <div class="aviso atencao">
+        <div class="aviso-t">Lembrete do B7</div>
+        <p>Schedule Trigger só roda quando o workflow está <strong>ativado</strong>. No modo
+        desativado, ele só dispara via "Execute Workflow" manual.</p>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <ul>
+          <li>✅ Quatro nós verdes depois do Execute Workflow.</li>
+          <li>✅ Um e-mail na sua caixa com temperatura, umidade e vento de agora.</li>
+        </ul>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">❌ Se o HTTP Request ficou vermelho</div>
+        <p><strong>Vírgula nas coordenadas.</strong> A API usa ponto decimal
+        (<code>-3.7172</code>). Confere a URL antes de mexer em outra coisa.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> apagar o nó e refazer. Lê o número
+        do erro primeiro (aula 1): 400 é pedido malformado, e vírgula é pedido malformado.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O fluxo rodando, e o e-mail que chegou</h2>
+      </div>
+    </div>
+
+    <p>Este é o fluxo dos seis passos depois do Execute Workflow na conta do instrutor, em
+    16/09/2026. Os quatro nós verdes, a Open-Meteo respondendo em 813 ms e o Gmail devolvendo o
+    <code>id</code> da mensagem enviada.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o canvas depois do Execute Workflow</div>
+      <div class="demo-corpo">
+        <div class="figura n8n">
+          <img src="../_img/canvas/p6-tempo.svg" width="912" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: quatro nós em linha, Toda Manhã 7h (gatilho, com o relógio), Busca Clima (HTTP Request, GET), Monta Texto (Set) e Envia Pra Você (Gmail), ligados por setas verdes escritas 1 item; os quatro com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 451, 16/09/2026, 16:29, fuso America/Sao_Paulo). Os nomes, a ordem e a contagem
+        de itens são os que saíram lá.</p>
+        <p>O que a Open-Meteo devolveu, o que o Set montou e o que o Gmail respondeu:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 🌤 Busca Clima &middot; do 📝 Monta Texto &middot; do 📧 Envia Pra Você</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b9tempo-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b9tempo-out">{ "latitude": -3.7609842, "longitude": -38.529663, "timezone": "America/Fortaleza",
+  "current": { "time": "2026-09-16T16:15", "temperature_2m": 28.6, "relative_humidity_2m": 64, "wind_speed_10m": 17.8, "weather_code": 0 } }
+
+{ "mensagem": "🌤 Bom dia! Previsao pra Fortaleza:\n\nTemperatura: 28.6°C\nUmidade: 64%\nVento: 17.8 km/h\n\nTenha um bom dia." }
+
+{ "id": "1a0abb258de68deb", "threadId": "1a0abb258de68deb", "labelIds": ["UNREAD", "SENT", "INBOX"] }</pre>
+        </div>
+        <p class="fig-leg"><strong>Três coisas a reparar.</strong> A latitude que volta
+        (<code>-3.76</code>) não é a que foi pedida (<code>-3.7172</code>): a Open-Meteo responde
+        pelo ponto de grade mais próximo, e o JSON do passo 3 mostra o mesmo arredondamento. O
+        <code>weather_code: 0</code> é céu limpo na tabela da doc. E o e-mail chegou na caixa com o
+        assunto <code>🌤 Previsão do tempo — 16/09</code>: o <code>$now.format('dd/MM')</code>
+        funciona. Conferido na caixa: o nó Gmail acrescenta um rodapé "This email was sent
+        automatically with n8n", que dá pra desligar em Options.</p>
+      </div>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">JSON</div>
+        <div>
+          <div class="arq-nome">previsao-do-tempo.json</div>
+          <div class="arq-fn">O fluxo dos seis passos, exportado do teste, pra importar na sua
+          conta se quiser comparar com o seu. Troque o <strong>To</strong> pelo seu e-mail, as
+          coordenadas pela sua cidade e conecte a sua credencial Gmail.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/previsao-do-tempo.json" download>Baixar para importar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="variacoes">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez, de novo</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="checagem">
+      <span class="rot">O que você aprende</span>
+      <ul>
+        <li>Lê doc de API real (<a href="https://open-meteo.com/en/docs" target="_blank"
+        rel="noopener">Open-Meteo</a>) e identifica endpoint + query params.</li>
+        <li>Faz <strong>GET</strong> com query parameters via HTTP Request.</li>
+        <li>Navega no JSON de resposta (caminhos aninhados como
+        <code>current.temperature_2m</code>).</li>
+        <li>Compõe e-mail com expressions formadas via <strong>drag-and-drop</strong>.</li>
+        <li>Ativação real de workflow agendado.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Variação 1: múltiplas cidades</div>
+      </div>
+      <p>Substitui o Schedule por um Edit Fields que define um array de cidades, Split Out, Loop,
+      e gera um e-mail por cidade. Pratica o ciclo Split Out &rarr; Loop &rarr; Aggregate do B8.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Variação 2: outras APIs públicas sem auth</div>
+      </div>
+      <p><a href="https://restcountries.com" target="_blank" rel="noopener">REST Countries</a> (info
+      de países), <a href="https://dog.ceo/dog-api" target="_blank" rel="noopener">Dog CEO</a>
+      (foto de cachorro aleatória), <a href="https://www.openbrewerydb.org" target="_blank"
+      rel="noopener">Open Brewery DB</a> (cervejarias). Mesmo padrão de fluxo.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Uma delas já rodou</div>
+        <p>A Dog CEO é o exemplo guiado da <a href="../b9-http/">aula 2</a> (execução 448).</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">9</div>
+        <div class="passo-fn">Variação 3: adicionar IF</div>
+      </div>
+      <p>Se temperatura &lt; 22°C, manda mensagem "leve casaco". Se &gt; 30°C, "use protetor
+      solar". Pratica IF do B8.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">10</div>
+        <div class="passo-fn">Variação 4: trocar Gmail por Telegram</div>
+      </div>
+      <p>Bot do Telegram via API HTTP: mesmo dado, canal diferente. Pratica integração com nó
+      nativo alternativo.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">11</div>
+        <div class="passo-fn">Variação 5: Curl Import</div>
+      </div>
+      <p>Encontre na doc da Open-Meteo o exemplo curl, copie e use o "Import cURL" do HTTP Request:
+      em vez de configurar URL+params manualmente.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Não rodadas no teste de 16/09/2026:</strong> as variações 1, 3, 4 e
+    5 são exercício de quem roda; o caminho é o do Notion, como está.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o workflow ativado e o primeiro e-mail na caixa, a aula 6 está
+  feita: amanhã às 7h ele chega sem você. O que vem abaixo é a <strong>cerca</strong>: quatro
+  pegadinhas, e a primeira é a vírgula.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Coordenadas com vírgula</div>
+      <p>A API usa <strong>ponto</strong> decimal (<code>-3.7172</code>), não vírgula. Aluno BR
+      copia do Google Maps com vírgula e dá erro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t"><code>weather_code</code> é numérico</div>
+      <p>A doc da Open-Meteo tem <a href="https://open-meteo.com/en/docs#weather-code"
+      target="_blank" rel="noopener">tabela de códigos</a> (0=céu limpo, 3=nublado, 61=chuva leve,
+      etc.). Pra mostrar texto amigável, usa um Edit Fields com IF/Switch: bom exercício pra quem
+      terminou B8.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Schedule só roda ativado</div>
+      <p>Workflow desativado não dispara: pra testar, usa "Execute Workflow" manual.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pinar o HTTP Request enquanto monta o texto</div>
+      <p>Sem pinar, cada execução do workflow chama a API de novo. Em testes repetidos, vira gasto
+      de chamada e tempo. Pino o nó depois da primeira execução boa, <strong>despino antes de
+      ativar produção</strong>.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você concluiu o B9!</strong> Daqui pra frente (B10), em vez de configurar HTTP
+    Request manualmente, você vai dar <strong>superpoderes</strong> pro AI Agent: ele decide
+    sozinho quando e como chamar APIs, ler documentação, e montar respostas. Tudo o que você
+    aprendeu de B5-B9 vira ferramenta na mão do agente. As seis aulas do bloco estão na
+    <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>

@@ -1,0 +1,352 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O nó curinga do n8n. Anatomia de uma requisição (URL/método/headers/body), os 4 verbos
+      que resolvem 90% das integrações, e o atalho mágico <strong>Import cURL</strong> que
+      economiza horas</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Todo sistema com API fala HTTP.</strong> Quem domina HTTP Request consegue
+      conectar com qualquer coisa do mundo. Quem não domina fica refém de "tem nó nativo?".</p>
+    </div>
+
+    <p>O n8n já tem nós nativos pra Gmail, Sheets, Telegram, Drive e dezenas de outros serviços.
+    Mas e quando o sistema é interno da sua empresa? Ou uma API menos conhecida?</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Os 4 verbos que resolvem 90% das integrações</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Método</th><th>O que faz</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>POST</strong></td><td>Criar dado</td><td>"Crie esse novo lead no CRM"</td></tr>
+            <tr><td><strong>DELETE</strong></td><td>Apagar dado</td><td>"Remova o evento 999 da agenda"</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>Duas linhas desta tabela se perderam na exportação do
+      Notion:</strong> GET e PUT/PATCH. Os quatro verbos estão inteiros, com exemplo, no
+      vocabulário mínimo da <a href="../b9-api/">aula 1</a>.</p>
+
+      <p>GET e POST resolvem ~80% dos casos práticos. Comece por eles.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-05.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Os Verbos da Internet (Métodos HTTP)': dois carimbos. GET, uma mão tirando uma ficha de um arquivo Previsão do Tempo Fortaleza: buscar dados, vá lá e me dê a previsão do tempo de Fortaleza (apenas puxa a informação). POST, uma mão carimbando Novo Cliente Registrado num papel: criar dados, crie esse novo cliente no meu sistema (envia informações novas). Nota: você usará apenas esses dois em 90% das suas automações! (E nunca troque um pelo outro).">
+    </div>
+    <p class="fig-leg"><strong>Os dois que resolvem quase tudo, em slide.</strong> A nota do rodapé
+    é a segunda pegadinha da aula 1 e a primeira desta.</p>
+
+      <h4>A anatomia da requisição</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Componente</th><th>Pra que serve</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>URL</strong></td><td>Endereço do recurso</td><td><code>https://api.empresa.com/clientes/42</code></td></tr>
+            <tr><td><strong>Método</strong></td><td>Verbo (GET/POST/...)</td><td><code>GET</code></td></tr>
+            <tr><td><strong>Headers</strong></td><td>Metadados da requisição</td><td><code>Content-Type: application/json</code>, <code>Authorization: Bearer abc123</code></td></tr>
+            <tr><td><strong>Query Params</strong></td><td>Parâmetros na URL</td><td><code>?status=ativo&amp;limit=10</code></td></tr>
+            <tr><td><strong>Body</strong></td><td>Dados enviados (POST/PUT)</td><td><code>{"nome":"(seu nome)","email":"r@x.com"}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>Tabela remontada:</strong> o export do Notion embaralhou as cinco
+      linhas em duas; as palavras são as que vieram.</p>
+
+      <h4>Como o n8n responde</h4>
+
+      <p>Toda chamada retorna 3 coisas: <strong>status code</strong>, <strong>headers de
+      resposta</strong>, <strong>body</strong>. O n8n entrega o body como JSON automaticamente
+      quando a API responde nesse formato.</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Código</th><th>Significado</th><th>Ação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>200 OK</code></td><td>Tudo certo</td><td>Continuar</td></tr>
+            <tr><td><code>201 Created</code></td><td>Criado com sucesso (POST)</td><td>Continuar</td></tr>
+            <tr><td><code>400 Bad Request</code></td><td>Pedido malformado</td><td>Conferir body/params</td></tr>
+            <tr><td><code>401 Unauthorized</code></td><td>Credencial errada/expirada</td><td>Reconfigurar credencial</td></tr>
+            <tr><td><code>404 Not Found</code></td><td>URL não existe</td><td>Conferir URL</td></tr>
+            <tr><td><code>429 Too Many Requests</code></td><td>Rate limit estourado</td><td>Adicionar Wait node</td></tr>
+            <tr><td><code>500 Internal Server Error</code></td><td>Problema do outro lado</td><td>Tentar de novo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>Tabela remontada:</strong> sete códigos que o export tinha
+      espremido em quatro linhas.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Configuração mínima de um GET</h4>
+
+    <ol>
+      <li>Adicione um HTTP Request node. <strong>Renomeie pra algo descritivo</strong> (ex.:
+      <code>🐶 Busca foto cachorro</code>).</li>
+      <li><strong>Method:</strong> <code>GET</code></li>
+      <li><strong>URL:</strong> <code>https://dog.ceo/api/breeds/image/random</code></li>
+      <li>(Se a API for pública, nenhuma autenticação necessária.)</li>
+      <li>Execute. Output:</li>
+    </ol>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O output do GET</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9http-get">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9http-get">{ "message": "https://images.dog.ceo/...jpg", "status": "success" }</pre>
+    </div>
+
+    <h4>Configuração de um POST com body JSON</h4>
+
+    <ol>
+      <li>Method: <code>POST</code></li>
+      <li>URL: <code>https://jsonplaceholder.typicode.com/posts</code></li>
+      <li><strong>Headers:</strong> ative <code>Send Headers</code>. Adicione
+      <code>Content-Type</code> = <code>application/json</code>.</li>
+      <li><strong>Body:</strong> ative <code>Send Body</code>. Modo: <code>JSON</code>. Conteúdo:</li>
+    </ol>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O body do POST</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9http-post">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9http-post">{
+  "title": "Meu post",
+  "body": "Conteúdo aqui",
+  "userId": 1
+}</pre>
+    </div>
+
+    <ol start="5">
+      <li>Execute. Resposta inclui o <code>id</code> do post criado.</li>
+    </ol>
+
+    <div class="figura n8n">
+      <img src="../_img/canvas/post-json.svg" width="432" height="200" loading="lazy"
+           alt="O canvas do n8n depois da execução: Disparo (gatilho manual) e Cria Post, um nó HTTP Request com POST embaixo, ligados por uma seta verde escrita 1 item; os dois com a marca verde de concluído.">
+    </div>
+    <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+    (execução 449, 16/09/2026). O POST acima, com o header e o body do texto, voltou
+    <code>{ "title": "Meu post", "body": "Conteúdo aqui", "userId": 1, "id": 101 }</code>: o
+    <code>id</code> é o que a API criou. Conferido na tela: os campos se chamam Send Headers,
+    Specify Headers ("Using Fields Below"), Send Body, Body Content Type (JSON) e Specify Body
+    ("Using JSON").</p>
+
+    <h4>Autenticação: os 3 padrões mais comuns</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Padrão</th><th>Como configurar no n8n</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>API Key no header</strong></td><td>Headers &rarr; <code>Authorization: Bearer SUA_KEY</code> ou <code>X-API-Key: SUA_KEY</code></td></tr>
+          <tr><td><strong>API Key na query</strong></td><td>Query Params &rarr; <code>?api_key=SUA_KEY</code></td></tr>
+          <tr><td><strong>OAuth</strong></td><td>Use a opção <code>Generic Credential Type</code> &rarr; <code>OAuth2 API</code>. Ver aula 3 (Credenciais)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg"><strong>Tabela remontada:</strong> três padrões que o export tinha espremido
+    em duas linhas.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Boa prática</div>
+      <p>Nunca cole a API key direto na URL/header em modo Fixed. Crie uma
+      <strong>credencial</strong> (menu Credentials &rarr; Header Auth) e referencie. Assim o segredo
+      fica protegido.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Dog CEO API (zero fricção)</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; API pública, sem autenticação, retorno visual</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie um workflow novo.</li>
+          <li>Manual Trigger &rarr; renomeie pra <code>▶️ Disparo</code>.</li>
+          <li>HTTP Request &rarr; renomeie pra <code>🐶 Busca Foto</code>.</li>
+          <li>Configure:
+            <ul>
+              <li>Method: GET</li>
+              <li>URL: <code>https://dog.ceo/api/breeds/image/random</code></li>
+            </ul>
+          </li>
+          <li>Execute (<code>Ctrl+Enter</code>).</li>
+          <li>Abra o JSON view do <code>🐶 Busca Foto</code>. Você vê:</li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O JSON view do 🐶 Busca Foto</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b9http-dog">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b9http-dog">{
+  "message": "https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg",
+  "status": "success"
+}</pre>
+        </div>
+
+        <ol start="7">
+          <li>Copie a URL do <code>message</code> e abra no browser. Aparece a foto do
+          cachorro.</li>
+        </ol>
+
+        <p><strong>O que acabou de acontecer:</strong> você chamou um servidor no outro lado do
+        mundo, recebeu resposta em milissegundos, e o dado já está em formato JSON pronto pro
+        próximo nó usar.</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/dog-ceo.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo (gatilho manual) e Busca Foto, um nó HTTP Request com GET embaixo, ligados por uma seta verde escrita 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 448, 16/09/2026). Voltou <code>"message":
+        "https://images.dog.ceo/breeds/setter-gordon/n02101006_6152.jpg"</code> e
+        <code>"status": "success"</code> em 395 ms. A raça muda a cada chamada (é o
+        <code>random</code> da URL); o formato é o do JSON acima.</p>
+
+        <h4>Atalho mágico: Curl Import</h4>
+
+        <p>Quase toda doc de API mostra um exemplo em <strong><code>curl</code></strong> (comando de
+        terminal pra fazer chamada HTTP). O n8n importa esse texto e configura <strong>tudo
+        automaticamente</strong>: método, URL, headers, body.</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Os 5 passos do Import cURL</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b9http-curl">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b9http-curl">1. Abra a doc da API (ex.: OpenWeather).
+2. Encontre o exemplo curl. Algo como:
+   curl "https://api.openweathermap.org/data/2.5/weather?q=Fortaleza&amp;appid=SUA_KEY"
+3. Copie a linha inteira.
+4. No HTTP Request node, clique em "Import cURL" (canto superior direito).
+5. Cole. Confira: URL, método, headers, query params já preenchidos.</pre>
+        </div>
+        <p class="fig-leg"><strong>Conferido na tela em 16/09/2026:</strong> o botão "Import cURL"
+        está no canto superior direito do painel Parameters do nó, acima do campo Method.</p>
+
+        <div class="aviso ok">
+          <div class="aviso-t">Por que isso é ouro</div>
+          <p>Doc de API costuma ser longa, prolixa, em inglês técnico. Em vez de ler tudo e
+          configurar campo por campo, você cola o curl da seção "exemplo" e o n8n faz o resto.
+          Atalho que economiza horas.</p>
+        </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Atalho Mágico: Import cURL': documentações de API são longas e técnicas, mas toda boa documentação tem um exemplo cURL (Quickstart). Um boneco confuso ao lado de um livro API Docs, uma varinha mágica e o painel do n8n com GET, URL, Headers e Body preenchidos a partir de curl -X GET. O Truque: não preencha campo por campo! Copie o texto cURL, clique em Import cURL no n8n, e ele preenche a URL, o Método, os Headers e o Body automaticamente.">
+    </div>
+    <p class="fig-leg"><strong>A varinha, em slide.</strong> O painel desenhado à direita é o
+    mesmo que abre quando você clica em Import cURL.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Quatro verbos, a anatomia, um GET e um POST rodados, e o atalho do
+  curl. O que vem abaixo é a <strong>cerca</strong>: seis pegadinhas, e a terceira vaza segredo
+  ao exportar.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não setar Content-Type quando manda JSON</div>
+      <p>API recebe como texto, não interpreta. Sempre <code>Content-Type: application/json</code>
+      em POST/PUT com body JSON.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir Query Params com Body</div>
+      <p>Query vai na URL (<code>?nome=(seu nome)</code>), Body vai separado. APIs documentam qual
+      usar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">API key colada em texto fixo</div>
+      <p>Vaza ao exportar workflow. Sempre via Credenciais.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">401 &ne; 404 &ne; 500</div>
+      <p>Leia o código antes de mexer. 401 é credencial, 404 é URL, 500 é problema do outro lado
+      (e geralmente passa sozinho).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Rate limit (429) silencioso</div>
+      <p>Algumas APIs limitam X requisições por minuto. Em loop com volume, adicione Loop Over
+      Items + Wait.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Resposta não-JSON</div>
+      <p>Algumas APIs retornam XML, HTML, texto puro. Verificar <code>Content-Type</code> da resposta
+      antes de assumir JSON.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 3, Credenciais. As seis aulas do bloco estão na
+    <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>

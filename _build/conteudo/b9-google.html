@@ -1,0 +1,351 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Os 3 nós Google que aparecem em quase todo workflow real: <strong>Gmail</strong>,
+      <strong>Sheets</strong> e <strong>Drive</strong>. Os 3 usam a <strong>mesma OAuth
+      Google</strong>, então você conecta credencial 1 vez e usa nos 3</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Quem domina os 3 monta 80% dos fluxos do mundo profissional sem precisar de mais
+      ferramenta.</strong></p>
+    </div>
+
+    <p>E-mail é o canal mais universal de notificação. Sheets é o "banco de dados do iniciante":
+    persistência grátis sem virar dev. Drive é onde os arquivos do dia-a-dia ficam (PDFs,
+    currículos, planilhas pra processar). Os 3 compartilham a mesma OAuth do Google, então o setup
+    é uma vez só.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central: uma OAuth, três nós</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Uma credencial Google OAuth abre Gmail, Sheets e Drive</h3>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Uma OAuth, três nós</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b9goo-arvore">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b9goo-arvore">Google OAuth (1 credencial)
+    ├── Gmail node      → enviar/ler e-mail
+    ├── Sheets node     → ler/escrever planilha
+    └── Drive node      → manipular arquivos</pre>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Setup-chave</div>
+        <p>Ao criar a credencial Gmail, ative os escopos <strong>também</strong> pra Sheets e
+        Drive. Assim a mesma credencial serve aos 3. Aprofundamento na aula 3 (Credenciais).</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-11.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Tríade do Dia a Dia (Google Workspace)': o feijão com arroz da automação corporativa. Uma chave dourada escrita OAuth com três cordões saindo do chaveiro para três cadeados: Gmail, a notificação universal (Send); Sheets, o banco de dados fácil (Append Row); Drive, a gestão de arquivos (Download). O Segredo: não crie 3 credenciais diferentes! Uma única credencial OAuth Google com os escopos certos abre as 3 portas ao mesmo tempo.">
+    </div>
+    <p class="fig-leg"><strong>Uma chave, três cadeados, em slide.</strong> Leia o aviso abaixo
+    antes de procurar a chave única na lista do n8n.</p>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Conferido na tela em 16/09/2026: o que "uma credencial" quer dizer no n8n de hoje</div>
+        <p>Na aba Credentials da conta do instrutor aparecem <strong>quatro credenciais Google
+        separadas</strong>, uma por tipo: "gmail-rslima" (Gmail OAuth2 API), "google-sheet-rslima"
+        (Google Sheets OAuth2 API), "google-drive-rslima" (Google Drive OAuth2 API) e
+        "google-docs-rslima" (Google Docs OAuth2 API). O nó Gmail só aceita credencial do tipo
+        Gmail OAuth2, o nó Sheets só aceita Google Sheets OAuth2, e assim por diante: <strong>não
+        dá pra escolher a credencial do Gmail dentro do nó Sheets</strong>. O que se cria uma vez e
+        se reaproveita é o lado do Google: o mesmo projeto no Cloud Console, o mesmo Client ID e
+        Client Secret e o mesmo "Sign in with Google". A chave única do slide é essa; na lista do
+        n8n ela aparece como uma entrada por serviço.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Os três nós, um a um</h2>
+      </div>
+    </div>
+
+    <h4>Gmail: enviar e-mail</h4>
+
+    <p><strong>Operações principais</strong></p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Operação</th><th>Pra que serve</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Send</strong></td><td>Enviar e-mail novo (mais comum)</td></tr>
+          <tr><td><strong>Get / Get Many</strong></td><td>Ler e-mails da caixa</td></tr>
+          <tr><td><strong>Reply</strong></td><td>Responder thread existente</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg"><strong>Tabela remontada:</strong> três operações que o export tinha
+    espremido em duas linhas.</p>
+
+    <p><strong>Configuração mínima do Send</strong></p>
+
+    <ol>
+      <li><strong>Operation:</strong> <code>Send</code></li>
+      <li><strong>To:</strong> e-mail destino (Fixed ou Expression <code>{{ $json.email }}</code>)</li>
+      <li><strong>Subject:</strong> assunto (Expression: <code>Olá {{ $json.nome }} — relatório
+      semanal</code>)</li>
+      <li><strong>Email Type:</strong> <code>Text</code> ou <code>HTML</code> (HTML pra formato
+      rico)</li>
+      <li><strong>Message:</strong> corpo do e-mail (Expression suportada)</li>
+    </ol>
+
+    <p><strong>Padrão de uso: relatório semanal</strong></p>
+
+    <div class="fluxo solta">
+      <div class="fl">
+        <div class="fl-n">Gatilho</div>
+        <h4>Schedule (seg 9h)</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Execução</div>
+        <h4>Sheets (ler resumo)</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Entrega</div>
+        <h4>Gmail (enviar pro chefe)</h4>
+      </div>
+    </div>
+
+    <p><strong>Pegadinhas Gmail</strong></p>
+
+    <ul class="lista">
+      <li><strong>OAuth precisa de domínio verificado pra produção.</strong> Em testes, conta
+      pessoal funciona; pra mandar de domínio empresarial, configura GCP.</li>
+      <li><strong>HTML vs Plain text.</strong> Se mandar HTML em Plain, sai com tags visíveis. Se
+      mandar Plain em HTML, perde formatação.</li>
+      <li><strong>Limite diário do Gmail:</strong> 500 e-mails/dia em conta gratuita; 2000/dia em
+      Workspace pago.</li>
+    </ul>
+
+    <h4>Google Sheets: ler e escrever planilha</h4>
+
+    <p><strong>Operações principais</strong></p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Operação</th><th>Pra que serve</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Get Rows</strong></td><td>Ler linhas (com filtros opcionais)</td></tr>
+          <tr><td><strong>Delete Row</strong></td><td>Apagar</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg"><strong>O export do Notion perdeu linhas desta tabela:</strong> a
+    configuração logo abaixo é a do <strong>Append Row</strong>, e a pegadinha do fim fala do
+    <strong>Update</strong>; nenhuma das duas sobreviveu na tabela.</p>
+
+    <p><strong>Configuração mínima do Append Row</strong></p>
+
+    <ol>
+      <li><strong>Document:</strong> selecione a planilha (lista de Drive da credencial).</li>
+      <li><strong>Sheet:</strong> aba dentro da planilha.</li>
+      <li><strong>Operation:</strong> <code>Append</code>.</li>
+      <li><strong>Columns:</strong> mapeie cada coluna pra um valor (Fixed ou Expression).</li>
+    </ol>
+
+    <p><strong>Padrão de uso: captura de lead</strong></p>
+
+    <div class="fluxo solta">
+      <div class="fl">
+        <div class="fl-n">Gatilho</div>
+        <h4>Form Trigger</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Execução</div>
+        <h4>Sheets (Append: nome, email, data)</h4>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Entrega</div>
+        <h4>Gmail (notificar)</h4>
+      </div>
+    </div>
+
+    <p><strong>Pegadinhas Sheets</strong></p>
+
+    <ul class="lista">
+      <li><strong>Compartilhamento da planilha:</strong> precisa estar acessível pela conta
+      conectada na credencial.</li>
+      <li><strong>Header row vs data row.</strong> A primeira linha vira nomes de coluna (chaves
+      no JSON). Se não tem header, n8n usa A/B/C.</li>
+      <li><strong>Update por linha vs por valor de coluna-chave.</strong> Update tem 2 modos: por
+      número de linha (frágil) ou por valor de coluna (<code>email = "ana@x.com"</code>: mais
+      robusto).</li>
+    </ul>
+
+    <h4>Google Drive: arquivos</h4>
+
+    <p><strong>Operações principais</strong></p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Operação</th><th>Pra que serve</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Download</strong></td><td>Baixar pra processar (vira binário no n8n)</td></tr>
+          <tr><td><strong>Move / Share / Delete</strong></td><td>Organização e gestão</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg"><strong>O export do Notion perdeu linhas desta tabela também:</strong> a
+    pegadinha do fim manda usar uma operação <strong>List</strong> que não está nela.</p>
+
+    <p><strong>Configuração mínima do Download</strong></p>
+
+    <ol>
+      <li><strong>Operation:</strong> <code>Download</code>.</li>
+      <li><strong>File:</strong> selecione pelo ID ou via Expression (<code>{{ $json.fileId }}</code>).</li>
+      <li>Output do nó vira binário, acessível por nó seguinte (ex.: AI Agent que extrai texto de
+      PDF).</li>
+    </ol>
+
+    <p><strong>Pegadinhas Drive</strong></p>
+
+    <ul class="lista">
+      <li><strong>Permissões:</strong> arquivo precisa estar acessível pela conta da credencial.</li>
+      <li><strong>Tamanho do arquivo no Cloud:</strong> n8n Cloud tem limite de execução por
+      tempo/memória. Arquivos grandes (&gt;50MB) podem estourar.</li>
+      <li><strong>fileId vs nome:</strong> n8n usa fileId interno do Google. Pra pegar o ID,
+      navegue pela árvore na configuração ou use uma operação <code>List</code> antes.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Como funciona na prática: workflow integrando os 3</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Cenário &middot; do currículo no Drive ao e-mail do vendedor</div>
+      <div class="demo-corpo">
+        <p><strong>Cenário:</strong> novo currículo cai numa pasta do Drive &rarr; IA analisa &rarr;
+        resultado vai pra planilha &rarr; vendedor recebe Gmail.</p>
+
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">01 &middot; gatilho</div>
+            <h4>Drive Trigger: novo arquivo na pasta CVs</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">02</div>
+            <h4>Drive: Download</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">03</div>
+            <h4>AI Agent: extrai nome, cargo, fit_score</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">04</div>
+            <h4>Sheets: Append Row com os 3 campos</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">05</div>
+            <h4>IF: fit_score &gt;= 7?</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">06 &middot; (true)</div>
+            <h4>Gmail: notificar vendedor com link pro CV</h4>
+          </div>
+        </div>
+
+        <p><strong>Os 3 nós Google + 1 credencial OAuth.</strong> Esse padrão atravessa metade dos
+        projetos do B11.</p>
+
+        <p class="fig-leg"><strong>Não rodado no teste de 16/09/2026:</strong> o cenário depende de
+        uma pasta de currículos no Drive de quem roda; o desenho acima é o do Notion, sem execução.
+        O que já rodou na trilha, com as credenciais do instrutor, é o par Sheets + Gmail: a
+        <a href="../b8-vendas/">aula 9 do B8</a> leu 800 linhas de uma planilha e mandou o resumo
+        por e-mail (execução 446), e a <a href="../b9-tempo/">aula 6</a> deste bloco manda o
+        e-mail do clima. Sheets e Gmail, cada um com a sua credencial OAuth, como o aviso da seção
+        02 descreve.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Três nós, uma chave do lado do Google e um cenário que atravessa os
+  três. O que vem abaixo é a <strong>cerca</strong>: três pegadinhas gerais, e a primeira é a do
+  slide.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas gerais</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Configurar 3 credenciais Google separadas</div>
+      <p>Desnecessário e confuso. Use <strong>uma só</strong> com escopos amplos.</p>
+      <p class="fig-leg">Leia com o aviso da seção 02: no n8n de hoje a lista mostra uma entrada
+      por serviço; "uma só" é o projeto e o cliente OAuth no Google.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">OAuth expira</div>
+      <p>Depois de inatividade, o Google revoga. Sintoma: erro 401 em produção. Solução: reconectar
+      credencial.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de checar limites de plano gratuito</div>
+      <p>Gmail (500/dia), Sheets (10M células). Conta pessoal estoura mais fácil que parece em fluxo
+      automatizado.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 5, Respondendo webhooks. As seis aulas do bloco estão na
+    <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>

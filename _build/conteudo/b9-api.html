@@ -1,0 +1,347 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O que é uma API sem jargão (analogia waiter/chef), o vocabulário mínimo (endpoint,
+      método, header, body, status code) e como ler doc de API real em 5 minutos</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>API é o que permite o n8n conversar com <strong>qualquer sistema do mundo</strong>. Quem
+      entende API vira independente de "tem nó nativo?": e o universo de coisas automatizáveis
+      multiplica por 100.</p>
+    </div>
+
+    <p>Quem não entende fica preso aos 400 nós nativos do n8n. A boa notícia: você não precisa
+    virar dev. Precisa do vocabulário mínimo, que está aqui.</p>
+    <p class="fig-leg"><strong>Sobre os 400:</strong> conferido em 16/09/2026, o site do n8n fala
+    em "1,000+ apps". O número do texto é o piso da época em que foi escrito; a frase continua
+    verdadeira.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>API = garçom</h3>
+
+      <p>Você (o n8n) está sentado na mesa com fome. A cozinha (o servidor da outra empresa:
+      Google, OpenAI, OpenWeather) tem o que você quer, mas você não pode entrar lá. O
+      <strong>garçom</strong> (a API) leva seu pedido pra cozinha e traz a resposta de volta.</p>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">pedido &rarr; &middot; &larr; prato</div>
+          <h4>Você (n8n)</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">pedido &rarr; &middot; &larr; prato</div>
+          <h4>Garçom (API)</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">prepara</div>
+          <h4>Cozinha (servidor)</h4>
+        </div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia: a analogia do restaurante</div>
+        <p>Pontos importantes da analogia:</p>
+        <ul class="analogia-mapa">
+          <li><strong>Você não cozinha.</strong> Só pede e recebe. O n8n não precisa "ser" o Google
+          Calendar: ele só pede pro Google Calendar criar o evento.</li>
+          <li><strong>Existe um cardápio.</strong> A cozinha não faz qualquer coisa. Faz o que está
+          documentado. Esse "cardápio" é a <strong>documentação da API</strong>.</li>
+          <li><strong>O garçom precisa entender o pedido.</strong> Pedido confuso &rarr; cozinha não
+          entende &rarr; erro. Por isso APIs têm formato fixo.</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-03.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Conceito de API: A Analogia do Restaurante', três colunas com setas de ida e volta entre elas. A Mesa: você (n8n), você não cozinha, só pede e recebe. O Garçom: API, leva seu pedido e traz a resposta de volta. A Cozinha: servidor, faz o trabalho pesado, mas você não pode entrar lá.">
+    </div>
+    <p class="fig-leg"><strong>Mesa, garçom e cozinha, em slide.</strong> As setas de ida e volta
+    são o pedido e o prato do desenho acima.</p>
+
+      <h4>API vs Webhook: duas direções</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th></th><th>API tradicional</th><th>Webhook</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Analogia</strong></td><td>Você liga pro garçom</td><td>Vizinho fofoqueiro toca sua campainha</td></tr>
+            <tr><td><strong>No n8n</strong></td><td>Nó <strong>HTTP Request</strong> (puxa)</td><td>Nó <strong>Webhook Trigger</strong> (escuta)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Os dois, quase sempre</div>
+        <p>A maior parte dos fluxos usa os <strong>dois</strong>: webhook recebe um aviso &rarr; API
+        busca dados completos &rarr; workflow processa. Tema que volta na aula 5.</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-09.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Invertendo o Papel: API vs Webhook'. Em cima, uma pessoa ao telefone e um restaurante, setas de ida e volta: HTTP Request, Direção 1 (A Ligação), API Tradicional, você liga e pede a informação (você vai atrás do dado). Embaixo, um dedo apertando uma campainha e uma casa: Webhook Trigger, Direção 2 (A Campainha), Webhook, o sistema externo avisa você na mesma hora que algo acontece (você fica em casa escutando).">
+    </div>
+    <p class="fig-leg"><strong>A ligação e a campainha.</strong> É a mesma campainha do B7 (aula
+    3), vista agora do lado de quem liga.</p>
+
+      <h4>Vocabulário mínimo</h4>
+
+      <p>5 palavras pra ler 90% das docs de API:</p>
+
+      <ul class="lista">
+        <li><strong>Endpoint:</strong> endereço onde você faz o pedido. Uma URL:
+        <code>https://api.openweathermap.org/data/2.5/weather</code>. Cada operação tem seu
+        endpoint próprio (<code>/weather</code>, <code>/forecast</code>, <code>/users/42</code>).</li>
+        <li><strong>Método:</strong> o <strong>verbo</strong> do pedido:
+          <ul>
+            <li><code>GET</code>: buscar dado ("me dá os dados de Fortaleza")</li>
+            <li><code>POST</code>: criar dado ("crie esse novo lead")</li>
+            <li><code>PUT/PATCH</code>: atualizar dado ("mude o status pra 'qualificado'")</li>
+            <li><code>DELETE</code>: apagar ("remova o evento 999")</li>
+          </ul>
+        </li>
+        <li><strong>Header:</strong> informação <strong>embalada</strong> do pedido. Quem é você
+        (token de autenticação), qual formato você manda (<code>Content-Type:
+        application/json</code>).</li>
+        <li><strong>Body:</strong> os <strong>dados</strong> do pedido (só em POST/PUT). É um JSON
+        com o conteúdo. Pra GET, geralmente não tem.</li>
+        <li><strong>Status code:</strong> resposta resumida em <strong>número</strong>:
+          <ul>
+            <li><code>200</code>: sucesso</li>
+            <li><code>400</code>: pedido malformado (você errou)</li>
+            <li><code>401</code>: credencial errada (token inválido)</li>
+            <li><code>404</code>: endpoint não existe</li>
+            <li><code>429</code>: você fez pedido demais, espera um pouco</li>
+            <li><code>500</code>: problema na cozinha (não é seu)</li>
+          </ul>
+        </li>
+      </ul>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-04.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Vocabulário Mínimo (Lendo o Cardápio)': um cardápio de restaurante com três etiquetas presas por cordões. Endpoint = onde você faz o pedido (ex: /weather ou /users/42). Header = a embalagem, quem é você e o formato do pedido. Body = os dados do pedido (ex: sem cebola, ou um JSON com detalhes).">
+    </div>
+    <p class="fig-leg"><strong>Três das cinco palavras, no cardápio.</strong> As outras duas, método
+    e status code, têm slide próprio: o método na aula 2, o status logo abaixo.</p>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Memorize a regra dos 4xx vs 5xx</div>
+        <p>Começa com 4 = problema seu (erro do cliente). Começa com 5 = problema deles (erro do
+        servidor). Lê o código antes de mexer no fluxo.</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-06.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'O Feedback do Garçom (Status Code)': três círculos. Verde, 200: sucesso, tudo certo. Amarelo, 4xx: o problema é seu; 400: pedido escrito errado; 401: você está sem crachá; 404: o endereço não existe. Vermelho, 5xx: a cozinha pegou fogo, o problema é deles (servidor caiu). Embaixo, Regra de Ouro: viu um erro vermelho no n8n? Nunca apague o fluxo. Leia o número primeiro.">
+    </div>
+    <p class="fig-leg"><strong>A regra dos 4xx e 5xx, em três cores.</strong> O "sem crachá" do 401
+    é a aula 3 inteira.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>A jornada de uma chamada: passo a passo</h4>
+
+    <p>Imagina que você quer saber a previsão do tempo de Fortaleza. O caminho:</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Os 5 passos de uma chamada</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9api-jornada">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9api-jornada">1. n8n monta o pedido:
+   - Endpoint: https://api.openweathermap.org/data/2.5/weather
+   - Método:   GET
+   - Query params: ?q=Fortaleza,br&amp;appid=SUA_KEY&amp;units=metric
+
+2. n8n manda o pedido pela internet.
+
+3. Servidor do OpenWeather:
+   - Confere a key (header)
+   - Consulta o banco de dados
+   - Monta a resposta
+
+4. Resposta volta pro n8n:
+   - Status: 200 OK
+   - Body: { "name": "Fortaleza", "main": { "temp": 28.5 }, ... }
+
+5. n8n entrega o JSON pro próximo nó usar.</pre>
+    </div>
+
+    <p>Tudo isso em <strong>menos de 1 segundo</strong>. E o aluno só precisa preencher 3 campos no
+    nó HTTP Request: endpoint, método e a query. O resto o n8n faz sozinho.</p>
+
+    <h4>Como ler uma doc de API real</h4>
+
+    <p>Toda doc decente mostra 3 coisas pra cada endpoint:</p>
+
+    <ol>
+      <li><strong>Qual é a URL</strong> (endpoint).</li>
+      <li><strong>Quais parâmetros aceita</strong> (query, header, body).</li>
+      <li><strong>Como é a resposta</strong> (formato do JSON que volta).</li>
+    </ol>
+
+    <p>E quase toda doc traz um <strong>exemplo <code>curl</code></strong>: uma linha de comando
+    que você pode <strong>copiar direto pro n8n</strong> (atalho mágico do "Import cURL": ver aula
+    2).</p>
+
+    <p>Ao bater numa doc:</p>
+
+    <ul class="lista">
+      <li>Procura <strong>"Quickstart"</strong> ou <strong>"Getting started"</strong> primeiro:
+      costuma ter o curl pronto.</li>
+      <li>Procura <strong>"Authentication"</strong>: pra saber se precisa de chave e onde
+      colocá-la.</li>
+      <li>Procura o <strong>endpoint específico</strong> que faz o que você quer (ex.: "Current
+      Weather" no OpenWeather).</li>
+      <li>Confere se tem <strong>rate limit</strong> (quantas chamadas por minuto/dia).</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: leitura de doc</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; a doc da Open-Meteo, sem chave</div>
+      <div class="demo-corpo">
+        <p>Abre <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">a doc da
+        Open-Meteo</a> (API de previsão do tempo, <strong>sem chave</strong>).</p>
+
+        <ol>
+          <li>Na home, role até <strong>"Try it out"</strong>.</li>
+          <li>Note os 3 elementos:
+            <ul>
+              <li><strong>URL:</strong> <code>https://api.open-meteo.com/v1/forecast</code></li>
+              <li><strong>Método:</strong> GET (implícito: toda doc assume GET se não disser)</li>
+              <li><strong>Query params:</strong> <code>latitude</code>, <code>longitude</code>,
+              <code>current</code>, etc.</li>
+            </ul>
+          </li>
+          <li>Clica no botão <strong>"Run"</strong> ali na doc. Você vê a resposta em JSON:</li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A resposta, como está na doc</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b9api-doc">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b9api-doc">{
+  "latitude": 52.52,
+  "longitude": 13.41,
+  "current": {
+    "temperature_2m": 14.6,
+    "wind_speed_10m": 11.3
+  }
+}</pre>
+        </div>
+
+        <p>Você acabou de <strong>ler uma doc</strong> e entender o pedido + resposta. Próximo
+        passo: configurar isso no nó HTTP Request do n8n: feito no Fluxo prático (aula 6).</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/doc-open-meteo.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: dois nós em linha, Disparo (gatilho manual) e Lê a Doc (Open-Meteo), um nó HTTP Request com GET embaixo, ligados por uma seta verde escrita 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 447, 16/09/2026, 19:28 GMT). É o mesmo pedido do botão "Run", feito pelo nó HTTP
+        Request numa conta de teste: latitude 52.52, longitude 13.41, <code>current</code> com
+        <code>temperature_2m,wind_speed_10m</code>. Voltou <code>"temperature_2m": 16.9</code> e
+        <code>"wind_speed_10m": 6.3</code>, com <code>"time": "2026-09-16T19:15"</code>. Os números
+        do JSON acima são os do dia em que a doc foi lida; a cada "Run" eles mudam, o formato não.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Garçom, cardápio, cinco palavras e uma doc lida de verdade. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a terceira é a que mais custa tempo:
+  refazer tudo sem ler o número.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir endpoint com URL do site</div>
+      <p><code>https://openweathermap.org</code> é o site.
+      <code>https://api.openweathermap.org/data/2.5/weather</code> é o endpoint da API. Endereços
+      diferentes, propósitos diferentes.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que GET e POST são intercambiáveis</div>
+      <p>Não são. Doc fala <code>GET</code> &rarr; você usa GET. Trocar dá <code>405 Method Not
+      Allowed</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ignorar status code</div>
+      <p>Aluno vê erro vermelho no n8n e tenta refazer tudo. Lê o código primeiro: <code>401</code>
+      = credencial. <code>404</code> = URL errada. <code>429</code> = espera. <code>500</code> = não
+      é problema seu.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não checar rate limit</div>
+      <p>API gratuita costuma limitar (60/min, 1000/dia). Workflow que dispara em loop sem freio
+      leva ban temporário.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer que a API é uma terceira pessoa</div>
+      <p>Se a API cai, seu fluxo cai. Tema do Error Trigger (B11).</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, HTTP Request. As seis aulas do bloco estão na
+    <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>

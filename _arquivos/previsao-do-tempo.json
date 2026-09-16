@@ -1,0 +1,130 @@
+{
+  "name": "Previsão do Tempo",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "9ba019ae-e446-4025-94c7-7a1441bdeb8b",
+      "name": "⏰ Toda Manhã 7h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=-3.7172&longitude=-38.5433&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=America/Fortaleza",
+        "authentication": "none",
+        "options": {}
+      },
+      "id": "ebee15ab-2135-4d20-b570-75af5057bea4",
+      "name": "🌤 Busca Clima",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "m1",
+              "name": "mensagem",
+              "type": "string",
+              "value": "=🌤 Bom dia! Previsao pra Fortaleza:\n\nTemperatura: {{ $json.current.temperature_2m }}°C\nUmidade: {{ $json.current.relative_humidity_2m }}%\nVento: {{ $json.current.wind_speed_10m }} km/h\n\nTenha um bom dia."
+            }
+          ]
+        },
+        "includeOtherFields": false,
+        "options": {}
+      },
+      "id": "f3c94b2d-0461-4083-8298-f55a25521420",
+      "name": "📝 Monta Texto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "seu-proprio-email@exemplo.com",
+        "subject": "=🌤 Previsão do tempo — {{ $now.format('dd/MM') }}",
+        "emailType": "text",
+        "message": "={{ $json.mensagem }}",
+        "options": {}
+      },
+      "id": "ba22e286-b0a9-428b-ad1f-20cd71956bb3",
+      "name": "📧 Envia Pra Você",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        672,
+        0
+      ],
+      "webhookId": "a456c8af-3118-403d-b70b-759dfe134e87"
+    }
+  ],
+  "connections": {
+    "⏰ Toda Manhã 7h": {
+      "main": [
+        [
+          {
+            "node": "🌤 Busca Clima",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🌤 Busca Clima": {
+      "main": [
+        [
+          {
+            "node": "📝 Monta Texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "📝 Monta Texto": {
+      "main": [
+        [
+          {
+            "node": "📧 Envia Pra Você",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "trilha-iel"
+  }
+}

@@ -103,6 +103,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b6-fundamentos", "b6-oque", "b6-anatomia", "b6-canvas", "b6-primeiro", "b6-agente",
              "b7-gatilhos", "b7-manual", "b7-schedule", "b7-webhook", "b7-form", "b7-appevent", "b7-lembrete",
              "b8-execucao", "b8-json", "b8-dados", "b8-set", "b8-expressions", "b8-if", "b8-switch", "b8-merge", "b8-listas", "b8-vendas",
+             "b9-apis", "b9-api", "b9-http", "b9-credenciais", "b9-google", "b9-respond", "b9-tempo",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -200,6 +201,15 @@ TRILHA = [
         ("b8-merge",       "7 · Merge node"),
         ("b8-listas",      "8 · Listas: separar, processar e juntar"),
         ("b8-vendas",      "9 · Fluxo prático: Resumo semanal de vendas"),
+    ]),
+    ("B9 · APIs e webhooks", [
+        ("b9-apis",        "B9 · APIs e webhooks"),
+        ("b9-api",         "1 · O que é uma API"),
+        ("b9-http",        "2 · HTTP Request"),
+        ("b9-credenciais", "3 · Credenciais (OAuth, API Key, Header Auth)"),
+        ("b9-google",      "4 · Google Workspace no n8n"),
+        ("b9-respond",     "5 · Respondendo webhooks"),
+        ("b9-tempo",       "6 · Fluxo prático: Previsão do tempo"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -647,6 +657,100 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  ("../b8-execucao/", "B8 · Execução"),
+                 (None, None)],
+    ),
+    "b9-apis": dict(
+        titulo="B9 · APIs e webhooks",
+        kicker="Módulo 2 · B9 · Bloco 5 de 7",
+        h1="APIs e webhooks",
+        sub="Explicar API sem jargão, dominar HTTP Request (4 verbos + Import cURL), configurar "
+            "OAuth/API Key/Header Auth, usar os 3 nós Google na mesma credencial, e construir "
+            "mini-API com Respond to Webhook.",
+        selos=["Seis aulas", "O n8n deixa de ser uma ilha"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "APIs e webhooks")],
+    ),
+    "b9-api": dict(
+        # conceito. Analogia do restaurante (slide m4-03). Exemplo guiado rodou (447): a chamada do "Run" da doc da Open-Meteo.
+        tipo="fundamento",
+        titulo="Aula 1 · O que é uma API",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="O que é uma API",
+        sub="Analogia waiter/chef. Diferença entre API (você puxa) e Webhook (vem te avisar). Como ler doc de API.",
+        selos=['Conceito'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
+                 (None, None)],
+    ),
+    "b9-http": dict(
+        # topico-ancora. Sem analogia no Notion. Exemplos rodaram (448 Dog CEO, 449 POST); Import cURL conferido na tela.
+        tipo="fundamento",
+        titulo="Aula 2 · HTTP Request",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="HTTP Request",
+        sub="4 verbos, anatomia da requisição, status codes, atalho Import cURL.",
+        selos=['Aula-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
+                 (None, None)],
+    ),
+    "b9-credenciais": dict(
+        # conceito. Analogia do cracha (slide m4-07). Exemplo guiado NAO rodado (criar credencial na conta do instrutor); a lista dele foi conferida na tela.
+        tipo="fundamento",
+        titulo="Aula 3 · Credenciais (OAuth, API Key, Header Auth)",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="Credenciais (OAuth, API Key, Header Auth)",
+        sub="3 tipos de auth, quando usar cada um, reuso de credencial entre workflows.",
+        selos=['Conceito'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
+                 (None, None)],
+    ),
+    "b9-google": dict(
+        # topico-ancora. Sem analogia no Notion. Cenario dos 3 nos NAO rodado; a tela mostrou 4 credenciais Google separadas (aviso na pagina).
+        tipo="fundamento",
+        titulo="Aula 4 · Google Workspace no n8n (Gmail + Sheets + Drive)",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="Google Workspace no n8n (Gmail + Sheets + Drive)",
+        sub="Gmail + Sheets + Drive na mesma OAuth.",
+        selos=['Aula-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
+                 (None, None)],
+    ),
+    "b9-respond": dict(
+        # conceito + pratica. Sem analogia no Notion. Mini-API rodou (450) com o pedido pinado pelo MCP; URLs e o campo Respond conferidos na tela.
+        tipo="fundamento",
+        titulo="Aula 5 · Respondendo webhooks (Respond to Webhook)",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="Respondendo webhooks (Respond to Webhook)",
+        sub="Construir mini-API: receber dado e responder com JSON customizado.",
+        selos=['Conceito + prática'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
+                 (None, None)],
+    ),
+    "b9-tempo": dict(
+        # pratica COM arquivo (P6 do PROMPT v2): Schedule -> HTTP Request
+        # (Open-Meteo) -> Set -> Gmail. Rodou no servidor do Rafael por MCP em
+        # 16/09 (execucao 451, e-mail na caixa dele com 28.6 graus). O .json e o
+        # export com o e-mail em placeholder.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Aula 6 · Fluxo prático: Previsão do tempo",
+        kicker="Módulo 2 · B9 · APIs e webhooks",
+        h1="Fluxo prático: Previsão do tempo",
+        sub="Schedule + Open-Meteo + Gmail. Zero credencial pra API. Drag-and-drop puro.",
+        selos=["Pede credencial Gmail", "Hands-on"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b9-apis/", "B9 · APIs e webhooks"),
                  (None, None)],
     ),
     "modulo-3": dict(

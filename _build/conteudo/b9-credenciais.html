@@ -1,0 +1,290 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Criar, reutilizar e diagnosticar credenciais em 1 minuto. Os 4 tipos que cobrem 95% dos
+      serviços, e por que <code>401 Unauthorized</code> não é bug: é credencial</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Credencial é como o n8n prova pra cada serviço externo "sou eu, autorizei". Sem credencial
+      certa, <strong>nada de Gmail, Sheets, OpenAI, Slack, OpenWeather pago</strong>.</p>
+    </div>
+
+    <p>Não é decoreba: são 3-4 padrões só, e depois que você cria uma vez, reusa em todo workflow.
+    O segredo é entender qual padrão cada serviço usa antes de tentar conectar.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Credencial = crachá</h3>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Pensa em credencial como um <strong>crachá com seu nome + assinatura da empresa</strong>.
+        Cada vez que o n8n quer entrar num serviço (Gmail, OpenAI), ele mostra o crachá. O serviço
+        confere e libera.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O crachá</strong> = a credencial</li>
+          <li><strong>Quem mostra o crachá</strong> = o n8n</li>
+          <li><strong>Quem confere e libera</strong> = o serviço (Gmail, OpenAI)</li>
+        </ul>
+      </div>
+
+      <p>Vantagens de usar credencial em vez de colar token direto no nó:</p>
+
+      <ul class="lista">
+        <li><strong>Reuso.</strong> Cria 1 vez, usa em 50 workflows.</li>
+        <li><strong>Segurança.</strong> Token fica no cofre do n8n. Workflow exportado <strong>não
+        vaza</strong> o segredo.</li>
+        <li><strong>Atualização central.</strong> Token expirou? Atualiza num lugar só, todos os
+        workflows seguem.</li>
+      </ul>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-07.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Segurança e Crachás (Credenciais no n8n)': o crachá prova que você tem autorização para entrar na cozinha alheia; você cria uma vez no n8n e reutiliza em dezenas de fluxos. Um crachá Acesso Liberado no meio, e dois quadros: API Key, o código secreto (um texto que você copia e cola, ex: OpenAI), com uma chave e um código; OAuth, o crachá inteligente (você clica em Sign in e aprova, ex: Google), com um celular. Dica: deu erro 401 Unauthorized? O problema é 100% no seu crachá.">
+    </div>
+    <p class="fig-leg"><strong>O crachá, em slide.</strong> Os dois quadros são as duas linhas
+    que resolvem ~90% da tabela abaixo; a dica do rodapé é a primeira pegadinha da cerca.</p>
+
+      <h4>Os 4 tipos que cobrem 95% dos casos</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Como funciona</th><th>Exemplos</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>API Key</strong></td><td>Token simples colado num campo</td><td>OpenAI, Groq, OpenWeather, Telegram</td></tr>
+            <tr><td><strong>Basic Auth</strong></td><td>Usuário + senha tradicionais (raro hoje)</td><td>Sistemas legados, alguns webhooks corporativos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>Duas linhas desta tabela se perderam na exportação do
+      Notion:</strong> OAuth2 e Header Auth. As duas estão descritas por extenso na seção 03,
+      com o passo a passo de cada uma.</p>
+
+      <p><strong>OAuth e API Key resolvem ~90% dos serviços modernos.</strong> Header Auth aparece
+      quando a API tem padrão próprio. Basic Auth é resíduo de era antiga.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Onde criar credencial</h4>
+
+    <p>Existem <strong>2 lugares</strong> que abrem o painel de credencial: escolha o mais
+    conveniente:</p>
+
+    <ol>
+      <li><strong>Direto no nó:</strong> clique no campo <code>Credential to connect with</code>,
+      depois em <code>+ Create new credential</code>. n8n já pré-seleciona o tipo certo pro
+      serviço.</li>
+      <li><strong>Menu lateral:</strong> menu <code>Credentials</code> (ícone de cadeado) &rarr;
+      <code>Create credential</code> &rarr; procura pelo serviço.</li>
+    </ol>
+
+    <p>Recomendação: <strong>direto no nó</strong>, primeira vez. Menos passos, e o n8n já sabe qual
+    tipo é.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Conferido na tela em 16/09/2026: onde o menu está hoje</div>
+      <p>Na versão atual do n8n, <strong>Credentials é uma aba da tela Overview</strong>
+      (Workflows &middot; Credentials &middot; Executions &middot; Variables &middot; Data tables),
+      sem ícone de cadeado no menu lateral. O botão <strong>Create credential</strong> fica no
+      canto superior direito dessa tela. O caminho 1, direto no nó, é o mesmo.</p>
+    </div>
+
+    <h4>OAuth2 (Google, Slack, etc.)</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Os 6 passos do OAuth2</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9cred-oauth">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9cred-oauth">1. No nó Gmail (ou Sheets/Drive/Calendar), campo "Credential" → Create new.
+2. Tipo já preenchido: Gmail OAuth2 API.
+3. Clique em "Sign in with Google". Popup abre.
+4. Escolhe a conta. Autoriza os escopos (read e-mail, send e-mail, etc.).
+5. Volta pro n8n com "Account connected".
+6. Salva.</pre>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pegadinha do OAuth Google</div>
+      <p>O setup do Google Cloud Console (criar projeto, ativar APIs, gerar OAuth Client ID) é
+      <strong>denso</strong>. Aluno tropea aqui mais que em qualquer outra coisa do B9. Tema com
+      vídeo standalone dedicado: assiste 1 vez, tira do caminho.</p>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Atalho do n8n Cloud</div>
+      <p>Se você usa n8n Cloud (não self-host), as credenciais OAuth do Google já vêm
+      <strong>pré-configuradas</strong>. Você só clica em "Sign in" e autoriza. Zero Cloud Console.
+      Mais um motivo pra começar no Cloud.</p>
+    </div>
+
+    <h4>API Key (OpenAI, OpenWeather, Groq)</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Os 5 passos da API Key</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9cred-key">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9cred-key">1. No site do serviço (ex.: platform.openai.com), gera a key.
+2. Copia o token (sk-... no caso do OpenAI).
+3. No nó OpenAI Chat Model → Credential → Create new.
+4. Cola o token no campo "API Key".
+5. Salva.</pre>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pegadinha universal</div>
+      <p>Quase todo serviço <strong>mostra a API key UMA vez</strong> na tela de geração. Se você
+      fechar antes de copiar, <strong>gera de novo</strong>. Não tem como recuperar a anterior.</p>
+    </div>
+
+    <h4>Header Auth (APIs customizadas)</h4>
+
+    <p>Útil quando uma API quer um header específico (ex.: <code>X-API-Key: SEU_TOKEN</code>).</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Os 4 passos do Header Auth</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9cred-header">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9cred-header">1. Menu Credentials → Create credential → "Header Auth".
+2. Name: nome do header (ex.: X-API-Key).
+3. Value: o token.
+4. Salva. Agora qualquer HTTP Request node pode usar essa credencial.</pre>
+    </div>
+
+    <h4>Reuso entre workflows</h4>
+
+    <p>Toda credencial criada aparece no <strong>menu lateral Credentials</strong> e é selecionável
+    em qualquer workflow do mesmo projeto. Não precisa criar de novo. Crie uma só "Gmail principal"
+    e use nos 30 workflows que mandam e-mail.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: criar credencial OpenAI em 2 minutos</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; da key ao nó, em 6 passos</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Abre <a href="http://platform.openai.com" target="_blank"
+          rel="noopener">platform.openai.com</a>. Cria conta se ainda não tem.</li>
+          <li>Menu &rarr; API keys &rarr; Create new secret key. Dá um nome (<code>n8n-curso</code>).
+          <strong>Copia o token na hora</strong> (<code>sk-...</code>).</li>
+          <li>No n8n, abre qualquer workflow. Adiciona um nó <strong>OpenAI Chat Model</strong>
+          (Language Model).</li>
+          <li>No campo <code>Credential</code> &rarr; Create new.</li>
+          <li>Cola o token. Salva.</li>
+          <li>Pronto. Agora qualquer nó OpenAI/AI Agent usa essa credencial sem reconfigurar.</li>
+        </ol>
+
+        <div class="aviso ok">
+          <div class="aviso-t">Pra teste sem cartão</div>
+          <p><a href="https://console.groq.com" target="_blank" rel="noopener">Groq</a> (gratuito
+          até hoje) + <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Gemini
+          Free</a> (gratuito com limite). Mesmo padrão de API Key. Detalhe na aula 2 do B10.</p>
+        </div>
+
+        <p class="fig-leg"><strong>Não rodado no teste de 16/09/2026:</strong> criar uma credencial
+        na conta do instrutor não é teste, é cadastro. O que a tela dele mostra, e serve de prova
+        do padrão: na aba Credentials aparecem "Groq account" (tipo Groq) e "google-ai-studio"
+        (tipo Google Gemini(PaLM) Api), os dois do aviso acima, criados uma vez e reusados (o
+        Gemini em 5 workflows). O free tier do Gemini foi conferido na aula 5 do B6.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O crachá, os quatro tipos e três roteiros de criação. O que vem abaixo é
+  a <strong>cerca</strong>: seis pegadinhas, e a primeira é a que o slide grita: 401 é crachá.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t"><code>401 Unauthorized</code> = credencial</div>
+      <p>É o sintoma. Causa: token errado, token expirou, escopo OAuth faltando. Refaz a credencial
+      e re-testa.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">API key visível só uma vez</div>
+      <p>Copia na hora ou gera de novo. Não existe "mostra de novo".</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">OAuth Google expira</div>
+      <p>Depois de longa inatividade, o Google revoga. Sintoma: workflow que rodava de manhã para de
+      rodar à tarde com <code>401</code>. Solução: reconectar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Compartilhar credencial errada com o time</div>
+      <p>Em n8n self-host, credencial pode ser "Shared" ou "Personal". Confere antes de marcar como
+      Shared: credencial pessoal (Gmail teu) não deve virar Shared.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir API Key com OAuth</div>
+      <p>OpenAI é API Key. Gmail é OAuth. Se o serviço pede "Sign in with Google" &rarr; OAuth. Se
+      pede "cole seu token" &rarr; API Key.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de revogar credencial de funcionário que saiu</div>
+      <p>Ele leva o crachá pra casa. Revoga no painel do serviço (não só no n8n).</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 4, Google Workspace no n8n. As seis aulas do bloco estão na
+    <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>

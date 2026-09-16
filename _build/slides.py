@@ -73,6 +73,18 @@ USADOS = {
     "m2-13": ["b7-lembrete"],
     "m2-14": ["b7-lembrete"],
     "m2-15": ["b7-lembrete"],
+    "m4-03": ["b9-api"],
+    "m4-04": ["b9-api"],
+    "m4-06": ["b9-api"],
+    "m4-09": ["b9-api"],
+    "m4-05": ["b9-http"],
+    "m4-08": ["b9-http"],
+    "m4-07": ["b9-credenciais"],
+    "m4-11": ["b9-google"],
+    "m4-10": ["b9-respond"],
+    "m4-12": ["b9-tempo"],
+    "m4-13": ["b9-tempo"],
+    "m4-14": ["b9-apis"],
 }
 
 # slide -> altura final (px). Ausente = 851, inteiro.

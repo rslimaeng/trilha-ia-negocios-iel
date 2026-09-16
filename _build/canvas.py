@@ -348,6 +348,43 @@ PRATICAS = {
         ],
         setas=[dict(de="t", para="s", rotulo="1 item"), dict(de="s", para="g", rotulo="1 item")],
     ),
+    # B9 aulas 1, 2 e 5 · exemplos guiados · execucoes 447 a 450 em 16/09/2026
+    "doc-open-meteo": dict(
+        titulo="Leitura de Doc: Disparo e Lê a Doc (Open-Meteo), os dois verdes",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="h", nome="🌤 Lê a Doc (Open-Meteo)", icone="http", x=240, y=0, sub="GET")],
+        setas=[dict(de="t", para="h", rotulo="1 item")],
+    ),
+    "dog-ceo": dict(
+        titulo="Dog CEO: Disparo e Busca Foto, os dois verdes",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="h", nome="🐶 Busca Foto", icone="http", x=240, y=0, sub="GET")],
+        setas=[dict(de="t", para="h", rotulo="1 item")],
+    ),
+    "post-json": dict(
+        titulo="POST com body JSON: Disparo e Cria Post, os dois verdes",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="h", nome="📮 Cria Post", icone="http", x=240, y=0, sub="POST")],
+        setas=[dict(de="t", para="h", rotulo="1 item")],
+    ),
+    "mini-api": dict(
+        titulo="Mini-API Saudacao: Recebe Pedido, Monta Saudacao e Devolve Resposta, os três verdes",
+        nos=[dict(id="w", nome="🎣 Recebe Pedido", icone="webhook", x=0, y=0, trigger=True, sub="POST"),
+             dict(id="s", nome="📝 Monta Saudacao", icone="set", x=240, y=0, sub="manual"),
+             dict(id="r", nome="📤 Devolve Resposta", icone="resposta", x=480, y=0, sub="JSON")],
+        setas=[dict(de="w", para="s", rotulo="1 item"), dict(de="s", para="r", rotulo="1 item")],
+    ),
+    # B9 aula 6 · P6 · execucao 451 em 16/09/2026 16:29 (BRT), workflow LALGt9XApgAbWJwR
+    "p6-tempo": dict(
+        titulo="Previsão do Tempo: Toda Manhã 7h, Busca Clima, Monta Texto e Envia Pra Você, os quatro verdes",
+        nos=[
+            dict(id="t", nome="⏰ Toda Manhã 7h", icone="schedule", x=0, y=0, trigger=True),
+            dict(id="h", nome="🌤 Busca Clima", icone="http", x=240, y=0, sub="GET"),
+            dict(id="s", nome="📝 Monta Texto", icone="set", x=480, y=0, sub="manual"),
+            dict(id="g", nome="📧 Envia Pra Você", icone="gmail", x=720, y=0, sub="send: message", cor="#c5221f"),
+        ],
+        setas=[dict(de="t", para="h", rotulo="1 item"), dict(de="h", para="s", rotulo="1 item"), dict(de="s", para="g", rotulo="1 item")],
+    ),
 }
 
 

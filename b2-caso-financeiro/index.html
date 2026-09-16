@@ -1606,6 +1606,11 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 /* o canvas do n8n redesenhado (_build/canvas.py) e vetor e pequeno: entra no
    tamanho natural, 1:1 com a tela do n8n, e rola se nao couber. */
 .figura.n8n img{width:auto;max-width:none;min-width:0;margin:0 auto}
+/* 33c · URL longa em <code> inline (16/09, B9). Nenhuma regra estilizava o
+   <code> corrido; a 375 uma URL de 50 caracteres passava da borda em cinco
+   lugares do B9 (dog.ceo, jsonplaceholder, openweathermap). anywhere so quebra
+   quando a palavra nao cabe: a 1280 nada muda, e o <pre> nao e afetado. */
+code{overflow-wrap:anywhere}
 
 /* ---------- 34 · O EXEMPLO PRONTO ------------------------------------------
    A página que mostra o RESULTADO, inteiro, do jeito que ele sai. Ela tem

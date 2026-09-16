@@ -1,0 +1,303 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Transformar o n8n em <strong>fornecedor de API</strong>. Webhook que recebe pedido,
+      processa e devolve resposta personalizada: sua primeira mini-API completa em 10 minutos</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>É o último degrau pra deixar de ser usuário e virar fornecedor de
+      automação.</strong></p>
+    </div>
+
+    <p>Webhook só recebendo dado é metade da história. <strong>Respondendo dado</strong>, o n8n
+    vira backend de verdade: pode atender chatbot do ManyChat, validar pagamento do Stripe,
+    enriquecer dado pra outro sistema, servir formulário customizado. Em 5 nós você sai com uma
+    mini-API funcionando.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O ciclo padrão do Webhook Trigger</h3>
+
+      <p>Por padrão, quando você cria um Webhook Trigger e ele recebe uma chamada, o n8n responde
+      <strong><code>200 OK</code></strong> automaticamente: sem dado, só pra confirmar que recebeu.
+      Suficiente em 70% dos casos (formulário capturado, evento registrado).</p>
+
+      <p>Mas em <strong>30% dos casos</strong>, quem chamou o webhook precisa <strong>receber dado
+      de volta</strong>:</p>
+
+      <ul class="lista">
+        <li>Chatbot ManyChat espera o texto da resposta pra mostrar pro usuário.</li>
+        <li>Site espera os dados enriquecidos pra renderizar a tela.</li>
+        <li>Sistema externo espera confirmação estruturada (tipo <code>status: approved</code>,
+        <code>id: 42</code>).</li>
+      </ul>
+
+      <p><strong>Solução:</strong> mudar o modo <code>Respond</code> do Webhook Trigger e adicionar o
+      nó <strong><code>Respond to Webhook</code></strong> no fim do fluxo.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m4-10.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'Você como Fornecedor (Respond to Webhook)': em 30% dos casos, quem bate na sua porta quer uma resposta imediata. Três degraus: 1. Pedido Entra, Webhook POST com nome no body; 2. n8n Processa, gera a saudação; 3. n8n Responde, Respond to Webhook devolve a saudação. Ao lado, Atenção (Pegadinha): no nó Webhook inicial, mude a configuração Respond para Using Respond to Webhook Node; sem isso, ele devolve apenas um 200 OK vazio na mesma hora. Embaixo: ao devolver dados processados, você acabou de criar uma mini-API!">
+    </div>
+    <p class="fig-leg"><strong>Os três degraus, em slide.</strong> O slide usa o nome do
+    instrutor como dado de exemplo (<code>{ nome: Rafael }</code> entra, <code>{ saudacao: Ola
+    Rafael }</code> sai); na aula, o exemplo usa <code>(seu nome)</code>, e no teste usou "Ana".
+    A pegadinha do quadro é a primeira da cerca.</p>
+
+      <h4>Os 3 modos de Respond do Webhook Trigger</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Modo</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Immediately</strong> (default)</td><td>Confirma na hora com <code>200 OK</code> vazio. Workflow continua em background. Use quando o chamador não precisa esperar.</td></tr>
+            <tr><td><strong>When Last Node Finishes</strong></td><td>Espera o workflow inteiro rodar e devolve o output do último nó. Útil quando o último nó já é o que você quer devolver.</td></tr>
+            <tr><td><strong>Using Respond to Webhook Node</strong></td><td>Você decide exatamente onde, como e o que responder. Adicione o nó <code>Respond to Webhook</code> no ponto certo do fluxo. <strong>Modo mais usado em mini-API séria.</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>Tabela remontada:</strong> três modos que o export tinha espremido
+      em duas linhas. Conferido na tela em 16/09/2026: no nó, o campo se chama Respond e a terceira
+      opção aparece como "Using 'Respond to Webhook' Node".</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Setup mínimo do modo "Using Respond to Webhook Node"</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O setup mínimo, em 3 partes</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9resp-setup">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9resp-setup">1. Webhook Trigger:
+   - Path: minha-api
+   - Method: POST
+   - Respond: Using Respond to Webhook Node
+
+2. (nós do meio: HTTP Request, Set, IF, AI Agent, etc.)
+
+3. Respond to Webhook node (ultimo da branch):
+   - Respond With: JSON
+   - Body: { saudacao: Ola NOME }</pre>
+    </div>
+
+    <p><strong>Atalho:</strong> o <code>Respond to Webhook</code> aceita <code>JSON</code>,
+    <code>Text</code>, <code>HTML</code>, <code>Binary</code> e <code>No Body</code>. JSON é o mais
+    comum.</p>
+
+    <h4>Onde colocar o nó Respond to Webhook</h4>
+
+    <p>Regra: <strong>ele tem que ser o último nó da branch que processa o pedido.</strong> Se você
+    ramifica com IF, cada branch precisa do seu próprio Respond (ou converge antes do Respond
+    único).</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Um Respond por branch</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b9resp-arvore">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b9resp-arvore">[Webhook Trigger]
+        |
+   [Validacao]
+        |
+       IF -- valido?
+       /        \
+   true          false
+     |             |
+[Processa]    [Respond: erro]
+     |
+[Respond: sucesso]</pre>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: sua primeira mini-API em 10 minutos</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; recebe um nome, devolve uma saudação</div>
+      <div class="demo-corpo">
+        <p>Webhook que recebe <code>{ nome: (seu nome) }</code> e devolve <code>{ saudacao: Ola
+        (seu nome), bem-vindo! }</code>. Mini-API completa.</p>
+
+        <h4>1. Webhook Trigger</h4>
+        <ul class="lista">
+          <li>Adiciona um Webhook Trigger. Renomeia: <code>🎣 Recebe Pedido</code>.</li>
+          <li>HTTP Method: <code>POST</code></li>
+          <li>Path: <code>saudacao</code></li>
+          <li><strong>Respond: Using Respond to Webhook Node</strong> (importante!)</li>
+          <li>Clica em "Listen for Test Event". n8n abre uma URL de teste: copia ela.</li>
+        </ul>
+
+        <h4>2. Set (Edit Fields): monta a saudação</h4>
+        <ul class="lista">
+          <li>Adiciona um Edit Fields. Renomeia: <code>📝 Monta Saudacao</code>.</li>
+          <li>Adiciona campo:
+            <ul>
+              <li>Nome: <code>saudacao</code></li>
+              <li>Valor: arrasta <code>body.nome</code> do painel esquerdo. Vira a expression que
+              monta <code>Ola {{ $json.body.nome }}, bem-vindo!</code></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="aviso ok">
+          <div class="aviso-t">Pegadinha numero 1</div>
+          <p>O dado que vem pelo POST aparece dentro de <code>body</code>:
+          <code>$json.body.nome</code>, não <code>$json.nome</code>.</p>
+        </div>
+
+        <h4>3. Respond to Webhook</h4>
+        <ul class="lista">
+          <li>Adiciona o Respond to Webhook. Renomeia: <code>📤 Devolve Resposta</code>.</li>
+          <li>Respond With: <code>JSON</code></li>
+          <li>Body: monta um JSON com a chave <code>saudacao</code> referenciando
+          <code>{{ $json.saudacao }}</code>.</li>
+        </ul>
+
+        <h4>4. Testa</h4>
+        <p>Em outro app (Postman, Insomnia, ou um cliente HTTP do seu navegador), faz um POST pra
+        URL de teste com body <code>{ nome: (seu nome) }</code>. Resposta:</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A resposta da mini-API</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b9resp-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b9resp-out">{ saudacao: Ola (seu nome), bem-vindo! }</pre>
+        </div>
+
+        <p><strong>Você acabou de virar fornecedor de API.</strong> Qualquer sistema do mundo pode
+        chamar essa URL e receber resposta personalizada. ManyChat, Wix, formulário, app móvel:
+        todos funcionam com esse padrão.</p>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/mini-api.svg" width="672" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: três nós em linha, Recebe Pedido (gatilho Webhook, POST), Monta Saudacao (Set) e Devolve Resposta (Respond to Webhook, JSON), ligados por setas verdes escritas 1 item; os três com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 450, 16/09/2026). O pedido de teste entrou com <code>{ "nome": "Ana" }</code> no
+        <code>body</code>, o Set montou <code>{ "saudacao": "Ola Ana, bem-vindo!" }</code> e o
+        Respond devolveu o mesmo JSON. Duas coisas a declarar: o POST de teste foi feito pela
+        ferramenta que executa o workflow (ela pina o pedido no nó Webhook), não por um Postman; e
+        o painel do nó, conferido na tela, mostra as duas URLs lado a lado, "Test URL"
+        (<code>/webhook-test/saudacao</code>) e "Production URL" (<code>/webhook/saudacao</code>),
+        com o botão "Listen for test event" no canto superior direito.</p>
+
+        <h4>Variação wow: Google AI Studio mandando pedido</h4>
+
+        <p>Padrão que mostra o impacto: aluno cria mini-API &rarr; abre
+        <a href="https://aistudio.google.com" target="_blank" rel="noopener">Google AI Studio</a>,
+        pede pra IA gerar uma página HTML simples com botão &rarr; IA gera código que envia pro
+        webhook &rarr; aluno cola o HTML num browser, clica no botão e vê o n8n responder na
+        hora.</p>
+
+        <div class="aviso ok">
+          <div class="aviso-t">Em 5 minutos</div>
+          <p>Em 5 minutos o aluno conectou um app web (gerado por IA) com um backend (n8n). Sem
+          codar uma linha.</p>
+        </div>
+        <p class="fig-leg"><strong>Não rodada no teste de 16/09/2026:</strong> a variação depende
+        de uma página gerada no AI Studio de quem roda. O caminho é o do Notion, como está.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os três modos de Respond, a regra do último nó e uma mini-API que
+  respondeu. O que vem abaixo é a <strong>cerca</strong>: seis pegadinhas, e a terceira é a URL
+  errada na hora de testar.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de mudar o <code>Respond</code> pra "Using Respond to Webhook Node"</div>
+      <p>Sem isso, o Webhook Trigger responde <code>200 OK</code> vazio na hora e ignora o nó Respond
+      no fim.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Respond to Webhook não é o último nó da branch</div>
+      <p>Tudo que vem <strong>depois</strong> dele não roda: porque a resposta já foi.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Test URL vs Production URL</div>
+      <p>O Webhook Trigger tem 2 URLs distintas: a Test URL (<code>/webhook-test/...</code>) só
+      funciona com o n8n em modo "Listen". A Production URL (<code>/webhook/...</code>) funciona
+      depois que você <strong>ativa</strong> o workflow. Aluno testa com Production URL e fica
+      frustrado.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Dado vem dentro de <code>body</code></div>
+      <p><code>$json.body.nome</code>, não <code>$json.nome</code>. Sempre confere o JSON view.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Timeout de 30s</div>
+      <p>A maioria dos chamadores (browsers, ManyChat, Stripe) desiste em ~30s. Workflow que demora
+      muito (chamada pra OpenAI lenta + 5 nós) pode estourar o tempo do chamador. Pra processos
+      longos, retorne <code>Immediately</code> e processe em background.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">CORS em integração com browser</div>
+      <p>Se o webhook é chamado por código JavaScript de um site, o browser pode bloquear por CORS.
+      Solução: setar header <code>Access-Control-Allow-Origin</code> no Respond to Webhook (campo
+      Headers).</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 6, Fluxo prático: Previsão do tempo. É a prática do bloco; as
+    seis aulas estão na <a href="../b9-apis/">capa do B9</a>.</p>
+  </div>
