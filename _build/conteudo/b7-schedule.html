@@ -1,0 +1,243 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Rodar workflows em horários específicos: toda segunda 9h, todo dia 18h, a cada 5
+      minutos</li>
+      <li><strong>O trigger por trás de toda automação "que roda sozinha"</strong></li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Se você quer construir automações que liberam horas da sua semana, <strong>80% delas vão
+      começar com um Schedule</strong>.</p>
+    </div>
+
+    <p>Se Manual Trigger é o "botão de play", <strong>Schedule é o despertador
+    automático</strong>. Ele dispara o workflow em horário fixo, sem você precisar lembrar.</p>
+
+    <p>É o trigger das automações de relatório semanal, lembrete diário, sincronização periódica,
+    monitoramento de site: tudo que precisa rodar <strong>com regularidade, sem intervenção
+    humana</strong>.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Schedule Trigger = dispara o workflow em horários definidos por você</h3>
+
+      <ul class="lista">
+        <li><strong>Entrada:</strong> o relógio do n8n (UTC por padrão)</li>
+        <li><strong>Saída:</strong> 1 item com timestamp da execução</li>
+        <li><strong>Quando dispara:</strong> quando bate o horário configurado</li>
+        <li><strong>Pré-requisito crítico:</strong> workflow precisa estar <strong>ativado</strong>:
+        desativado, nunca dispara</li>
+      </ul>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Schedule é o <strong>despertador</strong>: dispara sozinho na hora marcada.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A hora marcada</strong> = o intervalo ou o cron</li>
+          <li><strong>Tocar</strong> = disparar o workflow, com o timestamp</li>
+          <li><strong>Despertador desligado</strong> = workflow desativado: não toca</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-06.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide '2. Schedule Trigger: O seu Despertador': um despertador marcando 9h. Analogia: um despertador automático que não falha; ele acorda o sistema na hora exata que você mandou, seja a cada 5 minutos ou toda segunda-feira. Como configura: por intervalo (ex: a cada dia) ou regras precisas (ex: todo dia útil às 8h). O superpoder: é o gatilho por trás de toda automação que roda sozinha enquanto você dorme. Uma linha do tempo: seg 9h, ter 9h, qua 9h. Embaixo: 80% das automações rotineiras (relatórios, lembretes, backups) usam este gatilho.">
+    </div>
+    <p class="fig-leg"><strong>O despertador, em slide.</strong> Os dois modos de configurar
+    ("por intervalo" e "regras precisas") são a tabela da seção 03.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>2 modos de configuração</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Modo</th><th>Quando usar</th><th>Exemplo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Interval simples</strong></td><td>Casos comuns: a cada X minutos/horas/dias</td><td>"A cada 5 minutos", "Toda segunda 9h"</td></tr>
+          <tr><td><strong>Custom (Cron expression)</strong></td><td>Casos específicos que o simples não cobre</td><td>"Todo último dia útil do mês 23h59"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Modo Interval (drag-and-drop puro)</span>
+      <ol>
+        <li>Adicione <strong>Schedule Trigger</strong>.</li>
+        <li>Em <strong>Trigger Interval</strong>, escolha o campo: <code>seconds</code>,
+        <code>minutes</code>, <code>hours</code>, <code>days</code>, <code>weeks</code>,
+        <code>months</code>.</li>
+        <li>Configure o número (ex.: <code>days = 1</code> + <code>triggerAtHour = 9</code> = todo
+        dia 9h).</li>
+        <li>Pra disparar mais de uma vez por dia, clique em <strong>Add Interval</strong>: vários
+        disparos no mesmo workflow.</li>
+      </ol>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Modo Cron Expression (avançado, opcional)</span>
+      <p>Cron é uma sintaxe <code>[minuto] [hora] [dia-mês] [mês] [dia-semana]</code>. Exemplos:</p>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Cron</th><th>Significado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>0 8 * * *</code></td><td>Todo dia às 8h</td></tr>
+          <tr><td><code>0 8 * * 1-5</code></td><td>Toda segunda a sexta às 8h</td></tr>
+          <tr><td><code>*/15 * * * *</code></td><td>A cada 15 minutos</td></tr>
+          <tr><td><code>0 0 1 * *</code></td><td>Todo dia 1 de cada mês à meia-noite</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Não decora cron</div>
+      <p>Use <a href="https://crontab.guru" target="_blank" rel="noopener"><strong>crontab.guru</strong></a>
+      ou peça pro ChatGPT/Claude gerar a expressão pra você. <strong>"Toda terça às 14h em ponto"
+      &rarr; ele te entrega <code>0 14 * * 2</code>.</strong></p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Lembrete semanal</h2>
+      </div>
+    </div>
+
+    <p>Vamos construir um workflow que dispara toda segunda às 9h:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Lembrete Semanal Teste</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie workflow novo. Renomeie pra <code>Lembrete Semanal Teste</code>.</li>
+          <li>Adicione <strong>Schedule Trigger</strong> &rarr; renomeie pra <code>📅 Toda Seg
+          9h</code>.</li>
+          <li>Configure: Interval <code>weeks</code> = <code>1</code>; Trigger At Day
+          <code>Monday</code>; Trigger At Hour <code>9</code>.</li>
+          <li>Adicione <strong>Set</strong> depois &rarr; <code>📦 Compor Mensagem</code>.</li>
+          <li>No Set, campo <code>mensagem</code> (String): <code>Hoje é segunda. Foco da
+          semana?</code></li>
+          <li><strong>Salve. Ative o workflow</strong> (toggle "Active" no canto superior
+          direito).</li>
+          <li>Pra testar <strong>agora</strong> (sem esperar segunda 9h), clique em <strong>Execute
+          Workflow</strong>: roda 1 vez ignorando o schedule.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/lembrete-semanal.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois do Execute Workflow: Toda Seg 9h (gatilho, com o relógio) ligado a Compor Mensagem por uma seta verde com 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 416, 16/09/2026, uma quarta, 13h24). O passo 7 funciona: o Execute Workflow
+        rodou fora da segunda 9h, e o gatilho entregou o timestamp de agora, com o fuso da conta
+        (<code>America/Sao_Paulo</code>).</p>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Workflow desativado = nunca dispara em produção</div>
+          <p>Mesmo com tudo configurado certo, se o toggle "Active" estiver cinza, nada acontece
+          automaticamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O despertador, os dois modos e um lembrete semanal ativado. O que vem
+  abaixo é a <strong>cerca</strong>: as cinco pegadinhas do Schedule, e a primeira delas é o
+  toggle.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-07.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide 'A Grande Pegadinha do Despertador'. Regra de ouro: um despertador desligado não toca; para que a automação rode sozinha no horário programado, o fluxo precisa estar ativado (botão Active no canto da tela), com um toggle Inactive/Active. O fuso horário: o sistema costuma usar o horário mundial (UTC), lembre-se de configurar para o horário de Brasília (UTC-3), ou sua automação das 9h vai rodar meio-dia. O custo da pressa: cuidado ao programar o despertador para a cada 1 minuto, isso gera 1.440 execuções por dia e pode esgotar seu plano básico rapidamente.">
+    </div>
+    <p class="fig-leg"><strong>Três das cinco pegadinhas, em um slide.</strong> As outras duas, o
+    cron mal escrito e o workflow demorado, estão abaixo.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Cron mal escrito &rarr; roda 23h em vez de 8h</div>
+      <p>Use <a href="https://crontab.guru" target="_blank" rel="noopener">crontab.guru</a> sempre.
+      <strong>Não confie na sua memória de cron.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Workflow precisa estar ativo</div>
+      <p>A pegadinha #1 do Schedule. Modo "test" só roda no clique; produção exige
+      <code>Active</code> = ON.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">UTC vs fuso local</div>
+      <p>O n8n por padrão usa UTC. Se você quer 9h <strong>horário de Brasília</strong>, lembra que
+      UTC-3 = configura <code>12h UTC</code> ou ative <code>Use workflow timezone</code> nas
+      Settings do n8n.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Schedule muito frequente = muitas execuções</div>
+      <p>Cada execução conta no plano (ex.: a cada 1 min = 1.440 execuções/dia, 43.200/mês, fácil
+      estourar plano básico).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Schedule + workflow demorado</div>
+      <p>Se o workflow leva 10 min e você agendou pra cada 5 min, vai ter sobreposição. Calcule o
+      tempo de execução antes de definir frequência.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 3, Webhook Trigger. As seis aulas do bloco estão na
+    <a href="../b7-gatilhos/">capa do B7</a>.</p>
+  </div>

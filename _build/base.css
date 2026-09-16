@@ -163,9 +163,17 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .nesta-aula-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .nesta-aula ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.nesta-aula li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
+/* 🔴 O li NAO e flex. Foi flex ate 16/09, com a seta como primeiro item, e
+   ninguem viu o defeito porque nenhum bullet do Modulo 1 tinha <strong>
+   dentro. No Modulo 2 nove paginas tinham: filho inline de um flex container
+   vira ITEM, entao "texto <strong>texto</strong> texto" virava tres colunas
+   lado a lado -- medido na b7-manual a 375: o bullet estourava a pagina em
+   4px (379) com a primeira parte espremida em 92px. A seta agora e absoluta
+   e o texto flui como paragrafo.                                              */
+.nesta-aula li{position:relative;padding-left:24px;font-size:15px;line-height:1.45}
 .nesta-aula li::before{
-  content:"\2192";color:var(--accent);flex:0 0 auto;font-size:13px;
+  content:"\2192";color:var(--accent);position:absolute;left:0;top:0;font-size:13px;
+  line-height:inherit;
 }
 @media (max-width:720px){ .nesta-aula{padding:16px 18px} }
 

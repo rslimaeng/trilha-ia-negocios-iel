@@ -1375,6 +1375,23 @@ DISPENSA_NOTION_LITERAL = {
     "b6-fundamentos/index.html": {
         "G33": "o Mapa de Capacidades do M1 e o aluno na 1a pessoa ('Leio', 'termino'), nao o instrutor",
     },
+    # 16/09, o B7 inteiro. O M2 do Notion tem CINCO topicos de conceito seguidos
+    # (1 a 5) antes do fluxo pratico (6). Os exemplos guiados de 1 a 4 rodaram
+    # no servidor de teste, mas o Notion nao entrega arquivo neles. Mesma
+    # situacao do B6: G42 e G44 reprovam a ordem do Notion. G44 continua sendo
+    # dispensa DO EXECUTOR (nao esta na decisao de 14/09): Rafael decide.
+    "b7-webhook/index.html": {
+        "G42": "janela = Topicos 1, 2 e 3 do M2, sem arquivo no Notion",
+        "G44": "Topicos 1, 2 e 3 do M2 sao conceito na ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b7-form/index.html": {
+        "G42": "janela = Topicos 2, 3 e 4 do M2, sem arquivo no Notion",
+        "G44": "Topicos 2, 3 e 4 do M2 sao conceito na ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b7-appevent/index.html": {
+        "G42": "janela = Topicos 3, 4 e 5 do M2, sem arquivo no Notion; o 6 (P4) tem",
+        "G44": "Topicos 3, 4 e 5 do M2 sao conceito na ordem do Notion; o 6 e a pratica. DISPENSA DO EXECUTOR: Rafael decide",
+    },
     "b7-gatilhos/index.html": {
         "G33": "o Mapa de Capacidades do M2 e o aluno na 1a pessoa ('Recebo... e leio'), nao o instrutor",
     },

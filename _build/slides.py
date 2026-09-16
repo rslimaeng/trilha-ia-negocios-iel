@@ -49,6 +49,15 @@ USADOS = {
     "m1-11": ["b6-primeiro"],
     "m1-12": ["b6-agente"],
     "m1-13": ["b6-agente"],
+    "m2-03": ["b7-manual"],
+    "m2-04": ["b7-manual"],
+    "m2-05": ["b7-manual"],
+    "m2-06": ["b7-schedule"],
+    "m2-07": ["b7-schedule"],
+    "m2-08": ["b7-webhook"],
+    "m2-09": ["b7-webhook"],
+    "m2-10": ["b7-form"],
+    "m2-11": ["b7-appevent"],
     "m2-12": ["b7-gatilhos"],
     "m2-13": ["b7-lembrete"],
     "m2-14": ["b7-lembrete"],
@@ -59,6 +68,7 @@ USADOS = {
 CORTE = {
     "m0-04": 836, "m0-05": 836, "m0-06": 836, "m0-07": 836,
     "m0-15": 828,
+    "m2-03": 836, "m2-05": 836, "m2-09": 836, "m2-10": 836,
     "m2-12": 836,
 }
 

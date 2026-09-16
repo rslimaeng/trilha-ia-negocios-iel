@@ -257,9 +257,17 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .nesta-aula-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .nesta-aula ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.nesta-aula li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
+/* 🔴 O li NAO e flex. Foi flex ate 16/09, com a seta como primeiro item, e
+   ninguem viu o defeito porque nenhum bullet do Modulo 1 tinha <strong>
+   dentro. No Modulo 2 nove paginas tinham: filho inline de um flex container
+   vira ITEM, entao "texto <strong>texto</strong> texto" virava tres colunas
+   lado a lado -- medido na b7-manual a 375: o bullet estourava a pagina em
+   4px (379) com a primeira parte espremida em 92px. A seta agora e absoluta
+   e o texto flui como paragrafo.                                              */
+.nesta-aula li{position:relative;padding-left:24px;font-size:15px;line-height:1.45}
 .nesta-aula li::before{
-  content:"\2192";color:var(--accent);flex:0 0 auto;font-size:13px;
+  content:"\2192";color:var(--accent);position:absolute;left:0;top:0;font-size:13px;
+  line-height:inherit;
 }
 @media (max-width:720px){ .nesta-aula{padding:16px 18px} }
 
@@ -3327,22 +3335,15 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <p>B6 concluído (você já&nbsp;navega no&nbsp;canvas, sabe o&nbsp;que&nbsp;é workflow, node, conexão).</p>
     </div>
 
-    <div class="cartao">
-      <span class="rot">A ordem em que as aulas abrem</span>
-      <p>Como no&nbsp;B6, a&nbsp;<strong>aula 6, a&nbsp;prática</strong>, abre primeiro: é o&nbsp;fluxo que&nbsp;fica
-      rodando sozinho na&nbsp;sua&nbsp;conta. As&nbsp;cinco aulas de&nbsp;conceito, uma&nbsp;por&nbsp;tipo de&nbsp;gatilho, entram
-      em&nbsp;seguida.</p>
-    </div>
-
     <p>Clique em&nbsp;cada aula abaixo pra&nbsp;abrir o&nbsp;conteúdo:</p>
 
     <div class="aulas-lista solta">
 
-      <div class="aula-card soon">
+      <a class="aula-card ready" href="../b7-manual/">
         <div class="aula-top">
           <span class="aula-num">Aula 1</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status">Em produção</span>
+          <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Manual Trigger</div>
         <div class="aula-body">
@@ -3355,13 +3356,14 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             <p>Conceito</p>
           </div>
         </div>
-      </div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
 
-      <div class="aula-card soon">
+      <a class="aula-card ready" href="../b7-schedule/">
         <div class="aula-top">
           <span class="aula-num">Aula 2</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status">Em produção</span>
+          <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Schedule Trigger</div>
         <div class="aula-body">
@@ -3375,13 +3377,14 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             <p>Conceito + cron</p>
           </div>
         </div>
-      </div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
 
-      <div class="aula-card soon">
+      <a class="aula-card ready" href="../b7-webhook/">
         <div class="aula-top">
           <span class="aula-num">Aula 3</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status">Em produção</span>
+          <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Webhook Trigger</div>
         <div class="aula-body">
@@ -3395,13 +3398,14 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             <p>Conceito + teste</p>
           </div>
         </div>
-      </div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
 
-      <div class="aula-card soon">
+      <a class="aula-card ready" href="../b7-form/">
         <div class="aula-top">
           <span class="aula-num">Aula 4</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status">Em produção</span>
+          <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Form Trigger</div>
         <div class="aula-body">
@@ -3414,13 +3418,14 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             <p>Conceito + UI pronta</p>
           </div>
         </div>
-      </div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
 
-      <div class="aula-card soon">
+      <a class="aula-card ready" href="../b7-appevent/">
         <div class="aula-top">
           <span class="aula-num">Aula 5</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="aula-status">Em produção</span>
+          <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">App Event Triggers</div>
         <div class="aula-body">
@@ -3434,14 +3439,14 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             <p>Panorama</p>
           </div>
         </div>
-      </div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
 
       <a class="aula-card ready" href="../b7-lembrete/">
         <div class="aula-top">
           <span class="aula-num">Aula 6</span>
           <span class="chip chip-ementa">Ementa M7</span>
-          <span class="rec">Abre primeiro</span>
-          <span class="aula-status ok">Pronta</span>
+                    <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Fluxo prático: Lembrete diário</div>
         <div class="aula-body">
@@ -3553,7 +3558,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     o&nbsp;que&nbsp;acontece <strong>dentro</strong> do&nbsp;fluxo: dados, decisões, transformações.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b6-agente/">&larr; Aula 5 · Um gostinho de AI Agent</a><a href="../b7-lembrete/">Aula 6 · Fluxo prático: Lembrete diário &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../b6-agente/">&larr; Aula 5 · Um gostinho de AI Agent</a><a href="../b7-manual/">Aula 1 · Manual Trigger &rarr;</a></nav>
 </main>
 
 

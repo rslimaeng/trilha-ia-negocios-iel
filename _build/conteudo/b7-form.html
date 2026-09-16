@@ -1,0 +1,259 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Criar um <strong>formulário web hospedado pelo próprio n8n</strong>: sem Typeform, sem
+      Google Forms, sem precisar mexer com HTML. Você desenha os campos no n8n e recebe uma URL
+      pública pronta.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>É a forma <strong>mais rápida</strong> de ir do zero a um fluxo de captura de leads,
+      intake de cliente, pesquisa, pedido de informação, ou qualquer coisa que envolva "alguém
+      preenche &rarr; eu recebo".</p>
+    </div>
+
+    <p>Form Trigger é o trigger <strong>mais subestimado do n8n</strong>. Resolve um problema
+    universal, capturar dados de pessoas via formulário, sem você precisar:</p>
+
+    <ul class="lista">
+      <li>Criar conta em Typeform/Google Forms</li>
+      <li>Configurar webhook no meio</li>
+      <li>Mexer com HTML/CSS/JS</li>
+      <li>Pagar por outro SaaS</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Form Trigger = você define os campos no n8n, e o n8n te dá uma URL pública com
+      formulário pronto</h3>
+
+      <p>Quando alguém preenche, dispara o workflow.</p>
+
+      <ul class="lista">
+        <li><strong>Entrada:</strong> alguém preenche o formulário</li>
+        <li><strong>Saída:</strong> 1 item com cada campo do formulário como chave (ex.:
+        <code>{ Nome: "Ana", Email: "ana@x.com" }</code>)</li>
+        <li><strong>Quando dispara:</strong> quando o formulário é enviado (botão Submit)</li>
+        <li><strong>Pré-requisito crítico:</strong> workflow precisa estar <strong>ativado</strong>
+        pra usar URL de produção</li>
+      </ul>
+
+      <div class="analogia">
+        <div class="analogia-rot">Comparação</div>
+        <p>Form Trigger entrega <strong>UI pronta + URL</strong>. Webhook só te dá a URL: você
+        teria que construir o formulário separado. Form Trigger é o "atalho" pra captura de dados
+        via formulário.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Webhook</strong> = só a URL; o formulário é problema seu</li>
+          <li><strong>Form Trigger</strong> = a URL e o formulário, prontos</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-10.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide '4. Form Trigger: O seu Balcão de Atendimento'. Analogia: um balcão de loja com um formulário de papel; o cliente preenche, entrega a folha, e o seu trabalho começa na hora. Em vez de assinar serviços caros de pesquisa, você cria os campos (texto, e-mail, arquivo) dentro do próprio n8n; ele gera um link público com um formulário pronto e limpo. Por que usar? É o atalho perfeito para capturar contatos ou receber currículos; zero necessidade de saber programação ou design; o preenchimento entrega os dados organizados direto no seu fluxo. Um celular com o formulário (Nome, E-mail, Enviar) e uma seta levando aos dados organizados: Nome, E-mail, Data de Envio.">
+    </div>
+    <p class="fig-leg"><strong>Em sala a analogia foi o balcão de atendimento.</strong> Repare no
+    lado direito do slide: o preenchimento vira um item com um campo por pergunta, que é a saída
+    descrita acima.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>Tipos de campo disponíveis</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Tipo</th><th>Pra quê</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>text</code></td><td>Texto curto (nome, cidade)</td></tr>
+          <tr><td><code>textarea</code></td><td>Texto longo (mensagem, descrição)</td></tr>
+          <tr><td><code>email</code></td><td>E-mail (com validação automática)</td></tr>
+          <tr><td><code>number</code></td><td>Número (com validação)</td></tr>
+          <tr><td><code>date</code></td><td>Data (com calendário)</td></tr>
+          <tr><td><code>dropdown</code></td><td>Lista pra escolher (com opções)</td></tr>
+          <tr><td><code>radio</code></td><td>Escolher 1 entre várias</td></tr>
+          <tr><td><code>checkbox</code></td><td>Marcar 1 ou várias</td></tr>
+          <tr><td><code>file</code></td><td>Upload de arquivo (PDF, imagem, etc.)</td></tr>
+          <tr><td><code>password</code></td><td>Senha (mascarada)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">As 2 URLs (igual ao Webhook)</span>
+        <ul class="lista">
+          <li><strong>Test URL:</strong> pra desenvolver, expira ao fechar.</li>
+          <li><strong>Production URL:</strong> pra produção, exige workflow ativo.</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Customização básica</span>
+        <p>Form Trigger permite customizar:</p>
+        <ul class="lista">
+          <li>Título e descrição do formulário</li>
+          <li>Texto do botão de envio (default: "Submit")</li>
+          <li>Mensagem de resposta (após enviar)</li>
+          <li>CSS customizado pra estilizar (avançado)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não tente recriar Typeform</div>
+      <p>Form Trigger é funcional, não é design-heavy. Pra formulários com lógica condicional
+      avançada, branding pesado, multi-página complexo: Typeform ainda ganha (e você integra via
+      webhook). Pra 90% dos casos, Form Trigger é o suficiente.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Form de contato simples</h2>
+      </div>
+    </div>
+
+    <p>Vamos criar um formulário "Fale conosco":</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Form de Contato</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie workflow novo. Renomeie pra <code>Form de Contato</code>.</li>
+          <li>Adicione <strong>n8n Form Trigger</strong> &rarr; renomeie pra <code>📝 Form
+          Contato</code>.</li>
+          <li>Configure: <strong>Form Title</strong> <code>Fale com a gente</code>; <strong>Form
+          Description</strong> <code>Preencha seus dados que retornamos em até 24h.</code></li>
+          <li>Em <strong>Form Elements</strong>, clique em <strong>Add Field</strong> 3 vezes:</li>
+        </ol>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Os 3 campos &middot; label, tipo, obrigatório</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b7form-campos">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b7form-campos">Field Label: Nome     · Type: text     · Required: true
+Field Label: E-mail   · Type: email    · Required: true
+Field Label: Mensagem · Type: textarea · Required: true</pre>
+        </div>
+        <ol start="5">
+          <li><strong>Copie a Test URL</strong> e abra em outra aba do navegador.</li>
+          <li>Veja o formulário pronto. Preencha e envie.</li>
+          <li><strong>Volta no n8n</strong>: você vê o item chegando com os 3 campos.</li>
+          <li>Pra produção: ative o workflow &rarr; use a Production URL no seu site/landing
+          page.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/form-contato.svg" width="192" height="200" loading="lazy"
+               alt="O canvas do n8n com um único nó, Form Contato, gatilho com o lado esquerdo arredondado, com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 418, 16/09/2026). O item que chegou:</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📝 Form Contato</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b7form-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b7form-out">{
+  "submittedAt": "2026-09-16T16:27:16.524Z",
+  "Nome": "(seu nome)",
+  "E-mail": "voce@exemplo.com",
+  "Mensagem": "Quero saber mais sobre o curso de n8n."
+}</pre>
+        </div>
+        <p class="fig-leg"><strong>Repare nas chaves:</strong> cada campo vira uma chave com o
+        <em>label</em> exato que você deu, acento e hífen incluídos (<code>E-mail</code>), e o n8n
+        acrescenta <code>submittedAt</code> sozinho. O teste de 16/09 foi feito com o envio de
+        teste do próprio n8n, sem abrir a URL no navegador.</p>
+
+        <p><strong>Pronto.</strong> Você tem um formulário capturando dados.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O balcão, os dez tipos de campo e um formulário seu no ar. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, duas delas as mesmas do Webhook.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Form precisa de workflow ativo pra funcionar fora do dev</div>
+      <p>Sem <code>Active</code> = ON, a Production URL retorna erro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que dá pra estilizar como Typeform</div>
+      <p>Form Trigger tem CSS customizável mas não é editor visual. Se design importa demais,
+      integra com Typeform via Webhook em vez disso.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de marcar campos como required</div>
+      <p>Sem <code>requiredField = true</code>, o usuário pode enviar formulário em branco.
+      <strong>Marque required nos campos críticos</strong>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar Test URL e Production URL</div>
+      <p>Quando você muda do dev pra produção, <strong>troque a URL</strong> no link que você
+      compartilha (no site, no e-mail, etc.).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Form muito longo = pouca conversão</div>
+      <p>Se você precisa de 15 campos, considere quebrar em 2-3 páginas (Form Trigger suporta
+      multi-page) ou repensar o que é essencial.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 5, App Event Triggers. As seis aulas do bloco estão na
+    <a href="../b7-gatilhos/">capa do B7</a>.</p>
+  </div>

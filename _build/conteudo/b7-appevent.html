@@ -1,0 +1,263 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Os triggers <strong>nativos de cada app</strong>: "novo e-mail no Gmail", "nova linha
+      no Sheets", "novo arquivo no Drive"</li>
+      <li>Quando preferir esse caminho ao Webhook</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Esses triggers são o caminho <strong>fácil</strong> quando o app que você usa <strong>já
+      tem integração nativa</strong> no n8n. Faz a diferença entre "automatizei em 10 minutos" e
+      "perdi a tarde configurando webhook do Gmail".</p>
+    </div>
+
+    <p>Pra muita coisa do dia a dia (Gmail, Google Drive, Google Calendar, Slack, Telegram,
+    Notion, etc.), o n8n tem <strong>triggers prontos</strong> que escutam eventos desses apps.
+    Você não precisa configurar webhook, mexer com API, nem entender de OAuth a fundo.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>App Event Trigger = trigger nativo de um app específico, que escuta eventos lá e
+      dispara o workflow</h3>
+
+      <p>Exemplos:</p>
+
+      <ul class="lista">
+        <li><strong>Gmail Trigger:</strong> quando chega um e-mail novo (com filtros: label, from,
+        subject, etc.)</li>
+        <li><strong>Google Sheets Trigger:</strong> quando uma nova linha é adicionada</li>
+        <li><strong>Google Drive Trigger:</strong> quando aparece arquivo novo numa pasta</li>
+        <li><strong>Telegram Trigger:</strong> quando chega mensagem no bot</li>
+        <li><strong>Slack Trigger:</strong> quando alguém menciona o bot ou poste em canal</li>
+      </ul>
+
+      <p>Cada trigger tem <strong>opções específicas do app</strong>: tipo de evento, filtros,
+      frequência de checagem.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Comparação</div>
+        <p>Webhook é genérico (qualquer sistema). App Event é específico (1 app). <strong>Use app
+        event quando o app oficial está disponível</strong>; use Webhook quando o app não tem nó
+        nativo no n8n.</p>
+        <ul class="analogia-mapa">
+          <li><strong>Tem nó nativo</strong> = App Event Trigger</li>
+          <li><strong>Não tem</strong> = Webhook</li>
+        </ul>
+      </div>
+
+      <h4>Polling vs Push: a diferença que importa</h4>
+
+      <p>Cada app event trigger funciona de <strong>um jeito por baixo</strong>:</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Como funciona</th><th>Delay típico</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Polling</strong></td><td>n8n pergunta pro app "tem coisa nova?" a cada X minutos</td><td>1-15 min</td></tr>
+            <tr><td><strong>Push</strong></td><td>App avisa o n8n imediatamente quando algo acontece</td><td>Segundos</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>A maioria dos triggers de app no n8n usa <strong>polling</strong> (Gmail, Sheets, Drive).
+      Alguns usam <strong>push</strong> (Telegram bot).</p>
+
+      <p><strong>Implicações:</strong></p>
+
+      <ul class="lista">
+        <li>Polling tem <strong>delay</strong>: chegou e-mail às 10h00, n8n só vê às 10h05 (se
+        estiver checando a cada 5 min).</li>
+        <li>Polling <strong>consome créditos</strong>: cada checagem é 1 execução no plano. A cada
+        1 min = 1.440 execuções/dia. <strong>Cuidado com plano básico</strong>.</li>
+        <li>Push é instantâneo, mas exige config mais complexa do app.</li>
+      </ul>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Não use polling pra real-time</div>
+        <p>Se você precisa reagir em segundos (ex.: chatbot, atendimento ao vivo), use Webhook ou
+        Telegram trigger (push). Polling pra real-time = frustração.</p>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-11.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide '5. Eventos de App: O Assistente Focado': são gatilhos de fábrica para apps famosos (Gmail, Planilhas do Google, Telegram); eles escutam coisas específicas, como: chegou um e-mail novo com a etiqueta Trabalho? Dois ritmos de trabalho do seu assistente. Verificação Periódica (Polling): um carteiro olhando a caixa de correio; o sistema pergunta a cada 5 minutos: tem e-mail novo?; atenção, pode ter um pequeno atraso; consome créditos da sua conta a cada vez que ele pergunta. Aviso Imediato (Push): uma pessoa relaxada recebe no celular Chegou mensagem no Telegram!; o próprio app avisa na hora; vantagem: instantâneo e não gasta créditos perguntando à toa.">
+    </div>
+    <p class="fig-leg"><strong>Polling e push, como foram mostrados em sala.</strong> O carteiro
+    que abre a caixa a cada 5 minutos é a tabela acima em desenho; o celular que apita é o
+    Telegram.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática (Gmail Trigger como exemplo)</h2>
+      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisito comum: credencial / OAuth</span>
+      <p>Pra usar quase qualquer app event trigger, você precisa <strong>autorizar o n8n a acessar
+      sua conta</strong> (Gmail, Drive, etc.): isso é a credencial.</p>
+      <p>A primeira vez é chata: você cria projeto no Google Cloud Console, ativa APIs, gera OAuth
+      client, autoriza no n8n. Depois disso, <strong>a credencial fica salva</strong> e você reusa
+      em vários workflows.</p>
+      <p>Como esse setup é repetitivo e bloqueante, <strong>trataremos OAuth em vídeo
+      standalone</strong>: assim você assiste <strong>uma vez</strong> e tira o trauma. Pra esta
+      aula aqui, foco no <strong>conceito</strong> dos app event triggers, não no setup. (Na
+      trilha, o passo a passo da credencial Google está na aula 3 do B9.)</p>
+    </div>
+
+    <h4>Configuração típica</h4>
+
+    <ol>
+      <li>Adicione <strong>Gmail Trigger</strong>.</li>
+      <li><strong>Credential</strong>: conecte sua conta Google (ou use credencial já salva).</li>
+      <li><strong>Event</strong>: escolha "Message received" (chegou e-mail novo).</li>
+      <li><strong>Filters</strong> (opcionais):
+        <ul>
+          <li><code>Label IDs</code>: só dispara em e-mails com determinado label</li>
+          <li><code>From</code>: só de remetentes específicos</li>
+          <li><code>Subject</code>: só com assunto específico</li>
+        </ul>
+      </li>
+      <li><strong>Polling Time</strong>: a cada quanto checa (default: 1 min, cuidado com
+      créditos)</li>
+      <li><strong>Simplify</strong>: <code>false</code> se você quer body completo do e-mail
+      (recomendado)</li>
+    </ol>
+
+    <div class="cartao">
+      <span class="rot">O que sai</span>
+      <p>Cada e-mail novo vira 1 item com <code>from</code>, <code>to</code>, <code>subject</code>,
+      <code>body</code>, <code>attachments</code>, etc.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Gmail &rarr; Resumir &rarr; Sheets</h2>
+      </div>
+    </div>
+
+    <p>Cenário: quando chega e-mail com label "trabalho", IA resume e registra na planilha.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o trigger Gmail captura, o resto encaixa</div>
+      <div class="demo-corpo">
+        <div class="fluxo">
+          <div class="fl">
+            <div class="fl-n">01 &middot; trigger</div>
+            <h4>Gmail Trigger: novo e-mail com label "trabalho"</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">02 &middot; IA</div>
+            <h4>OpenAI Chat Model: resumir em 2 frases</h4>
+          </div>
+          <div class="fl-seta" aria-hidden="true">&rarr;</div>
+          <div class="fl">
+            <div class="fl-n">03 &middot; entrega</div>
+            <h4>Google Sheets: append linha (data, remetente, assunto, resumo)</h4>
+          </div>
+        </div>
+
+        <p class="fig-leg">Esse fluxo cobre conceitos de B8 (encadeamento) e B10 (IA): você vai
+        construir variações dele lá. Por aqui, basta entender que <strong>o trigger Gmail
+        captura</strong> e o resto encaixa. <strong>Não rodado no teste de 16/09:</strong> é
+        panorama, sem passo a passo no Notion.</p>
+
+        <div class="cartao">
+          <span class="rot">Outros exemplos de app event que vale conhecer</span>
+          <ul class="lista">
+            <li><strong>Google Sheets Trigger:</strong> nova linha em planilha de leads &rarr;
+            registra em CRM</li>
+            <li><strong>Google Drive Trigger:</strong> novo currículo na pasta &rarr; IA analisa</li>
+            <li><strong>Telegram Trigger:</strong> mensagem no bot &rarr; roteia pra atendente</li>
+            <li><strong>Calendar Trigger:</strong> evento adicionado &rarr; notifica time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os triggers de fábrica, polling contra push e o Gmail Trigger como
+  exemplo. O que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e as duas primeiras são
+  o polling de novo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Polling tem delay (1-15 min). Não use pra real-time</div>
+      <p>Quem precisa de resposta em segundos usa Webhook ou Telegram (push).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Cada execução de polling consome créditos</div>
+      <p>A cada 1 min = 1.440 execuções/dia. Calcule <strong>antes</strong> de configurar polling
+      agressivo no plano básico.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">OAuth Google é fricção real</div>
+      <p>Primeira vez leva 30-60 min. Vale fazer <strong>uma vez</strong> e reusar a credencial
+      em todos os workflows.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Workflow precisa estar ativo pra polling rodar</div>
+      <p>Test mode só dispara no clique de "Listen for Test Event". Polling real exige
+      <code>Active</code> = ON.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Filters mal configurados fazem trigger não disparar nunca</div>
+      <p>Se você botou filtro de label "trabalho" mas o e-mail veio sem label, nada acontece.
+      <strong>Teste com filtros mais largos primeiro</strong>, restrinja depois.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 6, <a href="../b7-lembrete/">Fluxo prático: Lembrete
+    diário</a>. É a prática deste bloco, e já está no ar.</p>
+  </div>

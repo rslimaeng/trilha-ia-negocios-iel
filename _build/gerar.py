@@ -101,7 +101,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # Rafael em 16/09 (PROMPT v2.1, secao 10, item 2), porque a turma
              # ja tinha passado pelo n8n em sala. As outras entram na ordem.
              "b6-fundamentos", "b6-oque", "b6-anatomia", "b6-canvas", "b6-primeiro", "b6-agente",
-             "b7-gatilhos", "b7-lembrete",
+             "b7-gatilhos", "b7-manual", "b7-schedule", "b7-webhook", "b7-form", "b7-appevent", "b7-lembrete",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -181,6 +181,11 @@ TRILHA = [
     ]),
     ("B7 · Gatilhos", [
         ("b7-gatilhos",    "B7 · Gatilhos"),
+        ("b7-manual",      "1 · Manual Trigger"),
+        ("b7-schedule",    "2 · Schedule Trigger"),
+        ("b7-webhook",     "3 · Webhook Trigger"),
+        ("b7-form",        "4 · Form Trigger"),
+        ("b7-appevent",    "5 · App Event Triggers"),
         ("b7-lembrete",    "6 · Fluxo prático: Lembrete diário"),
     ]),
     ("O terceiro módulo", [
@@ -413,6 +418,71 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
                  (None, "Gatilhos")],
+    ),
+    "b7-manual": dict(
+        # fundamento: Conceito. Analogia do botao de play. Exemplo guiado Manual Hello rodou (execucao 415).
+        tipo="fundamento",
+        titulo="Aula 1 · Manual Trigger",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="Manual Trigger",
+        sub="O trigger do clique. Quando faz sentido mesmo em produção (não só pra teste).",
+        selos=['Conceito'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
+    ),
+    "b7-schedule": dict(
+        # fundamento: Conceito + cron. Analogia do despertador. Exemplo guiado Lembrete Semanal Teste rodou (execucao 416).
+        tipo="fundamento",
+        titulo="Aula 2 · Schedule Trigger",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="Schedule Trigger",
+        sub="Despertador automático: roda em horário fixo. 80% das automações começam com Schedule.",
+        selos=['Conceito + cron'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
+    ),
+    "b7-webhook": dict(
+        # fundamento: Conceito + teste. Analogia do vizinho fofoqueiro. Exemplo guiado Webhook Hello rodou (execucao 417, chamada de teste do n8n).
+        tipo="fundamento",
+        titulo="Aula 3 · Webhook Trigger",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="Webhook Trigger",
+        sub="Receber dados de qualquer ferramenta externa via URL única. Porta de entrada universal.",
+        selos=['Conceito + teste'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
+    ),
+    "b7-form": dict(
+        # fundamento: Conceito + UI pronta. A 'comparacao' com o Webhook faz o papel da analogia. Exemplo guiado Form de Contato rodou (execucao 418).
+        tipo="fundamento",
+        titulo="Aula 4 · Form Trigger",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="Form Trigger",
+        sub="Formulário web pronto, hospedado pelo n8n. Sem Typeform, sem HTML.",
+        selos=['Conceito + UI pronta'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
+    ),
+    "b7-appevent": dict(
+        # fundamento: Panorama, sem exemplo executavel no Notion (o Gmail -> Resumir -> Sheets e diagrama).
+        tipo="fundamento",
+        titulo="Aula 5 · App Event Triggers",
+        kicker="Módulo 2 · B7 · Gatilhos",
+        h1="App Event Triggers",
+        sub="Triggers nativos (Gmail, Sheets, Drive, Telegram). Conceito de polling vs push.",
+        selos=['Panorama'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b7-gatilhos/", "B7 · Gatilhos"),
+                 (None, None)],
     ),
     "b7-lembrete": dict(
         # pratica COM arquivo (P4 do PROMPT v2): Schedule -> Set -> Gmail, com

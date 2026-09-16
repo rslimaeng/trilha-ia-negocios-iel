@@ -209,6 +209,29 @@ PRATICAS = {
         ],
         setas=[dict(de="c", para="a", rotulo="1 item")],
     ),
+    # B7 aulas 1 a 4 · exemplos guiados · execucoes 415 a 418 em 16/09/2026
+    "manual-hello": dict(
+        titulo="Manual Hello: Disparo e Mensagem, os dois verdes",
+        nos=[dict(id="t", nome="▶️ Disparo", icone="manual", x=0, y=0, trigger=True),
+             dict(id="s", nome="📦 Mensagem", icone="set", x=240, y=0, sub="manual")],
+        setas=[dict(de="t", para="s", rotulo="1 item")],
+    ),
+    "lembrete-semanal": dict(
+        titulo="Lembrete Semanal Teste: Toda Seg 9h e Compor Mensagem, os dois verdes",
+        nos=[dict(id="t", nome="📅 Toda Seg 9h", icone="schedule", x=0, y=0, trigger=True),
+             dict(id="s", nome="📦 Compor Mensagem", icone="set", x=240, y=0, sub="manual")],
+        setas=[dict(de="t", para="s", rotulo="1 item")],
+    ),
+    "webhook-hello": dict(
+        titulo="Webhook Hello: o nó Webhook Receber, verde, depois da chamada de teste",
+        nos=[dict(id="w", nome="📡 Webhook Receber", icone="webhook", x=0, y=0, trigger=True, sub="POST")],
+        setas=[],
+    ),
+    "form-contato": dict(
+        titulo="Form de Contato: o nó Form Contato, verde, depois do envio de teste",
+        nos=[dict(id="f", nome="📝 Form Contato", icone="form", x=0, y=0, trigger=True, sub="3 campos")],
+        setas=[],
+    ),
     # B7 aula 6 · P4 · execucao 403 em 16/09/2026 12:45 (BRT), workflow OWd0Hs8O4c8iCQwm
     "p4-lembrete": dict(
         titulo="Lembrete Diário Foco: Schedule, Set e Gmail, os três verdes, e o e-mail enviado",

@@ -1,0 +1,232 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>O trigger mais simples do n8n, o de clicar no botão, e quando ele faz sentido
+      <strong>mesmo em produção</strong>, não só pra teste</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Aprender o Manual Trigger primeiro é a melhor forma de <strong>testar qualquer outro
+      fluxo</strong> sem ficar amarrado a horário, evento ou webhook externo. É a sua "ferramenta
+      de bancada" do dia a dia.</p>
+    </div>
+
+    <p>Todo fluxo precisa de um trigger pra começar. O <strong>Manual Trigger</strong> é o "modo
+    zero": você é quem dispara, clicando em <strong>Execute Workflow</strong>. Parece bobo (e é,
+    no início), mas tem usos legítimos em produção que muita gente ignora.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-03.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'O Gatilho: A faísca do seu motor'. Trigger (gatilho): é o evento que acorda a sua automação e diz: ei, é hora de trabalhar! A regra de ouro: todo fluxo de automação, sem exceção, precisa ter exatamente um gatilho para começar; sem ele, sua automação é um carro sem chave. Uma fileira de dominós caindo a partir de uma faísca. Vamos conhecer os 5 tipos de chaves que você tem à disposição.">
+    </div>
+    <p class="fig-leg"><strong>O slide que abriu o bloco em sala.</strong> O dominó laranja é o
+    gatilho; esta aula é sobre a chave mais simples das cinco, a do clique.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Manual Trigger = clique manual no botão "Execute Workflow" do n8n</h3>
+
+      <ul class="lista">
+        <li><strong>Entrada:</strong> nada</li>
+        <li><strong>Saída:</strong> 1 item vazio (<code>{}</code>) que dá início ao fluxo</li>
+        <li><strong>Quando dispara:</strong> só quando você clica</li>
+        <li><strong>Quantos por workflow:</strong> geralmente 1 só</li>
+      </ul>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Manual Trigger é o <strong>botão de play</strong> do seu workflow.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O botão de play</strong> = o Manual Trigger</li>
+          <li><strong>Apertar</strong> = clicar em Execute Workflow</li>
+          <li><strong>O que toca</strong> = o fluxo, uma vez</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-04.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide '1. Manual Trigger: O seu Botão de Play': um grande botão de play laranja. Analogia: pense nele como o botão de Play do controle remoto; a automação só roda quando você aperta. Como funciona: como dispara, quando você clica no botão azul Execute Workflow no sistema; o que ele recebe, absolutamente nada, ele só dá a partida no motor (o item inicial é vazio). Embaixo: parece simples demais, mas é a sua principal ferramenta de bancada; é com ele que você testa suas ideias de forma segura antes de deixá-las 100% automáticas.">
+    </div>
+    <p class="fig-leg"><strong>A analogia, em slide.</strong> A frase de baixo é a mesma da seção
+    01: ferramenta de bancada.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <div class="cartao-n">01</div>
+        <h4>Adicionar</h4>
+        <ol>
+          <li>Abra um workflow novo (ou vazio).</li>
+          <li>Clique duplo no canvas (ou pressione <code>Tab</code>) &rarr; busque "Manual
+          Trigger" &rarr; adicione.</li>
+          <li><strong>Renomeie</strong> pra algo concreto: <code>▶️ Disparo Manual</code> ou
+          <code>▶️ Rodar pra Testar</code>.</li>
+        </ol>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">02</div>
+        <h4>Disparar</h4>
+        <ul class="lista">
+          <li>Clique em <strong>Execute Workflow</strong> (canto superior direito) ou aperte
+          <code>Ctrl + Enter</code>.</li>
+          <li>O fluxo roda 1 vez.</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <div class="cartao-n">03</div>
+        <h4>Ver o resultado</h4>
+        <ul class="lista">
+          <li>Cada nó executado mostra ✅ verde.</li>
+          <li>Clique no nó pra ver o output.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Quando usar Manual Trigger em produção (não é só pra teste)</h4>
+
+    <p>A maioria dos cursos trata Manual Trigger como "só pra dev". Mas tem <strong>3 casos
+    legítimos</strong> em produção:</p>
+
+    <ol>
+      <li><strong>Aprovação humana antes de rodar.</strong> Você quer revisar dados ou condições
+      antes de processar (ex.: relatório que dispara um envio em massa: você confere primeiro,
+      clica depois).</li>
+      <li><strong>Job sob demanda.</strong> Tarefas que rodam "quando precisar", sem horário fixo
+      (ex.: gerar PDF de fechamento mensal: você roda quando o mês fecha de verdade).</li>
+      <li><strong>Workflow auxiliar chamado por outro.</strong> Um workflow principal pode
+      "executar" outro workflow, e quem rodar manual é só pra debugar/testar o auxiliar.</li>
+    </ol>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-05.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'Quando usar o clique manual na vida real?': muitos acham que o botão manual é só para testar, mas ele tem 3 usos excelentes no dia a dia (em produção). Três cartões: Aprovação Final, você tem um fluxo que envia e-mails para 500 pessoas e quer revisar a lista com os próprios olhos antes de dar o Play; Tarefas Flexíveis, gerar o relatório financeiro do mês, você não sabe que dia exato o mês vai fechar, então prefere rodar o fluxo só quando tudo estiver pronto na sua mesa; Fluxos Secundários, um fluxo principal pode chamar este fluxo menor, o gatilho manual fica lá apenas para quando você precisar consertar ou testar o fluxo menor isoladamente.">
+    </div>
+    <p class="fig-leg"><strong>Os três casos, como foram mostrados em sala.</strong> O primeiro é o
+    que mais vale guardar: um clique humano antes de um envio em massa é uma proteção, não uma
+    falta de automação.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Hello World do Manual</h2>
+      </div>
+    </div>
+
+    <p>Vamos construir o exemplo mais básico possível:</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Manual Hello</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie workflow novo. Renomeie pra <code>Manual Hello</code>.</li>
+          <li>Adicione <strong>Manual Trigger</strong> &rarr; renomeie pra <code>▶️ Disparo</code>.</li>
+          <li>Adicione <strong>Edit Fields (Set)</strong> depois &rarr; renomeie pra <code>📦
+          Mensagem</code>.</li>
+          <li>No Set, configure: Mode <code>Manual Mapping</code>; Add Field:
+          <code>mensagem</code> (String) = <code>Hello, manual world!</code></li>
+          <li>Clique em <strong>Execute Workflow</strong>.</li>
+          <li>Clique no Set &rarr; painel direito &rarr; Output. Veja
+          <code>{ mensagem: "Hello, manual world!" }</code>.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/manual-hello.svg" width="432" height="200" loading="lazy"
+               alt="O canvas do n8n depois da execução: Disparo ligado a Mensagem por uma seta verde com 1 item; os dois com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 415, 16/09/2026). O output do Set saiu
+        <code>{ "mensagem": "Hello, manual world!" }</code>.</p>
+
+        <p><strong>Pronto.</strong> Você tem um workflow disparado por clique.</p>
+
+        <div class="cartao">
+          <span class="rot">Pra ver na prática</span>
+          <p>Abra o workflow <code>exemplo-nodes-v2</code> no seu n8n (o arquivo está na
+          <a href="../b7-gatilhos/">capa do B7</a>). A Parte 1 tem a sticky de explicação do
+          Manual Trigger; a Parte 2 (Fluxos práticos) tem o <strong>Manual Trigger conectado a 3
+          fluxos diferentes</strong>: clica em qualquer um e roda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O botão de play, os três usos em produção e um fluxo disparado por
+  clique. O que vem abaixo é a <strong>cerca</strong>: quatro enganos sobre o gatilho mais simples
+  que existe.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que Manual Trigger ativa automaticamente</div>
+      <p>Não ativa. <strong>Você precisa clicar.</strong> Se nada acontece quando você "ativa o
+      workflow", é porque Manual Trigger ignora ativação: ele só roda no clique.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer que ele não tem dados de entrada</div>
+      <p>O primeiro item que sai é <code>{}</code> (vazio). Se o próximo nó precisa de algum dado
+      pra trabalhar, você tem que <strong>criar esse dado</strong> (com Set, por exemplo) logo
+      depois do Manual.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tentar usar mais de um Manual Trigger no mesmo workflow</div>
+      <p>O n8n permite tecnicamente, mas avisa: em geral 1 manual por workflow.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir "Execute Workflow" (roda tudo) com "Execute Step" (roda só o nó selecionado)</div>
+      <p>Os dois servem: Execute Step é ótimo pra debugar nó por nó depois de pinar o output dos
+      anteriores.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, Schedule Trigger. As seis aulas do bloco estão na
+    <a href="../b7-gatilhos/">capa do B7</a>.</p>
+  </div>

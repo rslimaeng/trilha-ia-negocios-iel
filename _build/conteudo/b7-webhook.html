@@ -1,0 +1,261 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Receber dados de <strong>qualquer ferramenta externa</strong> (formulário, ManyChat,
+      Stripe, Zapier, sistema próprio) através de uma URL única que o n8n te dá</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Com Webhook, qualquer sistema que saiba mandar uma requisição HTTP (ou seja:
+      <strong>todos</strong>) consegue disparar seu workflow. É o trigger que abre o n8n pro
+      mundo.</p>
+    </div>
+
+    <p>Webhook é a <strong>porta de entrada universal</strong> do n8n. Sem ele, você fica preso
+    aos integradores nativos: quando aparece uma ferramenta que o n8n não tem nó, você não
+    consegue receber nada dela.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Webhook Trigger = o n8n te dá uma URL única. Tudo que chegar nessa URL via HTTP
+      (POST, GET, etc.) <strong>dispara o workflow</strong></h3>
+
+      <ul class="lista">
+        <li><strong>Entrada:</strong> uma chamada HTTP de fora (qualquer sistema)</li>
+        <li><strong>Saída:</strong> 1 item com <code>headers</code>, <code>body</code>,
+        <code>query</code>, <code>params</code> da requisição</li>
+        <li><strong>Quando dispara:</strong> quando alguém bate naquela URL</li>
+        <li><strong>Pré-requisito crítico:</strong> workflow precisa estar <strong>ativado</strong>
+        pra usar URL de produção</li>
+      </ul>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia</div>
+        <p>Webhook é o <strong>vizinho fofoqueiro</strong>: fica esperando, e quando algo acontece
+        lá fora, te avisa na hora. Diferente do HTTP Request (que vai BUSCAR fora), Webhook
+        <strong>espera</strong> ser chamado.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O vizinho de plantão</strong> = a URL do Webhook, esperando</li>
+          <li><strong>Algo acontece lá fora</strong> = outro sistema faz a chamada HTTP</li>
+          <li><strong>Te avisa na hora</strong> = o workflow dispara com o que chegou</li>
+        </ul>
+      </div>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-08.jpg" width="1600" height="851" loading="lazy"
+           alt="Slide '3. Webhook: A Campainha Universal': uma casa com a campainha e um envelope chegando. Analogia: é a campainha da sua casa; você fica quieto lá dentro; quando um sistema de fora aperta o botão e entrega um pacote (dados), você começa a trabalhar na mesma hora. Três passos: 1, o n8n cria um endereço de internet (uma URL) único, só seu; 2, qualquer ferramenta do mundo (formulários, loja virtual, sistema financeiro) pode enviar informações para esse endereço; 3, quando a informação chega, ding-dong, seu fluxo liga instantaneamente. Fluxo ativado! Embaixo: é a porta de entrada universal que conecta ferramentas que não conversam entre si por padrão.">
+    </div>
+    <p class="fig-leg"><strong>Em sala a analogia foi a campainha;</strong> no Notion, o vizinho
+    fofoqueiro. É a mesma ideia: o n8n espera, alguém de fora toca.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática</h2>
+      </div>
+    </div>
+
+    <h4>As 2 URLs (a pegadinha mais comum)</h4>
+
+    <p>Toda vez que você adiciona um Webhook Trigger, o n8n gera <strong>2 URLs
+    diferentes</strong>:</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>URL</th><th>Quando usar</th><th>Pré-requisito</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Test URL</strong></td><td>Pra desenvolver/testar</td><td>Clicar em <strong>Listen for Test Event</strong> primeiro</td></tr>
+          <tr><td><strong>Production URL</strong></td><td>Pra usar em produção</td><td>Workflow precisa estar <strong>ativado</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>A Test URL <strong>só funciona enquanto o n8n está "escutando"</strong> (botão "Listen for
+    test event" pressionado). Ela expira sozinha após 1 chamada ou se você fechar o painel.</p>
+
+    <p>A Production URL funciona pra sempre: desde que o workflow esteja ativo.</p>
+
+    <div class="figura solta">
+      <img src="../_img/slides/m2-09.jpg" width="1600" height="836" loading="lazy"
+           alt="Slide 'Entendendo os Endereços (URLs) da Campainha': o sistema te dá duas portas diferentes para a mesma campainha, não misture as duas. À esquerda, uma porta em obras, a URL de Teste: uso, só enquanto você constrói a automação; como funciona, só escuta se você clicar no botão Ouvir evento de teste; atenção, o endereço expira e desliga sozinho se você fechar a tela. À direita, uma porta aberta com campainha, a URL de Produção: uso, o endereço oficial para o mundo real (colocar no seu site ou loja); como funciona, fica escutando para sempre; atenção, mas só funciona se o fluxo inteiro estiver Ativo (Active = ON).">
+    </div>
+    <p class="fig-leg"><strong>As duas portas, como foram mostradas em sala.</strong> A tabela
+    acima é este slide em texto; a pegadinha 1 da cerca é misturar as duas.</p>
+
+    <h4>Métodos HTTP</h4>
+
+    <p>Webhook aceita escolher o método. Os 2 mais comuns:</p>
+
+    <ul class="lista">
+      <li><strong>GET:</strong> quando o sistema externo só passa dados na URL
+      (<code>?nome=Ana&amp;idade=30</code>).</li>
+      <li><strong>POST:</strong> quando o sistema externo manda dados no corpo da requisição
+      (formato JSON, geralmente).</li>
+    </ul>
+
+    <div class="cartao">
+      <span class="rot">Padrão pra começar: POST</span>
+      <p>A maioria das integrações modernas (formulários, plataformas de pagamento, etc.) manda
+      POST com JSON.</p>
+    </div>
+
+    <h4>Como testar (3 jeitos)</h4>
+
+    <ol>
+      <li><strong>Abrir a URL no navegador:</strong> funciona pra GET, mostra resposta na tela.</li>
+      <li><strong>Postman ou Insomnia:</strong> ferramentas gratuitas pra mandar POST/PUT/DELETE
+      com payload customizado.</li>
+      <li><strong>Outro sistema chamando de verdade:</strong> Typeform, ManyChat, etc. Configura a
+      URL como webhook deles.</li>
+    </ol>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: Webhook que recebe e mostra o que chegou</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; Webhook Hello</div>
+      <div class="demo-corpo">
+        <ol>
+          <li>Crie workflow novo. Renomeie pra <code>Webhook Hello</code>.</li>
+          <li>Adicione <strong>Webhook</strong> &rarr; renomeie pra <code>📡 Webhook Receber</code>.</li>
+          <li>Configure: HTTP Method <code>POST</code>; Path: deixa o default (vai gerar URL
+          única).</li>
+          <li><strong>Copie a Test URL</strong> (botão de cópia ao lado).</li>
+          <li>Clique em <strong>Listen for Test Event</strong> (botão laranja embaixo).</li>
+          <li><strong>Em outra aba</strong>, abra o Postman (ou use <code>curl</code> no
+          terminal):</li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A requisição de teste &middot; POST com JSON</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b7web-post">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b7web-post">POST https://[sua-url]/webhook-test/[id-único]
+Body (JSON):
+{ "nome": "(seu nome)", "curso": "n8n" }</pre>
+        </div>
+
+        <ol start="7">
+          <li>Mande a requisição. <strong>Volta no n8n</strong>: você vê o item chegando.</li>
+          <li>Olhe o Output do Webhook: tem <code>headers</code>, <code>body</code> (com
+          <code>nome</code> e <code>curso</code>), <code>query</code>, <code>params</code>.</li>
+        </ol>
+
+        <div class="figura n8n">
+          <img src="../_img/canvas/webhook-hello.svg" width="192" height="200" loading="lazy"
+               alt="O canvas do n8n com um único nó, Webhook Receber, gatilho com o lado esquerdo arredondado, com a marca verde de concluído.">
+        </div>
+        <p class="fig-leg"><strong>Redesenho do canvas, a partir da execução de teste</strong>
+        (execução 417, 16/09/2026). O que o Webhook entregou, na visão JSON:</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Output do 📡 Webhook Receber</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b7web-out">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b7web-out">{
+  "headers": { "content-type": "application/json" },
+  "query": {},
+  "body": { "nome": "(seu nome)", "curso": "n8n" }
+}</pre>
+        </div>
+        <p class="fig-leg"><strong>Repare onde os seus dados chegaram:</strong> dentro de
+        <code>body</code>, não na raiz. É por isso que, no próximo nó, o nome se lê como
+        <code>{{ $json.body.nome }}</code>. O teste de 16/09 foi feito com a chamada de teste do
+        próprio n8n, sem Postman; o formato do item é o mesmo de uma chamada real.</p>
+
+        <p><strong>Pronto.</strong> Você criou um endpoint que qualquer sistema do mundo pode
+        chamar.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">A campainha, as duas URLs e um endpoint seu recebendo JSON. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e as duas primeiras são sobre a URL
+  errada.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar Test URL e Production URL</div>
+      <p>Você desenvolve com Test, configura no sistema externo a Test, esquece de trocar pra
+      Production quando ativa. Resultado: produção quebrada. <strong>Sempre troque pra Production
+      URL antes de ativar.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de ativar o workflow</div>
+      <p>Production URL só funciona com workflow <code>Active</code> = ON. Test URL ignora ativação
+      (só pede "Listen for Test Event").</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não validar formato do body</div>
+      <p>O sistema externo pode mandar JSON, form-urlencoded, multipart. Cada um chega num
+      formato diferente em <code>$json.body</code>. Sempre <strong>inspecione o output do
+      Webhook</strong> antes de assumir formato.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar GET quando precisa enviar dados sensíveis</div>
+      <p>GET expõe dados na URL (que ficam em logs). Pra dado sensível, sempre POST com body.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não autenticar webhook em produção</div>
+      <p>A URL é "secreta" mas vaza fácil (logs, prints, screenshare). Pra produção real, use
+      <strong>Basic Auth</strong> ou <strong>Header Auth</strong> nas opções do Webhook (B9
+      destrincha mais).</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 4, Form Trigger. As seis aulas do bloco estão na
+    <a href="../b7-gatilhos/">capa do B7</a>.</p>
+  </div>

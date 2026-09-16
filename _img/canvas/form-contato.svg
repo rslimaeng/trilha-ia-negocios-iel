@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-48 -40 192 200" width="192" height="200" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif">
+<title>Form de Contato: o nó Form Contato, verde, depois do envio de teste</title>
+<defs><pattern id="pts" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.2" fill="#d9d9de"/></pattern></defs>
+<rect x="-48" y="-40" width="192" height="200" fill="#f6f6f8"/>
+<rect x="-48" y="-40" width="192" height="200" fill="url(#pts)"/>
+<path d="M48.0 0 H88 a8 8 0 0 1 8 8 V88 a8 8 0 0 1-8 8 H48.0 A48.0 48.0 0 0 1 48.0 0 Z" fill="#fff" stroke="#29a360" stroke-width="2"/><g transform="translate(24.0 24.0) scale(2)" fill="none" stroke="#3d3d3d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></g><circle cx="82" cy="82" r="8" fill="#fff"/><path d="M78 82l3 3 5-6" fill="none" stroke="#29a360" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="96" cy="48.0" r="4.5" fill="#fff" stroke="#a8a8b0" stroke-width="1.5"/><text x="48.0" y="118" text-anchor="middle" font-size="14" font-weight="600" fill="#2f2f34">📝 Form Contato</text><text x="48.0" y="136" text-anchor="middle" font-size="12" fill="#8a8a94">3 campos</text>
+</svg>
