@@ -1,0 +1,469 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Form Trigger que recebe upload de <strong>PDF de ata de reunião</strong> &rarr;
+      <strong>Extract from File</strong> lê o texto do PDF &rarr; <strong>Information
+      Extractor</strong> extrai 5 campos estruturados &rarr; <strong>Google Sheets</strong> registra
+      cada ata como uma linha nova. Em 4 nós, sem Agent.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso vale a pena</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Ler ata de reunião, copiar campos pra planilha, repetir 5 vezes por semana = <strong>2-3h/mês
+      de trabalho braçal de PMO/admin</strong>.</p>
+    </div>
+
+    <p>Esse fluxo faz isso em <strong>3 segundos por documento</strong>, com Information Extractor:
+    <strong>sem AI Agent, sem System Prompt, sem loop</strong>. É o caso "trocar trabalho repetitivo
+    por upload de arquivo" que mais vende automação no mundo profissional. E prova o ponto da
+    <a href="../b10-semagent/">aula 6</a>: nem tudo precisa de Agent.</p>
+    <p class="fig-leg">"2-3h/mês", "3 segundos" e "6h/mês" são estimativas do autor, de abril de
+    2026.</p>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li><a href="../b10-semagent/">Aula 6</a> entendida (você sabe o que é Information
+        Extractor).</li>
+        <li>Credencial Google (Sheets) configurada.</li>
+        <li>Credencial de LLM (OpenAI ou Gemini Free).</li>
+        <li>5 PDFs de teste (ata de reunião).</li>
+        <li>Planilha Google Sheets com colunas: <code>data</code>, <code>projeto</code>,
+        <code>participantes</code>, <code>decisoes</code>, <code>proximos_passos</code>,
+        <code>recebido_em</code>.</li>
+      </ul>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">ZIP</div>
+        <div>
+          <div class="arq-nome">atas-de-teste.zip</div>
+          <div class="arq-fn">As 5 atas de reunião fictícias em PDF (<code>ata-reuniao-01.pdf</code>
+          a <code>05.pdf</code>), uma página cada, geradas com o prompt abaixo: uma curta, uma
+          longa, uma com decisão sem responsável, uma com a data em outro formato e uma com
+          participante remoto. É o que você sobe no formulário, uma por vez.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/atas-de-teste.zip" download>Baixar as 5 atas</a>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Se preferir gerar as suas &middot; cole no Claude.ai (ou ChatGPT) e baixe os 5 PDFs</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b10tri-gera">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b10tri-gera">Preciso que você gere 5 PDFs de atas de reunião fictícias que vou
+usar em um curso de n8n + IA. O objetivo é que um aluno faça upload
+destes PDFs num workflow n8n e o nó "Information Extractor" extraia
+campos estruturados de cada um pra colocar numa planilha.
+
+REQUISITOS
+
+1. Formato: PDF, 1 página cada, A4, fonte legível (Arial 11pt).
+2. Mesma estrutura básica nos 5 PDFs, mas conteúdo variado (datas,
+   pessoas, projetos diferentes).
+3. Cada ata DEVE conter, em ordem:
+   - Cabeçalho com título "Ata de Reunião"
+   - Data da reunião (formato livre, ex.: "15 de março de 2026")
+   - Projeto / Iniciativa (ex.: "Implantação ERP — Fase 2")
+   - Participantes (3 a 5 nomes com cargo)
+   - Pauta (2-4 itens em bullets)
+   - Decisões tomadas (3-5 itens em bullets, com responsável e prazo)
+   - Próximos passos (lista com responsável e data limite)
+   - Assinatura do redator (nome + cargo)
+4. Conteúdo verossímil de PMO brasileiro: projetos típicos (ERP,
+   CRM, expansão de filial, lançamento de produto, auditoria),
+   nomes BR, cargos comuns, datas em 2026.
+
+VARIAÇÕES NOS 5 PDFs
+
+- PDF 1: ata curta e enxuta (3 participantes, 2 decisões)
+- PDF 2: ata longa (5 participantes, 4 decisões, pauta detalhada)
+- PDF 3: ata com 1 decisão pendente / sem responsável definido
+- PDF 4: ata com data em formato diferente (ex.: "20/03/2026")
+- PDF 5: ata com 1 participante remoto e nome de empresa parceira citado
+
+ENTREGA: 5 arquivos PDF separados:
+- ata-reuniao-01.pdf até ata-reuniao-05.pdf</pre>
+    </div>
+    <p class="fig-leg">O prompt é o do vault do curso (M5/10), que o export do Notion não trouxe. As
+    5 atas do zip são o resultado dele, geradas uma vez em 21/09/2026 por
+    <code>_build/insumo-b10.py</code>, com nomes, empresas e projetos fictícios.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Quatro nós em linha, e nenhum deles é Agent</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Form Trigger (upload de PDF).</li>
+        <li><strong>Execução:</strong> Extract from File (PDF &rarr; texto) &rarr; Information
+        Extractor (texto &rarr; JSON estruturado).</li>
+        <li><strong>Entrega:</strong> Google Sheets Append (linha por ata).</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>📥 Form Upload PDF</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">extrai texto puro do PDF</div>
+          <h4>📄 Extract from File</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">extrai os 5 campos</div>
+          <h4>🤖 Information Extractor</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">linha nova na planilha</div>
+          <h4>📊 Sheets Append</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Criar workflow</div>
+      </div>
+      <p>Novo workflow &rarr; renomeia: <code>B10 — Triador de Documentos</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Form Trigger</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>n8n Form Trigger</strong>. Renomeia: <code>📥 Recebe Ata</code>.</li>
+        <li><strong>Form Title:</strong> <code>Triagem de Atas</code></li>
+        <li>Campo: <code>arquivo</code>, Type <code>File</code>, Required <code>true</code>,
+        Accepted <code>application/pdf</code>.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Extract from File</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Extract from File</strong>. Renomeia: <code>📄 PDF para Texto</code>.</li>
+        <li><strong>Operation:</strong> <code>Extract from PDF</code>.</li>
+        <li><strong>Binary Property Name:</strong> <code>arquivo</code>.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Information Extractor</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Information Extractor</strong>. Renomeia: <code>🤖 Extrai
+        Campos</code>.</li>
+        <li><strong>Text:</strong> <code>{{ $json.text }}</code>.</li>
+        <li><strong>Schema (manual):</strong> 5 atributos:</li>
+      </ul>
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Nome</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>data</code></td><td>string</td><td>Data da reunião no formato dd/MM/yyyy. Se aparecer escrito por extenso, converte. Se não estiver presente, deixe vazio.</td></tr>
+            <tr><td><code>projeto</code></td><td>string</td><td>Nome do projeto ou iniciativa discutida.</td></tr>
+            <tr><td><code>participantes</code></td><td>array</td><td>Lista dos nomes dos participantes (sem cargos).</td></tr>
+            <tr><td><code>decisoes</code></td><td>array</td><td>Lista das decisões tomadas. Cada item é uma frase curta.</td></tr>
+            <tr><td><code>proximos_passos</code></td><td>array</td><td>Lista dos próximos passos com responsável e data quando mencionados.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A tabela veio embaralhada no export (seis colunas, linhas fundidas) e foi
+      remontada com as palavras que vieram: cinco atributos, três colunas.
+      <strong>Conferido em 21/09/2026</strong> na definição do nó (Information Extractor 1.2): no
+      modo <strong>Attributes</strong> os tipos são string, number, boolean e date; pros três
+      campos de lista (<code>array</code>) o schema vai em <strong>Define using JSON Schema</strong>
+      ou <strong>From JSON example</strong>. O nome do nó com emoji não foi testado nesta família
+      de nós: se aparecer o erro <code>Custom date key</code> que o AI Agent dá
+      (<a href="../b6-agente/">B6, aula 5</a>), tire o emoji.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Chat Model</div>
+      </div>
+      <ul class="lista">
+        <li>Na porta <code>Model</code>, adiciona <strong>OpenAI Chat Model</strong> com
+        <code>gpt-4o-mini</code> (ou Gemini Flash).</li>
+      </ul>
+      <p class="fig-leg">Nome de modelo de abril de 2026; a porta gratuita desta turma é a do
+      <a href="../b6-agente/">B6, aula 5</a>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Edit Fields: adiciona timestamp</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Edit Fields (Set)</strong>. Renomeia: <code>📝 Adiciona
+        Recebido_em</code>.</li>
+        <li>Campo:
+          <ul>
+            <li>Nome: <code>recebido_em</code></li>
+            <li>Valor: <code>{{ $now.toFormat('yyyy-MM-dd HH:mm') }}</code></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Google Sheets: Append Row</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Google Sheets</strong>. Renomeia: <code>📊 Registra Ata</code>.</li>
+        <li><strong>Operation:</strong> <code>Append Row</code>.</li>
+        <li>Mapeia cada coluna:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O mapeamento das seis colunas</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10tri-map">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10tri-map">data            ← data
+projeto         ← projeto
+participantes   ← {{ $json.participantes.join(', ') }}
+decisoes        ← {{ $json.decisoes.join(' | ') }}
+proximos_passos ← {{ $json.proximos_passos.join(' | ') }}
+recebido_em     ← recebido_em</pre>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <p>Quatro nós de trabalho em linha mais o Set do timestamp, e o Sheets com as seis colunas
+        mapeadas: os três campos de lista passam pelo <code>.join()</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Testar e ativar</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Não rodado em 09/2026 &middot; a sequência esperada é a do material</div>
+      <div class="demo-corpo">
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">8</div>
+            <div class="passo-fn">Testar</div>
+          </div>
+          <ul class="lista">
+            <li>No Form Trigger, clica <code>Listen for Test Event</code>. Copia a URL.</li>
+            <li>Abre a URL no browser. Faz upload de uma das 5 atas. Submit.</li>
+            <li>Volta no n8n. Cada nó deve estar verde.</li>
+          </ul>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <p>Abre a planilha. <strong>Tem uma linha nova com os 5 campos preenchidos.</strong></p>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se o PDF para Texto saiu vazio</div>
+            <p>PDF escaneado (imagem) sem OCR. Extract from File só lê PDF "real" (texto
+            vetorial).</p>
+            <div class="destrave-nao"><strong>Não vale:</strong> mandar o mesmo PDF de novo. Abra
+            o arquivo e tente selecionar o texto: se não seleciona, é imagem, e o caminho é a
+            variação 4 (OCR via API).</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">9</div>
+            <div class="passo-fn">Ativação</div>
+          </div>
+          <ul class="lista">
+            <li>Ativa o workflow.</li>
+            <li>Manda os outros 4 PDFs pela URL pública.</li>
+          </ul>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <p>Em &lt;1min, planilha tem 5 linhas estruturadas.</p>
+          </div>
+        </div>
+
+        <p><strong>Você acabou de transformar trabalho braçal em upload de arquivo.</strong> Pra um
+        time que recebe 30 atas/mês, são 6h/mês economizadas, com <strong>0 erro de
+        digitação</strong>.</p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum workflow de teste foi
+        criado pra este bloco, então não há canvas de execução aqui. Os nove passos são o caminho
+        do material, como está.</p>
+
+        <div class="arquivo">
+          <div>
+            <div class="arq-tipo">JSON</div>
+            <div>
+              <div class="arq-nome">analisador-de-curriculos.json</div>
+              <div class="arq-fn">O fluxo primo deste, dado na turma anterior do curso: em vez de
+              Form + ata, um <strong>Drive Trigger</strong> vigia uma pasta de
+              <strong>currículos</strong>, o Extract from File lê o PDF, o Information Extractor
+              tira nome, profissão e telefone, e um Basic LLM Chain avalia contra a vaga da
+              planilha. São as variações 1 e 5 abaixo, prontas. Importe, selecione a sua pasta,
+              a sua planilha e conecte as credenciais Drive, Sheets e Gemini.</div>
+            </div>
+          </div>
+          <div class="arq-acoes">
+            <a class="btn" href="../_arquivos/analisador-de-curriculos.json" download>Baixar para importar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="variacoes">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez, de novo</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">10</div>
+        <div class="passo-fn">Variação 1: trocar tipo de documento</div>
+      </div>
+      <p>Mesmo workflow funciona pra <strong>currículos</strong>, <strong>notas fiscais</strong>,
+      <strong>briefings</strong>. Muda o <strong>schema</strong> + colunas da planilha.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">11</div>
+        <div class="passo-fn">Variação 2: adicionar IF</div>
+      </div>
+      <p>Se <code>decisoes</code> mencionar "cancelar projeto", manda Gmail de alerta pro
+      diretor.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">12</div>
+        <div class="passo-fn">Variação 3: adicionar Sentiment Analysis em paralelo</div>
+      </div>
+      <p>Detecta tom da ata e marca uma coluna a mais.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">13</div>
+        <div class="passo-fn">Variação 4: trocar PDF por imagem</div>
+      </div>
+      <p>Substitui Extract from File por <strong>OCR via API</strong>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">14</div>
+        <div class="passo-fn">Variação 5: lote de PDFs de uma pasta do Drive</div>
+      </div>
+      <p>Trocar Form Trigger por Drive Trigger.</p>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Quatro nós, cinco atas, cinco linhas. O que vem abaixo é a
+  <strong>cerca</strong>: cinco pegadinhas, e a quarta é o <code>.join()</code>.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">PDF escaneado (imagem) sem OCR</div>
+      <p>Extract from File só lê PDF "real" (texto vetorial).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Schema com descrição vaga</div>
+      <p>"data: a data" &rarr; formato inconsistente. Sempre especifique formato esperado.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não tratar campo opcional</div>
+      <p>Se a ata não tem <code>proximos_passos</code>, o Extractor pode inventar. Solução: na
+      descrição escreva "deixe vazio se não estiver presente".</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Array virando string sem <code>.join()</code></div>
+      <p>Sheets vê <code>[object Object]</code>. <strong>Sempre use <code>.join()</code></strong>
+      pra serializar arrays em texto.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Form Trigger em modo Test só fica vivo enquanto você está com o n8n aberto</div>
+      <p>Pra deixar a URL pública, ativa o workflow.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> <a href="../b10-classificador/">Fluxo prático 5: Classificador de
+    E-mails (sem Agent)</a>. Os cinco fluxos estão na <a href="../b10-massa/">Mão na massa</a>.</p>
+  </div>

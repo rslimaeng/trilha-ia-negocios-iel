@@ -1,0 +1,424 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Gmail Trigger captura cada novo e-mail &rarr; <strong>Text Classifier</strong> decide em
+      <strong>4 categorias</strong> (<code>Suporte</code>, <code>Vendas</code>,
+      <code>Financeiro</code>, <code>Outros</code>) &rarr; <strong>Switch nativo</strong> roteia
+      &rarr; cada ramo faz uma ação (rotular + responder/encaminhar/arquivar).</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso vale a pena</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Triar manualmente 50 e-mails/dia (decidir o que é suporte, vendas, financeiro, ou
+      irrelevante) leva <strong>~30 min/dia</strong>. Em 22 dias úteis: <strong>11h/mês jogadas em
+      triagem</strong>.</p>
+    </div>
+
+    <p>Esse fluxo classifica + rotula + responde automaticamente o que pode ser respondido em
+    segundos. <strong>Sem AI Agent</strong>: Text Classifier resolve com 1/3 do custo. Esse é o
+    fluxo que o aluno mostra pro chefe e ouve "quanto custa fazer pra empresa toda?".</p>
+    <p class="fig-leg">"~30 min/dia", "11h/mês" e "1/3 do custo" são estimativas do autor, de abril
+    de 2026.</p>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li><a href="../b10-semagent/">Aula 6</a> entendida (você sabe o que é Text Classifier).</li>
+        <li>Credencial Gmail.</li>
+        <li>Credencial de LLM.</li>
+        <li>Labels criadas no Gmail: <code>n8n/Suporte</code>, <code>n8n/Vendas</code>,
+        <code>n8n/Financeiro</code>, <code>n8n/Outros</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Um classificador na frente, quatro ramos atrás, e nenhum Agent</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Gmail Trigger.</li>
+        <li><strong>Execução:</strong> Text Classifier classifica em 4 categorias.</li>
+        <li><strong>Entrega:</strong> 4 ramos com ações específicas (label + Gmail
+        Send/Forward/Archive).</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>📨 Gmail Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução</div>
+          <h4>🤖 Text Classifier</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega &middot; 4 ramos</div>
+          <h4>Suporte · Vendas · Financeiro · Outros</h4>
+        </div>
+      </div>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Ramo</th><th>Label</th><th>Ação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Suporte</td><td>Label</td><td>Resp.</td></tr>
+            <tr><td>Vendas</td><td>Label</td><td>SDR Notif.</td></tr>
+            <tr><td>Financeiro</td><td>Label</td><td>Encaminha Contas</td></tr>
+            <tr><td>Outros</td><td>Label</td><td>Arquiva</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">Os quatro ramos são o desenho do material, em tabela: cada saída do
+      Classifier recebe uma label e uma ação.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Criar workflow</div>
+      </div>
+      <p>Novo workflow &rarr; renomeia: <code>B10 — Classificador de E-mails</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Gmail Trigger</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Gmail Trigger</strong>. Renomeia: <code>📨 Novo E-mail</code>.</li>
+        <li><strong>Event:</strong> <code>Message Received</code>.</li>
+        <li><strong>Poll Times:</strong> a cada 1 minuto.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Edit Fields: prepara texto</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Edit Fields</strong>. Renomeia: <code>📝 Prepara Texto</code>.</li>
+        <li>Campo:
+          <ul>
+            <li>Nome: <code>texto_para_classificar</code></li>
+            <li>Valor: <code>Assunto: {{ $json.subject }}\n\nCorpo: {{ $json.snippet }}</code></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Text Classifier</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Text Classifier</strong>. Renomeia: <code>🤖 Classifica</code>.</li>
+        <li><strong>Input Text:</strong> <code>{{ $json.texto_para_classificar }}</code></li>
+        <li><strong>Categories:</strong> 4 categorias com descrição:</li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">As 4 categorias, com a descrição de cada uma</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10cla-cat">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10cla-cat">Suporte — "Cliente relata problema técnico, dúvida de uso, ou pede ajuda com o produto/serviço."
+Vendas — "Lead novo, pedido de orçamento, interesse em contratar, perguntas pré-venda."
+Financeiro — "Boleto, nota fiscal, cobrança, pedido de reembolso, pendência financeira."
+Outros — "Newsletter, spam, notificação automática, mensagem que não se encaixa nas anteriores."</pre>
+      </div>
+      <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó (Text
+      Classifier 1.1): cada categoria tem os campos <strong>Category</strong> e
+      <strong>Description</strong>, e cada uma vira uma saída do nó, na ordem em que você as
+      escreveu. Em Options existe o <strong>fallback</strong> ("discard" por padrão, ou "other")
+      pra texto que não casa com nenhuma. O nome do nó com emoji não foi testado nesta família de
+      nós: se aparecer o erro <code>Custom date key</code> que o AI Agent dá
+      (<a href="../b6-agente/">B6, aula 5</a>), tire o emoji.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Chat Model</div>
+      </div>
+      <ul class="lista">
+        <li>Na porta <code>Model</code>, adiciona <strong>OpenAI Chat Model</strong> com
+        <code>gpt-4o-mini</code>.</li>
+      </ul>
+      <p class="fig-leg">Nome de modelo de abril de 2026; a porta gratuita desta turma é a do
+      <a href="../b6-agente/">B6, aula 5</a>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Ramo Suporte</div>
+      </div>
+      <p>Conecta da saída <code>Suporte</code>:</p>
+      <ul class="lista">
+        <li><strong>Gmail (Add Label)</strong> &rarr; <code>n8n/Suporte</code>.</li>
+        <li><strong>Gmail (Send)</strong> resposta automática:
+          <ul>
+            <li>To: <code>{{ $('📨 Novo E-mail').item.json.from }}</code></li>
+            <li>Subject: <code>Re: {{ $('📨 Novo E-mail').item.json.subject }}</code></li>
+            <li>Message: <code>Olá! Recebemos sua mensagem e abrimos um chamado. Nosso time
+            responde em até 4h úteis.</code></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Ramo Vendas</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Gmail (Add Label)</strong> &rarr; <code>n8n/Vendas</code>.</li>
+        <li><strong>Gmail (Send)</strong> notifica SDR:
+          <ul>
+            <li>To: seu e-mail</li>
+            <li>Subject:</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O Subject da notificação</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10cla-subj">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10cla-subj">🎯 Lead novo — {{ $('📨 Novo E-mail').item.json.from }}</pre>
+      </div>
+      <ul class="lista">
+        <li>Message: trecho do e-mail + pedido pra responder em 1h.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">8</div>
+        <div class="passo-fn">Ramo Financeiro</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Gmail (Add Label)</strong> &rarr; <code>n8n/Financeiro</code>.</li>
+        <li><strong>Gmail (Send)</strong> encaminhamento pro contas:
+          <ul>
+            <li>To: <code>contas@suaempresa.com</code>.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">9</div>
+        <div class="passo-fn">Ramo Outros</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Gmail (Add Label)</strong> &rarr; <code>n8n/Outros</code>.</li>
+        <li>(Opcional) <strong>Gmail (Mark as Read)</strong>: tira da contagem de não-lidos.</li>
+      </ul>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <p>Quatro saídas do Classifier, cada uma com a sua label e a sua ação: responder, notificar,
+        encaminhar, arquivar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Testar</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Não rodado em 09/2026 &middot; a sequência esperada é a do material</div>
+      <div class="demo-corpo">
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">10</div>
+            <div class="passo-fn">Testar</div>
+          </div>
+          <p>Manda 4 e-mails pra você (assuntos: "Boleto vencido", "Quero contratar", "App está
+          dando erro", "Newsletter").</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <p>Cada execução deve seguir só pelo ramo correto.</p>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se um e-mail caiu no ramo errado</div>
+            <p>Sem descrição em cada categoria, o nó funciona, mas a precisão cai. E o texto de
+            input só com <code>subject</code> não basta: sempre concatene <code>subject +
+            snippet</code>.</p>
+            <div class="destrave-nao"><strong>Não vale:</strong> trocar o Classifier por AI Agent.
+            Classificar é determinístico; o que afina é a descrição da categoria.</div>
+          </div>
+        </div>
+
+        <p><strong>Você acabou de delegar 80% da triagem da sua caixa pra IA leve.</strong> Sem AI
+        Agent. Custo médio: <strong>fração de centavo por e-mail</strong>.</p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum workflow de teste foi
+        criado pra este bloco, então não há canvas nem arquivo <code>.json</code> exportado aqui.
+        Os dez passos são o caminho do material, como está. "80%" e "fração de centavo" são do
+        autor, abril de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="variacoes">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez, de novo</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">11</div>
+        <div class="passo-fn">Variação 1: adicionar Sentiment Analysis no ramo Suporte</div>
+      </div>
+      <p>Se Suporte <strong>e</strong> sentimento <strong>negativo</strong>, escala pro gerente.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">12</div>
+        <div class="passo-fn">Variação 2: trocar Resposta Auto por Draft</div>
+      </div>
+      <p>Cria <strong>rascunho</strong> no Gmail. Você revisa antes.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">13</div>
+        <div class="passo-fn">Variação 3: mais granularidade</div>
+      </div>
+      <p>Quebra "Suporte" em subcategorias.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">14</div>
+        <div class="passo-fn">Variação 4: analytics</div>
+      </div>
+      <p>Sheets Append em todos os ramos com <code>categoria</code> + <code>from</code> +
+      <code>recebido_em</code>. Distribuição mensal.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">15</div>
+        <div class="passo-fn">Variação 5: resposta auto inteligente com Basic LLM Chain</div>
+      </div>
+      <p>No ramo Suporte, antes de responder, passa pelo Basic LLM Chain que personaliza. Mostra a
+      fronteira "Classifier classifica, LLM Chain redige".</p>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Quatro categorias, quatro ramos, quatro e-mails de teste. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e depois delas o que os dois fluxos sem
+  Agent provaram.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Categorias com nomes parecidos</div>
+      <p>"Suporte técnico" vs "Suporte ao cliente" &rarr; confunde.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Sem descrição em cada categoria</div>
+      <p>O nó funciona, mas precisão cai.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Texto de input só com <code>subject</code></div>
+      <p>Sempre concatene <code>subject + snippet</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer label criada no Gmail</div>
+      <p>Cria os 4 labels antes.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que precisa de AI Agent</div>
+      <p>Reflexo do iniciante. Lembra: <strong>classificar é determinístico</strong>.</p>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">O que você acabou de provar</span>
+      <p>Os 2 últimos fluxos práticos (Fluxos 4 e 5) <strong>não têm AI Agent</strong>. E
+      entregam:</p>
+      <ul class="lista">
+        <li>Triagem de documentos (PDFs &rarr; Sheets): economia 6h/mês de PMO.</li>
+        <li>Classificação de e-mails: economia 11h/mês de gestor.</li>
+      </ul>
+      <p><strong>Total: 17h/mês de trabalho substituído.</strong> Sem AI Agent. Esse é o ponto:
+      agente é uma das ferramentas. Não a única. Saber escolher o nó certo pra cada tarefa é o
+      <strong>diferencial profissional</strong> que separa quem vende automação genérica de quem
+      entrega ROI.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você concluiu o B10!</strong> Daqui pra frente, B11 junta tudo: triggers (B7),
+    execução (B8), APIs (B9), agentes e IA leve (B10) em 4 projetos completos com debugging e
+    ativação em produção. Os cinco fluxos estão na <a href="../b10-massa/">Mão na massa</a>, e as
+    sete aulas do bloco na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

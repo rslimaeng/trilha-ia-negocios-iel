@@ -104,6 +104,12 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "b7-gatilhos", "b7-manual", "b7-schedule", "b7-webhook", "b7-form", "b7-appevent", "b7-lembrete",
              "b8-execucao", "b8-json", "b8-dados", "b8-set", "b8-expressions", "b8-if", "b8-switch", "b8-merge", "b8-listas", "b8-vendas",
              "b9-apis", "b9-api", "b9-http", "b9-credenciais", "b9-google", "b9-respond", "b9-tempo",
+             # B10 = M5 (21/09). As cinco praticas moram ATRAS do hub "Mao na massa"
+             # (D16 do PROMPT v2): entram na SEQUENCIA, na ordem do Notion, mas
+             # ficam FORA da TRILHA, como a b4-time-marca, porque trilha() numera
+             # por posicao e o indice do aluno conta 6 aulas + 1 hub.
+             "b10-agentes", "b10-llm", "b10-anatomia", "b10-prompt", "b10-tools", "b10-memoria", "b10-semagent",
+             "b10-massa", "b10-conversa", "b10-calendar", "b10-email", "b10-triador", "b10-classificador",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -210,6 +216,16 @@ TRILHA = [
         ("b9-google",      "4 · Google Workspace no n8n"),
         ("b9-respond",     "5 · Respondendo webhooks"),
         ("b9-tempo",       "6 · Fluxo prático: Previsão do tempo"),
+    ]),
+    ("B10 · AI Agents (single-agent)", [
+        ("b10-agentes",    "B10 · AI Agents (single-agent)"),
+        ("b10-llm",        "1 · LLM vs AI Agent"),
+        ("b10-anatomia",   "2 · Anatomia: LLM + System Prompt + Memória + Tools"),
+        ("b10-prompt",     "3 · System prompt estruturado"),
+        ("b10-tools",      "4 · Tools: o que o agente pode fazer"),
+        ("b10-memoria",    "5 · Memória do agente"),
+        ("b10-semagent",   "6 · IA sem Agent"),
+        ("b10-massa",      "7 · Mão na massa"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -752,6 +768,189 @@ PAGINAS = {
                  ("../modulo-2/", "Módulo 2"),
                  ("../b9-apis/", "B9 · APIs e webhooks"),
                  (None, None)],
+    ),
+    # 🔴 O B10 E O M5 DO CURSO DE n8n DO RAFAEL, literal (21/09). Sem figura
+    # nenhuma: decisao dele em 21/09 ("Tire todas as imagens das aulas, ficou
+    # muito ruim. Vamos seguir com as aulas igual o notion mesmo"). Nenhum
+    # workflow de teste foi criado no servidor dele ("Nao crie fluxo"), entao as
+    # cinco praticas sobem com a marca "nao rodado em 09/2026" (PROMPT v2 §10) e
+    # sem .json exportado; o que existe de arquivo e insumo (D13) e o JSON da
+    # turma 2. Os cinco fluxos ficam FORA da TRILHA (D16), atras do hub.
+    "b10-agentes": dict(
+        titulo="B10 · AI Agents (single-agent)",
+        kicker="Módulo 2 · B10 · Bloco 6 de 7",
+        h1="AI Agents (single-agent)",
+        sub="Dominar AI Agent (Brain + System Prompt + Memory + Tools) com Reactive Prompting e "
+            "Session ID dinâmico, mais os 4 nós de IA \"leve\" que cobrem 60% dos casos práticos "
+            "com 1/3 do custo de um Agent.",
+        selos=["Sete aulas", "Aqui o curso muda de patamar"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "AI Agents")],
+    ),
+    "b10-llm": dict(
+        # conceito-ancora. Sem analogia no Notion. A tabela dos 6 nos veio com 3 linhas no export (declarado na pagina).
+        tipo="fundamento",
+        titulo="Aula 1 · LLM vs AI Agent",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="LLM vs AI Agent",
+        sub="Mapa dos 6 nós de IA + regra de ouro pra escolher.",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-anatomia": dict(
+        # conceito-ancora. Analogia do funcionario especializado (Notion). O ciclo de raciocinio vira .ciclo.
+        tipo="fundamento",
+        titulo="Aula 2 · Anatomia: LLM + System Prompt + Memória + Tools",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="Anatomia do agente: LLM + System Prompt + Memória + Tools",
+        sub="Os 4 componentes internos. Mapa de debugging.",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-prompt": dict(
+        # conceito-ancora. Analogia do manual do funcionario (Notion). Template de 6 partes literal (D4).
+        tipo="fundamento",
+        titulo="Aula 3 · System prompt estruturado",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="System Prompt estruturado",
+        sub="Reactive Prompting + template de 6 partes (<code>ROLE/GOAL/TOOLS/RULES/NOTES/OUTPUT</code>).",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-tools": dict(
+        # conceito-ancora. Sem analogia no Notion. A tabela das 5 tools veio embaralhada no export (remontada, declarado).
+        tipo="fundamento",
+        titulo="Aula 4 · Tools: o que o agente pode fazer",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="Tools: o que o agente pode fazer",
+        sub="5 tools do dia-a-dia + $fromAI() + boa prática \"1 por vez\".",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-memoria": dict(
+        # conceito-ancora. Sem analogia no Notion. Duas tabelas embaralhadas no export (remontadas, declarado). Campos do no conferidos em 21/09.
+        tipo="fundamento",
+        titulo="Aula 5 · Memória: como o agente lembra",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="Memória: como o agente lembra",
+        sub="Simple Memory + Session ID dinâmico (LGPD-safe).",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-semagent": dict(
+        # conceito-ancora. Sem analogia no Notion. A arvore de decisao do Notion vira .arvore. Tipos do Extractor conferidos em 21/09.
+        tipo="fundamento",
+        titulo="Aula 6 · IA sem Agent: Extractor / Classifier / Summarizer / Sentiment",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="IA sem Agent: Extractor / Classifier / Summarizer / Sentiment",
+        sub="Quando NÃO usar Agent: os 4 nós de IA leve.",
+        selos=['Conceito-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    "b10-massa": dict(
+        # 🔴 SEM tipo=, como a b2-biblioteca e a b4-time-marca: e hub, nao aula.
+        # Os cards sao a tabela "Fluxo · Quem usa · Ganho tipico" da capa do M5,
+        # literal (D16); a prosa das tres secoes e a do padrao, curta.
+        titulo="Aula 7 · Mão na massa: os 5 fluxos práticos",
+        kicker="Módulo 2 · B10 · AI Agents (single-agent)",
+        h1="Mão na massa",
+        sub="Cinco fluxos em página própria: três com Agent, dois sem. Faça em sequência ou pare "
+            "em qualquer um.",
+        selos=["5 fluxos", "3 com Agent, 2 sem"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-agentes/", "B10 · AI Agents"),
+                 (None, None)],
+    ),
+    # As cinco praticas: FORA da TRILHA (D16), migalha com o ultimo item escrito.
+    "b10-conversa": dict(
+        # pratica SEM arquivo: nao rodou em 09/2026 (Rafael, 21/09: "Nao crie fluxo"), logo nao ha .json exportado.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Fluxo prático 1 · Agente conversacional simples",
+        kicker="Módulo 2 · B10 · Mão na massa · Fluxo 1 de 5",
+        h1="Fluxo prático 1: Agente conversacional simples",
+        sub="Esqueleto base: Chat Trigger + Agent + Memory. Sem tools.",
+        selos=["Pede chave de LLM", "Prática"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-massa/", "B10 · Mão na massa"),
+                 (None, "Fluxo 1 · Conversacional")],
+    ),
+    "b10-calendar": dict(
+        # pratica SEM arquivo: nao rodou em 09/2026. Campos do Google Calendar Tool conferidos em 21/09.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Fluxo prático 2 · Agente Calendar",
+        kicker="Módulo 2 · B10 · Mão na massa · Fluxo 2 de 5",
+        h1="Fluxo prático 2: Agente Calendar",
+        sub="Agente com 2 tools: check_availability + create_event. Primeira ação real.",
+        selos=["Pede OAuth Calendar", "Prática"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-massa/", "B10 · Mão na massa"),
+                 (None, "Fluxo 2 · Calendar")],
+    ),
+    "b10-email": dict(
+        # pratica COM arquivo: o insumo contatos-de-teste.csv (D13, prompt gerador do vault m5/09, rodado por insumo-b10.py). Nao rodou em 09/2026.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Fluxo prático 3 · Agente E-mail",
+        kicker="Módulo 2 · B10 · Mão na massa · Fluxo 3 de 5",
+        h1="Fluxo prático 3: Agente E-mail",
+        sub="Agente busca contato no Sheets + envia Gmail (com aprovação manual).",
+        selos=["Pede Sheets + Gmail", "Prática"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-massa/", "B10 · Mão na massa"),
+                 (None, "Fluxo 3 · E-mail")],
+    ),
+    "b10-triador": dict(
+        # pratica COM arquivo: as 5 atas (D13, prompt gerador do vault m5/10, insumo-b10.py) e o JSON da turma 2 (analisador-de-curriculos.json, sem credenciais nem IDs). Nao rodou em 09/2026.
+        tipo="pratica",
+        arquivo=True,
+        titulo="Fluxo prático 4 · Triador de Documentos (sem AI Agent)",
+        kicker="Módulo 2 · B10 · Mão na massa · Fluxo 4 de 5",
+        h1="Fluxo prático 4: Triador de Documentos (sem AI Agent)",
+        sub="Form Trigger PDF → Extract from File → Information Extractor → Sheets. Sem Agent.",
+        selos=["Pede Sheets", "Sem Agent"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-massa/", "B10 · Mão na massa"),
+                 (None, "Fluxo 4 · Triador")],
+    ),
+    "b10-classificador": dict(
+        # pratica SEM arquivo: nao rodou em 09/2026. Campos do Text Classifier conferidos em 21/09.
+        tipo="pratica",
+        arquivo=False,
+        titulo="Fluxo prático 5 · Classificador de E-mails (sem AI Agent)",
+        kicker="Módulo 2 · B10 · Mão na massa · Fluxo 5 de 5",
+        h1="Fluxo prático 5: Classificador de E-mails (sem AI Agent)",
+        sub="Gmail Trigger → Text Classifier (4 categorias) → Switch → 4 ramos. Sem Agent.",
+        selos=["Pede Gmail", "Sem Agent"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b10-massa/", "B10 · Mão na massa"),
+                 (None, "Fluxo 5 · Classificador")],
     ),
     "modulo-3": dict(
         titulo="Módulo 3 · Minha Jornada com IA",

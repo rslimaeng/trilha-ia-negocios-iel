@@ -220,6 +220,10 @@ def g4_minutagem_fora_da_capa(rel, html):
     """
     if rel in PAGINAS_COM_AGENDA or e_vitrine(rel):
         return []
+    # 21/09: a dispensa por pagina (DISPENSA_NOTION_LITERAL) vale aqui tambem.
+    # O Topico 7 do M5 diz "15 minutos de aula" no texto do autor.
+    if _dispensado(rel, "G4"):
+        return []
     vis = texto_visivel(re.sub(r'<a class="fonte".*?</a>', " ", html, flags=re.S))
     # O que é proibido é a duração DO BLOCO DE AULA. "Uma reunião de 20 minutos" e
     # "3 horas por semana" são fato do caso, e apagar isso tiraria do exercício o
@@ -1483,6 +1487,64 @@ DISPENSA_NOTION_LITERAL = {
     "b6-primeiro/index.html": {
         "G41": "o Topico 4 do M1 e pratica guiada, sem analogia no Notion",
         "G42": "P2 e arquivo=False por decisao do PROMPT v2 ('nada para importar'); a janela e Topico 3 do M0 + capa do B6",
+    },
+    # 21/09, B10 inteiro. O M5 do Notion tem SEIS topicos de conceito seguidos
+    # (1 a 6) antes do hub "Mao na massa" e das cinco praticas (7 a 11); nenhum
+    # exemplo guiado rodou numa conta de teste (Rafael, 21/09: "Nao crie
+    # fluxo"). Mesma situacao do B7, B8 e B9: G42 e G44 reprovam a ordem do
+    # Notion (G44 = dispensa do executor, Rafael decide). Sem analogia no
+    # Notion: Topicos 1, 4, 5 e 6 e as cinco praticas (G41). Travessao dentro
+    # de copiavel literal do Notion (G1): o template de 6 partes, os system
+    # prompts, as descricoes de tool e de categoria, os prompts geradores do
+    # vault e o nome do workflow ("M5 — ...", aqui B10, como o B9 fez com M4).
+    # G4: o Topico 7 diz "15 minutos de aula" no texto do autor; DISPENSA DO
+    # EXECUTOR, Rafael decide se fica ou se o texto muda.
+    "b10-llm/index.html": {
+        "G41": "o Topico 1 do M5 (LLM vs AI Agent) nao tem analogia no Notion",
+    },
+    "b10-anatomia/index.html": {
+        "G42": "janela = capa do B10 + Topicos 1 e 2 do M5, sem arquivo no Notion",
+    },
+    "b10-prompt/index.html": {
+        "G1": "o template de 6 partes (ROLE — quem voce e...) e do Notion, copiavel, caractere por caractere; a prosa da pagina nao tem travessao",
+        "G42": "janela = Topicos 1, 2 e 3 do M5, sem arquivo no Notion",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b10-tools/index.html": {
+        "G1": "a Tool Description do buscar_lead do Notion traz travessao, copiavel; a prosa nao tem",
+        "G41": "o Topico 4 do M5 (Tools) nao tem analogia no Notion",
+        "G42": "janela = Topicos 2, 3 e 4 do M5, sem arquivo no Notion",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b10-memoria/index.html": {
+        "G41": "o Topico 5 do M5 (Memoria) nao tem analogia no Notion",
+        "G42": "janela = Topicos 3, 4 e 5 do M5, sem arquivo no Notion",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b10-semagent/index.html": {
+        "G41": "o Topico 6 do M5 (IA sem Agent) nao tem analogia no Notion",
+        "G42": "janela = Topicos 4, 5 e 6 do M5, sem arquivo no Notion; as praticas vem atras do hub",
+        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b10-conversa/index.html": {
+        "G1": "o nome do workflow ('M5 — Agente Conversacional v1', aqui B10) e a RULE 2 do system prompt sao do Notion, copiaveis; a prosa nao tem travessao",
+        "G4": "'15 minutos de aula, base pra 90% dos agentes' e o texto do autor (Topico 7 do M5). DISPENSA DO EXECUTOR: Rafael decide",
+        "G41": "o Topico 7 do M5 e fluxo pratico, sem analogia no Notion",
+    },
+    "b10-calendar/index.html": {
+        "G41": "o Topico 8 do M5 e fluxo pratico, sem analogia no Notion",
+    },
+    "b10-email/index.html": {
+        "G1": "o nome do workflow ('M5 — Agente E-mail v1', aqui B10), o GOAL do system prompt e o prompt gerador do vault (M5/09) sao copiaveis literais; a prosa nao tem travessao",
+        "G41": "o Topico 9 do M5 e fluxo pratico, sem analogia no Notion",
+    },
+    "b10-triador/index.html": {
+        "G1": "o nome do workflow ('M5 — Triador de Documentos', aqui B10) e o prompt gerador do vault (M5/10, 'Implantacao ERP — Fase 2') sao copiaveis literais; a prosa nao tem travessao",
+        "G41": "o Topico 10 do M5 e fluxo pratico, sem analogia no Notion",
+    },
+    "b10-classificador/index.html": {
+        "G1": "o nome do workflow ('M5 — Classificador de E-mails', aqui B10), as 4 categorias com descricao e o Subject da notificacao sao do Notion, copiaveis; a prosa nao tem travessao",
+        "G41": "o Topico 11 do M5 e fluxo pratico, sem analogia no Notion",
     },
 }
 

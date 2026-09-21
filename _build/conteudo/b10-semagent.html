@@ -1,0 +1,297 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Pra muita coisa que você acha que precisa de Agent, na verdade não precisa.</strong>
+      O n8n tem <strong>4 nós de IA "leve"</strong> que resolvem 60% dos casos práticos com
+      <strong>1/3 do custo</strong> e <strong>1/3 da complexidade</strong> de um AI Agent. Aluno que
+      entende isso entrega projeto mais rápido, mais barato e mais previsível: esse é o
+      <strong>maior diferencial competitivo</strong> que você sai do curso.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>A pergunta certa não é "quanto AI Agent posso colocar no fluxo?". É <strong>"qual nó de IA
+      é o mínimo necessário?"</strong>.</p>
+    </div>
+
+    <p>Os 4 nós deste tópico fazem <strong>uma coisa só</strong> com extrema previsibilidade. Não
+    precisam de System Prompt elaborado, não consomem tokens em loop, não inventam ação.</p>
+
+    <p>Um número: workflow que recebe 1.000 e-mails/dia e classifica em 4 categorias custa
+    <strong>R$ 5/mês com Text Classifier</strong> vs <strong>R$ 25-40/mês com AI Agent</strong>.
+    Mesma saída, custo 5x.</p>
+    <p class="fig-leg">Os números desta aula ("60%", "1/3", "R$ 5", "R$ 25-40", "5x") são
+    afirmações do material, de abril de 2026, sem fonte declarada; entram como estão. Preço de
+    modelo muda a cada mês.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central: quando usar cada nó</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>"Eu tenho um texto. Quero o quê?"</h3>
+
+      <div class="arvore solta">
+        <div class="av-raiz">
+          <h4>"Eu tenho um texto. Quero o quê?"</h4>
+        </div>
+        <div class="av-tronco" aria-hidden="true"></div>
+        <div class="av-filhos" style="--n:5">
+          <div class="av-f">
+            <div class="av-fn">Extrair campos estruturados</div>
+            <h4>Information Extractor</h4>
+          </div>
+          <div class="av-f">
+            <div class="av-fn">Classificar em N categorias</div>
+            <h4>Text Classifier</h4>
+          </div>
+          <div class="av-f">
+            <div class="av-fn">Resumir texto longo</div>
+            <h4>Summarization Chain</h4>
+          </div>
+          <div class="av-f">
+            <div class="av-fn">Detectar tom (+/-/0)</div>
+            <h4>Sentiment Analysis</h4>
+          </div>
+          <div class="av-f">
+            <div class="av-fn">Tomar ação real</div>
+            <h4>AI Agent (com tools)</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Regra</div>
+        <p>Se a resposta é "transformar texto em texto/dado <strong>sem agir</strong>", você
+        <strong>não precisa</strong> de AI Agent. Use o nó especializado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Os 4 nós em detalhe</h2>
+      </div>
+    </div>
+
+    <h4>1. Information Extractor: "extrai campos estruturados de texto bagunçado"</h4>
+
+    <p><strong>O que faz:</strong> recebe texto livre (PDF, e-mail, mensagem, currículo) e retorna
+    <strong>JSON com os campos que você definiu</strong>.</p>
+
+    <p><strong>Quando usar:</strong></p>
+    <ul class="lista">
+      <li>Currículo em PDF &rarr; extrai <code>nome</code>, <code>cargo_atual</code>,
+      <code>anos_experiencia</code>, <code>email</code>.</li>
+      <li>Nota fiscal em texto &rarr; extrai <code>cnpj</code>, <code>valor_total</code>,
+      <code>data_emissao</code>, <code>itens</code>.</li>
+      <li>Ata de reunião &rarr; extrai <code>data</code>, <code>participantes</code>,
+      <code>decisoes</code>, <code>proximos_passos</code>.</li>
+      <li>Mensagem de cliente WhatsApp &rarr; extrai <code>intencao</code>,
+      <code>produto_mencionado</code>, <code>urgencia</code>.</li>
+    </ul>
+
+    <p><strong>Caso típico:</strong> o <a href="../b10-triador/">Fluxo prático 4</a> usa exatamente
+    isso pra triar atas de reunião &rarr; Sheets.</p>
+
+    <h4>2. Text Classifier: "põe num balde com nome"</h4>
+
+    <p><strong>O que faz:</strong> recebe texto e classifica em <strong>uma das categorias que você
+    definiu</strong>. Não inventa categoria nova.</p>
+
+    <p><strong>Quando usar:</strong></p>
+    <ul class="lista">
+      <li>E-mail entrante &rarr; <code>Suporte</code>, <code>Vendas</code>,
+      <code>Financeiro</code>, <code>Spam</code>.</li>
+      <li>Mensagem de cliente &rarr; <code>Reclamação</code>, <code>Elogio</code>,
+      <code>Dúvida</code>, <code>Outros</code>.</li>
+      <li>Lead &rarr; <code>Qualificado</code>, <code>Não-qualificado</code>,
+      <code>Reabrir-em-90-dias</code>.</li>
+    </ul>
+
+    <p><strong>Saída:</strong> o nó conecta <strong>múltiplas saídas</strong> (uma por categoria),
+    como Switch nativo.</p>
+
+    <p><strong>Caso típico:</strong> o <a href="../b10-classificador/">Fluxo prático 5</a>
+    classifica caixa de entrada toda manhã.</p>
+
+    <h4>3. Summarization Chain: "encolhe texto sem perder o essencial"</h4>
+
+    <p><strong>O que faz:</strong> recebe texto longo (5 páginas, thread de 30 mensagens, transcrição
+    de reunião) e devolve um resumo.</p>
+
+    <p><strong>Quando usar:</strong></p>
+    <ul class="lista">
+      <li>Reunião gravada &rarr; transcrição &rarr; <strong>Summarize</strong> &rarr; 3 bullets pro
+      Slack.</li>
+      <li>Thread longa de cliente &rarr; resumo executivo na sua caixa.</li>
+      <li>Relatório PDF de 20 páginas &rarr; 1 parágrafo.</li>
+    </ul>
+
+    <h4>4. Sentiment Analysis: "está positivo ou negativo?"</h4>
+
+    <p><strong>O que faz:</strong> classifica o <strong>tom emocional</strong> do texto: positivo,
+    neutro, negativo (com confidence opcional).</p>
+
+    <p><strong>Quando usar:</strong></p>
+    <ul class="lista">
+      <li>Pesquisa NPS aberta &rarr; identifica detratores antes de cancelarem.</li>
+      <li>Comentários de Instagram &rarr; detecta pico de negativos depois de post.</li>
+      <li>Feedback interno &rarr; termômetro do time.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Como funciona na prática: Information Extractor passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Uma ata em texto, cinco campos em JSON, um nó</div>
+      <div class="demo-corpo">
+        <h4>1. Setup</h4>
+        <p>Workflow novo. Manual Trigger &rarr; Edit Fields com texto:</p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O texto do Edit Fields</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10sem-ata">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10sem-ata">Reunião do projeto ERP em 15/03/2026.
+Participantes: João Silva (Diretor TI), Maria Costa (PM),
+Pedro Almeida (Fornecedor SAP). Decidimos prorrogar o go-live
+pra junho. Próximo passo: Maria envia plano revisado até 22/03.</pre>
+        </div>
+
+        <h4>2. Information Extractor</h4>
+        <p><strong>Schema (manual):</strong> 5 atributos:</p>
+        <ul class="lista">
+          <li><code>data</code>, string, "Data no formato dd/MM/yyyy"</li>
+          <li><code>projeto</code>, string, "Nome do projeto"</li>
+          <li><code>participantes</code>, array, "Lista de nomes"</li>
+          <li><code>decisao</code>, string, "Decisão principal"</li>
+          <li><code>proximo_passo</code>, string, "Próximo passo + responsável"</li>
+        </ul>
+        <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó (Information
+        Extractor 1.2): no modo <strong>Attributes</strong> os tipos são string, number, boolean e
+        date. Pra um campo de lista como <code>participantes</code> (array), o schema vai em
+        <strong>Define using JSON Schema</strong> ou <strong>From JSON example</strong>.</p>
+
+        <h4>3. Chat Model</h4>
+        <p>Adiciona OpenAI Chat Model com <code>gpt-4o-mini</code> (ou Gemini Flash).</p>
+
+        <h4>4. Executar</h4>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">O JSON que sai</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10sem-json">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10sem-json">{
+  "data": "15/03/2026",
+  "projeto": "ERP",
+  "participantes": ["João Silva", "Maria Costa", "Pedro Almeida"],
+  "decisao": "Prorrogar o go-live pra junho",
+  "proximo_passo": "Maria envia plano revisado até 22/03"
+}</pre>
+        </div>
+
+        <p><strong>Você acabou de fazer com 1 nó o que um AI Agent levaria 4 chamadas pra
+        fazer.</strong> Mesmo resultado, fração do custo, zero loop.</p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> os quatro passos e o JSON são o
+        caminho do material, sem execução numa conta de teste. Nome de modelo é de abril de 2026;
+        a porta gratuita desta turma é a do <a href="../b6-agente/">B6, aula 5</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Uma pergunta, cinco respostas, e quatro nós que fazem uma coisa só. O
+  que vem abaixo é a <strong>cerca</strong>: seis pegadinhas, e depois delas a régua de quando o
+  Agent ainda é o certo.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Schema vago</div>
+      <p>Cada campo precisa de <strong>descrição</strong> clara: tipo, formato, o que esperar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pedir campo que não existe no texto</div>
+      <p>O nó pode inventar valor. Solução: na descrição escreva "deixe vazio se não estiver
+      presente".</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar AI Agent pra tarefa de extração</div>
+      <p>Workflow mais caro e mais lento, mesma saída. Reflexo do iniciante.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Text Classifier com categorias com nomes parecidos</div>
+      <p>"Suporte técnico" vs "Suporte ao cliente" &rarr; confunde.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Sentiment Analysis com sarcasmo</div>
+      <p>"Adorei esperar 3 horas" classifica como positivo (literal).</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de conectar Chat Model nos 4 nós</div>
+      <p>São cluster nodes: precisam de Chat Model na porta inferior.</p>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Quando AI Agent ainda é o certo</span>
+      <p>Agent é o certo quando:</p>
+      <ul class="lista">
+        <li>O fluxo precisa <strong>decidir e agir</strong> em sistemas externos.</li>
+        <li>Você precisa de <strong>conversa multi-turno</strong> com memória.</li>
+        <li>Os passos são <strong>dinâmicos</strong>: não dá pra prever quantas tools chamar nem em
+        qual ordem.</li>
+      </ul>
+      <p>Nos 4 outros casos (extrair, classificar, resumir, analisar tom), prefere o nó
+      especializado.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-massa/">7, Mão na massa</a>: os cinco fluxos
+    práticos, começando pelo agente conversacional. As sete aulas do bloco estão na
+    <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

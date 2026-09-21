@@ -1,0 +1,280 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Sem tool, agente é só "ChatGPT colado no n8n".</strong> Com tool, ele lê planilha,
+      manda e-mail, cria evento, consulta API e age sozinho. Esta aula é o que transforma seu agente
+      de "respondedor" em "executor", e o que justifica o bloco inteiro.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Tool é o que separa o agente do <strong>assistente passivo</strong> (responde pergunta) do
+      <strong>funcionário virtual</strong> (faz a tarefa).</p>
+    </div>
+
+    <p>Aluno que entende tools constrói agente útil; quem não entende fica preso no "agente de
+    chat": bonito de demo, inútil pro dia-a-dia. <strong>Boa notícia:</strong> o n8n é a melhor
+    ferramenta do mundo pra isso, porque <strong>qualquer um dos 400 nós nativos pode virar tool
+    com 2 cliques</strong>.</p>
+    <p class="fig-leg"><strong>Sobre os 400:</strong> conferido em 16/09/2026 na
+    <a href="../b9-api/">aula 1 do B9</a>, o site do n8n fala em "1,000+ apps". O número do texto
+    é o piso da época em que foi escrito; a frase continua verdadeira.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O que é uma tool</h3>
+
+      <p>Uma <strong>tool</strong> é um nó (Sheets, Gmail, HTTP Request, etc.) que você conecta na
+      <strong>porta lateral "Tool"</strong> do AI Agent. Quando conectado:</p>
+
+      <ul class="lista">
+        <li>O nó deixa de rodar automaticamente no fluxo principal.</li>
+        <li>Vira uma <strong>opção</strong> que o agente pode chamar <strong>se decidir</strong>
+        que precisa.</li>
+        <li>O agente decide quando usar lendo a <strong>descrição</strong> que você escreveu.</li>
+      </ul>
+
+      <h4>Como o agente "vê" a tool</h4>
+
+      <p>Cada tool tem 3 informações que o LLM lê pra decidir:</p>
+
+      <ul class="lista">
+        <li><strong>Nome</strong>: identificador curto e claro (<code>get_contact</code>,
+        <code>send_email</code>).</li>
+        <li><strong>Descrição</strong>: quando o agente deve usar essa tool, em <strong>linguagem
+        natural</strong>.</li>
+        <li><strong>Parâmetros</strong>: quais dados a tool precisa (com <code>$fromAI()</code>
+        pra cada).</li>
+      </ul>
+
+      <h4>A regra de ouro: nome + descrição claros</h4>
+
+      <div class="grade grade-2 solta">
+        <div class="cartao">
+          <span class="rot">Ruim</span>
+          <pre class="prompt-txt config" id="pr-b10too-ruim">nome: tool1
+descrição: faz coisas</pre>
+        </div>
+        <div class="cartao">
+          <span class="rot">Bom</span>
+          <pre class="prompt-txt config" id="pr-b10too-bom">nome: get_contact
+descrição: Busca contato no Google Contacts pelo nome ou e-mail.
+Use SEMPRE que o usuário mencionar uma pessoa pelo nome
+e você precisar do e-mail dela pra continuar.</pre>
+        </div>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Mantra: descrição de tool é prompt</div>
+        <p>Cada tool é uma mini-instrução que o agente lê. Vaga = uso errado. Específica = uso
+        certo.</p>
+      </div>
+
+      <h4>As 5 tools que cobrem 80% dos casos</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Tool</th><th>O que faz</th><th>Quando o agente chama</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Google Sheets</strong></td><td>Lê/escreve linha na planilha</td><td>"Busca o cliente X" / "Registra esse lead"</td></tr>
+            <tr><td>2</td><td><strong>Gmail</strong></td><td>Envia e-mail / busca thread</td><td>"Manda confirmação pro Pedro"</td></tr>
+            <tr><td>3</td><td><strong>Google Calendar</strong></td><td>Cria evento / verifica disponibilidade</td><td>"Marca reunião amanhã 15h"</td></tr>
+            <tr><td>4</td><td><strong>HTTP Request</strong></td><td>Chama qualquer API externa</td><td>Consulta CEP, valida CNPJ, puxa dado de sistema interno</td></tr>
+            <tr><td>5</td><td><strong>Sub-Workflow Tool</strong></td><td>Executa outro workflow seu</td><td>Lógica complexa que você já tem pronta</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A tabela veio embaralhada no export do material (oito colunas, linhas
+      fundidas) e foi remontada com as palavras que vieram: cinco linhas, quatro colunas. O "80%"
+      é afirmação do autor, de abril de 2026.</p>
+
+      <h4>O <code>$fromAI()</code>: como o agente preenche os parâmetros</h4>
+
+      <p>Quando uma tool precisa de dados (ex.: o e-mail do contato), você não preenche manualmente.
+      Você usa <code>$fromAI('nome_do_campo')</code>: o LLM <strong>decide</strong> o valor na
+      hora.</p>
+
+      <p>Exemplo na tool Gmail Send:</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Os três campos da tool Gmail Send</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10too-fromai">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10too-fromai">To:      {{ $fromAI('email') }}
+Subject: {{ $fromAI('assunto') }}
+Body:    {{ $fromAI('corpo') }}</pre>
+      </div>
+
+      <p>O agente, ao ler a mensagem do usuário, <strong>infere</strong> o que vai em cada campo e
+      preenche.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática: adicionando uma tool em 4 passos</h2>
+      </div>
+    </div>
+
+    <ol>
+      <li><strong>Arrasta o nó</strong> (ex.: Google Sheets) <strong>na porta "Tool"</strong> do AI
+      Agent.</li>
+      <li><strong>Configura o nó normalmente</strong>. Cada parâmetro variável vira
+      <code>$fromAI('campo')</code>.</li>
+      <li><strong>Renomeia</strong> com nome curto (<code>get_contact</code>, não
+      <code>Sheets1</code>).</li>
+      <li><strong>Escreve a descrição</strong> no campo <code>Tool Description</code>. Inclua: o que
+      faz, <strong>quando</strong> usar, <strong>quando NÃO</strong> usar.</li>
+    </ol>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Anti-padrão: 5 tools de uma vez</div>
+      <p>Cada tool nova aumenta a chance de o agente confundir quando usar. Adicione 1, teste,
+      adicione a próxima.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: agente com 1 tool de Sheets</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; "qual o orçamento do João?"</div>
+      <div class="demo-corpo">
+        <p>Agente lê uma planilha de leads e responde "qual o orçamento do João?".</p>
+
+        <ol>
+          <li>Setup base: Chat Trigger &rarr; AI Agent (Chat Model + Simple Memory).</li>
+          <li>Arrasta <strong>Google Sheets</strong> na porta <code>Tool</code>. Renomeia:
+          <code>buscar_lead</code>.</li>
+          <li><strong>Operation:</strong> <code>Get Rows</code>. <strong>Filter:</strong>
+          <code>nome</code> Contains <code>{{ $fromAI('nome_do_lead') }}</code>.</li>
+          <li><strong>Tool Description:</strong></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Tool Description do buscar_lead</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10too-desc">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10too-desc">Busca informações de um lead na planilha pelo nome.
+USE sempre que o usuário perguntar dado de um lead específico.
+NÃO USE se o usuário pedir "lista de leads" — nesse caso
+responda que essa funcionalidade ainda não existe.</pre>
+        </div>
+
+        <ol start="5">
+          <li><strong>System Prompt:</strong></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">System Prompt do agente de leads</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10too-sp">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10too-sp">ROLE: Assistente de consulta de leads.
+TOOLS: buscar_lead.
+RULES:
+1. SEMPRE chame buscar_lead antes de responder sobre lead específico.
+2. NUNCA invente dado. Se não encontrar, diga "Lead não encontrado".</pre>
+        </div>
+
+        <ol start="6">
+          <li><strong>Teste:</strong> "Qual o orçamento do João?" &rarr; agente chama tool, recebe
+          linha, responde.</li>
+        </ol>
+
+        <p><strong>Você acabou de transformar o agente de "respondedor" em "executor".</strong></p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> o exemplo é o caminho do material,
+        sem execução numa conta de teste. Os passos 5 e 6 vieram numerados "1." no export; a
+        contagem aqui segue a sequência.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Nome, descrição, parâmetros, e o <code>$fromAI()</code> que deixa o
+  agente preencher. O que vem abaixo é a <strong>cerca</strong>: seis pegadinhas, e a quarta é o
+  parâmetro fixo que manda tudo pro mesmo lugar.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Nome em PT, descrição em EN (ou vice-versa)</div>
+      <p>Mantenha tudo no mesmo idioma.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool description vaga</div>
+      <p>"Faz coisas" &rarr; agente não chama. Reescreva com <strong>quando usar / quando não
+      usar</strong>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Múltiplas tools com escopo sobreposto</div>
+      <p><code>send_email</code> e <code>notify_via_gmail</code> fazendo a mesma coisa &rarr; agente
+      sorteia.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer <code>$fromAI()</code> num parâmetro</div>
+      <p>Se você fixa o parâmetro, o agente sempre manda pro mesmo lugar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Adicionar 5 tools antes de testar a 1ª</div>
+      <p>Quando dá erro, você não sabe qual tool quebrou.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool sem credencial configurada</div>
+      <p>Agente promete e quebra silenciosamente.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-memoria/">5, Memória do agente</a>. As sete
+    aulas do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

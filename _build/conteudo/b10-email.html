@@ -1,0 +1,377 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Agente que recebe pedido em linguagem natural ("manda um e-mail pro Pedro confirmando a
+      reunião"), <strong>busca o contato em uma planilha de leads/clientes</strong> e <strong>envia
+      o e-mail</strong> via Gmail, depois de mostrar rascunho pra você aprovar.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso vale a pena</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Redigir e-mail com contexto (achar o contato, lembrar do projeto, escrever, mandar) consome
+      <strong>5-10 min por e-mail</strong>. Quem manda 10 e-mails de operação por dia gasta
+      <strong>1h+ só nisso</strong>.</p>
+    </div>
+
+    <p>Esse agente reduz isso a 30 segundos: você fala "manda confirmação pro Pedro sobre a reunião
+    de quinta", ele busca o contato na sua planilha, redige no seu tom e te mostra rascunho antes de
+    enviar.</p>
+    <p class="fig-leg">"5-10 min por e-mail" e "1h+" são estimativas do autor, de abril de 2026.</p>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li><a href="../b10-calendar/">Fluxo prático 2</a> funcionando.</li>
+        <li>Credencial Google com escopo de Sheets e Gmail.</li>
+        <li>Planilha de contatos com colunas: <code>nome</code>, <code>email</code>,
+        <code>empresa</code>, <code>projeto</code>, <code>notas</code>.</li>
+      </ul>
+    </div>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-tipo">CSV</div>
+        <div>
+          <div class="arq-nome">contatos-de-teste.csv</div>
+          <div class="arq-fn">A planilha de contatos pronta: 15 contatos fictícios, com
+          <strong>dois "Pedro"</strong> de sobrenomes diferentes (pra testar a desambiguação), um
+          nome composto raro e seis projetos, gerada com o prompt abaixo. Suba no Google Drive,
+          abra como Google Sheets e aponte a tool <code>buscar_contato</code> pra ela.</div>
+        </div>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/contatos-de-teste.csv" download>Baixar a planilha</a>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Se preferir gerar a sua &middot; cole no Claude.ai (ou ChatGPT) e baixe o CSV resultante</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b10ema-gera">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b10ema-gera">Preciso de uma planilha Google Sheets fictícia de contatos pra teste
+de um workflow n8n. Estrutura:
+
+Colunas (nesta ordem):
+- nome (string)
+- email (string)
+- empresa (string)
+- projeto (string curta — descreve o que estamos tocando com a pessoa)
+- notas (string curta — última interação ou contexto importante)
+
+Conteúdo:
+- 15 linhas com nomes e empresas brasileiras realistas.
+- 2 pessoas com nome "Pedro" (sobrenomes diferentes) pra testar
+  desambiguação.
+- 1 pessoa com nome composto raro (ex.: "Maria Aparecida Coutinho").
+- Distribua em 5-6 projetos diferentes.
+
+Entrega: arquivo CSV (eu importo no Google Sheets).</pre>
+    </div>
+    <p class="fig-leg">O prompt é o do vault do curso (M5/09), que o export do Notion não trouxe. O
+    <code>contatos-de-teste.csv</code> acima é o resultado dele, gerado uma vez em 21/09/2026 por
+    <code>_build/insumo-b10.py</code>, com nomes, empresas e e-mails fictícios.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O mesmo esqueleto, com uma tool que lê e outra que envia</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Chat Trigger.</li>
+        <li><strong>Execução:</strong> AI Agent decide &rarr; busca contato no Sheets &rarr;
+        escreve rascunho &rarr; mostra &rarr; envia via Gmail.</li>
+        <li><strong>Entrega:</strong> E-mail enviado + confirmação no chat.</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>💬 Chat Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução &middot; embaixo: LLM, Memory e Tools</div>
+          <h4>AI Agent</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>Confirma no chat</h4>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">Os sub-nós do agente</span>
+        <p>Pendurados embaixo do <code>AI Agent</code>: <strong>LLM</strong>,
+        <strong>Memory</strong> e, na porta <strong>Tools</strong>, <code>buscar_contato</code> e
+        <code>enviar_email</code>. É o desenho do material, com os sub-nós escritos em vez de
+        desenhados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Criar workflow</div>
+      </div>
+      <p>Duplica do Fluxo 2 ou começa do zero. Renomeia: <code>B10 — Agente E-mail v1</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Tool 1: buscar_contato (Google Sheets)</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Operation:</strong> <code>Get Rows</code>.</li>
+        <li><strong>Filter:</strong> Column <code>nome</code>, Operation <code>Contains</code>,
+        Value <code>{{ $fromAI('nome_da_pessoa') }}</code>.</li>
+        <li><strong>Tool Description:</strong></li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Tool Description do buscar_contato</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10ema-t1">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10ema-t1">Busca um contato na planilha pelo nome.
+Retorna: nome, email, empresa, projeto, notas.
+USE SEMPRE antes de enviar um e-mail.
+Se múltiplos contatos retornarem, peça pro usuário escolher.
+Se nenhum retornar, peça pro usuário fornecer o e-mail manualmente.</pre>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Tool 2: enviar_email (Gmail)</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Resource:</strong> <code>Message</code>. <strong>Operation:</strong>
+        <code>Send</code>.</li>
+        <li><strong>To:</strong> <code>{{ $fromAI('email_destino') }}</code></li>
+        <li><strong>Subject:</strong> <code>{{ $fromAI('assunto') }}</code></li>
+        <li><strong>Email Type:</strong> <code>Text</code></li>
+        <li><strong>Message:</strong> <code>{{ $fromAI('corpo_email') }}</code></li>
+        <li><strong>Tool Description:</strong></li>
+      </ul>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Tool Description do enviar_email</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10ema-t2">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10ema-t2">Envia um e-mail via Gmail. Use APENAS depois que:
+1. buscar_contato retornou um e-mail válido (ou usuário forneceu);
+2. Você mostrou o rascunho ao usuário e ele aprovou explicitamente.</pre>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <p>Duas tools na porta Tools do agente: uma que lê a planilha pelo nome, outra que envia
+        com os três campos em <code>$fromAI()</code>.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">System Prompt</div>
+      </div>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt do Agente E-mail</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10ema-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10ema-sp">ROLE
+Você é um assistente que envia e-mails em nome de (seu nome).
+
+GOAL
+Interpretar pedidos em linguagem natural e enviar e-mails formais,
+curtos e profissionais — depois de validar contato e rascunho.
+
+TOOLS
+- buscar_contato: busca contato na planilha pelo nome.
+- enviar_email: envia e-mail via Gmail.
+
+RULES
+1. SEMPRE chame buscar_contato ANTES de enviar_email.
+2. Se buscar_contato retornar múltiplos resultados, mostre a lista
+   e pergunte qual antes de continuar.
+3. Se buscar_contato não retornar nada, pergunte o e-mail diretamente.
+4. NUNCA chame enviar_email sem antes mostrar o rascunho ao usuário
+   e receber confirmação explícita ("sim", "manda", "aprovado").
+5. Use o campo "projeto" e "notas" do contato pra contextualizar
+   o e-mail quando relevante.
+
+NOTES
+- Hoje é {{ $now.toFormat('yyyy-MM-dd') }}.
+- Tom: profissional, direto, sem floreios. Sem "espero que esteja bem".
+- Assinatura padrão: "Abraço, (seu nome)".
+
+OUTPUT
+Quando preparando rascunho, apresente assim:
+---
+Para: [nome] <[email]>
+Assunto: [assunto]
+
+[corpo do e-mail]
+---
+"Confirma envio?"
+
+Após enviar, confirmação curta:
+"E-mail enviado pra [nome]."</pre>
+      </div>
+      <p class="fig-leg">No material, o ROLE diz "em nome do Rafael" e a assinatura é "Abraço,
+      Rafael Lima"; aqui os dois são o seu nome. O resto do prompt é como está.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Testar, e os casos de borda</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Não rodado em 09/2026 &middot; a sequência esperada é a do material</div>
+      <div class="demo-corpo">
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">5</div>
+            <div class="passo-fn">Testar</div>
+          </div>
+          <p>Mensagem: "Manda um e-mail pro Pedro confirmando a reunião de quinta às 15h."</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Sequência esperada</div>
+            <ol>
+              <li>Agente chama <code>buscar_contato</code>.</li>
+              <li>Recebe linha do Pedro.</li>
+              <li><strong>Mostra rascunho</strong> no chat (sem enviar ainda).</li>
+              <li>Você responde "sim".</li>
+              <li>Agente chama <code>enviar_email</code>.</li>
+            </ol>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se o e-mail saiu antes de você dizer "sim"</div>
+            <p>Sintoma de RULE 4 fraca.</p>
+            <div class="destrave-nao"><strong>Não vale:</strong> apagar a tool
+            <code>enviar_email</code>. É a RULE 4 que segura o envio; reforce a regra e teste de
+            novo com o mesmo pedido.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">6</div>
+            <div class="passo-fn">Casos de borda</div>
+          </div>
+          <ul class="lista">
+            <li><strong>Múltiplos "Pedro" na planilha:</strong> o agente deve listar e perguntar
+            qual.</li>
+            <li><strong>Pedro inexistente:</strong> o agente deve perguntar o e-mail.</li>
+            <li><strong>Você diz "não, ajusta o tom":</strong> o agente refaz o rascunho sem chamar
+            <code>enviar_email</code>.</li>
+          </ul>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <p>Na planilha de teste há dois Pedros de propósito: o primeiro caso de borda acontece
+            logo na primeira mensagem, e a RULE 2 é o que faz o agente perguntar em vez de
+            sortear.</p>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum workflow de teste foi
+        criado pra este bloco, então não há canvas nem arquivo <code>.json</code> exportado aqui.
+        Os seis passos são o caminho do material, como está.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Uma tool que lê, uma que envia, e a regra de mostrar o rascunho antes.
+  O que vem abaixo é a <strong>cerca</strong>: quatro pegadinhas, e depois delas o que os três
+  fluxos com Agent têm em comum.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Múltiplos Pedros sem regra de desambiguação</div>
+      <p>Sintoma: agente sorteia um.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">E-mail enviado antes da confirmação</div>
+      <p>Sintoma de RULE 4 fraca.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tom errado (formal demais ou casual demais)</div>
+      <p>Solução: NOTES com 2-3 exemplos.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool <code>enviar_email</code> sem <code>$fromAI()</code> no campo To</div>
+      <p>Agente sempre manda pro mesmo destinatário.</p>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">O que aprendemos com os 3 fluxos práticos com Agent</span>
+      <p>Os 3 fluxos têm a <strong>mesma anatomia</strong>:</p>
+      <ul class="lista">
+        <li>Chat Trigger &rarr; AI Agent &rarr; (Tools)</li>
+        <li>LLM + Memory iguais.</li>
+        <li>Só mudam: as <strong>tools</strong> + o <strong>system prompt</strong>.</li>
+      </ul>
+      <p>Daqui em diante (Fluxos 4 e 5), os fluxos práticos vão te mostrar <strong>IA que não usa
+      Agent</strong>, pra você não cair no reflexo de "tudo é Agent".</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> <a href="../b10-triador/">Fluxo prático 4: Triador de Documentos
+    (sem Agent)</a>. Os cinco fluxos estão na <a href="../b10-massa/">Mão na massa</a>.</p>
+  </div>

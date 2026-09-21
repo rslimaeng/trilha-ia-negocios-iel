@@ -1,0 +1,194 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Esta aula vale ouro.</strong> A maioria dos workflows com IA do Instagram paga
+      <strong>3x mais do que precisaria</strong>, porque colocaram um AI Agent onde um Basic LLM
+      Chain resolveria. Aprender qual dos <strong>6 nós de IA do n8n</strong> usar em cada caso
+      economiza tokens, acelera execução e desmistifica o "AI Agent" como bala de prata.</li>
+      <li><strong>Regra de ouro:</strong> AI Agent só quando tem ferramenta.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>A maioria dos workflows que se chamam "AI" no Instagram são só um nó OpenAI no meio.
+      <strong>Isso não é AI Agent.</strong></p>
+    </div>
+
+    <p>Entender a diferença é o que separa quem vende automação genérica de quem entrega valor
+    real. Tem mais: quem coloca tudo no AI Agent paga mais (loop de raciocínio = mais tokens) e
+    demora mais. Os fluxos certos usam o nó certo, e na maioria dos casos, o nó certo
+    <strong>não</strong> é o AI Agent.</p>
+    <p class="fig-leg">O "3x mais" do topo é afirmação do material, de abril de 2026, sem fonte
+    declarada; entra como está.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central: os 6 nós de IA do n8n</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Seis nós de IA, e o AI Agent é um deles</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Nó</th><th>Pra que serve</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Basic LLM Chain</strong></td><td>Análise ou redação de texto livre</td><td>Resumir e-mail, redigir resposta, classificar com instrução customizada</td></tr>
+            <tr><td><strong>Text Classifier</strong></td><td>Classifica em categorias fixas</td><td>"Reclamação, elogio ou dúvida?": resposta dentro das opções</td></tr>
+            <tr><td><strong>Summarization Chain</strong></td><td>Resume textos longos</td><td>Relatório de 10 páginas &rarr; parágrafo executivo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg"><strong>A tabela chegou com três dos seis nós.</strong> O export do
+      material trouxe só estas três linhas; os outros três que o texto nomeia são o
+      <strong>AI Agent</strong> (comparado logo abaixo), o <strong>Information Extractor</strong> e
+      o <strong>Sentiment Analysis</strong> (os dois na <a href="../b10-semagent/">aula 6</a>).
+      Nada foi acrescentado à tabela.</p>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Pergunta de diagnóstico: "o agente precisa <strong>agir</strong> em algum sistema externo?"</div>
+        <ul>
+          <li><strong>NÃO</strong> &rarr; Basic LLM Chain ou nó especializado.</li>
+          <li><strong>SIM</strong> &rarr; AI Agent.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>AI Agent vs Basic LLM Chain: a comparação que mais importa</h2>
+      </div>
+    </div>
+
+    <p>Os dois nós <strong>mais usados</strong> são AI Agent e Basic LLM Chain. Confundir os dois é
+    o erro mais frequente, e mais caro.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th></th><th>Basic LLM Chain</th><th>AI Agent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ferramentas externas</strong></td><td>Não</td><td>Sim (Sheets, Telegram, Drive, qualquer nó)</td></tr>
+          <tr><td><strong>Decide próximo passo</strong></td><td>Não</td><td>Sim: pode chamar tool, ler resultado, decidir de novo</td></tr>
+          <tr><td><strong>Ideal pra</strong></td><td>Avaliar / classificar / resumir texto que <strong>já chegou</strong></td><td>Ler dados, enviar mensagens, <strong>agir</strong> em sistemas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Exemplos práticos de quando usar cada um</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Tarefa</th><th>Nó certo</th><th>Por quê</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Avaliar BANT de um lead a partir de uma mensagem</td><td><strong>Basic LLM Chain</strong></td><td>Texto entra, JSON sai</td></tr>
+          <tr><td>Resumir relatório de 10 páginas</td><td><strong>Summarization Chain</strong></td><td>Só gera texto</td></tr>
+          <tr><td>Classificar e-mail como urgente / normal / spam</td><td><strong>Basic LLM Chain</strong> (ou Text Classifier)</td><td>Só processa o texto, não age</td></tr>
+          <tr><td>Avaliar BANT consultando histórico no Sheets</td><td><strong>AI Agent</strong></td><td>Precisa de Sheets Tool pra buscar histórico</td></tr>
+          <tr><td>Chatbot que cria evento no Calendar</td><td><strong>AI Agent</strong></td><td>Precisa de Calendar Tool pra agir</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Como funciona na prática: escolhendo na hora</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Antes de arrastar AI Agent pro canvas, faça 3 perguntas</div>
+      <div class="demo-corpo">
+        <ol>
+          <li><strong>O fluxo precisa que a IA chame ferramentas externas?</strong> Se não &rarr;
+          Basic LLM Chain ou nó especializado.</li>
+          <li><strong>O fluxo é uma conversa multi-turno?</strong> Se sim &rarr; provavelmente AI
+          Agent (precisa de memória).</li>
+          <li><strong>A IA só precisa transformar texto que já chegou?</strong> Se sim &rarr; Basic
+          LLM Chain ou nó especializado.</li>
+        </ol>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Iniciante coloca tudo no AI Agent</div>
+          <p>Profissional escolhe o nó certo pra cada tarefa. Custo, performance e clareza
+          melhoram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Seis nós, uma pergunta de diagnóstico e três perguntas antes de
+  arrastar. O que vem abaixo é a <strong>cerca</strong>: quatro pegadinhas, e a última é a
+  conta que aparece só em volume.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que toda automação com IA precisa ser Agent</div>
+      <p>Não. Pra resumir/classificar/extrair, <strong>outro nó é mais barato e mais
+      rápido.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar AI Agent sem definir tools</div>
+      <p>Vira chat genérico que finge fazer coisas. "Vou agendar pra você" &rarr; não agenda. Sem
+      tool = sem ação.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar Basic LLM Chain quando precisaria de memória</div>
+      <p>Cada execução vira "primeira mensagem". Sintoma: agente esquece nome dito 2 mensagens
+      atrás.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Custo escondido do AI Agent</div>
+      <p>Cada chamada de tool é uma volta no loop. 1 input &rarr; 4 chamadas de LLM se ele decide
+      chamar 3 tools. Barato em testes, perceptível em volume.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-anatomia/">2, Anatomia do agente</a>. As sete
+    aulas do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

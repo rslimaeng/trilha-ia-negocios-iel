@@ -1,0 +1,262 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Mapa de debugging do agente em produção.</strong> Todo agente que falha falha por
+      um destes 4 motivos: cérebro errado, system prompt vago, memória vazando entre usuários ou
+      tool mal descrita. Saber a anatomia transforma "tentativa e erro" em "ler o sintoma e mexer
+      no componente certo", e isso reduz <strong>horas de debug por execução</strong>.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>O AI Agent node é o nó mais poderoso do n8n, e o mais diferente de tudo que você viu do
+      B6 ao B9. Ele não segue um fluxo fixo. Ele <strong>decide</strong>.</p>
+    </div>
+
+    <p>Quem entende como ele é composto por dentro consegue construir, depurar e evoluir o agente
+    sozinho. Quem não entende fica refém de tutorial: funciona uma vez, quebra na segunda, e o aluno
+    não sabe por onde começar a investigar.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Por dentro, o AI Agent são 4 sub-sistemas</h3>
+
+      <p>Quando você arrasta o AI Agent pro canvas, ele parece um nó simples. Por dentro, são
+      <strong>4 sub-sistemas</strong> que trabalham juntos.</p>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia: o funcionário especializado</div>
+        <p>Pense no AI Agent como contratar um funcionário especializado: ele não vem sozinho.</p>
+        <ul class="analogia-mapa">
+          <li><strong>LLM</strong> = o cérebro</li>
+          <li><strong>System Prompt</strong> = o manual do primeiro dia</li>
+          <li><strong>Memória</strong> = o caderno de anotações</li>
+          <li><strong>Tools</strong> = o que o agente pode fazer</li>
+        </ul>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">AI Agent node</span>
+        <ul class="lista">
+          <li><strong>LLM</strong> (modelo de linguagem)</li>
+          <li><strong>System Prompt</strong> (instruções)</li>
+          <li><strong>Memória</strong> (lembra contexto)</li>
+          <li><strong>Tools</strong> (o que pode fazer)</li>
+        </ul>
+      </div>
+
+      <h4>LLM: o cérebro</h4>
+
+      <p>O modelo de IA que processa linguagem: GPT-4o, Claude Sonnet, Gemini. Recebe o contexto e
+      decide o que fazer.</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Modelo</th><th>Custo</th><th>Quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GPT-4o</td><td>Médio</td><td>Tarefa complexa, raciocínio longo.</td></tr>
+            <tr><td>Gemini Flash</td><td>Baixo</td><td>Integração Google Workspace.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Iniciante começa com GPT-4o-mini</div>
+        <p>É como contratar um analista júnior competente: barato e suficiente pra maioria das
+        tarefas.</p>
+      </div>
+      <p class="fig-leg"><strong>Nomes de modelo e custo são de abril de 2026.</strong> A porta
+      gratuita desta turma é a do <a href="../b6-agente/">B6, aula 5</a>: Gemini pela chave do
+      Google AI Studio (conferida em 16/09/2026) ou OpenRouter. O papel do "júnior" continua o
+      mesmo: comece pelo modelo mais barato.</p>
+
+      <h4>System Prompt: o manual do primeiro dia</h4>
+
+      <p>Conjunto de instruções <strong>permanentes</strong> que definem como o agente se comporta.
+      Lido antes de tudo. O que está aqui tem mais peso do que qualquer outra coisa.</p>
+
+      <p>Analogia: o manual de integração que você entrega ao funcionário no primeiro dia. "Leia
+      isso antes de atender qualquer cliente."</p>
+
+      <p>System Prompt vazio = funcionário sem treinamento: tecnicamente capaz, na prática
+      imprevisível. <strong>Sempre</strong> escreva pelo menos uma linha. Aprofundamento na
+      <a href="../b10-prompt/">aula 3</a>.</p>
+
+      <h4>Memória: o caderno de anotações</h4>
+
+      <p>Controla o que o agente lembra <strong>dentro de uma conversa</strong>. Sem memória, cada
+      mensagem é tratada como se fosse a primeira: o agente esquece quem você é a cada execução.</p>
+
+      <p><strong>Tipo recomendado pra v1:</strong> Simple Memory (guarda últimas N mensagens da
+      sessão).</p>
+
+      <p><strong>Configuração crítica:</strong> o <strong>Session ID</strong>. Ele separa conversas
+      de pessoas diferentes. Se ficar fixo, o agente mistura dados de todo mundo. Aprofundamento na
+      <a href="../b10-memoria/">aula 5</a>.</p>
+
+      <h4>Tools: o que o agente pode fazer</h4>
+
+      <p>Ações concretas que o agente <strong>decide</strong> chamar quando precisa: ler planilha,
+      enviar e-mail, buscar arquivo, consultar API. Você não conecta com IF: o LLM olha pro System
+      Prompt, vê quais ferramentas tem, e escolhe.</p>
+
+      <p><strong>Boa prática:</strong> comece com 1 tool. Teste. Adicione a próxima. Aprofundamento
+      na <a href="../b10-tools/">aula 4</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática: o ciclo de raciocínio</h2>
+      </div>
+    </div>
+
+    <p>Quando o agente recebe uma mensagem, ele faz um <strong>loop interno</strong> que você não
+    programa:</p>
+
+    <div class="ciclo solta">
+      <div class="ciclo-passos">
+        <div class="cc">
+          <div class="cc-n">0</div>
+          <div class="cc-fn">Input</div>
+          <h4>Mensagem do usuário ou dado da planilha</h4>
+        </div>
+        <div class="cc-seta" aria-hidden="true">&rarr;</div>
+        <div class="cc">
+          <div class="cc-n">1</div>
+          <div class="cc-fn">Recupera</div>
+          <h4>Recupera memória</h4>
+          <p>Últimas N mensagens da mesma sessão.</p>
+        </div>
+        <div class="cc-seta" aria-hidden="true">&rarr;</div>
+        <div class="cc">
+          <div class="cc-n">2</div>
+          <div class="cc-fn">Lê</div>
+          <h4>LLM lê</h4>
+          <p>System Prompt + memória + mensagem atual.</p>
+        </div>
+        <div class="cc-seta" aria-hidden="true">&rarr;</div>
+        <div class="cc">
+          <div class="cc-n">3</div>
+          <div class="cc-fn">Decide</div>
+          <h4>LLM decide: preciso usar uma tool?</h4>
+          <p><strong>NÃO</strong> &rarr; formula a resposta final.</p>
+        </div>
+        <div class="cc-seta" aria-hidden="true">&rarr;</div>
+        <div class="cc">
+          <div class="cc-n">4</div>
+          <div class="cc-fn">Output</div>
+          <h4>Resposta + salva interação na memória</h4>
+        </div>
+      </div>
+      <div class="ciclo-fecha"><strong>SIM</strong> &rarr; chama tool &rarr; recebe resultado
+      &rarr; volta a decidir (pode repetir).</div>
+    </div>
+
+    <p><strong>Esse loop é o que torna o agente diferente de um nó comum.</strong> Ele pode chamar
+    uma ferramenta várias vezes antes de produzir a resposta final.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Visualizando o ciclo no painel de execuções</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Quando o agente roda, o n8n mostra cada decisão que ele tomou</div>
+      <div class="demo-corpo">
+        <ul class="lista">
+          <li><strong>Caminho verde</strong> &rarr; a ferramenta foi chamada nesta execução.</li>
+          <li><strong>Caminho cinza</strong> &rarr; a ferramenta <strong>não</strong> foi chamada.</li>
+        </ul>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Modelo mental crítico</div>
+          <p>Se a tool deveria ter sido chamada e o caminho ficou cinza, o problema
+          <strong>não</strong> é o LLM: é que a tool não está mencionada no System Prompt, ou a
+          descrição dela está ambígua.</p>
+        </div>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum agente com tool foi
+        executado numa conta de teste para este bloco; o painel verde e cinza aqui é o que o
+        material descreve, sem print.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Quatro sub-sistemas, um loop e a cor do caminho no painel. O que vem
+  abaixo é a <strong>cerca</strong>: cinco pegadinhas, e cada uma é um dos quatro componentes
+  quebrando.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer Session ID dinâmico</div>
+      <p>O agente mistura dados de pessoas diferentes.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">System Prompt vazio em produção</div>
+      <p>Agente improvisa formato a cada execução.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Sem tool</div>
+      <p>Agente promete e não cumpre. Diz "vou agendar pra você" e não agenda.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool com nome/descrição vagos</div>
+      <p>Agente confunde quando usar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Adicionar 5 tools de uma vez</div>
+      <p>Erro de configuração se acumula. Adicione uma, teste, adicione a próxima.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-prompt/">3, System prompt estruturado</a>. As
+    sete aulas do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

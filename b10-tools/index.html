@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 4 · Tools: o que o agente pode fazer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,128 +3309,287 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b10-agentes/">B10 · AI Agents</a> &rsaquo; 4 · Tools: o que o agente pode fazer</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;mapa do&nbsp;seu&nbsp;processo ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa antes da&nbsp;ferramenta; depois a&nbsp;conta, a&nbsp;interface e&nbsp;o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Sete blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 2 · B10 · AI Agents (single-agent)</div>
+    <h1>Tools: o&nbsp;que&nbsp;o&nbsp;agente pode fazer</h1>
+    <p class="heroi-sub">5 tools do&nbsp;dia-a-dia + $fromAI() + boa prática "1 por&nbsp;vez".</p>
+    <div><span class="selo">Conceito-âncora</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Sem&nbsp;tool, agente é só&nbsp;"ChatGPT colado no&nbsp;n8n".</strong> Com&nbsp;tool, ele lê planilha,
+      manda e-mail, cria evento, consulta API e&nbsp;age sozinho. Esta aula é o&nbsp;que&nbsp;transforma seu&nbsp;agente
+      de&nbsp;"respondedor" em&nbsp;"executor", e&nbsp;o&nbsp;que&nbsp;justifica o&nbsp;bloco inteiro.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n. <strong>Os&nbsp;blocos entram um&nbsp;a&nbsp;um,&nbsp;na&nbsp;ordem abaixo</strong>:
-    o&nbsp;que&nbsp;já&nbsp;está aberto tem o&nbsp;link; o&nbsp;resto está em&nbsp;produção.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Tool é o&nbsp;que&nbsp;separa o&nbsp;agente do&nbsp;<strong>assistente passivo</strong> (responde pergunta) do&nbsp;<strong>funcionário virtual</strong> (faz a&nbsp;tarefa).</p>
+    </div>
 
-    <div class="casos solta">
-      <a class="caso" href="../b5-antes/">
-        <div class="caso-n">05</div>
-        <h4>Antes do&nbsp;n8n: pensar como automação</h4>
-        <p>Transformar uma&nbsp;tarefa repetitiva real em&nbsp;um&nbsp;mapa textual claro (Gatilho &rarr;
-        Execução &rarr; Entrega), pronto pra&nbsp;virar workflow no&nbsp;B6. Sem&nbsp;n8n aberto.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 processo seu mapeado em texto</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b6-fundamentos/">
-        <div class="caso-n">06</div>
-        <h4>Fundamentos do&nbsp;n8n</h4>
-        <p>Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro
-        fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 nós dominados + 1 mini-agente no chat</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b7-gatilhos/">
-        <div class="caso-n">07</div>
-        <h4>Gatilhos</h4>
-        <p>Escolher o&nbsp;trigger certo pra&nbsp;cada caso (manual / schedule / webhook / form / app
-        event), configurar e&nbsp;testar cada um&nbsp;do&nbsp;zero, e&nbsp;construir 1 fluxo prático completo
-        (Lembrete diário automático).</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo rodando sozinho amanhã 8h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b8-execucao/">
-        <div class="caso-n">08</div>
-        <h4>Execução (dados, lógica, controle)</h4>
-        <p>Ler JSON com&nbsp;fluência, transformar campos com&nbsp;Set, escrever expressions, tomar
-        decisões com&nbsp;IF/Switch, juntar caminhos com&nbsp;Merge e&nbsp;manipular listas com&nbsp;Split Out /
-        Aggregate, culminando num&nbsp;fluxo prático de&nbsp;análise de&nbsp;dados.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo de análise de dados rodando</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b9-apis/">
-        <div class="caso-n">09</div>
-        <h4>APIs e&nbsp;webhooks</h4>
-        <p>Explicar API sem&nbsp;jargão, dominar HTTP Request (4 verbos + Import cURL), configurar
-        OAuth/API Key/Header Auth, usar os&nbsp;3 nós Google na&nbsp;mesma credencial, e&nbsp;construir
-        mini-API com&nbsp;Respond to Webhook.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Fluxo de previsão do tempo ativado, todo dia 7h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b10-agentes/">
-        <div class="caso-n">10</div>
-        <h4>AI Agents (single-agent)</h4>
-        <p>Dominar AI Agent (Brain + System Prompt + Memory + Tools) com&nbsp;Reactive Prompting e&nbsp;Session ID dinâmico, <strong>mais</strong> os&nbsp;4 nós de&nbsp;IA "leve" (Information Extractor,
-        Text Classifier, Summarization Chain, Sentiment Analysis) que&nbsp;cobrem 60% dos&nbsp;casos
-        práticos com&nbsp;1/3 do&nbsp;custo de&nbsp;um&nbsp;Agent.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 fluxos: 3 com Agent, 2 sem</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <div class="caso">
-        <div class="caso-n">11</div>
-        <h4>Projetos integradores e&nbsp;IA co-criando fluxos</h4>
-        <p>Ter pelo&nbsp;menos 1 workflow real rodando com&nbsp;tratamento de&nbsp;erro e&nbsp;ativação adequada,
-        escolhido por&nbsp;você entre&nbsp;os&nbsp;4 projetos guiados, <strong>mais</strong> sair com&nbsp;a&nbsp;habilidade de&nbsp;descrever processo em&nbsp;linguagem natural &rarr; IA gera o&nbsp;JSON &rarr; você
-        ajusta.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">12</div>
-        <h4>Recursos Profissionais</h4>
-        <p>Dominar 3 práticas que&nbsp;separam o&nbsp;usuário casual do&nbsp;profissional de&nbsp;automação:
-        organização com&nbsp;sub-workflows, prototipação rápida com&nbsp;IA gerando JSON, e&nbsp;construção
-        avançada com&nbsp;Claude Code.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
+    <p>Aluno que&nbsp;entende tools constrói agente útil; quem não&nbsp;entende fica preso no&nbsp;"agente de&nbsp;chat": bonito de&nbsp;demo, inútil pro dia-a-dia. <strong>Boa notícia:</strong> o&nbsp;n8n é a&nbsp;melhor
+    ferramenta do&nbsp;mundo pra&nbsp;isso, porque&nbsp;<strong>qualquer um&nbsp;dos&nbsp;400 nós nativos pode virar tool
+    com&nbsp;2 cliques</strong>.</p>
+    <p class="fig-leg"><strong>Sobre&nbsp;os&nbsp;400:</strong> conferido em&nbsp;16/09/2026 na&nbsp;<a href="../b9-api/">aula 1 do&nbsp;B9</a>, o&nbsp;site do&nbsp;n8n fala em&nbsp;"1,000+ apps". O&nbsp;número do&nbsp;texto
+    é o&nbsp;piso da&nbsp;época em&nbsp;que&nbsp;foi escrito; a&nbsp;frase continua verdadeira.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O&nbsp;que&nbsp;é uma&nbsp;tool</h3>
 
-    <div class="cartao">
-      <span class="rot">Fora da fila dos blocos</span>
-      <p>Duas páginas de&nbsp;apoio, para&nbsp;consultar a&nbsp;qualquer altura do&nbsp;módulo: os&nbsp;<strong>Recursos
-      do&nbsp;aluno</strong> (checklist do&nbsp;iniciante, mapa de&nbsp;capacidades, pegadinhas comuns, protocolo
-      de&nbsp;validação, referências por&nbsp;tema) e&nbsp;o&nbsp;<strong>Glossário</strong>. Em&nbsp;produção.</p>
+      <p>Uma&nbsp;<strong>tool</strong> é um&nbsp;nó (Sheets, Gmail, HTTP Request, etc.) que&nbsp;você conecta na&nbsp;<strong>porta lateral "Tool"</strong> do&nbsp;AI Agent. Quando&nbsp;conectado:</p>
+
+      <ul class="lista">
+        <li>O&nbsp;nó deixa de&nbsp;rodar automaticamente no&nbsp;fluxo principal.</li>
+        <li>Vira uma&nbsp;<strong>opção</strong> que&nbsp;o&nbsp;agente pode chamar <strong>se&nbsp;decidir</strong>
+        que&nbsp;precisa.</li>
+        <li>O&nbsp;agente decide quando&nbsp;usar lendo a&nbsp;<strong>descrição</strong> que&nbsp;você escreveu.</li>
+      </ul>
+
+      <h4>Como o&nbsp;agente "vê" a&nbsp;tool</h4>
+
+      <p>Cada tool tem 3 informações que&nbsp;o&nbsp;LLM lê pra&nbsp;decidir:</p>
+
+      <ul class="lista">
+        <li><strong>Nome</strong>: identificador curto e&nbsp;claro (<code>get_contact</code>,
+        <code>send_email</code>).</li>
+        <li><strong>Descrição</strong>: quando&nbsp;o&nbsp;agente deve usar essa tool, em&nbsp;<strong>linguagem
+        natural</strong>.</li>
+        <li><strong>Parâmetros</strong>: quais dados a&nbsp;tool precisa (com&nbsp;<code>$fromAI()</code>
+        pra&nbsp;cada).</li>
+      </ul>
+
+      <h4>A&nbsp;regra de&nbsp;ouro: nome + descrição claros</h4>
+
+      <div class="grade grade-2 solta">
+        <div class="cartao">
+          <span class="rot">Ruim</span>
+          <pre class="prompt-txt config" id="pr-b10too-ruim">nome: tool1
+descrição: faz coisas</pre>
+        </div>
+        <div class="cartao">
+          <span class="rot">Bom</span>
+          <pre class="prompt-txt config" id="pr-b10too-bom">nome: get_contact
+descrição: Busca contato no Google Contacts pelo nome ou e-mail.
+Use SEMPRE que o usuário mencionar uma pessoa pelo nome
+e você precisar do e-mail dela pra continuar.</pre>
+        </div>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">Mantra: descrição de tool é prompt</div>
+        <p>Cada tool é uma&nbsp;mini-instrução que&nbsp;o&nbsp;agente lê. Vaga = uso errado. Específica = uso
+        certo.</p>
+      </div>
+
+      <h4>As&nbsp;5 tools que&nbsp;cobrem 80% dos&nbsp;casos</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Tool</th><th>O que faz</th><th>Quando o agente chama</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Google Sheets</strong></td><td>Lê/escreve linha na planilha</td><td>"Busca o cliente X" / "Registra esse lead"</td></tr>
+            <tr><td>2</td><td><strong>Gmail</strong></td><td>Envia e-mail / busca thread</td><td>"Manda confirmação pro Pedro"</td></tr>
+            <tr><td>3</td><td><strong>Google Calendar</strong></td><td>Cria evento / verifica disponibilidade</td><td>"Marca reunião amanhã 15h"</td></tr>
+            <tr><td>4</td><td><strong>HTTP Request</strong></td><td>Chama qualquer API externa</td><td>Consulta CEP, valida CNPJ, puxa dado de sistema interno</td></tr>
+            <tr><td>5</td><td><strong>Sub-Workflow Tool</strong></td><td>Executa outro workflow seu</td><td>Lógica complexa que você já tem pronta</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A&nbsp;tabela veio embaralhada no&nbsp;export do&nbsp;material (oito colunas, linhas
+      fundidas) e&nbsp;foi remontada com&nbsp;as&nbsp;palavras que&nbsp;vieram: cinco linhas, quatro colunas. O&nbsp;"80%"
+      é afirmação do&nbsp;autor, de&nbsp;abril de&nbsp;2026.</p>
+
+      <h4>O&nbsp;<code>$fromAI()</code>: como o&nbsp;agente preenche os&nbsp;parâmetros</h4>
+
+      <p>Quando&nbsp;uma&nbsp;tool precisa de&nbsp;dados (ex.: o&nbsp;e-mail do&nbsp;contato), você não&nbsp;preenche manualmente.
+      Você usa <code>$fromAI('nome_do_campo')</code>: o&nbsp;LLM <strong>decide</strong> o&nbsp;valor na&nbsp;hora.</p>
+
+      <p>Exemplo na&nbsp;tool Gmail Send:</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Os três campos da tool Gmail Send</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10too-fromai">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10too-fromai">To:      {{ $fromAI('email') }}
+Subject: {{ $fromAI('assunto') }}
+Body:    {{ $fromAI('corpo') }}</pre>
+      </div>
+
+      <p>O&nbsp;agente, ao&nbsp;ler a&nbsp;mensagem do&nbsp;usuário, <strong>infere</strong> o&nbsp;que&nbsp;vai em&nbsp;cada campo e&nbsp;preenche.</p>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../desafio-satisfacao/">&larr; Desafio 4 · uma pesquisa de satisfação vira diagnóstico</a><a href="../b5-antes/">B5 · Antes do n8n: pensar como automação &rarr;</a></nav>
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática: adicionando uma&nbsp;tool em&nbsp;4 passos</h2>
+      </div>
+    </div>
+
+    <ol>
+      <li><strong>Arrasta o&nbsp;nó</strong> (ex.: Google Sheets) <strong>na&nbsp;porta "Tool"</strong> do&nbsp;AI
+      Agent.</li>
+      <li><strong>Configura o&nbsp;nó normalmente</strong>. Cada parâmetro variável vira
+      <code>$fromAI('campo')</code>.</li>
+      <li><strong>Renomeia</strong> com&nbsp;nome curto (<code>get_contact</code>, não&nbsp;<code>Sheets1</code>).</li>
+      <li><strong>Escreve a&nbsp;descrição</strong> no&nbsp;campo <code>Tool Description</code>. Inclua: o&nbsp;que&nbsp;faz, <strong>quando</strong>&nbsp;usar, <strong>quando&nbsp;NÃO</strong>&nbsp;usar.</li>
+    </ol>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Anti-padrão: 5 tools de uma vez</div>
+      <p>Cada tool nova aumenta a&nbsp;chance de&nbsp;o&nbsp;agente confundir quando&nbsp;usar. Adicione 1, teste,
+      adicione a&nbsp;próxima.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: agente com&nbsp;1 tool de&nbsp;Sheets</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; "qual o orçamento do João?"</div>
+      <div class="demo-corpo">
+        <p>Agente lê uma&nbsp;planilha de&nbsp;leads e&nbsp;responde "qual o&nbsp;orçamento do&nbsp;João?".</p>
+
+        <ol>
+          <li>Setup base: Chat Trigger &rarr; AI Agent (Chat Model + Simple Memory).</li>
+          <li>Arrasta <strong>Google Sheets</strong> na&nbsp;porta <code>Tool</code>. Renomeia:
+          <code>buscar_lead</code>.</li>
+          <li><strong>Operation:</strong> <code>Get Rows</code>. <strong>Filter:</strong>
+          <code>nome</code> Contains <code>{{ $fromAI('nome_do_lead') }}</code>.</li>
+          <li><strong>Tool Description:</strong></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Tool Description do buscar_lead</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10too-desc">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10too-desc">Busca informações de um lead na planilha pelo nome.
+USE sempre que o usuário perguntar dado de um lead específico.
+NÃO USE se o usuário pedir "lista de leads" — nesse caso
+responda que essa funcionalidade ainda não existe.</pre>
+        </div>
+
+        <ol start="5">
+          <li><strong>System Prompt:</strong></li>
+        </ol>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">System Prompt do agente de leads</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10too-sp">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10too-sp">ROLE: Assistente de consulta de leads.
+TOOLS: buscar_lead.
+RULES:
+1. SEMPRE chame buscar_lead antes de responder sobre lead específico.
+2. NUNCA invente dado. Se não encontrar, diga "Lead não encontrado".</pre>
+        </div>
+
+        <ol start="6">
+          <li><strong>Teste:</strong> "Qual o&nbsp;orçamento do&nbsp;João?" &rarr; agente chama tool, recebe
+          linha, responde.</li>
+        </ol>
+
+        <p><strong>Você acabou de&nbsp;transformar o&nbsp;agente de&nbsp;"respondedor" em&nbsp;"executor".</strong></p>
+
+        <p class="fig-leg"><strong>Não&nbsp;rodado em&nbsp;09/2026:</strong> o&nbsp;exemplo é o&nbsp;caminho do&nbsp;material,
+        sem&nbsp;execução numa&nbsp;conta de&nbsp;teste. Os&nbsp;passos 5 e&nbsp;6 vieram numerados "1." no&nbsp;export; a&nbsp;contagem aqui segue a&nbsp;sequência.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Nome, descrição, parâmetros, e&nbsp;o&nbsp;<code>$fromAI()</code> que&nbsp;deixa o&nbsp;agente preencher. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: seis pegadinhas, e&nbsp;a&nbsp;quarta é o&nbsp;parâmetro fixo que&nbsp;manda tudo pro mesmo lugar.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Nome em PT, descrição em EN (ou vice-versa)</div>
+      <p>Mantenha tudo no&nbsp;mesmo idioma.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool description vaga</div>
+      <p>"Faz coisas" &rarr; agente não&nbsp;chama. Reescreva com&nbsp;<strong>quando&nbsp;usar / quando&nbsp;não&nbsp;usar</strong>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Múltiplas tools com escopo sobreposto</div>
+      <p><code>send_email</code> e&nbsp;<code>notify_via_gmail</code> fazendo a&nbsp;mesma coisa &rarr; agente
+      sorteia.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer <code>$fromAI()</code> num parâmetro</div>
+      <p>Se&nbsp;você fixa o&nbsp;parâmetro, o&nbsp;agente sempre manda pro mesmo lugar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Adicionar 5 tools antes de testar a 1ª</div>
+      <p>Quando&nbsp;dá erro, você não&nbsp;sabe qual tool quebrou.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool sem credencial configurada</div>
+      <p>Agente promete e&nbsp;quebra silenciosamente.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-memoria/">5, Memória do&nbsp;agente</a>. As&nbsp;sete
+    aulas do&nbsp;bloco estão na&nbsp;<a href="../b10-agentes/">capa do&nbsp;B10</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b10-prompt/">&larr; Aula 3 · System prompt estruturado</a><a href="../b10-memoria/">Aula 5 · Memória: como o agente lembra &rarr;</a></nav>
 </main>
 
 

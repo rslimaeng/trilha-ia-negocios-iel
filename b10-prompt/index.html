@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 3 · System prompt estruturado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,128 +3309,283 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b10-agentes/">B10 · AI Agents</a> &rsaquo; 3 · System prompt estruturado</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;mapa do&nbsp;seu&nbsp;processo ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa antes da&nbsp;ferramenta; depois a&nbsp;conta, a&nbsp;interface e&nbsp;o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Sete blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 2 · B10 · AI Agents (single-agent)</div>
+    <h1>System Prompt estruturado</h1>
+    <p class="heroi-sub">Reactive Prompting + template de&nbsp;6 partes (<code>ROLE/GOAL/TOOLS/RULES/NOTES/OUTPUT</code>).</p>
+    <div><span class="selo">Conceito-âncora</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>System Prompt é o&nbsp;que&nbsp;separa "demo bonita" de&nbsp;"agente em&nbsp;produção".</strong> O&nbsp;mesmo agente, com&nbsp;o&nbsp;mesmo modelo, dá respostas <strong>10x mais previsíveis</strong> quando&nbsp;o&nbsp;System Prompt segue o&nbsp;template estruturado. A&nbsp;diferença não&nbsp;é talento, é metodologia:
+      <strong>Reactive Prompting</strong> + um&nbsp;template de&nbsp;6 partes que&nbsp;você sai daqui sabendo
+      aplicar a&nbsp;qualquer caso novo em&nbsp;5 minutos.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n. <strong>Os&nbsp;blocos entram um&nbsp;a&nbsp;um,&nbsp;na&nbsp;ordem abaixo</strong>:
-    o&nbsp;que&nbsp;já&nbsp;está aberto tem o&nbsp;link; o&nbsp;resto está em&nbsp;produção.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>System Prompt mal escrito = agente alucina, inventa formato, escolhe tool errada. Bem
+      escrito = agente confiável que&nbsp;faz o&nbsp;que&nbsp;precisa fazer e&nbsp;nada mais.</p>
+    </div>
 
-    <div class="casos solta">
-      <a class="caso" href="../b5-antes/">
-        <div class="caso-n">05</div>
-        <h4>Antes do&nbsp;n8n: pensar como automação</h4>
-        <p>Transformar uma&nbsp;tarefa repetitiva real em&nbsp;um&nbsp;mapa textual claro (Gatilho &rarr;
-        Execução &rarr; Entrega), pronto pra&nbsp;virar workflow no&nbsp;B6. Sem&nbsp;n8n aberto.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 processo seu mapeado em texto</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b6-fundamentos/">
-        <div class="caso-n">06</div>
-        <h4>Fundamentos do&nbsp;n8n</h4>
-        <p>Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro
-        fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 nós dominados + 1 mini-agente no chat</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b7-gatilhos/">
-        <div class="caso-n">07</div>
-        <h4>Gatilhos</h4>
-        <p>Escolher o&nbsp;trigger certo pra&nbsp;cada caso (manual / schedule / webhook / form / app
-        event), configurar e&nbsp;testar cada um&nbsp;do&nbsp;zero, e&nbsp;construir 1 fluxo prático completo
-        (Lembrete diário automático).</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo rodando sozinho amanhã 8h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b8-execucao/">
-        <div class="caso-n">08</div>
-        <h4>Execução (dados, lógica, controle)</h4>
-        <p>Ler JSON com&nbsp;fluência, transformar campos com&nbsp;Set, escrever expressions, tomar
-        decisões com&nbsp;IF/Switch, juntar caminhos com&nbsp;Merge e&nbsp;manipular listas com&nbsp;Split Out /
-        Aggregate, culminando num&nbsp;fluxo prático de&nbsp;análise de&nbsp;dados.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo de análise de dados rodando</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b9-apis/">
-        <div class="caso-n">09</div>
-        <h4>APIs e&nbsp;webhooks</h4>
-        <p>Explicar API sem&nbsp;jargão, dominar HTTP Request (4 verbos + Import cURL), configurar
-        OAuth/API Key/Header Auth, usar os&nbsp;3 nós Google na&nbsp;mesma credencial, e&nbsp;construir
-        mini-API com&nbsp;Respond to Webhook.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Fluxo de previsão do tempo ativado, todo dia 7h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b10-agentes/">
-        <div class="caso-n">10</div>
-        <h4>AI Agents (single-agent)</h4>
-        <p>Dominar AI Agent (Brain + System Prompt + Memory + Tools) com&nbsp;Reactive Prompting e&nbsp;Session ID dinâmico, <strong>mais</strong> os&nbsp;4 nós de&nbsp;IA "leve" (Information Extractor,
-        Text Classifier, Summarization Chain, Sentiment Analysis) que&nbsp;cobrem 60% dos&nbsp;casos
-        práticos com&nbsp;1/3 do&nbsp;custo de&nbsp;um&nbsp;Agent.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 fluxos: 3 com Agent, 2 sem</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <div class="caso">
-        <div class="caso-n">11</div>
-        <h4>Projetos integradores e&nbsp;IA co-criando fluxos</h4>
-        <p>Ter pelo&nbsp;menos 1 workflow real rodando com&nbsp;tratamento de&nbsp;erro e&nbsp;ativação adequada,
-        escolhido por&nbsp;você entre&nbsp;os&nbsp;4 projetos guiados, <strong>mais</strong> sair com&nbsp;a&nbsp;habilidade de&nbsp;descrever processo em&nbsp;linguagem natural &rarr; IA gera o&nbsp;JSON &rarr; você
-        ajusta.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">12</div>
-        <h4>Recursos Profissionais</h4>
-        <p>Dominar 3 práticas que&nbsp;separam o&nbsp;usuário casual do&nbsp;profissional de&nbsp;automação:
-        organização com&nbsp;sub-workflows, prototipação rápida com&nbsp;IA gerando JSON, e&nbsp;construção
-        avançada com&nbsp;Claude Code.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
+    <p>A&nbsp;diferença entre&nbsp;os&nbsp;dois não&nbsp;é talento, é <strong>metodologia</strong>. Tentar escrever o&nbsp;System Prompt "perfeito" antes de&nbsp;qualquer teste quase sempre falha. A&nbsp;abordagem que&nbsp;funciona é
+    começar vazio e&nbsp;adicionar 1 linha por&nbsp;vez baseado no&nbsp;que&nbsp;o&nbsp;teste mostrou.</p>
+    <p class="fig-leg">O&nbsp;"10x mais previsíveis" do&nbsp;topo é afirmação do&nbsp;material, de&nbsp;abril de&nbsp;2026,
+    sem&nbsp;fonte declarada; entra como está.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Os&nbsp;3 papéis dentro do&nbsp;prompt: System / User / Assistant</h3>
 
-    <div class="cartao">
-      <span class="rot">Fora da fila dos blocos</span>
-      <p>Duas páginas de&nbsp;apoio, para&nbsp;consultar a&nbsp;qualquer altura do&nbsp;módulo: os&nbsp;<strong>Recursos
-      do&nbsp;aluno</strong> (checklist do&nbsp;iniciante, mapa de&nbsp;capacidades, pegadinhas comuns, protocolo
-      de&nbsp;validação, referências por&nbsp;tema) e&nbsp;o&nbsp;<strong>Glossário</strong>. Em&nbsp;produção.</p>
+      <p>Toda conversa com&nbsp;um&nbsp;modelo de&nbsp;linguagem é organizada em&nbsp;<strong>mensagens com&nbsp;papéis</strong>:</p>
+
+      <ul class="lista">
+        <li><strong>System</strong>: quem o&nbsp;agente é, como deve se&nbsp;comportar. Permanente.</li>
+        <li><strong>User</strong>: o&nbsp;pedido que&nbsp;chega na&nbsp;execução. Muda toda hora.</li>
+        <li><strong>Assistant</strong>: exemplo de&nbsp;resposta esperada. Raramente usado, só&nbsp;pra&nbsp;calibrar formato.</li>
+      </ul>
+
+      <h4>Reactive Prompting: a&nbsp;metodologia</h4>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia: o manual do funcionário</div>
+        <p>Você não&nbsp;escreve o&nbsp;manual completo do&nbsp;funcionário antes de&nbsp;vê-lo trabalhar. Observa, vê
+        o&nbsp;que&nbsp;ele faz errado, corrige uma&nbsp;instrução por&nbsp;vez. System Prompt funciona igual.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;manual completo</strong> = as&nbsp;50 linhas de&nbsp;System Prompt escritas antes de&nbsp;qualquer teste</li>
+          <li><strong>Vê-lo trabalhar</strong> = testar com&nbsp;o&nbsp;System Prompt vazio</li>
+          <li><strong>Corrigir uma&nbsp;instrução por&nbsp;vez</strong> = adicionar 1 linha e&nbsp;testar de&nbsp;novo
+          com&nbsp;o&nbsp;mesmo input</li>
+        </ul>
+      </div>
+
+      <p><strong>O&nbsp;ciclo:</strong></p>
+
+      <ol>
+        <li><strong>System Prompt vazio</strong> &rarr; testa, vê o&nbsp;comportamento padrão.</li>
+        <li><strong>Adiciona 1 ferramenta</strong> &rarr; testa de&nbsp;novo.</li>
+        <li><strong>Observa o&nbsp;output</strong> &rarr; o&nbsp;que&nbsp;estava errado?</li>
+        <li><strong>Adiciona 1 linha no&nbsp;System Prompt</strong> que&nbsp;corrija.</li>
+        <li><strong>Testa de&nbsp;novo com&nbsp;o&nbsp;mesmo input.</strong></li>
+        <li><strong>Volta ao&nbsp;3</strong> até&nbsp;estar consistente.</li>
+      </ol>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Nunca mude duas coisas ao mesmo tempo</div>
+        <p>Se&nbsp;mudar System Prompt <strong>e</strong>&nbsp;ferramenta <strong>e</strong>&nbsp;modelo, e&nbsp;parar
+        de&nbsp;funcionar, você não&nbsp;sabe o&nbsp;que&nbsp;quebrou.</p>
+      </div>
+
+      <h4>Template estruturado: 6 partes</h4>
+
+      <p>Quando&nbsp;o&nbsp;System Prompt cresce além de&nbsp;5-6 linhas, organize em&nbsp;6 partes. Esse é o&nbsp;template
+      que&nbsp;sustenta agente em&nbsp;produção:</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O template de 6 partes</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10pro-template">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10pro-template">ROLE     — quem você é
+GOAL     — o que você precisa entregar
+TOOLS    — o que você pode usar (e quando)
+RULES    — o que sempre/nunca fazer
+NOTES    — informação contextual extra (data atual, fuso, etc.)
+OUTPUT   — formato da resposta esperada</pre>
+      </div>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../desafio-satisfacao/">&larr; Desafio 4 · uma pesquisa de satisfação vira diagnóstico</a><a href="../b5-antes/">B5 · Antes do n8n: pensar como automação &rarr;</a></nav>
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na&nbsp;prática: exemplo aplicado</h2>
+      </div>
+    </div>
+
+    <p>Agente que&nbsp;marca reuniões no&nbsp;Google Calendar:</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">System Prompt do agente de reuniões</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b10pro-calendar">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b10pro-calendar">ROLE
+Você é um assistente pessoal especializado em agendar reuniões no Google Calendar.
+
+GOAL
+Receber pedidos de agendamento em linguagem natural e criar eventos no Calendar.
+
+TOOLS
+- get_contact: busca contato pelo nome no Google Contacts.
+- check_availability: verifica disponibilidade no Calendar entre 2 horários.
+- create_event: cria evento no Calendar.
+
+RULES
+1. SEMPRE busque o contato (get_contact) antes de criar evento.
+2. SEMPRE verifique disponibilidade antes de criar.
+3. Se houver conflito de horário, NUNCA crie. Avise o usuário.
+4. Confirme com o usuário antes de criar evento.
+
+NOTES
+- A data de hoje é {{ $now.toFormat('yyyy-MM-dd') }}.
+- O fuso horário do usuário é America/Fortaleza.
+- Padrão de duração de reunião é 30 minutos quando não especificado.
+
+OUTPUT
+Resposta curta em texto natural. Confirmações em formato:
+"Reunião com [nome] marcada para [data] às [hora]."</pre>
+    </div>
+
+    <h4>Por&nbsp;que&nbsp;cada parte importa</h4>
+
+    <ul class="lista">
+      <li><strong>ROLE</strong> sem&nbsp;foco = agente genérico inútil. Foque numa&nbsp;especialidade.</li>
+      <li><strong>GOAL</strong> ausente = agente não&nbsp;sabe quando&nbsp;terminou. Defina o&nbsp;que&nbsp;é "tarefa
+      cumprida".</li>
+      <li><strong>TOOLS</strong> não&nbsp;mencionadas no&nbsp;prompt = agente esquece que&nbsp;existem. Sempre
+      liste.</li>
+      <li><strong>RULES</strong> = onde&nbsp;você previne os&nbsp;erros que&nbsp;viu nos&nbsp;testes.</li>
+      <li><strong>NOTES</strong> = a&nbsp;IA não&nbsp;sabe que&nbsp;dia é hoje, nem qual é seu&nbsp;fuso. Diga.</li>
+      <li><strong>OUTPUT</strong> = sem&nbsp;isso, o&nbsp;agente inventa formato.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: escrevendo do&nbsp;zero com&nbsp;Reactive Prompting</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; um agente qualificador de leads, uma linha por vez</div>
+      <div class="demo-corpo">
+        <p>Você vai construir um&nbsp;agente qualificador de&nbsp;leads. Em&nbsp;vez de&nbsp;escrever 50 linhas de&nbsp;System Prompt logo de&nbsp;cara:</p>
+
+        <p><strong>Passo 1, vazio:</strong> envie um&nbsp;lead de&nbsp;teste com&nbsp;System Prompt em&nbsp;branco. Veja
+        o&nbsp;que&nbsp;sai.</p>
+
+        <p><strong>Passo 2, adicione formato:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 2</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p2">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p2">Retorne APENAS um JSON válido com os campos: nome, score, recomendacao.</pre>
+        </div>
+        <p>Teste. Provavelmente o&nbsp;JSON vem dentro de&nbsp;markdown.</p>
+
+        <p><strong>Passo 3, corrija:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 3</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p3">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p3">Retorne APENAS um JSON válido. Não inclua blocos markdown. Apenas o JSON puro.</pre>
+        </div>
+
+        <p><strong>Passo 4, corrija a&nbsp;alucinação:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 4</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p4">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p4">Se uma informação não estiver presente no input, score = 0 e
+justificativa = "Informação não fornecida". Nunca invente.</pre>
+        </div>
+
+        <p>Continue até&nbsp;o&nbsp;agente responder consistente em&nbsp;5 testes seguidos.</p>
+
+        <p class="fig-leg"><strong>Não&nbsp;rodado em&nbsp;09/2026:</strong> os&nbsp;quatro passos são o&nbsp;caminho
+        do&nbsp;material, sem&nbsp;execução numa&nbsp;conta de&nbsp;teste. O&nbsp;"provavelmente o&nbsp;JSON vem dentro de&nbsp;markdown" é o&nbsp;que&nbsp;o&nbsp;autor observou em&nbsp;abril de&nbsp;2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Três papéis, um&nbsp;ciclo que&nbsp;nunca termina e&nbsp;seis partes. O&nbsp;que&nbsp;vem abaixo
+  é a&nbsp;<strong>cerca</strong>: seis pegadinhas, e&nbsp;a&nbsp;segunda é a&nbsp;data que&nbsp;a&nbsp;IA não&nbsp;sabe.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">System Prompt vago ("seja útil")</div>
+      <p>Agente genérico, decide errado em&nbsp;casos de&nbsp;borda.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer da data atual</div>
+      <p>Sempre inclua <code>{{ $now.toFormat('yyyy-MM-dd') }}</code> em&nbsp;NOTES.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não dar exemplo de output</div>
+      <p>O&nbsp;agente inventa formato.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Regras conflitantes</div>
+      <p>"sempre confirme" + "responda rápido sem&nbsp;perguntar" &rarr; agente vira indeciso.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tudo no User message</div>
+      <p>Instrução permanente vai no&nbsp;System.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não atualizar System Prompt depois de erro real</div>
+      <p>Reactive Prompting nunca termina.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-tools/">4, Tools do&nbsp;agente</a>. As&nbsp;sete aulas
+    do&nbsp;bloco estão na&nbsp;<a href="../b10-agentes/">capa do&nbsp;B10</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b10-anatomia/">&larr; Aula 2 · Anatomia: LLM + System Prompt + Memória + Tools</a><a href="../b10-tools/">Aula 4 · Tools: o que o agente pode fazer &rarr;</a></nav>
 </main>
 
 

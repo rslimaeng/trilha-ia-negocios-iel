@@ -1,0 +1,363 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Um agente que <strong>conversa via chat, sem tools, mas com memória</strong>. Sem ações
+      externas. Sem credencial Google. Foco total no esqueleto e no comportamento
+      conversacional.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso vale a pena</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Antes de dar tools pro agente, você precisa garantir que ele <strong>conversa
+      direito</strong>: lembra contexto, mantém personalidade, não inventa.</p>
+    </div>
+
+    <p>Esse fluxo é o esqueleto que vai segurar todos os agentes seguintes; errar aqui significa
+    que <strong>todo agente do curso vai herdar o erro</strong>. 15 minutos de aula, base pra 90%
+    dos agentes que você vai construir depois.</p>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li>Credencial de LLM configurada: OpenAI (recomendado) ou Groq/Gemini Free.</li>
+        <li><a href="../b10-llm/">Aula 1</a>, <a href="../b10-anatomia/">2</a>,
+        <a href="../b10-prompt/">3</a> e <a href="../b10-memoria/">5</a> entendidas.</li>
+      </ul>
+    </div>
+    <p class="fig-leg">A decisão de 14/09 pra esta turma é a porta gratuita: chave do Google AI
+    Studio (Gemini) ou OpenRouter, como na <a href="../b6-agente/">aula 5 do B6</a>, conferidas
+    em 16/09/2026. "OpenAI (recomendado)" é o caminho do material, e a chave é paga.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento (Gatilho &rarr; Execução &rarr; Entrega)</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Um gatilho de chat, um agente, e dois sub-nós pendurados nele</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Chat Trigger.</li>
+        <li><strong>Execução:</strong> AI Agent com Brain (LLM) + Memory (Simple Memory).</li>
+        <li><strong>Entrega:</strong> Resposta no próprio chat.</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>💬 Chat Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução &middot; embaixo: LLM e Memory</div>
+          <h4>AI Agent</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>Resposta no chat</h4>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">Os dois sub-nós do agente</span>
+        <p>Pendurados embaixo do <code>AI Agent</code>, nas portas de baixo: <strong>LLM</strong>
+        (o Chat Model) e <strong>Memory</strong> (a Simple Memory). É o desenho do material, com
+        os sub-nós escritos em vez de desenhados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Criar workflow</div>
+      </div>
+      <p>Novo workflow &rarr; renomeia: <code>B10 — Agente Conversacional v1</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Chat Trigger</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>Chat Trigger</strong> (built-in do n8n).</li>
+        <li>Renomeia: <code>💬 Chat</code>.</li>
+        <li>Mantém defaults.</li>
+      </ul>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">AI Agent</div>
+      </div>
+      <ul class="lista">
+        <li>Adiciona <strong>AI Agent</strong> conectado ao Chat Trigger.</li>
+        <li>Renomeia: <code>Assistente Pessoal</code> (sem emoji no nome: pegadinha conhecida do
+        n8n quebra a execução).</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido em 16/09/2026</strong> na <a href="../b6-agente/">aula 5
+      do B6</a>: com emoji no nome, o AI Agent 3.1 para com o erro <code>Custom date key can only
+      contain characters "A-Za-z0-9_"</code>. Os outros nós aceitam emoji.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Brain: Chat Model</div>
+      </div>
+      <ul class="lista">
+        <li>Na porta <code>Chat Model</code>, adiciona o nó do seu LLM:
+          <ul>
+            <li>Recomendado: <strong>OpenAI Chat Model</strong> com <code>gpt-4o-mini</code>.</li>
+            <li>Alternativa gratuita: <strong>Groq</strong> (<code>openai/gpt-oss-120b</code>) ou
+            <strong>Gemini</strong> (<code>gemini-2.0-flash</code>).</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="fig-leg"><strong>Nomes de modelo são de abril de 2026.</strong> No teste de 16/09
+      (aula 5 do B6), pela porta do AI Studio, o <code>gemini-2.5-flash</code> que o nó sugere
+      ficou "rodando" sem responder e o <code>gemini-3.5-flash</code> respondeu.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Memory: Simple Memory</div>
+      </div>
+      <ul class="lista">
+        <li>Na porta <code>Memory</code>, adiciona <strong>Simple Memory</strong>.</li>
+        <li><strong>Session ID Type:</strong> <code>Customize Session ID</code>.</li>
+        <li><strong>Key:</strong> <code>{{ $json.sessionId }}</code> (já vem pronto do Chat
+        Trigger).</li>
+        <li><strong>Context Window Length:</strong> <code>10</code>.</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó (Simple Memory
+      1.3): a opção se chama <strong>Define below</strong>; com Chat Trigger na frente, o padrão
+      <strong>Connected Chat Trigger Node</strong> já usa <code>{{ $json.sessionId }}</code>. Ver
+      a <a href="../b10-memoria/">aula 5</a>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">System Prompt</div>
+      </div>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt do Assistente Pessoal</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10con-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10con-sp">ROLE
+Você é um assistente pessoal de (seu nome), (sua profissão).
+
+GOAL
+Responder perguntas de forma direta e curta. Manter conversa natural.
+Lembrar do contexto da conversa em andamento.
+
+RULES
+1. Respostas em português, sem floreios.
+2. Se não souber, diga "não sei" — nunca invente.
+3. Se a pergunta exige ação (mandar e-mail, criar evento), explique
+   que essa versão é só conversacional e que tools entram nos
+   próximos fluxos.
+4. Lembre do nome da pessoa quando ela disser e use em respostas
+   seguintes.
+
+NOTES
+- A data de hoje é {{ $now.toFormat('yyyy-MM-dd') }}.
+- Fuso horário: America/Fortaleza.
+
+OUTPUT
+Texto natural e curto. Máximo 3-4 linhas por resposta.</pre>
+      </div>
+      <p class="fig-leg">No material, o ROLE diz "assistente pessoal do Rafael (instrutor de IA +
+      n8n)"; aqui o assistente é seu. O resto do prompt é como está.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Testar memória, personalidade e isolamento</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Não rodado em 09/2026 &middot; a sequência esperada é a do material</div>
+      <div class="demo-corpo">
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">7</div>
+            <div class="passo-fn">Testar memória e personalidade</div>
+          </div>
+          <p>Abre o chat (<code>Open Chat</code>). Manda 3 mensagens em sequência:</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <ol>
+              <li>"Oi, meu nome é (seu nome)." &rarr; cumprimenta pelo nome.</li>
+              <li>"Qual seu papel?" &rarr; descreve o ROLE.</li>
+              <li>"Lembra meu nome?" &rarr; responde "(seu nome)".</li>
+            </ol>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se a 3ª responde "não sei"</div>
+            <p>Memória não está funcionando. Confere Session ID dinâmico.</p>
+            <div class="destrave-nao"><strong>Não vale:</strong> trocar o modelo antes de olhar a
+            Memory. A <a href="../b10-prompt/">aula 3</a> diz: nunca mude duas coisas ao mesmo
+            tempo.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">8</div>
+            <div class="passo-fn">Teste de isolamento de sessão</div>
+          </div>
+          <p>Abre o chat numa <strong>aba anônima</strong> (sem cookies). Manda: "Qual meu
+          nome?".</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">O que esperar</div>
+            <p>Resposta esperada: "Não sei seu nome", porque o <code>sessionId</code> é
+            diferente.</p>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se responder "(seu nome)" pra outra aba</div>
+            <p>Session ID está fixo. <strong>Bug grave em produção.</strong></p>
+            <div class="destrave-nao"><strong>Não vale:</strong> testar de novo na mesma aba. O
+            isolamento só aparece com outro <code>sessionId</code>, e a aba anônima é o jeito
+            mais curto de ter um.</div>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum workflow de teste foi
+        criado pra este bloco, então não há canvas nem arquivo <code>.json</code> exportado
+        aqui. Os oito passos são o caminho do material, como está.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="variacoes">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez, de novo</div>
+        <h2>Variações pra exercitar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">9</div>
+        <div class="passo-fn">Variação 1: persona diferente</div>
+      </div>
+      <p>Troca o ROLE pra "Você é um redator de copy curta pra Instagram" e veja como o tom muda só
+      com System Prompt.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">10</div>
+        <div class="passo-fn">Variação 2: modelo diferente</div>
+      </div>
+      <p>Troca <code>gpt-4o-mini</code> por <code>gpt-4o</code> ou <code>claude-sonnet</code>.
+      Sente o trade-off custo vs qualidade.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">11</div>
+        <div class="passo-fn">Variação 3: Context Window pequeno (3) vs grande (20)</div>
+      </div>
+      <p>Manda 5 mensagens. Em 3, ele esquece a 1ª; em 20, lembra de tudo.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">12</div>
+        <div class="passo-fn">Variação 4: sem System Prompt</div>
+      </div>
+      <p>Apaga tudo do System Message. Veja o agente "sem treinamento": ponto de partida do Reactive
+      Prompting.</p>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Com o agente lembrando o seu nome numa aba e esquecendo na outra, o
+  Fluxo 1 está feito. O que vem abaixo é a <strong>cerca</strong>: cinco pegadinhas, e a
+  terceira é o emoji.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Sem Session ID dinâmico</div>
+      <p>Memória não isola entre usuários.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de conectar Memory</div>
+      <p>Agente esquece a cada mensagem.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Emoji no nome do AI Agent</div>
+      <p>Execução quebra com erro <code>Custom date key can only contain characters
+      A-Za-z0-9_</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">System Prompt vago ("seja útil")</div>
+      <p>Agente improvisa formato a cada mensagem.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Activate workflow pra usar URL pública</div>
+      <p>Chat Trigger via URL externa só funciona ativado.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> <a href="../b10-calendar/">Fluxo prático 2: Agente Calendar</a>.
+    Os cinco fluxos estão na <a href="../b10-massa/">Mão na massa</a>.</p>
+  </div>

@@ -1,0 +1,272 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>System Prompt é o que separa "demo bonita" de "agente em produção".</strong> O
+      mesmo agente, com o mesmo modelo, dá respostas <strong>10x mais previsíveis</strong> quando o
+      System Prompt segue o template estruturado. A diferença não é talento, é metodologia:
+      <strong>Reactive Prompting</strong> + um template de 6 partes que você sai daqui sabendo
+      aplicar a qualquer caso novo em 5 minutos.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>System Prompt mal escrito = agente alucina, inventa formato, escolhe tool errada. Bem
+      escrito = agente confiável que faz o que precisa fazer e nada mais.</p>
+    </div>
+
+    <p>A diferença entre os dois não é talento, é <strong>metodologia</strong>. Tentar escrever o
+    System Prompt "perfeito" antes de qualquer teste quase sempre falha. A abordagem que funciona é
+    começar vazio e adicionar 1 linha por vez baseado no que o teste mostrou.</p>
+    <p class="fig-leg">O "10x mais previsíveis" do topo é afirmação do material, de abril de 2026,
+    sem fonte declarada; entra como está.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Os 3 papéis dentro do prompt: System / User / Assistant</h3>
+
+      <p>Toda conversa com um modelo de linguagem é organizada em <strong>mensagens com
+      papéis</strong>:</p>
+
+      <ul class="lista">
+        <li><strong>System</strong>: quem o agente é, como deve se comportar. Permanente.</li>
+        <li><strong>User</strong>: o pedido que chega na execução. Muda toda hora.</li>
+        <li><strong>Assistant</strong>: exemplo de resposta esperada. Raramente usado, só pra
+        calibrar formato.</li>
+      </ul>
+
+      <h4>Reactive Prompting: a metodologia</h4>
+
+      <div class="analogia">
+        <div class="analogia-rot">Analogia: o manual do funcionário</div>
+        <p>Você não escreve o manual completo do funcionário antes de vê-lo trabalhar. Observa, vê
+        o que ele faz errado, corrige uma instrução por vez. System Prompt funciona igual.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O manual completo</strong> = as 50 linhas de System Prompt escritas antes de
+          qualquer teste</li>
+          <li><strong>Vê-lo trabalhar</strong> = testar com o System Prompt vazio</li>
+          <li><strong>Corrigir uma instrução por vez</strong> = adicionar 1 linha e testar de novo
+          com o mesmo input</li>
+        </ul>
+      </div>
+
+      <p><strong>O ciclo:</strong></p>
+
+      <ol>
+        <li><strong>System Prompt vazio</strong> &rarr; testa, vê o comportamento padrão.</li>
+        <li><strong>Adiciona 1 ferramenta</strong> &rarr; testa de novo.</li>
+        <li><strong>Observa o output</strong> &rarr; o que estava errado?</li>
+        <li><strong>Adiciona 1 linha no System Prompt</strong> que corrija.</li>
+        <li><strong>Testa de novo com o mesmo input.</strong></li>
+        <li><strong>Volta ao 3</strong> até estar consistente.</li>
+      </ol>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Nunca mude duas coisas ao mesmo tempo</div>
+        <p>Se mudar System Prompt <strong>e</strong> ferramenta <strong>e</strong> modelo, e parar
+        de funcionar, você não sabe o que quebrou.</p>
+      </div>
+
+      <h4>Template estruturado: 6 partes</h4>
+
+      <p>Quando o System Prompt cresce além de 5-6 linhas, organize em 6 partes. Esse é o template
+      que sustenta agente em produção:</p>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O template de 6 partes</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10pro-template">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10pro-template">ROLE     — quem você é
+GOAL     — o que você precisa entregar
+TOOLS    — o que você pode usar (e quando)
+RULES    — o que sempre/nunca fazer
+NOTES    — informação contextual extra (data atual, fuso, etc.)
+OUTPUT   — formato da resposta esperada</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática: exemplo aplicado</h2>
+      </div>
+    </div>
+
+    <p>Agente que marca reuniões no Google Calendar:</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">System Prompt do agente de reuniões</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b10pro-calendar">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b10pro-calendar">ROLE
+Você é um assistente pessoal especializado em agendar reuniões no Google Calendar.
+
+GOAL
+Receber pedidos de agendamento em linguagem natural e criar eventos no Calendar.
+
+TOOLS
+- get_contact: busca contato pelo nome no Google Contacts.
+- check_availability: verifica disponibilidade no Calendar entre 2 horários.
+- create_event: cria evento no Calendar.
+
+RULES
+1. SEMPRE busque o contato (get_contact) antes de criar evento.
+2. SEMPRE verifique disponibilidade antes de criar.
+3. Se houver conflito de horário, NUNCA crie. Avise o usuário.
+4. Confirme com o usuário antes de criar evento.
+
+NOTES
+- A data de hoje é {{ $now.toFormat('yyyy-MM-dd') }}.
+- O fuso horário do usuário é America/Fortaleza.
+- Padrão de duração de reunião é 30 minutos quando não especificado.
+
+OUTPUT
+Resposta curta em texto natural. Confirmações em formato:
+"Reunião com [nome] marcada para [data] às [hora]."</pre>
+    </div>
+
+    <h4>Por que cada parte importa</h4>
+
+    <ul class="lista">
+      <li><strong>ROLE</strong> sem foco = agente genérico inútil. Foque numa especialidade.</li>
+      <li><strong>GOAL</strong> ausente = agente não sabe quando terminou. Defina o que é "tarefa
+      cumprida".</li>
+      <li><strong>TOOLS</strong> não mencionadas no prompt = agente esquece que existem. Sempre
+      liste.</li>
+      <li><strong>RULES</strong> = onde você previne os erros que viu nos testes.</li>
+      <li><strong>NOTES</strong> = a IA não sabe que dia é hoje, nem qual é seu fuso. Diga.</li>
+      <li><strong>OUTPUT</strong> = sem isso, o agente inventa formato.</li>
+    </ul>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: escrevendo do zero com Reactive Prompting</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; um agente qualificador de leads, uma linha por vez</div>
+      <div class="demo-corpo">
+        <p>Você vai construir um agente qualificador de leads. Em vez de escrever 50 linhas de
+        System Prompt logo de cara:</p>
+
+        <p><strong>Passo 1, vazio:</strong> envie um lead de teste com System Prompt em branco. Veja
+        o que sai.</p>
+
+        <p><strong>Passo 2, adicione formato:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 2</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p2">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p2">Retorne APENAS um JSON válido com os campos: nome, score, recomendacao.</pre>
+        </div>
+        <p>Teste. Provavelmente o JSON vem dentro de markdown.</p>
+
+        <p><strong>Passo 3, corrija:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 3</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p3">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p3">Retorne APENAS um JSON válido. Não inclua blocos markdown. Apenas o JSON puro.</pre>
+        </div>
+
+        <p><strong>Passo 4, corrija a alucinação:</strong></p>
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Passo 4</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b10pro-p4">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b10pro-p4">Se uma informação não estiver presente no input, score = 0 e
+justificativa = "Informação não fornecida". Nunca invente.</pre>
+        </div>
+
+        <p>Continue até o agente responder consistente em 5 testes seguidos.</p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> os quatro passos são o caminho
+        do material, sem execução numa conta de teste. O "provavelmente o JSON vem dentro de
+        markdown" é o que o autor observou em abril de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Três papéis, um ciclo que nunca termina e seis partes. O que vem abaixo
+  é a <strong>cerca</strong>: seis pegadinhas, e a segunda é a data que a IA não sabe.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">System Prompt vago ("seja útil")</div>
+      <p>Agente genérico, decide errado em casos de borda.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer da data atual</div>
+      <p>Sempre inclua <code>{{ $now.toFormat('yyyy-MM-dd') }}</code> em NOTES.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não dar exemplo de output</div>
+      <p>O agente inventa formato.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Regras conflitantes</div>
+      <p>"sempre confirme" + "responda rápido sem perguntar" &rarr; agente vira indeciso.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tudo no User message</div>
+      <p>Instrução permanente vai no System.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não atualizar System Prompt depois de erro real</div>
+      <p>Reactive Prompting nunca termina.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-tools/">4, Tools do agente</a>. As sete aulas
+    do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

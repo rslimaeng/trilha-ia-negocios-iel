@@ -1,0 +1,302 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>O agente do Fluxo anterior agora <strong>com 2 tools</strong>: verificar disponibilidade e
+      criar evento no Google Calendar. É a primeira vez que o agente <strong>executa uma ação
+      real</strong>.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso vale a pena</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Marcar reunião por DM/WhatsApp consome <strong>15-20 min/dia</strong> entre confirmar
+      disponibilidade, escrever convite e responder reagendamento.</p>
+    </div>
+
+    <p>Esse agente faz tudo isso em 5 segundos via chat: escala pra time inteiro com a mesma
+    config. Aplicação típica: assistente de gestor, recepção de consultoria, atendimento de
+    clínica/escritório.</p>
+    <p class="fig-leg">"15-20 min/dia" é estimativa do autor, de abril de 2026.</p>
+
+    <div class="cartao">
+      <span class="rot">Pré-requisitos</span>
+      <ul class="lista">
+        <li><a href="../b10-conversa/">Fluxo prático 1</a> funcionando.</li>
+        <li>Credencial Google (OAuth2) com escopo de Calendar.</li>
+      </ul>
+    </div>
+    <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó Google Calendar
+    Tool (1.3): a credencial que ele pede é a <strong>Google Calendar OAuth2 API</strong>, uma por
+    serviço, como a <a href="../b9-google/">aula 4 do B9</a> mostrou pra Gmail, Sheets e Drive. O
+    que se reaproveita é o projeto e o cliente OAuth do lado do Google.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O mesmo esqueleto, e duas tools penduradas no agente</h3>
+
+      <ul class="lista">
+        <li><strong>Gatilho:</strong> Chat Trigger ("Marca uma reunião com cliente X amanhã
+        15h").</li>
+        <li><strong>Execução:</strong> AI Agent decide &rarr; verifica Calendar &rarr; cria evento
+        se disponível.</li>
+        <li><strong>Entrega:</strong> Mensagem confirmando no chat + evento criado no Google
+        Calendar.</li>
+      </ul>
+
+      <h4>Diagrama</h4>
+
+      <div class="fluxo solta">
+        <div class="fl">
+          <div class="fl-n">Gatilho</div>
+          <h4>💬 Chat Trigger</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Execução &middot; embaixo: LLM, Memory e Tools</div>
+          <h4>AI Agent</h4>
+        </div>
+        <div class="fl-seta" aria-hidden="true">&rarr;</div>
+        <div class="fl">
+          <div class="fl-n">Entrega</div>
+          <h4>Confirma no chat</h4>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <span class="rot">Os sub-nós do agente</span>
+        <p>Pendurados embaixo do <code>AI Agent</code>: <strong>LLM</strong>,
+        <strong>Memory</strong> e, na porta <strong>Tools</strong>, as duas ferramentas
+        <code>check_availability</code> e <code>create_event</code>. É o desenho do material, com
+        os sub-nós escritos em vez de desenhados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Duplicar workflow do Fluxo 1</div>
+      </div>
+      <p>Renomear pra <code>Agente Calendar v1</code>.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Adicionar 2 tools</div>
+      </div>
+      <p><strong>Tool 1, <code>check_availability</code></strong> (Google Calendar &rarr; Get
+      Events):</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Tool Description do check_availability</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10cal-t1">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10cal-t1">Verifica se há eventos no Google Calendar entre dois horários.
+Use SEMPRE antes de criar um evento, pra confirmar que o
+horário está livre.
+Parâmetros: start (ISO 8601), end (ISO 8601).</pre>
+      </div>
+      <ul class="lista">
+        <li><strong>Parâmetros:</strong> <code>Time Min</code> = <code>{{ $fromAI('start') }}</code>,
+        <code>Time Max</code> = <code>{{ $fromAI('end') }}</code>.</li>
+      </ul>
+
+      <p><strong>Tool 2, <code>create_event</code></strong> (Google Calendar &rarr; Create
+      Event):</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Tool Description do create_event</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10cal-t2">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10cal-t2">Cria um evento no Google Calendar.
+Use depois de check_availability confirmar que o horário está livre.
+Parâmetros: title, start (ISO 8601), end (ISO 8601), description (opcional).</pre>
+      </div>
+      <ul class="lista">
+        <li><strong>Parâmetros:</strong> mapeados com <code>$fromAI('campo')</code> cada um.</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó Google
+      Calendar Tool (1.3): em <strong>Event &rarr; Get Many</strong> os campos são
+      <code>Time Min</code> e <code>Time Max</code>; em <strong>Event &rarr; Create</strong> são
+      <code>Start</code>, <code>End</code>, e o título fica em <strong>Additional Fields &rarr;
+      Summary</strong>, a descrição em <strong>Description</strong>. Existe também a operação
+      <strong>Calendar &rarr; Availability</strong>, que responde se um horário está livre.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">O que esperar</div>
+        <p>Duas tools penduradas na porta Tools do agente, cada uma com nome curto e a descrição
+        acima no campo Tool Description.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Atualizar o System Prompt</div>
+      </div>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt do Agente Calendar</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b10cal-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b10cal-sp">ROLE
+Você é um assistente que marca compromissos no Google Calendar de (seu nome).
+
+GOAL
+Receber pedidos de agendamento em linguagem natural e criar eventos.
+
+TOOLS
+- check_availability: verifica disponibilidade entre 2 horários.
+- create_event: cria evento no Calendar.
+
+RULES
+1. SEMPRE chame check_availability ANTES de create_event.
+2. Se o horário NÃO estiver livre, NUNCA crie. Avise e sugira outro.
+3. Confirme com o usuário ANTES de criar (mostre proposta primeiro).
+4. Padrão de duração é 30 minutos se o usuário não especificar.
+
+NOTES
+- Hoje é {{ $now.toFormat('yyyy-MM-dd') }}.
+- Fuso: America/Fortaleza.
+- Quando o usuário disser "amanhã", "semana que vem" etc., calcule a partir de hoje.
+
+OUTPUT
+Confirmações curtas, em texto:
+"Reunião '[título]' marcada para [data] às [hora]."
+Se conflito:
+"Conflito com [evento existente]. Sugestão: [outro horário]."</pre>
+      </div>
+      <p class="fig-leg">No material, o ROLE diz "no Google Calendar do Rafael"; aqui o calendário
+      é o seu. O resto do prompt é como está.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Testar, e o que esperar</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Não rodado em 09/2026 &middot; a sequência esperada é a do material</div>
+      <div class="demo-corpo">
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">4</div>
+            <div class="passo-fn">Testar</div>
+          </div>
+          <p>Mandar no chat: "Marca uma reunião com cliente X amanhã 15h por 1h."</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Sequência esperada</div>
+            <ol>
+              <li>Agente chama <code>check_availability</code> (15h-16h).</li>
+              <li>Recebe lista de eventos. Se vazia, prossegue.</li>
+              <li>Apresenta proposta no chat.</li>
+              <li>Você confirma "sim".</li>
+              <li>Agente chama <code>create_event</code>.</li>
+              <li>Confirma criação.</li>
+            </ol>
+          </div>
+          <div class="destrave">
+            <div class="destrave-rot">Se o agente criou o evento sem checar a agenda</div>
+            <p>Agente esquece de chamar <code>check_availability</code>: ajustar RULE 1.</p>
+            <div class="destrave-nao"><strong>Não vale:</strong> trocar o modelo. Iterar é parte
+            do processo: ajuste uma regra e teste de novo com o mesmo pedido.</div>
+          </div>
+        </div>
+
+        <h4>O que esperar</h4>
+
+        <p>Primeira vez vai dar errado. Erros típicos:</p>
+
+        <ul class="lista">
+          <li>Agente esquece de chamar <code>check_availability</code> &rarr; ajustar RULE 1.</li>
+          <li>Datas em formato errado &rarr; revisar descrição da tool.</li>
+          <li>Agente não pergunta confirmação &rarr; ajustar RULE 3.</li>
+        </ul>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Iterar é parte do processo</div>
+          <p>É raro um agente funcionar redondo na primeira tentativa. Reactive Prompting em
+          ação.</p>
+        </div>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> nenhum workflow de teste foi
+        criado pra este bloco, então não há canvas nem arquivo <code>.json</code> exportado aqui.
+        Os quatro passos são o caminho do material, como está.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Duas tools, um System Prompt com quatro regras e a primeira ação real.
+  O que vem abaixo é a <strong>cerca</strong>: quatro pegadinhas, e a primeira é o fuso.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer fuso horário</div>
+      <p>Reuniões aparecem 3h erradas.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não dar <code>today's date</code> no system prompt</div>
+      <p>LLM inventa "amanhã".</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Tool description vaga</div>
+      <p>Agente não sabe quando usar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t"><code>$fromAI()</code> mal escrito</div>
+      <p>Parâmetros não chegam na tool.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo:</strong> <a href="../b10-email/">Fluxo prático 3: Agente E-mail</a>. Os
+    cinco fluxos estão na <a href="../b10-massa/">Mão na massa</a>.</p>
+  </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 2 · Automação com n8n</title>
+<title>Aula 7 · Mão na massa: os 5 fluxos práticos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,128 +3309,206 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Automação com n8n</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b10-agentes/">B10 · AI Agents</a> &rsaquo; 7 · Mão na massa</nav>
 
 
 <main class="folha ">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 de 3</div>
-    <h1>Automação com&nbsp;n8n</h1>
-    <p class="heroi-sub">Do&nbsp;mapa do&nbsp;seu&nbsp;processo ao&nbsp;agente que&nbsp;executa a&nbsp;rotina sozinho. Começa antes da&nbsp;ferramenta; depois a&nbsp;conta, a&nbsp;interface e&nbsp;o&nbsp;primeiro fluxo que&nbsp;roda de&nbsp;verdade.</p>
-    <div><span class="selo">Sete blocos</span><span class="selo">Você sai com um fluxo rodando</span></div>
+    <div class="heroi-kicker">Módulo 2 · B10 · AI Agents (single-agent)</div>
+    <h1>Mão na&nbsp;massa</h1>
+    <p class="heroi-sub">Cinco fluxos em&nbsp;página própria: três com&nbsp;Agent, dois sem.&nbsp;Faça em&nbsp;sequência ou&nbsp;pare em&nbsp;qualquer um.</p>
+    <div><span class="selo">5 fluxos</span><span class="selo">3 com Agent, 2 sem</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <section class="secao" id="s01">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;blocos deste módulo</h2>
+        <div class="secao-fn">O que este bloco é</div>
+        <h2>Cinco fluxos, e&nbsp;o&nbsp;mesmo esqueleto em&nbsp;três deles</h2>
       </div>
     </div>
 
-    <p>A&nbsp;mesma rotina que&nbsp;você escolheu no&nbsp;Módulo 1 volta aqui, agora para&nbsp;rodar sozinha.
-    O&nbsp;módulo começa antes da&nbsp;ferramenta: primeiro o&nbsp;modelo mental de&nbsp;gatilho, execução e&nbsp;entrega, e&nbsp;só&nbsp;depois a&nbsp;tela do&nbsp;n8n. <strong>Os&nbsp;blocos entram um&nbsp;a&nbsp;um,&nbsp;na&nbsp;ordem abaixo</strong>:
-    o&nbsp;que&nbsp;já&nbsp;está aberto tem o&nbsp;link; o&nbsp;resto está em&nbsp;produção.</p>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>As&nbsp;seis aulas anteriores explicaram o&nbsp;agente por&nbsp;dentro. Esta é a&nbsp;hora de&nbsp;montar:
+      <strong>3 fluxos com&nbsp;Agent</strong> (conversacional, Calendar, E-mail) e&nbsp;<strong>2 sem&nbsp;Agent</strong> (Triador de&nbsp;PDFs, Classificador de&nbsp;E-mails), cada um&nbsp;em&nbsp;página própria.</p>
+    </div>
+
+    <p>Você pode fazer os&nbsp;cinco em&nbsp;sequência ou&nbsp;parar em&nbsp;qualquer um:&nbsp;cada página funciona sozinha
+    e&nbsp;diz no&nbsp;começo o&nbsp;que&nbsp;precisa estar pronto antes.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">O que você precisa ter</span>
+        <ul class="lista">
+          <li>Credencial de&nbsp;LLM configurada (a&nbsp;porta gratuita está no&nbsp;<a href="../b6-agente/">B6,
+          aula 5</a>)</li>
+          <li>Credencial Google (Calendar, Sheets, Gmail) pros fluxos 2 a&nbsp;5 (o&nbsp;caminho está no&nbsp;<a href="../b9-credenciais/">B9, aula 3</a>)</li>
+          <li>As&nbsp;aulas 1 a&nbsp;6 deste bloco entendidas</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que você leva no fim</span>
+        <ul class="lista">
+          <li>5 fluxos funcionando: 3 com&nbsp;Agent (conversacional, Calendar, E-mail) + 2 sem&nbsp;Agent
+          (Triador de&nbsp;PDFs, Classificador de&nbsp;E-mails)</li>
+          <li>Um&nbsp;esqueleto reusável de&nbsp;agente, que&nbsp;serve de&nbsp;base pros próximos</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Nenhum dos&nbsp;cinco foi executado numa&nbsp;conta de&nbsp;teste em&nbsp;09/2026.</strong> O&nbsp;passo a&nbsp;passo de&nbsp;cada página é o&nbsp;do&nbsp;material, como está; onde&nbsp;o&nbsp;material
+    diz o&nbsp;que&nbsp;esperar, a&nbsp;página diz também, e&nbsp;declara que&nbsp;não&nbsp;foi rodado.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Os cinco fluxos</div>
+        <h2>Escolha por&nbsp;onde&nbsp;começar</h2>
+      </div>
+    </div>
 
     <div class="casos solta">
-      <a class="caso" href="../b5-antes/">
+      <a class="caso" href="../b10-conversa/">
+        <div class="caso-n">01</div>
+        <h4>Conversacional</h4>
+        <p>Esqueleto base: Chat Trigger + Agent + Memory. Sem&nbsp;tools.</p>
+        <div class="caso-areas">
+          <span class="selo">Base de todos</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">Esqueleto reusável (vale por base de 90% dos próximos agentes)</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-calendar/">
+        <div class="caso-n">02</div>
+        <h4>Calendar</h4>
+        <p>Agente com&nbsp;2 tools: check_availability + create_event. Primeira ação real.</p>
+        <div class="caso-areas">
+          <span class="selo">Gestor / assistente</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">15-20 min/dia (~6h/mês) substituídos</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-email/">
+        <div class="caso-n">03</div>
+        <h4>E-mail com&nbsp;contato</h4>
+        <p>Agente busca contato no&nbsp;Sheets + envia Gmail (com&nbsp;aprovação manual).</p>
+        <div class="caso-areas">
+          <span class="selo">Comercial / SDR</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">5-10 min por e-mail × 10/dia (~1h/dia)</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-triador/">
+        <div class="caso-n">04</div>
+        <h4>Triador PDF&rarr;Sheets</h4>
+        <p>Form Trigger PDF &rarr; Extract from File &rarr; Information Extractor &rarr; Sheets.
+        SEM&nbsp;Agent.</p>
+        <div class="caso-areas">
+          <span class="selo">PMO / admin</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">~6h/mês de digitação manual</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-classificador/">
         <div class="caso-n">05</div>
-        <h4>Antes do&nbsp;n8n: pensar como automação</h4>
-        <p>Transformar uma&nbsp;tarefa repetitiva real em&nbsp;um&nbsp;mapa textual claro (Gatilho &rarr;
-        Execução &rarr; Entrega), pronto pra&nbsp;virar workflow no&nbsp;B6. Sem&nbsp;n8n aberto.</p>
+        <h4>Classificador de&nbsp;e-mails</h4>
+        <p>Gmail Trigger &rarr; Text Classifier (4 categorias) &rarr; Switch &rarr; 4 ramos (label +
+        responder/encaminhar/arquivar). SEM&nbsp;Agent.</p>
+        <div class="caso-areas">
+          <span class="selo">Gestor / SAC</span>
+        </div>
         <div class="caso-pe">
-          <span class="caso-tipo">1 processo seu mapeado em texto</span>
+          <span class="caso-tipo">~11h/mês de triagem manual</span>
           <span class="caso-abrir">abrir &rarr;</span>
         </div>
       </a>
-      <a class="caso" href="../b6-fundamentos/">
-        <div class="caso-n">06</div>
-        <h4>Fundamentos do&nbsp;n8n</h4>
-        <p>Navegar o&nbsp;n8n com&nbsp;fluência, entender a&nbsp;anatomia de&nbsp;um&nbsp;workflow, executar o&nbsp;primeiro
-        fluxo do&nbsp;zero e&nbsp;ver um&nbsp;AI Agent funcionando como teaser do&nbsp;B10.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 nós dominados + 1 mini-agente no chat</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b7-gatilhos/">
-        <div class="caso-n">07</div>
-        <h4>Gatilhos</h4>
-        <p>Escolher o&nbsp;trigger certo pra&nbsp;cada caso (manual / schedule / webhook / form / app
-        event), configurar e&nbsp;testar cada um&nbsp;do&nbsp;zero, e&nbsp;construir 1 fluxo prático completo
-        (Lembrete diário automático).</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo rodando sozinho amanhã 8h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b8-execucao/">
-        <div class="caso-n">08</div>
-        <h4>Execução (dados, lógica, controle)</h4>
-        <p>Ler JSON com&nbsp;fluência, transformar campos com&nbsp;Set, escrever expressions, tomar
-        decisões com&nbsp;IF/Switch, juntar caminhos com&nbsp;Merge e&nbsp;manipular listas com&nbsp;Split Out /
-        Aggregate, culminando num&nbsp;fluxo prático de&nbsp;análise de&nbsp;dados.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">1 fluxo de análise de dados rodando</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b9-apis/">
-        <div class="caso-n">09</div>
-        <h4>APIs e&nbsp;webhooks</h4>
-        <p>Explicar API sem&nbsp;jargão, dominar HTTP Request (4 verbos + Import cURL), configurar
-        OAuth/API Key/Header Auth, usar os&nbsp;3 nós Google na&nbsp;mesma credencial, e&nbsp;construir
-        mini-API com&nbsp;Respond to Webhook.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Fluxo de previsão do tempo ativado, todo dia 7h</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <a class="caso" href="../b10-agentes/">
-        <div class="caso-n">10</div>
-        <h4>AI Agents (single-agent)</h4>
-        <p>Dominar AI Agent (Brain + System Prompt + Memory + Tools) com&nbsp;Reactive Prompting e&nbsp;Session ID dinâmico, <strong>mais</strong> os&nbsp;4 nós de&nbsp;IA "leve" (Information Extractor,
-        Text Classifier, Summarization Chain, Sentiment Analysis) que&nbsp;cobrem 60% dos&nbsp;casos
-        práticos com&nbsp;1/3 do&nbsp;custo de&nbsp;um&nbsp;Agent.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">5 fluxos: 3 com Agent, 2 sem</span>
-          <span class="caso-abrir">abrir &rarr;</span>
-        </div>
-      </a>
-      <div class="caso">
-        <div class="caso-n">11</div>
-        <h4>Projetos integradores e&nbsp;IA co-criando fluxos</h4>
-        <p>Ter pelo&nbsp;menos 1 workflow real rodando com&nbsp;tratamento de&nbsp;erro e&nbsp;ativação adequada,
-        escolhido por&nbsp;você entre&nbsp;os&nbsp;4 projetos guiados, <strong>mais</strong> sair com&nbsp;a&nbsp;habilidade de&nbsp;descrever processo em&nbsp;linguagem natural &rarr; IA gera o&nbsp;JSON &rarr; você
-        ajusta.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">12</div>
-        <h4>Recursos Profissionais</h4>
-        <p>Dominar 3 práticas que&nbsp;separam o&nbsp;usuário casual do&nbsp;profissional de&nbsp;automação:
-        organização com&nbsp;sub-workflows, prototipação rápida com&nbsp;IA gerando JSON, e&nbsp;construção
-        avançada com&nbsp;Claude Code.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
     </div>
 
-    <p class="fig-leg"><strong>Este é o&nbsp;módulo que&nbsp;mais depende do&nbsp;Módulo 1.</strong> O&nbsp;processo que&nbsp;você mapeia lá é o&nbsp;que&nbsp;define os&nbsp;nós do&nbsp;fluxo aqui: quem chega sem&nbsp;o&nbsp;mapa monta automação para&nbsp;um&nbsp;processo que&nbsp;ninguém escreveu.</p>
+    <p class="fig-leg"><strong>Os&nbsp;cinco cards são a&nbsp;tabela "ROI estimado dos&nbsp;5 fluxos práticos" do&nbsp;material</strong> (Fluxo · Quem usa · Ganho típico), com&nbsp;o&nbsp;foco de&nbsp;cada um&nbsp;vindo da&nbsp;tabela de&nbsp;tópicos. Os&nbsp;ganhos são estimativas do&nbsp;autor, de&nbsp;abril de&nbsp;2026.</p>
 
-    <div class="cartao">
-      <span class="rot">Fora da fila dos blocos</span>
-      <p>Duas páginas de&nbsp;apoio, para&nbsp;consultar a&nbsp;qualquer altura do&nbsp;módulo: os&nbsp;<strong>Recursos
-      do&nbsp;aluno</strong> (checklist do&nbsp;iniciante, mapa de&nbsp;capacidades, pegadinhas comuns, protocolo
-      de&nbsp;validação, referências por&nbsp;tema) e&nbsp;o&nbsp;<strong>Glossário</strong>. Em&nbsp;produção.</p>
+    <div class="aviso ok">
+      <div class="aviso-t">Total potencial em 1 pessoa</div>
+      <p>17h/mês de&nbsp;trabalho braçal substituído com&nbsp;fluxos 4 e&nbsp;5 sozinhos. Em&nbsp;escala
+      (time/empresa), multiplica.</p>
     </div>
   </section>
 
-<nav class="rodape-nav"><a href="../desafio-satisfacao/">&larr; Desafio 4 · uma pesquisa de satisfação vira diagnóstico</a><a href="../b5-antes/">B5 · Antes do n8n: pensar como automação &rarr;</a></nav>
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como um puxa o outro</div>
+        <h2>Por&nbsp;que&nbsp;esta ordem</h2>
+      </div>
+    </div>
+
+    <p>Os&nbsp;três primeiros são o&nbsp;mesmo agente crescendo; os&nbsp;dois últimos são independentes, e&nbsp;provam
+    que&nbsp;nem tudo precisa de&nbsp;Agent.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th></th><th>O que ele deixa pronto</th><th>O que fica travado sem ele</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>01</strong></td>
+            <td>O esqueleto: Chat Trigger + Agent + Memory, com Session ID dinâmico e um System
+            Prompt que responde direito</td>
+            <td>O Fluxo 2 duplica este workflow; errar aqui significa que todo agente seguinte
+            herda o erro</td>
+          </tr>
+          <tr>
+            <td><strong>02</strong></td>
+            <td>O mesmo agente com 2 tools de Calendar, e a primeira ação real</td>
+            <td>O Fluxo 3 aproveita o esqueleto e troca as tools</td>
+          </tr>
+          <tr>
+            <td><strong>03</strong></td>
+            <td>O agente que busca contato no Sheets e envia Gmail com aprovação</td>
+            <td>Nada: é o fecho do ramo com Agent</td>
+          </tr>
+          <tr>
+            <td><strong>04</strong></td>
+            <td>Um triador de PDFs em 4 nós, sem Agent</td>
+            <td>Nada: começa do zero, independente dos três primeiros</td>
+          </tr>
+          <tr>
+            <td><strong>05</strong></td>
+            <td>Um classificador de e-mails em 4 ramos, sem Agent</td>
+            <td>Nada: começa do zero, independente dos outros quatro</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;ordem que&nbsp;importa é 1 &rarr; 2 &rarr; 3.</strong> O&nbsp;material diz
+    que&nbsp;os&nbsp;3 fluxos com&nbsp;Agent têm a&nbsp;mesma anatomia (Chat Trigger &rarr; AI Agent &rarr; Tools; LLM +
+    Memory iguais; só&nbsp;mudam as&nbsp;tools e&nbsp;o&nbsp;system prompt). O&nbsp;4 e&nbsp;o&nbsp;5 você faz na&nbsp;ordem que&nbsp;quiser.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Comece pelo&nbsp;<a href="../b10-conversa/">Fluxo prático 1: Agente conversacional
+    simples</a>.</strong> As&nbsp;sete aulas do&nbsp;bloco estão na&nbsp;<a href="../b10-agentes/">capa do&nbsp;B10</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b10-semagent/">&larr; Aula 6 · IA sem Agent: Extractor / Classifier / Summarizer / Sentiment</a><a href="../b10-conversa/">Fluxo prático 1 · Agente conversacional simples &rarr;</a></nav>
 </main>
 
 

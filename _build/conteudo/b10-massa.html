@@ -1,0 +1,192 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que este bloco é</div>
+        <h2>Cinco fluxos, e o mesmo esqueleto em três deles</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>As seis aulas anteriores explicaram o agente por dentro. Esta é a hora de montar:
+      <strong>3 fluxos com Agent</strong> (conversacional, Calendar, E-mail) e <strong>2 sem
+      Agent</strong> (Triador de PDFs, Classificador de E-mails), cada um em página própria.</p>
+    </div>
+
+    <p>Você pode fazer os cinco em sequência ou parar em qualquer um: cada página funciona sozinha
+    e diz no começo o que precisa estar pronto antes.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">O que você precisa ter</span>
+        <ul class="lista">
+          <li>Credencial de LLM configurada (a porta gratuita está no <a href="../b6-agente/">B6,
+          aula 5</a>)</li>
+          <li>Credencial Google (Calendar, Sheets, Gmail) pros fluxos 2 a 5 (o caminho está no
+          <a href="../b9-credenciais/">B9, aula 3</a>)</li>
+          <li>As aulas 1 a 6 deste bloco entendidas</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que você leva no fim</span>
+        <ul class="lista">
+          <li>5 fluxos funcionando: 3 com Agent (conversacional, Calendar, E-mail) + 2 sem Agent
+          (Triador de PDFs, Classificador de E-mails)</li>
+          <li>Um esqueleto reusável de agente, que serve de base pros próximos</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Nenhum dos cinco foi executado numa conta de teste em
+    09/2026.</strong> O passo a passo de cada página é o do material, como está; onde o material
+    diz o que esperar, a página diz também, e declara que não foi rodado.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Os cinco fluxos</div>
+        <h2>Escolha por onde começar</h2>
+      </div>
+    </div>
+
+    <div class="casos solta">
+      <a class="caso" href="../b10-conversa/">
+        <div class="caso-n">01</div>
+        <h4>Conversacional</h4>
+        <p>Esqueleto base: Chat Trigger + Agent + Memory. Sem tools.</p>
+        <div class="caso-areas">
+          <span class="selo">Base de todos</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">Esqueleto reusável (vale por base de 90% dos próximos agentes)</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-calendar/">
+        <div class="caso-n">02</div>
+        <h4>Calendar</h4>
+        <p>Agente com 2 tools: check_availability + create_event. Primeira ação real.</p>
+        <div class="caso-areas">
+          <span class="selo">Gestor / assistente</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">15-20 min/dia (~6h/mês) substituídos</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-email/">
+        <div class="caso-n">03</div>
+        <h4>E-mail com contato</h4>
+        <p>Agente busca contato no Sheets + envia Gmail (com aprovação manual).</p>
+        <div class="caso-areas">
+          <span class="selo">Comercial / SDR</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">5-10 min por e-mail × 10/dia (~1h/dia)</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-triador/">
+        <div class="caso-n">04</div>
+        <h4>Triador PDF&rarr;Sheets</h4>
+        <p>Form Trigger PDF &rarr; Extract from File &rarr; Information Extractor &rarr; Sheets.
+        SEM Agent.</p>
+        <div class="caso-areas">
+          <span class="selo">PMO / admin</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">~6h/mês de digitação manual</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+
+      <a class="caso" href="../b10-classificador/">
+        <div class="caso-n">05</div>
+        <h4>Classificador de e-mails</h4>
+        <p>Gmail Trigger &rarr; Text Classifier (4 categorias) &rarr; Switch &rarr; 4 ramos (label +
+        responder/encaminhar/arquivar). SEM Agent.</p>
+        <div class="caso-areas">
+          <span class="selo">Gestor / SAC</span>
+        </div>
+        <div class="caso-pe">
+          <span class="caso-tipo">~11h/mês de triagem manual</span>
+          <span class="caso-abrir">abrir &rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <p class="fig-leg"><strong>Os cinco cards são a tabela "ROI estimado dos 5 fluxos práticos" do
+    material</strong> (Fluxo · Quem usa · Ganho típico), com o foco de cada um vindo da tabela de
+    tópicos. Os ganhos são estimativas do autor, de abril de 2026.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Total potencial em 1 pessoa</div>
+      <p>17h/mês de trabalho braçal substituído com fluxos 4 e 5 sozinhos. Em escala
+      (time/empresa), multiplica.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como um puxa o outro</div>
+        <h2>Por que esta ordem</h2>
+      </div>
+    </div>
+
+    <p>Os três primeiros são o mesmo agente crescendo; os dois últimos são independentes, e provam
+    que nem tudo precisa de Agent.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th></th><th>O que ele deixa pronto</th><th>O que fica travado sem ele</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>01</strong></td>
+            <td>O esqueleto: Chat Trigger + Agent + Memory, com Session ID dinâmico e um System
+            Prompt que responde direito</td>
+            <td>O Fluxo 2 duplica este workflow; errar aqui significa que todo agente seguinte
+            herda o erro</td>
+          </tr>
+          <tr>
+            <td><strong>02</strong></td>
+            <td>O mesmo agente com 2 tools de Calendar, e a primeira ação real</td>
+            <td>O Fluxo 3 aproveita o esqueleto e troca as tools</td>
+          </tr>
+          <tr>
+            <td><strong>03</strong></td>
+            <td>O agente que busca contato no Sheets e envia Gmail com aprovação</td>
+            <td>Nada: é o fecho do ramo com Agent</td>
+          </tr>
+          <tr>
+            <td><strong>04</strong></td>
+            <td>Um triador de PDFs em 4 nós, sem Agent</td>
+            <td>Nada: começa do zero, independente dos três primeiros</td>
+          </tr>
+          <tr>
+            <td><strong>05</strong></td>
+            <td>Um classificador de e-mails em 4 ramos, sem Agent</td>
+            <td>Nada: começa do zero, independente dos outros quatro</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A ordem que importa é 1 &rarr; 2 &rarr; 3.</strong> O material diz
+    que os 3 fluxos com Agent têm a mesma anatomia (Chat Trigger &rarr; AI Agent &rarr; Tools; LLM +
+    Memory iguais; só mudam as tools e o system prompt). O 4 e o 5 você faz na ordem que quiser.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Comece pelo <a href="../b10-conversa/">Fluxo prático 1: Agente conversacional
+    simples</a>.</strong> As sete aulas do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>

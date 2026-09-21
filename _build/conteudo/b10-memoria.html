@@ -1,0 +1,240 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>A diferença entre "agente que conversa" e "agente que vaza dados."</strong> O Bruno
+      mandou "qual o preço?" pro seu bot e recebeu de volta: "10 unidades por R$ 5.000", mas o Bruno
+      não tinha mencionado quantidade nenhuma. Quem mencionou foi a Ana, 30 segundos antes. Esse bug
+      tem nome: <strong>Session ID fixo</strong>. É o erro mais comum em produção, e o que pode te
+      custar um cliente, um vazamento de LGPD ou uma reunião desconfortável com o jurídico.</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Sem memória, cada mensagem é tratada como se fosse a primeira. O usuário diz "meu nome é
+      Ana", e na mensagem seguinte o agente pergunta o nome de novo.</p>
+    </div>
+
+    <p>Mas o erro que vai te custar mais tempo não é esquecer de adicionar memória: é configurar o
+    Session ID errado e fazer o agente misturar dados de pessoas diferentes em produção.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Conceito central</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Três tipos de memória, e uma só interessa na v1</h3>
+
+      <p>No n8n existem 3 tipos de memória pro agente. Pra v1 do curso, <strong>uma só
+      interessa</strong>: Simple Memory.</p>
+
+      <h4>Simple Memory: a recomendada pra começar</h4>
+
+      <ul class="lista">
+        <li>Guarda as <strong>últimas N mensagens</strong> (default: 5; ajustável).</li>
+        <li>Vinculada a um <strong>Session ID</strong> (e-mail, chat_id, número da linha).</li>
+        <li><strong>Apaga</strong> ao reiniciar o workflow ou após período sem uso.</li>
+      </ul>
+      <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó Simple Memory
+      (versão 1.3): o campo <strong>Context Window Length</strong> tem padrão 5, "how many past
+      interactions the model receives as context".</p>
+
+      <h4>Outras (fora da v1)</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Quando usaria</th><th>Por que fora da v1</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Window Buffer</td><td>Janela deslizante mais sofisticada</td><td>Intermediário</td></tr>
+            <tr><td>Postgres / Redis</td><td>Persistir entre sessões</td><td>Avançado, exige infra</td></tr>
+            <tr><td>Vector Store</td><td>Busca semântica em histórico longo</td><td>RAG: trilha avançada</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A tabela veio embaralhada no export do material (seis colunas, linhas
+      fundidas) e foi remontada com as palavras que vieram: três linhas, três colunas.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Como funciona na prática: o Session ID</h2>
+      </div>
+    </div>
+
+    <p>O Session ID é o <strong>rótulo</strong> que o nó de Memória usa pra agrupar mensagens da
+    mesma conversa. Sem ele bem configurado, todas as execuções viram uma "conversa única"
+    gigante.</p>
+
+    <h4>Por que o Session ID é crítico</h4>
+
+    <p>Imagine um agente Telegram:</p>
+
+    <ul class="lista">
+      <li>Ana manda: "quero comprar 10 unidades"</li>
+      <li>Bruno manda 30 segundos depois: "qual o preço?"</li>
+    </ul>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Session ID fixo <code>"sessao1"</code></span>
+        <p>O agente "lembra" da Ana ao responder o Bruno &rarr; Bruno recebe resposta de "10
+        unidades por R$ X": informação que não é dele.</p>
+      </div>
+      <div class="cartao cartao-cor">
+        <span class="rot">Session ID = ID do usuário do Telegram</span>
+        <p>Cada conversa isolada &rarr; Bruno recebe resposta que faz sentido pra ele.</p>
+      </div>
+    </div>
+
+    <h4>Padrões corretos por origem</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Origem do trigger</th><th>Expression recomendada</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Chat Trigger (n8n built-in)</td><td><code>{{ $json.sessionId }}</code> (já vem pronto)</td></tr>
+          <tr><td>Telegram</td><td><code>{{ $json.message.from.id }}</code></td></tr>
+          <tr><td>Webhook com user_id</td><td><code>{{ $json.body.user_id }}</code></td></tr>
+          <tr><td>Linha de planilha</td><td><code>{{ $('Lêr Leads').item.json.rowNumber }}</code></td></tr>
+          <tr><td>Email</td><td><code>{{ $json.from }}</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-leg">A tabela veio embaralhada no export (quatro colunas, linhas fundidas) e foi
+    remontada com as palavras que vieram: cinco origens, uma expression cada. O
+    <code>'Lêr Leads'</code> com acento é como está no material: o nome dentro de
+    <code>$('…')</code> tem de ser o nome exato do nó na sua tela.</p>
+
+    <h4>Padrões errados</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Três Session IDs que quebram em produção</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b10mem-errados">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b10mem-errados">"sessao1"        ← fixo: mistura todo mundo
+"teste"          ← ficou em modo de teste e foi pra produção
+{{ $now }}       ← cada execução vira sessão nova; agente esquece tudo</pre>
+    </div>
+
+    <h4>Configurando Simple Memory</h4>
+
+    <ol>
+      <li>No AI Agent, clique no <code>+</code> da porta <strong>Memory</strong>.</li>
+      <li>Selecione <strong>Simple Memory</strong>.</li>
+      <li><strong>Session ID Type:</strong> mude pra <code>Customize Session ID</code>.</li>
+      <li><strong>Key:</strong> cole a Expression apropriada.</li>
+      <li><strong>Context Window Length:</strong> mantenha 5 (default).</li>
+    </ol>
+    <p class="fig-leg"><strong>Conferido em 21/09/2026</strong> na definição do nó (Simple Memory
+    1.3): o campo se chama <strong>Session ID</strong> e tem duas opções, <strong>Connected Chat
+    Trigger Node</strong> (o padrão, que já usa <code>{{ $json.sessionId }}</code>) e
+    <strong>Define below</strong>, que é o "Customize Session ID" do material, onde você cola a
+    Expression. Com Chat Trigger, o padrão já resolve; pra Telegram, Webhook, planilha e e-mail é
+    o "Define below".</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Exemplo guiado: teste de isolamento</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; duas pessoas, duas sessões</div>
+      <div class="demo-corpo">
+        <p>Workflow: Chat Trigger &rarr; AI Agent + Simple Memory (Session ID =
+        <code>{{ $json.sessionId }}</code>).</p>
+
+        <p><strong>Teste do isolamento de sessão:</strong></p>
+
+        <ul class="lista">
+          <li>Mensagem 1 (de você): "meu nome é (seu nome)"</li>
+          <li>Mensagem 2 (de você): "qual meu nome?" &rarr; agente responde "(seu nome)" ✅</li>
+          <li>Peça pra outra pessoa mandar: "qual meu nome?" &rarr; agente responde "não sei seu
+          nome" ✅</li>
+        </ul>
+
+        <p><strong>Se ele responder "(seu nome)" pra outra pessoa, Session ID está fixo ou
+        errado.</strong></p>
+
+        <p class="fig-leg"><strong>Não rodado em 09/2026:</strong> o teste é o caminho do material,
+        sem execução numa conta de teste. No material o nome do exemplo é o do instrutor; aqui é
+        o seu.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Simple Memory, Session ID e o teste com duas pessoas. O que vem abaixo é
+  a <strong>cerca</strong>: cinco pegadinhas, e a primeira é a que vaza dado.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Session ID fixo em produção</div>
+      <p>Todas as conversas viram uma só &rarr; caos.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Aumentar Context Window pra 100</div>
+      <p>Caro e lento. Mantenha 5-10 sem motivo claro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esperar Simple Memory persistir entre reinícios</div>
+      <p>Não persiste.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de conectar a Memory</div>
+      <p>Agente roda sem memória.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Misturar Session ID com user message</div>
+      <p>Session ID é metadado, não vai na mensagem.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> <a href="../b10-semagent/">6, IA sem Agent</a>. As sete
+    aulas do bloco estão na <a href="../b10-agentes/">capa do B10</a>.</p>
+  </div>
