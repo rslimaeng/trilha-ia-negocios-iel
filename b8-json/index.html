@@ -3316,7 +3316,7 @@ code{overflow-wrap:anywhere}
   <div class="heroi">
     <div class="heroi-kicker">Módulo 2 · B8 · Execução</div>
     <h1>JSON e&nbsp;tipos de&nbsp;dados</h1>
-    <p class="heroi-sub">Os&nbsp;5 tipos + a&nbsp;regra-mãe (string vs number). O&nbsp;experimento mais barato e&nbsp;valioso do&nbsp;bloco.</p>
+    <p class="heroi-sub">A&nbsp;ficha que&nbsp;as&nbsp;ferramentas trocam entre&nbsp;si, a&nbsp;regra das&nbsp;aspas, e&nbsp;como pedir o&nbsp;formato pronto para&nbsp;a&nbsp;IA.</p>
     <div><span class="selo">Aula-âncora</span><span class="selo">Conceito-âncora</span></div>
   </div>
 
@@ -3324,9 +3324,11 @@ code{overflow-wrap:anywhere}
     <div class="nesta-aula-rot">Nesta aula</div>
     <div class="nesta-aula-sub">O que você vai aprender:</div>
     <ul>
-      <li>O&nbsp;que&nbsp;é JSON, os&nbsp;5 tipos de&nbsp;dado que&nbsp;importam, e&nbsp;por&nbsp;que&nbsp;<strong>tipo de&nbsp;dado
-      errado</strong> é a&nbsp;causa mais comum de&nbsp;"meu&nbsp;IF parece certo mas&nbsp;vai pro ramo errado"</li>
-      <li>Entender isso é o&nbsp;que&nbsp;separa quem usa n8n de&nbsp;quem <strong>aproveita</strong> n8n</li>
+      <li>Como o&nbsp;computador guarda uma&nbsp;informação, e&nbsp;por&nbsp;que&nbsp;ele precisa que&nbsp;você diga
+      <strong>que&nbsp;tipo de&nbsp;coisa</strong> cada informação é</li>
+      <li>Por&nbsp;que&nbsp;um&nbsp;fluxo roda sem&nbsp;dar erro e&nbsp;mesmo assim manda o&nbsp;dado para&nbsp;o&nbsp;lugar errado</li>
+      <li>Como <strong>pedir para&nbsp;a&nbsp;IA escrever esse formato por&nbsp;você</strong>, e&nbsp;o&nbsp;que&nbsp;conferir
+      na&nbsp;resposta dela antes de&nbsp;usar</li>
     </ul>
   </div>
 
@@ -3341,15 +3343,22 @@ code{overflow-wrap:anywhere}
 
     <div class="cartao cartao-cor">
       <span class="rot">Em uma frase</span>
-      <p>Boa notícia: você não&nbsp;precisa virar dev. Precisa entender 5 coisas.</p>
+      <p>Você não&nbsp;precisa virar programador. Precisa saber dizer ao&nbsp;computador se&nbsp;aquilo ali
+      é <strong>uma&nbsp;palavra</strong> ou&nbsp;<strong>uma&nbsp;quantidade</strong>.</p>
     </div>
 
-    <p>Você pode passar o módulo inteiro sem mergulhar em JSON. Mas, no primeiro fluxo real, vai
-    bater na parede: "por que esse campo aparece como <code>[object Object]</code>?", "por que o
-    n8n diz que tem 3 itens se eu vejo 1?", "por que o e-mail saiu vazio?", "por que
-    <code>score &gt; 70</code> parece certo mas o lead foi pro ramo errado?". 9 em cada 10 dessas
-    dúvidas vêm de <strong>não saber ler o JSON que tá rolando entre os nós</strong>, ou de
-    <strong>comparar tipos diferentes</strong> sem perceber.</p>
+    <p>Imagine o&nbsp;caixa do&nbsp;supermercado. Ele passa o&nbsp;leitor na&nbsp;etiqueta e&nbsp;o&nbsp;preço aparece na&nbsp;tela. A&nbsp;etiqueta tem um&nbsp;código de&nbsp;barras e&nbsp;tem o&nbsp;nome do&nbsp;produto escrito por&nbsp;cima. Para&nbsp;você, os&nbsp;dois dizem a&nbsp;mesma coisa. Para&nbsp;a&nbsp;máquina, não:&nbsp;ela só&nbsp;lê o&nbsp;código, e&nbsp;o&nbsp;nome
+    escrito por&nbsp;cima existe para&nbsp;o&nbsp;humano.</p>
+
+    <p>Dentro de&nbsp;uma&nbsp;automação acontece a&nbsp;mesma separação. O&nbsp;que&nbsp;você vê na&nbsp;tela é uma&nbsp;coisa,
+    e&nbsp;o&nbsp;que&nbsp;a&nbsp;máquina lê é outra. Quando&nbsp;as&nbsp;duas não&nbsp;combinam, <strong>o&nbsp;fluxo roda inteiro,
+    não&nbsp;aparece nenhum aviso vermelho, e&nbsp;o&nbsp;resultado sai errado</strong>. O&nbsp;e-mail vai para&nbsp;quem não&nbsp;devia. O&nbsp;cliente satisfeito cai na&nbsp;lista dos&nbsp;insatisfeitos. A&nbsp;soma do&nbsp;mês dá um&nbsp;número que&nbsp;ninguém reconhece.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Erro que aparece é fácil. O difícil é o que passa calado</div>
+      <p>Quando&nbsp;um&nbsp;fluxo quebra, ele avisa e&nbsp;você conserta. O&nbsp;caso desta aula é o&nbsp;outro:
+      <strong>tudo fica verde e&nbsp;o&nbsp;resultado está errado</strong>. É a&nbsp;causa mais comum de&nbsp;"eu conferi e&nbsp;não&nbsp;entendo o&nbsp;que&nbsp;aconteceu".</p>
+    </div>
   </section>
 
   <section class="secao" id="conceito">
@@ -3357,31 +3366,60 @@ code{overflow-wrap:anywhere}
       <div class="secao-n">02</div>
       <div>
         <div class="secao-fn">O conceito, e é um só</div>
-        <h2>Conceito central</h2>
+        <h2>A&nbsp;ficha preenchida</h2>
       </div>
     </div>
 
     <div class="conceito">
       <div class="conceito-rot">O conceito desta aula</div>
-      <h3>JSON é um&nbsp;jeito de&nbsp;organizar dados em&nbsp;texto: cada dado tem um&nbsp;nome (chave) e&nbsp;um&nbsp;valor</h3>
+      <h3>Toda informação que&nbsp;anda entre&nbsp;duas ferramentas viaja numa&nbsp;ficha, e&nbsp;em&nbsp;cada linha
+      você diz se&nbsp;aquilo é uma&nbsp;palavra ou&nbsp;uma&nbsp;quantidade</h3>
 
-      <p><strong>JSON</strong> (JavaScript Object Notation) é como o&nbsp;n8n, e&nbsp;quase toda API
-      moderna, passa informação de&nbsp;um&nbsp;lado pro outro.</p>
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É quantidade</span>
+          <h4>Idade, preço, nota, dias de&nbsp;atraso</h4>
+          <p>Somar dois deles produz um&nbsp;resultado que&nbsp;significa alguma coisa. Duas idades
+          somadas dão uma&nbsp;idade maior.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É quantidade</span>
+          <h4>Sim e&nbsp;não,&nbsp;quando&nbsp;só&nbsp;existem esses dois</h4>
+          <p>Pagou ou&nbsp;não&nbsp;pagou. É cliente ou&nbsp;não&nbsp;é. O&nbsp;computador guarda isso de&nbsp;um&nbsp;jeito
+          próprio, que&nbsp;não&nbsp;é nem palavra nem número.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Só parece</span>
+          <h4>CPF, CEP, telefone, número do&nbsp;pedido</h4>
+          <p>São feitos de&nbsp;algarismos e&nbsp;ninguém soma dois deles. São etiqueta, e&nbsp;etiqueta é
+          palavra, mesmo escrita com&nbsp;algarismo.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Só parece</span>
+          <h4>Faixa de&nbsp;preço, ano, versão, nota escrita por&nbsp;extenso</h4>
+          <p><code>2026</code> é quantidade quando&nbsp;você calcula idade, e&nbsp;é etiqueta quando&nbsp;é
+          só&nbsp;o&nbsp;rótulo do&nbsp;ano. <strong>Quem decide é você, pelo&nbsp;uso.</strong></p></div>
+      </div>
+
+      <p class="fig-leg"><strong>O&nbsp;teste que&nbsp;decide, e&nbsp;é um&nbsp;só:&nbsp;eu somaria dois desses?</strong>
+      Se&nbsp;a&nbsp;soma não&nbsp;significa nada, aquilo é palavra. Esta é a&nbsp;decisão que&nbsp;o&nbsp;computador não&nbsp;consegue tomar sozinho, e&nbsp;é por&nbsp;isso que&nbsp;ele pede que&nbsp;você diga.</p>
 
       <div class="analogia">
-        <div class="analogia-rot">Analogia</div>
-        <p>Pensa em&nbsp;JSON como <strong>um&nbsp;sistema de&nbsp;etiquetas</strong>: cada dado tem um&nbsp;nome
-        (chave) e&nbsp;um&nbsp;valor.</p>
+        <div class="analogia-rot">É como a ficha de cadastro da recepção</div>
+        <p>Você chega numa&nbsp;clínica e&nbsp;a&nbsp;recepção te dá uma&nbsp;prancheta. A&nbsp;ficha tem linhas
+        impressas: <strong>Nome</strong>, <strong>Idade</strong>, <strong>Já&nbsp;é
+        paciente?</strong>, <strong>Convênios que&nbsp;você tem</strong>, e&nbsp;no&nbsp;fim um&nbsp;quadrinho
+        separado só&nbsp;para&nbsp;o&nbsp;endereço. Você preenche do&nbsp;lado de&nbsp;cada linha. Quem recebe a&nbsp;prancheta não&nbsp;precisa te conhecer: a&nbsp;ficha diz o&nbsp;que&nbsp;é cada coisa.</p>
         <ul class="analogia-mapa">
-          <li><strong>A&nbsp;etiqueta</strong> = o&nbsp;par chave:valor</li>
-          <li><strong>O&nbsp;nome na&nbsp;etiqueta</strong> = a&nbsp;chave (<code>"nome"</code>)</li>
-          <li><strong>O&nbsp;que&nbsp;está escrito</strong> = o&nbsp;valor (<code>"Maria"</code>)</li>
+          <li><strong>A&nbsp;prancheta inteira</strong> é o&nbsp;pacote de&nbsp;informação que&nbsp;sai de&nbsp;uma&nbsp;ferramenta e&nbsp;chega na&nbsp;outra</li>
+          <li><strong>A&nbsp;linha impressa</strong> (<code>Nome</code>) é o&nbsp;nome do&nbsp;campo, que&nbsp;nunca muda</li>
+          <li><strong>O&nbsp;que&nbsp;você escreveu ao&nbsp;lado</strong> (<code>Maria</code>) é o&nbsp;valor,
+          que&nbsp;muda a&nbsp;cada pessoa</li>
+          <li><strong>O&nbsp;quadrinho separado do&nbsp;endereço</strong> é uma&nbsp;ficha dentro da&nbsp;ficha:
+          um&nbsp;campo que&nbsp;tem campos por&nbsp;dentro</li>
+          <li><strong>A&nbsp;linha de&nbsp;convênios</strong>, onde&nbsp;cabe mais de&nbsp;um,&nbsp;é uma&nbsp;lista</li>
         </ul>
       </div>
 
+      <p>Essa ficha tem um&nbsp;formato só,&nbsp;e&nbsp;o&nbsp;mundo inteiro usa o&nbsp;mesmo. O&nbsp;nome dele é
+      <strong>JSON</strong>, e&nbsp;é assim que&nbsp;ela se&nbsp;parece escrita:</p>
+
       <div class="prompt">
         <div class="prompt-barra">
-          <span class="prompt-rot">Um JSON com os 5 tipos</span>
+          <span class="prompt-rot">A ficha da Maria, escrita do jeito que a máquina lê</span>
           <button class="btn-copiar" type="button" data-alvo="pr-b8json-ex">Copiar</button>
         </div>
         <pre class="prompt-txt config" id="pr-b8json-ex">{
@@ -3396,61 +3434,24 @@ code{overflow-wrap:anywhere}
 }</pre>
       </div>
 
-      <p>Cada linha é um&nbsp;par <strong>chave:valor</strong>: o&nbsp;nome do&nbsp;dado de&nbsp;um&nbsp;lado, o&nbsp;valor do&nbsp;outro.</p>
+      <p class="fig-leg">Compare com&nbsp;a&nbsp;prancheta: o&nbsp;nome do&nbsp;campo fica à&nbsp;esquerda dos&nbsp;dois
+      pontos, o&nbsp;que&nbsp;foi preenchido fica à&nbsp;direita. <strong>Repare que&nbsp;a&nbsp;idade não&nbsp;tem aspas
+      e&nbsp;o&nbsp;nome tem.</strong> É essa diferença que&nbsp;o&nbsp;resto da&nbsp;aula explica.</p>
 
+      <h4>A&nbsp;única regra que&nbsp;você precisa levar</h4>
 
-      <h4>Os&nbsp;5 tipos de&nbsp;dados</h4>
+      <p>Olhe a&nbsp;linha da&nbsp;idade e&nbsp;a&nbsp;linha do&nbsp;nome. As&nbsp;duas estão preenchidas, e&nbsp;a&nbsp;diferença
+      entre&nbsp;elas é só&nbsp;uma:&nbsp;<strong>uma&nbsp;está entre&nbsp;aspas e&nbsp;a&nbsp;outra não</strong>. As&nbsp;aspas são
+      o&nbsp;jeito de&nbsp;escrever a&nbsp;decisão que&nbsp;você acabou de&nbsp;tomar. Palavra vai entre&nbsp;aspas.
+      Quantidade vai sem.&nbsp;Sim e&nbsp;não&nbsp;viram <code>true</code> e&nbsp;<code>false</code>, também sem&nbsp;aspas.</p>
 
-      <p>Olhe o&nbsp;exemplo acima. Já&nbsp;tem <strong>os&nbsp;5 tipos</strong> que&nbsp;você precisa conhecer:</p>
-
-      <div class="tabela">
-        <table>
-          <thead>
-            <tr><th>Tipo</th><th>Como reconhecer</th><th>Exemplo</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>string</strong> (texto)</td><td>Entre aspas duplas</td><td><code>"Maria"</code>, <code>"IA"</code>, <code>"42"</code> (cuidado!)</td></tr>
-            <tr><td><strong>number</strong> (número)</td><td>Sem aspas</td><td><code>32</code>, <code>3.14</code></td></tr>
-            <tr><td><strong>boolean</strong> (verdadeiro/falso)</td><td><code>true</code> ou <code>false</code>, sem aspas</td><td><code>true</code></td></tr>
-            <tr><td><strong>array</strong> (lista)</td><td>Entre colchetes <code>[ ]</code></td><td><code>["IA", "n8n", "automação"]</code></td></tr>
-            <tr><td><strong>object</strong> (objeto)</td><td>Entre chaves <code>{ }</code>, com pares chave:valor</td><td><code>{ "cidade": "Fortaleza" }</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h4>A&nbsp;regra-mãe: string vs number</h4>
-
-      <div class="aviso atencao">
-        <div class="aviso-t">string e number são confundidos o tempo todo</div>
-        <p><code>"32"</code> (string com&nbsp;aspas) <strong>não&nbsp;é</strong> o&nbsp;mesmo que&nbsp;<code>32</code>
-        (número). O&nbsp;n8n trata diferente.</p>
-      </div>
-
-      <ul class="lista">
-        <li><code>"32" + 1</code> &rarr; <code>"321"</code> (concatena texto)</li>
-        <li><code>32 + 1</code> &rarr; <code>33</code> (soma)</li>
-        <li><code>"10" == 10</code> &rarr; <code>false</code> (tipos diferentes)</li>
-        <li><code>"10" &gt; 5</code> &rarr; comportamento imprevisível</li>
-      </ul>
-
-
-      <h4>Armadilhas frequentes que&nbsp;quebram seus&nbsp;fluxos</h4>
-
-      <div class="tabela">
-        <table>
-          <thead>
-            <tr><th>Situação</th><th>Problema</th><th>Sintoma</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>API retorna <code>"true"</code> entre aspas</td><td><code>"true"</code> (string) &ne; <code>true</code> (boolean)</td><td>Lógica booleana quebra</td></tr>
-            <tr><td>Campo numérico vem como <code>null</code></td><td><code>null &gt; 0</code> retorna <code>false</code></td><td>Itens somem do filtro</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>É só&nbsp;isso. <strong>O&nbsp;resto desta aula é a&nbsp;mesma regra aparecendo em&nbsp;situações
+      diferentes.</strong></p>
 
       <div class="aviso ok">
-        <div class="aviso-t">Quando uma condição parece certa mas o fluxo vai pro ramo errado, suspeite primeiro do tipo de dado</div>
-        <p>Abra o&nbsp;JSON view e&nbsp;veja se&nbsp;o&nbsp;valor está <strong>entre&nbsp;aspas</strong> (string) ou&nbsp;<strong>sem&nbsp;aspas</strong> (number/boolean).</p>
+        <div class="aviso-t">Quando o fluxo mandar o dado para o lado errado, olhe as aspas primeiro</div>
+        <p>Antes de&nbsp;mexer na&nbsp;regra, na&nbsp;condição ou&nbsp;no&nbsp;texto do&nbsp;pedido: abra o&nbsp;resultado do&nbsp;passo anterior e&nbsp;veja se&nbsp;o&nbsp;valor está entre&nbsp;aspas. <strong>Nove em&nbsp;cada dez vezes é
+        isso.</strong></p>
       </div>
     </div>
   </section>
@@ -3460,36 +3461,59 @@ code{overflow-wrap:anywhere}
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>Como funciona na&nbsp;prática</h2>
+        <h2>As&nbsp;cinco coisas que&nbsp;cabem numa&nbsp;linha</h2>
       </div>
     </div>
 
+    <div class="anatomia solta">
+      <div class="anat-cabeca">
+        <span>a ficha da Maria &middot; linha por linha</span>
+        <span>5 tipos de linha</span>
+      </div>
+
+      <div class="anat-campo"><code>"nome": "Maria"</code><span>uma palavra</span></div>
+      <div>Está entre aspas, então é texto. Vale para nome, cidade, motivo, resposta.
+      <strong>Na tela do n8n aparece com o rótulo <code>String</code>.</strong></div>
+      <div class="anat-quando">Com aspas<span>sempre</span></div>
+
+      <div class="anat-campo"><code>"idade": 32</code><span>uma quantidade</span></div>
+      <div>Sem aspas, então é número, e dá para somar, comparar e ordenar.
+      <strong>Na tela aparece como <code>Number</code>.</strong></div>
+      <div class="anat-quando">Sem aspas<span>sempre</span></div>
+
+      <div class="anat-campo"><code>"ativa": true</code><span>sim ou não</span></div>
+      <div>Só existem dois valores possíveis, e eles se escrevem <code>true</code> e
+      <code>false</code>, em inglês e sem aspas.
+      <strong>Na tela aparece como <code>Boolean</code>.</strong></div>
+      <div class="anat-quando">Sem aspas<span>sempre</span></div>
+
+      <div class="anat-campo"><code>"interesses": [...]</code><span>vários numa linha só</span></div>
+      <div>Os colchetes <code>[ ]</code> querem dizer "aqui cabe mais de um", separados por
+      vírgula. É a linha de convênios da prancheta.
+      <strong>Na tela aparece como <code>Array</code>.</strong></div>
+      <div class="anat-quando">Colchete<span>abre e fecha</span></div>
+
+      <div class="anat-campo"><code>"endereco": {...}</code><span>uma ficha dentro da ficha</span></div>
+      <div>As chaves <code>{ }</code> abrem um quadrinho separado, com linhas próprias lá
+      dentro. É o quadro do endereço, com cidade e estado.
+      <strong>Na tela aparece como <code>Object</code>.</strong></div>
+      <div class="anat-quando">Chave<span>abre e fecha</span></div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;coluna da&nbsp;direita é o&nbsp;que&nbsp;você vai ver escrito na&nbsp;ferramenta</strong>, em&nbsp;inglês. Você não&nbsp;precisa decorar os&nbsp;cinco nomes: precisa
+    reconhecê-los quando&nbsp;aparecerem, e&nbsp;saber que&nbsp;o&nbsp;de&nbsp;cima é palavra e&nbsp;o&nbsp;segundo é
+    quantidade.</p>
+
     <div class="cartao">
-      <span class="rot">Onde olhar o JSON</span>
-      <p>Cada nó executado oferece 3 modos de&nbsp;visualização do&nbsp;output (Table, JSON, Schema). O&nbsp;detalhamento está na&nbsp;aula 2: por&nbsp;enquanto&nbsp;basta saber que&nbsp;<strong>a&nbsp;aba JSON é a&nbsp;fonte de&nbsp;verdade</strong>, e&nbsp;é nela que&nbsp;se&nbsp;confere se&nbsp;um&nbsp;valor é string (com&nbsp;aspas) ou&nbsp;number
-      (sem).</p>
+      <span class="rot">Onde conferir, na prática</span>
+      <p>Todo passo que&nbsp;já&nbsp;rodou mostra o&nbsp;resultado de&nbsp;três jeitos, e&nbsp;um&nbsp;deles se&nbsp;chama
+      <strong>JSON</strong>. É nele que&nbsp;as&nbsp;aspas aparecem. Nos&nbsp;outros dois a&nbsp;máquina arruma
+      o&nbsp;resultado para&nbsp;ficar bonito de&nbsp;ler, e&nbsp;nesse arrumar <strong>as&nbsp;aspas somem da&nbsp;tela</strong>. Por&nbsp;isso o&nbsp;mesmo valor parece igual num&nbsp;modo e&nbsp;diferente no&nbsp;outro.</p>
     </div>
 
     <div class="cartao">
-      <span class="rot">JSON aninhado: objeto dentro de objeto</span>
-      <p>Quando&nbsp;o&nbsp;valor é outro JSON, você navega de&nbsp;fora pra&nbsp;dentro. No&nbsp;exemplo da&nbsp;Maria, pra&nbsp;ler a&nbsp;cidade você usa <code>{{ $json.endereco.cidade }}</code>. Vai navegando como pasta
-      dentro de&nbsp;pasta.</p>
-    </div>
-
-    <h4>Convertendo tipos quando&nbsp;precisar</h4>
-
-    <p>Quando&nbsp;você não&nbsp;consegue evitar o&nbsp;tipo errado na&nbsp;origem, converte no&nbsp;Set node ou&nbsp;na&nbsp;Expression:</p>
-
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>Conversão</th><th>Expression</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Number &rarr; String</td><td><code>{{ String($json.idade) }}</code></td></tr>
-          <tr><td>Texto pra minúsculas</td><td><code>{{ $json.email.toLowerCase() }}</code></td></tr>
-        </tbody>
-      </table>
+      <span class="rot">Para pegar o que está dentro do quadrinho</span>
+      <p>Quando&nbsp;o&nbsp;campo tem campos por&nbsp;dentro, você vai de&nbsp;fora para&nbsp;dentro, separando por&nbsp;ponto. Para&nbsp;chegar na&nbsp;cidade da&nbsp;Maria: <code>{{ $json.endereco.cidade }}</code>. É a&nbsp;mesma lógica de&nbsp;pasta dentro de&nbsp;pasta no&nbsp;computador.</p>
     </div>
   </section>
 
@@ -3498,33 +3522,34 @@ code{overflow-wrap:anywhere}
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">A demonstração</div>
-        <h2>Exemplo guiado: o&nbsp;experimento mais barato e&nbsp;valioso</h2>
+        <h2>Dois campos idênticos na&nbsp;tela, e&nbsp;só&nbsp;um&nbsp;funciona</h2>
       </div>
     </div>
 
-    <p>Crie um&nbsp;workflow simples:</p>
+    <p>Este é o&nbsp;experimento mais barato do&nbsp;bloco: leva três minutos e&nbsp;resolve um&nbsp;tipo de&nbsp;dúvida que&nbsp;costuma custar uma&nbsp;tarde.</p>
 
     <div class="demo solta">
       <div class="demo-faixa">Exemplo guiado &middot; Tipos de Teste</div>
       <div class="demo-corpo">
         <ol>
-          <li><strong>Manual Trigger</strong> &rarr; renomeie pra&nbsp;<code>▶️ Disparo</code>.</li>
-          <li><strong>Set node</strong> &rarr; renomeie pra&nbsp;<code>📦 Tipos de Teste</code>. Adicione
-          3 campos:
+          <li><strong>Manual Trigger</strong>, o&nbsp;disparo na&nbsp;mão. Renomeie para&nbsp;<code>▶️ Disparo</code>.</li>
+          <li><strong>Set</strong>, o&nbsp;passo que&nbsp;escreve campos. Renomeie para&nbsp;<code>📦 Tipos de Teste</code> e&nbsp;escreva três campos:
             <ul>
-              <li><code>idade_correta</code> = <code>32</code> &rarr; <strong>Type: Number</strong></li>
-              <li><code>idade_string</code> = <code>32</code> &rarr; <strong>Type: String</strong>
-              (mesmo valor visual!)</li>
-              <li><code>ativa</code> = <code>true</code> &rarr; <strong>Type: Boolean</strong></li>
+              <li><code>idade_correta</code> com&nbsp;o&nbsp;valor <code>32</code>, e&nbsp;escolha
+              <strong>Number</strong> na&nbsp;listinha do&nbsp;tipo</li>
+              <li><code>idade_string</code> com&nbsp;o&nbsp;valor <code>32</code>, <strong>o&nbsp;mesmo
+              valor</strong>, e&nbsp;escolha <strong>String</strong></li>
+              <li><code>ativa</code> com&nbsp;o&nbsp;valor <code>true</code>, e&nbsp;escolha
+              <strong>Boolean</strong></li>
             </ul>
           </li>
           <li>Execute (<code>Ctrl+Enter</code>).</li>
-          <li>Clique no&nbsp;nó. Vá pra&nbsp;aba <strong>JSON</strong>:</li>
+          <li>Clique no&nbsp;passo e&nbsp;vá na&nbsp;aba <strong>JSON</strong>:</li>
         </ol>
 
         <div class="prompt">
           <div class="prompt-barra">
-            <span class="prompt-rot">Output do 📦 Tipos de Teste &middot; visão JSON (execução 419)</span>
+            <span class="prompt-rot">O que aparece na aba JSON (execução 419)</span>
             <button class="btn-copiar" type="button" data-alvo="pr-b8json-out">Copiar</button>
           </div>
           <pre class="prompt-txt config" id="pr-b8json-out">{
@@ -3534,44 +3559,157 @@ code{overflow-wrap:anywhere}
 }</pre>
         </div>
 
-        <p>Compare. Na&nbsp;Table parecem iguais (<code>32</code> e&nbsp;<code>32</code>). <strong>No&nbsp;JSON,
-        um&nbsp;tem aspas, o&nbsp;outro não.</strong></p>
+        <p>Na&nbsp;aba Table os&nbsp;dois primeiros aparecem como <code>32</code> e&nbsp;<code>32</code>,
+        iguais. <strong>Aqui um&nbsp;tem aspas e&nbsp;o&nbsp;outro não.</strong>&nbsp;Foi você que&nbsp;decidiu isso,
+        na&nbsp;listinha do&nbsp;tipo, e&nbsp;é a&nbsp;única diferença entre&nbsp;eles.</p>
 
         <ol start="5">
-          <li><strong>Adicione um&nbsp;IF</strong> com&nbsp;condição <code>{{ $json.idade_correta }} &gt;
-          18</code>. &rarr; True. ✅</li>
-          <li><strong>Mude a&nbsp;condição</strong> pra&nbsp;<code>{{ $json.idade_string }} &gt; 18</code>.
-          &rarr; Resultado <strong>imprevisível</strong>, depende do&nbsp;operador. Pode ir pro False
-          mesmo sendo "32".</li>
+          <li>Agora acrescente um&nbsp;<strong>IF</strong>, o&nbsp;passo que&nbsp;separa em&nbsp;dois caminhos,
+          com&nbsp;a&nbsp;condição <code>{{ $json.idade_correta }} &gt; 18</code>. O&nbsp;item sai pelo&nbsp;caminho de&nbsp;cima. ✅</li>
+          <li>Troque só&nbsp;o&nbsp;nome do&nbsp;campo na&nbsp;condição, para&nbsp;<code>{{ $json.idade_string }} &gt; 18</code>. Mesmo valor na&nbsp;tela, resultado
+          diferente.</li>
         </ol>
 
         <div class="figura n8n">
           <img src="../_img/canvas/tipos-de-teste.svg" width="960" height="440" loading="lazy"
                alt="O canvas do n8n depois do passo 5: Disparo, Tipos de Teste e o IF idade_correta maior que 18 verdes; do IF saem dois ramos, true em cima, com o nó Ramo true verde, e false embaixo, com o nó Ramo false cinza, sem item.">
         </div>
-        <p class="fig-leg"><strong>Redesenho do canvas, a partir das execuções de teste</strong>
-        (419 e 420, 16/09/2026). No passo 5 o item saiu pelo ramo true. <strong>No passo 6, na
-        versão atual do n8n, não foi "imprevisível": o IF parou com erro</strong>, <code>Wrong
-        type: '32' is a string but was expecting a number</code>, e sugeriu ligar "Convert types
-        where required" ou converter com <code>.toNumber()</code>. É o mesmo aviso desta aula
-        dito pela ferramenta: tipo errado não passa despercebido, ele quebra.</p>
+        <p class="fig-leg"><strong>Redesenho do&nbsp;canvas, a&nbsp;partir das&nbsp;execuções de&nbsp;teste</strong>
+        (419 e&nbsp;420, 16/09/2026). No&nbsp;passo 5 o&nbsp;item saiu pelo&nbsp;caminho de&nbsp;cima.
+        <strong>No&nbsp;passo 6 a&nbsp;ferramenta parou com&nbsp;um&nbsp;aviso:</strong> <code>Wrong type: '32' is
+        a string but was expecting a number</code>, que&nbsp;em&nbsp;português é "esperava uma&nbsp;quantidade e&nbsp;recebeu uma&nbsp;palavra". Ela ofereceu duas saídas, ligar a&nbsp;conversão
+        automática ou&nbsp;converter com&nbsp;<code>.toNumber()</code>. <strong>É esta aula dita pela&nbsp;própria ferramenta.</strong></p>
 
         <div class="aviso ok">
-          <div class="aviso-t">Esse é o momento de "ah-ha"</div>
-          <p>Salve o&nbsp;workflow. Volta nele toda vez que&nbsp;aparecer "comportamento estranho do&nbsp;IF".</p>
+          <div class="aviso-t">Salve este fluxo e guarde</div>
+          <p>Ele é o&nbsp;seu&nbsp;teste de&nbsp;sanidade. Toda vez que&nbsp;uma&nbsp;condição parecer certa e&nbsp;o&nbsp;resultado sair errado, volte nele para&nbsp;lembrar o&nbsp;que&nbsp;procurar.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Peça a&nbsp;ficha pronta para&nbsp;a&nbsp;IA</h2>
+      </div>
+    </div>
+
+    <div class="destrave">
+      <div class="destrave-rot">Antes de tentar escrever à mão</div>
+      <p><strong>Ninguém escreve essa ficha do&nbsp;zero, nem quem programa.</strong> O&nbsp;que&nbsp;se&nbsp;faz
+      é descrever em&nbsp;português o&nbsp;que&nbsp;você quer guardar, pedir para&nbsp;a&nbsp;IA montar o&nbsp;formato, e&nbsp;conferir a&nbsp;resposta. O&nbsp;trabalho difícil é <strong>saber conferir</strong>, e&nbsp;você
+      acabou de&nbsp;aprender: é olhar as&nbsp;aspas.</p>
+    </div>
+
+    <p>Cole o&nbsp;pedido abaixo no&nbsp;ChatGPT, no&nbsp;Gemini ou&nbsp;no&nbsp;Claude, trocando o&nbsp;conteúdo do&nbsp;Contexto
+    pelo&nbsp;seu&nbsp;caso. Ele serve toda vez que&nbsp;uma&nbsp;ferramenta pedir um&nbsp;formato de&nbsp;resposta, o&nbsp;que&nbsp;inclui o&nbsp;formato de&nbsp;saída que&nbsp;você define quando&nbsp;um&nbsp;passo de&nbsp;IA precisa responder sempre
+    do&nbsp;mesmo jeito.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pedido pronto &middot; para a IA montar a ficha</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b8json-pedir">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b8json-pedir">[P] Você é: alguém que monta integrações entre sistemas e explica
+o que fez para quem não é da área.
+
+[C] Contexto: eu automatizo processos da minha empresa com o n8n e
+não sou programador. Preciso de um exemplo de JSON para usar num
+fluxo. O que eu quero guardar é uma solicitação de troca que chega
+pelo site: o nome de quem pediu, o número do pedido, o motivo em
+poucas palavras, se é troca ou devolução, e quantos dias faz que a
+compra foi entregue.
+
+[T] Tarefa: monte esse JSON com um exemplo preenchido, decidindo
+para cada campo se ele é texto, número ou sim/não.
+
+[F] Formato: primeiro o JSON sozinho, pronto para copiar, sem
+explicação antes nem depois. Em seguida, uma lista com uma linha
+por campo, dizendo o tipo que você escolheu e por quê.
+
+[L] Limitações: nomes de campo sem acento, sem espaço e sem letra
+maiúscula. Número de pedido é código e não quantidade, então trata
+como texto. Não acrescente campo que eu não pedi. Na dúvida sobre o
+tipo de algum campo, escolha texto e sinalize na lista que ficou em
+dúvida, em vez de decidir sozinho.
+
+[Critério de Sucesso]: eu colo esse JSON no n8n, ele aceita de
+primeira, e eu consigo explicar para outra pessoa por que cada
+campo está do jeito que está.</pre>
+    </div>
+
+    <p class="fig-leg">Repare que&nbsp;é o&nbsp;mesmo pedido de&nbsp;seis campos do&nbsp;Marco 1, aplicado a&nbsp;uma&nbsp;tarefa técnica. <strong>O&nbsp;que&nbsp;faz este pedido funcionar são as&nbsp;limitações e&nbsp;o&nbsp;formato:</strong>
+    a&nbsp;linha do&nbsp;número do&nbsp;pedido evita o&nbsp;erro mais comum, e&nbsp;a&nbsp;lista de&nbsp;justificativas obriga a&nbsp;IA a&nbsp;mostrar cada escolha, que&nbsp;é onde&nbsp;você percebe quando&nbsp;ela errou.</p>
+
+    <h4>O&nbsp;que&nbsp;conferir antes de&nbsp;usar a&nbsp;resposta</h4>
+
+    <div class="checagem">
+      <ul>
+        <li><strong>O&nbsp;que&nbsp;é código está entre&nbsp;aspas?</strong> Número de&nbsp;pedido, CPF, CEP e&nbsp;telefone precisam estar. Se&nbsp;vierem sem&nbsp;aspas, peça para&nbsp;corrigir.</li>
+        <li><strong>O&nbsp;que&nbsp;é quantidade está sem&nbsp;aspas?</strong> Dias, valores e&nbsp;notas. Se&nbsp;vierem entre&nbsp;aspas, a&nbsp;conta não&nbsp;vai fechar depois.</li>
+        <li><strong>Sim e&nbsp;não&nbsp;estão como <code>true</code> e&nbsp;<code>false</code></strong>, e&nbsp;não&nbsp;como as&nbsp;palavras <code>"sim"</code> e&nbsp;<code>"não"</code> entre&nbsp;aspas.</li>
+        <li><strong>Os&nbsp;nomes dos&nbsp;campos estão sem&nbsp;acento e&nbsp;sem&nbsp;espaço?</strong> Um&nbsp;campo
+        chamado <code>"número do pedido"</code> dá dor de&nbsp;cabeça em&nbsp;toda ferramenta que&nbsp;encostar nele depois.</li>
+        <li><strong>Cada chave aberta foi fechada?</strong> Cole o&nbsp;resultado no&nbsp;fluxo e&nbsp;execute. Se&nbsp;estiver faltando um&nbsp;fecha, a&nbsp;ferramenta avisa na&nbsp;hora.</li>
+      </ul>
+    </div>
+
+    <p>Quando&nbsp;a&nbsp;ferramenta reclamar do&nbsp;formato e&nbsp;você não&nbsp;entender a&nbsp;mensagem, o&nbsp;caminho é o&nbsp;mesmo: devolva a&nbsp;mensagem para&nbsp;a&nbsp;IA junto com&nbsp;o&nbsp;que&nbsp;você colou.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pedido pronto &middot; quando deu erro</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b8json-erro">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="pr-b8json-erro">[P] Você é: alguém que conserta formato de dado e explica o erro
+para quem não é da área.
+
+[C] Contexto: colei um JSON no n8n e ele recusou. Eu não entendi a
+mensagem que apareceu.
+O JSON que eu colei:
+[cole aqui]
+A mensagem de erro:
+[cole aqui]
+
+[T] Tarefa: descubra o que está errado, em qual linha, e conserte.
+
+[F] Formato: primeiro a explicação em português, em até três linhas
+e sem termo técnico. Depois o JSON corrigido inteiro, pronto para
+colar.
+
+[L] Limitações: não mude nenhum valor que eu escrevi, conserte só o
+formato. Não acrescente nem remova campo. Na dúvida sobre o que eu
+quis dizer em algum valor, deixe o valor como está e me pergunte no
+fim, em vez de reescrever por conta própria.
+
+[Critério de Sucesso]: eu colo o corrigido, o n8n aceita, e os
+valores continuam sendo os meus.</pre>
+    </div>
+
+    <p class="fig-leg">As&nbsp;limitações existem por&nbsp;um&nbsp;motivo. <strong>Sem&nbsp;elas a&nbsp;IA costuma
+    "melhorar" os&nbsp;seus&nbsp;dados junto com&nbsp;o&nbsp;conserto</strong>, e&nbsp;você cola de&nbsp;volta um&nbsp;conteúdo
+    que&nbsp;não&nbsp;é mais o&nbsp;seu.&nbsp;É o&nbsp;tipo de&nbsp;mudança que&nbsp;passa despercebida, porque&nbsp;o&nbsp;resultado
+    continua funcionando.</p>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo quando</div>
+      <p>Você colou o&nbsp;resultado no&nbsp;seu&nbsp;fluxo, executou, e&nbsp;na&nbsp;aba JSON cada campo apareceu do&nbsp;jeito que&nbsp;você queria: o&nbsp;número do&nbsp;pedido com&nbsp;aspas, os&nbsp;dias sem&nbsp;aspas.
+      <strong>Você conferiu sozinho, sem&nbsp;precisar perguntar a&nbsp;ninguém se&nbsp;estava certo.</strong></p>
     </div>
   </section>
 
   <div class="ate-aqui">
     <div class="ate-aqui-rot">A aula acaba aqui</div>
   </div>
-  <p class="ate-aqui-nota">Os&nbsp;cinco tipos, a&nbsp;regra-mãe e&nbsp;o&nbsp;experimento das&nbsp;aspas na&nbsp;sua&nbsp;conta. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco pegadinhas, e&nbsp;todas são o&nbsp;tipo de&nbsp;dado de&nbsp;novo.</p>
+  <p class="ate-aqui-nota">A&nbsp;ficha, a&nbsp;regra das&nbsp;aspas, o&nbsp;experimento e&nbsp;o&nbsp;pedido pronto para&nbsp;a&nbsp;IA. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco tropeços comuns, e&nbsp;todos são a&nbsp;mesma
+  regra aparecendo de&nbsp;um&nbsp;jeito diferente.</p>
 
   <section class="secao" id="cerca">
     <div class="secao-topo">
-      <div class="secao-n">05</div>
+      <div class="secao-n">06</div>
       <div>
         <div class="secao-fn">A cerca</div>
         <h2>Pegadinhas</h2>
@@ -3579,32 +3717,34 @@ code{overflow-wrap:anywhere}
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Tudo no n8n é array</div>
-      <p>Mesmo que&nbsp;você veja "1 item", aquele item está dentro de&nbsp;um&nbsp;array. Detalhamento na&nbsp;aula 2.</p>
+      <div class="aviso-t">Sim e não escritos por extenso não valem</div>
+      <p>Quando&nbsp;um&nbsp;sistema de&nbsp;fora manda <code>"true"</code> entre&nbsp;aspas, aquilo virou
+      palavra, e&nbsp;a&nbsp;regra que&nbsp;espera sim ou&nbsp;não&nbsp;deixa de&nbsp;funcionar. Palavra que&nbsp;parece sim
+      continua sendo palavra.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Aspas matam</div>
-      <p><code>"32"</code> &ne; <code>32</code>. Sempre confira o&nbsp;tipo no&nbsp;JSON view antes de&nbsp;criar
-      IF/Switch.</p>
+      <div class="aviso-t">Campo vazio não é zero</div>
+      <p>Quando&nbsp;um&nbsp;campo numérico chega vazio, ele não&nbsp;vale zero: ele vale nada
+      (<code>null</code>). E&nbsp;comparar nada com&nbsp;um&nbsp;número dá falso, sempre. O&nbsp;item some do&nbsp;filtro sem&nbsp;reclamar. Trate o&nbsp;campo vazio antes de&nbsp;comparar.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Object aninhado vira fonte de confusão</div>
-      <p><code>{{ $json.pessoa.endereco.cidade }}</code>: e&nbsp;se&nbsp;<code>endereco</code> for null?
-      Quebra.</p>
+      <div class="aviso-t">O quadrinho de dentro pode não existir</div>
+      <p><code>{{ $json.pessoa.endereco.cidade }}</code> funciona enquanto&nbsp;o&nbsp;endereço estiver
+      lá. No&nbsp;cadastro em&nbsp;que&nbsp;a&nbsp;pessoa não&nbsp;preencheu endereço, o&nbsp;fluxo quebra nessa linha.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">Set node respeita o Type que você escolhe</div>
-      <p>Se&nbsp;você define um&nbsp;campo como String e&nbsp;bota <code>32</code>, vai sair <code>"32"</code>.
-      Cuidado.</p>
+      <div class="aviso-t">A ferramenta obedece o tipo que você escolheu, não o que você quis dizer</div>
+      <p>Se&nbsp;você escreve <code>32</code> num&nbsp;campo e&nbsp;deixa a&nbsp;listinha em&nbsp;<strong>String</strong>,
+      sai <code>"32"</code> com&nbsp;aspas. Ela não&nbsp;adivinha, e&nbsp;não&nbsp;avisa.</p>
     </div>
 
     <div class="aviso atencao">
-      <div class="aviso-t">API que retorna <code>null</code> em campo numérico</div>
-      <p>A&nbsp;Expression retorna <code>null</code>. Comparações com&nbsp;null geralmente retornam
-      <code>false</code>. Trate antes do&nbsp;IF.</p>
+      <div class="aviso-t">Tudo chega em lista, mesmo quando é um só</div>
+      <p>Mesmo vendo "1 item" na&nbsp;tela, aquele item está dentro de&nbsp;uma&nbsp;lista. Isso explica
+      várias estranhezas, e&nbsp;é o&nbsp;assunto da&nbsp;próxima aula.</p>
     </div>
   </section>
 

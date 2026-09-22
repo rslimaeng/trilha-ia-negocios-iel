@@ -554,12 +554,18 @@ PAGINAS = {
                  (None, "Execução")],
     ),
     "b8-json": dict(
-        # conceito-ancora. Analogia das etiquetas. Experimento rodou (execucoes 419 e 420: o IF 2.3 estrito da erro de tipo).
+        # conceito-ancora. Reescrita em 22/09 a pedido do Rafael ("bem didatica, tipo
+        # para pessoa de 5 anos, sem o linguajar") e com a secao 05 nova, de pedir o
+        # formato para a IA. Analogia da ficha de cadastro (era a das etiquetas, que
+        # nao voltava depois). Experimento rodou (execucoes 419 e 420: o IF 2.3
+        # estrito da erro de tipo). O texto do Notion (M3 Topico 1) esta preservado
+        # no vault; aqui ele foi traduzido, nao cortado: os 5 tipos, a regra-mae e
+        # as 5 pegadinhas continuam os dele, com o nome tecnico ao lado da traducao.
         tipo="fundamento",
         titulo="Aula 1 · JSON e tipos de dados",
         kicker="Módulo 2 · B8 · Execução",
         h1="JSON e tipos de dados",
-        sub="Os 5 tipos + a regra-mãe (string vs number). O experimento mais barato e valioso do bloco.",
+        sub="A ficha que as ferramentas trocam entre si, a regra das aspas, e como pedir o formato pronto para a IA.",
         selos=['Aula-âncora', 'Conceito-âncora'],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-2/", "Módulo 2"),
