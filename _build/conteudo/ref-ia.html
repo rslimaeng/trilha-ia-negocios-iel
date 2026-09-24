@@ -1,0 +1,138 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A regra de ouro</div>
+        <h2>AI Agent só quando tem ferramenta</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Para todo o resto, existe um nó mais simples, mais rápido e mais barato.</strong></p>
+    </div>
+
+    <p>Quem coloca tudo no AI Agent paga mais, porque o ciclo de raciocínio consome mais, e demora
+    mais. Os cinco nós especializados <strong>fazem uma coisa bem feita</strong>, com o prompt já
+    calibrado por dentro.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Tabela de escolha</div>
+        <h2>Os 6 nós de IA</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Nó</th><th>Para que serve</th><th>Quando usar</th><th>Pegadinha</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>AI Agent</strong></td><td>Agente com ferramentas: raciocina e age</td><td>Integrar com sistemas externos</td><td>Sem ferramenta, vira chat genérico que finge fazer coisas</td></tr>
+          <tr><td><strong>Basic LLM Chain</strong></td><td>Análise ou redação de texto livre</td><td>Resumir e-mail, redigir resposta, classificar com instrução própria</td><td>Mais barato que o Agent: use quando não precisa de ferramenta</td></tr>
+          <tr><td><strong>Information Extractor</strong></td><td>Extrai campos de um texto solto</td><td>Puxar nome, telefone e cargo de um currículo ou e-mail corrido</td><td>Sem definir os campos de saída, vira um Basic LLM Chain</td></tr>
+          <tr><td><strong>Text Classifier</strong></td><td>Classifica em categorias fixas</td><td>"Isso é reclamação, elogio ou dúvida?"</td><td>Sempre defina o conjunto fechado de categorias</td></tr>
+          <tr><td><strong>Sentiment Analysis</strong></td><td>Avalia o tom emocional</td><td>Positivo, negativo ou neutro, sem configurar nada</td><td>Não distingue ironia nem contexto cultural: valide em português</td></tr>
+          <tr><td><strong>Summarization Chain</strong></td><td>Resume textos longos</td><td>Relatório de 10 páginas virando um parágrafo</td><td>Pode perder informação importante: teste com texto real</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A pegadinha do primeiro é a mais cara das seis</strong>, porque ela
+    não dá erro: o agente sem ferramenta responde bonito e não faz nada.</p>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Decisão rápida</div>
+        <h2>A árvore para escolher</h2>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">A regra de ouro, como está no material</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-refia-arv">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-refia-arv">Precisa que o agente AJA em sistemas externos?
+└─ SIM → AI Agent
+└─ NÃO → Vai gerar texto livre?
+          └─ SIM → Basic LLM Chain
+          └─ NÃO → Vai extrair campos estruturados?
+                   └─ SIM → Information Extractor
+                   └─ NÃO → Vai classificar em categorias?
+                            └─ SIM → Text Classifier
+                            └─ Se for tom emocional → Sentiment Analysis
+                            └─ Se for resumir texto longo → Summarization Chain</pre>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Em resumo</span>
+        <ul class="lista">
+          <li>Só <strong>resumir, classificar ou extrair</strong>? Nó especializado.</li>
+          <li><strong>Conversar e executar ações</strong>? AI Agent.</li>
+          <li>Precisa <strong>lembrar entre mensagens</strong>? AI Agent com memória e Session ID
+          dinâmico.</li>
+          <li>Precisa <strong>buscar em base grande</strong>? É trilha avançada, fora deste
+          curso.</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">O template de System Prompt</span>
+        <ul class="lista">
+          <li><code>ROLE</code>, quem você é</li>
+          <li><code>GOAL</code>, o que precisa entregar</li>
+          <li><code>TOOLS</code>, o que pode usar</li>
+          <li><code>RULES</code>, o que sempre e o que nunca fazer</li>
+          <li><code>NOTES</code>, contexto extra, como a data de hoje</li>
+          <li><code>OUTPUT</code>, o formato da resposta</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">Modelos</div>
+        <h2>O que o material recomendava para quem começa</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Custo</th><th>Qualidade</th><th>Quando usar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GPT-4o-mini</td><td>Baixo</td><td>Boa</td><td>Padrão. O material estima 80% dos casos</td></tr>
+          <tr><td>GPT-4o</td><td>Médio</td><td>Alta</td><td>Tarefas complexas, raciocínio longo</td></tr>
+          <tr><td>Claude Sonnet</td><td>Médio</td><td>Alta</td><td>Texto longo, raciocínio com nuance</td></tr>
+          <tr><td>Gemini Flash</td><td>Baixo</td><td>Boa</td><td>Integração com as ferramentas do Google</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esta é a tabela que envelhece mais rápido de todo o site</div>
+      <p>Os quatro nomes são <strong>afirmação do material, de abril de 2026</strong>. Nomes de
+      modelo mudam em questão de meses. <strong>Confira na tela quais a sua conta oferece hoje</strong>;
+      o que não muda é o critério: modelo barato para extrair e classificar, modelo caro só quando a
+      tarefa é raciocinar ou redigir.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>A aula:</strong> <a href="../b10-agentes/">B10, AI Agents</a>, com as sete aulas, e
+    em especial a <a href="../b10-semagent/">aula 6, IA sem Agent</a>. Os conceitos estão no
+    <a href="../glossario/">glossário</a>. Todas as referências estão em
+    <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

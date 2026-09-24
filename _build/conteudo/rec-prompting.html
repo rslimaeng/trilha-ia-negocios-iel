@@ -1,0 +1,133 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A ideia</div>
+        <h2>Você testa primeiro, instrui depois</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Comece com o System Prompt vazio. Teste. Adicione 1 linha para corrigir o que
+      observou. Teste de novo. Repita.</strong></p>
+    </div>
+
+    <div class="analogia">
+      <div class="analogia-rot">É como treinar um funcionário novo</div>
+      <p>Você não escreve o manual completo do funcionário antes de vê-lo trabalhar. Observa, vê o
+      que ele faz errado, e corrige uma instrução por vez. <strong>System Prompt funciona
+      igual.</strong></p>
+      <ul class="analogia-mapa">
+        <li><strong>O primeiro dia sem manual</strong> é o prompt vazio, que mostra o comportamento
+        padrão</li>
+        <li><strong>Observar ele atender</strong> é rodar com uma entrada real e ler a saída</li>
+        <li><strong>A correção pontual</strong> é a linha que você acrescenta</li>
+        <li><strong>O manual que existe no fim</strong> é o prompt, que ninguém teria escrito certo
+        de primeira</li>
+      </ul>
+    </div>
+
+    <p>Tentar escrever o prompt "perfeito" antes de qualquer teste quase sempre gera um agente que
+    funciona nos <strong>seus exemplos imaginários</strong> e falha nos casos reais.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O ciclo</div>
+        <h2>Seis passos, e o último volta ao terceiro</h2>
+      </div>
+    </div>
+
+    <div class="ciclo solta">
+      <div class="ciclo-passos">
+        <div class="cc"><span class="cc-n">1</span><span class="cc-fn">System Prompt vazio</span></div>
+        <span class="cc-seta">&rarr;</span>
+        <div class="cc"><span class="cc-n">2</span><span class="cc-fn">Adicione 1 ferramenta e teste com 1 entrada real</span></div>
+        <span class="cc-seta">&rarr;</span>
+        <div class="cc"><span class="cc-n">3</span><span class="cc-fn">Observe: está no formato esperado? travou?</span></div>
+        <span class="cc-seta">&rarr;</span>
+        <div class="cc"><span class="cc-n">4</span><span class="cc-fn">Acrescente 1 linha que corrija aquilo</span></div>
+        <span class="cc-seta">&rarr;</span>
+        <div class="cc"><span class="cc-n">5</span><span class="cc-fn">Teste com a mesma entrada</span></div>
+      </div>
+      <div class="ciclo-fecha">e volte ao passo 3, até o comportamento ficar consistente</div>
+    </div>
+
+    <p class="fig-leg"><strong>O passo 5 usa a mesma entrada de propósito.</strong> Trocar a entrada
+    junto com o prompt é mudar duas coisas ao mesmo tempo, e aí você não sabe o que resolveu.</p>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A tabela de consulta</div>
+        <h2>O que você observou, e a linha para acrescentar</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O que observou</th><th>Linha para acrescentar no System Prompt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Respondeu em texto livre, e você queria campos separados</td><td><code>Retorne APENAS um JSON válido, sem texto antes ou depois.</code></td></tr>
+          <tr><td>O JSON veio dentro de um bloco de código</td><td><code>Não inclua blocos de código markdown. Apenas o JSON puro.</code></td></tr>
+          <tr><td>Inventou informação que não existia</td><td><code>Se uma informação não estiver presente no input, responda "Informação não fornecida". Nunca invente.</code></td></tr>
+          <tr><td>Não usou uma ferramenta disponível</td><td><code>Você tem acesso à ferramenta {nome}. Use-a sempre que precisar de {finalidade}.</code></td></tr>
+          <tr><td>Resposta longa demais</td><td><code>Seja conciso. Máximo {N} palavras na resposta.</code></td></tr>
+          <tr><td>Mudou o formato entre uma execução e outra</td><td><code>Sempre retorne exatamente esta estrutura: {schema}</code></td></tr>
+          <tr><td>Misturou dados de execuções diferentes</td><td>Não é prompt: o <strong>Session ID</strong> está fixo. Ver <a href="../glossario/">o glossário</a></td></tr>
+          <tr><td>Respondeu em inglês</td><td><code>Sempre responda em português brasileiro.</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A penúltima linha é a única que não se resolve com prompt.</strong>
+    Reconhecer isso economiza a tarde que se perde reescrevendo instrução para um problema que é de
+    configuração.</p>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">As regras de ouro</div>
+        <h2>Quatro, e a primeira é a que mais se quebra</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">1 · Nunca mude duas coisas ao mesmo tempo</span>
+        <p>Se mudar prompt <strong>e</strong> ferramenta <strong>e</strong> modelo, e parar de
+        funcionar, você não sabe o que quebrou. Mude uma, teste, observe.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">2 · Guarde as versões anteriores</span>
+        <p>Salve cada versão do prompt num arquivo. Quando uma alteração quebra o agente,
+        <strong>você volta em segundos</strong>.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">3 · Teste com caso de borda cedo</span>
+        <p>Se o agente só funciona com entrada perfeita, vai quebrar em produção. Use uma entrada
+        incompleta <strong>antes</strong> de declarar pronto.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">4 · Isto nunca termina</span>
+        <p>O prompt evolui com o uso real. <strong>Aceitar isso é o que separa o agente que funciona
+        uma vez do que funciona sempre.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Veja também:</strong> <a href="../b10-prompt/">B10, aula 3: System prompt
+    estruturado</a>, onde a metodologia é apresentada, e
+    <a href="../rec-validacao/">As 3 conferências</a>, que confirmam que o agente está pronto.
+    Todas as páginas de apoio estão em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

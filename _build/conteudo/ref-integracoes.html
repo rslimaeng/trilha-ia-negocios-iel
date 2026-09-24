@@ -1,0 +1,62 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Tabela de escolha</div>
+        <h2>Os nós que conectam o n8n ao mundo</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Nó</th><th>Para quê</th><th>Operações principais</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>HTTP Request</strong></td><td>Chamar qualquer API</td><td>GET, POST, PUT, DELETE</td></tr>
+          <tr><td><strong>Gmail</strong></td><td>Enviar e ler e-mail</td><td>Send Message, Get Message, Reply</td></tr>
+          <tr><td><strong>Google Sheets</strong></td><td>Ler e escrever em planilha</td><td>Append Row, Get Rows, Update Row</td></tr>
+          <tr><td><strong>Google Drive</strong></td><td>Gerenciar arquivos</td><td>Upload, Download, Move, Share</td></tr>
+          <tr><td><strong>Google Calendar</strong></td><td>Eventos e disponibilidade</td><td>Create Event, Get Events, Update</td></tr>
+          <tr><td><strong>Google Contacts</strong></td><td>Buscar contato por nome</td><td>Get Many</td></tr>
+          <tr><td><strong>Telegram</strong></td><td>Bot conversacional de verdade</td><td>Send Message, Get File</td></tr>
+          <tr><td><strong>Respond to Webhook</strong></td><td>Devolver uma resposta customizada</td><td>uma só</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Credenciais</div>
+        <h2>Os quatro tipos, e onde cada um aparece</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Tipo</th><th>Comum em</th></tr></thead>
+        <tbody>
+          <tr><td><strong>OAuth2</strong>, o login por janela do próprio app</td><td>Gmail, Sheets, Drive, Calendar, Contacts</td></tr>
+          <tr><td><strong>API Key</strong>, um código que você cola</td><td>Modelos de IA, Telegram</td></tr>
+          <tr><td><strong>Basic Auth</strong>, usuário e senha</td><td>Sistemas antigos, intranet</td></tr>
+          <tr><td><strong>Header Auth</strong>, um código em campo customizado</td><td>APIs com token próprio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Nomeie cada credencial com a conta dentro do nome</div>
+      <p>Não "Gmail account", e sim algo que diga <strong>qual conta é</strong>. É o antídoto da
+      pegadinha 4 das <a href="../rec-pegadinhas/">pegadinhas comuns</a>: ação executada na conta
+      errada.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>A aula:</strong> <a href="../b9-apis/">B9, APIs e webhooks</a>, e em especial a
+    <a href="../b9-credenciais/">aula 3, sobre credenciais</a>. Todas as referências estão em
+    <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

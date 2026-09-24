@@ -1389,6 +1389,13 @@ DISPENSA_NOTION_LITERAL = {
     # hub. O B12 tem duas aulas de consulta, sem entregavel proprio.
     # G44 continua sendo DISPENSA DO EXECUTOR, como no B7 e no B8: Rafael decide.
     # ---------------------------------------------------------------------
+    # 24/09, Recursos do aluno. O Mapa de Capacidades e o ALUNO se avaliando na
+    # 1a pessoa ("Leio um JSON", "Explico a diferenca", "Construi o fluxo"), nao o
+    # instrutor narrando. Mesma decisao ja tomada em b6-fundamentos (16/09) e em
+    # b8-execucao, e aqui a pagina e o mapa inteiro, do M0 ao M6.
+    "rec-mapa/index.html": {
+        "G33": "o Mapa de Capacidades e o aluno na 1a pessoa ('Leio', 'Explico'), nao o instrutor",
+    },
     "b11-agendador/index.html": {
         "G1": "o System Prompt do Projeto D e literal do autor, num bloco copiavel",
     },

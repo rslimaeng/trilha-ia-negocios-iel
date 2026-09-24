@@ -1,0 +1,92 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Para que serve</div>
+        <h2>Antes de pedir ajuda, passe por esta lista</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Cinco problemas respondem pela maioria dos "não está funcionando".
+      <strong>Cada um tem um sintoma reconhecível e um antídoto de um passo.</strong></p>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">As cinco</div>
+        <h2>Sintoma e antídoto</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th></th><th>O sintoma</th><th>O antídoto</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong><br>Fluxo não está ativo</td>
+            <td>Funciona ao testar, mas não dispara em produção.</td>
+            <td>Ligue o botão <strong>Active</strong>. Schedule, Webhook, Form e evento de aplicativo só rodam com o fluxo ativo.</td>
+          </tr>
+          <tr>
+            <td><strong>2</strong><br>Tipo de dado errado</td>
+            <td>Comparação dá falso quando deveria dar verdadeiro. Soma vira junção de texto: <code>"32" + 1</code> dá <code>"321"</code> em vez de <code>33</code>.</td>
+            <td>Veja a aba <strong>JSON</strong>. Com aspas é palavra, sem aspas é número. Use o Set para forçar o tipo certo.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong><br>URL de teste em vez de produção</td>
+            <td>O webhook funciona enquanto você clica em "Listen for Test Event", e para quando ativa.</td>
+            <td>Depois de ativar, copie a <strong>Production URL</strong> e atualize na ferramenta externa.</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong><br>Credenciais misturadas</td>
+            <td>Erro de credencial não encontrada, ou ação executada na conta errada.</td>
+            <td>Nomeie cada credencial de forma clara, com a conta dentro do nome. Confira qual está selecionada em cada nó antes de testar.</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong><br>Tudo no n8n é lista</td>
+            <td>O nó seguinte roda várias vezes quando você esperava uma, ou falha ao acessar um campo direto.</td>
+            <td>Abra a aba <strong>JSON</strong> do nó anterior. Se vê colchetes com vários blocos dentro, é lista, e o n8n roda o próximo nó <strong>uma vez por item</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A 2 e a 5 são a mesma habilidade:</strong> saber ler a forma do dado
+    na aba JSON. As duas estão explicadas na <a href="../b8-json/">aula 1</a> e na
+    <a href="../b8-dados/">aula 2 do B8</a>.</p>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Quando nada resolve</div>
+        <h2>Os quatro passos seguintes</h2>
+      </div>
+    </div>
+
+    <div class="checagem">
+      <ul>
+        <li>Olhe o painel de <strong>Executions</strong>: onde travou?</li>
+        <li>Olhe o <strong>que entrou</strong> no nó que falhou, e não o que saiu.</li>
+        <li>Rode de novo <strong>a partir daquele nó</strong>, com os dados pinados.</li>
+        <li>Procure no fórum oficial da ferramenta: <strong>quase tudo já foi perguntado</strong>.</li>
+      </ul>
+    </div>
+
+    <p class="fig-leg">O segundo passo é o que mais economiza tempo, e é contra a intuição. A versão
+    longa está na <a href="../b11-debug/">aula 1 do B11</a>.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Veja também:</strong> <a href="../b11-debug/">B11, aula 1: Debugging de execuções</a>,
+    a versão expandida, e o <a href="../rec-checklist/">Checklist do iniciante</a>. Todas as páginas
+    de apoio estão em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

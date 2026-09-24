@@ -1,0 +1,134 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Para que serve</div>
+        <h2>"Parece funcionar" não é validação</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Antes de declarar um fluxo pronto, ele tem que passar nos <strong>três pontos</strong>
+      abaixo. Sem exceção.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Os três pontos</div>
+        <h2>Um de cada vez, nesta ordem</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">1 · Nenhum nó vermelho</span>
+        <p>Abra o painel de execuções e olhe a última. Todos os nós estão verdes ou cinza?
+        <strong>Vermelho é erro</strong>, mesmo que o resultado pareça ter chegado.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">2 · O resultado tem o formato esperado</span>
+        <p>Olhe o resultado do último nó. Os campos esperados estão lá? Os valores fazem sentido?
+        <strong>Os tipos estão certos?</strong></p>
+      </div>
+      <div class="cartao">
+        <span class="rot">3 · O caso de borda foi testado</span>
+        <p>Rode com entrada fora do padrão. <strong>Caso de borda é mais comum que caso
+        perfeito.</strong></p>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O erro do ponto 2 que mais passa despercebido</div>
+      <p>A IA devolveu <code>"score": "85"</code>, com aspas, em vez de <code>"score": 85</code>.
+      <strong>O fluxo não dá erro</strong>, mas a comparação <code>score &gt; 70</code> no IF
+      seguinte falha em silêncio. É o assunto da <a href="../b8-json/">aula 1 do B8</a>.</p>
+    </div>
+
+    <h4>O ponto 3, em quatro perguntas</h4>
+
+    <div class="checagem">
+      <ul>
+        <li>E se o campo vier <strong>vazio</strong>?</li>
+        <li>E se a IA devolver um formato <strong>inesperado</strong>?</li>
+        <li>E se a planilha tiver <strong>0 linhas</strong>?</li>
+        <li>E se o texto tiver <strong>acento ou emoji</strong>?</li>
+      </ul>
+    </div>
+
+    <p class="fig-leg"><strong>Se o fluxo só funciona com entrada perfeita, ele vai quebrar em
+    produção.</strong> A pergunta não é se a entrada imperfeita vai chegar, é quando.</p>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Quando aplicar</div>
+        <h2>Obrigatório e recomendado</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Obrigatório ao final de</span>
+        <ul class="lista">
+          <li>Todo fluxo prático de uma aula</li>
+          <li>Todo projeto do <a href="../b11-massa/">B11</a></li>
+          <li>Qualquer fluxo antes de ativar em produção</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Recomendado</span>
+        <p>Depois de cada bloco novo, mesmo durante a construção.
+        <strong>Pegar erro cedo é mais barato que pegar tarde.</strong></p>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Para colar no comentário do fluxo</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-recval-chk">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-recval-chk">☐ Nenhum nó vermelho na última execução
+☐ Output final tem todos os campos esperados, com tipos corretos
+☐ Caso de borda testado: __________________ (descrever)
+☐ Resultado do caso de borda: ____________________</pre>
+    </div>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">Quando falha</div>
+        <h2>Sintoma e onde olhar</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Sintoma</th><th>Onde provavelmente está o problema</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nó vermelho com erro de credencial</td><td>Reconfigurar a credencial do nó: o acesso pode ter expirado</td></tr>
+          <tr><td>Resultado vazio, sem erro</td><td>Merge no modo errado, ou Limit node esquecido</td></tr>
+          <tr><td>Tipo de dado errado</td><td>Falta conversão: use o Set com <code>Number()</code> ou <code>String()</code></td></tr>
+          <tr><td>O agente não chama uma ferramenta</td><td>A ferramenta não está mencionada no System Prompt. Ver <a href="../rec-prompting/">Reactive Prompting</a></td></tr>
+          <tr><td>Funciona às vezes, falha às vezes</td><td>Caso de borda não tratado</td></tr>
+          <tr><td>Mensagem chega com dado de outra pessoa</td><td>Session ID fixo. Ver <a href="../glossario/">o glossário</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Veja também:</strong> <a href="../rec-prompting/">Reactive Prompting</a>, que é como
+    se chega num agente estável, e <a href="../b11-debug/">B11, aula 1: Debugging</a>, que é o que
+    fazer quando a conferência falha. Todas as páginas de apoio estão em
+    <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

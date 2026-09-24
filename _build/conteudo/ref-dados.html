@@ -1,0 +1,63 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Tabela de escolha</div>
+        <h2>Nós para mexer no dado entre uma etapa e outra</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Nó</th><th>Quando usar</th><th>Pegadinha</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Set / Edit Fields</strong></td><td>Criar, renomear e transformar campos</td><td>Com <code>Keep Only Set</code> ligado, ele descarta o que entrou</td></tr>
+          <tr><td><strong>Code</strong></td><td>Lógica que o Set não dá conta</td><td>Não use se o Set resolve: é trilha avançada</td></tr>
+          <tr><td><strong>Split Out</strong></td><td>Quebrar uma lista em vários itens, um por linha</td><td>Se confunde com o Split In Batches, que é outra coisa</td></tr>
+          <tr><td><strong>Aggregate</strong></td><td>Juntar vários itens em um só. É o oposto do Split Out</td><td>Sai de vários blocos para um bloco com a lista dentro</td></tr>
+          <tr><td><strong>Item Lists</strong></td><td>Operações sobre listas: ordenar, limitar, tirar repetido</td><td>Os limites mudam conforme o modo escolhido</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Os dois conceitos que sustentam esta tabela</div>
+      <p><strong>Palavra não é o mesmo que número</strong>, e sempre se confere na aba JSON. E
+      <strong>o formato padrão entre nós é uma lista de fichas</strong>. Os dois estão na
+      <a href="../b8-json/">aula 1</a> e na <a href="../b8-dados/">aula 2 do B8</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Consulta rápida</div>
+        <h2>As expressões mais usadas</h2>
+      </div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Expressões úteis, do material</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-refdad-ex">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-refdad-ex">{{ $json.campo }}                     valor do campo no item atual
+{{ $node["NomeDoNo"].json.campo }}    valor de outro nó
+{{ $now }}                            agora
+{{ $now.toFormat('yyyy-MM-dd') }}     formatar data
+{{ $json.nome.toLowerCase() }}        função de texto
+{{ $json.preco * 1.1 }}               operação</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A segunda linha é a que salva o dia</strong> quando o campo que você
+    precisa ficou três nós atrás. É ela que evita a caçada descrita no
+    <a href="../b11-curriculos/">Projeto A</a>.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>A aula:</strong> <a href="../b8-execucao/">B8, Execução</a>, com as nove aulas.
+    Todas as referências estão em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

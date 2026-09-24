@@ -1,0 +1,157 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Para que serve</div>
+        <h2>Este curso entrega a base</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Sete caminhos para avançar depois. <strong>Cada um tem um "para quem"</strong>, e nenhum
+      deles é o próximo passo de todo mundo.</p>
+    </div>
+
+    <p>Leia a coluna do "para quem" antes da descrição. O caminho certo não é o mais avançado:
+    é o que resolve o problema que você já está tendo.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Os sete caminhos</div>
+        <h2>E para quem cada um serve</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Caminho</th><th>O que é</th><th>Para quem</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Multi-agent</strong></td>
+            <td>Um agente gerente que delega para agentes especializados, em vez de um só com muitas ferramentas.</td>
+            <td>Fluxo com 5 ou mais ferramentas que confunde o agente único.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Busca em base própria</strong></td>
+            <td>Conectar o modelo a uma base de conhecimento sua, para ele responder com o <strong>seu</strong> conteúdo, e não com a média da internet.</td>
+            <td>Atendimento com FAQ grande; pesquisa em arquivo extenso; consultoria com documentação privada.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Rodar no seu servidor</strong></td>
+            <td>n8n no seu próprio servidor: zero custo por execução, controle total, mais responsabilidade.</td>
+            <td>Quem quer volume alto sem pagar por execução, ou manter o dado fora de nuvem de terceiro, e já tem familiaridade com terminal.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Nó de código</strong></td>
+            <td>Escrever lógica própria quando os nós prontos não bastam.</td>
+            <td>Quem já tem alguma noção de programação e está esbarrando nos limites de arrastar e soltar.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Arquitetura modular</strong></td>
+            <td>Vários fluxos pequenos chamando uns aos outros, em vez de um gigante.</td>
+            <td>Fluxo que virou um monstro de 30 nós, ou necessidade de reusar lógica em vários lugares.</td>
+          </tr>
+          <tr>
+            <td><strong>6. Escalonamento</strong></td>
+            <td>Preparar a instalação para volume altíssimo, na casa de milhares de execuções por minuto.</td>
+            <td>Quem vende automação como produto, ou processa dados de loja em escala.</td>
+          </tr>
+          <tr>
+            <td><strong>7. Assistente conectado ao n8n</strong></td>
+            <td>Um assistente de IA com acesso ao seu n8n em tempo real, que itera no fluxo em vez de gerar uma vez só.</td>
+            <td>Quem já dominou os fundamentos e quer escalar a velocidade de construção.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O caminho 5 é o único que já está neste site:</strong> é a
+    <a href="../b12-subworkflows/">aula 1 do B12</a>. Os outros seis são trilha para depois.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">O caminho 2 tem nome técnico, e ele aparece no curso sem o nome</div>
+      <p>O <a href="../b11-faq/">Projeto C, o bot de FAQ</a>, resolve o mesmo problema com a base
+      escrita dentro do prompt. <strong>A hora de trocar</strong> está lá: quando a FAQ passar de
+      algo em torno de 10 mil palavras, quando o custo por chamada pesar, ou quando você quiser que
+      a base atualize sozinha.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">O caminho 7, em detalhe</div>
+        <h2>A diferença entre gerar uma vez e construir junto</h2>
+      </div>
+    </div>
+
+    <p>Na <a href="../b11-cocriar/">aula 5 do B11</a> você viu que dá para descrever um processo em
+    linguagem natural e gerar o fluxo base. <strong>Aquilo é o começo.</strong> A diferença:</p>
+
+    <div class="contraste">
+      <div class="ctr e"><span class="ctr-selo">Hoje</span>
+        <h4>Você descreve, a IA gera uma vez, você ajusta à mão</h4>
+        <p>Cada mudança pede o fluxo inteiro de novo, e ela não tem como conferir nada do que
+        escreveu.</p></div>
+      <div class="ctr e"><span class="ctr-selo">O degrau</span>
+        <h4>Ciclo contínuo, com acesso ao seu n8n</h4>
+        <p>A IA lê os tipos de nó ao vivo, confere a versão certa, valida antes de criar, e itera
+        no fluxo que já existe.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Um atalho para quem não fez o curso</h4>
+        <p><strong>Não pula etapas.</strong> Sem os fundamentos, a IA constrói algo que você não
+        consegue manter.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Automático</h4>
+        <p>As credenciais continuam suas, os identificadores continuam seus, e a decisão de ativar
+        continua sua.</p></div>
+    </div>
+
+    <p class="fig-leg">O material registra que <strong>há um aprofundamento em construção pelo
+    autor</strong> sobre esse caminho, voltado a quem terminou este curso.</p>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">Onde continuar</div>
+        <h2>Três endereços que o material indica</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Comunidade</span>
+        <p><code>community.n8n.io</code>, o fórum oficial. Quase toda dúvida de iniciante já foi
+        perguntada lá.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Modelos prontos</span>
+        <p><code>n8n.io/workflows</code>, com milhares de fluxos prontos para adaptar. Bom para ler
+        como outra pessoa resolveu.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Documentação</span>
+        <p><code>docs.n8n.io</code>, que é onde se confere o parâmetro e a versão atual de cada
+        nó.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg">A documentação é a que mais importa depois do curso, e por um motivo
+    específico: <strong>é ela que resolve o erro nº 4 da <a href="../b11-cocriar/">aula 5 do
+    B11</a></strong>, o da versão de nó que a IA chuta.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Veja também:</strong> o <a href="../rec-mapa/">Mapa de Capacidades</a>. O que ficou
+    em "preciso de mais prática" costuma apontar melhor o próximo passo do que esta lista. Todas as
+    páginas de apoio estão em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

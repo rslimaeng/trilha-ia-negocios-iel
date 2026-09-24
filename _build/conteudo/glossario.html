@@ -1,0 +1,276 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Como usar</div>
+        <h2>Onze conceitos, em três grupos</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Use <code>Ctrl+F</code>, ou <code>Cmd+F</code> no Mac, para achar o termo.
+      <strong>Esta página não se lê de ponta a ponta.</strong></p>
+    </div>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Esqueleto do n8n</span>
+        <ul class="lista">
+          <li><a href="#workflow">Workflow</a>, o fluxo completo</li>
+          <li><a href="#node">Node</a>, o bloco de ação</li>
+          <li><a href="#trigger">Trigger</a>, o que dispara</li>
+          <li><a href="#execution">Execution</a>, uma rodada</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Dados e configuração</span>
+        <ul class="lista">
+          <li><a href="#credential">Credential</a>, a chave de acesso</li>
+          <li><a href="#expression">Expression</a>, o campo dinâmico</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">IA</span>
+        <ul class="lista">
+          <li><a href="#ai-agent">AI Agent</a>, o que decide e age</li>
+          <li><a href="#tool">Tool</a>, a ação que ele chama</li>
+          <li><a href="#memory">Memory</a>, o contexto da conversa</li>
+          <li><a href="#session-id">Session ID</a>, o que separa conversas</li>
+          <li><a href="#papeis">System, User e Assistant</a>, os 3 papéis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="esqueleto">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Esqueleto do n8n</div>
+        <h2>Os quatro conceitos que sustentam todo o resto</h2>
+      </div>
+    </div>
+
+    <div class="cartao" id="workflow">
+      <span class="rot">Workflow</span>
+      <p><strong>Conjunto ordenado de nós conectados que executam uma automação completa, de ponta a
+      ponta.</strong></p>
+      <p>Tem um gatilho que dispara, um ou mais nós que processam, as conexões que ditam a ordem, e
+      um estado: ativo ou inativo.</p>
+      <p class="fig-leg">Em uma frase: <strong>workflow é a receita; cada execução é o bolo.</strong>
+      Aparece no <a href="../b6-oque/">B6</a>.</p>
+    </div>
+
+    <div class="cartao" id="node">
+      <span class="rot">Node</span>
+      <p><strong>Bloco que executa uma ação dentro de um workflow.</strong> Pode ser ler, escrever,
+      transformar, decidir ou esperar.</p>
+      <p>Cada nó tem entradas, saídas, configurações e, se conversa com app externo, credenciais.
+      Os tipos principais: os que <strong>disparam</strong>, os que <strong>executam</strong>
+      tarefas, os que <strong>controlam</strong> o caminho (IF, Switch, Merge) e os que
+      <strong>transformam</strong> dados (Set, Code).</p>
+      <p class="fig-leg">Aparece no <a href="../b6-anatomia/">B6</a>.</p>
+    </div>
+
+    <div class="cartao" id="trigger">
+      <span class="rot">Trigger</span>
+      <p><strong>Nó especial que inicia um workflow. Sem gatilho, o fluxo não roda.</strong></p>
+      <p>Pode ser disparado por clique manual, horário marcado, chegada de uma requisição, envio de
+      formulário, ou evento num app externo.</p>
+      <p class="fig-leg">Todo fluxo tem <strong>um e apenas um</strong> gatilho no início. Não dá
+      para ter dois no mesmo fluxo, mas dá para ter dois fluxos escutando o mesmo evento. Aparece no
+      <a href="../b7-gatilhos/">B7</a> e na <a href="../ref-gatilhos/">referência de gatilhos</a>.</p>
+    </div>
+
+    <div class="cartao" id="execution">
+      <span class="rot">Execution</span>
+      <p><strong>Cada vez que um workflow roda.</strong> O n8n guarda o histórico, e você vê o que
+      aconteceu nó a nó.</p>
+      <p>Toda execução tem status, horário de início e fim, o que a disparou, e o que entrou e saiu
+      de cada nó. Você pode reabrir uma antiga e <strong>re-executar a partir de qualquer nó</strong>,
+      o que é útil para achar erro.</p>
+      <p class="fig-leg">Aparece no <a href="../b11-debug/">B11, aula 1</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="dados">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Dados e configuração</div>
+        <h2>Os dois conceitos que você configura</h2>
+      </div>
+    </div>
+
+    <div class="cartao" id="credential">
+      <span class="rot">Credential</span>
+      <p><strong>A chave ou login que o n8n usa para conversar com um app externo.</strong></p>
+      <p>As credenciais ficam <strong>separadas</strong> dos fluxos: você cria uma vez e reusa em
+      quantos quiser. Os tipos comuns estão na
+      <a href="../ref-integracoes/">referência de integrações</a>.</p>
+      <div class="checagem">
+        <ul>
+          <li>Nomeie de forma clara, com a conta dentro do nome.</li>
+          <li>Revogue quando trocar de conta, ou quando alguém sair da equipe.</li>
+          <li>Não compartilhe sem necessidade.</li>
+        </ul>
+      </div>
+      <p class="fig-leg">Aparece no <a href="../b9-credenciais/">B9, aula 3</a>.</p>
+    </div>
+
+    <div class="cartao" id="expression">
+      <span class="rot">Expression</span>
+      <p><strong>Jeito dinâmico de preencher um campo:</strong> em vez de texto fixo, uma fórmula
+      que pega dado de outro nó.</p>
+      <p>Escreve-se entre chaves duplas. As mais usadas estão na
+      <a href="../ref-dados/">referência de dados</a>. O campo tem dois modos:
+      <strong>Fixed</strong>, que é texto literal e não muda, e <strong>Expression</strong>, que
+      calcula a cada execução.</p>
+      <p class="fig-leg">Aparece no <a href="../b8-expressions/">B8, aula 4</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="ia">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">IA</div>
+        <h2>Os cinco conceitos do agente</h2>
+      </div>
+    </div>
+
+    <div class="cartao" id="ai-agent">
+      <span class="rot">AI Agent</span>
+      <p><strong>Nó que combina modelo, memória e ferramentas para decidir e executar</strong>, em
+      vez de só responder texto.</p>
+      <p>Tem três componentes: o <strong>modelo</strong>, que é o motor de raciocínio; a
+      <strong>memória</strong>, que guarda o contexto; e as <strong>ferramentas</strong>, que são as
+      ações que ele pode chamar. Diferente de uma chamada solta, ele lembra do que foi dito, decide
+      qual ferramenta usar, e executa vários passos até completar.</p>
+      <p><strong>Quando não usar:</strong> para resumir, classificar ou traduzir um texto único, um
+      nó especializado é mais barato. Ver a <a href="../ref-ia/">referência de IA</a>.</p>
+      <p class="fig-leg">Aparece no <a href="../b10-agentes/">B10</a>.</p>
+    </div>
+
+    <div class="cartao" id="tool">
+      <span class="rot">Tool</span>
+      <p><strong>Ação que o agente pode chamar</strong> para executar uma tarefa concreta: enviar
+      e-mail, criar evento, buscar dado em planilha.</p>
+      <p>No n8n, <strong>qualquer nó vira ferramenta</strong> ao ser ligado na porta lateral do
+      agente. Cada uma tem um nome curto, uma descrição que diz <strong>quando</strong> usar, e
+      parâmetros que a IA preenche na hora.</p>
+      <div class="checagem">
+        <ul>
+          <li>Nome em inglês, descritivo, com sublinhado no lugar do espaço.</li>
+          <li>A descrição diz <strong>quando usar</strong>, não só o que faz.</li>
+          <li>Limite de 5 a 6 por agente. Acima disso, a precisão cai.</li>
+        </ul>
+      </div>
+      <p class="fig-leg">Aparece no <a href="../b10-tools/">B10, aula 4</a>.</p>
+    </div>
+
+    <div class="cartao" id="memory">
+      <span class="rot">Memory</span>
+      <p><strong>Componente que guarda o contexto da conversa entre mensagens, dentro de uma
+      sessão.</strong></p>
+      <p>Sem memória, o agente esquece tudo a cada mensagem. Com memória, ele lembra do nome que
+      você disse três mensagens atrás e não pergunta o mesmo dado duas vezes.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Tipo</th><th>O que faz</th><th>Nível</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Simple Memory</strong></td><td>Guarda as últimas mensagens, por padrão 5</td><td>Iniciante ✅</td></tr>
+            <tr><td><strong>Window Buffer</strong></td><td>Janela deslizante mais sofisticada</td><td>Intermediário</td></tr>
+            <tr><td><strong>Banco de dados</strong></td><td>Persistência entre sessões</td><td>Avançado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A memória é vinculada a um <a href="#session-id">Session ID</a>. Sem ele
+      configurado, <strong>todas as conversas viram uma só</strong>. Aparece no
+      <a href="../b10-memoria/">B10, aula 5</a>.</p>
+    </div>
+
+    <div class="cartao" id="session-id">
+      <span class="rot">Session ID</span>
+      <p><strong>O identificador que separa conversas diferentes na memória do agente.</strong>
+      Configurar errado é a causa mais comum de "o agente está misturando dados de pessoas
+      diferentes".</p>
+      <p>Imagine um agente atendendo pelo Telegram. Uma pessoa manda <em>"quero comprar 10
+      unidades"</em>; outra manda, trinta segundos depois, <em>"qual o preço?"</em>.
+      <strong>Com o identificador fixo, o agente responde à segunda usando a conversa da
+      primeira.</strong> Com o identificador da conversa, cada uma fica isolada.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>De onde vem o gatilho</th><th>O que usar</th></tr></thead>
+          <tbody>
+            <tr><td>Telegram</td><td><code>{{ $json.message.from.id }}</code></td></tr>
+            <tr><td>Chat com usuário identificado</td><td>o campo de identificação do contato</td></tr>
+            <tr><td>Linha de uma planilha</td><td>o número da linha</td></tr>
+            <tr><td>Webhook com identificador externo</td><td>o campo de usuário que vem no corpo</td></tr>
+            <tr><td>Chat nativo do n8n</td><td><code>{{ $json.sessionId }}</code>, que já vem pronto</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="aviso atencao">
+        <div class="aviso-t">Os três jeitos errados</div>
+        <p>Um valor fixo <strong>mistura todo mundo</strong>. Um valor de teste esquecido faz o
+        mesmo. E o horário atual cria uma sessão nova a cada execução, então
+        <strong>o agente esquece tudo</strong>.</p>
+        <p>Em desenvolvimento dá para usar valor fixo, que é mais fácil de depurar.
+        <strong>Em produção, nunca.</strong> Troque antes de ativar.</p>
+      </div>
+    </div>
+
+    <div class="cartao" id="papeis">
+      <span class="rot">System, User e Assistant</span>
+      <p><strong>Os três papéis que aparecem dentro de qualquer nó de IA.</strong> A confusão acaba
+      com uma analogia: você acabou de contratar alguém.</p>
+
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Papel</th><th>O que é</th><th>A analogia</th><th>Frequência</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>System</strong></td>
+              <td>Define quem o agente é e como deve se comportar, antes de qualquer conversa. Tem
+              <strong>mais peso</strong> que qualquer outra instrução.</td>
+              <td>O manual de integração que você entrega no primeiro dia</td>
+              <td><strong>Sempre</strong></td>
+            </tr>
+            <tr>
+              <td><strong>User</strong></td>
+              <td>O pedido que chega na hora, ou os dados a processar. Muda a cada execução.</td>
+              <td>O cliente que chega na recepção e faz um pedido</td>
+              <td><strong>Sempre</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Assistant</strong></td>
+              <td><strong>Não é um segundo agente.</strong> É uma mensagem que você escreve fingindo
+              ser resposta da IA, para mostrar o formato esperado.</td>
+              <td>Mostrar um exemplo de como a pessoa anterior atendia bem</td>
+              <td><strong>Raramente</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg">Na maioria dos fluxos você usa <strong>só System e User</strong>. O
+      Assistant entra quando você já ajustou o System Prompt e o agente continua errando o
+      formato.</p>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">As três pegadinhas dos papéis</div>
+        <p><strong>System vazio</strong> é agente sem treinamento: capaz, mas imprevisível.
+        <strong>Tudo no User</strong> torna o System inútil, porque some a separação que dá peso às
+        regras. E <strong>Assistant com texto inventado</strong>, sem ser exemplo claro, confunde o
+        modelo: ele pode achar que aquela resposta já aconteceu.</p>
+      </div>
+      <p class="fig-leg">Aparece no <a href="../b10-prompt/">B10, aula 3</a>.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Veja também:</strong> as cinco <a href="../recursos/">referências por parte do
+    fluxo</a>, que dizem qual nó usar; o glossário diz o que cada coisa é.</p>
+  </div>

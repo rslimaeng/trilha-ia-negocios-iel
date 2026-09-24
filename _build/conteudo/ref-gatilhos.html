@@ -1,0 +1,60 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Tabela de escolha</div>
+        <h2>Compare e escolha o gatilho certo</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Gatilho</th><th>Quando usar</th><th>Pegadinha principal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Manual Trigger</strong></td><td>Testar o fluxo, ou fluxo com aprovação humana</td><td>Não dispara automaticamente</td></tr>
+          <tr><td><strong>Schedule Trigger</strong></td><td>Horário fixo: diário, semanal, ou por regra</td><td>O fluxo precisa estar <strong>ativo</strong></td></tr>
+          <tr><td><strong>Webhook Trigger</strong></td><td>Receber dado de qualquer ferramenta externa</td><td>A URL de teste não é a de produção</td></tr>
+          <tr><td><strong>Form Trigger</strong></td><td>Captura por formulário hospedado pelo próprio n8n</td><td>Estilo limitado comparado a ferramentas de formulário</td></tr>
+          <tr><td><strong>App Event</strong></td><td>"Novo e-mail no Gmail", "nova linha na planilha"</td><td>Tem atraso, porque fica perguntando de tempos em tempos</td></tr>
+          <tr><td><strong>Chat Trigger</strong></td><td>Interface de chat nativa, para testar agentes</td><td>Só para teste; em produção use Telegram ou WhatsApp</td></tr>
+          <tr><td><strong>Telegram Trigger</strong></td><td>Bot de verdade respondendo no Telegram</td><td>Exige criar o bot pelo próprio Telegram</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A pegadinha do Schedule e a do Webhook são as duas que mais
+    aparecem</strong>, e as duas acontecem depois que tudo já funcionou no teste. As duas estão na
+    <a href="../b11-ativacao/">aula 3 do B11</a>.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Decisão rápida</div>
+        <h2>Pela pergunta que você faria</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Se a sua pergunta é</th><th>O gatilho é</th></tr></thead>
+        <tbody>
+          <tr><td>"quero testar"</td><td><strong>Manual</strong></td></tr>
+          <tr><td>"horário fixo"</td><td><strong>Schedule</strong></td></tr>
+          <tr><td>"outro sistema vai mandar dado"</td><td><strong>Webhook</strong></td></tr>
+          <tr><td>"quero um formulário simples"</td><td><strong>Form</strong></td></tr>
+          <tr><td>"quero reagir a evento de um app que já uso"</td><td><strong>App Event</strong></td></tr>
+          <tr><td>"bot conversacional"</td><td><strong>Chat, Telegram ou WhatsApp</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>A aula:</strong> <a href="../b7-gatilhos/">B7, Gatilhos</a>, com os sete em detalhe.
+    A definição de gatilho está no <a href="../glossario/">glossário</a>. Todas as referências estão
+    em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

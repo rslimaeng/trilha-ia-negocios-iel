@@ -1,0 +1,68 @@
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">Tabela de escolha</div>
+        <h2>Nós para ramificar, juntar e repetir</h2>
+      </div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Nó</th><th>Quando usar</th><th>Pegadinha</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>IF</strong></td><td>Decisão de dois caminhos: sim ou não</td><td>Comparar palavra com número sem converter antes</td></tr>
+          <tr><td><strong>Switch</strong></td><td>Três ou mais caminhos, conforme o valor</td><td>Esquecer o <strong>Fallback</strong>, e o item some sem avisar</td></tr>
+          <tr><td><strong>Merge</strong></td><td>Juntar dois fluxos em um</td><td>Ele espera as duas entradas chegarem</td></tr>
+          <tr><td><strong>Filter</strong></td><td>Descartar os itens que não atendem a regra</td><td>Diferente do IF: não bifurca, só filtra</td></tr>
+          <tr><td><strong>Wait</strong></td><td>Pausar entre repetições, por limite de chamadas</td><td>Esperar demais deixa o fluxo lento</td></tr>
+          <tr><td><strong>Split In Batches</strong></td><td>Processar uma lista em lotes</td><td>Achar que precisa dele quando o n8n já repete sozinho</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">Decisão rápida</div>
+        <h2>E os quatro modos do Merge</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Pela pergunta</span>
+        <ul class="lista">
+          <li>"2 caminhos" &rarr; <strong>IF</strong></li>
+          <li>"3 ou mais caminhos" &rarr; <strong>Switch</strong></li>
+          <li>"juntar fluxos paralelos" &rarr; <strong>Merge</strong></li>
+          <li>"descartar itens" &rarr; <strong>Filter</strong></li>
+          <li>"limite de chamadas" &rarr; <strong>Wait</strong> com <strong>Split In Batches</strong></li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Os modos do Merge</span>
+        <ul class="lista">
+          <li><strong>Append</strong>: junta tudo, o A primeiro e o B depois</li>
+          <li><strong>Merge by Index</strong>: pareia por posição</li>
+          <li><strong>Merge by Key</strong>: pareia pelo valor de um campo</li>
+          <li><strong>Choose Branch</strong>: depois de um IF ou Switch, escolhe o caminho que
+          recebeu dado</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Escolher o modo errado do Merge é a causa de "resultado vazio, sem
+    erro"</strong>, que aparece nas <a href="../rec-validacao/">3 conferências</a>. Depois de um IF,
+    o modo quase sempre é o Choose Branch.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>A aula:</strong> <a href="../b8-if/">IF</a> · <a href="../b8-switch/">Switch</a> ·
+    <a href="../b8-merge/">Merge</a> · <a href="../b8-listas/">Listas</a>, no B8. Todas as
+    referências estão em <a href="../recursos/">Recursos do aluno</a>.</p>
+  </div>

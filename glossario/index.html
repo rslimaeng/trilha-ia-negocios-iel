@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aula 2 · IA gerando o fluxo inteiro</title>
+<title>Glossário</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,609 +3309,269 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b12-recursos/">B12 · Recursos Profissionais</a> &rsaquo; 2 · IA gerando o fluxo inteiro</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; Glossário</nav>
 
 
-<main class="folha aula-fundamento">
+<main class="folha ">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 · B12 · Recursos Profissionais</div>
-    <h1>IA gerando o&nbsp;fluxo inteiro</h1>
-    <p class="heroi-sub">Três pedidos prontos, um&nbsp;para&nbsp;cada tipo de&nbsp;fluxo, com&nbsp;a&nbsp;entrevista dentro. Literais do&nbsp;material.</p>
-    <div><span class="selo">Demonstração</span><span class="selo">3 pedidos prontos</span></div>
+    <div class="heroi-kicker">Módulo 2 · Material de apoio</div>
+    <h1>Glossário</h1>
+    <p class="heroi-sub">Os&nbsp;11 conceitos do&nbsp;n8n em&nbsp;três grupos: esqueleto, dados e&nbsp;configuração, e&nbsp;IA.</p>
+    <div><span class="selo">11 conceitos</span><span class="selo">Use Ctrl+F</span></div>
   </div>
 
-  <div class="nesta-aula">
-    <div class="nesta-aula-rot">Nesta aula</div>
-    <div class="nesta-aula-sub">O que você vai aprender:</div>
-    <ul>
-      <li>Como pedir para&nbsp;a&nbsp;IA gerar o&nbsp;fluxo inteiro a&nbsp;partir da&nbsp;sua&nbsp;descrição em&nbsp;linguagem
-      natural</li>
-      <li><strong>Três pedidos prontos</strong>, um&nbsp;para&nbsp;cada tipo de&nbsp;fluxo. Use o&nbsp;certo para&nbsp;o&nbsp;caso
-      certo</li>
-      <li>O&nbsp;que&nbsp;ela acerta, o&nbsp;que&nbsp;você ajusta, e&nbsp;por&nbsp;que&nbsp;os&nbsp;ajustes não&nbsp;são falha</li>
-    </ul>
-  </div>
-
-  <section class="secao" id="situacao">
+  <section class="secao" id="s01">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que você vai aprender</div>
-        <h2>Por&nbsp;que&nbsp;isso importa</h2>
+        <div class="secao-fn">Como usar</div>
+        <h2>Onze conceitos, em&nbsp;três grupos</h2>
       </div>
     </div>
 
     <div class="cartao cartao-cor">
       <span class="rot">Em uma frase</span>
-      <p>A&nbsp;IA não&nbsp;vai construir o&nbsp;fluxo perfeito. Mas&nbsp;monta o&nbsp;esqueleto, e&nbsp;<strong>o&nbsp;tempo cai pela&nbsp;metade</strong>.</p>
+      <p>Use <code>Ctrl+F</code>, ou&nbsp;<code>Cmd+F</code> no&nbsp;Mac, para&nbsp;achar o&nbsp;termo.
+      <strong>Esta página não&nbsp;se&nbsp;lê de&nbsp;ponta a&nbsp;ponta.</strong></p>
     </div>
 
-    <p>Você já&nbsp;sabe construir fluxos. Mas&nbsp;às&nbsp;vezes o&nbsp;esboço está na&nbsp;cabeça e&nbsp;você quer
-    <strong>sair do&nbsp;zero mais rápido</strong>, sem&nbsp;arrastar nó a&nbsp;nó desde&nbsp;o&nbsp;início.</p>
-
-    <p>Ela entrega os&nbsp;nós certos, na&nbsp;ordem certa, com&nbsp;os&nbsp;parâmetros principais preenchidos. Você
-    importa, conecta credenciais, testa e&nbsp;ajusta.</p>
-
-    <div class="aviso ok">
-      <div class="aviso-t">Leia a aula 5 do B11 antes desta</div>
-      <p>A&nbsp;<a href="../b11-cocriar/">aula de&nbsp;IA co-criando fluxos</a> traz a&nbsp;tabela dos&nbsp;<strong>cinco erros que&nbsp;a&nbsp;IA comete sempre</strong> e&nbsp;o&nbsp;teto que&nbsp;nenhum pedido resolve. Esta
-      página aqui é a&nbsp;caixa de&nbsp;ferramentas; aquela é o&nbsp;manual de&nbsp;leitura do&nbsp;que&nbsp;voltar.</p>
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Esqueleto do n8n</span>
+        <ul class="lista">
+          <li><a href="#workflow">Workflow</a>, o&nbsp;fluxo completo</li>
+          <li><a href="#node">Node</a>, o&nbsp;bloco de&nbsp;ação</li>
+          <li><a href="#trigger">Trigger</a>, o&nbsp;que&nbsp;dispara</li>
+          <li><a href="#execution">Execution</a>, uma&nbsp;rodada</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Dados e configuração</span>
+        <ul class="lista">
+          <li><a href="#credential">Credential</a>, a&nbsp;chave de&nbsp;acesso</li>
+          <li><a href="#expression">Expression</a>, o&nbsp;campo dinâmico</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">IA</span>
+        <ul class="lista">
+          <li><a href="#ai-agent">AI Agent</a>, o&nbsp;que&nbsp;decide e&nbsp;age</li>
+          <li><a href="#tool">Tool</a>, a&nbsp;ação que&nbsp;ele chama</li>
+          <li><a href="#memory">Memory</a>, o&nbsp;contexto da&nbsp;conversa</li>
+          <li><a href="#session-id">Session ID</a>, o&nbsp;que&nbsp;separa conversas</li>
+          <li><a href="#papeis">System, User e&nbsp;Assistant</a>, os&nbsp;3 papéis</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="secao" id="conceito">
+  <section class="secao" id="esqueleto">
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O conceito, e é um só</div>
-        <h2>Ponto de&nbsp;partida, não&nbsp;resultado</h2>
+        <div class="secao-fn">Esqueleto do n8n</div>
+        <h2>Os&nbsp;quatro conceitos que&nbsp;sustentam todo o&nbsp;resto</h2>
       </div>
     </div>
 
-    <div class="conceito">
-      <div class="conceito-rot">O conceito desta aula</div>
-      <h3>O&nbsp;que&nbsp;volta é um&nbsp;ponto de&nbsp;partida, e&nbsp;a&nbsp;parte que&nbsp;sobra para&nbsp;você não&nbsp;é falha: é a&nbsp;parte do&nbsp;trabalho que&nbsp;exige você</h3>
+    <div class="cartao" id="workflow">
+      <span class="rot">Workflow</span>
+      <p><strong>Conjunto ordenado de&nbsp;nós conectados que&nbsp;executam uma&nbsp;automação completa, de&nbsp;ponta a&nbsp;ponta.</strong></p>
+      <p>Tem um&nbsp;gatilho que&nbsp;dispara, um&nbsp;ou&nbsp;mais nós que&nbsp;processam, as&nbsp;conexões que&nbsp;ditam a&nbsp;ordem, e&nbsp;um&nbsp;estado: ativo ou&nbsp;inativo.</p>
+      <p class="fig-leg">Em&nbsp;uma&nbsp;frase: <strong>workflow é a&nbsp;receita; cada execução é o&nbsp;bolo.</strong>
+      Aparece no&nbsp;<a href="../b6-oque/">B6</a>.</p>
+    </div>
+
+    <div class="cartao" id="node">
+      <span class="rot">Node</span>
+      <p><strong>Bloco que&nbsp;executa uma&nbsp;ação dentro de&nbsp;um&nbsp;workflow.</strong> Pode ser ler, escrever,
+      transformar, decidir ou&nbsp;esperar.</p>
+      <p>Cada nó tem entradas, saídas, configurações e,&nbsp;se&nbsp;conversa com&nbsp;app externo, credenciais.
+      Os&nbsp;tipos principais: os&nbsp;que&nbsp;<strong>disparam</strong>, os&nbsp;que&nbsp;<strong>executam</strong>
+      tarefas, os&nbsp;que&nbsp;<strong>controlam</strong> o&nbsp;caminho (IF, Switch, Merge) e&nbsp;os&nbsp;que&nbsp;<strong>transformam</strong> dados (Set, Code).</p>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b6-anatomia/">B6</a>.</p>
+    </div>
+
+    <div class="cartao" id="trigger">
+      <span class="rot">Trigger</span>
+      <p><strong>Nó especial que&nbsp;inicia um&nbsp;workflow. Sem&nbsp;gatilho, o&nbsp;fluxo não&nbsp;roda.</strong></p>
+      <p>Pode ser disparado por&nbsp;clique manual, horário marcado, chegada de&nbsp;uma&nbsp;requisição, envio de&nbsp;formulário, ou&nbsp;evento num&nbsp;app externo.</p>
+      <p class="fig-leg">Todo fluxo tem <strong>um&nbsp;e&nbsp;apenas um</strong>&nbsp;gatilho no&nbsp;início. Não&nbsp;dá
+      para&nbsp;ter dois no&nbsp;mesmo fluxo, mas&nbsp;dá para&nbsp;ter dois fluxos escutando o&nbsp;mesmo evento. Aparece no&nbsp;<a href="../b7-gatilhos/">B7</a> e&nbsp;na&nbsp;<a href="../ref-gatilhos/">referência de&nbsp;gatilhos</a>.</p>
+    </div>
+
+    <div class="cartao" id="execution">
+      <span class="rot">Execution</span>
+      <p><strong>Cada vez que&nbsp;um&nbsp;workflow roda.</strong> O&nbsp;n8n guarda o&nbsp;histórico, e&nbsp;você vê o&nbsp;que&nbsp;aconteceu nó a&nbsp;nó.</p>
+      <p>Toda execução tem status, horário de&nbsp;início e&nbsp;fim, o&nbsp;que&nbsp;a&nbsp;disparou, e&nbsp;o&nbsp;que&nbsp;entrou e&nbsp;saiu
+      de&nbsp;cada nó. Você pode reabrir uma&nbsp;antiga e&nbsp;<strong>re-executar a&nbsp;partir de&nbsp;qualquer nó</strong>,
+      o&nbsp;que&nbsp;é útil para&nbsp;achar erro.</p>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b11-debug/">B11, aula 1</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="dados">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Dados e configuração</div>
+        <h2>Os&nbsp;dois conceitos que&nbsp;você configura</h2>
+      </div>
+    </div>
+
+    <div class="cartao" id="credential">
+      <span class="rot">Credential</span>
+      <p><strong>A&nbsp;chave ou&nbsp;login que&nbsp;o&nbsp;n8n usa para&nbsp;conversar com&nbsp;um&nbsp;app externo.</strong></p>
+      <p>As&nbsp;credenciais ficam <strong>separadas</strong> dos&nbsp;fluxos: você cria uma&nbsp;vez e&nbsp;reusa em&nbsp;quantos quiser. Os&nbsp;tipos comuns estão na&nbsp;<a href="../ref-integracoes/">referência de&nbsp;integrações</a>.</p>
+      <div class="checagem">
+        <ul>
+          <li>Nomeie de&nbsp;forma clara, com&nbsp;a&nbsp;conta dentro do&nbsp;nome.</li>
+          <li>Revogue quando&nbsp;trocar de&nbsp;conta, ou&nbsp;quando&nbsp;alguém sair da&nbsp;equipe.</li>
+          <li>Não&nbsp;compartilhe sem&nbsp;necessidade.</li>
+        </ul>
+      </div>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b9-credenciais/">B9, aula 3</a>.</p>
+    </div>
+
+    <div class="cartao" id="expression">
+      <span class="rot">Expression</span>
+      <p><strong>Jeito dinâmico de&nbsp;preencher um&nbsp;campo:</strong> em&nbsp;vez de&nbsp;texto fixo, uma&nbsp;fórmula
+      que&nbsp;pega dado de&nbsp;outro nó.</p>
+      <p>Escreve-se entre&nbsp;chaves duplas. As&nbsp;mais usadas estão na&nbsp;<a href="../ref-dados/">referência de&nbsp;dados</a>. O&nbsp;campo tem dois modos:
+      <strong>Fixed</strong>, que&nbsp;é texto literal e&nbsp;não&nbsp;muda, e&nbsp;<strong>Expression</strong>, que&nbsp;calcula a&nbsp;cada execução.</p>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b8-expressions/">B8, aula 4</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="ia">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">IA</div>
+        <h2>Os&nbsp;cinco conceitos do&nbsp;agente</h2>
+      </div>
+    </div>
+
+    <div class="cartao" id="ai-agent">
+      <span class="rot">AI Agent</span>
+      <p><strong>Nó que&nbsp;combina modelo, memória e&nbsp;ferramentas para&nbsp;decidir e&nbsp;executar</strong>, em&nbsp;vez de&nbsp;só&nbsp;responder texto.</p>
+      <p>Tem três componentes: o&nbsp;<strong>modelo</strong>, que&nbsp;é o&nbsp;motor de&nbsp;raciocínio; a&nbsp;<strong>memória</strong>, que&nbsp;guarda o&nbsp;contexto; e&nbsp;as&nbsp;<strong>ferramentas</strong>, que&nbsp;são as&nbsp;ações que&nbsp;ele pode chamar. Diferente de&nbsp;uma&nbsp;chamada solta, ele lembra do&nbsp;que&nbsp;foi dito, decide
+      qual ferramenta usar, e&nbsp;executa vários passos até&nbsp;completar.</p>
+      <p><strong>Quando&nbsp;não&nbsp;usar:</strong> para&nbsp;resumir, classificar ou&nbsp;traduzir um&nbsp;texto único, um&nbsp;nó especializado é mais barato. Ver a&nbsp;<a href="../ref-ia/">referência de&nbsp;IA</a>.</p>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b10-agentes/">B10</a>.</p>
+    </div>
+
+    <div class="cartao" id="tool">
+      <span class="rot">Tool</span>
+      <p><strong>Ação que&nbsp;o&nbsp;agente pode chamar</strong> para&nbsp;executar uma&nbsp;tarefa concreta: enviar
+      e-mail, criar evento, buscar dado em&nbsp;planilha.</p>
+      <p>No&nbsp;n8n, <strong>qualquer nó vira ferramenta</strong> ao&nbsp;ser ligado na&nbsp;porta lateral do&nbsp;agente. Cada uma&nbsp;tem um&nbsp;nome curto, uma&nbsp;descrição que&nbsp;diz <strong>quando</strong>&nbsp;usar, e&nbsp;parâmetros que&nbsp;a&nbsp;IA preenche na&nbsp;hora.</p>
+      <div class="checagem">
+        <ul>
+          <li>Nome em&nbsp;inglês, descritivo, com&nbsp;sublinhado no&nbsp;lugar do&nbsp;espaço.</li>
+          <li>A&nbsp;descrição diz <strong>quando&nbsp;usar</strong>, não&nbsp;só&nbsp;o&nbsp;que&nbsp;faz.</li>
+          <li>Limite de&nbsp;5 a&nbsp;6 por&nbsp;agente. Acima disso, a&nbsp;precisão cai.</li>
+        </ul>
+      </div>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b10-tools/">B10, aula 4</a>.</p>
+    </div>
+
+    <div class="cartao" id="memory">
+      <span class="rot">Memory</span>
+      <p><strong>Componente que&nbsp;guarda o&nbsp;contexto da&nbsp;conversa entre&nbsp;mensagens, dentro de&nbsp;uma&nbsp;sessão.</strong></p>
+      <p>Sem&nbsp;memória, o&nbsp;agente esquece tudo a&nbsp;cada mensagem. Com&nbsp;memória, ele lembra do&nbsp;nome que&nbsp;você disse três mensagens atrás e&nbsp;não&nbsp;pergunta o&nbsp;mesmo dado duas vezes.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Tipo</th><th>O que faz</th><th>Nível</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Simple Memory</strong></td><td>Guarda as últimas mensagens, por padrão 5</td><td>Iniciante ✅</td></tr>
+            <tr><td><strong>Window Buffer</strong></td><td>Janela deslizante mais sofisticada</td><td>Intermediário</td></tr>
+            <tr><td><strong>Banco de dados</strong></td><td>Persistência entre sessões</td><td>Avançado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-leg">A&nbsp;memória é vinculada a&nbsp;um&nbsp;<a href="#session-id">Session ID</a>. Sem&nbsp;ele
+      configurado, <strong>todas as&nbsp;conversas viram uma&nbsp;só</strong>. Aparece no&nbsp;<a href="../b10-memoria/">B10, aula 5</a>.</p>
+    </div>
+
+    <div class="cartao" id="session-id">
+      <span class="rot">Session ID</span>
+      <p><strong>O&nbsp;identificador que&nbsp;separa conversas diferentes na&nbsp;memória do&nbsp;agente.</strong>
+      Configurar errado é a&nbsp;causa mais comum de&nbsp;"o&nbsp;agente está misturando dados de&nbsp;pessoas
+      diferentes".</p>
+      <p>Imagine um&nbsp;agente atendendo pelo&nbsp;Telegram. Uma&nbsp;pessoa manda <em>"quero comprar 10
+      unidades"</em>; outra manda, trinta segundos depois, <em>"qual o&nbsp;preço?"</em>.
+      <strong>Com&nbsp;o&nbsp;identificador fixo, o&nbsp;agente responde à&nbsp;segunda usando a&nbsp;conversa da&nbsp;primeira.</strong> Com&nbsp;o&nbsp;identificador da&nbsp;conversa, cada uma&nbsp;fica isolada.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>De onde vem o gatilho</th><th>O que usar</th></tr></thead>
+          <tbody>
+            <tr><td>Telegram</td><td><code>{{ $json.message.from.id }}</code></td></tr>
+            <tr><td>Chat com usuário identificado</td><td>o campo de identificação do contato</td></tr>
+            <tr><td>Linha de uma planilha</td><td>o número da linha</td></tr>
+            <tr><td>Webhook com identificador externo</td><td>o campo de usuário que vem no corpo</td></tr>
+            <tr><td>Chat nativo do n8n</td><td><code>{{ $json.sessionId }}</code>, que já vem pronto</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="aviso atencao">
+        <div class="aviso-t">Os três jeitos errados</div>
+        <p>Um&nbsp;valor fixo <strong>mistura todo mundo</strong>. Um&nbsp;valor de&nbsp;teste esquecido faz o&nbsp;mesmo. E&nbsp;o&nbsp;horário atual cria uma&nbsp;sessão nova a&nbsp;cada execução, então
+        <strong>o&nbsp;agente esquece tudo</strong>.</p>
+        <p>Em&nbsp;desenvolvimento dá para&nbsp;usar valor fixo, que&nbsp;é mais fácil de&nbsp;depurar.
+        <strong>Em&nbsp;produção, nunca.</strong> Troque antes de&nbsp;ativar.</p>
+      </div>
+    </div>
+
+    <div class="cartao" id="papeis">
+      <span class="rot">System, User e Assistant</span>
+      <p><strong>Os&nbsp;três papéis que&nbsp;aparecem dentro de&nbsp;qualquer nó de&nbsp;IA.</strong> A&nbsp;confusão acaba
+      com&nbsp;uma&nbsp;analogia: você acabou de&nbsp;contratar alguém.</p>
 
       <div class="tabela">
         <table>
-          <thead>
-            <tr><th>O que a IA acerta</th><th>O que você ajusta</th></tr>
-          </thead>
+          <thead><tr><th>Papel</th><th>O que é</th><th>A analogia</th><th>Frequência</th></tr></thead>
           <tbody>
-            <tr><td>Quais nós usar</td><td>Conectar suas credenciais reais</td></tr>
-            <tr><td>A sequência dos nós</td><td>Os identificadores reais: planilha, pasta, chat</td></tr>
-            <tr><td>A estrutura básica de configuração</td><td>Calibrar os System Prompts para o seu contexto</td></tr>
-            <tr><td>A lógica condicional aproximada</td><td>Os casos de borda do seu processo</td></tr>
-            <tr><td>O padrão de expressão <code>{{ $json.campo }}</code></td><td>Conferir que cada campo bate com o nó anterior</td></tr>
+            <tr>
+              <td><strong>System</strong></td>
+              <td>Define quem o agente é e como deve se comportar, antes de qualquer conversa. Tem
+              <strong>mais peso</strong> que qualquer outra instrução.</td>
+              <td>O manual de integração que você entrega no primeiro dia</td>
+              <td><strong>Sempre</strong></td>
+            </tr>
+            <tr>
+              <td><strong>User</strong></td>
+              <td>O pedido que chega na hora, ou os dados a processar. Muda a cada execução.</td>
+              <td>O cliente que chega na recepção e faz um pedido</td>
+              <td><strong>Sempre</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Assistant</strong></td>
+              <td><strong>Não é um segundo agente.</strong> É uma mensagem que você escreve fingindo
+              ser resposta da IA, para mostrar o formato esperado.</td>
+              <td>Mostrar um exemplo de como a pessoa anterior atendia bem</td>
+              <td><strong>Raramente</strong></td>
+            </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="analogia">
-        <div class="analogia-rot">É como o móvel que vem desmontado</div>
-        <p>A&nbsp;caixa traz todas as&nbsp;peças cortadas na&nbsp;medida e&nbsp;o&nbsp;desenho de&nbsp;como elas se&nbsp;encaixam.
-        Ninguém chama de&nbsp;defeito o&nbsp;fato de&nbsp;você precisar montar: <strong>o&nbsp;serrote já&nbsp;foi
-        feito</strong>, que&nbsp;é a&nbsp;parte difícil e&nbsp;demorada. O&nbsp;que&nbsp;sobra é o&nbsp;parafuso, e&nbsp;o&nbsp;parafuso
-        depende da&nbsp;sua&nbsp;parede.</p>
-        <ul class="analogia-mapa">
-          <li><strong>As&nbsp;peças cortadas</strong> são os&nbsp;nós certos na&nbsp;ordem certa</li>
-          <li><strong>O&nbsp;desenho de&nbsp;montagem</strong> são as&nbsp;conexões entre&nbsp;eles</li>
-          <li><strong>Os&nbsp;parafusos que&nbsp;você põe</strong> são as&nbsp;credenciais e&nbsp;os&nbsp;seus
-          identificadores</li>
-          <li><strong>A&nbsp;sua&nbsp;parede</strong> é o&nbsp;seu&nbsp;processo, que&nbsp;a&nbsp;fábrica não&nbsp;tem como
-          conhecer</li>
-        </ul>
-      </div>
+      <p class="fig-leg">Na&nbsp;maioria dos&nbsp;fluxos você usa <strong>só&nbsp;System e&nbsp;User</strong>. O&nbsp;Assistant entra quando&nbsp;você já&nbsp;ajustou o&nbsp;System Prompt e&nbsp;o&nbsp;agente continua errando o&nbsp;formato.</p>
 
       <div class="aviso atencao">
-        <div class="aviso-t">Dois números diferentes, nos dois materiais</div>
-        <p>Esta página do&nbsp;material estima <strong>80% acerto e&nbsp;20% ajuste</strong>; a&nbsp;<a href="../b11-cocriar/">aula 5 do&nbsp;B11</a> fala em&nbsp;<strong>70% e&nbsp;30%</strong>. As&nbsp;duas
-        afirmações são do&nbsp;autor, de&nbsp;abril de&nbsp;2026, e&nbsp;<strong>entram como estão</strong>. A&nbsp;leitura
-        que&nbsp;serve para&nbsp;os&nbsp;dois casos é a&nbsp;mesma: a&nbsp;estrutura vem pronta, os&nbsp;detalhes são seus.</p>
+        <div class="aviso-t">As três pegadinhas dos papéis</div>
+        <p><strong>System vazio</strong> é agente sem&nbsp;treinamento: capaz, mas&nbsp;imprevisível.
+        <strong>Tudo no&nbsp;User</strong> torna o&nbsp;System inútil, porque&nbsp;some a&nbsp;separação que&nbsp;dá peso às&nbsp;regras. E&nbsp;<strong>Assistant com&nbsp;texto inventado</strong>, sem&nbsp;ser exemplo claro, confunde o&nbsp;modelo: ele pode achar que&nbsp;aquela resposta já&nbsp;aconteceu.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="secao" id="como-funciona">
-    <div class="secao-topo">
-      <div class="secao-n">03</div>
-      <div>
-        <div class="secao-fn">Como funciona</div>
-        <h2>Escolha o&nbsp;pedido pelo&nbsp;tipo do&nbsp;seu&nbsp;fluxo</h2>
-      </div>
-    </div>
-
-    <div class="fluxo solta">
-      <div class="fl"><span class="fl-n">1</span><span class="fl-quem">Descrever</span></div>
-      <span class="fl-seta">&rarr;</span>
-      <div class="fl"><span class="fl-n">2</span><span class="fl-quem">Gerar</span></div>
-      <span class="fl-seta">&rarr;</span>
-      <div class="fl"><span class="fl-n">3</span><span class="fl-quem">Importar</span></div>
-      <span class="fl-seta">&rarr;</span>
-      <div class="fl"><span class="fl-n">4</span><span class="fl-quem">Ajustar</span></div>
-    </div>
-
-    <div class="tabela">
-      <table>
-        <thead>
-          <tr><th>Versão</th><th>Use quando o fluxo tiver</th><th>Exemplos</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>V1 · Linear</strong></td>
-            <td>Nós em sequência, sem decisões e sem IA</td>
-            <td>Formulário &rarr; Set &rarr; Gmail · Agendamento &rarr; HTTP &rarr; Sheets</td>
-          </tr>
-          <tr>
-            <td><strong>V2 · Com decisões</strong></td>
-            <td>IF ou Switch no meio do caminho</td>
-            <td>Decidir se um lead é qualificado e mandar para a fila A ou B</td>
-          </tr>
-          <tr>
-            <td><strong>V3 · Com IA</strong></td>
-            <td>Basic LLM Chain ou AI Agent</td>
-            <td>Lead chega &rarr; IA classifica &rarr; roteia</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="fig-leg"><strong>Os&nbsp;três pedidos começam por&nbsp;uma&nbsp;entrevista:</strong> a&nbsp;IA pergunta
-    uma&nbsp;coisa de&nbsp;cada vez e&nbsp;só&nbsp;gera quando&nbsp;você disser que&nbsp;pode. É de&nbsp;propósito, e&nbsp;é o&nbsp;que&nbsp;impede
-    ela de&nbsp;preencher com&nbsp;suposição o&nbsp;que&nbsp;você não&nbsp;disse.</p>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Usar a V1 num fluxo com IF sai errado</div>
-      <p>O&nbsp;IF tem duas saídas, e&nbsp;o&nbsp;formato das&nbsp;conexões é diferente do&nbsp;fluxo linear. Cada versão traz
-      o&nbsp;molde certo já&nbsp;pronto; escolher a&nbsp;errada produz um&nbsp;fluxo que&nbsp;importa e&nbsp;não&nbsp;funciona.</p>
-    </div>
-  </section>
-
-  <section class="secao" id="demonstracao">
-    <div class="secao-topo">
-      <div class="secao-n">04</div>
-      <div>
-        <div class="secao-fn">A demonstração</div>
-        <h2>Os&nbsp;três pedidos, prontos para&nbsp;copiar</h2>
-      </div>
-    </div>
-
-    <p>Os&nbsp;três estão <strong>literais, como o&nbsp;autor escreveu</strong>. Copie inteiro e&nbsp;cole no&nbsp;chat
-    de&nbsp;IA: a&nbsp;entrevista começa sozinha.</p>
-
-    <div class="demo solta">
-      <div class="demo-faixa">Os três pedidos do material &middot; copie o que serve ao seu caso</div>
-      <div class="demo-corpo">
-
-    <h4>V1 · fluxo linear</h4>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">Pedido V1 &middot; sem decisões e sem IA</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v1">Copiar</button>
-      </div>
-      <pre class="prompt-txt config" id="pr-b12js-v1">Você é um especialista em n8n, plataforma de automação low-code.
-Seu objetivo é me ajudar a criar um workflow linear simples, gerando no final
-um JSON válido que eu possa importar diretamente no n8n.
-
-REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
-Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
-
---- ENTREVISTA ---
-
-1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
-2. "Como este workflow começa?
-   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
-3. "Quais informações chegam no início? (ex: nome, e-mail, valor...)"
-4. "Quais ferramentas ele usa? (ex: Gmail, Sheets, HTTP API...)"
-5. "O que acontece na última ação?"
-
-Depois, resuma o que entendeu e pergunte se está correto.
-
---- GERAÇÃO DO JSON ---
-
-Siga exatamente este modelo de estrutura:
-
-{
-  "name": "Nome do Workflow",
-  "nodes": [
-    {
-      "id": "trigger-1",
-      "name": "Início",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [240, 300],
-      "parameters": {}
-    },
-    {
-      "id": "gmail-2",
-      "name": "Envia E-mail",
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [540, 300],
-      "parameters": {
-        "resource": "message",
-        "operation": "send",
-        "sendTo": "email@exemplo.com",
-        "subject": "Assunto",
-        "message": "={{ $json.campo }}",
-        "emailType": "text"
-      }
-    }
-  ],
-  "connections": {
-    "Início": {
-      "main": [[{"node": "Envia E-mail", "type": "main", "index": 0}]]
-    }
-  },
-  "settings": {"executionOrder": "v1"}
-}
-
-REGRAS:
-- id: string curta e única por nó (ex: "trigger-1", "gmail-2")
-- position: x começa em 240, incrementa 300 a cada nó. y fixo em 300.
-- connections: a chave é o campo "name" exato do nó de origem
-- Dados dinâmicos: use ={{ $json.nome_campo }} para referenciar campos anteriores
-- Não inclua o campo "credentials"
-
-NÓS DISPONÍVEIS:
-- Formulário: n8n-nodes-base.formTrigger (v2.2)
-- Agendamento: n8n-nodes-base.scheduleTrigger (v1.1)
-- Webhook: n8n-nodes-base.webhook (v1.1)
-- Manual: n8n-nodes-base.manualTrigger (v1)
-- Gmail: n8n-nodes-base.gmail (v2.1) — resource: message, operation: send
-- Google Sheets: n8n-nodes-base.googleSheets (v4.1)
-- Google Docs: n8n-nodes-base.googleDocs (v2)
-- HTTP Request: n8n-nodes-base.httpRequest (v4.2)
-- Edit Fields (Set): n8n-nodes-base.set (v3.4)
-
-APÓS O JSON, inclua obrigatoriamente:
-1. Credenciais para configurar — quais nós precisam de credencial
-2. O que ajustar — IDs reais, expressões que precisam revisão
-3. Como importar: n8n → ícone de menu → Import from JSON</pre>
-    </div>
-
-    <h4>V2 · fluxo com&nbsp;decisões</h4>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">Pedido V2 &middot; com IF ou Switch</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v2">Copiar</button>
-      </div>
-      <pre class="prompt-txt config" id="pr-b12js-v2">Você é um especialista em n8n, plataforma de automação low-code.
-Seu objetivo é me ajudar a criar um workflow com lógica de decisão (IF ou Switch),
-gerando no final um JSON válido que eu possa importar no n8n.
-
-REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
-Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
-
---- ENTREVISTA ---
-
-1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
-2. "Como este workflow começa?
-   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
-3. "Quais informações chegam no início?"
-4. "Quais ferramentas ele usa?"
-5. "Descreva a decisão: qual condição é verificada e o que acontece em cada caminho?"
-6. "O que cada caminho entrega ao final?"
-
-Depois, resuma o que entendeu e pergunte se está correto.
-
---- GERAÇÃO DO JSON ---
-
-ATENÇÃO: IF e Switch têm múltiplas saídas. O formato de connections é diferente de um fluxo linear.
-Siga exatamente este modelo:
-
-{
-  "name": "Workflow com Decisão",
-  "nodes": [
-    {
-      "id": "trigger-1",
-      "name": "Início",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [240, 300],
-      "parameters": {}
-    },
-    {
-      "id": "if-2",
-      "name": "Verifica Condição",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [540, 300],
-      "parameters": {
-        "conditions": {
-          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
-          "conditions": [
-            {
-              "id": "cond-1",
-              "leftValue": "={{ $json.campo }}",
-              "rightValue": "valor_esperado",
-              "operator": {"type": "string", "operation": "equals"}
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "set-3a",
-      "name": "Caminho Verdadeiro",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [840, 160],
-      "parameters": {}
-    },
-    {
-      "id": "set-3b",
-      "name": "Caminho Falso",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [840, 440],
-      "parameters": {}
-    }
-  ],
-  "connections": {
-    "Início": {
-      "main": [[{"node": "Verifica Condição", "type": "main", "index": 0}]]
-    },
-    "Verifica Condição": {
-      "main": [
-        [{"node": "Caminho Verdadeiro", "type": "main", "index": 0}],
-        [{"node": "Caminho Falso", "type": "main", "index": 0}]
-      ]
-    }
-  },
-  "settings": {"executionOrder": "v1"}
-}
-
-REGRAS:
-- id: string curta e única por nó
-- O IF tem DOIS arrays dentro de "main": o primeiro é verdadeiro, o segundo é falso
-- Para Switch com 3+ caminhos, adicione mais arrays em "main"
-- position: nós do mesmo nível ficam no mesmo x. Verdadeiro: y menor. Falso: y maior.
-- Dados dinâmicos: use ={{ $json.nome_campo }}
-- Não inclua "credentials"
-
-NÓS DISPONÍVEIS:
-- (todos da V1, mais:)
-- IF: n8n-nodes-base.if (v2)
-- Switch: n8n-nodes-base.switch (v3)
-- Merge: n8n-nodes-base.merge (v3)
-
-APÓS O JSON, inclua obrigatoriamente:
-1. Credenciais para configurar
-2. O que ajustar (condição do IF, IDs reais)
-3. Como importar: n8n → ícone de menu → Import from JSON</pre>
-    </div>
-
-    <h4>V3 · fluxo com&nbsp;IA</h4>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Nó de IA se liga de um jeito diferente</div>
-      <p>O&nbsp;modelo <strong>conecta-se ao&nbsp;nó de&nbsp;IA</strong>, e&nbsp;não&nbsp;o&nbsp;contrário, e&nbsp;o&nbsp;tipo dessa conexão
-      não&nbsp;é o&nbsp;mesmo dos&nbsp;nós comuns. O&nbsp;molde do&nbsp;pedido já&nbsp;trata disso: não&nbsp;altere essa parte.</p>
-    </div>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">Pedido V3 &middot; com Basic LLM Chain ou AI Agent</span>
-        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v3">Copiar</button>
-      </div>
-      <pre class="prompt-txt config" id="pr-b12js-v3">Você é um especialista em n8n, plataforma de automação low-code.
-Seu objetivo é me ajudar a criar um workflow que usa IA para gerar, classificar
-ou resumir texto, gerando no final um JSON válido que eu possa importar no n8n.
-
-AVISO IMPORTANTE: Nós de IA têm uma estrutura especial de conexão diferente de nós comuns.
-Siga o template abaixo à risca — não altere o formato das connections de IA.
-
-REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
-Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
-
---- ENTREVISTA ---
-
-1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
-2. "Como este workflow começa?
-   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
-3. "Quais informações chegam no início?"
-4. "O que a IA deve fazer? (gerar texto, classificar, resumir, responder perguntas?)"
-5. "Descreva o prompt que a IA vai receber e o que ela deve produzir."
-6. "Onde o resultado vai? (e-mail, planilha, documento, resposta direta?)"
-
-Depois, resuma o que entendeu e pergunte se está correto.
-
---- GERAÇÃO DO JSON ---
-
-ATENÇÃO: O modelo Gemini conecta-se AO LLM Chain usando o tipo "ai_languageModel" — não "main".
-Siga exatamente este modelo:
-
-{
-  "name": "Workflow com IA",
-  "nodes": [
-    {
-      "id": "trigger-1",
-      "name": "Início",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [240, 300],
-      "parameters": {}
-    },
-    {
-      "id": "llm-2",
-      "name": "Gera Texto com IA",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.4,
-      "position": [540, 300],
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ 'Analise o seguinte: ' + $json.campo }}"
-      }
-    },
-    {
-      "id": "gemini-3",
-      "name": "Gemini Flash",
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [540, 500],
-      "parameters": {
-        "modelName": "models/gemini-2.5-flash"
-      }
-    },
-    {
-      "id": "gmail-4",
-      "name": "Envia Resultado",
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [840, 300],
-      "parameters": {
-        "resource": "message",
-        "operation": "send",
-        "sendTo": "email@exemplo.com",
-        "subject": "Resultado da IA",
-        "message": "={{ $json.text }}",
-        "emailType": "text"
-      }
-    }
-  ],
-  "connections": {
-    "Início": {
-      "main": [[{"node": "Gera Texto com IA", "type": "main", "index": 0}]]
-    },
-    "Gemini Flash": {
-      "ai_languageModel": [[{"node": "Gera Texto com IA", "type": "ai_languageModel", "index": 0}]]
-    },
-    "Gera Texto com IA": {
-      "main": [[{"node": "Envia Resultado", "type": "main", "index": 0}]]
-    }
-  },
-  "settings": {"executionOrder": "v1"}
-}
-
-REGRAS CRÍTICAS:
-- O Gemini aparece nas connections como ORIGEM, apontando para o LLM Chain com tipo "ai_languageModel"
-- O output do LLM Chain chega no campo "text" do próximo nó: use $json.text para acessá-lo
-- position: o Gemini fica 200px abaixo do LLM Chain (mesmo x, y + 200)
-- Não inclua "credentials"
-
-NÓS DISPONÍVEIS:
-- (todos da V1, mais:)
-- Basic LLM Chain: @n8n/n8n-nodes-langchain.chainLlm (v1.4)
-- Google Gemini: @n8n/n8n-nodes-langchain.lmChatGoogleGemini (v1)
-- AI Agent: @n8n/n8n-nodes-langchain.agent (v1.7)
-
-APÓS O JSON, inclua obrigatoriamente:
-1. Credenciais para configurar (Gemini precisa de Google AI Studio API key)
-2. O que ajustar (prompt da IA, campo referenciado, IDs reais)
-3. Como importar: n8n → ícone de menu → Import from JSON</pre>
-    </div>
-
-    <p class="fig-leg"><strong>Os&nbsp;nomes de&nbsp;nó e&nbsp;as&nbsp;versões dentro dos&nbsp;três pedidos são do&nbsp;material,
-    de&nbsp;abril de&nbsp;2026.</strong> Eles envelhecem: é exatamente o&nbsp;erro nº 4 da&nbsp;<a href="../b11-cocriar/">aula 5 do&nbsp;B11</a>. Se&nbsp;a&nbsp;importação recusar por&nbsp;versão, confira na&nbsp;tela
-    do&nbsp;seu&nbsp;n8n qual é a&nbsp;atual e&nbsp;corrija no&nbsp;pedido antes de&nbsp;gerar de&nbsp;novo.</p>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="secao" id="sua-vez">
-    <div class="secao-topo">
-      <div class="secao-n">05</div>
-      <div>
-        <div class="secao-fn">A sua vez</div>
-        <h2>Importar e&nbsp;ajustar</h2>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">1</div>
-        <div class="passo-fn">Importar</div>
-      </div>
-      <ol>
-        <li>Copie o&nbsp;JSON que&nbsp;a&nbsp;IA gerou.</li>
-        <li>No&nbsp;n8n, clique no&nbsp;ícone de&nbsp;menu, no&nbsp;canto do&nbsp;canvas.</li>
-        <li>Selecione <strong>Import from JSON</strong>.</li>
-        <li>Cole e&nbsp;confirme.</li>
-      </ol>
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo quando</div>
-        <p>O&nbsp;canvas aparece com&nbsp;os&nbsp;nós conectados. <strong>Os&nbsp;avisos de&nbsp;credencial são
-        esperados</strong>, e&nbsp;não&nbsp;são erro.</p>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">2</div>
-        <div class="passo-fn">Ajustar o que é seu</div>
-      </div>
-      <div class="checagem">
-        <ul>
-          <li><strong>Credenciais:</strong> a&nbsp;IA nunca tem acesso às&nbsp;suas&nbsp;chaves. Conecte no&nbsp;n8n
-          depois de&nbsp;importar.</li>
-          <li><strong>Identificadores reais:</strong> planilhas, pastas, documentos. Ela usa
-          exemplos; substitua pelos seus.</li>
-          <li><strong>Expressões:</strong> <code>$json.campo</code> pode vir com&nbsp;o&nbsp;nome errado.
-          Confira na&nbsp;primeira execução.</li>
-          <li><strong>No&nbsp;V3:</strong> se&nbsp;o&nbsp;modelo não&nbsp;aparecer conectado ao&nbsp;nó de&nbsp;IA no&nbsp;canvas,
-          conecte à&nbsp;mão.</li>
-        </ul>
-      </div>
-      <div class="destrave">
-        <div class="destrave-rot">Se travar sem saber por onde começar a revisar</div>
-        <p>Comece <strong>de&nbsp;trás para&nbsp;frente</strong>: abra o&nbsp;último nó, veja de&nbsp;quais campos ele
-        depende, e&nbsp;vá subindo conferindo se&nbsp;cada um&nbsp;existe no&nbsp;nó anterior. É mais rápido que&nbsp;ler o&nbsp;fluxo do&nbsp;começo, porque&nbsp;o&nbsp;que&nbsp;interessa é o&nbsp;que&nbsp;chega no&nbsp;fim.</p>
-        <div class="destrave-nao"><strong>Não vale:</strong> ativar e ver no que dá. Fluxo gerado
-        por IA em produção sem revisão é como o material diz: vai para o ar com defeito, e você
-        descobre pelo destinatário.</div>
-      </div>
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo quando</div>
-        <p>Você rodou <strong>um&nbsp;teste manual com&nbsp;1 caso real</strong> antes de&nbsp;ativar, e&nbsp;conferiu o&nbsp;resultado de&nbsp;cada nó.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="ate-aqui">
-    <div class="ate-aqui-rot">A aula acaba aqui</div>
-  </div>
-  <p class="ate-aqui-nota">Os&nbsp;três pedidos prontos, a&nbsp;tabela de&nbsp;qual usar, e&nbsp;o&nbsp;roteiro de&nbsp;importar e&nbsp;ajustar. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: quatro tropeços.</p>
-
-  <section class="secao" id="cerca">
-    <div class="secao-topo">
-      <div class="secao-n">06</div>
-      <div>
-        <div class="secao-fn">A cerca</div>
-        <h2>Pegadinhas</h2>
-      </div>
-    </div>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Usar a V1 num fluxo com IF</div>
-      <p>O&nbsp;formato das&nbsp;conexões sai errado, e&nbsp;o&nbsp;fluxo importa sem&nbsp;funcionar. Escolha a&nbsp;versão pelo&nbsp;tipo do&nbsp;fluxo, não&nbsp;pelo&nbsp;tamanho.</p>
-    </div>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Confiar nas expressões sem testar</div>
-      <p>Um&nbsp;<code>$json.campo</code> pode estar com&nbsp;nome errado, e&nbsp;isso não&nbsp;dá erro de&nbsp;importação:
-      dá resultado vazio na&nbsp;execução.</p>
-    </div>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Importar sem revisar</div>
-      <p>Se&nbsp;a&nbsp;IA inventou um&nbsp;campo, o&nbsp;erro aparece só&nbsp;quando&nbsp;o&nbsp;fluxo rodar, e&nbsp;com&nbsp;gente esperando do&nbsp;outro lado.</p>
-    </div>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">Esperar que funcione de primeira</div>
-      <p>Os&nbsp;ajustes são a&nbsp;parte normal do&nbsp;trabalho, não&nbsp;sinal de&nbsp;que&nbsp;o&nbsp;pedido estava ruim.</p>
+      <p class="fig-leg">Aparece no&nbsp;<a href="../b10-prompt/">B10, aula 3</a>.</p>
     </div>
   </section>
 
   <div class="gancho">
-    <p><strong>Você chegou ao&nbsp;fim do&nbsp;Módulo 2.</strong> As&nbsp;duas aulas deste bloco estão na&nbsp;<a href="../b12-recursos/">capa do&nbsp;B12</a>, e&nbsp;os&nbsp;oito blocos na&nbsp;<a href="../modulo-2/">capa do&nbsp;módulo</a>.</p>
+    <p><strong>Veja também:</strong> as&nbsp;cinco <a href="../recursos/">referências por&nbsp;parte do&nbsp;fluxo</a>, que&nbsp;dizem qual nó usar; o&nbsp;glossário diz o&nbsp;que&nbsp;cada coisa é.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../b12-subworkflows/">&larr; Aula 1 · Sub-workflows: quando separar é melhor que juntar</a><a href="../recursos/">Recursos do aluno &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../ref-ia/">&larr; Referência · IA</a><a href="../modulo-3/">Módulo 3 · Minha Jornada com IA &rarr;</a></nav>
 </main>
 
 
