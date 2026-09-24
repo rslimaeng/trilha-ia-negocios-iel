@@ -1,0 +1,340 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta prática</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Sistema que recebe um lead por webhook, <strong>enriquece os dados numa API pública,
+      classifica em A, B ou C com IA</strong> e dispara mensagem personalizada por categoria</li>
+      <li>É o salto do "automação de tarefa" para <strong>"automação de processo comercial"</strong></li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que este é diferente dos anteriores</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Aqui o dado chega <strong>pobre</strong> e o fluxo o torna rico antes de decidir. É a
+      primeira vez no módulo que o fluxo busca informação que ninguém digitou.</p>
+    </div>
+
+    <p>Um lead preenche um formulário e deixa quatro campos: nome, e-mail, CNPJ e um texto livre.
+    Com isso, ninguém consegue decidir se vale a ligação do vendedor sênior ou um e-mail
+    automático. <strong>Falta o que a empresa é</strong>: porte, segmento, tamanho.</p>
+
+    <p>Essa informação existe, é pública, e uma chamada de API resolve. O que este projeto ensina é
+    a sequência: <strong>receber pobre, enriquecer, decidir, e só então responder</strong>.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">Gatilho</span><span class="fl-quem">Webhook: lead vindo de formulário externo, de chatbot ou do site</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Execução</span><span class="fl-quem">HTTP Request enriquece &middot; AI Agent classifica A, B ou C &middot; Switch abre 3 caminhos</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Entrega</span><span class="fl-quem">E-mail personalizado por categoria &middot; planilha fazendo as vezes de CRM</span></div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O desenho, como está no material</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11cli-dia">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11cli-dia">[ Webhook ] → [ HTTP Request: enriquecer ] → [ AI Agent: classifica ]
+                                                        │
+                                              [ Switch: A | B | C ]
+                                               │         │         │
+                                          Gmail VIP  Gmail B  Gmail C
+                                               └─────────┴─────────┘
+                                                        ↓
+                                                 [ Sheets CRM ]</pre>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">O que precisa estar pronto antes</span>
+      <ul class="lista">
+        <li>Os blocos <a href="../b5-antes/">B5</a> a <a href="../b10-agentes/">B10</a>, e em
+        especial o <a href="../b8-switch/">Switch</a> e o <a href="../b9-http/">HTTP Request</a>.</li>
+        <li>Uma API de consulta de empresa. O material sugere uma gratuita para teste,
+        <code>cnpj.ws</code>.</li>
+        <li>Credenciais de Gmail, Sheets e do modelo de IA.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Webhook</div>
+      </div>
+      <p>Recebe quatro campos: <code>nome</code>, <code>email</code>, <code>cnpj</code> e
+      <code>mensagem</code>, esta última o texto livre do lead.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você mandou uma chamada de teste e os quatro campos apareceram no painel. Se você ainda
+        não tem de onde chamar, o <a href="../b9-api/">B9</a> mostra como disparar à mão.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">HTTP Request, o enriquecimento</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Método:</strong> GET</li>
+        <li><strong>URL:</strong> <code>https://www.cnpj.ws/cnpj/{{ $json.cnpj }}</code></li>
+      </ul>
+      <p>A resposta traz nome da empresa, faturamento estimado, segmento e porte.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>A saída do nó tem campos que <strong>ninguém digitou no formulário</strong>. Esse é o
+        momento em que o dado ficou rico.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">AI Agent, a classificação</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Modelo:</strong> GPT-4o-mini <span class="fig-leg">(nome do material, abril de
+        2026)</span></li>
+        <li><strong>Ferramenta:</strong> <code>append_to_sheets</code></li>
+      </ul>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt, como está no material</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11cli-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11cli-sp"># ROLE
+Você é um qualificador de leads B2B.
+
+# GOAL
+Classificar o lead em A (alto valor), B (médio) ou C (baixo) com base
+nos dados enriquecidos e na mensagem do lead. Justificar a
+classificação e escrever uma mensagem personalizada.
+
+# RULES
+1. A = empresa com porte Médio/Grande + mensagem indicando urgência
+   ou orçamento.
+2. B = empresa Pequena ou média com intenção clara mas sem urgência.
+3. C = MEI, autonomo ou mensagem vaga.
+4. Sempre retornar JSON com campos: classificacao, justificativa,
+   mensagem_personalizada.</pre>
+      </div>
+
+      <p class="fig-leg">O prompt está <strong>literal, como o autor escreveu</strong>, inclusive na
+      grafia de "autonomo". Repare na regra 4: ela pede resposta em JSON, que é o assunto da
+      <a href="../b8-json/">aula 1 do B8</a>. O Switch do passo seguinte depende disso.</p>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>A saída tem os três campos separados, e não um texto corrido. Se vier texto corrido,
+        force o formato de saída, como está na <a href="../b8-json/">aula de JSON</a>, ou troque o
+        agente por um <strong>Information Extractor</strong>.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Switch, três caminhos</div>
+      </div>
+      <p>Condição: <code>{{ $json.classificacao }}</code>, com três saídas: <code>A</code>,
+      <code>B</code> e <code>C</code>.</p>
+      <div class="aviso atencao">
+        <div class="aviso-t">Ligue o Fallback antes de testar</div>
+        <p>Se o agente devolver algo fora das três letras, o lead <strong>some sem cair em caminho
+        nenhum</strong>. O Fallback Output existe exatamente para isso, e é a pegadinha mais cara
+        deste projeto.</p>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você testou os três com leads diferentes, <strong>e mais um quarto de propósito</strong>
+        que não se encaixe, para ver o Fallback pegar.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Gmail, três textos</div>
+      </div>
+      <ul class="lista">
+        <li><strong>A:</strong> resposta personalizada com link para agendar reunião.</li>
+        <li><strong>B:</strong> e-mail consultivo com material de apoio.</li>
+        <li><strong>C:</strong> newsletter automática: "obrigado pelo contato, te mantemos no
+        radar".</li>
+      </ul>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar nos três textos</div>
+        <p>Não escreva três e-mails: escreva <strong>três aberturas e três chamadas para ação</strong>.
+        O meio quem escreve é o agente. O que muda entre A, B e C não é o tom, é <strong>o que você
+        pede que a pessoa faça a seguir</strong>: marcar reunião, ler um material, ou só ficar na
+        lista.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> o mesmo texto nos três com o nome
+        trocado. Se os três são iguais, o Switch não precisava existir e você gastou uma chamada de
+        IA à toa.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>O texto do e-mail <strong>não é o mesmo template com o nome trocado</strong>: quem
+        escreveu o corpo foi o agente, no campo <code>mensagem_personalizada</code>.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Sheets, o registro</div>
+      </div>
+      <p>Colunas:
+      <code>data | nome | email | cnpj | classificacao | mensagem_enviada | justificativa</code>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>A coluna <code>justificativa</code> existe e está preenchida. <strong>Ela é a que o time
+        comercial vai cobrar</strong> no dia em que discordar de uma classificação.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Avisador e ativação</div>
+      </div>
+      <p>Ligue o Error Trigger da <a href="../b11-erro/">aula 2</a> e aplique o checklist de quatro
+      etapas da <a href="../b11-ativacao/">aula 3</a>. No webhook, lembre de usar a URL de
+      <strong>produção</strong>, e não a de teste.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Uma chamada na URL de produção, com o n8n fechado, produziu e-mail e linha na planilha.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O que este projeto ensina</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">O que fica com você depois deste projeto</div>
+      <div class="demo-corpo">
+        <ul class="lista">
+          <li><strong>Webhook nas duas pontas:</strong> entra por ele, sai em outros lugares.</li>
+          <li><strong>Enriquecimento por API pública</strong>, que é a peça que faltava para o dado
+          virar decisão.</li>
+          <li><strong>IA classificando</strong>, e não conversando. É outro uso do agente.</li>
+          <li><strong>Switch como decisão de negócio</strong>, com três ramos que fazem coisas
+          diferentes de verdade.</li>
+          <li><strong>Mensagem escrita pelo agente</strong>, não template com nome trocado.</li>
+        </ul>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Este fluxo não foi executado numa conta de teste em 09/2026</div>
+          <p>O passo a passo é o do material, como está. Os "deu certo quando" são o que o material
+          diz esperar, não medição feita aqui.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Variações para exercitar</h4>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Uma</span>
+        <p>Trocar a fonte de enriquecimento por uma paga, com dados B2B mais ricos.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Duas</span>
+        <p><strong>Verificação humana antes do A:</strong> lead A vira mensagem no Telegram para o
+        vendedor sênior aprovar antes do envio.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Três</span>
+        <p>Integrar com um <strong>CRM de verdade</strong> no lugar da planilha.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Quatro</span>
+        <p>Registrar os leads C numa <strong>segunda planilha de nutrição</strong>, que alimenta uma
+        sequência de e-mails.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A prática acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O lead entrando pobre, saindo classificado, e três caminhos com resposta
+  diferente. O que vem abaixo é a <strong>cerca</strong>: quatro tropeços deste projeto.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">A API gratuita tem limite de chamadas</div>
+      <p>O material aponta cerca de 1 chamada por segundo na gratuita, <strong>afirmação de abril de
+      2026</strong>. Se você espera muitos leads, adicione um <strong>Wait node</strong> ou contrate
+      o plano pago.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Switch sem Fallback</div>
+      <p>Se o agente devolver uma classificação estranha, um "D" por exemplo, <strong>o lead some
+      sem disparar nada</strong>. Sempre habilite o Fallback Output.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O agente devolvendo texto livre onde você esperava campos separados</div>
+      <p>Force o formato no System Prompt, ou troque o agente por um <strong>Information
+      Extractor</strong>, que já nasce com campos definidos.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Planilha sem coluna de justificativa</div>
+      <p>Você perde a auditoria do <strong>porquê</strong> de cada classificação. E isso importa
+      exatamente no dia em que o time comercial discordar.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo projeto:</strong> <a href="../b11-faq/">C, Bot de FAQ no Telegram</a>, onde
+    o agente ganha memória por conversa. Os quatro projetos estão no
+    <a href="../b11-massa/">hub do bloco</a>.</p>
+  </div>

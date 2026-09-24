@@ -1,0 +1,354 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta prática</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Sistema que recebe currículos por formulário, <strong>extrai os dados com IA, classifica
+      o candidato, registra em planilha e manda retorno diferente para aprovado e reprovado</strong></li>
+      <li>Este é o <strong>projeto-âncora do curso</strong>: ele cresceu de bloco em bloco, e aqui
+      entra em produção</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que este é o projeto-âncora</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Você não está começando um projeto novo: está <strong>terminando</strong> um que vem
+      crescendo desde o começo do módulo.</p>
+    </div>
+
+    <p>Triagem de currículo é o exemplo que atravessa o curso inteiro porque tem tudo dentro:
+    entrada de arquivo, leitura de conteúdo não estruturado, decisão, registro e resposta. Cada
+    bloco acrescentou uma peça.</p>
+
+    <div class="escada solta">
+      <div class="degrau">
+        <div class="degrau-rot">B5</div>
+        <div class="degrau-corpo">Mapear no papel: gatilho, execução, entrega.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B6</div>
+        <div class="degrau-corpo">Manual Trigger e Edit Fields com 1 candidato fictício, para
+        entender o formato do dado.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B7</div>
+        <div class="degrau-corpo">Trocar pelo Form Trigger: o candidato de verdade envia.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B8</div>
+        <div class="degrau-corpo">IF por idioma e cargo desejado, criando dois caminhos.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B9</div>
+        <div class="degrau-corpo">HTTP Request mandando o texto para a IA, sem agente ainda.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B10</div>
+        <div class="degrau-corpo">Substituir o HTTP por AI Agent com ferramenta de planilha: o
+        agente classifica e ranqueia.</div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">B11</div>
+        <div class="degrau-corpo"><strong>Aqui:</strong> pipeline completo, tratamento de erro e
+        ativação.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A tabela é do material</strong> ("Como o projeto evoluiu ao longo do
+    curso"), com os módulos do Notion traduzidos para os blocos deste site. Se você acompanhou o
+    módulo, boa parte já está construída.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">Gatilho</span><span class="fl-quem">Form Trigger: o candidato envia o formulário com o PDF</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Execução</span><span class="fl-quem">Drive guarda o PDF &middot; AI Agent extrai, classifica e pontua &middot; Sheets registra</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Entrega</span><span class="fl-quem">Gmail com texto diferente para aprovado e reprovado &middot; Error Trigger avisa se falhar</span></div>
+    </div>
+
+    <p class="fig-leg">É o mesmo <strong>Gatilho &rarr; Execução &rarr; Entrega</strong> do
+    <a href="../b5-pensar/">B5</a>. O que mudou é que agora as três colunas têm nós de verdade
+    embaixo.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O desenho final, como está no material</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11cv-dia">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11cv-dia">[ Form Trigger ] → [ Google Drive ] → [ AI Agent ] → [ IF: aprovado? ]
+                                                          │
+                                       Sim → [ Gmail aprovado ] → [ Sheets ]
+                                       Não → [ Gmail reprovado ] → [ Sheets ]
+
+[ Error Trigger, workflow paralelo ] → [ Gmail: avisa o responsável ]</pre>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">O que precisa estar pronto antes</span>
+      <ul class="lista">
+        <li>Os blocos <a href="../b5-antes/">B5</a> a <a href="../b10-agentes/">B10</a>.</li>
+        <li>Credenciais Google (Drive, Sheets e Gmail) e a credencial do modelo de IA.</li>
+        <li>Uma planilha criada com as colunas
+        <code>nome | email | cargo_desejado | nota | status | data</code>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Form Trigger</div>
+      </div>
+      <p>Quatro campos:</p>
+      <ul class="lista">
+        <li><code>nome</code>, texto</li>
+        <li><code>email</code>, e-mail</li>
+        <li><code>cargo_desejado</code>, texto</li>
+        <li><code>arquivo</code>, upload de arquivo, aceitando PDF</li>
+      </ul>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você abriu o link do formulário, enviou um PDF de teste, e no painel do nó apareceu o
+        arquivo junto com os três campos de texto.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Google Drive, guardar o PDF</div>
+      </div>
+      <p>Salvar na pasta <strong>"Currículos recebidos / [ano-mês]"</strong>, usando o campo
+      <code>arquivo</code> do Form Trigger como entrada do Drive.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>O PDF aparece na pasta do Drive, com o nome que o candidato enviou. <strong>Guardar o
+        original importa:</strong> a IA lê e resume, mas quem decide contratar vai querer abrir o
+        currículo inteiro.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">AI Agent com três ferramentas</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Modelo:</strong> GPT-4o-mini, pelo custo baixo com qualidade suficiente para
+        extração estruturada.</li>
+        <li><strong>Memória:</strong> não precisa, porque cada candidato é independente.</li>
+        <li><strong>Ferramentas:</strong>
+          <ul>
+            <li><code>extract_resume_data</code>, que extrai os dados estruturados do PDF</li>
+            <li><code>score_candidate</code>, a lógica de pontuação de 0 a 100</li>
+            <li><code>append_to_sheets</code>, que grava na planilha</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="fig-leg">O nome do modelo é <strong>afirmação do material, de abril de 2026</strong>.
+      Confira na tela quais modelos a sua conta oferece hoje; a regra que fica é a do material, e é
+      de escolher o barato quando a tarefa é extrair, não redigir.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Rodando só esse nó, a saída traz os campos do candidato preenchidos e uma nota numérica.
+        Se a nota vier como texto entre aspas, volte à <a href="../b8-json/">aula 1 do B8</a>: o IF
+        do passo seguinte depende dela ser número.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">IF, o ponto de decisão</div>
+      </div>
+      <p>Condição: <code>nota &gt;= 70</code>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você testou os <strong>dois</strong> caminhos, e não só o de cima: um candidato com nota
+        alta e outro com nota baixa.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Gmail, dois textos diferentes</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Aprovado:</strong> convite para a próxima etapa.</li>
+        <li><strong>Reprovado:</strong> retorno construtivo.</li>
+      </ul>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar no e-mail do reprovado</div>
+        <p>É o mais difícil dos dois, e trava todo mundo. Uma forma que funciona: agradecer,
+        <strong>dizer o critério objetivo</strong> que não bateu, e deixar a porta aberta para
+        outra vaga. Sem elogio genérico e sem promessa.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> mandar a nota ou a justificativa crua
+        da IA para o candidato. Aquilo foi escrito para você decidir, não para ele ler.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Os dois e-mails chegaram na sua caixa, cada um pelo seu caminho, com o nome do candidato
+        certo dentro.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">6</div>
+        <div class="passo-fn">Error Trigger, num fluxo paralelo</div>
+      </div>
+      <p>Avisa por e-mail o responsável se o fluxo principal falhar. O setup completo está na
+      <a href="../b11-erro/">aula 2</a>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Nas Settings do fluxo principal, o campo Error Workflow mostra o nome do seu handler.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">7</div>
+        <div class="passo-fn">Ativar</div>
+      </div>
+      <p>Aplique o checklist de quatro etapas da <a href="../b11-ativacao/">aula 3</a>: despinar,
+      conferir as credenciais de produção, testar com 1 currículo real, ativar.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você mandou um currículo pelo link do formulário, <strong>fechou o n8n</strong>, e o
+        e-mail chegou mesmo assim.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O que este projeto ensina</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">O que fica com você depois deste projeto</div>
+      <div class="demo-corpo">
+        <ul class="lista">
+          <li><strong>Formulário com upload de arquivo</strong>, que é o campo que mais confunde no
+          Form Trigger.</li>
+          <li><strong>Drive como depósito</strong>, mantendo os PDFs originais.</li>
+          <li><strong>AI Agent com três ferramentas</strong>: extrair, pontuar, gravar.</li>
+          <li><strong>IF como ponto de decisão</strong> com consequência real, e não só dois ramos
+          de exemplo.</li>
+          <li><strong>Gmail com texto que muda</strong> conforme o resultado da IA.</li>
+          <li><strong>Error Trigger vinculado</strong> e <strong>ativação pelas quatro etapas</strong>.</li>
+        </ul>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Este fluxo não foi executado numa conta de teste em 09/2026</div>
+          <p>O passo a passo é o do material, como está. Os resultados descritos em cada "deu certo
+          quando" são o que o material diz esperar, não medição feita aqui.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Variações para exercitar</h4>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Uma</span>
+        <p>Trocar a planilha por <strong>Notion</strong>. Mesmo conceito, outro destino.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Duas</span>
+        <p>Avisar no <strong>Slack</strong> em vez do e-mail, num canal de recrutamento.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Três</span>
+        <p><strong>Filtrar por cidade antes de pontuar</strong>, com um IF no início, se a vaga for
+        presencial.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Quatro</span>
+        <p>Registrar os não aprovados numa <strong>planilha de banco de talentos</strong>, para
+        fluxos futuros.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A prática acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O projeto-âncora do curso, de ponta a ponta, com aviso de erro e
+  ativação. O que vem abaixo é a <strong>cerca</strong>: quatro tropeços deste projeto em
+  específico.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">PDF grande demais estoura o limite</div>
+      <p>O material aponta um limite de cerca de 20 MB, <strong>afirmação de abril de 2026</strong>.
+      Adicione uma validação de tamanho antes do agente, e confira o limite atual na documentação do
+      modelo que você usar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Currículo que é imagem, e não texto</div>
+      <p>PDF escaneado em baixa qualidade falha na leitura. Trate como exceção dentro do fluxo, em
+      vez de deixar quebrar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pontuação automática vira viés se ninguém revisar</div>
+      <p>Se você pesar muito "anos de experiência", penaliza candidato jovem que tem outros pontos
+      fortes. <strong>Revise a lógica de pontuação de tempos em tempos</strong>, e guarde a
+      justificativa junto com a nota para conseguir auditar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Formulário sem limite de envios</div>
+      <p>Um envio em massa pode disparar 100 execuções em 1 minuto, e cada uma custa uma chamada de
+      IA. Adicione um <strong>Limit node</strong> ou um limite de taxa no formulário.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo projeto:</strong> <a href="../b11-clientes/">B, Classificação de clientes</a>,
+    onde o lead chega por webhook e a IA decide entre três caminhos. Os quatro projetos estão no
+    <a href="../b11-massa/">hub do bloco</a>.</p>
+  </div>

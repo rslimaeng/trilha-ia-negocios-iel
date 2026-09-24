@@ -1,0 +1,364 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta prática</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Bot do Telegram que <strong>responde dúvidas sobre o seu produto ou serviço</strong>
+      usando uma base de conhecimento escrita dentro do prompt</li>
+      <li>Memória separada por conversa, e registro em planilha para você melhorar a FAQ com o que
+      as pessoas realmente perguntam</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que começar sem busca vetorial</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>A sua FAQ inteira cabe dentro do prompt. <strong>Enquanto couber, é a solução mais simples
+      que funciona</strong>, e simples é o que você consegue manter.</p>
+    </div>
+
+    <p>Existe uma tecnologia mais sofisticada para isso, em que o sistema busca a resposta numa base
+    de documentos na hora. Ela tem nome, é útil, e não é por onde se começa. O material é direto: a
+    base aqui é fixa, escrita no prompt, e <strong>funciona até algo em torno de 5 a 10 mil palavras
+    de FAQ</strong>.</p>
+
+    <p>Para a maioria dos negócios, 30 a 50 perguntas e respostas resolvem a maior parte do
+    atendimento repetitivo. Este projeto entrega isso hoje.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">Gatilho</span><span class="fl-quem">Telegram Trigger: alguém manda mensagem para o bot</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Execução</span><span class="fl-quem">AI Agent com a FAQ dentro do prompt e memória por conversa</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Entrega</span><span class="fl-quem">Resposta no Telegram &middot; registro em planilha, em paralelo</span></div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O desenho, como está no material</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11faq-dia">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11faq-dia">[ Telegram Trigger ] → [ AI Agent ] → [ Telegram Send ]
+                             │                │
+                        [ Memory ]     [ Sheets: log ]</pre>
+    </div>
+
+    <p class="fig-leg">Repare no <strong>ramo paralelo</strong>: responder e registrar acontecem ao
+    mesmo tempo, e o registro não atrasa a resposta de quem está esperando no chat.</p>
+
+    <div class="cartao">
+      <span class="rot">O que precisa estar pronto antes</span>
+      <ul class="lista">
+        <li>Um <strong>bot do Telegram criado</strong>, com o token salvo. Quem cria bots no
+        Telegram é o próprio Telegram, pelo BotFather.</li>
+        <li>Os blocos <a href="../b5-antes/">B5</a> a <a href="../b10-agentes/">B10</a>, e em
+        especial a <a href="../b10-memoria/">aula de memória</a>.</li>
+        <li><strong>A sua FAQ escrita</strong>, com 30 a 50 perguntas e respostas. Esta é a parte
+        que demora, e é sua.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Telegram Trigger</div>
+      </div>
+      <ul class="lista">
+        <li>Conecte o bot colando o token no campo de credencial.</li>
+        <li><strong>Updates:</strong> <code>Message</code>.</li>
+      </ul>
+      <p>O gatilho dispara a cada mensagem nova que alguém mandar para o bot.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você mandou "oi" para o seu bot pelo celular e a mensagem apareceu no painel do nó, com
+        o seu nome e o identificador da conversa.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">AI Agent, com a FAQ dentro</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Modelo:</strong> GPT-4o-mini <span class="fig-leg">(nome do material, abril de
+        2026)</span></li>
+        <li><strong>Memória:</strong> Simple Memory</li>
+        <li><strong>Session ID:</strong> <code>{{ $json.message.chat.id }}</code></li>
+      </ul>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">O Session ID é a linha mais importante deste projeto</div>
+        <p>Se você deixar fixo, <strong>todas as conversas dividem a mesma memória</strong>, e o bot
+        responde para uma pessoa usando o contexto da conversa com outra. Use sempre o identificador
+        da conversa, que muda sozinho.</p>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt, o molde do material</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11faq-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11faq-sp"># ROLE
+Você é o atendente virtual da [empresa]. Responde dúvidas sobre
+[produto/serviço].
+
+# GOAL
+Responder dúvidas frequentes com base nas informações abaixo.
+Encaminhar pra humano quando não souber.
+
+# KNOWLEDGE BASE
+[Cole aqui sua FAQ inteira]
+
+P: Qual o horário de atendimento?
+R: Segunda a sexta, 9h às 18h.
+
+P: Como peço reembolso?
+R: Mande e-mail pra reembolso@empresa.com com número do pedido.
+
+[… mais 30-50 pares P/R …]
+
+# RULES
+1. Responder APENAS com base no KNOWLEDGE BASE.
+2. Se não souber, dizer "vou pedir pra alguém da equipe te responder"
+   e encerrar.
+3. Tom: amigável, direto, em português coloquial.
+
+# OUTPUT
+Resposta curta. Máximo 3 parágrafos.</pre>
+      </div>
+
+      <p class="fig-leg">O molde está <strong>literal, como o autor escreveu</strong>. Os colchetes
+      são o que você troca. <strong>A regra 1 é a que evita o bot inventar</strong>: sem ela, ele
+      preenche o que não sabe com o que parece plausível, e o cliente recebe uma informação que
+      nunca existiu.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar na hora de escrever a FAQ</div>
+        <p>É aqui que quase todo mundo para, e a saída não é inventar perguntas: é
+        <strong>abrir o seu WhatsApp ou a sua caixa de entrada e copiar as dez últimas dúvidas
+        reais</strong> que chegaram. Dez pares já fazem o bot funcionar; os outros quarenta vêm da
+        planilha de registro, depois.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> esperar a FAQ ficar completa para subir
+        o bot. Ela nunca fica, e o registro em planilha existe justamente para completá-la com o que
+        as pessoas perguntam de verdade.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você perguntou algo que <strong>não está</strong> na FAQ e ele respondeu que vai pedir
+        para alguém da equipe. Esse teste vale mais que dez perguntas que ele acerta.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Telegram Send Message</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Chat ID:</strong>
+        <code>{{ $('Telegram Trigger').item.json.message.chat.id }}</code></li>
+        <li><strong>Text:</strong> <code>{{ $json.output }}</code></li>
+      </ul>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>A resposta chegou <strong>no seu celular</strong>, na mesma conversa em que você
+        perguntou.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Planilha, num ramo paralelo</div>
+      </div>
+      <p>Saindo do mesmo AI Agent, ligue também um Sheets Append com cinco colunas:</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Coluna</th><th>De onde vem</th></tr></thead>
+          <tbody>
+            <tr><td><code>timestamp</code></td><td><code>{{ $now }}</code></td></tr>
+            <tr><td><code>chat_id</code></td><td><code>{{ $('Telegram Trigger').item.json.message.chat.id }}</code></td></tr>
+            <tr><td><code>usuario</code></td><td><code>{{ $('Telegram Trigger').item.json.message.from.first_name }}</code></td></tr>
+            <tr><td><code>pergunta</code></td><td><code>{{ $('Telegram Trigger').item.json.message.text }}</code></td></tr>
+            <tr><td><code>resposta</code></td><td><code>{{ $json.output }}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Depois de três perguntas no celular, a planilha tem três linhas, com pergunta e resposta
+        lado a lado.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Avisador e ativação</div>
+      </div>
+      <p>Ligue o Error Trigger da <a href="../b11-erro/">aula 2</a> e aplique o checklist de quatro
+      etapas da <a href="../b11-ativacao/">aula 3</a>.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você fechou o n8n, mandou uma mensagem para o bot pelo celular, e ele respondeu. Sem o
+        botão Active ligado, <strong>ele só responde enquanto você está com o fluxo aberto</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O ciclo que faz a FAQ melhorar sozinha</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">A planilha não é registro: é a próxima versão da FAQ</div>
+      <div class="demo-corpo">
+        <div class="ciclo solta">
+          <div class="ciclo-passos">
+            <div class="cc"><span class="cc-n">1</span><span class="cc-fn">O bot responde o que sabe</span></div>
+            <span class="cc-seta">&rarr;</span>
+            <div class="cc"><span class="cc-n">2</span><span class="cc-fn">A planilha registra tudo, inclusive o que ele não soube</span></div>
+            <span class="cc-seta">&rarr;</span>
+            <div class="cc"><span class="cc-n">3</span><span class="cc-fn">Uma vez por semana você lê as linhas</span></div>
+            <span class="cc-seta">&rarr;</span>
+            <div class="cc"><span class="cc-n">4</span><span class="cc-fn">As perguntas sem resposta viram pares novos na FAQ</span></div>
+          </div>
+          <div class="ciclo-fecha">e o bot fica melhor sem ninguém reprogramar nada</div>
+        </div>
+
+        <p class="fig-leg"><strong>É aqui que este projeto se paga.</strong> Um bot que responde 60%
+        das dúvidas e não registra nada continua em 60% para sempre. O mesmo bot com a planilha
+        sobe sozinho, porque você passa a saber exatamente onde ele falha.</p>
+
+        <h4>Por que isto não é busca vetorial, e quando virar</h4>
+
+        <p>A base aqui é fixa, escrita no prompt. A outra abordagem buscaria a resposta numa base de
+        documentos, na hora. Segundo o material, a hora de mudar é quando:</p>
+
+        <ul class="lista">
+          <li>a FAQ passar de algo em torno de <strong>10 mil palavras</strong>;</li>
+          <li>o <strong>custo por chamada ficar caro</strong>, já que todo pedido manda a FAQ
+          inteira junto;</li>
+          <li>você quiser que a base <strong>atualize sozinha</strong> quando você editar o
+          documento.</li>
+        </ul>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Este fluxo não foi executado numa conta de teste em 09/2026</div>
+          <p>O passo a passo é o do material, como está. Os números de palavras são afirmações do
+          material, de abril de 2026.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Variações para exercitar</h4>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Uma</span>
+        <p>Trocar o Telegram por <strong>WhatsApp</strong>, por um intermediário. Mesmo agente,
+        outro gatilho.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Duas</span>
+        <p>Dar ao agente uma ferramenta de <strong>abrir chamado</strong> quando não souber, em vez
+        de só dizer que vai pedir ajuda.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Três</span>
+        <p>Registrar as <strong>perguntas sem resposta numa segunda planilha</strong>, que vira a
+        fila de expansão da FAQ.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Quatro</span>
+        <p>Responder com <strong>botões</strong> do Telegram para as perguntas mais comuns.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A prática acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Um bot no ar, com memória por conversa e um registro que melhora a FAQ
+  toda semana. O que vem abaixo é a <strong>cerca</strong>: cinco tropeços, e o primeiro é o que
+  mistura as conversas.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Session ID fixo mistura as conversas</div>
+      <p>Todas as pessoas passam a dividir a mesma memória, e o bot responde para uma usando o
+      contexto de outra. Use sempre <code>{{ $json.message.chat.id }}</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">FAQ grande demais estoura o limite do prompt</div>
+      <p>A janela é larga, mas não é infinita. Se a FAQ tem dezenas de milhares de palavras, é hora
+      da outra abordagem.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não registrar em planilha</div>
+      <p>Você perde a chance de descobrir <strong>quais perguntas não estão sendo bem
+      respondidas</strong>, que é a única informação capaz de melhorar o bot.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Bot não ativado</div>
+      <p>Sem o botão Active ligado, ele só responde quando você executa o fluxo à mão. Do lado de
+      fora, parece um bot que ignora as pessoas.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O gatilho do Telegram fica perguntando se há mensagem nova</div>
+      <p>Se o n8n estiver fora do ar, mensagens podem se perder. Para atendimento crítico, configure
+      o webhook do Telegram em vez desse modo.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próximo projeto:</strong> <a href="../b11-agendador/">D, Agendador de reuniões</a>,
+    que é este bot crescido: quatro ferramentas e uma ordem de operações. Os quatro projetos estão
+    no <a href="../b11-massa/">hub do bloco</a>.</p>
+  </div>

@@ -1369,6 +1369,56 @@ TURMA_COMO_PLATEIA = re.compile(
 # a janela do G42 ignorar capa. Registrado no 00-achados-trilha-ia-negocios-
 # iel-40h.md, bloco B.
 DISPENSA_NOTION_LITERAL = {
+    # ---------------------------------------------------------------------
+    # 24/09, B11 (M6) e B12 (Recursos Profissionais).
+    #
+    # G1 · TRAVESSAO. Os quatro casos sao texto do autor DENTRO de bloco
+    # copiavel: o System Prompt do Projeto D ("get_contact — busca o contato"),
+    # o Prompt 2.0 do Topico 8 ("typeVersion de cada no — e diga se esta
+    # chutando"), o diagrama do gerador de pitch e os tres prompts V1/V2/V3 do
+    # Topico 2 ("Gmail (v2.1) — resource: message"). Sao pedidos que a pessoa
+    # COLA num chat de IA: trocar o travessao por virgula muda o texto que o
+    # autor escreveu e testou. Pela regra do CLAUDE.md da trilha, gate que
+    # reprova material dele e gate errado, e reescrever para caber no gate foi
+    # exatamente o defeito de 02/09.
+    #
+    # G42/G44 · A ORDEM DO M6 E DO RECURSOS PROFISSIONAIS. O M6 tem TRES
+    # topicos de operacao seguidos (Debugging, Error Trigger, Ativacao) antes
+    # dos projetos, por decisao do autor, e o proprio material explica por que:
+    # "Parte 1 — Operacao (antes dos projetos)". A pratica vem logo depois, no
+    # hub. O B12 tem duas aulas de consulta, sem entregavel proprio.
+    # G44 continua sendo DISPENSA DO EXECUTOR, como no B7 e no B8: Rafael decide.
+    # ---------------------------------------------------------------------
+    "b11-agendador/index.html": {
+        "G1": "o System Prompt do Projeto D e literal do autor, num bloco copiavel",
+    },
+    "b11-debug/index.html": {
+        "G42": "janela = capa do B11 + Topicos 1 e 2 do M6, sem arquivo no Notion",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b11-erro/index.html": {
+        "G42": "janela = Topicos 1, 2 e 3 do M6, sem arquivo no Notion",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b11-ativacao/index.html": {
+        "G42": "janela = Topicos 1, 2 e 3 do M6; a pratica vem no hub, logo depois",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b11-cocriar/index.html": {
+        "G1": "o Prompt 2.0 do Topico 8 e literal do autor, num bloco copiavel",
+        "G42": "o Topico 8 e a Parte 3 do M6 e nao entrega arquivo; os quatro projetos estao no hub",
+        "G44": "o Topico 8 fecha o M6 fora do hub de projetos, por decisao do autor. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b12-subworkflows/index.html": {
+        "G1": "o diagrama do Gerador de Pitch e literal do autor, num bloco copiavel",
+        "G42": "o Recursos Profissionais e bloco de consulta e nao entrega arquivo",
+        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DISPENSA DO EXECUTOR: Rafael decide",
+    },
+    "b12-json/index.html": {
+        "G1": "os tres prompts V1/V2/V3 sao literais do autor, em blocos copiaveis",
+        "G42": "o Recursos Profissionais e bloco de consulta e nao entrega arquivo",
+        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DISPENSA DO EXECUTOR: Rafael decide",
+    },
     "b5-pensar/index.html": {
         "G33": "a 1a pessoa e da persona do exemplo (Joao: 'eu leio, decido'), nao do instrutor",
         "G41": "o Topico 1 do M0 nao tem analogia; a do modulo e o Topico 2",

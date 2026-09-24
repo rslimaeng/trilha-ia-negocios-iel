@@ -1,0 +1,337 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Você abre o n8n, vê um nó vermelho, clica e olha pra tela sem saber o que fazer</li>
+      <li>Workflow vai dar erro, <strong>não é se, é quando</strong>. Quem sabe debugar volta a
+      rodar em 5 minutos; quem não sabe, trava o dia</li>
+      <li>O método de 4 passos, na ordem, e a tabela de erros para consultar</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Este é o kit básico de operação. Sem ele, todo fluxo que você construiu até aqui vive
+      enquanto ninguém encostar nele.</p>
+    </div>
+
+    <p>Todo workflow real eventualmente quebra: credencial expira, API muda de formato, planilha
+    chega vazia, valor inesperado aparece. <strong>Não é se vai dar erro, é quando.</strong></p>
+
+    <p>A diferença entre um operador iniciante e um intermediário é que o intermediário
+    <strong>abre o painel certo, lê o que chegou no nó e identifica a causa em 2 minutos</strong>.
+    Não é talento: é ordem de conferência.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>A execução guardada</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Cada vez que o fluxo rodou, o n8n guardou tudo o que aconteceu nó a nó, e é nesse
+      histórico que o erro se acha</h3>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Ler o que chegou e o que saiu</h4>
+          <p>O painel guarda o dado que entrou em cada nó e o que ele devolveu. O erro quase sempre
+          está na diferença entre os dois.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma ordem fixa de conferência</h4>
+          <p>Quatro passos, sempre os mesmos, sempre na mesma sequência. A ordem é o método.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Mexer na configuração do nó vermelho</h4>
+          <p>O nó vermelho é onde o erro <strong>apareceu</strong>, quase nunca é onde ele
+          <strong>nasceu</strong>.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Rodar de novo para ver se passa</h4>
+          <p>Se o dado que chega está errado, ele vai errar de novo. Tentar outra vez é adiar a
+          leitura, não substituí-la.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como a câmera do corredor do prédio</div>
+        <p>Sumiu uma encomenda. Você não começa perguntando ao morador do apartamento onde ela
+        deveria ter chegado: começa vendo a gravação, quadro a quadro, até achar o ponto em que ela
+        ainda estava lá e o seguinte em que já não estava. <strong>O erro mora entre esses dois
+        quadros</strong>, e não no apartamento.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A gravação inteira</strong> é a execução, que o n8n guarda toda vez que o
+          fluxo roda</li>
+          <li><strong>Cada quadro</strong> é um nó, com o que entrou e o que saiu dele</li>
+          <li><strong>O apartamento</strong> é o nó vermelho: onde você percebeu o problema</li>
+          <li><strong>Os dois quadros vizinhos</strong> são o nó que falhou e o anterior a ele, que
+          é onde se compara</li>
+        </ul>
+      </div>
+
+      <h4>Onde fica a gravação</h4>
+
+      <p>No menu lateral, em <strong>Executions</strong>. A lista traz a data, o status, o modo
+      (manual, trigger ou webhook), o tempo e qual fluxo rodou. Clicando numa linha, o canvas abre
+      pintado, mostrando exatamente o que aconteceu em cada nó.</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Cor no canvas</th><th>O que quer dizer</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🟢 Verde</td><td>O nó executou com sucesso</td></tr>
+            <tr><td>🔴 Vermelho</td><td>O nó falhou, e é aqui que está o erro</td></tr>
+            <tr><td>⚪ Cinza</td><td>O nó não executou, porque o fluxo não chegou até ele</td></tr>
+            <tr><td>🟡 Amarelo</td><td>Executou, mas com um aviso</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">No agente, cinza não é erro: é escolha</div>
+        <p>Nos caminhos das tools de um AI Agent, <strong>verde</strong> quer dizer que a tool foi
+        chamada e <strong>cinza</strong> que não foi. <strong>Se a tool deveria ter sido chamada e
+        ficou cinza, o problema não é o modelo: é o System Prompt.</strong> Ou a tool não foi
+        mencionada nele, ou a descrição dela está vaga. O caminho de volta é a
+        <a href="../b10-prompt/">aula 3 do B10</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>O método de 4 passos, sempre nesta ordem</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">1</span><span class="fl-quem">Abrir a execução que falhou</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">2</span><span class="fl-quem">Ler o que <strong>entrou</strong> no nó vermelho</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">3</span><span class="fl-quem">Ler o que <strong>saiu</strong> do nó anterior</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">4</span><span class="fl-quem">Só agora, ler a mensagem de erro</span></div>
+    </div>
+
+    <p class="fig-leg"><strong>A mensagem de erro é o passo 4, não o 1.</strong> Parece contra a
+    intuição, e é de propósito: ler a mensagem primeiro faz você procurar a solução dela, quando o
+    que produziu o erro foi o dado que chegou dois passos antes.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Abra a execução com falha</div>
+      </div>
+      <p>No painel de Executions, clique na execução marcada com ❌. O canvas abre marcando o
+      <strong>nó vermelho</strong>, que é onde travou.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Leia o que entrou no nó que falhou</div>
+      </div>
+      <p>Clique no nó vermelho e abra a aba <strong>Input</strong>, na visão JSON. A pergunta é uma
+      só: <strong>"esse dado tem o que o nó precisa?"</strong></p>
+      <ul class="lista">
+        <li>O campo que ele espera está vazio ou <code>undefined</code>?</li>
+        <li>O tipo está errado, <code>"42"</code> com aspas onde devia ser <code>42</code> sem?</li>
+        <li>Chegou uma lista vazia onde deviam vir itens?</li>
+      </ul>
+      <div class="aviso ok">
+        <div class="aviso-t">Quase sempre o problema está no que entrou, não no nó</div>
+        <p>Se você só guardar uma frase desta aula, guarde esta.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Leia o que saiu do nó anterior</div>
+      </div>
+      <p>Clique no nó <strong>anterior</strong> ao vermelho e abra a aba <strong>Output</strong>.
+      <strong>Ele deveria ser igual ao Input do nó vermelho.</strong> Se for diferente, alguma
+      transformação no meio está alterando o dado, e o conserto é lá.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Agora sim, leia a mensagem de erro</div>
+      </div>
+      <p>A aba <strong>Output</strong> do nó vermelho mostra o erro completo. Com os passos 2 e 3
+      feitos, a mensagem deixa de ser um enigma e vira confirmação.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se você leu os quatro e continua sem saber o que fazer</div>
+        <p>Escreva a causa numa frase só, mesmo que errada: <em>"o campo X chegou vazio porque o
+        nó Y não mandou"</em>. <strong>Frase que você não consegue terminar aponta o passo que
+        você pulou.</strong></p>
+        <div class="destrave-nao"><strong>Não vale:</strong> mudar a configuração do nó vermelho
+        para ver se passa. Se o dado que chega está errado, você vai trocar um erro por outro e
+        perder a pista.</div>
+      </div>
+
+    </div>
+
+    <h4>A tabela de consulta</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Erro</th><th>Causa típica</th><th>Onde olhar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>401 Unauthorized</code></td><td>Credencial errada ou expirada</td><td>Reconfigurar a credencial</td></tr>
+          <tr><td><code>404 Not Found</code></td><td>URL errada ou o recurso não existe</td><td>Conferir a URL ou o ID</td></tr>
+          <tr><td><code>429 Too Many Requests</code></td><td>Limite de chamadas estourado</td><td>Adicionar um Wait node</td></tr>
+          <tr><td><code>500 Internal Server Error</code></td><td>Problema do outro lado, na API</td><td>Tentar de novo, e verificar o status do serviço</td></tr>
+          <tr><td><code>Cannot read property X of undefined</code></td><td>O campo esperado não existe no que chegou</td><td>Voltar ao passo 2</td></tr>
+          <tr><td><code>JSON.parse: unexpected token</code></td><td>Um texto que não é JSON tentando virar JSON</td><td>Conferir o output do nó anterior</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg">Os quatro primeiros são <strong>códigos de resposta HTTP</strong>, os mesmos
+    do <a href="../b9-http/">B9</a>. Os dois últimos são do próprio n8n, e os dois apontam para o
+    mesmo lugar: o passo 2.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Quebrar de propósito, para aprender barato</h2>
+      </div>
+    </div>
+
+    <p>A hora de errar é agora, num fluxo que não importa, e não daqui a três semanas com o cliente
+    esperando.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; provocando o erro</div>
+      <div class="demo-corpo">
+        <p><strong>O fluxo:</strong> Manual Trigger &rarr; HTTP Request &rarr; Set.</p>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">5</div>
+            <div class="passo-fn">Quebre de propósito</div>
+          </div>
+          <p>Configure o HTTP Request com uma URL que não existe:
+          <code>https://nao-existe.com.br/api</code>. Execute.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>O HTTP Request ficou <strong>vermelho</strong>. Era esse o objetivo.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">6</div>
+            <div class="passo-fn">Aplique o método</div>
+          </div>
+          <p>Painel de Executions &rarr; clique na execução com ❌ &rarr; clique no nó vermelho. O
+          Output mostra o erro de DNS: <code>getaddrinfo ENOTFOUND</code>.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Você conseguiu dizer a causa em uma frase: <strong>a URL está errada</strong>.
+            Corrija para uma válida e execute de novo. ✅</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">7</div>
+            <div class="passo-fn">A variação, que é a mais útil</div>
+          </div>
+          <p>Mude o método para <code>POST</code> e não mande corpo nenhum. Execute.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Apareceu <code>400 Bad Request</code>, e ao ler a resposta da API você encontrou
+            <code>"body must be JSON"</code>. <strong>A API disse o que faltava.</strong> Adicione o
+            corpo e execute de novo.</p>
+          </div>
+        </div>
+
+        <div class="aviso ok">
+          <div class="aviso-t">O que essa variação ensina</div>
+          <p>No primeiro caso o erro veio do n8n; no segundo, veio da API do outro lado.
+          <strong>Ler a resposta da API é o que resolve metade dos erros de integração</strong>, e
+          quase ninguém faz porque a mensagem parece técnica demais. Ela costuma ser a mais direta
+          das duas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O método de 4 passos, a tabela de erros e o fluxo quebrado de propósito
+  na sua conta. O que vem abaixo é a <strong>cerca</strong>: cinco tropeços, e três deles são pular
+  o passo 2.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não olhar o que entrou no nó que falhou</div>
+      <p>Quase todo erro de nó vermelho é problema do dado que chegou, e não do nó em si. Sempre o
+      passo 2 antes de mexer na configuração.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir aviso amarelo com erro vermelho</div>
+      <p>Aviso não impede o fluxo de continuar; erro sim. Se o fluxo terminou bem e tem amarelo,
+      leia, mas não pare por causa dele.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Rodar de novo sem investigar</div>
+      <p>"Vou tentar outra vez" raramente resolve. Se o dado que chega está errado, ele vai errar
+      de novo.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer que credencial expira</div>
+      <p>Acesso a Gmail, Sheets e Calendar é revogado depois de um tempo sem uso.
+      <strong>Erro 401 é quase sempre isso.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Dado pinado velho</div>
+      <p>Se você fixou um resultado antigo, o teste usa o dado velho em vez do que está chegando
+      agora. Se o erro só acontece com dado pinado, despine e rode de novo.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, Error Trigger. Aqui você achou o erro porque estava
+    olhando; lá o fluxo te avisa sozinho. As cinco aulas do bloco estão na
+    <a href="../b11-projetos/">capa do B11</a>.</p>
+  </div>

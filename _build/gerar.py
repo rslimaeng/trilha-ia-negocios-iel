@@ -110,6 +110,17 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # por posicao e o indice do aluno conta 6 aulas + 1 hub.
              "b10-agentes", "b10-llm", "b10-anatomia", "b10-prompt", "b10-tools", "b10-memoria", "b10-semagent",
              "b10-massa", "b10-conversa", "b10-calendar", "b10-email", "b10-triador", "b10-classificador",
+             # B11 = M6 (24/09). Mesmo desenho do B10: os quatro projetos moram
+             # ATRAS do hub "Mao na massa" e ficam FORA da TRILHA. A aula 5
+             # (co-criar) e a ultima do bloco e fica NA TRILHA, porque o material
+             # a poe fora do hub de projetos (Parte 3 da capa do M6).
+             "b11-projetos", "b11-debug", "b11-erro", "b11-ativacao",
+             "b11-massa", "b11-curriculos", "b11-clientes", "b11-faq", "b11-agendador",
+             "b11-cocriar",
+             # B12 = Recursos Profissionais (24/09). O Topico 3 do Notion
+             # ("Claude Code criando seus fluxos") esta VAZIO na fonte, marcado
+             # "em construcao": nao virou pagina, e a capa do bloco declara isso.
+             "b12-recursos", "b12-subworkflows", "b12-json",
              "modulo-3", "componentes"]
 
 TRILHA = [
@@ -226,6 +237,19 @@ TRILHA = [
         ("b10-memoria",    "5 · Memória do agente"),
         ("b10-semagent",   "6 · IA sem Agent"),
         ("b10-massa",      "7 · Mão na massa"),
+    ]),
+    ("B11 · Projetos integradores", [
+        ("b11-projetos",   "B11 · Projetos integradores e IA co-criando fluxos"),
+        ("b11-debug",      "1 · Debugging de execuções"),
+        ("b11-erro",       "2 · Error Trigger"),
+        ("b11-ativacao",   "3 · Ativação e deploy"),
+        ("b11-massa",      "4 · Mão na massa: os 4 projetos"),
+        ("b11-cocriar",    "5 · IA co-criando fluxos"),
+    ]),
+    ("B12 · Recursos Profissionais", [
+        ("b12-recursos",     "B12 · Recursos Profissionais"),
+        ("b12-subworkflows", "1 · Sub-workflows"),
+        ("b12-json",         "2 · IA gerando o fluxo inteiro"),
     ]),
     ("O terceiro módulo", [
         ("modulo-3",    "Minha Jornada com IA"),
@@ -957,6 +981,183 @@ PAGINAS = {
                  ("../modulo-2/", "Módulo 2"),
                  ("../b10-massa/", "B10 · Mão na massa"),
                  (None, "Fluxo 5 · Classificador")],
+    ),
+    # ---------------------------------------------------------------------
+    # B11 = M6 do Notion (24/09). Sem figura de slide e sem fluxo criado no
+    # servidor do Rafael: as duas decisoes dele de 21/09 continuam valendo, e
+    # por isso os quatro projetos sobem declarados "nao rodado".
+    # ---------------------------------------------------------------------
+    "b11-projetos": dict(
+        titulo="B11 · Projetos integradores e IA co-criando fluxos",
+        kicker="Módulo 2 · B11 · Bloco 7 de 7",
+        h1="Projetos integradores e IA co-criando fluxos",
+        sub="Consolidar tudo construindo 4 projetos completos, e aprender o que precisa pra "
+            "colocar no ar com segurança: debug, error trigger e ativação.",
+        selos=["Cinco aulas", "O bloco que fecha o módulo"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Projetos integradores")],
+    ),
+    "b11-debug": dict(
+        # topico-ancora do M6. Analogia da camera do corredor. Metodo de 4 passos literal.
+        tipo="fundamento",
+        titulo="Aula 1 · Debugging de execuções",
+        kicker="Módulo 2 · B11 · Projetos integradores",
+        h1="Debugging de execuções",
+        sub="O método de 4 passos, a tabela de erros, e por que a mensagem de erro se lê por "
+            "último.",
+        selos=['Aula-âncora'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-projetos/", "B11 · Projetos integradores"),
+                 (None, None)],
+    ),
+    "b11-erro": dict(
+        # conceito + no. Analogia do alarme do freezer.
+        tipo="fundamento",
+        titulo="Aula 2 · Error Trigger",
+        kicker="Módulo 2 · B11 · Projetos integradores",
+        h1="Error Trigger",
+        sub="Ser avisado quando um fluxo quebra, em vez de descobrir três dias depois pelo "
+            "cliente.",
+        selos=['Conceito + nó'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-projetos/", "B11 · Projetos integradores"),
+                 (None, None)],
+    ),
+    "b11-ativacao": dict(
+        # conceito. Analogia da conferencia antes do aviao taxiar. Checklist de 4 etapas literal.
+        tipo="fundamento",
+        titulo="Aula 3 · Ativação e deploy",
+        kicker="Módulo 2 · B11 · Projetos integradores",
+        h1="Ativação e deploy",
+        sub="O checklist de 4 etapas antes de soltar o fluxo no mundo, e o erro nº 1 da ativação.",
+        selos=['Conceito'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-projetos/", "B11 · Projetos integradores"),
+                 (None, None)],
+    ),
+    "b11-massa": dict(
+        # 🔴 SEM tipo=, como a b10-massa: e hub, nao aula.
+        titulo="Aula 4 · Mão na massa: os 4 projetos integradores",
+        kicker="Módulo 2 · B11 · Projetos integradores",
+        h1="Mão na massa",
+        sub="Quatro projetos em página própria. A meta do bloco é terminar um deles rodando de "
+            "verdade.",
+        selos=["4 projetos", "Termine um"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-projetos/", "B11 · Projetos integradores"),
+                 (None, None)],
+    ),
+    # Os quatro projetos: FORA da TRILHA, migalha com o ultimo item escrito.
+    "b11-curriculos": dict(
+        tipo="pratica", arquivo=False,
+        titulo="Projeto A · Triagem de currículos",
+        kicker="Módulo 2 · B11 · Mão na massa · Projeto A de D",
+        h1="Projeto A: Triagem de currículos",
+        sub="Form com PDF → Drive → AI Agent extrai e pontua → IF → e-mail diferente para "
+            "aprovado e reprovado.",
+        selos=["Projeto-âncora", "Pede Google"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-massa/", "B11 · Mão na massa"),
+                 (None, "Projeto A · Currículos")],
+    ),
+    "b11-clientes": dict(
+        tipo="pratica", arquivo=False,
+        titulo="Projeto B · Classificação de clientes",
+        kicker="Módulo 2 · B11 · Mão na massa · Projeto B de D",
+        h1="Projeto B: Classificação de clientes",
+        sub="Webhook → HTTP Request enriquece → AI Agent classifica A/B/C → Switch de 3 caminhos.",
+        selos=["Comercial", "Pede API pública"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-massa/", "B11 · Mão na massa"),
+                 (None, "Projeto B · Clientes")],
+    ),
+    "b11-faq": dict(
+        tipo="pratica", arquivo=False,
+        titulo="Projeto C · Bot de FAQ no Telegram",
+        kicker="Módulo 2 · B11 · Mão na massa · Projeto C de D",
+        h1="Projeto C: Bot de FAQ no Telegram",
+        sub="Telegram Trigger → AI Agent com a FAQ no prompt e memória por conversa → resposta + "
+            "registro em planilha.",
+        selos=["Atendimento", "Pede bot do Telegram"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-massa/", "B11 · Mão na massa"),
+                 (None, "Projeto C · FAQ")],
+    ),
+    "b11-agendador": dict(
+        tipo="pratica", arquivo=False,
+        titulo="Projeto D · Agendador de reuniões",
+        kicker="Módulo 2 · B11 · Mão na massa · Projeto D de D",
+        h1="Projeto D: Agendador de reuniões",
+        sub="Pedido em linguagem natural no Telegram → agente com 4 tools → evento criado e "
+            "convite enviado.",
+        selos=["4 tools", "O mais avançado dos quatro"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-massa/", "B11 · Mão na massa"),
+                 (None, "Projeto D · Agendador")],
+    ),
+    "b11-cocriar": dict(
+        # topico-ancora final do M6. Analogia da planta baixa. A regra dos 70%,
+        # os 5 erros sistemicos e o Prompt 2.0 sao literais do autor.
+        tipo="fundamento",
+        titulo="Aula 5 · IA co-criando fluxos",
+        kicker="Módulo 2 · B11 · Projetos integradores",
+        h1="IA co-criando fluxos",
+        sub="A regra dos 70%: descrever, gerar, importar, ajustar. Mais os cinco erros que a IA "
+            "comete sempre.",
+        selos=['Aula-âncora final'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b11-projetos/", "B11 · Projetos integradores"),
+                 (None, None)],
+    ),
+    "b12-recursos": dict(
+        titulo="B12 · Recursos Profissionais",
+        kicker="Módulo 2 · B12 · Depois dos sete blocos",
+        h1="Recursos Profissionais",
+        sub="As práticas que separam o usuário casual do profissional de automação: organizar "
+            "fluxos grandes e usar IA como copiloto de construção.",
+        selos=["Duas aulas", "Bloco de consulta"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 (None, "Recursos Profissionais")],
+    ),
+    "b12-subworkflows": dict(
+        # conceito + pratico. Analogia do gerente que delega ao especialista.
+        tipo="fundamento",
+        titulo="Aula 1 · Sub-workflows: quando separar é melhor que juntar",
+        kicker="Módulo 2 · B12 · Recursos Profissionais",
+        h1="Sub-workflows: quando separar é melhor que juntar",
+        sub="Os três sinais de que está na hora de separar, os três de que não está, e a ordem de "
+            "construir.",
+        selos=['Conceito + prático'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b12-recursos/", "B12 · Recursos Profissionais"),
+                 (None, None)],
+    ),
+    "b12-json": dict(
+        # demonstracao. Analogia do movel desmontado. Os 3 prompts (V1/V2/V3) sao
+        # LITERAIS do autor: entram copiaveis, em .config, sem uma palavra mudada.
+        tipo="fundamento",
+        titulo="Aula 2 · IA gerando o fluxo inteiro",
+        kicker="Módulo 2 · B12 · Recursos Profissionais",
+        h1="IA gerando o fluxo inteiro",
+        sub="Três pedidos prontos, um para cada tipo de fluxo, com a entrevista dentro. Literais "
+            "do material.",
+        selos=['Demonstração', '3 pedidos prontos'],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-2/", "Módulo 2"),
+                 ("../b12-recursos/", "B12 · Recursos Profissionais"),
+                 (None, None)],
     ),
     "modulo-3": dict(
         titulo="Módulo 3 · Minha Jornada com IA",

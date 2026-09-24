@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 3 · Minha Jornada com IA</title>
+<title>Projeto D · Agendador de reuniões</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,55 +3309,370 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Minha Jornada com IA</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b11-massa/">B11 · Mão na massa</a> &rsaquo; Projeto D · Agendador</nav>
 
 
-<main class="folha ">
+<main class="folha aula-pratica" data-arquivo="nao">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 3 de 3</div>
-    <h1>Minha&nbsp;Jornada com&nbsp;IA</h1>
-    <p class="heroi-sub">Como apresentar o&nbsp;que&nbsp;você construiu, conduzir a&nbsp;adoção no&nbsp;time, e&nbsp;medir o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-    <div><span class="selo">Dois blocos</span><span class="selo">Você sai com o retorno medido</span></div>
+    <div class="heroi-kicker">Módulo 2 · B11 · Mão na massa · Projeto D de D</div>
+    <h1>Projeto D: Agendador de&nbsp;reuniões</h1>
+    <p class="heroi-sub">Pedido em&nbsp;linguagem natural no&nbsp;Telegram → agente com&nbsp;4 tools → evento criado e&nbsp;convite enviado.</p>
+    <div><span class="selo">4 tools</span><span class="selo">O mais avançado dos quatro</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta prática</div>
+    <div class="nesta-aula-sub">O que você vai construir:</div>
+    <ul>
+      <li>Você manda <em>"agenda 30min com&nbsp;João Silva amanhã às&nbsp;14h"</em> no&nbsp;Telegram, e&nbsp;o&nbsp;agente
+      <strong>acha o&nbsp;contato, confere a&nbsp;agenda, cria o&nbsp;evento e&nbsp;manda o&nbsp;convite</strong></li>
+      <li>É a&nbsp;primeira vez no&nbsp;curso com&nbsp;<strong>4 ferramentas no&nbsp;mesmo agente</strong>, que&nbsp;é o&nbsp;limite confortável de&nbsp;um&nbsp;agente só</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;dois blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;este é o&nbsp;mais avançado dos&nbsp;quatro</h2>
       </div>
     </div>
 
-    <p>Os&nbsp;dois módulos anteriores constroem. Este é onde&nbsp;o&nbsp;que&nbsp;foi construído vira
-    resultado defensável: você mostra para&nbsp;a&nbsp;liderança, conduz a&nbsp;adoção no&nbsp;time, e&nbsp;mede
-    o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Posicionamento, liderança e&nbsp;adoção</h4>
-        <p>Como comunicar resultado sem&nbsp;gerar resistência, apresentar para&nbsp;a&nbsp;liderança
-        na&nbsp;linguagem de&nbsp;retorno, e&nbsp;pilotar em&nbsp;baixo risco.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Stack pessoal, retorno e&nbsp;projeto integrador</h4>
-        <p>Consolidar tudo em&nbsp;documento único, calcular o&nbsp;retorno real em&nbsp;horas e&nbsp;em&nbsp;reais, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;90 dias.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Até&nbsp;aqui o&nbsp;agente fez <strong>uma</strong>&nbsp;coisa por&nbsp;vez. Neste projeto ele executa
+      <strong>quatro em&nbsp;sequência</strong>, e&nbsp;quem ensina a&nbsp;ordem é você, escrevendo no&nbsp;prompt.</p>
     </div>
 
-    <p class="fig-leg"><strong>Aqui não&nbsp;entra capacidade nova.</strong> É onde&nbsp;você prova
-    as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
+    <p>Este projeto é a&nbsp;evolução do&nbsp;<a href="../b10-calendar/">Fluxo prático 2 do&nbsp;B10</a>, o&nbsp;agente
+    de&nbsp;Calendar. O&nbsp;que&nbsp;entra de&nbsp;novo: o&nbsp;Telegram como porta de&nbsp;entrada, a&nbsp;busca do&nbsp;contato pelo&nbsp;nome, e&nbsp;o&nbsp;e-mail de&nbsp;convite depois de&nbsp;criar o&nbsp;evento.</p>
+
+    <p>A&nbsp;dificuldade não&nbsp;está em&nbsp;nenhuma das&nbsp;quatro ferramentas isoladas: está em&nbsp;fazer o&nbsp;agente
+    executá-las <strong>na&nbsp;ordem certa</strong>, e&nbsp;parar quando&nbsp;faltar informação em&nbsp;vez de&nbsp;inventar.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b12-json/">&larr; Aula 2 · IA gerando o fluxo inteiro</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Mapeamento</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">Gatilho</span><span class="fl-quem">Telegram: você escreve o pedido em linguagem natural</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Execução</span><span class="fl-quem">AI Agent com 4 ferramentas encadeadas, na ordem</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">Entrega</span><span class="fl-quem">Evento no Calendar &middot; convite por e-mail &middot; confirmação no Telegram</span></div>
+    </div>
+
+    <div class="arvore solta">
+      <div class="av-raiz"><span class="av-fn">AI Agent</span></div>
+      <div class="av-tronco"></div>
+      <div class="av-filhos">
+        <div class="av-f"><strong>1. get_contact</strong><span>acha o e-mail pelo nome, no Google Contacts</span></div>
+        <div class="av-f"><strong>2. check_availability</strong><span>confere se o horário está livre na agenda</span></div>
+        <div class="av-f"><strong>3. create_event</strong><span>cria o evento no Google Calendar</span></div>
+        <div class="av-f"><strong>4. send_invite</strong><span>manda o e-mail de convite</span></div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;ordem dos&nbsp;números não&nbsp;está no&nbsp;n8n em&nbsp;lugar nenhum:</strong> ela
+    existe só&nbsp;porque&nbsp;você escreveu no&nbsp;prompt. O&nbsp;agente enxerga quatro ferramentas disponíveis e&nbsp;decide sozinho quais usar e&nbsp;quando,&nbsp;e&nbsp;é a&nbsp;regra escrita que&nbsp;o&nbsp;mantém na&nbsp;linha.</p>
+
+    <div class="cartao">
+      <span class="rot">O que precisa estar pronto antes</span>
+      <ul class="lista">
+        <li>Os&nbsp;blocos <a href="../b5-antes/">B5</a> a&nbsp;<a href="../b10-agentes/">B10</a>, e&nbsp;o&nbsp;<a href="../b10-calendar/">Fluxo prático 2 do&nbsp;B10</a> funcionando, porque&nbsp;este evolui
+        dele.</li>
+        <li>Um&nbsp;<strong>bot do&nbsp;Telegram</strong> com&nbsp;o&nbsp;token.</li>
+        <li>Credenciais Google de&nbsp;<strong>Contacts, Calendar e&nbsp;Gmail</strong>. Uma&nbsp;mesma autorização
+        resolve as&nbsp;três.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Passo a&nbsp;passo</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Telegram Trigger</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Updates:</strong> <code>Message</code></li>
+        <li>Sessão por&nbsp;<code>{{ $json.message.chat.id }}</code></li>
+      </ul>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Uma&nbsp;mensagem de&nbsp;teste do&nbsp;seu&nbsp;celular apareceu no&nbsp;painel do&nbsp;nó.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">O agente, e a ordem escrita no prompt</div>
+      </div>
+      <ul class="lista">
+        <li><strong>Modelo:</strong> GPT-4o-mini <span class="fig-leg">(nome do&nbsp;material, abril de&nbsp;2026)</span></li>
+        <li><strong>Memória:</strong> Simple Memory, com&nbsp;sessão em&nbsp;<code>{{ $json.message.chat.id }}</code></li>
+      </ul>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">System Prompt, como está no material</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11ag-sp">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11ag-sp"># ROLE
+Você é o assistente de agenda do Rafael.
+
+# GOAL
+Quando o Rafael pedir pra agendar reunião, executar a sequência
+completa: buscar contato → checar disponibilidade → criar evento →
+enviar convite.
+
+# TOOLS
+1. get_contact — busca o contato pelo nome no Google Contacts.
+   Retorna nome + e-mail.
+2. check_availability — verifica se o horário está livre na agenda.
+3. create_event — cria o evento no Google Calendar.
+4. send_invite — manda e-mail de convite pro convidado.
+
+# RULES
+1. SEMPRE seguir a ordem: get_contact → check_availability →
+   create_event → send_invite.
+2. Se o contato não for encontrado, perguntar o e-mail antes de
+   prosseguir.
+3. Se o horário estiver ocupado, sugerir 3 alternativas próximas.
+4. Confirmar no Telegram com título do evento + horário + e-mail do
+   convidado.
+5. Hoje é {{ $now }}.
+
+# OUTPUT
+Resposta curta e clara no Telegram.</pre>
+      </div>
+
+      <p class="fig-leg">O&nbsp;prompt está <strong>literal, como o&nbsp;autor escreveu</strong>, com&nbsp;o&nbsp;nome
+      dele nos&nbsp;campos ROLE e&nbsp;GOAL, porque&nbsp;foi escrito para&nbsp;a&nbsp;agenda dele.
+      <strong>Troque pelo&nbsp;seu&nbsp;nome</strong> ao&nbsp;montar o&nbsp;seu.&nbsp;As&nbsp;regras 2 e&nbsp;3 são as&nbsp;que&nbsp;mais
+      importam: elas ensinam o&nbsp;agente a&nbsp;<strong>parar e&nbsp;perguntar</strong> em&nbsp;vez de&nbsp;inventar um&nbsp;e-mail ou&nbsp;agendar em&nbsp;cima de&nbsp;outra reunião.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar ao adaptar o prompt para você</div>
+        <p>Troque só&nbsp;três coisas: <strong>o&nbsp;nome no&nbsp;ROLE</strong>, <strong>o&nbsp;que&nbsp;conta como reunião
+        sua</strong>&nbsp;no&nbsp;GOAL, e&nbsp;<strong>quantas alternativas</strong> ele sugere quando&nbsp;o&nbsp;horário
+        está ocupado. O&nbsp;resto funciona como está.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> reescrever as RULES do zero na primeira
+        versão. Rode com as do material, veja onde ele erra <strong>com você</strong>, e só então
+        acrescente regra. Regra escrita antes do erro costuma resolver problema que não existe.</div>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">A regra 5 não é detalhe</div>
+        <p><code>Hoje é {{ $now }}</code> resolve um&nbsp;erro que&nbsp;o&nbsp;material chama de&nbsp;recorrente: sem&nbsp;essa linha, <strong>o&nbsp;agente cria o&nbsp;evento no&nbsp;ano errado</strong>. Ele não&nbsp;tem relógio; quem
+        dá a&nbsp;data é você.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">As quatro ferramentas</div>
+      </div>
+      <p>Cada uma&nbsp;é um&nbsp;nó ligado à&nbsp;porta de&nbsp;tools do&nbsp;agente, com&nbsp;os&nbsp;parâmetros preenchidos por&nbsp;<code>$fromAI()</code>, que&nbsp;é como o&nbsp;agente decide o&nbsp;que&nbsp;vai em&nbsp;cada campo.</p>
+
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Ferramenta</th><th>Nó</th><th>Parâmetros</th><th>O que devolve</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>get_contact</code></td>
+              <td>Google Contacts (Search)</td>
+              <td><code>query = {{ $fromAI("nome_contato") }}</code></td>
+              <td>nome e e-mail</td>
+            </tr>
+            <tr>
+              <td><code>check_availability</code></td>
+              <td>Google Calendar (Get All)</td>
+              <td><code>start</code> e <code>end</code>, via <code>$fromAI()</code></td>
+              <td>eventos no período: lista vazia quer dizer livre</td>
+            </tr>
+            <tr>
+              <td><code>create_event</code></td>
+              <td>Google Calendar (Create)</td>
+              <td><code>summary</code>, <code>start</code>, <code>end</code>,
+              <code>attendees</code></td>
+              <td>o identificador do evento criado</td>
+            </tr>
+            <tr>
+              <td><code>send_invite</code></td>
+              <td>Gmail (Send)</td>
+              <td><code>to</code>, <code>subject</code>, <code>message</code></td>
+              <td>confirmação de envio</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Depois de&nbsp;um&nbsp;pedido completo, <strong>os&nbsp;quatro caminhos de&nbsp;tool ficam verdes</strong> no&nbsp;canvas da&nbsp;execução. Tool cinza quer dizer que&nbsp;o&nbsp;agente não&nbsp;a&nbsp;chamou, e&nbsp;pela&nbsp;<a href="../b11-debug/">aula 1</a> isso aponta para&nbsp;o&nbsp;prompt, não&nbsp;para&nbsp;o&nbsp;modelo.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Telegram Send, a confirmação</div>
+      </div>
+      <p>A&nbsp;resposta final no&nbsp;chat, com&nbsp;o&nbsp;que&nbsp;foi feito:</p>
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">O formato da confirmação</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11ag-conf">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11ag-conf">✅ Reunião {{ titulo }} agendada com {{ contato }} em {{ horario }}.
+Convite enviado pra {{ email }}.</pre>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>A&nbsp;confirmação traz <strong>o&nbsp;e-mail do&nbsp;convidado</strong>, e&nbsp;não&nbsp;só&nbsp;o&nbsp;nome. É assim que&nbsp;você percebe na&nbsp;hora se&nbsp;ele achou a&nbsp;pessoa errada entre&nbsp;dois contatos parecidos.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">5</div>
+        <div class="passo-fn">Avisador e ativação</div>
+      </div>
+      <p>Ligue o&nbsp;Error Trigger da&nbsp;<a href="../b11-erro/">aula 2</a> nas&nbsp;Settings. Com&nbsp;quatro
+      ferramentas, qualquer uma&nbsp;pode falhar, e&nbsp;sem&nbsp;o&nbsp;avisador você descobre pelo&nbsp;convidado que&nbsp;não&nbsp;recebeu convite.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você fechou o&nbsp;n8n, mandou o&nbsp;pedido pelo&nbsp;celular, e&nbsp;o&nbsp;evento apareceu na&nbsp;agenda.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O&nbsp;pedido virando quatro ações</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Uma frase no chat, quatro ferramentas em sequência</div>
+      <div class="demo-corpo">
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <div class="demo-entrada">O que você escreve</div>
+            <p><em>"agenda 30min com&nbsp;João Silva amanhã às&nbsp;14h"</em></p>
+          </div>
+          <div class="demo-lado">
+            <div class="demo-entrada">O que o agente faz, sem você pedir</div>
+            <ol>
+              <li>procura "João Silva" nos&nbsp;contatos e&nbsp;pega o&nbsp;e-mail</li>
+              <li>confere se&nbsp;amanhã às&nbsp;14h está livre</li>
+              <li>cria o&nbsp;evento de&nbsp;30 minutos</li>
+              <li>manda o&nbsp;convite por&nbsp;e-mail</li>
+            </ol>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Nenhum dos&nbsp;quatro passos foi dito na&nbsp;frase.</strong> Você
+        escreveu o&nbsp;que&nbsp;queria; a&nbsp;sequência veio das&nbsp;RULES do&nbsp;prompt. É essa a&nbsp;diferença entre&nbsp;o&nbsp;agente deste projeto e&nbsp;os&nbsp;dos&nbsp;anteriores.</p>
+
+        <h4>Os&nbsp;dois momentos em&nbsp;que&nbsp;ele deve parar</h4>
+
+        <div class="grade grade-2 solta">
+          <div class="cartao">
+            <span class="rot">Contato não encontrado</span>
+            <p>Pela&nbsp;regra 2, ele <strong>pergunta o&nbsp;e-mail</strong> antes de&nbsp;seguir, em&nbsp;vez de&nbsp;inventar um&nbsp;endereço plausível.</p>
+          </div>
+          <div class="cartao">
+            <span class="rot">Horário ocupado</span>
+            <p>Pela&nbsp;regra 3, ele <strong>sugere 3 alternativas próximas</strong>, em&nbsp;vez de&nbsp;agendar
+            em&nbsp;cima da&nbsp;reunião que&nbsp;já&nbsp;existia.</p>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Teste os&nbsp;dois casos de&nbsp;propósito</strong>, e&nbsp;não&nbsp;só&nbsp;o&nbsp;caminho em&nbsp;que&nbsp;tudo dá certo: peça uma&nbsp;reunião com&nbsp;um&nbsp;nome que&nbsp;não&nbsp;está nos&nbsp;contatos, e&nbsp;outra num&nbsp;horário que&nbsp;você sabe que&nbsp;está ocupado. É aí que&nbsp;se&nbsp;descobre se&nbsp;o&nbsp;prompt está sendo
+        obedecido.</p>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Este fluxo não foi executado numa conta de teste em 09/2026</div>
+          <p>O&nbsp;passo a&nbsp;passo é o&nbsp;do&nbsp;material, como está. Os&nbsp;"deu certo quando"&nbsp;são o&nbsp;que&nbsp;o&nbsp;material
+          diz esperar, não&nbsp;medição feita aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A prática acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Quatro ferramentas no&nbsp;mesmo agente, a&nbsp;ordem ensinada pelo&nbsp;prompt, e&nbsp;dois
+  casos de&nbsp;parada testados. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco tropeços, e&nbsp;o&nbsp;primeiro é o&nbsp;teto deste desenho.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ferramentas demais confundem o agente</div>
+      <p>Acima de&nbsp;cinco ou&nbsp;seis no&nbsp;mesmo agente, a&nbsp;precisão cai. Quatro é o&nbsp;limite confortável, e&nbsp;é
+      por&nbsp;isso que&nbsp;este projeto para&nbsp;em&nbsp;quatro. Passando disso, o&nbsp;caminho é dividir em&nbsp;agentes
+      separados.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Convidado sem agenda do Google</div>
+      <p>Se&nbsp;o&nbsp;e-mail não&nbsp;for de&nbsp;uma&nbsp;conta Google, o&nbsp;convite chega como texto puro, sem&nbsp;o&nbsp;botão de&nbsp;aceitar. Não&nbsp;é erro do&nbsp;fluxo, e&nbsp;você precisa saber disso antes do&nbsp;cliente perguntar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Fuso horário diferente do seu</div>
+      <p>Informe sempre o&nbsp;fuso na&nbsp;criação do&nbsp;evento. Sem&nbsp;isso, a&nbsp;reunião marcada para&nbsp;as&nbsp;14h aparece
+      em&nbsp;outro horário para&nbsp;quem está em&nbsp;outro estado ou&nbsp;país.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Prompt sem a data de hoje</div>
+      <p>Sem&nbsp;<code>Hoje é {{ $now }}</code>, o&nbsp;agente cria evento no&nbsp;ano errado. O&nbsp;material aponta
+      isso como erro recorrente em&nbsp;vários cursos analisados.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não conferir antes de criar</div>
+      <p>Sem&nbsp;a&nbsp;ferramenta de&nbsp;checar disponibilidade, você agenda em&nbsp;cima de&nbsp;outra reunião e&nbsp;descobre
+      depois, com&nbsp;as&nbsp;duas pessoas esperando.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você chegou ao&nbsp;fim dos&nbsp;quatro projetos.</strong> A&nbsp;próxima aula é a&nbsp;<a href="../b11-cocriar/">5, IA co-criando fluxos</a>, onde&nbsp;você descreve o&nbsp;processo em&nbsp;texto e&nbsp;a&nbsp;IA monta o&nbsp;esqueleto. Os&nbsp;quatro projetos estão no&nbsp;<a href="../b11-massa/">hub do&nbsp;bloco</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b11-faq/">&larr; Projeto C · Bot de FAQ no Telegram</a><a href="../b11-cocriar/">Aula 5 · IA co-criando fluxos &rarr;</a></nav>
 </main>
 
 

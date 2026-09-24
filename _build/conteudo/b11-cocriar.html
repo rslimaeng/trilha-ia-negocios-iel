@@ -1,0 +1,427 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Descrever um processo do seu trabalho em <strong>linguagem natural</strong>, pedir para a
+      IA gerar o fluxo, importar no n8n e ajustar</li>
+      <li><strong>A regra dos 70%:</strong> a IA acerta a estrutura, você acerta os detalhes</li>
+      <li>Os cinco erros que a IA comete sempre, e o teto que nenhum prompt resolve</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que esta aula é a última, e não a primeira</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Não é mágica.</strong> Sem os fundamentos dos blocos anteriores, o que a IA gera é
+      uma caixa-preta que você não consegue manter. Com eles, é alavancagem real.</p>
+    </div>
+
+    <p>Você chegou aqui tendo construído pelo menos um projeto inteiro. Tem fundamento. Agora a IA
+    pode virar parceira de construção: em vez de arrastar quinze nós no canvas, você
+    <strong>descreve o processo em texto, a IA gera o esqueleto, você importa, conecta as
+    credenciais e ajusta</strong>.</p>
+
+    <p>A ordem importa. Se esta aula viesse no começo, você teria um fluxo que funciona e que você
+    não sabe consertar quando parar de funcionar. E ele vai parar.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>A regra dos 70%</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>A IA acerta a estrutura, você acerta os detalhes</h3>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">Ela acerta</span>
+          <h4>Quais nós usar e em que ordem</h4>
+          <p>Gatilho, IF, Set, agente. A sequência geral costuma vir certa, e é o que mais dá
+          trabalho montar à mão.</p></div>
+        <div class="ctr e"><span class="ctr-selo">Ela acerta</span>
+          <h4>O esqueleto da configuração e o jeito de escrever as expressões</h4>
+          <p>A lógica condicional aproximada e o padrão <code>{{ $json.campo }}</code>.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Você acerta</span>
+          <h4>O que é seu e ela não tem como saber</h4>
+          <p>Suas credenciais, os identificadores da sua planilha, da sua pasta, do seu chat.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Você acerta</span>
+          <h4>O prompt calibrado e os casos de borda</h4>
+          <p>O System Prompt para o seu contexto, e as situações que ela não viu porque não conhece
+          o seu negócio.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como a planta baixa que vem com o apartamento</div>
+        <p>A construtora entrega a planta com as paredes, as tomadas e a hidráulica no lugar. Está
+        certo, e economiza meses. Mas nada ali sabe que você trabalha de casa e precisa de tomada na
+        parede da sala, nem que a sua geladeira é maior que o vão desenhado.
+        <strong>A planta acerta a estrutura; a mudança acontece quando alguém que vai morar ali
+        olha.</strong></p>
+        <ul class="analogia-mapa">
+          <li><strong>A planta baixa</strong> é o JSON que a IA devolve: estrutura correta, pronta
+          para importar</li>
+          <li><strong>As tomadas no lugar padrão</strong> são os identificadores de exemplo, que
+          funcionam para qualquer um e para ninguém</li>
+          <li><strong>A geladeira que não cabe</strong> é o caso de borda do seu processo</li>
+          <li><strong>Quem vai morar ali</strong> é você, e é por isso que os 30% não dá para
+          terceirizar</li>
+        </ul>
+      </div>
+
+      <p><strong>Os 30% que sobram exigem que você entenda o que está olhando.</strong> Se você não
+      distingue IF de Switch, ou agente de nó de IA simples, você não consegue avaliar nem ajustar o
+      que a IA gerou. É por isso que esta aula é a última.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Quatro passos, e o quarto é o seu</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">1</span><span class="fl-quem">Descrever em linguagem natural</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">2</span><span class="fl-quem">A IA devolve o fluxo</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">3</span><span class="fl-quem">Importar no n8n</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">4</span><span class="fl-quem">Ajustar: credenciais, identificadores, prompt, bordas</span></div>
+    </div>
+
+    <h4>Passo 1 · descrever</h4>
+
+    <p>Use o modelo mental do <a href="../b5-pensar/">B5</a>: <strong>Gatilho, Execução,
+    Entrega</strong>. Quanto mais específico, melhor vem o resultado.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O molde de descrição que funciona</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11co-molde">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11co-molde">Quero um workflow no n8n que:
+
+GATILHO: [como o fluxo começa: schedule, webhook, formulário,
+telegram, e-mail]
+
+EXECUÇÃO: [passo a passo do que acontece: buscar dado X, decidir Y,
+transformar Z]
+
+ENTREGA: [o que o fluxo faz no final: envia e-mail, registra na
+planilha, manda telegram]
+
+CONTEXTO:
+- Sistema X: [planilha do Sheets / API tal / pasta no Drive]
+- Critério de decisão: [se score > 70, é qualificado]
+- Ferramentas que tenho: [n8n Cloud, Google Workspace, OpenAI,
+  Telegram bot]</pre>
+    </div>
+
+    <h4>Passo 2 · gerar</h4>
+
+    <p>Cole a descrição num chat de IA e acrescente no fim o pedido de formato:</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O fecho do pedido</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11co-fecho">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11co-fecho">Gere o JSON completo do workflow no formato n8n (formato
+exportável). Use:
+- gpt-4o-mini quando precisar de IA
+- Nomes de nós descritivos com emojis
+- Expressions com {{ $json.campo }}
+- Comentários inline explicando decisões importantes
+
+Retorne apenas o JSON, sem texto antes ou depois.</pre>
+    </div>
+
+    <p class="fig-leg">Se a palavra JSON ainda soa estranha, volte à <a href="../b8-json/">aula 1 do
+    B8</a>: é a ficha que as ferramentas trocam entre si. Aqui você está pedindo a ficha do fluxo
+    inteiro, em vez da de um campo.</p>
+
+    <h4>Passo 3 · importar</h4>
+
+    <ol>
+      <li>No n8n, abra um fluxo novo.</li>
+      <li>Menu <strong>⋯</strong>, no canto superior direito, e depois <strong>Import from
+      File</strong> ou <strong>Import from URL</strong>.</li>
+      <li>Cole o JSON e importe.</li>
+    </ol>
+
+    <p>O fluxo aparece no canvas com todos os nós conectados, <strong>e com alerta de credencial em
+    cada nó que precisa de autorização</strong>. Isso é esperado, não é erro.</p>
+
+    <h4>Passo 4 · ajustar, que é a parte sua</h4>
+
+    <div class="checagem">
+      <ul>
+        <li><strong>Conectar credenciais reais.</strong> Cada nó com ⚠️ precisa da sua
+        autorização.</li>
+        <li><strong>Trocar os identificadores de exemplo</strong> pelos seus: planilha, chat,
+        pasta.</li>
+        <li><strong>Calibrar os System Prompts.</strong> O que veio é rascunho genérico.</li>
+        <li><strong>Testar com 1 caso real</strong>, e conferir o resultado de cada nó, antes de
+        qualquer escala.</li>
+        <li><strong>Aplicar as três conferências:</strong> sem nó vermelho, resultado no destino
+        certo, caso de borda testado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Um fluxo co-criado, e onde ela errou</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; qualificação de leads por formulário</div>
+      <div class="demo-corpo">
+        <p><strong>O cenário:</strong> qualificar leads que chegam por formulário. Se a pontuação
+        for 7 ou mais, vai para o CRM; se for menor, para uma planilha de nutrição.</p>
+
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">A descrição colada na IA</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b11co-ex">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b11co-ex">Quero um workflow no n8n que:
+
+GATILHO: novo lead recebido via formulário (Form Trigger).
+
+EXECUÇÃO:
+1. Receber os campos: nome, email, empresa, cargo, mensagem.
+2. Usar AI Agent (gpt-4o-mini) pra avaliar BANT a partir do conteúdo
+   da mensagem.
+3. Score 0-12 (3 pontos por critério: Budget, Authority, Need,
+   Timeline).
+4. IF: score >= 7?
+5. Se sim: registrar em "Sheets - CRM Pipeline" e enviar Telegram
+   pro vendedor.
+6. Se não: registrar em "Sheets - Nutrição Email".
+
+ENTREGA: notificação no Telegram + linha na planilha apropriada.
+
+CONTEXTO:
+- Tenho n8n Cloud, Google Workspace, OpenAI, Telegram bot.
+- Planilhas: "CRM Pipeline" e "Nutrição Email".
+- Vendedor recebe no Telegram pessoal.
+
+Gere o JSON completo do workflow no formato n8n. Retorne apenas
+o JSON.</pre>
+        </div>
+
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <div class="demo-entrada">O que volta</div>
+            <p>Cerca de 200 linhas, com o formulário de 5 campos, o agente com prompt de BANT, o IF
+            com a condição, os dois ramos e um Merge no fim.</p>
+          </div>
+          <div class="demo-lado">
+            <div class="demo-entrada">O que ela vai errar</div>
+            <ul>
+              <li>identificador da planilha como texto de exemplo</li>
+              <li>identificador do chat idem</li>
+              <li>prompt de BANT genérico demais</li>
+              <li>talvez o Merge no modo errado</li>
+              <li>nada previsto para mensagem vazia</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="fig-leg"><strong>Nenhum desses cinco é defeito de prompt.</strong> Os dois
+        primeiros ela não tem como saber, o terceiro depende do seu setor, o quarto é decisão de
+        desenho, e o quinto é conhecimento do seu processo. <strong>São exatamente os 30%.</strong></p>
+      </div>
+    </div>
+
+    <h4>Os cinco erros que ela comete sempre</h4>
+
+    <p>Não importa o prompt que você use. A IA de chat comete os mesmos cinco erros toda vez.
+    <strong>Importou e quebrou? Passe por esta lista antes de pedir ajuda.</strong></p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Erro</th><th>O que aparece</th><th>Como reconhecer</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1.</strong> Nó antigo no lugar do moderno</td>
+            <td>Usa um nó de IA de versão antiga</td>
+            <td>O nó de IA aparece <strong>sem a porta de tool e de memória</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2.</strong> Nó de código para ler a resposta da IA</td>
+            <td>Inventa um nó de programação em vez de usar o recurso nativo</td>
+            <td>Aparece um nó de Code com JavaScript, <strong>que você não aprendeu no curso</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3.</strong> Parâmetro inventado</td>
+            <td>Usa um campo que não existe naquele nó</td>
+            <td>Nó vermelho com mensagem de propriedade desconhecida</td>
+          </tr>
+          <tr>
+            <td><strong>4.</strong> Versão de nó errada</td>
+            <td>Chuta uma versão mais nova do que a que existe</td>
+            <td>Erro de "tipo de nó desconhecido" ou de versão não suportada</td>
+          </tr>
+          <tr>
+            <td><strong>5.</strong> Ligação apontando para nome errado</td>
+            <td>A conexão cita um nome de nó que não bate com o real</td>
+            <td><strong>O fluxo importa, mas o nó seguinte nunca dispara.</strong> Só se percebe
+            rodando</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O quinto é o mais perigoso dos cinco</strong>, porque não dá erro
+    nenhum: o fluxo importa bonito, roda, e simplesmente não faz metade do que devia. Os outros
+    quatro reclamam na cara.</p>
+
+    <h4>O pedido que faz a IA confessar</h4>
+
+    <p>Este bloco não resolve os cinco erros, mas <strong>expõe</strong> quando ela está chutando.
+    Cole antes da sua descrição.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Auditoria antes do JSON</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b11co-audit">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b11co-audit">IMPORTANTE — ANTES DE GERAR O JSON:
+
+Responda em até 8 linhas:
+1. Qual versão do n8n você está assumindo (mês/ano da última doc
+   que viu)?
+2. Lista de nós que vai usar com o `type` exato de cada um.
+3. Qual `typeVersion` de cada nó — e diga se está chutando ou tem
+   certeza.
+4. Pontos onde você teve dúvida (parâmetro que não lembra, conexão
+   não-trivial) e como decidiu por padrão.
+
+Só depois disso, gere o JSON.
+
+QUANDO NÃO TIVER CERTEZA:
+- Diga "não tenho certeza dos parâmetros deste nó" e use estrutura
+  mínima.
+- Não invente parâmetros plausíveis. É melhor um JSON incompleto que
+  admite ignorância do que um JSON "completo" com parâmetros falsos.
+
+TRATAMENTO DE BORDA:
+- Antes de qualquer nó de IA, adicione um IF que verifica se o campo
+  principal de input não está vazio. Se vazio, ramo alternativo:
+  registra como inválido e encerra sem chamar a IA.</pre>
+    </div>
+
+    <p class="fig-leg">Está <strong>literal, como o autor escreveu</strong>. O material é honesto
+    sobre o alcance: <strong>não zera os erros, e estima uma melhora de 30 a 40%</strong>
+    (afirmação do material, de abril de 2026). A IA continua sem ferramenta para validar nada; ela
+    só fica mais honesta sobre o que não sabe.</p>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">A regra dos 70%, os quatro passos, os cinco erros e o pedido de
+  auditoria. O que vem abaixo é a <strong>cerca</strong>: seis tropeços, e depois o teto desta
+  abordagem.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confiar 100% no que veio</div>
+      <p>Sem revisar, vai para produção com defeito. Sempre importe, leia nó a nó, e valide antes de
+      ativar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Pedir o fluxo inteiro de uma vez quando o processo é grande</div>
+      <p>Acima de quinze nós, divida: peça primeiro o gatilho e a execução, depois a entrega. Fica
+      muito mais fácil de revisar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não dar contexto suficiente</div>
+      <p>Se você só diz "quero qualificar leads", ela inventa o critério. Use o molde de descrição
+      completo.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Achar que a IA cria credencial sozinha</div>
+      <p>Credencial é sua e mora no seu n8n. O que ela entrega é o esqueleto; quem conecta é você.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ignorar o System Prompt que veio</div>
+      <p>Quase nunca está calibrado para o seu negócio. Trate como rascunho.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não limitar o volume no primeiro teste</div>
+      <p>Fluxo gerado por IA pode ter repetição escondida. Sempre um <strong>Limit</strong> antes de
+      soltar.</p>
+    </div>
+
+    <h4>O teto desta abordagem</h4>
+
+    <p>A IA de chat gera a partir do que ela aprendeu no treino. <strong>Ela não consegue consultar
+    o seu n8n, não consegue validar o que escreveu, e não sabe quais credenciais você tem.</strong>
+    Nenhum prompt resolve isso, porque não é problema de pedido: é falta de acesso.</p>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>O pedido de auditoria resolve</th><th>O que ele não resolve, e nunca vai</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Força a IA a declarar as suposições, e você audita antes</td><td>Saber os parâmetros exatos do nó na versão atual do n8n</td></tr>
+          <tr><td>Reduz o parâmetro inventado que parece plausível</td><td>Validar o resultado antes de te entregar</td></tr>
+          <tr><td>Garante um caso de borda mínimo</td><td>Conhecer as suas credenciais e os seus identificadores</td></tr>
+          <tr><td>Faz você ler o fluxo antes de importar</td><td>Ajustar aos poucos: cada mudança exige o fluxo inteiro de novo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O material aponta um degrau seguinte:</strong> um assistente
+    conectado ao seu n8n em tempo real, que consulta os tipos de nó ao vivo, confere a versão certa
+    e valida o fluxo antes de criar. O <a href="../b12-recursos/">B12</a> mostra esse caminho. A
+    ressalva do material vale para os dois: <strong>quem chega lá sem os fundamentos manda a IA
+    construir e não consegue manter</strong>.</p>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você fechou o Módulo 2.</strong> O que vem depois são os
+    <a href="../b12-recursos/">Recursos Profissionais</a>: sub-workflows, os prompts prontos para
+    gerar fluxo, e o assistente conectado ao n8n. Os oito blocos estão na
+    <a href="../modulo-2/">capa do módulo</a>.</p>
+  </div>

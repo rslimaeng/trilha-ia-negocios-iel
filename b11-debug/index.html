@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 3 · Minha Jornada com IA</title>
+<title>Aula 1 · Debugging de execuções</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,55 +3309,338 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Minha Jornada com IA</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b11-projetos/">B11 · Projetos integradores</a> &rsaquo; 1 · Debugging de execuções</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 3 de 3</div>
-    <h1>Minha&nbsp;Jornada com&nbsp;IA</h1>
-    <p class="heroi-sub">Como apresentar o&nbsp;que&nbsp;você construiu, conduzir a&nbsp;adoção no&nbsp;time, e&nbsp;medir o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-    <div><span class="selo">Dois blocos</span><span class="selo">Você sai com o retorno medido</span></div>
+    <div class="heroi-kicker">Módulo 2 · B11 · Projetos integradores</div>
+    <h1>Debugging de&nbsp;execuções</h1>
+    <p class="heroi-sub">O&nbsp;método de&nbsp;4 passos, a&nbsp;tabela de&nbsp;erros, e&nbsp;por&nbsp;que&nbsp;a&nbsp;mensagem de&nbsp;erro se&nbsp;lê por&nbsp;último.</p>
+    <div><span class="selo">Aula-âncora</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Você abre o&nbsp;n8n, vê um&nbsp;nó vermelho, clica e&nbsp;olha pra&nbsp;tela sem&nbsp;saber o&nbsp;que&nbsp;fazer</li>
+      <li>Workflow vai dar erro, <strong>não&nbsp;é se,&nbsp;é quando</strong>. Quem sabe debugar volta a&nbsp;rodar em&nbsp;5 minutos; quem não&nbsp;sabe, trava o&nbsp;dia</li>
+      <li>O&nbsp;método de&nbsp;4 passos, na&nbsp;ordem, e&nbsp;a&nbsp;tabela de&nbsp;erros para&nbsp;consultar</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;dois blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>Os&nbsp;dois módulos anteriores constroem. Este é onde&nbsp;o&nbsp;que&nbsp;foi construído vira
-    resultado defensável: você mostra para&nbsp;a&nbsp;liderança, conduz a&nbsp;adoção no&nbsp;time, e&nbsp;mede
-    o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Posicionamento, liderança e&nbsp;adoção</h4>
-        <p>Como comunicar resultado sem&nbsp;gerar resistência, apresentar para&nbsp;a&nbsp;liderança
-        na&nbsp;linguagem de&nbsp;retorno, e&nbsp;pilotar em&nbsp;baixo risco.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Stack pessoal, retorno e&nbsp;projeto integrador</h4>
-        <p>Consolidar tudo em&nbsp;documento único, calcular o&nbsp;retorno real em&nbsp;horas e&nbsp;em&nbsp;reais, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;90 dias.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Este é o&nbsp;kit básico de&nbsp;operação. Sem&nbsp;ele, todo fluxo que&nbsp;você construiu até&nbsp;aqui vive
+      enquanto&nbsp;ninguém encostar nele.</p>
     </div>
 
-    <p class="fig-leg"><strong>Aqui não&nbsp;entra capacidade nova.</strong> É onde&nbsp;você prova
-    as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
+    <p>Todo workflow real eventualmente quebra: credencial expira, API muda de&nbsp;formato, planilha
+    chega vazia, valor inesperado aparece. <strong>Não&nbsp;é se&nbsp;vai dar erro, é quando.</strong></p>
+
+    <p>A&nbsp;diferença entre&nbsp;um&nbsp;operador iniciante e&nbsp;um&nbsp;intermediário é que&nbsp;o&nbsp;intermediário
+    <strong>abre o&nbsp;painel certo, lê o&nbsp;que&nbsp;chegou no&nbsp;nó e&nbsp;identifica a&nbsp;causa em&nbsp;2 minutos</strong>.
+    Não&nbsp;é talento: é ordem de&nbsp;conferência.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b12-json/">&larr; Aula 2 · IA gerando o fluxo inteiro</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>A&nbsp;execução guardada</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Cada vez que&nbsp;o&nbsp;fluxo rodou, o&nbsp;n8n guardou tudo o&nbsp;que&nbsp;aconteceu nó a&nbsp;nó, e&nbsp;é nesse
+      histórico que&nbsp;o&nbsp;erro se&nbsp;acha</h3>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Ler o&nbsp;que&nbsp;chegou e&nbsp;o&nbsp;que&nbsp;saiu</h4>
+          <p>O&nbsp;painel guarda o&nbsp;dado que&nbsp;entrou em&nbsp;cada nó e&nbsp;o&nbsp;que&nbsp;ele devolveu. O&nbsp;erro quase sempre
+          está na&nbsp;diferença entre&nbsp;os&nbsp;dois.</p></div>
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma&nbsp;ordem fixa de&nbsp;conferência</h4>
+          <p>Quatro passos, sempre os&nbsp;mesmos, sempre na&nbsp;mesma sequência. A&nbsp;ordem é o&nbsp;método.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Mexer na&nbsp;configuração do&nbsp;nó vermelho</h4>
+          <p>O&nbsp;nó vermelho é onde&nbsp;o&nbsp;erro <strong>apareceu</strong>, quase nunca é onde&nbsp;ele
+          <strong>nasceu</strong>.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Rodar de&nbsp;novo para&nbsp;ver se&nbsp;passa</h4>
+          <p>Se&nbsp;o&nbsp;dado que&nbsp;chega está errado, ele vai errar de&nbsp;novo. Tentar outra vez é adiar a&nbsp;leitura, não&nbsp;substituí-la.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como a câmera do corredor do prédio</div>
+        <p>Sumiu uma&nbsp;encomenda. Você não&nbsp;começa perguntando ao&nbsp;morador do&nbsp;apartamento onde&nbsp;ela
+        deveria ter chegado: começa vendo a&nbsp;gravação, quadro a&nbsp;quadro, até&nbsp;achar o&nbsp;ponto em&nbsp;que&nbsp;ela
+        ainda estava lá e&nbsp;o&nbsp;seguinte em&nbsp;que&nbsp;já&nbsp;não&nbsp;estava. <strong>O&nbsp;erro mora entre&nbsp;esses dois
+        quadros</strong>, e&nbsp;não&nbsp;no&nbsp;apartamento.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A&nbsp;gravação inteira</strong> é a&nbsp;execução, que&nbsp;o&nbsp;n8n guarda toda vez que&nbsp;o&nbsp;fluxo roda</li>
+          <li><strong>Cada quadro</strong> é um&nbsp;nó, com&nbsp;o&nbsp;que&nbsp;entrou e&nbsp;o&nbsp;que&nbsp;saiu dele</li>
+          <li><strong>O&nbsp;apartamento</strong> é o&nbsp;nó vermelho: onde&nbsp;você percebeu o&nbsp;problema</li>
+          <li><strong>Os&nbsp;dois quadros vizinhos</strong> são o&nbsp;nó que&nbsp;falhou e&nbsp;o&nbsp;anterior a&nbsp;ele, que&nbsp;é onde&nbsp;se&nbsp;compara</li>
+        </ul>
+      </div>
+
+      <h4>Onde&nbsp;fica a&nbsp;gravação</h4>
+
+      <p>No&nbsp;menu lateral, em&nbsp;<strong>Executions</strong>. A&nbsp;lista traz a&nbsp;data, o&nbsp;status, o&nbsp;modo
+      (manual, trigger ou&nbsp;webhook), o&nbsp;tempo e&nbsp;qual fluxo rodou. Clicando numa&nbsp;linha, o&nbsp;canvas abre
+      pintado, mostrando exatamente o&nbsp;que&nbsp;aconteceu em&nbsp;cada nó.</p>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Cor no canvas</th><th>O que quer dizer</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🟢 Verde</td><td>O nó executou com sucesso</td></tr>
+            <tr><td>🔴 Vermelho</td><td>O nó falhou, e é aqui que está o erro</td></tr>
+            <tr><td>⚪ Cinza</td><td>O nó não executou, porque o fluxo não chegou até ele</td></tr>
+            <tr><td>🟡 Amarelo</td><td>Executou, mas com um aviso</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">No agente, cinza não é erro: é escolha</div>
+        <p>Nos&nbsp;caminhos das&nbsp;tools de&nbsp;um&nbsp;AI Agent, <strong>verde</strong> quer dizer que&nbsp;a&nbsp;tool foi
+        chamada e&nbsp;<strong>cinza</strong> que&nbsp;não&nbsp;foi. <strong>Se&nbsp;a&nbsp;tool deveria ter sido chamada e&nbsp;ficou cinza, o&nbsp;problema não&nbsp;é o&nbsp;modelo: é o&nbsp;System Prompt.</strong> Ou&nbsp;a&nbsp;tool não&nbsp;foi
+        mencionada nele, ou&nbsp;a&nbsp;descrição dela está vaga. O&nbsp;caminho de&nbsp;volta é a&nbsp;<a href="../b10-prompt/">aula 3 do&nbsp;B10</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>O&nbsp;método de&nbsp;4 passos, sempre nesta ordem</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">1</span><span class="fl-quem">Abrir a execução que falhou</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">2</span><span class="fl-quem">Ler o que <strong>entrou</strong> no nó vermelho</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">3</span><span class="fl-quem">Ler o que <strong>saiu</strong> do nó anterior</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">4</span><span class="fl-quem">Só agora, ler a mensagem de erro</span></div>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;mensagem de&nbsp;erro é o&nbsp;passo 4, não&nbsp;o&nbsp;1.</strong> Parece contra&nbsp;a&nbsp;intuição, e&nbsp;é de&nbsp;propósito: ler a&nbsp;mensagem primeiro faz você procurar a&nbsp;solução dela, quando&nbsp;o&nbsp;que&nbsp;produziu o&nbsp;erro foi o&nbsp;dado que&nbsp;chegou dois passos antes.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Abra a execução com falha</div>
+      </div>
+      <p>No&nbsp;painel de&nbsp;Executions, clique na&nbsp;execução marcada com&nbsp;❌. O&nbsp;canvas abre marcando o&nbsp;<strong>nó vermelho</strong>, que&nbsp;é onde&nbsp;travou.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Leia o que entrou no nó que falhou</div>
+      </div>
+      <p>Clique no&nbsp;nó vermelho e&nbsp;abra a&nbsp;aba <strong>Input</strong>, na&nbsp;visão JSON. A&nbsp;pergunta é uma&nbsp;só:&nbsp;<strong>"esse dado tem o&nbsp;que&nbsp;o&nbsp;nó precisa?"</strong></p>
+      <ul class="lista">
+        <li>O&nbsp;campo que&nbsp;ele espera está vazio ou&nbsp;<code>undefined</code>?</li>
+        <li>O&nbsp;tipo está errado, <code>"42"</code> com&nbsp;aspas onde&nbsp;devia ser <code>42</code> sem?</li>
+        <li>Chegou uma&nbsp;lista vazia onde&nbsp;deviam vir itens?</li>
+      </ul>
+      <div class="aviso ok">
+        <div class="aviso-t">Quase sempre o problema está no que entrou, não no nó</div>
+        <p>Se&nbsp;você só&nbsp;guardar uma&nbsp;frase desta aula, guarde esta.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Leia o que saiu do nó anterior</div>
+      </div>
+      <p>Clique no&nbsp;nó <strong>anterior</strong> ao&nbsp;vermelho e&nbsp;abra a&nbsp;aba <strong>Output</strong>.
+      <strong>Ele deveria ser igual ao&nbsp;Input do&nbsp;nó vermelho.</strong> Se&nbsp;for diferente, alguma
+      transformação no&nbsp;meio está alterando o&nbsp;dado, e&nbsp;o&nbsp;conserto é lá.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Agora sim, leia a mensagem de erro</div>
+      </div>
+      <p>A&nbsp;aba <strong>Output</strong> do&nbsp;nó vermelho mostra o&nbsp;erro completo. Com&nbsp;os&nbsp;passos 2 e&nbsp;3
+      feitos, a&nbsp;mensagem deixa de&nbsp;ser um&nbsp;enigma e&nbsp;vira confirmação.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se você leu os quatro e continua sem saber o que fazer</div>
+        <p>Escreva a&nbsp;causa numa&nbsp;frase só,&nbsp;mesmo que&nbsp;errada: <em>"o&nbsp;campo X chegou vazio porque&nbsp;o&nbsp;nó Y não&nbsp;mandou"</em>. <strong>Frase que&nbsp;você não&nbsp;consegue terminar aponta o&nbsp;passo que&nbsp;você pulou.</strong></p>
+        <div class="destrave-nao"><strong>Não vale:</strong> mudar a configuração do nó vermelho
+        para ver se passa. Se o dado que chega está errado, você vai trocar um erro por outro e
+        perder a pista.</div>
+      </div>
+
+    </div>
+
+    <h4>A&nbsp;tabela de&nbsp;consulta</h4>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Erro</th><th>Causa típica</th><th>Onde olhar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>401 Unauthorized</code></td><td>Credencial errada ou expirada</td><td>Reconfigurar a credencial</td></tr>
+          <tr><td><code>404 Not Found</code></td><td>URL errada ou o recurso não existe</td><td>Conferir a URL ou o ID</td></tr>
+          <tr><td><code>429 Too Many Requests</code></td><td>Limite de chamadas estourado</td><td>Adicionar um Wait node</td></tr>
+          <tr><td><code>500 Internal Server Error</code></td><td>Problema do outro lado, na API</td><td>Tentar de novo, e verificar o status do serviço</td></tr>
+          <tr><td><code>Cannot read property X of undefined</code></td><td>O campo esperado não existe no que chegou</td><td>Voltar ao passo 2</td></tr>
+          <tr><td><code>JSON.parse: unexpected token</code></td><td>Um texto que não é JSON tentando virar JSON</td><td>Conferir o output do nó anterior</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg">Os&nbsp;quatro primeiros são <strong>códigos de&nbsp;resposta HTTP</strong>, os&nbsp;mesmos
+    do&nbsp;<a href="../b9-http/">B9</a>. Os&nbsp;dois últimos são do&nbsp;próprio n8n, e&nbsp;os&nbsp;dois apontam para&nbsp;o&nbsp;mesmo lugar: o&nbsp;passo 2.</p>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Quebrar de&nbsp;propósito, para&nbsp;aprender barato</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;hora de&nbsp;errar é agora, num&nbsp;fluxo que&nbsp;não&nbsp;importa, e&nbsp;não&nbsp;daqui a&nbsp;três semanas com&nbsp;o&nbsp;cliente
+    esperando.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; provocando o erro</div>
+      <div class="demo-corpo">
+        <p><strong>O&nbsp;fluxo:</strong> Manual Trigger &rarr; HTTP Request &rarr; Set.</p>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">5</div>
+            <div class="passo-fn">Quebre de propósito</div>
+          </div>
+          <p>Configure o&nbsp;HTTP Request com&nbsp;uma&nbsp;URL que&nbsp;não&nbsp;existe:
+          <code>https://nao-existe.com.br/api</code>. Execute.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>O&nbsp;HTTP Request ficou <strong>vermelho</strong>. Era esse o&nbsp;objetivo.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">6</div>
+            <div class="passo-fn">Aplique o método</div>
+          </div>
+          <p>Painel de&nbsp;Executions &rarr; clique na&nbsp;execução com&nbsp;❌ &rarr; clique no&nbsp;nó vermelho. O&nbsp;Output mostra o&nbsp;erro de&nbsp;DNS: <code>getaddrinfo ENOTFOUND</code>.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Você conseguiu dizer a&nbsp;causa em&nbsp;uma&nbsp;frase: <strong>a&nbsp;URL está errada</strong>.
+            Corrija para&nbsp;uma&nbsp;válida e&nbsp;execute de&nbsp;novo. ✅</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">7</div>
+            <div class="passo-fn">A variação, que é a mais útil</div>
+          </div>
+          <p>Mude o&nbsp;método para&nbsp;<code>POST</code> e&nbsp;não&nbsp;mande corpo nenhum. Execute.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Apareceu <code>400 Bad Request</code>, e&nbsp;ao&nbsp;ler a&nbsp;resposta da&nbsp;API você encontrou
+            <code>"body must be JSON"</code>. <strong>A&nbsp;API disse o&nbsp;que&nbsp;faltava.</strong> Adicione o&nbsp;corpo e&nbsp;execute de&nbsp;novo.</p>
+          </div>
+        </div>
+
+        <div class="aviso ok">
+          <div class="aviso-t">O que essa variação ensina</div>
+          <p>No&nbsp;primeiro caso o&nbsp;erro veio do&nbsp;n8n; no&nbsp;segundo, veio da&nbsp;API do&nbsp;outro lado.
+          <strong>Ler a&nbsp;resposta da&nbsp;API é o&nbsp;que&nbsp;resolve metade dos&nbsp;erros de&nbsp;integração</strong>, e&nbsp;quase ninguém faz porque&nbsp;a&nbsp;mensagem parece técnica demais. Ela costuma ser a&nbsp;mais direta
+          das&nbsp;duas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O&nbsp;método de&nbsp;4 passos, a&nbsp;tabela de&nbsp;erros e&nbsp;o&nbsp;fluxo quebrado de&nbsp;propósito
+  na&nbsp;sua&nbsp;conta. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco tropeços, e&nbsp;três deles são pular
+  o&nbsp;passo 2.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não olhar o que entrou no nó que falhou</div>
+      <p>Quase todo erro de&nbsp;nó vermelho é problema do&nbsp;dado que&nbsp;chegou, e&nbsp;não&nbsp;do&nbsp;nó em&nbsp;si. Sempre o&nbsp;passo 2 antes de&nbsp;mexer na&nbsp;configuração.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir aviso amarelo com erro vermelho</div>
+      <p>Aviso não&nbsp;impede o&nbsp;fluxo de&nbsp;continuar; erro sim. Se&nbsp;o&nbsp;fluxo terminou bem e&nbsp;tem amarelo,
+      leia, mas&nbsp;não&nbsp;pare por&nbsp;causa dele.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Rodar de novo sem investigar</div>
+      <p>"Vou tentar outra vez" raramente resolve. Se&nbsp;o&nbsp;dado que&nbsp;chega está errado, ele vai errar
+      de&nbsp;novo.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer que credencial expira</div>
+      <p>Acesso a&nbsp;Gmail, Sheets e&nbsp;Calendar é revogado depois de&nbsp;um&nbsp;tempo sem&nbsp;uso.
+      <strong>Erro 401 é quase sempre isso.</strong></p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Dado pinado velho</div>
+      <p>Se&nbsp;você fixou um&nbsp;resultado antigo, o&nbsp;teste usa o&nbsp;dado velho em&nbsp;vez do&nbsp;que&nbsp;está chegando
+      agora. Se&nbsp;o&nbsp;erro só&nbsp;acontece com&nbsp;dado pinado, despine e&nbsp;rode de&nbsp;novo.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, Error Trigger. Aqui você achou o&nbsp;erro porque&nbsp;estava
+    olhando; lá o&nbsp;fluxo te avisa sozinho. As&nbsp;cinco aulas do&nbsp;bloco estão na&nbsp;<a href="../b11-projetos/">capa do&nbsp;B11</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b11-projetos/">&larr; B11 · Projetos integradores e IA co-criando fluxos</a><a href="../b11-erro/">Aula 2 · Error Trigger &rarr;</a></nav>
 </main>
 
 

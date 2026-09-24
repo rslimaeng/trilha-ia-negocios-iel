@@ -1,0 +1,306 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li><strong>Este não é um tema avançado, é um tema de organização.</strong> Não exige
+      habilidade técnica nova</li>
+      <li>Exige saber fazer a pergunta certa antes de construir: <em>"essa lógica vai aparecer em
+      mais de um lugar?"</em></li>
+      <li>Os três sinais de que está na hora de separar, e os três de que não está</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>Quem aprendeu isso cedo evita horas de retrabalho. <strong>Quem não aprendeu, um dia
+      refaz tudo do zero.</strong></p>
+    </div>
+
+    <p>Todo fluxo começa simples. Com o tempo, o processo cresce, e sempre do mesmo jeito:</p>
+
+    <ul class="lista">
+      <li>Você adiciona mais nós.</li>
+      <li><strong>O canvas vira um diagrama de metrô.</strong></li>
+      <li>Um colega quer usar "aquela parte do meio" num fluxo diferente.</li>
+      <li>Você muda o prompt da IA e precisa atualizar em quatro lugares.</li>
+    </ul>
+
+    <p>Esse é o momento em que separar deixa de ser curiosidade e vira necessidade.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>O fluxo que outro fluxo chama</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Sub-workflow é um fluxo comum que, em vez de começar por um gatilho externo, começa por um
+      gatilho que só responde quando outro fluxo o chama</h3>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">Separe quando</span>
+          <h4>A mesma lógica aparece em mais de um lugar</h4>
+          <p>Se você está copiando um bloco de nós de um fluxo para outro, está criando dívida.</p></div>
+        <div class="ctr e"><span class="ctr-selo">Separe quando</span>
+          <h4>O canvas ficou grande demais para explicar</h4>
+          <p>Mais de 15 a 20 nós, e mais de dez segundos para dizer o que ele faz.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não separe se</span>
+          <h4>O fluxo tem até 10 ou 12 nós e se lê de uma vez</h4>
+          <p>Separar um fluxo pequeno troca simplicidade por indireção, e não devolve nada.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não separe se</span>
+          <h4>A lógica é daquele contexto e nunca vai aparecer em outro</h4>
+          <p>Ou se o prazo é curto: entregue funcionando antes de organizar.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como o gerente que delega ao especialista</div>
+        <p>O gerente recebe o pedido do cliente e não faz tudo sozinho: ele chama quem sabe fazer
+        aquela parte, espera a entrega, e segue o processo com o resultado na mão.
+        <strong>O especialista não atende cliente direto</strong>, e é por isso que ele pode atender
+        quatro gerentes diferentes sem confusão.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O gerente</strong> é o fluxo principal, que tem o gatilho externo e recebe o
+          pedido</li>
+          <li><strong>O especialista</strong> é o sub-workflow, que só começa quando alguém o
+          chama</li>
+          <li><strong>O pedido entregue ao especialista</strong> são os campos de entrada que o
+          principal manda</li>
+          <li><strong>O trabalho devolvido</strong> é o que o último nó do sub prepara para
+          voltar</li>
+          <li><strong>Os quatro gerentes diferentes</strong> são os vários fluxos que podem chamar o
+          mesmo sub</li>
+        </ul>
+      </div>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th></th><th>Fluxo comum</th><th>Sub-workflow</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Quem dispara</strong></td><td>Evento externo ou usuário</td><td>Outro workflow</td></tr>
+            <tr><td><strong>Pode ser chamado por</strong></td><td>Ninguém, porque ele é o início</td><td>Qualquer outro workflow do projeto</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aviso ok">
+        <div class="aviso-t">A regra prática do material</div>
+        <p><strong>Construa funcionando primeiro. Separe quando a necessidade aparecer</strong>, e
+        não antecipando. Organização feita antes da dor costuma organizar o problema errado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Os três sinais, e a ordem de construir</h2>
+      </div>
+    </div>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Sinal 1 · reuso</span>
+        <p>Muda o prompt? Atualiza em quatro lugares. Com o sub, é <strong>um lugar para manter</strong>,
+        e todos os fluxos que chamam herdam.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Sinal 2 · complexidade</span>
+        <p>Mais de 15 a 20 nós, e mais de dez segundos para explicar. O sub deixa você
+        <strong>nomear cada responsabilidade</strong>.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Sinal 3 · teste</span>
+        <p>Num fluxo grande, testar o bloco de e-mail obriga a rodar tudo. Com o sub, você
+        <strong>manda um dado e vê só aquela parte</strong>.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O sinal 1 é o mais forte dos três</strong>, e é o único que dispensa
+    discussão: copiar bloco de nós de um fluxo para outro é dívida que vence sempre, e vence no dia
+    em que você precisa mudar o que foi copiado.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O sinal 2 na prática, como o material mostra</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b12sw-nome">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b12sw-nome">Workflow principal: "Onboarding de Cliente"
+   → Sub-workflow: "Cria conta no sistema"
+   → Sub-workflow: "Envia e-mail de boas-vindas"
+   → Sub-workflow: "Notifica time de CS"</pre>
+    </div>
+
+    <p class="fig-leg">Repare que <strong>os nomes viraram a documentação</strong>. Quem abre esse
+    fluxo entende o processo sem abrir nó nenhum, e é isso que um canvas de trinta nós não
+    entrega.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">A ordem importa: o sub vem primeiro</div>
+      <p>O fluxo principal precisa referenciar o sub pelo nome. <strong>Se o sub não existe ainda,
+      você não consegue configurar o principal.</strong></p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Crie e salve o sub primeiro</div>
+      </div>
+      <ul class="lista">
+        <li>Gatilho: <strong>Execute Workflow Trigger</strong></li>
+        <li>Declare os campos que ele recebe</li>
+        <li>Construa a lógica</li>
+        <li>Último nó: um <strong>Set</strong> com os campos de retorno</li>
+        <li>Salve e <strong>ative</strong></li>
+      </ul>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você rodou o sub sozinho, mandando um dado de teste no gatilho, e ele devolveu os campos
+        de retorno. <strong>Um sub que não roda sozinho não vai rodar chamado.</strong></p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Depois, o principal</div>
+      </div>
+      <ul class="lista">
+        <li>Gatilho externo: formulário, agendamento, o que for</li>
+        <li>Nó <strong>Execute Sub-workflow</strong>: selecione o sub pelo nome</li>
+        <li>Mapeie os campos de entrada, passando o dado do gatilho para o sub</li>
+        <li>Os próximos nós usam o que o sub devolveu</li>
+        <li>Salve e <strong>ative</strong></li>
+      </ul>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar decidindo quais campos o sub recebe</div>
+        <p>A pergunta é uma só: <strong>o que o especialista precisa saber para fazer o trabalho sem
+        perguntar mais nada?</strong> Liste isso, e nada além. Campo que o sub não usa vira
+        manutenção sem dono.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> mandar o item inteiro do gatilho "por
+        garantia". No dia em que o formulário ganhar um campo, você não vai saber se o sub depende
+        dele ou não.</div>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>O principal rodou de ponta a ponta, e no painel de Executions <strong>aparecem duas
+        execuções</strong>: a do principal e a do sub. São fluxos separados, e cada um tem o seu
+        histórico.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O gerador de pitch, e o ponto pedagógico dele</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo do material &middot; gerador de pitch</div>
+      <div class="demo-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">Os dois fluxos, como estão no material</span>
+            <button class="btn-copiar" type="button" data-alvo="pr-b12sw-ex">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="pr-b12sw-ex">WORKFLOW PRINCIPAL — "Gerador de Pitch para Clientes"
+   [📋 Form Trigger] → [🔄 Execute Sub-workflow] → [📧 Gmail]
+
+SUB-WORKFLOW — "Sub — Gera Pitch Google Docs"
+   [⚡ Execute Workflow Trigger]
+       ↓ recebe: nome_cliente, empresa, segmento, desafio
+   [🤖 Basic LLM Chain (Gemini)] → gera texto do pitch
+   [📄 Google Docs Create] → cria documento com título
+   [✏️ Google Docs Update] → insere o texto no documento
+   [🔗 Set — Prepara Retorno] → devolve: link_doc, titulo_doc, empresa</pre>
+        </div>
+
+        <p>Repare no que o principal ficou: <strong>três nós</strong>. Toda a complexidade de gerar
+        texto, criar documento e preencher documento mora do outro lado, com nome próprio.</p>
+
+        <div class="aviso ok">
+          <div class="aviso-t">O ponto pedagógico, nas palavras do material</div>
+          <p>Se amanhã você quiser que o <strong>agente de IA do B10</strong> também gere pitches,
+          basta adicionar uma ferramenta que chama o mesmo sub-workflow.
+          <strong>Zero reescrita. Zero risco de inconsistência.</strong></p>
+        </div>
+
+        <p class="fig-leg">É esse o teste de um bom sub: <strong>um consumidor novo entra sem que
+        nada precise mudar do lado de lá</strong>. Se para atender o segundo chamador você precisou
+        editar o sub, ele não estava separado pelo motivo certo.</p>
+
+        <div class="aviso atencao">
+          <div class="aviso-t">Este fluxo não foi executado numa conta de teste em 09/2026</div>
+          <p>O exemplo é o do material, como está.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os três sinais, os três contra-sinais, a ordem de construir e o exemplo
+  do gerador de pitch. O que vem abaixo é a <strong>cerca</strong>: quatro tropeços, e o primeiro é
+  a ordem invertida.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Criar o principal antes do sub</div>
+      <p>O principal precisa selecionar o sub pelo nome. Se o sub ainda não existe, não há o que
+      selecionar.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de ativar o sub</div>
+      <p>Principal ativo e sub inativo dá <strong>erro silencioso ou espera sem fim</strong>. Ative
+      os dois.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Sub grande demais</div>
+      <p>Um sub que faz cinco coisas diferentes deixou de ser sub e virou outro monolito. Divida em
+      subs menores.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Dado que chega vazio</div>
+      <p>Se o principal mapeou o campo errado, o sub recebe vazio e não reclama. Confira o resultado
+      do Execute Workflow Trigger depois da primeira execução, pelo método da
+      <a href="../b11-debug/">aula 1 do B11</a>.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 2, IA gerando o fluxo inteiro. As duas aulas deste bloco estão
+    na <a href="../b12-recursos/">capa do B12</a>.</p>
+  </div>

@@ -1,0 +1,308 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Criar um fluxo que dispara sozinho quando <strong>outro</strong> fluxo falha</li>
+      <li>Ser avisado na hora, em vez de descobrir três dias depois que a planilha do cliente está
+      sem dado novo</li>
+      <li>As duas partes do setup, e por que fazer só a primeira não serve de nada</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>Automação que falha em silêncio é pior que automação que não existe.</strong></p>
+    </div>
+
+    <p>Repare no porquê, que não é óbvio. Quando você não automatiza, você <strong>sabe</strong> que
+    precisa fazer na mão, e faz. Quando automatiza e o fluxo quebra sem avisar, você acha que está
+    funcionando, e continua achando por semanas. O problema aparece pela pior porta possível: o
+    cliente reclamando.</p>
+
+    <p>É por isso que o aviso não é um extra de quem é organizado. <strong>Error Trigger é o cinto
+    de segurança de qualquer fluxo que vai para produção</strong>, e o custo dele são cinco minutos,
+    uma vez.</p>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>O fluxo que vigia os outros</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Error Trigger é um gatilho especial: ele não escuta o mundo lá fora, escuta os seus
+      próprios fluxos quebrando</h3>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">Ele pega</span>
+          <h4>Erro dentro de uma execução real</h4>
+          <p>O fluxo disparou sozinho, rodou, e um nó falhou no meio do caminho. Aqui ele avisa.</p></div>
+        <div class="ctr e"><span class="ctr-selo">Ele pega</span>
+          <h4>Qualquer nó do fluxo vigiado</h4>
+          <p>Não importa se quebrou no primeiro ou no último: ele recebe o nome do nó que
+          falhou.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Ele não pega</span>
+          <h4>Fluxo que nem chegou a disparar</h4>
+          <p>Schedule desativado, webhook com URL errada. Ele detecta erro <strong>dentro</strong>
+          da execução, não a ausência de execução.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Ele não pega</span>
+          <h4>Teste seu, no botão Execute</h4>
+          <p>Quando você clica para testar, ele não dispara. Só em execução real, automática.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como o alarme de temperatura do freezer</div>
+        <p>O freezer da cozinha não avisa quando está funcionando: ele avisa quando parou. E o aviso
+        não vem do freezer, vem de um sensor separado, que existe só para isso e que você ligou uma
+        vez. <strong>Sem o sensor, você descobre o problema abrindo a porta e sentindo o cheiro</strong>,
+        que é sempre tarde demais.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O freezer</strong> é o fluxo que faz o trabalho de verdade</li>
+          <li><strong>O sensor</strong> é o fluxo de Error Trigger, separado e ligado o tempo
+          todo</li>
+          <li><strong>O fio entre os dois</strong> é o vínculo nas Settings, que é a parte que todo
+          mundo esquece</li>
+          <li><strong>O cheiro ao abrir a porta</strong> é o cliente ligando</li>
+        </ul>
+      </div>
+
+      <h4>O que ele entrega quando dispara</h4>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Campo</th><th>O que vem dentro</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>workflow.name</code></td><td>O nome do fluxo que falhou</td></tr>
+            <tr><td><code>execution.lastNodeExecuted</code></td><td>O nome do nó que falhou</td></tr>
+            <tr><td><code>execution.error.message</code></td><td>A mensagem de erro, a mesma que aparece no nó vermelho</td></tr>
+            <tr><td><code>execution.url</code></td><td>Link direto para o painel daquela execução</td></tr>
+            <tr><td><code>execution.id</code> · <code>workflow.id</code></td><td>Os identificadores, se você quiser registrar em planilha</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="fig-leg"><strong>O <code>execution.url</code> é o campo mais valioso dos cinco.</strong>
+      Com ele no e-mail, você sai da caixa de entrada e cai direto no canvas pintado, no nó vermelho,
+      pronto para o método de 4 passos da <a href="../b11-debug/">aula 1</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Duas partes, e a segunda é a que some</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">A</span><span class="fl-quem">Criar o fluxo que avisa, e <strong>ativar</strong></span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">B</span><span class="fl-quem">Apontar cada fluxo principal para ele</span></div>
+    </div>
+
+    <p class="fig-leg"><strong>Criar o avisador não basta.</strong> Ele fica ali, ativo e mudo, até
+    alguém dizer a cada fluxo principal que é para ele que se avisa. Essa ligação é feita uma vez
+    por fluxo, nas Settings.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">A</div>
+        <div class="passo-fn">Criar o fluxo que avisa</div>
+      </div>
+      <ol>
+        <li>Fluxo novo. Renomeie para <code>🚨 Error Handler</code>.</li>
+        <li>Adicione o gatilho <strong>Error Trigger</strong>. É um gatilho único no n8n: procure
+        por "Error".</li>
+        <li>Adicione um <strong>Gmail (Send)</strong> com o assunto e o corpo abaixo.</li>
+        <li><strong>Salve e ative.</strong> Sem o Active ligado, ele não escuta nada.</li>
+      </ol>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Assunto do e-mail</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11erro-a">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11erro-a">🚨 Erro em: {{ $json.workflow.name }}</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-barra">
+          <span class="prompt-rot">Corpo do e-mail</span>
+          <button class="btn-copiar" type="button" data-alvo="pr-b11erro-b">Copiar</button>
+        </div>
+        <pre class="prompt-txt config" id="pr-b11erro-b">Workflow {{ $json.workflow.name }} falhou no nó
+{{ $json.execution.lastNodeExecuted }}.
+
+Erro: {{ $json.execution.error.message }}
+
+Ver execução: {{ $json.execution.url }}</pre>
+      </div>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar no texto do e-mail</div>
+        <p>Comece pelo que <strong>você</strong> vai querer saber às 7h da manhã, de celular, sem
+        abrir o computador: qual fluxo quebrou, e é urgente ou pode esperar. O resto é detalhe que
+        o link resolve.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> mandar o erro técnico puro no assunto.
+        Daqui a dois meses você vai ter três desses na caixa e nenhum diz de qual fluxo é.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>O fluxo tem dois nós, está salvo, e o botão <strong>Active</strong> no canto superior
+        direito está ligado.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">B</div>
+        <div class="passo-fn">Ligar o fluxo principal ao avisador</div>
+      </div>
+      <ol>
+        <li>Abra o fluxo que você quer monitorar.</li>
+        <li>Menu <strong>…</strong>, no canto superior direito, e depois
+        <strong>Settings</strong>.</li>
+        <li>No campo <strong>Error Workflow</strong>, escolha o <code>🚨 Error Handler</code>.</li>
+        <li><strong>Salve.</strong></li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você reabre as Settings do fluxo principal e o campo Error Workflow mostra o nome do
+        avisador. <strong>Esse passo se repete em cada fluxo que for para produção</strong>, um por
+        um.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Quebrar de propósito, e esperar o e-mail chegar</h2>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o aviso chegando</div>
+      <div class="demo-corpo">
+        <p><strong>Os dois fluxos:</strong></p>
+        <ul class="lista">
+          <li><strong>Fluxo A</strong>, o principal: Schedule &rarr; HTTP Request (com URL inválida
+          de propósito) &rarr; Sheets</li>
+          <li><strong>Fluxo B</strong>, o avisador: Error Trigger &rarr; Gmail</li>
+        </ul>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">1</div>
+            <div class="passo-fn">Ative os dois</div>
+          </div>
+          <p>E confira que o A aponta para o B nas Settings.</p>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">2</div>
+            <div class="passo-fn">Provoque a falha</div>
+          </div>
+          <p>No Fluxo A, execute o Schedule pelo botão <strong>Test Step</strong>. O HTTP Request
+          falha.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Em cerca de <strong>30 segundos</strong> o e-mail do Fluxo B chega, com o nome do
+            fluxo, o nó que falhou, a mensagem e o link.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-topo">
+            <div class="passo-n">3</div>
+            <div class="passo-fn">Feche o ciclo</div>
+          </div>
+          <p>Clique no link do e-mail. Você cai direto na execução, no nó vermelho. Diagnostique com
+          o método de 4 passos da <a href="../b11-debug/">aula 1</a>, corrija a URL, execute de
+          novo.</p>
+          <div class="passo-ok">
+            <div class="passo-ok-rot">Deu certo quando</div>
+            <p>Você saiu do e-mail e chegou na correção <strong>sem abrir o n8n procurando nada</strong>.
+            É esse o ganho: o fluxo te leva ao problema, você não vai atrás dele.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">O avisador criado, ativado e ligado ao fluxo principal, e o e-mail
+  testado de verdade. O que vem abaixo é a <strong>cerca</strong>: cinco tropeços, e dois são
+  esquecer de ligar alguma coisa.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ele só dispara se o fluxo principal chegou a rodar</div>
+      <p>Se o fluxo nem disparou, porque o Schedule está desativado ou a URL do webhook está errada,
+      o Error Trigger não percebe nada. Ele detecta erro <strong>dentro</strong> da execução, não a
+      falta dela.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O avisador precisa estar ativado</div>
+      <p>Sem o botão Active ligado no próprio Error Handler, ele não escuta. Criar e salvar não
+      liga.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não esqueça de vincular nas Settings</div>
+      <p>Criar o avisador não basta: cada fluxo principal precisa ser configurado apontando para
+      ele, um por um.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não use o mesmo avisador para fluxos muito diferentes</div>
+      <p>Se um é crítico, como cobrança, e outro é secundário, como relatório, separe os
+      avisadores. Você pode querer reagir diferente: Telegram na hora para um, e-mail diário para o
+      outro.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ele não captura o seu teste manual</div>
+      <p>Quando você clica em "Execute Workflow" para testar, ele não dispara. Só em execução real,
+      por Schedule, webhook ou evento de aplicativo.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 3, Ativação e deploy. Você já sabe achar o erro e já é
+    avisado dele; falta o ritual de soltar o fluxo no mundo sem deixar dado de teste no meio. As
+    cinco aulas do bloco estão na <a href="../b11-projetos/">capa do B11</a>.</p>
+  </div>

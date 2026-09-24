@@ -1,0 +1,602 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Como pedir para a IA gerar o fluxo inteiro a partir da sua descrição em linguagem
+      natural</li>
+      <li><strong>Três pedidos prontos</strong>, um para cada tipo de fluxo. Use o certo para o caso
+      certo</li>
+      <li>O que ela acerta, o que você ajusta, e por que os ajustes não são falha</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por que isso importa</h2>
+      </div>
+    </div>
+
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p>A IA não vai construir o fluxo perfeito. Mas monta o esqueleto, e
+      <strong>o tempo cai pela metade</strong>.</p>
+    </div>
+
+    <p>Você já sabe construir fluxos. Mas às vezes o esboço está na cabeça e você quer
+    <strong>sair do zero mais rápido</strong>, sem arrastar nó a nó desde o início.</p>
+
+    <p>Ela entrega os nós certos, na ordem certa, com os parâmetros principais preenchidos. Você
+    importa, conecta credenciais, testa e ajusta.</p>
+
+    <div class="aviso ok">
+      <div class="aviso-t">Leia a aula 5 do B11 antes desta</div>
+      <p>A <a href="../b11-cocriar/">aula de IA co-criando fluxos</a> traz a tabela dos
+      <strong>cinco erros que a IA comete sempre</strong> e o teto que nenhum pedido resolve. Esta
+      página aqui é a caixa de ferramentas; aquela é o manual de leitura do que voltar.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>Ponto de partida, não resultado</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>O que volta é um ponto de partida, e a parte que sobra para você não é falha: é a parte do
+      trabalho que exige você</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>O que a IA acerta</th><th>O que você ajusta</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quais nós usar</td><td>Conectar suas credenciais reais</td></tr>
+            <tr><td>A sequência dos nós</td><td>Os identificadores reais: planilha, pasta, chat</td></tr>
+            <tr><td>A estrutura básica de configuração</td><td>Calibrar os System Prompts para o seu contexto</td></tr>
+            <tr><td>A lógica condicional aproximada</td><td>Os casos de borda do seu processo</td></tr>
+            <tr><td>O padrão de expressão <code>{{ $json.campo }}</code></td><td>Conferir que cada campo bate com o nó anterior</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como o móvel que vem desmontado</div>
+        <p>A caixa traz todas as peças cortadas na medida e o desenho de como elas se encaixam.
+        Ninguém chama de defeito o fato de você precisar montar: <strong>o serrote já foi
+        feito</strong>, que é a parte difícil e demorada. O que sobra é o parafuso, e o parafuso
+        depende da sua parede.</p>
+        <ul class="analogia-mapa">
+          <li><strong>As peças cortadas</strong> são os nós certos na ordem certa</li>
+          <li><strong>O desenho de montagem</strong> são as conexões entre eles</li>
+          <li><strong>Os parafusos que você põe</strong> são as credenciais e os seus
+          identificadores</li>
+          <li><strong>A sua parede</strong> é o seu processo, que a fábrica não tem como
+          conhecer</li>
+        </ul>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">Dois números diferentes, nos dois materiais</div>
+        <p>Esta página do material estima <strong>80% acerto e 20% ajuste</strong>; a
+        <a href="../b11-cocriar/">aula 5 do B11</a> fala em <strong>70% e 30%</strong>. As duas
+        afirmações são do autor, de abril de 2026, e <strong>entram como estão</strong>. A leitura
+        que serve para os dois casos é a mesma: a estrutura vem pronta, os detalhes são seus.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Escolha o pedido pelo tipo do seu fluxo</h2>
+      </div>
+    </div>
+
+    <div class="fluxo solta">
+      <div class="fl"><span class="fl-n">1</span><span class="fl-quem">Descrever</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">2</span><span class="fl-quem">Gerar</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">3</span><span class="fl-quem">Importar</span></div>
+      <span class="fl-seta">&rarr;</span>
+      <div class="fl"><span class="fl-n">4</span><span class="fl-quem">Ajustar</span></div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead>
+          <tr><th>Versão</th><th>Use quando o fluxo tiver</th><th>Exemplos</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>V1 · Linear</strong></td>
+            <td>Nós em sequência, sem decisões e sem IA</td>
+            <td>Formulário &rarr; Set &rarr; Gmail · Agendamento &rarr; HTTP &rarr; Sheets</td>
+          </tr>
+          <tr>
+            <td><strong>V2 · Com decisões</strong></td>
+            <td>IF ou Switch no meio do caminho</td>
+            <td>Decidir se um lead é qualificado e mandar para a fila A ou B</td>
+          </tr>
+          <tr>
+            <td><strong>V3 · Com IA</strong></td>
+            <td>Basic LLM Chain ou AI Agent</td>
+            <td>Lead chega &rarr; IA classifica &rarr; roteia</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Os três pedidos começam por uma entrevista:</strong> a IA pergunta
+    uma coisa de cada vez e só gera quando você disser que pode. É de propósito, e é o que impede
+    ela de preencher com suposição o que você não disse.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar a V1 num fluxo com IF sai errado</div>
+      <p>O IF tem duas saídas, e o formato das conexões é diferente do fluxo linear. Cada versão traz
+      o molde certo já pronto; escolher a errada produz um fluxo que importa e não funciona.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>Os três pedidos, prontos para copiar</h2>
+      </div>
+    </div>
+
+    <p>Os três estão <strong>literais, como o autor escreveu</strong>. Copie inteiro e cole no chat
+    de IA: a entrevista começa sozinha.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Os três pedidos do material &middot; copie o que serve ao seu caso</div>
+      <div class="demo-corpo">
+
+    <h4>V1 · fluxo linear</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pedido V1 &middot; sem decisões e sem IA</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v1">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b12js-v1">Você é um especialista em n8n, plataforma de automação low-code.
+Seu objetivo é me ajudar a criar um workflow linear simples, gerando no final
+um JSON válido que eu possa importar diretamente no n8n.
+
+REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
+Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
+
+--- ENTREVISTA ---
+
+1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
+2. "Como este workflow começa?
+   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
+3. "Quais informações chegam no início? (ex: nome, e-mail, valor...)"
+4. "Quais ferramentas ele usa? (ex: Gmail, Sheets, HTTP API...)"
+5. "O que acontece na última ação?"
+
+Depois, resuma o que entendeu e pergunte se está correto.
+
+--- GERAÇÃO DO JSON ---
+
+Siga exatamente este modelo de estrutura:
+
+{
+  "name": "Nome do Workflow",
+  "nodes": [
+    {
+      "id": "trigger-1",
+      "name": "Início",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {}
+    },
+    {
+      "id": "gmail-2",
+      "name": "Envia E-mail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [540, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "email@exemplo.com",
+        "subject": "Assunto",
+        "message": "={{ $json.campo }}",
+        "emailType": "text"
+      }
+    }
+  ],
+  "connections": {
+    "Início": {
+      "main": [[{"node": "Envia E-mail", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {"executionOrder": "v1"}
+}
+
+REGRAS:
+- id: string curta e única por nó (ex: "trigger-1", "gmail-2")
+- position: x começa em 240, incrementa 300 a cada nó. y fixo em 300.
+- connections: a chave é o campo "name" exato do nó de origem
+- Dados dinâmicos: use ={{ $json.nome_campo }} para referenciar campos anteriores
+- Não inclua o campo "credentials"
+
+NÓS DISPONÍVEIS:
+- Formulário: n8n-nodes-base.formTrigger (v2.2)
+- Agendamento: n8n-nodes-base.scheduleTrigger (v1.1)
+- Webhook: n8n-nodes-base.webhook (v1.1)
+- Manual: n8n-nodes-base.manualTrigger (v1)
+- Gmail: n8n-nodes-base.gmail (v2.1) — resource: message, operation: send
+- Google Sheets: n8n-nodes-base.googleSheets (v4.1)
+- Google Docs: n8n-nodes-base.googleDocs (v2)
+- HTTP Request: n8n-nodes-base.httpRequest (v4.2)
+- Edit Fields (Set): n8n-nodes-base.set (v3.4)
+
+APÓS O JSON, inclua obrigatoriamente:
+1. Credenciais para configurar — quais nós precisam de credencial
+2. O que ajustar — IDs reais, expressões que precisam revisão
+3. Como importar: n8n → ícone de menu → Import from JSON</pre>
+    </div>
+
+    <h4>V2 · fluxo com decisões</h4>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pedido V2 &middot; com IF ou Switch</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v2">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b12js-v2">Você é um especialista em n8n, plataforma de automação low-code.
+Seu objetivo é me ajudar a criar um workflow com lógica de decisão (IF ou Switch),
+gerando no final um JSON válido que eu possa importar no n8n.
+
+REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
+Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
+
+--- ENTREVISTA ---
+
+1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
+2. "Como este workflow começa?
+   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
+3. "Quais informações chegam no início?"
+4. "Quais ferramentas ele usa?"
+5. "Descreva a decisão: qual condição é verificada e o que acontece em cada caminho?"
+6. "O que cada caminho entrega ao final?"
+
+Depois, resuma o que entendeu e pergunte se está correto.
+
+--- GERAÇÃO DO JSON ---
+
+ATENÇÃO: IF e Switch têm múltiplas saídas. O formato de connections é diferente de um fluxo linear.
+Siga exatamente este modelo:
+
+{
+  "name": "Workflow com Decisão",
+  "nodes": [
+    {
+      "id": "trigger-1",
+      "name": "Início",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {}
+    },
+    {
+      "id": "if-2",
+      "name": "Verifica Condição",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [540, 300],
+      "parameters": {
+        "conditions": {
+          "options": {"caseSensitive": true, "leftValue": "", "typeValidation": "strict"},
+          "conditions": [
+            {
+              "id": "cond-1",
+              "leftValue": "={{ $json.campo }}",
+              "rightValue": "valor_esperado",
+              "operator": {"type": "string", "operation": "equals"}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "set-3a",
+      "name": "Caminho Verdadeiro",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [840, 160],
+      "parameters": {}
+    },
+    {
+      "id": "set-3b",
+      "name": "Caminho Falso",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [840, 440],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Início": {
+      "main": [[{"node": "Verifica Condição", "type": "main", "index": 0}]]
+    },
+    "Verifica Condição": {
+      "main": [
+        [{"node": "Caminho Verdadeiro", "type": "main", "index": 0}],
+        [{"node": "Caminho Falso", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {"executionOrder": "v1"}
+}
+
+REGRAS:
+- id: string curta e única por nó
+- O IF tem DOIS arrays dentro de "main": o primeiro é verdadeiro, o segundo é falso
+- Para Switch com 3+ caminhos, adicione mais arrays em "main"
+- position: nós do mesmo nível ficam no mesmo x. Verdadeiro: y menor. Falso: y maior.
+- Dados dinâmicos: use ={{ $json.nome_campo }}
+- Não inclua "credentials"
+
+NÓS DISPONÍVEIS:
+- (todos da V1, mais:)
+- IF: n8n-nodes-base.if (v2)
+- Switch: n8n-nodes-base.switch (v3)
+- Merge: n8n-nodes-base.merge (v3)
+
+APÓS O JSON, inclua obrigatoriamente:
+1. Credenciais para configurar
+2. O que ajustar (condição do IF, IDs reais)
+3. Como importar: n8n → ícone de menu → Import from JSON</pre>
+    </div>
+
+    <h4>V3 · fluxo com IA</h4>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Nó de IA se liga de um jeito diferente</div>
+      <p>O modelo <strong>conecta-se ao nó de IA</strong>, e não o contrário, e o tipo dessa conexão
+      não é o mesmo dos nós comuns. O molde do pedido já trata disso: não altere essa parte.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">Pedido V3 &middot; com Basic LLM Chain ou AI Agent</span>
+        <button class="btn-copiar" type="button" data-alvo="pr-b12js-v3">Copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="pr-b12js-v3">Você é um especialista em n8n, plataforma de automação low-code.
+Seu objetivo é me ajudar a criar um workflow que usa IA para gerar, classificar
+ou resumir texto, gerando no final um JSON válido que eu possa importar no n8n.
+
+AVISO IMPORTANTE: Nós de IA têm uma estrutura especial de conexão diferente de nós comuns.
+Siga o template abaixo à risca — não altere o formato das connections de IA.
+
+REGRA PRINCIPAL: Não gere o JSON ainda. Faça uma entrevista comigo primeiro.
+Faça UMA pergunta por vez. Só gere o JSON quando eu disser "pode gerar".
+
+--- ENTREVISTA ---
+
+1. "O que este workflow precisa fazer? Descreva em 1 ou 2 frases."
+2. "Como este workflow começa?
+   (A) Formulário  (B) Agendamento  (C) Webhook  (D) Manual  (E) Outro"
+3. "Quais informações chegam no início?"
+4. "O que a IA deve fazer? (gerar texto, classificar, resumir, responder perguntas?)"
+5. "Descreva o prompt que a IA vai receber e o que ela deve produzir."
+6. "Onde o resultado vai? (e-mail, planilha, documento, resposta direta?)"
+
+Depois, resuma o que entendeu e pergunte se está correto.
+
+--- GERAÇÃO DO JSON ---
+
+ATENÇÃO: O modelo Gemini conecta-se AO LLM Chain usando o tipo "ai_languageModel" — não "main".
+Siga exatamente este modelo:
+
+{
+  "name": "Workflow com IA",
+  "nodes": [
+    {
+      "id": "trigger-1",
+      "name": "Início",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {}
+    },
+    {
+      "id": "llm-2",
+      "name": "Gera Texto com IA",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [540, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ 'Analise o seguinte: ' + $json.campo }}"
+      }
+    },
+    {
+      "id": "gemini-3",
+      "name": "Gemini Flash",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [540, 500],
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash"
+      }
+    },
+    {
+      "id": "gmail-4",
+      "name": "Envia Resultado",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [840, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "email@exemplo.com",
+        "subject": "Resultado da IA",
+        "message": "={{ $json.text }}",
+        "emailType": "text"
+      }
+    }
+  ],
+  "connections": {
+    "Início": {
+      "main": [[{"node": "Gera Texto com IA", "type": "main", "index": 0}]]
+    },
+    "Gemini Flash": {
+      "ai_languageModel": [[{"node": "Gera Texto com IA", "type": "ai_languageModel", "index": 0}]]
+    },
+    "Gera Texto com IA": {
+      "main": [[{"node": "Envia Resultado", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {"executionOrder": "v1"}
+}
+
+REGRAS CRÍTICAS:
+- O Gemini aparece nas connections como ORIGEM, apontando para o LLM Chain com tipo "ai_languageModel"
+- O output do LLM Chain chega no campo "text" do próximo nó: use $json.text para acessá-lo
+- position: o Gemini fica 200px abaixo do LLM Chain (mesmo x, y + 200)
+- Não inclua "credentials"
+
+NÓS DISPONÍVEIS:
+- (todos da V1, mais:)
+- Basic LLM Chain: @n8n/n8n-nodes-langchain.chainLlm (v1.4)
+- Google Gemini: @n8n/n8n-nodes-langchain.lmChatGoogleGemini (v1)
+- AI Agent: @n8n/n8n-nodes-langchain.agent (v1.7)
+
+APÓS O JSON, inclua obrigatoriamente:
+1. Credenciais para configurar (Gemini precisa de Google AI Studio API key)
+2. O que ajustar (prompt da IA, campo referenciado, IDs reais)
+3. Como importar: n8n → ícone de menu → Import from JSON</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Os nomes de nó e as versões dentro dos três pedidos são do material,
+    de abril de 2026.</strong> Eles envelhecem: é exatamente o erro nº 4 da
+    <a href="../b11-cocriar/">aula 5 do B11</a>. Se a importação recusar por versão, confira na tela
+    do seu n8n qual é a atual e corrija no pedido antes de gerar de novo.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="sua-vez">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A sua vez</div>
+        <h2>Importar e ajustar</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Importar</div>
+      </div>
+      <ol>
+        <li>Copie o JSON que a IA gerou.</li>
+        <li>No n8n, clique no ícone de menu, no canto do canvas.</li>
+        <li>Selecione <strong>Import from JSON</strong>.</li>
+        <li>Cole e confirme.</li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>O canvas aparece com os nós conectados. <strong>Os avisos de credencial são
+        esperados</strong>, e não são erro.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Ajustar o que é seu</div>
+      </div>
+      <div class="checagem">
+        <ul>
+          <li><strong>Credenciais:</strong> a IA nunca tem acesso às suas chaves. Conecte no n8n
+          depois de importar.</li>
+          <li><strong>Identificadores reais:</strong> planilhas, pastas, documentos. Ela usa
+          exemplos; substitua pelos seus.</li>
+          <li><strong>Expressões:</strong> <code>$json.campo</code> pode vir com o nome errado.
+          Confira na primeira execução.</li>
+          <li><strong>No V3:</strong> se o modelo não aparecer conectado ao nó de IA no canvas,
+          conecte à mão.</li>
+        </ul>
+      </div>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar sem saber por onde começar a revisar</div>
+        <p>Comece <strong>de trás para frente</strong>: abra o último nó, veja de quais campos ele
+        depende, e vá subindo conferindo se cada um existe no nó anterior. É mais rápido que ler o
+        fluxo do começo, porque o que interessa é o que chega no fim.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> ativar e ver no que dá. Fluxo gerado
+        por IA em produção sem revisão é como o material diz: vai para o ar com defeito, e você
+        descobre pelo destinatário.</div>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você rodou <strong>um teste manual com 1 caso real</strong> antes de ativar, e conferiu o
+        resultado de cada nó.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Os três pedidos prontos, a tabela de qual usar, e o roteiro de importar e
+  ajustar. O que vem abaixo é a <strong>cerca</strong>: quatro tropeços.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Usar a V1 num fluxo com IF</div>
+      <p>O formato das conexões sai errado, e o fluxo importa sem funcionar. Escolha a versão pelo
+      tipo do fluxo, não pelo tamanho.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confiar nas expressões sem testar</div>
+      <p>Um <code>$json.campo</code> pode estar com nome errado, e isso não dá erro de importação:
+      dá resultado vazio na execução.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Importar sem revisar</div>
+      <p>Se a IA inventou um campo, o erro aparece só quando o fluxo rodar, e com gente esperando do
+      outro lado.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esperar que funcione de primeira</div>
+      <p>Os ajustes são a parte normal do trabalho, não sinal de que o pedido estava ruim.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Você chegou ao fim do Módulo 2.</strong> As duas aulas deste bloco estão na
+    <a href="../b12-recursos/">capa do B12</a>, e os oito blocos na
+    <a href="../modulo-2/">capa do módulo</a>.</p>
+  </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Módulo 3 · Minha Jornada com IA</title>
+<title>Aula 3 · Ativação e deploy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3309,55 +3309,301 @@ code{overflow-wrap:anywhere}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; Minha Jornada com IA</nav>
+<nav class="migalha"><a href="../">IA para Negócios</a> &rsaquo; <a href="../modulo-2/">Módulo 2</a> &rsaquo; <a href="../b11-projetos/">B11 · Projetos integradores</a> &rsaquo; 3 · Ativação e deploy</nav>
 
 
-<main class="folha ">
+<main class="folha aula-fundamento">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 3 de 3</div>
-    <h1>Minha&nbsp;Jornada com&nbsp;IA</h1>
-    <p class="heroi-sub">Como apresentar o&nbsp;que&nbsp;você construiu, conduzir a&nbsp;adoção no&nbsp;time, e&nbsp;medir o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-    <div><span class="selo">Dois blocos</span><span class="selo">Você sai com o retorno medido</span></div>
+    <div class="heroi-kicker">Módulo 2 · B11 · Projetos integradores</div>
+    <h1>Ativação e&nbsp;deploy</h1>
+    <p class="heroi-sub">O&nbsp;checklist de&nbsp;4 etapas antes de&nbsp;soltar o&nbsp;fluxo no&nbsp;mundo, e&nbsp;o&nbsp;erro nº 1 da&nbsp;ativação.</p>
+    <div><span class="selo">Conceito</span></div>
   </div>
 
-  <section class="secao" id="blocos">
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">O que você vai aprender:</div>
+    <ul>
+      <li>Validar o&nbsp;fluxo inteiro com&nbsp;dado real, ativar para&nbsp;produção e&nbsp;acompanhar as&nbsp;primeiras
+      execuções</li>
+      <li><strong>Testou nó a&nbsp;nó não&nbsp;é o&nbsp;mesmo que&nbsp;testou o&nbsp;fluxo inteiro</strong></li>
+      <li>O&nbsp;checklist de&nbsp;4 etapas, que&nbsp;é curto de&nbsp;propósito para&nbsp;você fazer sempre</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="situacao">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">O que tem dentro</div>
-        <h2>Os&nbsp;dois blocos deste módulo</h2>
+        <div class="secao-fn">O que você vai aprender</div>
+        <h2>Por&nbsp;que&nbsp;isso importa</h2>
       </div>
     </div>
 
-    <p>Os&nbsp;dois módulos anteriores constroem. Este é onde&nbsp;o&nbsp;que&nbsp;foi construído vira
-    resultado defensável: você mostra para&nbsp;a&nbsp;liderança, conduz a&nbsp;adoção no&nbsp;time, e&nbsp;mede
-    o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
-
-    <div class="casos solta">
-      <div class="caso">
-        <div class="caso-n">01</div>
-        <h4>Posicionamento, liderança e&nbsp;adoção</h4>
-        <p>Como comunicar resultado sem&nbsp;gerar resistência, apresentar para&nbsp;a&nbsp;liderança
-        na&nbsp;linguagem de&nbsp;retorno, e&nbsp;pilotar em&nbsp;baixo risco.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
-      <div class="caso">
-        <div class="caso-n">02</div>
-        <h4>Stack pessoal, retorno e&nbsp;projeto integrador</h4>
-        <p>Consolidar tudo em&nbsp;documento único, calcular o&nbsp;retorno real em&nbsp;horas e&nbsp;em&nbsp;reais, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;90 dias.</p>
-        <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
-        </div>
-      </div>
+    <div class="cartao cartao-cor">
+      <span class="rot">Em uma frase</span>
+      <p><strong>"Tudo tava funcionando"</strong> é a&nbsp;frase que&nbsp;mais antecede dor de&nbsp;cabeça no&nbsp;n8n.</p>
     </div>
 
-    <p class="fig-leg"><strong>Aqui não&nbsp;entra capacidade nova.</strong> É onde&nbsp;você prova
-    as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
+    <p>A&nbsp;maioria dos&nbsp;fluxos que&nbsp;quebram em&nbsp;produção <strong>passaram em&nbsp;todos os&nbsp;testes
+    individuais</strong>. Cada nó verde na&nbsp;demonstração. Mas&nbsp;ficou um&nbsp;detalhe: dado de&nbsp;teste
+    fixado, o&nbsp;gatilho não&nbsp;foi ativado, ou&nbsp;foi ativado sem&nbsp;avisador de&nbsp;erro.</p>
+
+    <p>Sair do&nbsp;"funciona no&nbsp;canvas" para&nbsp;o&nbsp;"funciona sozinho amanhã de&nbsp;manhã" exige ritual. Esta
+    aula é esse ritual, e&nbsp;ele cabe em&nbsp;quatro etapas.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../b12-json/">&larr; Aula 2 · IA gerando o fluxo inteiro</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+  <section class="secao" id="conceito">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito, e é um só</div>
+        <h2>O&nbsp;checklist de&nbsp;quatro etapas</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Antes de&nbsp;soltar um&nbsp;fluxo no&nbsp;mundo, quatro conferências, sempre as&nbsp;mesmas, sempre na&nbsp;mesma
+      ordem</h3>
+
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Etapa</th><th>O que fazer</th><th>Por quê</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Teste de ponta a ponta</strong></td>
+              <td>Disparar pelo gatilho real, deixar rodar até o fim, conferir o resultado final.</td>
+              <td>Testar nó a nó não pega problema de dado que se acumula ao longo do fluxo.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Despinar</strong></td>
+              <td>Tirar todo dado de teste fixado antes de ativar (atalho <code>P</code> no nó).</td>
+              <td>Fluxo ativo com dado fixado usa o dado velho no lugar do real: entrega errada com
+              cara de certa.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Ativar</strong></td>
+              <td>Botão <strong>Active</strong>, no canto superior direito.</td>
+              <td>Sem isso, Schedule, webhook e evento de aplicativo não disparam fora do botão de
+              teste.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Ligar o avisador</strong></td>
+              <td>Settings &rarr; Error Workflow &rarr; escolher o handler.</td>
+              <td>Se quebrar, você recebe aviso, e não descobre três dias depois pelo cliente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como a conferência antes de o avião taxiar</div>
+        <p>O&nbsp;piloto não&nbsp;decola conferindo se&nbsp;o&nbsp;avião "parece bem". Ele lê uma&nbsp;lista, em&nbsp;voz alta,
+        na&nbsp;mesma ordem, toda vez, inclusive no&nbsp;voo que&nbsp;ele já&nbsp;fez mil vezes. <strong>A&nbsp;lista existe
+        justamente porque&nbsp;a&nbsp;memória falha no&nbsp;item chato</strong>, e&nbsp;o&nbsp;item chato é sempre o&nbsp;mesmo:
+        aquele que&nbsp;quase nunca dá problema.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A&nbsp;lista lida em&nbsp;voz alta</strong> são as&nbsp;quatro etapas, feitas na&nbsp;ordem</li>
+          <li><strong>O&nbsp;item chato que&nbsp;falha</strong> é despinar o&nbsp;dado de&nbsp;teste, que&nbsp;é o&nbsp;erro
+          número 1 da&nbsp;ativação</li>
+          <li><strong>O&nbsp;voo que&nbsp;ele já&nbsp;fez mil vezes</strong> é o&nbsp;fluxo simples, que&nbsp;você acha que&nbsp;dispensa conferência</li>
+          <li><strong>O&nbsp;copiloto conferindo junto</strong> é o&nbsp;painel de&nbsp;Executions depois de&nbsp;ativar</li>
+        </ul>
+      </div>
+
+      <div class="aviso atencao">
+        <div class="aviso-t">A etapa 2 é a que mais some, e a que mais custa</div>
+        <p>Esquecer de&nbsp;despinar é o&nbsp;erro mais comum em&nbsp;ativação. O&nbsp;fluxo ativa, roda, e&nbsp;usa o&nbsp;dado
+        fixado em&nbsp;vez do&nbsp;dado real do&nbsp;gatilho. <strong>Resultado: e-mail entregue com&nbsp;nome de&nbsp;teste,
+        planilha atualizada com&nbsp;data fixa</strong>, e&nbsp;tudo verde no&nbsp;painel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Uma&nbsp;etapa por&nbsp;vez</h2>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">1</div>
+        <div class="passo-fn">Teste de ponta a ponta, com dado real</div>
+      </div>
+      <p>Não&nbsp;com&nbsp;dado de&nbsp;mentira. O&nbsp;jeito muda conforme&nbsp;o&nbsp;gatilho:</p>
+      <div class="tabela">
+        <table>
+          <thead>
+            <tr><th>Se o gatilho for</th><th>Dispare assim</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Schedule</strong></td><td>Clique em <strong>Execute Workflow</strong> e confira se cada nó fica verde até o fim.</td></tr>
+            <tr><td><strong>Webhook</strong></td><td>Copie a URL <strong>Production</strong>, não a de teste, e faça uma chamada real.</td></tr>
+            <tr><td><strong>Formulário</strong></td><td>Abra o link do formulário e preencha como um usuário preencheria.</td></tr>
+            <tr><td><strong>Evento de aplicativo</strong></td><td>Provoque o evento de verdade: mande o e-mail, adicione a linha na planilha, e espere o ciclo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>No&nbsp;painel de&nbsp;Executions a&nbsp;execução aparece verde de&nbsp;ponta a&nbsp;ponta, <strong>e</strong>&nbsp;o&nbsp;resultado chegou onde&nbsp;deveria: o&nbsp;e-mail na&nbsp;caixa certa, a&nbsp;linha na&nbsp;planilha certa, a&nbsp;mensagem no&nbsp;chat certo.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">2</div>
+        <div class="passo-fn">Despinar</div>
+      </div>
+      <ol>
+        <li>Abra cada nó do&nbsp;fluxo.</li>
+        <li>Se&nbsp;aparecer um&nbsp;<strong>alfinete 📌</strong> no&nbsp;canto superior direito do&nbsp;painel, o&nbsp;resultado está fixado.</li>
+        <li>Clique no&nbsp;alfinete para&nbsp;soltar, ou&nbsp;use o&nbsp;atalho <code>P</code> com&nbsp;o&nbsp;nó selecionado.</li>
+      </ol>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você percorreu <strong>todos</strong> os&nbsp;nós, não&nbsp;só&nbsp;os&nbsp;que&nbsp;você lembra de&nbsp;ter pinado.
+        O&nbsp;alfinete é pequeno e&nbsp;some no&nbsp;meio do&nbsp;painel.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">3</div>
+        <div class="passo-fn">Ativar</div>
+      </div>
+      <p>Botão <strong>Active</strong>, canto superior direito. O&nbsp;n8n confirma com&nbsp;um&nbsp;✅. Daí em&nbsp;diante o&nbsp;gatilho dispara sozinho.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar na hora de escrever a Note do fluxo</div>
+        <p>Antes de&nbsp;ativar, escreva no&nbsp;campo <strong>Note</strong> o&nbsp;que&nbsp;este fluxo faz. Duas linhas
+        bastam, e&nbsp;elas têm forma fixa: <em>"dispara quando&nbsp;[gatilho]. Faz [o&nbsp;quê]. Entrega em&nbsp;[onde]."</em>&nbsp;Escreva assim mesmo que&nbsp;pareça óbvio hoje.</p>
+        <div class="destrave-nao"><strong>Não vale:</strong> deixar em branco porque "o nome do
+        fluxo já diz". O nome diz o assunto, não diz quando dispara nem onde entrega, e é isso que
+        você vai precisar saber no dia em que ele quebrar.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você voltou ao&nbsp;painel de&nbsp;Executions alguns minutos depois, ou&nbsp;no&nbsp;horário do&nbsp;Schedule, e&nbsp;<strong>viu execuções novas aparecendo</strong>. Ativar sem&nbsp;conferir isso é meio caminho.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">4</div>
+        <div class="passo-fn">Ligar o avisador</div>
+      </div>
+      <p>O&nbsp;setup completo está na&nbsp;<a href="../b11-erro/">aula 2</a>. Em&nbsp;resumo: tenha um&nbsp;Error
+      Handler ativado, e&nbsp;no&nbsp;fluxo principal vá em&nbsp;<strong>…</strong> &rarr;
+      <strong>Settings</strong> &rarr; <strong>Error Workflow</strong> &rarr; selecione o&nbsp;handler
+      &rarr; salve.</p>
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo quando</div>
+        <p>Você reabre as&nbsp;Settings e&nbsp;o&nbsp;nome do&nbsp;handler está lá.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="demonstracao">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">A demonstração</div>
+        <h2>O&nbsp;lembrete diário do&nbsp;B7 indo para&nbsp;produção</h2>
+      </div>
+    </div>
+
+    <p>O&nbsp;fluxo já&nbsp;existe: você construiu Schedule &rarr; Set &rarr; Gmail no&nbsp;<a href="../b7-lembrete/">B7</a>. Até&nbsp;agora ele só&nbsp;rodava quando&nbsp;você mandava. Agora ele passa a&nbsp;rodar sozinho.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Exemplo guiado &middot; o checklist aplicado</div>
+      <div class="demo-corpo">
+        <div class="checagem">
+          <ul>
+            <li><strong>1. Teste de&nbsp;ponta a&nbsp;ponta.</strong> Clicou em&nbsp;Execute Workflow e&nbsp;o&nbsp;e-mail
+            chegou na&nbsp;caixa. ✅</li>
+            <li><strong>2. Despinar.</strong> Abriu cada um&nbsp;dos&nbsp;três nós e&nbsp;tirou todo alfinete. ✅</li>
+            <li><strong>3. Ativar.</strong> Botão Active ligado, e&nbsp;no&nbsp;Schedule aparece a&nbsp;próxima
+            execução, amanhã às&nbsp;8h. ✅</li>
+            <li><strong>4. Ligar o&nbsp;avisador.</strong> Settings &rarr; Error Workflow &rarr;
+            <code>🚨 Error Handler</code>. Salvou. ✅</li>
+          </ul>
+        </div>
+
+        <div class="passo-ok">
+          <div class="passo-ok-rot">Deu certo quando</div>
+          <p><strong>Amanhã às&nbsp;8h o&nbsp;e-mail chega sozinho, e&nbsp;você não&nbsp;clicou em&nbsp;nada.</strong> É a&nbsp;primeira vez no&nbsp;curso que&nbsp;um&nbsp;fluxo trabalha sem&nbsp;você estar na&nbsp;frente dele.</p>
+        </div>
+
+        <div class="aviso ok">
+          <div class="aviso-t">O que muda daqui em diante</div>
+          <p>Um&nbsp;fluxo ativo é um&nbsp;fluxo que&nbsp;você passa a&nbsp;<strong>operar</strong>, e&nbsp;não&nbsp;só&nbsp;a&nbsp;construir. Operar é olhar o&nbsp;painel de&nbsp;Executions de&nbsp;vez em&nbsp;quando,&nbsp;e&nbsp;é receber o&nbsp;aviso
+          quando&nbsp;algo quebra. Os&nbsp;quatro projetos do&nbsp;bloco seguinte terminam exatamente aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">As&nbsp;quatro etapas aplicadas num&nbsp;fluxo que&nbsp;já&nbsp;era seu,&nbsp;e&nbsp;um&nbsp;e-mail que&nbsp;chega amanhã sem&nbsp;você. O&nbsp;que&nbsp;vem abaixo é a&nbsp;<strong>cerca</strong>: cinco tropeços, e&nbsp;o&nbsp;primeiro
+  é o&nbsp;campeão de&nbsp;todos.</p>
+
+  <section class="secao" id="cerca">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Pegadinhas</h2>
+      </div>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Esquecer de despinar</div>
+      <p>É o&nbsp;erro número 1 da&nbsp;ativação. Crie o&nbsp;hábito: antes de&nbsp;ativar, percorra cada nó conferindo
+      o&nbsp;alfinete.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ativar sem avisador</div>
+      <p>Se&nbsp;quebrar, você só&nbsp;descobre olhando o&nbsp;painel de&nbsp;Executions. E&nbsp;em&nbsp;produção, ninguém olha.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não escrever o que o fluxo faz</div>
+      <p>Use o&nbsp;campo <strong>Note</strong>, ao&nbsp;lado do&nbsp;nome, para&nbsp;registrar o&nbsp;que&nbsp;o&nbsp;fluxo faz e&nbsp;quando&nbsp;dispara. <strong>Daqui a&nbsp;três meses você não&nbsp;lembra</strong>, e&nbsp;esse fluxo vai estar
+      rodando.</p>
+    </div>
+
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Confundir a URL de teste com a de produção no webhook</div>
+      <p>Webhook tem duas URLs distintas. A&nbsp;de&nbsp;<strong>teste</strong> só&nbsp;funciona enquanto&nbsp;você
+      clica em&nbsp;"Listen for Test Event". A&nbsp;de&nbsp;<strong>produção</strong> funciona sempre que&nbsp;o&nbsp;fluxo
+      está ativo. Em&nbsp;produção, sempre a&nbsp;segunda.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Ativar sem ter testado de ponta a ponta</div>
+      <p>Cada nó testado isolado não&nbsp;garante que&nbsp;o&nbsp;caminho inteiro funciona com&nbsp;o&nbsp;dado real que&nbsp;vem
+      do&nbsp;gatilho.</p>
+    </div>
+  </section>
+
+  <div class="gancho">
+    <p><strong>Próxima aula:</strong> 4, Mão na&nbsp;massa. Com&nbsp;o&nbsp;debug, o&nbsp;aviso e&nbsp;a&nbsp;ativação na&nbsp;mão,
+    é hora de&nbsp;construir um&nbsp;projeto inteiro. As&nbsp;cinco aulas do&nbsp;bloco estão na&nbsp;<a href="../b11-projetos/">capa do&nbsp;B11</a>.</p>
+  </div>
+
+<nav class="rodape-nav"><a href="../b11-erro/">&larr; Aula 2 · Error Trigger</a><a href="../b11-massa/">Aula 4 · Mão na massa: os 4 projetos integradores &rarr;</a></nav>
 </main>
 
 
