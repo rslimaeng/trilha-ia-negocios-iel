@@ -1362,7 +1362,6 @@ PAGINAS = {
         # conceito para aplicar depois, ela se posiciona de novo na regua e
         # escreve o proprio antes e depois. Decisao do Rafael, 28/09: "na linha
         # do aonde voce chegou".
-        tipo="organizacao",
         titulo="Aula 1 · Onde você chegou",
         kicker="Módulo 3 · B13 · Onde você chegou",
         h1="Onde você chegou",
@@ -1375,7 +1374,6 @@ PAGINAS = {
                  (None, None)],
     ),
     "b13-enxergo": dict(
-        tipo="organizacao",
         titulo="Aula 2 · O que você enxerga agora",
         kicker="Módulo 3 · B13 · Onde você chegou",
         h1="O que você enxerga agora",
@@ -1422,7 +1420,6 @@ PAGINAS = {
         # 🔴 organizacao como as duas do B13: a pessoa nao aprende conceito novo,
         # ela compara o que ja escreveu e decide. Recorte do Rafael, 28/09: o B14
         # e "mais na linha de priorizacao mesmo, o que eles pretendem fazer".
-        tipo="organizacao",
         titulo="Aula 1 · O que vale a pena primeiro",
         kicker="Módulo 3 · B14 · O que você vai fazer",
         h1="O que vale a pena primeiro",
@@ -1435,7 +1432,6 @@ PAGINAS = {
                  (None, None)],
     ),
     "b14-plano": dict(
-        tipo="organizacao",
         titulo="Aula 2 · O plano",
         kicker="Módulo 3 · B14 · O que você vai fazer",
         h1="O plano",
