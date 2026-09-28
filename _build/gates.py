@@ -1387,7 +1387,9 @@ DISPENSA_NOTION_LITERAL = {
     # dos projetos, por decisao do autor, e o proprio material explica por que:
     # "Parte 1 — Operacao (antes dos projetos)". A pratica vem logo depois, no
     # hub. O B12 tem duas aulas de consulta, sem entregavel proprio.
-    # G44 continua sendo DISPENSA DO EXECUTOR, como no B7 e no B8: Rafael decide.
+    # G44 ESTA DECIDIDO desde 27/09, e vale para B7, B8, B11 e B12: o Rafael leu
+    # a pergunta e respondeu que 'no final do jeito que eu fiz foi praticamente
+    # pratica'. A ordem do Notion fica; o gate segue vivo para o resto.
     # ---------------------------------------------------------------------
     # 24/09, Recursos do aluno. O Mapa de Capacidades e o ALUNO se avaliando na
     # 1a pessoa ("Leio um JSON", "Explico a diferenca", "Construi o fluxo"), nao o
@@ -1401,30 +1403,30 @@ DISPENSA_NOTION_LITERAL = {
     },
     "b11-debug/index.html": {
         "G42": "janela = capa do B11 + Topicos 1 e 2 do M6, sem arquivo no Notion",
-        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b11-erro/index.html": {
         "G42": "janela = Topicos 1, 2 e 3 do M6, sem arquivo no Notion",
-        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b11-ativacao/index.html": {
         "G42": "janela = Topicos 1, 2 e 3 do M6; a pratica vem no hub, logo depois",
-        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 1, 2 e 3 do M6 sao a Parte 1 (Operacao), na ordem do autor. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b11-cocriar/index.html": {
         "G1": "o Prompt 2.0 do Topico 8 e literal do autor, num bloco copiavel",
         "G42": "o Topico 8 e a Parte 3 do M6 e nao entrega arquivo; os quatro projetos estao no hub",
-        "G44": "o Topico 8 fecha o M6 fora do hub de projetos, por decisao do autor. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "o Topico 8 fecha o M6 fora do hub de projetos, por decisao do autor. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b12-subworkflows/index.html": {
         "G1": "o diagrama do Gerador de Pitch e literal do autor, num bloco copiavel",
         "G42": "o Recursos Profissionais e bloco de consulta e nao entrega arquivo",
-        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b12-json/index.html": {
         "G1": "os tres prompts V1/V2/V3 sao literais do autor, em blocos copiaveis",
         "G42": "o Recursos Profissionais e bloco de consulta e nao entrega arquivo",
-        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "os dois topicos do Recursos Profissionais sao consulta, sem pratica propria. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b5-pensar/index.html": {
         "G33": "a 1a pessoa e da persona do exemplo (Joao: 'eu leio, decido'), nao do instrutor",
@@ -1452,15 +1454,15 @@ DISPENSA_NOTION_LITERAL = {
     # dispensa DO EXECUTOR (nao esta na decisao de 14/09): Rafael decide.
     "b7-webhook/index.html": {
         "G42": "janela = Topicos 1, 2 e 3 do M2, sem arquivo no Notion",
-        "G44": "Topicos 1, 2 e 3 do M2 sao conceito na ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 1, 2 e 3 do M2 sao conceito na ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b7-form/index.html": {
         "G42": "janela = Topicos 2, 3 e 4 do M2, sem arquivo no Notion",
-        "G44": "Topicos 2, 3 e 4 do M2 sao conceito na ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 2, 3 e 4 do M2 sao conceito na ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b7-appevent/index.html": {
         "G42": "janela = Topicos 3, 4 e 5 do M2, sem arquivo no Notion; o 6 (P4) tem",
-        "G44": "Topicos 3, 4 e 5 do M2 sao conceito na ordem do Notion; o 6 e a pratica. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "Topicos 3, 4 e 5 do M2 sao conceito na ordem do Notion; o 6 e a pratica. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     # 16/09, B8 inteiro. O M3 do Notion tem OITO topicos de conceito seguidos
     # (1 a 8) antes do fluxo pratico (9); os exemplos guiados de 1 a 8 rodaram
@@ -1472,12 +1474,12 @@ DISPENSA_NOTION_LITERAL = {
         "G33": "o Mapa de Capacidades do M3 e o aluno na 1a pessoa ('Leio', 'Escrevo'), nao o instrutor",
     },
     "b8-dados/index.html": {"G42": "janela = capa do B8 + Topicos 1 e 2 do M3, sem arquivo no Notion"},
-    "b8-set/index.html": {"G42": "janela = Topicos 1, 2 e 3 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
-    "b8-expressions/index.html": {"G42": "janela = Topicos 2, 3 e 4 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
-    "b8-if/index.html": {"G42": "janela = Topicos 3, 4 e 5 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
-    "b8-switch/index.html": {"G42": "janela = Topicos 4, 5 e 6 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
-    "b8-merge/index.html": {"G42": "janela = Topicos 5, 6 e 7 do M3", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
-    "b8-listas/index.html": {"G42": "janela = Topicos 6, 7 e 8 do M3; o 9 (P5) tem arquivo", "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide"},
+    "b8-set/index.html": {"G42": "janela = Topicos 1, 2 e 3 do M3", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
+    "b8-expressions/index.html": {"G42": "janela = Topicos 2, 3 e 4 do M3", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
+    "b8-if/index.html": {"G42": "janela = Topicos 3, 4 e 5 do M3", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
+    "b8-switch/index.html": {"G42": "janela = Topicos 4, 5 e 6 do M3", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
+    "b8-merge/index.html": {"G42": "janela = Topicos 5, 6 e 7 do M3", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
+    "b8-listas/index.html": {"G42": "janela = Topicos 6, 7 e 8 do M3; o 9 (P5) tem arquivo", "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'"},
     "b8-vendas/index.html": {
         "G41": "o Topico 9 do M3 e hands-on, sem analogia no Notion",
         "G1": "o prompt gerador do vault (M3/09) e a expression do e-mail do Notion entram caractere por caractere, com o travessao deles; a prosa da pagina nao tem travessao",
@@ -1496,18 +1498,18 @@ DISPENSA_NOTION_LITERAL = {
     },
     "b9-credenciais/index.html": {
         "G42": "janela = Topicos 1, 2 e 3 do M4, sem arquivo no Notion",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b9-google/index.html": {
         "G1": "a expression do Subject do Gmail ('Ola {{ $json.nome }} — relatorio semanal') e do Notion, caractere por caractere; a prosa da pagina nao tem travessao",
         "G41": "o Topico 4 do M4 (Google Workspace) nao tem analogia no Notion",
         "G42": "janela = Topicos 2, 3 e 4 do M4, sem arquivo no Notion",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b9-respond/index.html": {
         "G41": "o Topico 5 do M4 (Respond to Webhook) nao tem analogia no Notion",
         "G42": "janela = Topicos 3, 4 e 5 do M4; o 6 (P6) tem arquivo",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b9-tempo/index.html": {
         "G1": "o nome do workflow ('M4 — Previsao do Tempo', aqui B9) e o Subject do Gmail com $now sao do Notion, copiaveis, com o travessao deles; a legenda cita o assunto que chegou na caixa; a prosa nao tem travessao",
@@ -1565,27 +1567,27 @@ DISPENSA_NOTION_LITERAL = {
     "b10-prompt/index.html": {
         "G1": "o template de 6 partes (ROLE — quem voce e...) e do Notion, copiavel, caractere por caractere; a prosa da pagina nao tem travessao",
         "G42": "janela = Topicos 1, 2 e 3 do M5, sem arquivo no Notion",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b10-tools/index.html": {
         "G1": "a Tool Description do buscar_lead do Notion traz travessao, copiavel; a prosa nao tem",
         "G41": "o Topico 4 do M5 (Tools) nao tem analogia no Notion",
         "G42": "janela = Topicos 2, 3 e 4 do M5, sem arquivo no Notion",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b10-memoria/index.html": {
         "G41": "o Topico 5 do M5 (Memoria) nao tem analogia no Notion",
         "G42": "janela = Topicos 3, 4 e 5 do M5, sem arquivo no Notion",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b10-semagent/index.html": {
         "G41": "o Topico 6 do M5 (IA sem Agent) nao tem analogia no Notion",
         "G42": "janela = Topicos 4, 5 e 6 do M5, sem arquivo no Notion; as praticas vem atras do hub",
-        "G44": "ordem do Notion. DISPENSA DO EXECUTOR: Rafael decide",
+        "G44": "ordem do Notion. DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
     },
     "b10-conversa/index.html": {
         "G1": "o nome do workflow ('M5 — Agente Conversacional v1', aqui B10) e a RULE 2 do system prompt sao do Notion, copiaveis; a prosa nao tem travessao",
-        "G4": "'15 minutos de aula, base pra 90% dos agentes' e o texto do autor (Topico 7 do M5). DISPENSA DO EXECUTOR: Rafael decide",
+        "G4": "'15 minutos de aula, base pra 90% dos agentes' e o texto do autor (Topico 7 do M5). DECIDIDO PELO RAFAEL em 27/09: 'no final do jeito que eu fiz foi praticamente pratica'",
         "G41": "o Topico 7 do M5 e fluxo pratico, sem analogia no Notion",
     },
     "b10-calendar/index.html": {
