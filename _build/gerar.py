@@ -138,7 +138,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # B14 = M11. Fecha o curso, e a cadeia dos quadros e o desenho:
              # ficha -> lista -> prioridade -> plano. Cada aula LE o quadro da
              # anterior pelo [data-ficha] e nao escreve nele.
-             "b14-acao", "b14-primeiro", "b14-plano",
+             "b14-acao", "b14-primeiro", "b14-plano", "b14-mentoria",
              "componentes"]
 
 TRILHA = [
@@ -282,6 +282,7 @@ TRILHA = [
         ("b14-acao",     "B14 · O que você vai fazer, e em que ordem"),
         ("b14-primeiro", "1 · O que vale a pena primeiro"),
         ("b14-plano",    "2 · O plano"),
+        ("b14-mentoria", "Como vai ser a mentoria"),
     ]),
     ("Referência interna", [
         ("componentes", "As peças do padrão"),
@@ -1339,9 +1340,9 @@ PAGINAS = {
         titulo="Módulo 3 · Minha Jornada com IA",
         kicker="Módulo 3 de 3",
         h1="Minha Jornada com IA",
-        sub="Como apresentar o que você construiu, conduzir a adoção no time, e medir o "
-            "retorno do que já está rodando.",
-        selos=["Dois blocos", "Você sai com o retorno medido"],
+        sub="Onde você chegou desde agosto, o que hoje dá para fazer com isso, e o "
+            "plano dos próximos noventa dias.",
+        selos=["Dois blocos", "Você sai com um plano de 90 dias"],
         migalha=[("../", "IA para Negócios"),
                  (None, "Minha Jornada com IA")],
     ),
@@ -1441,6 +1442,23 @@ PAGINAS = {
         sub="As suas três iniciativas com dono, prazo e medida, espalhadas nos noventa "
             "dias em vez de começarem juntas.",
         selos=["O plano de 90 dias", "Vai para a mentoria"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b14-acao/", "B14 · O que você vai fazer"),
+                 (None, None)],
+    ),
+    "b14-mentoria": dict(
+        # 🔴 SEM tipo=, como a b13-depois e pelo mesmo motivo: nao e aula, e o
+        # combinado. Decisao do Rafael, 28/09: "uma explicacao de como vai ser a
+        # mentoria, tipo no final do B14 (...) ate para ajudar eles a preencherem
+        # o forms". 5 secoes e ZERO .conceito: o _e_aula() nao a reconhece, e os
+        # oito gates de contrato de aula pulam.
+        titulo="Como vai ser a mentoria",
+        kicker="Módulo 3 · B14 · não é aula: é o combinado",
+        h1="Como vai ser a mentoria",
+        sub="Ela não tem tópico fixo: o assunto de cada sessão é a dúvida de quem está "
+            "lá. O que levar, e como os grupos se formam.",
+        selos=["Não é aula", "Leia antes de responder o formulário"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-3/", "Módulo 3"),
                  ("../b14-acao/", "B14 · O que você vai fazer"),
