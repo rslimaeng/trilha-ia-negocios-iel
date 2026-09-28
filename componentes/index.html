@@ -6094,7 +6094,7 @@ sem me mostrar a conta.</pre>
     peça carrega as&nbsp;três do&nbsp;meio.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../modulo-3/">&larr; Módulo 3 · Minha Jornada com IA</a><span></span></nav>
+<nav class="rodape-nav"><a href="../b13-enxergo/">&larr; Aula 2 · O que você enxerga agora</a><span></span></nav>
 </main>
 
 
@@ -6275,6 +6275,31 @@ sem me mostrar a conta.</pre>
       });
     });
     carrega();
+  });
+
+  /* ---- a ficha da aula 1, trazida para o B13 ----
+     Le o rascunho do canvas da a1-degrau e MOSTRA ao lado do quadro novo, sem
+     escrever nele: a chave continua sendo daquela pagina, e um canvas novo com
+     a mesma chave sobrescreveria a ficha de agosto em silencio (e o que o G19
+     existe para impedir).
+     Falha em silencio de proposito. Aparelho diferente, navegador diferente,
+     aba anonima ou quem nao preencheu em agosto caem todos no mesmo lugar: o
+     paragrafo [data-ficha-vazia] fica, e a aula segue na mao. */
+  document.querySelectorAll('[data-ficha]').forEach(function(c){
+    var vazio = c.querySelector('[data-ficha-vazia]');
+    var cheio = c.querySelector('[data-ficha-cheia]');
+    var d = {};
+    try{ d = JSON.parse(localStorage.getItem('trn_' + c.dataset.ficha) || '{}'); }catch(e){}
+    var achou = false;
+    c.querySelectorAll('[data-campo]').forEach(function(td){
+      var v = (d[td.dataset.campo] || '').trim();
+      if(v){ achou = true; td.textContent = v; }
+      else  { td.textContent = 'ficou em branco'; }
+    });
+    if(achou){
+      if(cheio) cheio.hidden = false;
+      if(vazio) vazio.hidden = true;
+    }
   });
 
   /* ---- a calculadora de ROI ----

@@ -3334,19 +3334,19 @@ code{overflow-wrap:anywhere}
     o&nbsp;retorno do&nbsp;que&nbsp;já&nbsp;está rodando.</p>
 
     <div class="casos solta">
-      <div class="caso">
+      <a class="caso" href="../b13-jornada/">
         <div class="caso-n">01</div>
-        <h4>Posicionamento, liderança e&nbsp;adoção</h4>
-        <p>Como comunicar resultado sem&nbsp;gerar resistência, apresentar para&nbsp;a&nbsp;liderança
-        na&nbsp;linguagem de&nbsp;retorno, e&nbsp;pilotar em&nbsp;baixo risco.</p>
+        <h4>Onde&nbsp;você chegou, e&nbsp;o&nbsp;que&nbsp;você enxerga agora</h4>
+        <p>O&nbsp;seu&nbsp;antes e&nbsp;depois na&nbsp;régua dos&nbsp;sete níveis, e&nbsp;a&nbsp;lista do&nbsp;que&nbsp;hoje dá para&nbsp;fazer e&nbsp;em&nbsp;agosto você não&nbsp;enxergava.</p>
         <div class="caso-pe">
-          <span class="caso-tipo">Em produção</span>
+          <span class="caso-tipo">Duas aulas</span>
+          <span class="caso-abrir">abrir</span>
         </div>
-      </div>
+      </a>
       <div class="caso">
         <div class="caso-n">02</div>
-        <h4>Stack pessoal, retorno e&nbsp;projeto integrador</h4>
-        <p>Consolidar tudo em&nbsp;documento único, calcular o&nbsp;retorno real em&nbsp;horas e&nbsp;em&nbsp;reais, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;90 dias.</p>
+        <h4>O&nbsp;que&nbsp;você vai fazer, e&nbsp;em&nbsp;que&nbsp;ordem</h4>
+        <p>Priorizar a&nbsp;lista que&nbsp;saiu do&nbsp;bloco 1 por&nbsp;impacto e&nbsp;esforço, e&nbsp;fechar com&nbsp;o&nbsp;plano de&nbsp;ação das&nbsp;três primeiras.</p>
         <div class="caso-pe">
           <span class="caso-tipo">Em produção</span>
         </div>
@@ -3357,7 +3357,7 @@ code{overflow-wrap:anywhere}
     as&nbsp;que&nbsp;já&nbsp;tem, e&nbsp;é por&nbsp;isso que&nbsp;ele fecha o&nbsp;curso em&nbsp;vez de&nbsp;abrir.</p>
   </section>
 
-<nav class="rodape-nav"><a href="../glossario/">&larr; Glossário</a><a href="../componentes/">As peças do padrão &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../glossario/">&larr; Glossário</a><a href="../b13-jornada/">B13 · Onde você chegou, e o que você enxerga agora &rarr;</a></nav>
 </main>
 
 
@@ -3538,6 +3538,31 @@ code{overflow-wrap:anywhere}
       });
     });
     carrega();
+  });
+
+  /* ---- a ficha da aula 1, trazida para o B13 ----
+     Le o rascunho do canvas da a1-degrau e MOSTRA ao lado do quadro novo, sem
+     escrever nele: a chave continua sendo daquela pagina, e um canvas novo com
+     a mesma chave sobrescreveria a ficha de agosto em silencio (e o que o G19
+     existe para impedir).
+     Falha em silencio de proposito. Aparelho diferente, navegador diferente,
+     aba anonima ou quem nao preencheu em agosto caem todos no mesmo lugar: o
+     paragrafo [data-ficha-vazia] fica, e a aula segue na mao. */
+  document.querySelectorAll('[data-ficha]').forEach(function(c){
+    var vazio = c.querySelector('[data-ficha-vazia]');
+    var cheio = c.querySelector('[data-ficha-cheia]');
+    var d = {};
+    try{ d = JSON.parse(localStorage.getItem('trn_' + c.dataset.ficha) || '{}'); }catch(e){}
+    var achou = false;
+    c.querySelectorAll('[data-campo]').forEach(function(td){
+      var v = (d[td.dataset.campo] || '').trim();
+      if(v){ achou = true; td.textContent = v; }
+      else  { td.textContent = 'ficou em branco'; }
+    });
+    if(achou){
+      if(cheio) cheio.hidden = false;
+      if(vazio) vazio.hidden = true;
+    }
   });
 
   /* ---- a calculadora de ROI ----

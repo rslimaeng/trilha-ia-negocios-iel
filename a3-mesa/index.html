@@ -3878,6 +3878,31 @@ code{overflow-wrap:anywhere}
     carrega();
   });
 
+  /* ---- a ficha da aula 1, trazida para o B13 ----
+     Le o rascunho do canvas da a1-degrau e MOSTRA ao lado do quadro novo, sem
+     escrever nele: a chave continua sendo daquela pagina, e um canvas novo com
+     a mesma chave sobrescreveria a ficha de agosto em silencio (e o que o G19
+     existe para impedir).
+     Falha em silencio de proposito. Aparelho diferente, navegador diferente,
+     aba anonima ou quem nao preencheu em agosto caem todos no mesmo lugar: o
+     paragrafo [data-ficha-vazia] fica, e a aula segue na mao. */
+  document.querySelectorAll('[data-ficha]').forEach(function(c){
+    var vazio = c.querySelector('[data-ficha-vazia]');
+    var cheio = c.querySelector('[data-ficha-cheia]');
+    var d = {};
+    try{ d = JSON.parse(localStorage.getItem('trn_' + c.dataset.ficha) || '{}'); }catch(e){}
+    var achou = false;
+    c.querySelectorAll('[data-campo]').forEach(function(td){
+      var v = (d[td.dataset.campo] || '').trim();
+      if(v){ achou = true; td.textContent = v; }
+      else  { td.textContent = 'ficou em branco'; }
+    });
+    if(achou){
+      if(cheio) cheio.hidden = false;
+      if(vazio) vazio.hidden = true;
+    }
+  });
+
   /* ---- a calculadora de ROI ----
      Porte do artefato do Rafael (aula 5 do B3). A conta e a dele, sem mudanca:
        horas/mes = (tempo atual - tempo depois) x frequencia

@@ -129,7 +129,13 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              "rec-prompting", "rec-mapa", "rec-proximos",
              "ref-gatilhos", "ref-dados", "ref-decisoes", "ref-integracoes", "ref-ia",
              "glossario",
-             "modulo-3", "componentes"]
+             # B13 = M10 da ementa (28/09). O Marco 3 nao vem do Notion: a ementa
+             # da 248 palavras para as 3h do M10, entao aqui se ESCREVE, nao se
+             # traduz. Recorte do Rafael, 28/09: no maximo duas praticas no bloco,
+             # e as duas sao as dele -- refazer a ficha de nivel (antes e depois)
+             # e listar o que a pessoa enxerga agora, que e a base da mentoria.
+             "modulo-3", "b13-jornada", "b13-cheguei", "b13-enxergo",
+             "componentes"]
 
 TRILHA = [
     ("Módulo 1 · IA Conversacional e Estratégica", [
@@ -259,8 +265,13 @@ TRILHA = [
         ("b12-subworkflows", "1 · Sub-workflows"),
         ("b12-json",         "2 · IA gerando o fluxo inteiro"),
     ]),
-    ("O terceiro módulo", [
-        ("modulo-3",    "Minha Jornada com IA"),
+    ("Módulo 3 · Minha Jornada com IA", [
+        ("modulo-3",     "Minha Jornada com IA"),
+        ("b13-jornada",  "B13 · Onde você chegou, e o que você enxerga agora"),
+    ]),
+    ("As aulas do B13", [
+        ("b13-cheguei",  "1 · Onde você chegou"),
+        ("b13-enxergo",  "2 · O que você enxerga agora"),
     ]),
     ("Referência interna", [
         ("componentes", "As peças do padrão"),
@@ -1323,6 +1334,47 @@ PAGINAS = {
         selos=["Dois blocos", "Você sai com o retorno medido"],
         migalha=[("../", "IA para Negócios"),
                  (None, "Minha Jornada com IA")],
+    ),
+    "b13-jornada": dict(
+        titulo="B13 · Onde você chegou, e o que você enxerga agora",
+        kicker="Módulo 3 · Bloco 1 de 2",
+        h1="Onde você chegou, e o que você enxerga agora",
+        sub="Duas aulas: a primeira mede o que mudou em você desde agosto, a segunda "
+            "usa isso para listar o que hoje dá para fazer.",
+        selos=["Duas aulas", "Você sai com a lista da mentoria"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 (None, "Onde você chegou")],
+    ),
+    "b13-cheguei": dict(
+        # 🔴 organizacao, pelo mesmo motivo da a1-degrau: a pessoa nao aprende
+        # conceito para aplicar depois, ela se posiciona de novo na regua e
+        # escreve o proprio antes e depois. Decisao do Rafael, 28/09: "na linha
+        # do aonde voce chegou".
+        tipo="organizacao",
+        titulo="Aula 1 · Onde você chegou",
+        kicker="Módulo 3 · B13 · Onde você chegou",
+        h1="Onde você chegou",
+        sub="A sua ficha de agosto ao lado da de hoje, e o problema que você resolveu "
+            "no meio do caminho.",
+        selos=["Dez minutos", "Usa a ficha da aula 1"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b13-jornada/", "B13 · Onde você chegou"),
+                 (None, None)],
+    ),
+    "b13-enxergo": dict(
+        tipo="organizacao",
+        titulo="Aula 2 · O que você enxerga agora",
+        kicker="Módulo 3 · B13 · Onde você chegou",
+        h1="O que você enxerga agora",
+        sub="A varredura da sua rotina pelas cinco portas que o curso destravou, e a "
+            "lista que você leva para a mentoria.",
+        selos=["A lista da mentoria", "Sem ordem, de propósito"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b13-jornada/", "B13 · Onde você chegou"),
+                 (None, None)],
     ),
     "b1-fundamentos": dict(
         titulo="B1 · Tenha os seus primeiros resultados consistentes com IA",
@@ -2872,6 +2924,31 @@ TEMPLATE = r"""<!DOCTYPE html>
       });
     });
     carrega();
+  });
+
+  /* ---- a ficha da aula 1, trazida para o B13 ----
+     Le o rascunho do canvas da a1-degrau e MOSTRA ao lado do quadro novo, sem
+     escrever nele: a chave continua sendo daquela pagina, e um canvas novo com
+     a mesma chave sobrescreveria a ficha de agosto em silencio (e o que o G19
+     existe para impedir).
+     Falha em silencio de proposito. Aparelho diferente, navegador diferente,
+     aba anonima ou quem nao preencheu em agosto caem todos no mesmo lugar: o
+     paragrafo [data-ficha-vazia] fica, e a aula segue na mao. */
+  document.querySelectorAll('[data-ficha]').forEach(function(c){
+    var vazio = c.querySelector('[data-ficha-vazia]');
+    var cheio = c.querySelector('[data-ficha-cheia]');
+    var d = {};
+    try{ d = JSON.parse(localStorage.getItem('trn_' + c.dataset.ficha) || '{}'); }catch(e){}
+    var achou = false;
+    c.querySelectorAll('[data-campo]').forEach(function(td){
+      var v = (d[td.dataset.campo] || '').trim();
+      if(v){ achou = true; td.textContent = v; }
+      else  { td.textContent = 'ficou em branco'; }
+    });
+    if(achou){
+      if(cheio) cheio.hidden = false;
+      if(vazio) vazio.hidden = true;
+    }
   });
 
   /* ---- a calculadora de ROI ----
