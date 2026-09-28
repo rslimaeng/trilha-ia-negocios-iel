@@ -135,6 +135,10 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # e as duas sao as dele -- refazer a ficha de nivel (antes e depois)
              # e listar o que a pessoa enxerga agora, que e a base da mentoria.
              "modulo-3", "b13-jornada", "b13-cheguei", "b13-enxergo",
+             # B14 = M11. Fecha o curso, e a cadeia dos quadros e o desenho:
+             # ficha -> lista -> prioridade -> plano. Cada aula LE o quadro da
+             # anterior pelo [data-ficha] e nao escreve nele.
+             "b14-acao", "b14-primeiro", "b14-plano",
              "componentes"]
 
 TRILHA = [
@@ -272,6 +276,11 @@ TRILHA = [
     ("As aulas do B13", [
         ("b13-cheguei",  "1 · Onde você chegou"),
         ("b13-enxergo",  "2 · O que você enxerga agora"),
+    ]),
+    ("B14 · O que você vai fazer, e em que ordem", [
+        ("b14-acao",     "B14 · O que você vai fazer, e em que ordem"),
+        ("b14-primeiro", "1 · O que vale a pena primeiro"),
+        ("b14-plano",    "2 · O plano"),
     ]),
     ("Referência interna", [
         ("componentes", "As peças do padrão"),
@@ -1374,6 +1383,46 @@ PAGINAS = {
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-3/", "Módulo 3"),
                  ("../b13-jornada/", "B13 · Onde você chegou"),
+                 (None, None)],
+    ),
+    "b14-acao": dict(
+        titulo="B14 · O que você vai fazer, e em que ordem",
+        kicker="Módulo 3 · Bloco 2 de 2",
+        h1="O que você vai fazer, e em que ordem",
+        sub="A lista do bloco anterior vira ordem, e as três primeiras viram plano com "
+            "dono, prazo e medida.",
+        selos=["Duas aulas", "Fecha o curso"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 (None, "O que você vai fazer")],
+    ),
+    "b14-primeiro": dict(
+        # 🔴 organizacao como as duas do B13: a pessoa nao aprende conceito novo,
+        # ela compara o que ja escreveu e decide. Recorte do Rafael, 28/09: o B14
+        # e "mais na linha de priorizacao mesmo, o que eles pretendem fazer".
+        tipo="organizacao",
+        titulo="Aula 1 · O que vale a pena primeiro",
+        kicker="Módulo 3 · B14 · O que você vai fazer",
+        h1="O que vale a pena primeiro",
+        sub="A sua lista de candidatas numa matriz de impacto por esforço, e as três que "
+            "saem dela em ordem.",
+        selos=["Dez minutos", "Usa a lista do B13"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b14-acao/", "B14 · O que você vai fazer"),
+                 (None, None)],
+    ),
+    "b14-plano": dict(
+        tipo="organizacao",
+        titulo="Aula 2 · O plano",
+        kicker="Módulo 3 · B14 · O que você vai fazer",
+        h1="O plano",
+        sub="As suas três iniciativas com dono, prazo e medida, espalhadas nos noventa "
+            "dias em vez de começarem juntas.",
+        selos=["O plano de 90 dias", "Vai para a mentoria"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b14-acao/", "B14 · O que você vai fazer"),
                  (None, None)],
     ),
     "b1-fundamentos": dict(
