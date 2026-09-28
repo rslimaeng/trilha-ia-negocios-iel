@@ -134,7 +134,7 @@ SEQUENCIA = ["index", "modulo-1", "b1-fundamentos", "a1-degrau", "a2-preve", "a3
              # traduz. Recorte do Rafael, 28/09: no maximo duas praticas no bloco,
              # e as duas sao as dele -- refazer a ficha de nivel (antes e depois)
              # e listar o que a pessoa enxerga agora, que e a base da mentoria.
-             "modulo-3", "b13-jornada", "b13-cheguei", "b13-enxergo",
+             "modulo-3", "b13-jornada", "b13-cheguei", "b13-enxergo", "b13-depois",
              # B14 = M11. Fecha o curso, e a cadeia dos quadros e o desenho:
              # ficha -> lista -> prioridade -> plano. Cada aula LE o quadro da
              # anterior pelo [data-ficha] e nao escreve nele.
@@ -276,6 +276,7 @@ TRILHA = [
     ("As aulas do B13", [
         ("b13-cheguei",  "1 · Onde você chegou"),
         ("b13-enxergo",  "2 · O que você enxerga agora"),
+        ("b13-depois",   "O que vem depois daqui"),
     ]),
     ("B14 · O que você vai fazer, e em que ordem", [
         ("b14-acao",     "B14 · O que você vai fazer, e em que ordem"),
@@ -1380,6 +1381,26 @@ PAGINAS = {
         sub="A varredura da sua rotina pelas cinco portas que o curso destravou, e a "
             "lista que você leva para a mentoria.",
         selos=["A lista da mentoria", "Sem ordem, de propósito"],
+        migalha=[("../", "IA para Negócios"),
+                 ("../modulo-3/", "Módulo 3"),
+                 ("../b13-jornada/", "B13 · Onde você chegou"),
+                 (None, None)],
+    ),
+    "b13-depois": dict(
+        # 🔴 SEM tipo= DE PROPOSITO, e nao e preferencia: decisao do Rafael em
+        # 28/09, "ele nao precisa seguir o nosso padrao de aula (...) e uma
+        # demonstracao, explicar conceitos (...) mais uma parte exploratoria".
+        # O _e_aula() do gates.py decide por assinatura: sem tipo declarado e
+        # com numero de secoes diferente de 8, os oito gates de contrato de aula
+        # (G39, G40, G41, G42, G43, G47, G48, G49) pulam a pagina. Sao 7 secoes
+        # e ZERO bloco .conceito. Os gates estruturais continuam valendo.
+        # O conteudo e material do proprio Rafael, dos dois sites in-company.
+        titulo="O que vem depois daqui",
+        kicker="Módulo 3 · B13 · não é aula: é o mapa",
+        h1="O que vem depois daqui",
+        sub="O mapa do que existe depois da formação: onde cada regra mora, os "
+            "documentos que a IA lê, e o que texto nenhum resolve.",
+        selos=["Não é aula", "Nada para fazer hoje"],
         migalha=[("../", "IA para Negócios"),
                  ("../modulo-3/", "Módulo 3"),
                  ("../b13-jornada/", "B13 · Onde você chegou"),
